@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 import matplotlib.pyplot as plt
 
 total_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv')
