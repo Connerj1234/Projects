@@ -1,10 +1,12 @@
-import pandas as pd 
+import pandas as pd
 import matplotlib.pyplot as plt
 
 total_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv')
-graph_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv', nrows = 50)
+graph_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv', nrows = 500)
 data = total_data.dropna()
 data2 = graph_data.dropna()
+
+print(total_data.head())
 
 print("AGE")
 print("Mean: " + str(round(data['Age'].mean(), 2)))
