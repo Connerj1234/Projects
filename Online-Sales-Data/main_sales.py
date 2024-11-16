@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 total_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv')
-graph_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv', nrows = 500)
+graph_data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv', nrows = 50)
 data = total_data.dropna()
 data2 = graph_data.dropna()
 
@@ -17,6 +17,7 @@ print("Min Number: " + str(round(data['Age'].min(), 2)))
 print("Max Number: " + str(round(data['Age'].max(), 2)))
 
 print("\nREVENUE (in €)")
+print("Sum: " + str(round(data['Revenue'].sum(), 2)))
 print("Mean: " + str(round(data['Revenue'].mean(), 2)))
 print("Median: " + str(round(data['Revenue'].median(), 2)))
 print("Variance: " + str(round(data['Revenue'].var(), 2)))

@@ -2,10 +2,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import pandas as pd
+import numpy as np
 
 data = pd.read_csv('/Users/connerjamison/Desktop/school/1302/project/shop.csv')
-
-data['PurchaseDate'] = pd.to_datetime(data['PurchaseDate'], format='%d.%m.%y')
 
 features = ['Age', 'Gender', 'NumPurchases', 'TimeSpent', 'Newsletter', 'Voucher']
 X = data[features]
