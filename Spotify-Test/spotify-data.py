@@ -13,6 +13,11 @@ print(data.describe(include='all'))
 print(data.shape)
 print(data.size)
 
+#Data Cleaning
+data = data.dropna(inplace=True)
+data = data.reset_index(inplace=True, drop=True)
+print(data.isnull().sum(axis=0)) #Confirms no missing values
+
 print(data[["artist(s)_name", "track_name",  "streams"]])
 print(data.groupby("artist_count")["track_name"].count())
 
