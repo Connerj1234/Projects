@@ -29,8 +29,6 @@ data.isna().sum()
 data = data.dropna(axis=0)
 data.duplicated().sum()
 
-print(data.columns)
-
 data["claim_status"].value_counts(normalize=True) # Target variable class balance
 
 """ Feature Engineering"""
@@ -39,9 +37,9 @@ data['text_length'] = data['video_transcription_text'].str.len()
 data[['claim_status', 'text_length']].groupby('claim_status').mean()
 
 # Visualize the distribution of text_length for claims and opinions using a histogram
-"""sns.histplot(data=data, stat="count", x="text_length",hue="claim_status", element="bars", legend=True)
+sns.histplot(data=data, stat="count", x="text_length",hue="claim_status", element="bars", legend=True)
 plt.title("Distribution of video_transcription_text length for claims and opinions")
-plt.show()"""
+plt.show()
 
 """Feature Selection and Transformation"""
 X = data.copy()
@@ -59,7 +57,7 @@ assert data['text_length'].apply(lambda x: isinstance(x, (int, float))).all(), "
 
 """Splitting Data"""
 y = X['claim_status']
-X = X.drop(['claim_status'], axis=1)
+X = X.drop(['claim_status', 'video_transcription_text'], axis=1)
 
 """Creating train/validate/test sets"""
 X_tr, X_test, y_tr, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
