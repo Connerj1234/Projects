@@ -23,3 +23,8 @@ In this project, I developed a machine learning pipeline to address this challen
 **Desired Outcome**
 
 The goal was to build an accurate and efficient predictive model that distinguishes claims from opinions. With this model, TikTok moderators can better allocate resources and maintain a platform that supports user creativity while ensuring timely content review.
+
+
+**TL;DR**
+
+I used statsmodels and scikit-learn to predict whether TikTok videos presented claims or opinions to improve the triaging process of videos for human review.
