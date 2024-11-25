@@ -29,6 +29,8 @@ data.isna().sum()
 data = data.dropna(axis=0)
 data.duplicated().sum()
 
+print(data.columns)
+
 data["claim_status"].value_counts(normalize=True) # Target variable class balance
 
 """ Feature Engineering"""
@@ -37,15 +39,23 @@ data['text_length'] = data['video_transcription_text'].str.len()
 data[['claim_status', 'text_length']].groupby('claim_status').mean()
 
 # Visualize the distribution of text_length for claims and opinions using a histogram
-sns.histplot(data=data, stat="count", x="text_length",hue="claim_status", element="bars", legend=True)
+"""sns.histplot(data=data, stat="count", x="text_length",hue="claim_status", element="bars", legend=True)
 plt.title("Distribution of video_transcription_text length for claims and opinions")
-plt.show()
+plt.show()"""
 
 """Feature Selection and Transformation"""
 X = data.copy()
 X = X.drop(['#', 'video_id'], axis=1)
 X['claim_status'] = X['claim_status'].replace({'opinion': 0, 'claim': 1}) # Encoding target variable
 X = pd.get_dummies(X, columns=['verified_status', 'author_ban_status'], drop_first=True)
+
+# Handle missing or invalid values in video_transcription_text
+data['video_transcription_text'] = data['video_transcription_text'].fillna("")
+data['text_length'] = data['video_transcription_text'].str.len()  # Recalculate text_length
+
+# Ensure text_length is numeric
+assert data['text_length'].apply(lambda x: isinstance(x, (int, float))).all(), "text_length contains non-numeric values"
+
 
 """Splitting Data"""
 y = X['claim_status']
@@ -61,7 +71,7 @@ X_train.shape, X_val.shape, X_test.shape, y_train.shape, y_val.shape, y_test.sha
 rf = RandomForestClassifier(random_state=0)
 cv_params = {'max_depth': [5, 7, None], 'max_features': [0.3, 0.6], 'max_samples': [0.7], 'min_samples_leaf': [1,2], 'min_samples_split': [2,3], 'n_estimators': [75,100,200]}
 scoring = {'accuracy', 'precision', 'recall', 'f1'}
-rf_cv = GridSearchCV(rf, cv_params, scoring=scoring, cv=5, refit='recall') # Using gridsearch for optimal hyperparameters according to maximum recall
+rf_cv = GridSearchCV(rf, cv_params, scoring=scoring, cv=5, refit='recall', error_score="raise") # Using gridsearch for optimal hyperparameters according to maximum recall
 
 rf_cv.fit(X_train, y_train)
 
@@ -72,7 +82,8 @@ rf_cv.best_params_
 # XGBoost
 xgb = XGBClassifier(objective='binary:logistic', random_state=0)
 cv_params = {'max_depth': [4,8,12], 'min_child_weight': [3, 5], 'learning_rate': [0.01, 0.1], 'n_estimators': [300, 500]}
-xgb_cv = GridSearchCV(xgb, cv_params, scoring=scoring, cv=5, refit='recall')
+scoring = {'accuracy', 'precision', 'recall', 'f1'}
+xgb_cv = GridSearchCV(xgb, cv_params, scoring=scoring, cv=5, refit='recall', error_score="raise")
 
 xgb_cv.fit(X_train, y_train)
 
@@ -82,7 +93,7 @@ xgb_cv.best_params_
 
 """Model Evaluation (against validation data)"""
 # Random Forest
-y_pred = rf_cv.best_estimator_.predict(X_val)
+y_pred = rf_cv.best_estimator_.predict(X_val) # uses tuned hyperparameters from gridsearch to predict on validation set
 
 # Random Forest Confusion Matrix
 log_cm = confusion_matrix(y_val, y_pred)
@@ -126,3 +137,4 @@ rf_importances.plot.bar(ax=ax)
 ax.set_title('Feature importances')
 ax.set_ylabel('Mean decrease in impurity')
 fig.tight_layout()
+plt.show()
