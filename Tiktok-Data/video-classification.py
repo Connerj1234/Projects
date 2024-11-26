@@ -20,21 +20,21 @@ from xgboost import plot_importance
 data = pd.read_csv("/Users/connerjamison/Downloads/tiktok_dataset.csv")
 
 """ Examining Data"""
-data.head()
-data.shape
-data.info()
-data.describe()
+print(data.head())
+print(data.shape)
+print(data.info())
+print(data.describe())
 
-data.isna().sum()
+print(data.isna().sum())
 data = data.dropna(axis=0)
-data.duplicated().sum()
+print(data.duplicated().sum())
 
-data["claim_status"].value_counts(normalize=True) # Target variable class balance
+print(data["claim_status"].value_counts(normalize=True)) # Target variable class balance
 
 """ Feature Engineering"""
 data['text_length'] = data['video_transcription_text'].str.len()
 
-data[['claim_status', 'text_length']].groupby('claim_status').mean()
+print(data[['claim_status', 'text_length']].groupby('claim_status').mean())
 
 # Visualize the distribution of text_length for claims and opinions using a histogram
 sns.histplot(data=data, stat="count", x="text_length",hue="claim_status", element="bars", legend=True)
@@ -46,14 +46,6 @@ X = data.copy()
 X = X.drop(['#', 'video_id'], axis=1)
 X['claim_status'] = X['claim_status'].replace({'opinion': 0, 'claim': 1}) # Encoding target variable
 X = pd.get_dummies(X, columns=['verified_status', 'author_ban_status'], drop_first=True)
-
-# Handle missing or invalid values in video_transcription_text
-data['video_transcription_text'] = data['video_transcription_text'].fillna("")
-data['text_length'] = data['video_transcription_text'].str.len()  # Recalculate text_length
-
-# Ensure text_length is numeric
-assert data['text_length'].apply(lambda x: isinstance(x, (int, float))).all(), "text_length contains non-numeric values"
-
 
 """Splitting Data"""
 y = X['claim_status']
@@ -75,7 +67,7 @@ rf_cv.fit(X_train, y_train)
 
 rf_cv.best_score_ # Best recall score
 
-rf_cv.best_params_
+print(rf_cv.best_params_)
 
 # XGBoost
 xgb = XGBClassifier(objective='binary:logistic', random_state=0)
@@ -87,34 +79,36 @@ xgb_cv.fit(X_train, y_train)
 
 xgb_cv.best_score_
 
-xgb_cv.best_params_
+print(xgb_cv.best_params_)
 
 """Model Evaluation (against validation data)"""
 # Random Forest
-y_pred = rf_cv.best_estimator_.predict(X_val) # uses tuned hyperparameters from gridsearch to predict on validation set
+y_pred_forest = rf_cv.best_estimator_.predict(X_val) # uses tuned hyperparameters from gridsearch to predict on validation set
 
 # Random Forest Confusion Matrix
-log_cm = confusion_matrix(y_val, y_pred)
+log_cm = confusion_matrix(y_val, y_pred_forest)
 log_disp = ConfusionMatrixDisplay(confusion_matrix=log_cm, display_labels=None)
 log_disp.plot()
+plt.title('Random Forest - Validation Set');
 plt.show()
 
 # Classification Report
 target_labels = ['opinion', 'claim']
-print(classification_report(y_val, y_pred, target_names=target_labels))
+print(classification_report(y_val, y_pred_forest, target_names=target_labels))
 
 # XGBoost
-y_pred = xgb_cv.best_estimator_.predict(X_val)
+y_pred_boost = xgb_cv.best_estimator_.predict(X_val)
 
 # XGBoost Confusion Matrix
-log_cm = confusion_matrix(y_val, y_pred)
+log_cm = confusion_matrix(y_val, y_pred_boost)
 log_disp = ConfusionMatrixDisplay(confusion_matrix=log_cm, display_labels=None)
 log_disp.plot()
+plt.title('XGBoost - Validation Set');
 plt.show()
 
 # Classification Report
 target_labels = ['opinion', 'claim']
-print(classification_report(y_val, y_pred, target_names=target_labels))
+print(classification_report(y_val, y_pred_boost, target_names=target_labels))
 
 """Champion Model Evaluation (against test data)"""
 y_pred = rf_cv.best_estimator_.predict(X_test)
@@ -123,14 +117,14 @@ y_pred = rf_cv.best_estimator_.predict(X_test)
 log_cm = confusion_matrix(y_test, y_pred)
 log_disp = ConfusionMatrixDisplay(confusion_matrix=log_cm, display_labels=None)
 log_disp.plot()
-plt.title('Random forest - test set');
+plt.title('Random Forest - Test set');
 plt.show()
 
 # Feature Importance
 importances = rf_cv.best_estimator_.feature_importances_
 rf_importances = pd.Series(importances, index=X_test.columns)
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12, 9))
 rf_importances.plot.bar(ax=ax)
 ax.set_title('Feature importances')
 ax.set_ylabel('Mean decrease in impurity')
