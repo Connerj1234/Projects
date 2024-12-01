@@ -32,7 +32,7 @@ def fetch_url_with_session(url, session, retries=3, sleep_range=(15, 30)):
 
 # Base URL for MLS standings
 standings_url = "https://fbref.com/en/comps/22/Major-League-Soccer-Stats"
-years = list(range(2024, 2023, -1))
+years = list(range(2024, 2015, -1))
 
 # Scrape team URLs
 all_team_urls = {}
