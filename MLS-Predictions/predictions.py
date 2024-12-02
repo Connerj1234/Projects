@@ -19,7 +19,9 @@ match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else
 
 # ---  Add Rolling Averages Based on Last 5 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga"]  # Add more features as necessary
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "blocks", "int", "clr", "team_age",
+                    "sh_opponent", "sot_opponent", "cmp%_opponent", "ast_opponent", "kp_opponent", "sca_opponent", "gca_opponent",
+                    "tkl_opponent", "blocks_opponent", "int_opponent", "clr_opponent", "team_age_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
         match_df.groupby("team_1")[feature].rolling(window=5, min_periods=1).mean().reset_index(0, drop=True)
@@ -28,22 +30,30 @@ for feature in rolling_features:
         match_df.groupby("team_2")[feature].rolling(window=5, min_periods=1).mean().reset_index(0, drop=True)
     )
 
+base_features = ["is_home_team1", "is_home_team2","hour", "day_code"]
+rolling_feature_columns = [
+    f"team_1_{feature}_rolling" for feature in rolling_features
+] + [
+    f"team_2_{feature}_rolling" for feature in rolling_features
+]
+features = base_features + rolling_feature_columns
+
 # ---  Split Data into Training (Pre-2023) and Test (2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
 train_data = match_df[match_df["year"] < 2023]
 test_data = match_df[match_df["year"] == 2024]
 
-# Define features and targets
-features = [
-    "team_1_gf_rolling", "team_1_ga_rolling", "team_2_gf_rolling", "team_2_ga_rolling",
-    "is_home_team1", "is_home_team2", "hour", "day_code"
-]
+# Define targets
 target_team_1 = "gf"  # Goals scored by Team 1
 target_team_2 = "ga"  # Goals scored by Team 2
+
+train_data = train_data.dropna(subset=features + [target_team_1, target_team_2])
 
 X_train = train_data[features]
 y_train_team_1 = train_data[target_team_1]
 y_train_team_2 = train_data[target_team_2]
+
+test_data = test_data.dropna(subset=features + [target_team_1, target_team_2])
 
 X_test = test_data[features]
 y_test_team_1 = test_data[target_team_1]
@@ -52,16 +62,16 @@ y_test_team_2 = test_data[target_team_2]
 # ---  Perform Grid Search for Hyperparameter Tuning ---
 # Random Forest Parameters
 rf_param_grid = {
-    "n_estimators": [50, 100, 200, 300],
-    "max_depth": [5, 10, 15],
-    "min_samples_split": [2, 5, 10]
+    "n_estimators": [250, 300, 350],
+    "max_depth": [8, 9, 10],
+    "min_samples_split": [2, 3, 4]
 }
 
 # XGBoost Parameters
 xgb_param_grid = {
-    "n_estimators": [50, 100, 200, 300],
-    "learning_rate": [0.01, 0.1, 0.2],
-    "max_depth": [3, 5, 7]
+    "n_estimators": [75, 100, 125],
+    "learning_rate": [0.025, 0.05, 0.15, 0.175],
+    "max_depth": [2, 4, 5, 6]
 }
 
 # --- Grid Search for Random Forest (Team 1) ---
@@ -142,15 +152,15 @@ team_2_test_pred = champion_team_2_model.predict(X_test)
 # --- 3. Predict Match Results ---
 # Determine the predicted match result (Win/Draw/Loss)
 test_data["predicted_result"] = [
-    "W" if team_1_test_pred[i] > team_2_test_pred[i] else
-    ("L" if team_1_test_pred[i] < team_2_test_pred[i] else "D")
+    "W" if team_1_test_pred[i] > team_2_test_pred[i] + 0.2 else
+    ("L" if team_1_test_pred[i] + 0.2 < team_2_test_pred[i] else "D")
     for i in range(len(team_1_test_pred))
 ]
 
-# Determine the actual match result (Win/Draw/Loss)
+# Determine the actual match result (Win/Draw/Loss) with the same logic
 actual_results = [
-    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] else
-    ("L" if y_test_team_1.iloc[i] < y_test_team_2.iloc[i] else "D")
+    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + 0.2 else
+    ("L" if y_test_team_1.iloc[i] + 0.2 < y_test_team_2.iloc[i] else "D")
     for i in range(len(y_test_team_1))
 ]
 
