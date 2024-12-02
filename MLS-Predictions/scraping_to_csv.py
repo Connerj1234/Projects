@@ -190,22 +190,12 @@ for year, team_urls in all_team_urls.items():
             opponent_stats = opponent_stats.reset_index(drop=True)
 
         # Perform merge
-        try:
-            combined_data = season_data.merge(
-                opponent_stats,
-                left_on=["Date", "Opponent"],
-                right_on=["Date", "opponent_team"],
-                how="left"
-            )
-
-        except Exception as e:
-            print("Error during merge:", e)
-            print("Season Data:")
-            print(season_data.head())
-            print("Opponent Stats:")
-            print(opponent_stats.head())
-            raise
-
+        combined_data = season_data.merge(
+            opponent_stats,
+            left_on=["Date", "Opponent"],
+            right_on=["Date", "opponent_team"],
+            how="left"
+        )
         # Reset index for the final combined dataset
         combined_data = combined_data.reset_index(drop=True)
 
@@ -216,10 +206,8 @@ for year, team_urls in all_team_urls.items():
 
 
 # Save final data
-if all_matches:
-    match_df = pd.concat(all_matches, ignore_index=True)
-    match_df.columns = [c.lower() for c in match_df.columns]
-    match_df.to_csv("match_data.csv", index=False)
-    print("Data saved to csv")
-else:
-    print("No matches to concatenate.")
+
+match_df = pd.concat(all_matches, ignore_index=True)
+match_df.columns = [c.lower() for c in match_df.columns]
+match_df.to_csv("match_data.csv", index=False)
+print("Data saved to csv")

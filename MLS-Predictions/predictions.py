@@ -8,7 +8,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("MLS_cleaned.csv")
+match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -20,20 +20,20 @@ match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
-# ---  Add Rolling Averages Based on Last 5 Games ---
+# ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
 rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "team_age",
                     "sh_opponent", "sot_opponent", "cmp%_opponent", "ast_opponent", "kp_opponent", "sca_opponent", "gca_opponent",
                     "tkl_opponent", "team_age_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
-        match_df.groupby("team_1")[feature].rolling(window=5, min_periods=1).mean().reset_index(0, drop=True)
+        match_df.groupby("team_1")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
     )
     match_df[f"team_2_{feature}_rolling"] = (
-        match_df.groupby("team_2")[feature].rolling(window=5, min_periods=1).mean().reset_index(0, drop=True)
+        match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
     )
 
-base_features = ["is_home_team1", "is_home_team2","hour", "day_code"]
+base_features = ["is_home_team1", "hour", "day_code"]
 rolling_feature_columns = [
     f"team_1_{feature}_rolling" for feature in rolling_features
 ] + [
@@ -88,12 +88,20 @@ rf_param_grid = {
     "n_estimators": [350, 400, 450],
     "max_depth": [9, 10, 11],
     "min_samples_split": [2, 3, 4],
+    "min_samples_leaf": [1, 2, 4],
+    "max_features": ["sqrt", "log2", None],
+    "bootstrap": [True, False]
 }
 
 xgb_param_grid = {
     "n_estimators": [75, 100, 125],
     "learning_rate": [0.025, 0.05, 0.075],
     "max_depth": [3, 4, 5],
+    "subsample": [0.6, 0.8, 1.0],
+    "colsample_bytree": [0.6, 0.8, 1.0],
+    "min_child_weight": [1, 3, 5],
+    "reg_alpha": [0, 0.01, 0.1],
+    "reg_lambda": [1, 1.5, 2]
 }
 
 # --- Perform Grid Search and Refit for Each Model ---
@@ -212,15 +220,16 @@ team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
 
 
 # --- Predict Match Results ---
+draw_buffer = .3
 test_data["predicted_result"] = [
-    "W" if team_1_test_pred[i] > team_2_test_pred[i] + 0.3 else
-    ("L" if team_1_test_pred[i] + 0.3 < team_2_test_pred[i] else "D")
+    "W" if team_1_test_pred[i] > team_2_test_pred[i] + draw_buffer else
+    ("L" if team_1_test_pred[i] + draw_buffer < team_2_test_pred[i] else "D")
     for i in range(len(team_1_test_pred))
 ]
 
 actual_results = [
-    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + 0.3 else
-    ("L" if y_test_team_1.iloc[i] + 0.3 < y_test_team_2.iloc[i] else "D")
+    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + draw_buffer else
+    ("L" if y_test_team_1.iloc[i] + draw_buffer < y_test_team_2.iloc[i] else "D")
     for i in range(len(y_test_team_1))
 ]
 
