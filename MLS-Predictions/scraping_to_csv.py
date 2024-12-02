@@ -32,7 +32,8 @@ def fetch_url_with_session(url, session, retries=3, sleep_range=(15, 30)):
 
 # Base URL for MLS standings
 standings_url = "https://fbref.com/en/comps/22/Major-League-Soccer-Stats"
-years = list(range(2024, 2015, -1))
+years = list(range(2024, 2023, -1))
+#years = list(range(2024, 2017, -1))
 
 # Scrape team URLs
 all_team_urls = {}
@@ -59,11 +60,10 @@ print("Finished scraping team URLs.")
 # Process each team
 all_matches = []
 for year, team_urls in all_team_urls.items():
-    #team_urls = team_urls[:3:2]  # Only take the first 3 team URLs
     team_stats = []
     for team_url in team_urls:
         team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
-        print(f"Processing stats for team: {team_name}")
+        print(f"Processing stats for team: {year} {team_name}")
 
         # Fetch team page
         data = requests.get(team_url)
@@ -177,6 +177,8 @@ for year, team_urls in all_team_urls.items():
     # Combine all team data for the season
         season_data = pd.concat(team_stats, ignore_index=True)
 
+        season_data = season_data.loc[:, ~season_data.columns.duplicated()]
+
         # Standardize team and opponent names using a mapping
         team_name_mapping = {
             "Atlanta Utd": "Atlanta United",
@@ -195,8 +197,6 @@ for year, team_urls in all_team_urls.items():
             "DC United": "D.C. United",
             "CF Montréal": "CF Montreal",
         }
-        season_data = pd.concat(team_stats, ignore_index=True)
-
         # Standardize team and opponent names
         season_data["Team"] = season_data["Team"].replace(team_name_mapping)
         season_data["Opponent"] = season_data["Opponent"].replace(team_name_mapping)
@@ -233,6 +233,7 @@ for year, team_urls in all_team_urls.items():
                 right_on=["Date", "opponent_team"],
                 how="left"
             )
+
         except Exception as e:
             print("Error during merge:", e)
             print("Season Data:")
@@ -250,12 +251,12 @@ for year, team_urls in all_team_urls.items():
         print(f"No team stats found for year {year}")
 
 
-
 # Save final data
 if all_matches:
     match_df = pd.concat(all_matches, ignore_index=True)
     match_df.columns = [c.lower() for c in match_df.columns]
-    match_df.to_csv("match_data_with_opponents.csv", index=False)
-    print("Data saved to match_data_with_opponents.csv")
+    match_df.to_csv("match_data2.csv", index=False)
+    #match_df.to_csv("match_data.csv", index=False)
+    print("Data saved to csv")
 else:
     print("No matches to concatenate.")
