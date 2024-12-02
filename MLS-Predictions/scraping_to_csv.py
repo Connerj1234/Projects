@@ -4,44 +4,18 @@ import pandas as pd
 import time
 import random
 
-# Initialize a session
-session = requests.Session()
-session.headers.update({
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Connection": "keep-alive"
-})
-
-def fetch_url_with_session(url, session, retries=3, sleep_range=(15, 30)):
-    for i in range(retries):
-        try:
-            response = session.get(url, timeout=10)
-            if response.status_code == 200:
-                time.sleep(random.uniform(*sleep_range))  # Longer random delay
-                return response
-            elif response.status_code == 429:
-                print("Too many requests (429). Waiting before retrying...")
-                time.sleep(60)  # Explicitly wait 60 seconds if rate-limited
-            else:
-                print(f"Request failed with status {response.status_code}. Retrying...")
-                time.sleep(2 ** i)
-        except Exception as e:
-            print(f"Error: {e}. Retrying...")
-            time.sleep(2 ** i)
-    raise Exception(f"Failed to fetch {url} after {retries} retries")
-
 # Base URL for MLS standings
 standings_url = "https://fbref.com/en/comps/22/Major-League-Soccer-Stats"
-years = list(range(2024, 2023, -1))
-#years = list(range(2024, 2017, -1))
 
 # Scrape team URLs
 all_team_urls = {}
 print("Scraping team URLs for all seasons...")
+
+years = list(range(2024, 2023, -1))
 for year in years:
     print(f"Scraping standings for the {year} season...")
-    response = fetch_url_with_session(standings_url, session)
-    soup = BeautifulSoup(response.text, features='lxml')
+    data = requests.get(standings_url)
+    soup = BeautifulSoup(data.text, features='lxml')
     standings_table = soup.select('table.stats_table')[12]
     links = [l.get("href") for l in standings_table.find_all('a')]
     links = [l for l in links if '/squads/' in l]
@@ -49,11 +23,6 @@ for year in years:
     all_team_urls[year] = team_urls
     previous_season = soup.select("a.prev")[0].get("href")
     standings_url = f"https://fbref.com{previous_season}"
-
-first_year = list(all_team_urls.keys())[0]
-
-# Print the URLs for the first year
-print(f"Team URLs for {first_year}: {all_team_urls[first_year]}")
 
 print("Finished scraping team URLs.")
 
@@ -70,13 +39,9 @@ for year, team_urls in all_team_urls.items():
         matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
         soup = BeautifulSoup(data.text, "lxml")
 
-        try:
-            standard_stats_table = pd.read_html(data.text, match="Standard Stats")[0]
-            standard_stats_table.columns = standard_stats_table.columns.droplevel(0)  # Drop multi-level column headers
-            team_age = standard_stats_table.iloc[-2]["Age"]  # Extract age from the last row
-        except (ValueError, KeyError):
-            print(f"Could not find age for team: {team_name}")
-            team_age = None
+        standard_stats_table = pd.read_html(data.text, match="Standard Stats")[0]
+        standard_stats_table.columns = standard_stats_table.columns.droplevel(0)  # Drop multi-level column headers
+        team_age = standard_stats_table.iloc[-2]["Age"]  # Extract age from the last row
 
         # Extract links to stats subpages
         links = [l.get("href") for l in soup.find_all("a")]
@@ -171,7 +136,6 @@ for year, team_urls in all_team_urls.items():
 
         # Pause to avoid being rate-limited
         time.sleep(random.uniform(15, 30))
-  # Delay to avoid blocking
 
     if team_stats:
     # Combine all team data for the season
@@ -255,8 +219,7 @@ for year, team_urls in all_team_urls.items():
 if all_matches:
     match_df = pd.concat(all_matches, ignore_index=True)
     match_df.columns = [c.lower() for c in match_df.columns]
-    match_df.to_csv("match_data2.csv", index=False)
-    #match_df.to_csv("match_data.csv", index=False)
+    match_df.to_csv("match_data.csv", index=False)
     print("Data saved to csv")
 else:
     print("No matches to concatenate.")

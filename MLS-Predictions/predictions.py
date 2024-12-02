@@ -1,10 +1,10 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV, PredefinedSplit
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, accuracy_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, accuracy_score, make_scorer
+from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
 from xgboost import XGBRegressor
 import numpy as np
-import random
+import seaborn as sns
 import pickle
 
 # ---  Load Data ---
@@ -16,17 +16,15 @@ match_df["team_2"] = match_df.apply(lambda row: row["opponent"] if row["is_home"
 
 # Assign Home/Away Flags
 match_df["is_home_team1"] = match_df["is_home"]
-match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else 1)  # Reverse of is_home
+match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else 1)
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
-if match_df["date"].isna().any():
-    raise ValueError("Invalid dates found in the 'date' column.")
 
 # ---  Add Rolling Averages Based on Last 5 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "blocks", "int", "clr", "team_age",
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "team_age",
                     "sh_opponent", "sot_opponent", "cmp%_opponent", "ast_opponent", "kp_opponent", "sca_opponent", "gca_opponent",
-                    "tkl_opponent", "blocks_opponent", "int_opponent", "clr_opponent", "team_age_opponent"]
+                    "tkl_opponent", "team_age_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
         match_df.groupby("team_1")[feature].rolling(window=5, min_periods=1).mean().reset_index(0, drop=True)
@@ -43,7 +41,7 @@ rolling_feature_columns = [
 ]
 features = base_features + rolling_feature_columns
 
-# ---  Split Data into Training (Pre-2023) and Test (2024) ---
+# ---  Split Data into Training (Pre-2023), Validation (2023), and Test (2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
 train_subset = match_df[match_df["year"] < 2023]
 val_subset = match_df[match_df["year"] == 2023]
@@ -68,64 +66,93 @@ X_test = test_data[features]
 y_test_team_1 = test_data[target_team_1]
 y_test_team_2 = test_data[target_team_2]
 
-def tune_model(model, param_grid, X_train, y_train, X_val, y_val):
-    best_model = None
-    best_score = float("inf")
-    best_params = None
+mae_scorer = make_scorer(mean_absolute_error, greater_is_better=False)
 
-    for params in param_grid:
-        model_instance = model.__class__(**params)  # Create a new instance for each parameter set
-        model_instance.fit(X_train, y_train)
-        y_pred = model_instance.predict(X_val)
-        score = mean_absolute_error(y_val, y_pred)
+# Function to perform GridSearchCV with TimeSeriesSplit
+def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
+    tscv = TimeSeriesSplit(n_splits=n_splits)
 
-        if score < best_score:
-            best_model = model_instance
-            best_score = score
-            best_params = params
+    grid_search = GridSearchCV(
+        estimator=model,
+        param_grid=param_grid,
+        scoring=mae_scorer,
+        cv=tscv,
+        verbose=1,
+        n_jobs=-1
+    )
 
-    return best_model, best_params, best_score
+    grid_search.fit(X_train, y_train)
+    return grid_search.best_params_, -grid_search.best_score_
 
-# Define Parameter Grids
-rf_param_grid = [
-    {"n_estimators": n, "max_depth": d, "min_samples_split": s}
-    for n in [300, 350, 400]
-    for d in [8, 9, 10]
-    for s in [2, 3, 4]
-]
+rf_param_grid = {
+    "n_estimators": [350, 400, 450],
+    "max_depth": [9, 10, 11],
+    "min_samples_split": [2, 3, 4],
+}
 
-xgb_param_grid = [
-    {"n_estimators": n, "learning_rate": lr, "max_depth": d}
-    for n in [100, 125, 150]
-    for lr in [0.05, 0.1, 0.15]
-    for d in [4, 5, 6]
-]
+xgb_param_grid = {
+    "n_estimators": [75, 100, 125],
+    "learning_rate": [0.025, 0.05, 0.075],
+    "max_depth": [3, 4, 5],
+}
 
-# Tune Random Forest (Team 1)
-rf_team_1, rf_team_1_params, rf_team_1_score = tune_model(
-    RandomForestRegressor(random_state=42), rf_param_grid, X_train, y_train_team_1, X_val, y_val_team_1
+# --- Perform Grid Search and Refit for Each Model ---
+# Random Forest (Team 1)
+rf_team_1_params, rf_team_1_score = perform_grid_search(
+    RandomForestRegressor(random_state=42),
+    rf_param_grid,
+    X_train,
+    y_train_team_1
 )
-print(f"Best RF Params (Team 1): {rf_team_1_params}, MAE: {rf_team_1_score:.4f}")
+rf_team_1 = RandomForestRegressor(random_state=42, **rf_team_1_params)
+rf_team_1.fit(X_train, y_train_team_1)
+print(f"Best RF Params (Team 1): {rf_team_1_params}")
 
-# Tune Random Forest (Team 2)
-rf_team_2, rf_team_2_params, rf_team_2_score = tune_model(
-    RandomForestRegressor(random_state=42), rf_param_grid, X_train, y_train_team_2, X_val, y_val_team_2
+# Random Forest (Team 2)
+rf_team_2_params, rf_team_2_score = perform_grid_search(
+    RandomForestRegressor(random_state=42),
+    rf_param_grid,
+    X_train,
+    y_train_team_2
 )
-print(f"Best RF Params (Team 2): {rf_team_2_params}, MAE: {rf_team_2_score:.4f}")
+rf_team_2 = RandomForestRegressor(random_state=42, **rf_team_2_params)
+rf_team_2.fit(X_train, y_train_team_2)
+print(f"Best RF Params (Team 2): {rf_team_2_params}")
 
-# Tune XGBoost (Team 1)
-xgb_team_1, xgb_team_1_params, xgb_team_1_score = tune_model(
-    XGBRegressor(random_state=42, objective="reg:squarederror"), xgb_param_grid, X_train, y_train_team_1, X_val, y_val_team_1
+
+# XGBoost (Team 1)
+xgb_team_1_params, xgb_team_1_score = perform_grid_search(
+    XGBRegressor(random_state=42, objective="reg:squarederror"),
+    xgb_param_grid,
+    X_train,
+    y_train_team_1
 )
-print(f"Best XGB Params (Team 1): {xgb_team_1_params}, MAE: {xgb_team_1_score:.4f}")
+xgb_team_1 = XGBRegressor(random_state=42, objective="reg:squarederror", **xgb_team_1_params)
+xgb_team_1.fit(X_train, y_train_team_1)
+print(f"Best XGB Params (Team 1): {xgb_team_1_params}")
 
-# Tune XGBoost (Team 2)
-xgb_team_2, xgb_team_2_params, xgb_team_2_score = tune_model(
-    XGBRegressor(random_state=42, objective="reg:squarederror"), xgb_param_grid, X_train, y_train_team_2, X_val, y_val_team_2
+# XGBoost (Team 2)
+xgb_team_2_params, xgb_team_2_score = perform_grid_search(
+    XGBRegressor(random_state=42, objective="reg:squarederror"),
+    xgb_param_grid,
+    X_train,
+    y_train_team_2
 )
-print(f"Best XGB Params (Team 2): {xgb_team_2_params}, MAE: {xgb_team_2_score:.4f}")
+xgb_team_2 = XGBRegressor(random_state=42, objective="reg:squarederror", **xgb_team_2_params)
+xgb_team_2.fit(X_train, y_train_team_2)
+print(f"Best XGB Params (Team 2): {xgb_team_2_params}")
 
-# --- Evaluate on Test Set ---
+with open("rf_team_1.pkl", "wb") as f:
+    pickle.dump(rf_team_1, f)
+with open("rf_team_2.pkl", "wb") as f:
+    pickle.dump(rf_team_2, f)
+with open("xgb_team_1.pkl", "wb") as f:
+    pickle.dump(xgb_team_1, f)
+with open("xgb_team_2.pkl", "wb") as f:
+    pickle.dump(xgb_team_2, f)
+print("All models saved successfully!")
+
+# --- Evaluate on Validation Set ---
 def evaluate_model(model, X, y_true):
     y_pred = model.predict(X)
     mae = mean_absolute_error(y_true, y_pred)
@@ -133,61 +160,75 @@ def evaluate_model(model, X, y_true):
     r2 = r2_score(y_true, y_pred)
     return {"MAE": mae, "MSE": mse, "R2": r2}
 
-# Evaluate the best models
-rf_team_1_metrics = evaluate_model(rf_team_1, X_test, y_test_team_1)
-rf_team_2_metrics = evaluate_model(rf_team_2, X_test, y_test_team_2)
-xgb_team_1_metrics = evaluate_model(xgb_team_1, X_test, y_test_team_1)
-xgb_team_2_metrics = evaluate_model(xgb_team_2, X_test, y_test_team_2)
+"""
+with open("rf_team_1.pkl", "rb") as f:
+    rf_team_1 = pickle.load(f)
+with open("rf_team_2.pkl", "rb") as f:
+    rf_team_2 = pickle.load(f)
+with open("xgb_team_1.pkl", "rb") as f:
+    xgb_team_1 = pickle.load(f)
+with open("xgb_team_2.pkl", "rb") as f:
+    xgb_team_2 = pickle.load(f)
 
-print("RF Team 1 Test Metrics:", rf_team_1_metrics)
-print("RF Team 2 Test Metrics:", rf_team_2_metrics)
-print("XGB Team 1 Test Metrics:", xgb_team_1_metrics)
-print("XGB Team 2 Test Metrics:", xgb_team_2_metrics)
+print("All models loaded successfully!")
+"""
 
-def select_champion(metrics_rf, metrics_xgb):
-    # Example: prioritize MAE, then R2
-    if metrics_rf["MAE"] < metrics_xgb["MAE"]:
-        return "Random Forest", metrics_rf
-    elif metrics_xgb["MAE"] < metrics_rf["MAE"]:
-        return "XGBoost", metrics_xgb
-    else:  # Tie-breaker: higher R2
-        return ("Random Forest", metrics_rf) if metrics_rf["R2"] > metrics_xgb["R2"] else ("XGBoost", metrics_xgb)
+# Evaluate the best models based on validation set
+rf_team_1_metrics = evaluate_model(rf_team_1, X_val, y_val_team_1)
+rf_team_2_metrics = evaluate_model(rf_team_2, X_val, y_val_team_2)
+xgb_team_1_metrics = evaluate_model(xgb_team_1, X_val, y_val_team_1)
+xgb_team_2_metrics = evaluate_model(xgb_team_2, X_val, y_val_team_2)
 
-champion_team_1_model_name, champion_team_1_metrics = select_champion(rf_team_1_metrics, xgb_team_1_metrics)
-champion_team_2_model_name, champion_team_2_metrics = select_champion(rf_team_2_metrics, xgb_team_2_metrics)
+print("Random Forest (Team 1) Validation Metrics:", rf_team_1_metrics)
+print("Random Forest (Team 2) Validation Metrics:", rf_team_2_metrics)
+print("XGBoost (Team 1) Validation Metrics:", xgb_team_1_metrics)
+print("XGBoost (Team 2) Validation Metrics:", xgb_team_2_metrics)
 
-print("Champion Model for Team 1:", champion_team_1_model_name, "Metrics:", champion_team_1_metrics)
-print("Champion Model for Team 2:", champion_team_2_model_name, "Metrics:", champion_team_2_metrics)
+# Choose champion models
+champion_models = {}
 
-champion_team_1_model = rf_team_1 if champion_team_1_model_name == "Random Forest" else xgb_team_1
-champion_team_2_model = rf_team_2 if champion_team_2_model_name == "Random Forest" else xgb_team_2
+if rf_team_1_metrics["MAE"] < xgb_team_1_metrics["MAE"]:
+    champion_models["team_1"] = {"name": "Random Forest", "model": rf_team_1}
+else:
+    champion_models["team_1"] = {"name": "XGBoost", "model": xgb_team_1}
 
-# --- 2. Test the Champion Models ---
-# Predictions on the test set
-team_1_test_pred = champion_team_1_model.predict(X_test)
-team_2_test_pred = champion_team_2_model.predict(X_test)
+if rf_team_2_metrics["MAE"] < xgb_team_2_metrics["MAE"]:
+    champion_models["team_2"] = {"name": "Random Forest", "model": rf_team_2}
+else:
+    champion_models["team_2"] = {"name": "XGBoost", "model": xgb_team_2}
 
-# --- 3. Predict Match Results ---
-# Determine the predicted match result (Win/Draw/Loss)
+for team, info in champion_models.items():
+    print(f"Champion Model for {team}: {info['name']}")
+
+
+team_1_test_pred = champion_models["team_1"]["model"].predict(X_test)
+team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
+
+print("Predictions made using the loaded models.")
+
+# --- Test the Champion Models ---
+team_1_test_pred = champion_models["team_1"]["model"].predict(X_test)
+team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
+
+
+# --- Predict Match Results ---
 test_data["predicted_result"] = [
-    "W" if team_1_test_pred[i] > team_2_test_pred[i] + 0.4 else
-    ("L" if team_1_test_pred[i] + 0.4 < team_2_test_pred[i] else "D")
+    "W" if team_1_test_pred[i] > team_2_test_pred[i] + 0.3 else
+    ("L" if team_1_test_pred[i] + 0.3 < team_2_test_pred[i] else "D")
     for i in range(len(team_1_test_pred))
 ]
 
-# Determine the actual match result (Win/Draw/Loss) with the same logic
 actual_results = [
-    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + 0.4 else
-    ("L" if y_test_team_1.iloc[i] + 0.4 < y_test_team_2.iloc[i] else "D")
+    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + 0.3 else
+    ("L" if y_test_team_1.iloc[i] + 0.3 < y_test_team_2.iloc[i] else "D")
     for i in range(len(y_test_team_1))
 ]
 
-# --- 4. Calculate Accuracy ---
-# Compare predicted results with actual results
+# --- Calculate Accuracy ---
 test_accuracy = accuracy_score(actual_results, test_data["predicted_result"])
 print(f"Final Test Accuracy: {test_accuracy:.2f}")
 
-# --- 5. Visualize Confusion Matrix ---
+# --- Visualize Confusion Matrix ---
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -202,37 +243,38 @@ plt.ylabel("Actual Result")
 plt.xlabel("Predicted Result")
 plt.show()
 
-# --- 6. Feature Importance ---
-# Extract feature importance from the models
-if hasattr(champion_team_1_model_name, 'feature_importances_'):
-    team_1_feature_importance = champion_team_1_model_name.feature_importances_
-else:
-    team_1_feature_importance = champion_team_1_model_name.get_booster().get_score(importance_type='weight')
+# --- Feature Importance ---
+def extract_feature_importance(model, features):
+    importance = None
+    if hasattr(model, "feature_importances_"):
+        # RandomForest or any model with feature_importances_
+        importance = model.feature_importances_
+    elif hasattr(model, "get_booster"):
+        # XGBoost-specific feature importance extraction
+        booster = model.get_booster()
+        importance_dict = booster.get_score(importance_type="weight")
+        importance = [importance_dict.get(f, 0) for f in features]
+    else:
+        raise ValueError("Unsupported model type for feature importance extraction.")
 
-if hasattr(champion_team_2_model_name, 'feature_importances_'):
-    team_2_feature_importance = champion_team_2_model_name.feature_importances_
-else:
-    team_2_feature_importance = champion_team_2_model_name.get_booster().get_score(importance_type='weight')
+    return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
-# Convert feature importance to a DataFrame
-team_1_feature_importance_df = pd.DataFrame({
-    'Feature': X_test.columns,
-    'Importance': team_1_feature_importance
-}).sort_values(by='Importance', ascending=False)
-
-team_2_feature_importance_df = pd.DataFrame({
-    'Feature': X_test.columns,
-    'Importance': team_2_feature_importance
-}).sort_values(by='Importance', ascending=False)
+# Extract feature importance for champion models
+team_1_feature_importance_df = extract_feature_importance(
+    champion_models["team_1"]["model"], X_test.columns
+)
+team_2_feature_importance_df = extract_feature_importance(
+    champion_models["team_2"]["model"], X_test.columns
+)
 
 # Plot feature importance for Team 1
 plt.figure(figsize=(10, 6))
-sns.barplot(x='Importance', y='Feature', data=team_1_feature_importance_df)
-plt.title('Feature Importance for Team 1 Model')
+sns.barplot(x="Importance", y="Feature", data=team_1_feature_importance_df)
+plt.title("Feature Importance for Team 1 Model")
 plt.show()
 
 # Plot feature importance for Team 2
 plt.figure(figsize=(10, 6))
-sns.barplot(x='Importance', y='Feature', data=team_2_feature_importance_df)
-plt.title('Feature Importance for Team 2 Model')
+sns.barplot(x="Importance", y="Feature", data=team_2_feature_importance_df)
+plt.title("Feature Importance for Team 2 Model")
 plt.show()
