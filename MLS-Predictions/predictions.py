@@ -85,11 +85,9 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
 
 rf_param_grid = {
     "n_estimators": [350, 400, 450],
-    "max_depth": [9, 10, 11],
+    "max_depth": [10, 11, 12],
     "min_samples_split": [2, 3, 4],
-    "min_samples_leaf": [1, 2, 4],
-    "max_features": ["sqrt", "log2", None],
-    "bootstrap": [True, False]
+    "min_samples_leaf": [2, 4, 6],
 }
 xgb_param_grid = {
     "n_estimators": [75, 100, 125],
