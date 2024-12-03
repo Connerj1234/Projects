@@ -71,7 +71,6 @@ mae_scorer = make_scorer(mean_absolute_error, greater_is_better=False)
 # Function to perform GridSearchCV with TimeSeriesSplit
 def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     tscv = TimeSeriesSplit(n_splits=n_splits)
-
     grid_search = GridSearchCV(
         estimator=model,
         param_grid=param_grid,
@@ -80,7 +79,6 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
         verbose=1,
         n_jobs=-1
     )
-
     grid_search.fit(X_train, y_train)
     return grid_search.best_params_, -grid_search.best_score_
 
@@ -92,7 +90,6 @@ rf_param_grid = {
     "max_features": ["sqrt", "log2", None],
     "bootstrap": [True, False]
 }
-
 xgb_param_grid = {
     "n_estimators": [75, 100, 125],
     "learning_rate": [0.025, 0.05, 0.075],
@@ -126,7 +123,6 @@ rf_team_2_params, rf_team_2_score = perform_grid_search(
 rf_team_2 = RandomForestRegressor(random_state=42, **rf_team_2_params)
 rf_team_2.fit(X_train, y_train_team_2)
 print(f"Best RF Params (Team 2): {rf_team_2_params}")
-
 
 # XGBoost (Team 1)
 xgb_team_1_params, xgb_team_1_score = perform_grid_search(
@@ -209,33 +205,26 @@ for team, info in champion_models.items():
     print(f"Champion Model for {team}: {info['name']}")
 
 
-team_1_test_pred = champion_models["team_1"]["model"].predict(X_test)
-team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
-
-print("Predictions made using the loaded models.")
-
 # --- Test the Champion Models ---
 team_1_test_pred = champion_models["team_1"]["model"].predict(X_test)
 team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
 
 
-# --- Predict Match Results ---
-draw_buffer = .3
-test_data["predicted_result"] = [
-    "W" if team_1_test_pred[i] > team_2_test_pred[i] + draw_buffer else
-    ("L" if team_1_test_pred[i] + draw_buffer < team_2_test_pred[i] else "D")
-    for i in range(len(team_1_test_pred))
-]
-
-actual_results = [
-    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + draw_buffer else
-    ("L" if y_test_team_1.iloc[i] + draw_buffer < y_test_team_2.iloc[i] else "D")
+# --- Predict Match Results + Accuracy ---
+for buffer in [0.1, 0.2, 0.3, 0.4, 0.5]:
+    test_data["predicted_result"] = [
+        "W" if team_1_test_pred[i] > team_2_test_pred[i] + buffer else
+        ("L" if team_1_test_pred[i] + buffer < team_2_test_pred[i] else "D")
+        for i in range(len(team_1_test_pred))
+    ]
+    actual_results = [
+    "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + buffer else
+    ("L" if y_test_team_1.iloc[i] + buffer < y_test_team_2.iloc[i] else "D")
     for i in range(len(y_test_team_1))
 ]
+    accuracy = accuracy_score(actual_results, test_data["predicted_result"])
+    print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
 
-# --- Calculate Accuracy ---
-test_accuracy = accuracy_score(actual_results, test_data["predicted_result"])
-print(f"Final Test Accuracy: {test_accuracy:.2f}")
 
 # --- Visualize Confusion Matrix ---
 from sklearn.metrics import confusion_matrix
@@ -263,9 +252,6 @@ def extract_feature_importance(model, features):
         booster = model.get_booster()
         importance_dict = booster.get_score(importance_type="weight")
         importance = [importance_dict.get(f, 0) for f in features]
-    else:
-        raise ValueError("Unsupported model type for feature importance extraction.")
-
     return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
 # Extract feature importance for champion models

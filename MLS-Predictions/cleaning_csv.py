@@ -1,7 +1,7 @@
 import pandas as pd
 
 data = pd.read_csv("/Users/connerjamison/VSCode/GitHub/match_data.csv")
-
+ 
 def update_result_and_clean_penalty(df):
     for index, row in df.iterrows():
         # Check for penalties in 'gf' and 'ga' columns
