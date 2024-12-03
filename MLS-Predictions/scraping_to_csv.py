@@ -11,7 +11,7 @@ standings_url = "https://fbref.com/en/comps/22/Major-League-Soccer-Stats"
 all_team_urls = {}
 print("Scraping team URLs for all seasons...")
 
-years = list(range(2024, 2023, -1))
+years = list(range(2024, 2017, -1))
 for year in years:
     print(f"Scraping standings for the {year} season...")
     data = requests.get(standings_url)
@@ -52,13 +52,9 @@ for year, team_urls in all_team_urls.items():
             shooting_url = f"https://fbref.com{shooting_links[0]}"
             print(f"Fetching shooting stats from: {shooting_url}")
             shooting_data = requests.get(shooting_url)
-            try:
-                shooting = pd.read_html(shooting_data.text, match="Shooting")[0]
-                shooting.columns = shooting.columns.droplevel()  # Adjust if multi-level columns exist
-                shooting = shooting[["Date", "Sh", "SoT", "Dist", "FK", "PK", "PKatt"]]
-            except ValueError:
-                print("No Shooting table found.")
-                shooting = pd.DataFrame(columns=["Date", "Sh", "SoT", "Dist", "FK", "PK", "PKatt"])
+            shooting = pd.read_html(shooting_data.text, match="Shooting")[0]
+            shooting.columns = shooting.columns.droplevel()  # Adjust if multi-level columns exist
+            shooting = shooting[["Date", "Sh", "SoT", "Dist", "FK", "PK", "PKatt"]]
         else:
             print("No Shooting link found.")
             shooting = pd.DataFrame(columns=["Date", "Sh", "SoT", "Dist", "FK", "PK", "PKatt"])
@@ -69,14 +65,10 @@ for year, team_urls in all_team_urls.items():
             passing_url = f"https://fbref.com{passing_links[0]}"
             print(f"Fetching passing stats from: {passing_url}")
             passing_data = requests.get(passing_url)
-            try:
-                passing = pd.read_html(passing_data.text, match="Passing")[0]
-                passing.columns = passing.columns.droplevel()  # Adjust if multi-level columns exist
-                # Keep all columns from the Passing table, duplicates included
-                passing = passing[["Date", "Cmp", "Att", "Cmp%","Ast", "KP"]]
-            except ValueError as e:
-                print("Error while processing the Passing table:", e)
-                passing = pd.DataFrame()  # Empty DataFrame if the table isn't found
+            passing = pd.read_html(passing_data.text, match="Passing")[0]
+            passing.columns = passing.columns.droplevel()  # Adjust if multi-level columns exist
+            # Keep all columns from the Passing table, duplicates included
+            passing = passing[["Date", "Cmp", "Att", "Cmp%","Ast", "KP"]]
         else:
             print("No Passing link found.")
             passing = pd.DataFrame()  # Empty DataFrame if no link is found
@@ -88,13 +80,9 @@ for year, team_urls in all_team_urls.items():
             creation_url = f"https://fbref.com{creation_links[0]}"
             print(f"Fetching goal creation stats from: {creation_url}")
             creation_data = requests.get(creation_url)
-            try:
-                creation = pd.read_html(creation_data.text, match="Goal and Shot Creation")[0]
-                creation.columns = creation.columns.droplevel()  # Adjust if multi-level columns exist
-                creation = creation[["Date", "SCA", "GCA"]]
-            except ValueError:
-                print("No Goal Creation table found.")
-                creation = pd.DataFrame(columns=["Date", "SCA", "GCA"])
+            creation = pd.read_html(creation_data.text, match="Goal and Shot Creation")[0]
+            creation.columns = creation.columns.droplevel()  # Adjust if multi-level columns exist
+            creation = creation[["Date", "SCA", "GCA"]]
         else:
             print("No Goal Creation link found.")
             creation = pd.DataFrame(columns=["Date", "SCA", "GCA"])
@@ -105,15 +93,9 @@ for year, team_urls in all_team_urls.items():
             defensive_url = f"https://fbref.com{defensive_links[0]}"
             print(f"Fetching defensive stats from: {defensive_url}")
             defensive_data = requests.get(defensive_url)
-            try:
-                defensive = pd.read_html(defensive_data.text, match="Defensive Actions")[0]
-                defensive.columns = defensive.columns.droplevel()  # Adjust if multi-level columns exist
-
-                # Select only the desired columns
-                defensive = defensive[["Date", "Tkl", "Blocks","Int", "Clr", "Err"]]
-            except ValueError as e:
-                print("Error while processing the Defensive Actions table:", e)
-                defensive = pd.DataFrame(columns=["Date", "Tkl", "Blocks","Int", "Clr", "Err"])
+            defensive = pd.read_html(defensive_data.text, match="Defensive Actions")[0]
+            defensive.columns = defensive.columns.droplevel()  # Adjust if multi-level columns exist
+            defensive = defensive[["Date", "Tkl", "Blocks","Int", "Clr", "Err"]]
         else:
             print("No Defensive Actions link found.")
             defensive = pd.DataFrame(columns=["Date", "Tkl", "Blocks","Int", "Clr", "Err"])
@@ -140,10 +122,8 @@ for year, team_urls in all_team_urls.items():
     if team_stats:
     # Combine all team data for the season
         season_data = pd.concat(team_stats, ignore_index=True)
-
         season_data = season_data.loc[:, ~season_data.columns.duplicated()]
 
-        # Standardize team and opponent names using a mapping
         team_name_mapping = {
             "Atlanta Utd": "Atlanta United",
             "Inter-Miami": "Inter Miami",
