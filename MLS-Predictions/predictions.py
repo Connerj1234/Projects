@@ -33,12 +33,13 @@ for feature in rolling_features:
         match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
     )
 
-base_features = ["is_home_team1", "hour", "day_code"]
 rolling_feature_columns = [
     f"team_1_{feature}_rolling" for feature in rolling_features
 ] + [
     f"team_2_{feature}_rolling" for feature in rolling_features
 ]
+
+base_features = ["is_home_team1", "hour", "day_code"]
 features = base_features + rolling_feature_columns
 
 # ---  Split Data into Training (Pre-2023), Validation (2023), and Test (2024) ---
