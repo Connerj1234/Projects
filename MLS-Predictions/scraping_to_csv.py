@@ -102,10 +102,10 @@ for year, team_urls in all_team_urls.items():
 
 
         # Merge Data
-        team_data = matches.merge(shooting, on="Date", how="left", suffixes=("", "_shooting"))
-        team_data = team_data.merge(passing, on="Date", how="left", suffixes=("", "_passing"))
-        team_data = team_data.merge(creation, on="Date", how="left", suffixes=("", "_creation"))
-        team_data = team_data.merge(defensive, on="Date", how="left", suffixes=("", "_defensive"))
+        team_data = matches.merge(shooting, on="Date", how="left")
+        team_data = team_data.merge(passing, on="Date", how="left")
+        team_data = team_data.merge(creation, on="Date", how="left")
+        team_data = team_data.merge(defensive, on="Date", how="left")
 
         team_data["team_age"] = team_age
 
