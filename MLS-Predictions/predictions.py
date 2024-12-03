@@ -210,7 +210,7 @@ team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
 
 
 # --- Predict Match Results + Accuracy ---
-for buffer in [0.1, 0.2, 0.3, 0.4, 0.5]:
+for buffer in [0.1, 0.2, 0.3]:
     test_data["predicted_result"] = [
         "W" if team_1_test_pred[i] > team_2_test_pred[i] + buffer else
         ("L" if team_1_test_pred[i] + buffer < team_2_test_pred[i] else "D")
