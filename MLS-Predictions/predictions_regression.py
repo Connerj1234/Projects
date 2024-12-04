@@ -81,19 +81,19 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
 
 rf_param_grid = {
     "n_estimators": [350, 400, 450],
-    #"max_depth": [10, 11, 12],
-    #"min_samples_split": [2, 3, 4],
-    #"min_samples_leaf": [2, 4, 6],
+    #"max_depth": [10, 12, 14],
+    #"min_samples_split": [2, 3],
+    #"min_samples_leaf": [4, 6, 8],
 }
 xgb_param_grid = {
-    "n_estimators": [75, 100, 125],
-    #"learning_rate": [0.025, 0.05, 0.075],
-    #"max_depth": [3, 4, 5],
-    #"subsample": [0.6, 0.8, 1.0],
-    #"colsample_bytree": [0.6, 0.8, 1.0],
-    #"min_child_weight": [1, 3, 5],
-    #"reg_alpha": [0, 0.01, 0.1],
-    #"reg_lambda": [1, 1.5, 2]
+    "n_estimators": [125, 150, 175],
+    #"learning_rate": [0.05, 0.075, 0.1],
+    #"max_depth": [2, 3, 4],
+    #"subsample": [0.7, 0.8, 0.9],
+    #"colsample_bytree": [0.6, 0.7, 0.8],
+    #"min_child_weight": [3, 5, 7],
+    #"reg_alpha": [0, 0.01],
+    #"reg_lambda": [0.5, 1, 1.5]
 }
 
 # --- Perform Grid Search and Refit for Each Model ---
@@ -213,7 +213,10 @@ for buffer in [0.1, 0.2, 0.3]:
     print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
 
 print(f"\n{test_data["predicted_result"].value_counts()}")
-print(f"\n{actual_results.count("L"), actual_results.count("D"), actual_results.count("W")}")
+print(f"\n{actual_results.count("W"), actual_results.count("L"), actual_results.count("D")}")
+
+matches = (team_1_test_pred == y_test_team_1).sum()
+print(f"Total Matches Correct: {matches}/{len(y_test_team_1)}")
 
 # --- Visualize Confusion Matrix ---
 conf_matrix = confusion_matrix(actual_results, test_data["predicted_result"], labels=["W", "D", "L"])
@@ -225,7 +228,7 @@ plt.title("Confusion Matrix for Match Result Predictions")
 plt.ylabel("Actual Result")
 plt.xlabel("Predicted Result")
 plt.show()
-"""
+
 # --- Feature Importance ---
 def extract_feature_importance(model, features):
     importance = None
@@ -240,22 +243,21 @@ def extract_feature_importance(model, features):
     return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
 # Extract feature importance for champion models
-team_1_feature_importance_df = extract_feature_importance(
-    champion_models["team_1"]["model"], X_test.columns
+team_1_feature_importance = extract_feature_importance(
+    champion_model1, X_test.columns
 )
-team_2_feature_importance_df = extract_feature_importance(
-    champion_models["team_2"]["model"], X_test.columns
+team_2_feature_importance = extract_feature_importance(
+    champion_model2, X_test.columns
 )
 
 # Plot feature importance for Team 1
 plt.figure(figsize=(10, 6))
-sns.barplot(x="Importance", y="Feature", data=team_1_feature_importance_df)
+sns.barplot(x="Importance", y="Feature", data=team_1_feature_importance)
 plt.title("Feature Importance for Team 1 Model")
 plt.show()
 
 # Plot feature importance for Team 2
 plt.figure(figsize=(10, 6))
-sns.barplot(x="Importance", y="Feature", data=team_2_feature_importance_df)
+sns.barplot(x="Importance", y="Feature", data=team_2_feature_importance)
 plt.title("Feature Importance for Team 2 Model")
 plt.show()
-"""

@@ -188,6 +188,7 @@ def extract_feature_importance(model, features):
         booster = model.get_booster()
         importance_dict = booster.get_score(importance_type="weight")
         importance = [importance_dict.get(f, 0) for f in features]
+        
     importance_df = pd.DataFrame({"Feature": features, "Importance": importance})
     importance_df["Importance"] /= importance_df["Importance"].sum()
     return importance_df.sort_values(by="Importance", ascending=False)
