@@ -9,7 +9,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"c:\Users\mailt\Downloads\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -23,8 +23,8 @@ match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "team_age",
-                    "sh_opponent", "sot_opponent", "cmp%_opponent", "ast_opponent", "kp_opponent", "sca_opponent", "gca_opponent",
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "ast", "kp", "gca", "tkl", "team_age",
+                    "sh_opponent", "ast_opponent", "kp_opponent", "gca_opponent",
                     "tkl_opponent", "team_age_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
@@ -80,20 +80,20 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [350, 400, 450],
-    #"max_depth": [10, 12, 14],
-    #"min_samples_split": [2, 3],
-    #"min_samples_leaf": [4, 6, 8],
+    "n_estimators": [375, 400, 425],
+    "max_depth": [10, 14, 18],
+    "min_samples_split": [2],
+    "min_samples_leaf": [6, 8, 10],
 }
 xgb_param_grid = {
-    "n_estimators": [125, 150, 175],
-    #"learning_rate": [0.05, 0.075, 0.1],
-    #"max_depth": [2, 3, 4],
-    #"subsample": [0.7, 0.8, 0.9],
-    #"colsample_bytree": [0.6, 0.7, 0.8],
-    #"min_child_weight": [3, 5, 7],
-    #"reg_alpha": [0, 0.01],
-    #"reg_lambda": [0.5, 1, 1.5]
+    "n_estimators": [100, 125, 150],
+    "learning_rate": [0.05, 0.075],
+    "max_depth": [3],
+    "subsample": [0.7, 0.8],
+    "colsample_bytree": [0.6, 0.8],
+    "min_child_weight": [5, 7],
+    "reg_alpha": [0, 0.01],
+    "reg_lambda": [1, 1.5]
 }
 
 # --- Perform Grid Search and Refit for Each Model ---
@@ -213,10 +213,7 @@ for buffer in [0.1, 0.2, 0.3]:
     print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
 
 print(f"\n{test_data["predicted_result"].value_counts()}")
-print(f"\n{actual_results.count("W"), actual_results.count("L"), actual_results.count("D")}")
-
-matches = (team_1_test_pred == y_test_team_1).sum()
-print(f"Total Matches Correct: {matches}/{len(y_test_team_1)}")
+print(f"\n{actual_results.count("L"), actual_results.count("W"), actual_results.count("D")}")
 
 # --- Visualize Confusion Matrix ---
 conf_matrix = confusion_matrix(actual_results, test_data["predicted_result"], labels=["W", "D", "L"])
@@ -243,21 +240,21 @@ def extract_feature_importance(model, features):
     return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
 # Extract feature importance for champion models
-team_1_feature_importance = extract_feature_importance(
+team_1_feature_importance_df = extract_feature_importance(
     champion_model1, X_test.columns
 )
-team_2_feature_importance = extract_feature_importance(
+team_2_feature_importance_df = extract_feature_importance(
     champion_model2, X_test.columns
 )
 
 # Plot feature importance for Team 1
 plt.figure(figsize=(10, 6))
-sns.barplot(x="Importance", y="Feature", data=team_1_feature_importance)
+sns.barplot(x="Importance", y="Feature", data=team_1_feature_importance_df)
 plt.title("Feature Importance for Team 1 Model")
 plt.show()
 
 # Plot feature importance for Team 2
 plt.figure(figsize=(10, 6))
-sns.barplot(x="Importance", y="Feature", data=team_2_feature_importance)
+sns.barplot(x="Importance", y="Feature", data=team_2_feature_importance_df)
 plt.title("Feature Importance for Team 2 Model")
 plt.show()

@@ -11,7 +11,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"c:\Users\mailt\Downloads\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -23,9 +23,37 @@ match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
+# Drop rows where the 'result' column has NaN values
+match_df = match_df.dropna(subset=["result"])
+match_df.fillna(0, inplace=True)  # Replace NaN in all columns with 0
+
+# Create a corrected result column based on gf and ga
+match_df["correct_result"] = match_df.apply(
+    lambda row: "D" if row["gf"] == row["ga"]
+    else "W" if row["gf"] > row["ga"]
+    else "L",
+    axis=1
+)
+
+# Find mismatched rows
+incorrect_rows = match_df[match_df["result"] != match_df["correct_result"]]
+
+# Print the incorrect rows before correction
+print("Incorrectly Labeled Rows Before Correction:")
+print(incorrect_rows[["gf", "ga", "result", "correct_result"]].head())
+
+match_df["result"] = match_df["correct_result"]
+
+# Verify the fix by finding mismatched rows again
+remaining_incorrect_rows = match_df[match_df["result"] != match_df["correct_result"]]
+
+# Print any remaining mismatched rows after correction
+print("\nIncorrectly Labeled Rows After Correction:")
+print(remaining_incorrect_rows[["gf", "ga", "result", "correct_result"]])
+
 # ---  Add Rolling Averages Based on Last 10 Games ---
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast", "kp", "sca", "gca", "tkl", "team_age",
-                    "sh_opponent", "sot_opponent", "cmp%_opponent", "ast_opponent", "kp_opponent", "sca_opponent", "gca_opponent",
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "ast", "kp", "gca", "tkl", "team_age",
+                    "sh_opponent", "ast_opponent", "kp_opponent", "gca_opponent",
                     "tkl_opponent", "team_age_opponent"]
 
 match_df = match_df.sort_values(by=["team_1", "date"])
@@ -46,13 +74,27 @@ features = base_features + differential_feature_columns
 
 def map_result_to_target(result):
     if result == "W":
-        return 2
+        return 2  # Win
     elif result == "D":
-        return 1
+        return 1  # Draw
     else:
-        return 0
+        return 0  # Loss
 
 match_df["target"] = match_df["result"].apply(map_result_to_target)
+
+# Calculate the distribution of the target variable
+target_counts = match_df["target"].value_counts()
+target_percentages = match_df["target"].value_counts(normalize=True) * 100
+
+distribution_df = pd.DataFrame({
+    "Counts": target_counts,
+    "Percentage (%)": target_percentages
+})
+
+print("\nOverall Class Distribution:")
+print(distribution_df)
+print()
+
 
 # ---  Split Data into Training (<2023) and Test (2023-2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
@@ -70,9 +112,6 @@ X_test = test_data[features]
 y_test = test_data["target"]
 y_test = y_test.astype("int")
 
-smote = SMOTE(random_state=42)
-X_train, y_train = smote.fit_resample(X_train, y_train)
-
 def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     tscv = TimeSeriesSplit(n_splits=n_splits)
     grid_search = GridSearchCV(
@@ -85,24 +124,29 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     )
 
     grid_search.fit(X_train, y_train)
-    return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
+    return grid_search.best_estimator_, grid_search.best_params_, grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [100, 200, 300],
-    #"max_depth": [5, 10, 15],
-    #"min_samples_split": [2, 5, 10],
-    #"min_samples_leaf": [1, 2, 4],
+    "n_estimators": [250, 500, 750],
+    "max_depth": [5, 10],
+    "min_samples_split": [3, 4, 5],
+    "min_samples_leaf": [1, 2],
 }
 
 xgb_param_grid = {
-    "n_estimators": [100, 200, 300],
-    #"learning_rate": [0.01, 0.05, 0.1],
-    #"max_depth": [3, 5, 7],
-    #"subsample": [0.8, 1.0],
+    "n_estimators": [250, 300, 350],
+    #"learning_rate": [0.1, 0.15],
+    #"max_depth": [7, 9, 11],
+    #"subsample": [0.7, 0.8, 0.9],
+    #"colsample_bytree": [1.0, 1.25, 1.5],
+    #"min_child_weight": [2, 3, 4],
+    #"reg_alpha": [0],
+    #"reg_lambda": [1.3, 1.5, 1.7]
 }
 
+class_weights = {0: 1.0, 1: 1.5, 2: 1.0}
 rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
-    RandomForestClassifier(random_state=42, class_weight="balanced"),
+    RandomForestClassifier(random_state=42, class_weight=class_weights),
     rf_param_grid,
     X_train,
     y_train
@@ -110,7 +154,7 @@ rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
 print(f"Best RF Params: {rf_best_params}, Best Score: {rf_best_score:.4f}\n")
 
 xgb_classifier, xgb_best_params, xgb_best_score = perform_grid_search(
-    XGBClassifier(random_state=42, objective="multi:softmax", eval_metric="logloss", num_class=3),
+    XGBClassifier(random_state=42, objective="multi:softmax", num_class=3, eval_metric="logloss"),
     xgb_param_grid,
     X_train,
     y_train
@@ -176,8 +220,8 @@ from collections import Counter
 print("\nPrediction Distribution:", Counter(test_pred))
 
 from sklearn.metrics import classification_report
-print(f"\nFinal Classification Report: \n{classification_report(y_test, test_pred, target_names=["Loss", "Win", "Draw"])}")
-
+print(f"\nFinal Classification Report: \n{classification_report(y_test, test_pred, target_names=["Loss", "Draw", "Win"])}")
+"""
 def extract_feature_importance(model, features):
     importance = None
     if hasattr(model, "feature_importances_"):
@@ -188,7 +232,6 @@ def extract_feature_importance(model, features):
         booster = model.get_booster()
         importance_dict = booster.get_score(importance_type="weight")
         importance = [importance_dict.get(f, 0) for f in features]
-        
     importance_df = pd.DataFrame({"Feature": features, "Importance": importance})
     importance_df["Importance"] /= importance_df["Importance"].sum()
     return importance_df.sort_values(by="Importance", ascending=False)
@@ -200,3 +243,4 @@ plt.figure(figsize=(10, 6))
 sns.barplot(x="Importance", y="Feature", data=feature_importance)
 plt.title("Feature Importance for Best Model")
 plt.show()
+"""
