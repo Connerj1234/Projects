@@ -9,7 +9,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv(r"c:\Users\mailt\Downloads\MLS_cleaned.csv")
+match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -20,6 +20,18 @@ match_df["is_home_team1"] = match_df["is_home"]
 match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else 1)
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
+
+match_df = match_df.dropna(subset=["result"])
+match_df.fillna(0, inplace=True)
+
+match_df["correct_result"] = match_df.apply(
+    lambda row: "D" if row["gf"] == row["ga"]
+    else "W" if row["gf"] > row["ga"]
+    else "L",
+    axis=1
+)
+
+match_df["result"] = match_df["correct_result"]
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])

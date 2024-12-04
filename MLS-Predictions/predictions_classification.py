@@ -11,7 +11,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv(r"c:\Users\mailt\Downloads\MLS_cleaned.csv")
+match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -52,11 +52,10 @@ print("\nIncorrectly Labeled Rows After Correction:")
 print(remaining_incorrect_rows[["gf", "ga", "result", "correct_result"]])
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
+match_df = match_df.sort_values(by=["team_1", "date"])
 rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "ast", "kp", "gca", "tkl", "team_age",
                     "sh_opponent", "ast_opponent", "kp_opponent", "gca_opponent",
                     "tkl_opponent", "team_age_opponent"]
-
-match_df = match_df.sort_values(by=["team_1", "date"])
 
 for feature in rolling_features:
     team_1_rolling = match_df.groupby("team_1")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
