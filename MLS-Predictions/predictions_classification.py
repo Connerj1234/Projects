@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, make_scorer, classification_report, confusion_matrix
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
+from sklearn.inspection import permutation_importance
 from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 import matplotlib.pyplot as plt
@@ -30,15 +31,12 @@ rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "sot", "cmp%", "ast",
 match_df = match_df.sort_values(by=["team_1", "date"])
 
 for feature in rolling_features:
-    match_df[f"team_1_{feature}_rolling"] = (
-        match_df.groupby("team_1")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
-    ).reset_index(level=0, drop=True)
+    team_1_rolling = match_df.groupby("team_1")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
+    team_2_rolling = match_df.groupby("team_2")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
 
-    match_df[f"team_2_{feature}_rolling"] = (
-        match_df.groupby("team_2")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
-    ).reset_index(level=0, drop=True)
+    match_df[f"team_1_{feature}_rolling"] = team_1_rolling.reset_index(level=0, drop=True)
+    match_df[f"team_2_{feature}_rolling"] = team_2_rolling.reset_index(level=0, drop=True)
 
-for feature in rolling_features:
     match_df[f"{feature}_diff"] = match_df[f"team_1_{feature}_rolling"] - match_df[f"team_2_{feature}_rolling"]
 
 differential_feature_columns = [f"{feature}_diff" for feature in rolling_features]
@@ -46,15 +44,15 @@ differential_feature_columns = [f"{feature}_diff" for feature in rolling_feature
 base_features = ["is_home_team1", "hour", "day_code"]
 features = base_features + differential_feature_columns
 
-def map_result_to_target(row):
-    if row["result"] == "D":
-        return 1
-    elif row["result"] == "W":
+def map_result_to_target(result):
+    if result == "W":
         return 2
+    elif result == "D":
+        return 1
     else:
         return 0
 
-match_df["target"] = match_df.apply(map_result_to_target, axis=1)
+match_df["target"] = match_df["result"].apply(map_result_to_target)
 
 # ---  Split Data into Training (<2023) and Test (2023-2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
@@ -109,7 +107,7 @@ rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
     X_train,
     y_train
 )
-print(f"Best RF Params: {rf_best_params}, Best Score: {rf_best_score:.4f}")
+print(f"Best RF Params: {rf_best_params}, Best Score: {rf_best_score:.4f}\n")
 
 xgb_classifier, xgb_best_params, xgb_best_score = perform_grid_search(
     XGBClassifier(random_state=42, objective="multi:softmax", eval_metric="logloss", num_class=3),
@@ -121,9 +119,9 @@ print(f"Best XGB Params: {xgb_best_params}, Best Score: {xgb_best_score:.4f}")
 
 def evaluate_model(model, X_test, y_test):
     y_pred = model.predict(X_test)
-    print(classification_report(y_test, y_pred, target_names=["Loss", "Win", "Draw"]))
+    print(classification_report(y_test, y_pred, target_names=["Loss", "Draw", "Win"]))
     accuracy = accuracy_score(y_test, y_pred)
-    print(f"Accuracy: {accuracy:.4f}")
+    print(f"Accuracy: {accuracy:.4f}\n")
     return accuracy
 
 print("\nRandom Forest Classifier Performance:")
@@ -156,8 +154,7 @@ test_pred = best_model.predict(X_test)
 
 # Check if predictions match exactly
 matches = (test_pred == y_test).sum()
-print(f"\nTotal Matches Correct: {matches}/{len(y_test)}")
-
+print(f"Total Matches Correct: {matches}/{len(y_test)}")
 
 
 # --- Visualize Confusion Matrix ---
@@ -179,4 +176,26 @@ from collections import Counter
 print("\nPrediction Distribution:", Counter(test_pred))
 
 from sklearn.metrics import classification_report
-print(f"\n{classification_report(y_test, test_pred, target_names=["Loss", "Win", "Draw"])}")
+print(f"\nFinal Classification Report: \n{classification_report(y_test, test_pred, target_names=["Loss", "Win", "Draw"])}")
+
+def extract_feature_importance(model, features):
+    importance = None
+    if hasattr(model, "feature_importances_"):
+        # RandomForest or any model with feature_importances_
+        importance = model.feature_importances_
+    elif hasattr(model, "get_booster"):
+        # XGBoost-specific feature importance extraction
+        booster = model.get_booster()
+        importance_dict = booster.get_score(importance_type="weight")
+        importance = [importance_dict.get(f, 0) for f in features]
+    importance_df = pd.DataFrame({"Feature": features, "Importance": importance})
+    importance_df["Importance"] /= importance_df["Importance"].sum()
+    return importance_df.sort_values(by="Importance", ascending=False)
+
+# Extract feature importance for champion models
+feature_importance = extract_feature_importance(best_model, X_test.columns)
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x="Importance", y="Feature", data=feature_importance)
+plt.title("Feature Importance for Best Model")
+plt.show()

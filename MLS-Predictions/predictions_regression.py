@@ -45,6 +45,7 @@ features = base_features + rolling_feature_columns
 
 # ---  Split Data into Training (<2023) and Test (2023-2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
+
 train_subset = match_df[match_df["year"] < 2023]
 test_data = match_df[match_df["year"] >= 2023]
 
@@ -103,7 +104,7 @@ rf_team_1_model, rf_team_1_params, rf_team_1_score = perform_grid_search(
     X_train,
     y_train_team_1
 )
-print(f"Best RF Params (Team 1): {rf_team_1_params}")
+print(f"Best RF Params (Team 1): {rf_team_1_params}\n")
 
 # Random Forest (Team 2)
 rf_team_2_model, rf_team_2_params, rf_team_2_score = perform_grid_search(
@@ -112,7 +113,7 @@ rf_team_2_model, rf_team_2_params, rf_team_2_score = perform_grid_search(
     X_train,
     y_train_team_2
 )
-print(f"Best RF Params (Team 2): {rf_team_2_params}")
+print(f"Best RF Params (Team 2): {rf_team_2_params}\n")
 
 # XGBoost (Team 1)
 xgb_team_1_model, xgb_team_1_params, xgb_team_1_score = perform_grid_search(
@@ -121,7 +122,7 @@ xgb_team_1_model, xgb_team_1_params, xgb_team_1_score = perform_grid_search(
     X_train,
     y_train_team_1
 )
-print(f"Best XGB Params (Team 1): {xgb_team_1_params}")
+print(f"Best XGB Params (Team 1): {xgb_team_1_params}\n")
 
 # XGBoost (Team 2)
 xgb_team_2_model, xgb_team_2_params, xgb_team_2_score = perform_grid_search(
@@ -130,7 +131,7 @@ xgb_team_2_model, xgb_team_2_params, xgb_team_2_score = perform_grid_search(
     X_train,
     y_train_team_2
 )
-print(f"Best XGB Params (Team 2): {xgb_team_2_params}")
+print(f"Best XGB Params (Team 2): {xgb_team_2_params}\n")
 
 with open("rf_team_1.pkl", "wb") as f:
     pickle.dump(rf_team_1_model, f)
@@ -140,15 +141,13 @@ with open("xgb_team_1.pkl", "wb") as f:
     pickle.dump(xgb_team_1_model, f)
 with open("xgb_team_2.pkl", "wb") as f:
     pickle.dump(xgb_team_2_model, f)
-print("All models saved successfully!")
+print("\nAll models saved successfully!")
 
 # --- Evaluate on Validation Set ---
 def evaluate_model(model, X, y_true):
     y_pred = model.predict(X)
     mae = mean_absolute_error(y_true, y_pred)
-    mse = mean_squared_error(y_true, y_pred)
-    r2 = r2_score(y_true, y_pred)
-    return {"MAE": mae, "MSE": mse, "R2": r2}
+    return f"{mae:.4f}"
 
 """
 with open("rf_team_1.pkl", "rb") as f:
@@ -164,36 +163,38 @@ print("All models loaded successfully!")
 """
 
 # Evaluate the best models based on full training set
-rf_team_1_metrics = evaluate_model(rf_team_1_model, X_train, y_train_team_1)
-rf_team_2_metrics = evaluate_model(rf_team_2_model, X_train, y_train_team_2)
-xgb_team_1_metrics = evaluate_model(xgb_team_1_model, X_train, y_train_team_1)
-xgb_team_2_metrics = evaluate_model(xgb_team_2_model, X_train, y_train_team_2)
+rf_team_1_metrics = evaluate_model(rf_team_1_model, X_test, y_test_team_1)
+rf_team_2_metrics = evaluate_model(rf_team_2_model, X_test, y_test_team_2)
+xgb_team_1_metrics = evaluate_model(xgb_team_1_model, X_test, y_test_team_1)
+xgb_team_2_metrics = evaluate_model(xgb_team_2_model, X_test, y_test_team_2)
 
-print("Random Forest (Team 1) Validation Metrics:", rf_team_1_metrics)
-print("Random Forest (Team 2) Validation Metrics:", rf_team_2_metrics)
-print("XGBoost (Team 1) Validation Metrics:", xgb_team_1_metrics)
-print("XGBoost (Team 2) Validation Metrics:", xgb_team_2_metrics)
+print("\nRandom Forest (Team 1) MAE:", rf_team_1_metrics)
+print("Random Forest (Team 2) MAE:", rf_team_2_metrics)
+print("\nXGBoost (Team 1) MAE:", xgb_team_1_metrics)
+print("XGBoost (Team 2) MAE:", xgb_team_2_metrics)
 
 # Choose champion models
-champion_models = {}
-
-if rf_team_1_metrics["MAE"] < xgb_team_1_metrics["MAE"]:
-    champion_models["team_1"] = {"name": "Random Forest", "model": rf_team_1_model}
+if rf_team_1_metrics < xgb_team_1_metrics:
+    champion_model1 = rf_team_1_model
+    model_name1 = "Random Forest"
 else:
-    champion_models["team_1"] = {"name": "XGBoost", "model": xgb_team_1_model}
+    champion_model1 = xgb_team_1_model
+    model_name1 = "XGBoost"
 
-if rf_team_2_metrics["MAE"] < xgb_team_2_metrics["MAE"]:
-    champion_models["team_2"] = {"name": "Random Forest", "model": rf_team_2_model}
+if rf_team_2_metrics < xgb_team_2_metrics:
+    champion_model2 = rf_team_2_model
+    model_name2 = "Random Forest"
 else:
-    champion_models["team_2"] = {"name": "XGBoost", "model": xgb_team_2_model}
+    champion_model2 = xgb_team_2_model
+    model_name2 = "XGBoost"
 
-for team, info in champion_models.items():
-    print(f"Champion Model for {team}: {info['name']}")
+print(f"\nBest Model (Team 1): {model_name1}")
+print(f"Best Model (Team 2): {model_name1}\n")
 
 
 # --- Test the Champion Models ---
-team_1_test_pred = champion_models["team_1"]["model"].predict(X_test)
-team_2_test_pred = champion_models["team_2"]["model"].predict(X_test)
+team_1_test_pred = champion_model1.predict(X_test)
+team_2_test_pred = champion_model2.predict(X_test)
 
 
 # --- Predict Match Results + Accuracy ---
@@ -211,8 +212,8 @@ for buffer in [0.1, 0.2, 0.3]:
     accuracy = accuracy_score(actual_results, test_data["predicted_result"])
     print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
 
-print(test_data["predicted_result"].value_counts())
-print(actual_results.count("W"), actual_results.count("D"), actual_results.count("L"))
+print(f"\n{test_data["predicted_result"].value_counts()}")
+print(f"\n{actual_results.count("L"), actual_results.count("D"), actual_results.count("W")}")
 
 # --- Visualize Confusion Matrix ---
 conf_matrix = confusion_matrix(actual_results, test_data["predicted_result"], labels=["W", "D", "L"])
