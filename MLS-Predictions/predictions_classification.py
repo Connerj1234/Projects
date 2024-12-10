@@ -134,13 +134,13 @@ rf_param_grid = {
 
 xgb_param_grid = {
     "n_estimators": [250, 300, 350],
-    #"learning_rate": [0.1, 0.15],
-    #"max_depth": [7, 9, 11],
-    #"subsample": [0.7, 0.8, 0.9],
-    #"colsample_bytree": [1.0, 1.25, 1.5],
-    #"min_child_weight": [2, 3, 4],
-    #"reg_alpha": [0],
-    #"reg_lambda": [1.3, 1.5, 1.7]
+    "learning_rate": [0.1, 0.15],
+    "max_depth": [7, 9, 11],
+    "subsample": [0.7, 0.8, 0.9],
+    "colsample_bytree": [1.0, 1.25, 1.5],
+    "min_child_weight": [2, 3, 4],
+    "reg_alpha": [0],
+    "reg_lambda": [1.3, 1.5, 1.7]
 }
 
 class_weights = {0: 1.0, 1: 1.5, 2: 1.0}
@@ -220,7 +220,7 @@ print("\nPrediction Distribution:", Counter(test_pred))
 
 from sklearn.metrics import classification_report
 print(f"\nFinal Classification Report: \n{classification_report(y_test, test_pred, target_names=["Loss", "Draw", "Win"])}")
-"""
+
 def extract_feature_importance(model, features):
     importance = None
     if hasattr(model, "feature_importances_"):
@@ -242,4 +242,4 @@ plt.figure(figsize=(10, 6))
 sns.barplot(x="Importance", y="Feature", data=feature_importance)
 plt.title("Feature Importance for Best Model")
 plt.show()
-"""
+
