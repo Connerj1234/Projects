@@ -9,10 +9,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-# ---  Load Data ---
 match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 
-# Ensure date is datetime
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
 # Create team_1 and team_2 columns from is_home perspective
@@ -21,12 +19,11 @@ match_df["team_2"] = np.where(match_df["is_home"] == 1, match_df["opponent"], ma
 
 def assign_perspective(row):
     if row["is_home"] == 1:
-        # team is already team_1
         row["team_1_gf"] = row["gf"]
         row["team_1_ga"] = row["ga"]
         row["team_1_xg"] = row["xg"]
         row["team_1_xga"] = row["xga"]
-        row["team_2_gf"] = row["ga"]  # Opponent scored 'ga' goals from team_1 perspective
+        row["team_2_gf"] = row["ga"]
         row["team_2_ga"] = row["gf"]
         row["team_2_xg"] = row["xga"]
         row["team_2_xga"] = row["xg"]
@@ -36,10 +33,7 @@ def assign_perspective(row):
         row["team_1_gca"] = row["gca"]
         row["team_2_gca"] = row["gca_opponent"]
     else:
-        # The current row is from the away team's perspective.
-        # But we want team_1 to be home. So if is_home == 0, the 'team' column is actually the away team.
-        # Swap gf/ga so they represent the home team (team_1).
-        row["team_1_gf"] = row["ga"]  # because originally gf is the away team's goals
+        row["team_1_gf"] = row["ga"]
         row["team_1_ga"] = row["gf"]
         row["team_1_xg"] = row["xga"]
         row["team_1_xga"] = row["xg"]
@@ -52,12 +46,10 @@ def assign_perspective(row):
         row["team_1_ast"] = row["ast_opponent"]
         row["team_2_gca"] = row["gca"]
         row["team_1_gca"] = row["gca_opponent"]
-
     return row
 
 match_df = match_df.apply(assign_perspective, axis=1)
 
-# Drop rows where the 'result' column has NaN values
 match_df = match_df.dropna(subset=["result"])
 
 # Create a corrected result column based on gf and ga
@@ -125,7 +117,7 @@ team_2_rolling_features = [
 
 all_features = base_features + team_1_rolling_features + team_2_rolling_features
 
-# ---  Split Data into Training (<2023) and Test (2023-2024) ---
+# ---  Split Data into Training and Test ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
 
 train_subset = match_df[(match_df["year"] >= 2020) & (match_df["year"] <= 2022)]
@@ -155,26 +147,25 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
         verbose=1,
         n_jobs=-1
     )
-
     grid_search.fit(X_train, y_train)
     return grid_search.best_estimator_, grid_search.best_params_, grid_search.best_score_
 
 rf_param_grid = {
     "n_estimators": [100, 200, 300],
-    #"max_depth": [4, 6, 8, 10],
-    #"min_samples_split": [2, 5, 10],
-    #"min_samples_leaf": [1, 2, 4]
+    "max_depth": [4, 6, 8, 10],
+    "min_samples_split": [2, 5, 10],
+    "min_samples_leaf": [1, 2, 4]
 }
 
 xgb_param_grid = {
     "n_estimators": [100, 125, 150],
-    #"learning_rate": [0.025, 0.05],
-    #"max_depth": [2],
-    #"subsample": [0.7, 0.8, 0.9],
-    #"colsample_bytree": [0.08, 0.1, 0.12],
-    #"min_child_weight": [4, 5, 6],
-    #"reg_alpha": [0, 0.01],
-    #"reg_lambda": [1.5, 2]
+    "learning_rate": [0.025, 0.05],
+    "max_depth": [2],
+    "subsample": [0.7, 0.8, 0.9],
+    "colsample_bytree": [0.08, 0.1, 0.12],
+    "min_child_weight": [4, 5, 6],
+    "reg_alpha": [0, 0.01],
+    "reg_lambda": [1.5, 2]
 }
 
 class_weights = {0: 3.0, 1: 3.0, 2: 1.0}
@@ -264,9 +255,7 @@ def extract_feature_importance(model, features):
         booster = model.get_booster()
         importance_dict = booster.get_score(importance_type="weight")
         importance = [importance_dict.get(f, 0) for f in features]
-    importance_df = pd.DataFrame({"Feature": features, "Importance": importance})
-    importance_df["Importance"] /= importance_df["Importance"].sum()
-    return importance_df.sort_values(by="Importance", ascending=False)
+    return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
 # Extract feature importance for champion models
 feature_importance = extract_feature_importance(best_model, X_test.columns)

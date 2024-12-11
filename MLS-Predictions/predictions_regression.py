@@ -54,7 +54,7 @@ rolling_feature_columns = [
 base_features = ["is_home_team1", "hour", "day_code"]
 features = base_features + rolling_feature_columns
 
-# ---  Split Data into Training (<2023) and Test (2023-2024) ---
+# ---  Split Data into Training and Test ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
 
 train_subset = match_df[(match_df["year"] >= 2020) & (match_df["year"] <= 2022)]
@@ -143,7 +143,7 @@ xgb_team_2_model, xgb_team_2_params, xgb_team_2_score = perform_grid_search(
     y_train_team_2
 )
 print(f"Best XGB Params (Team 2): {xgb_team_2_params}\n")
-
+"""
 with open("rf_team_1.pkl", "wb") as f:
     pickle.dump(rf_team_1_model, f)
 with open("rf_team_2.pkl", "wb") as f:
@@ -153,8 +153,8 @@ with open("xgb_team_1.pkl", "wb") as f:
 with open("xgb_team_2.pkl", "wb") as f:
     pickle.dump(xgb_team_2_model, f)
 print("\nAll models saved successfully!")
-
-# --- Evaluate on Validation Set ---
+"""
+# --- Evaluate on Test Set ---
 def evaluate_model(model, X, y_true):
     y_pred = model.predict(X)
     mae = mean_absolute_error(y_true, y_pred)
@@ -202,10 +202,16 @@ else:
 print(f"\nBest Model (Team 1): {model_name1}")
 print(f"Best Model (Team 2): {model_name1}\n")
 
-
 # --- Test the Champion Models ---
 team_1_test_pred = champion_model1.predict(X_test)
 team_2_test_pred = champion_model2.predict(X_test)
+
+# Check if predictions match exactly
+matches1 = (team_1_test_pred == y_test_team_1).sum()
+print(f"Total Matches Correct Team 1: {matches1}/{len(y_test_team_1)}")
+
+matches2 = (team_2_test_pred == y_test_team_2).sum()
+print(f"Total Matches Correct Team 2: {matches2}/{len(y_test_team_2)}")
 
 
 # --- Predict Match Results + Accuracy ---
