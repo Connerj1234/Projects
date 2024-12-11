@@ -1,1 +1,0 @@
-print(match_df.loc[match_df['gf_diff'].isna(), ['team_1','team_2','gf','ga','xg','xga']].head(20))

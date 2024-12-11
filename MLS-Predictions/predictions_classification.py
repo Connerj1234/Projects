@@ -1,9 +1,9 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.metrics import accuracy_score, make_scorer, f1_score, classification_report, confusion_matrix
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
 from xgboost import XGBClassifier
-from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import ADASYN
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
@@ -52,6 +52,7 @@ def assign_perspective(row):
 match_df = match_df.apply(assign_perspective, axis=1)
 
 match_df = match_df.dropna(subset=["result"])
+match_df = match_df.fillna(0)
 
 # Create a corrected result column based on gf and ga
 match_df["correct_result"] = match_df.apply(
@@ -63,21 +64,39 @@ match_df["correct_result"] = match_df.apply(
 
 match_df["result"] = match_df["correct_result"]
 
+new_columns = {}
+
 match_df = match_df.sort_values(by=["team_1", "date"])
 rolling_features = ["team_1_gf", "team_1_ga", "team_1_xg", "team_1_xga", "team_1_poss", "team_1_ast", "team_1_gca"]
 for feature in rolling_features:
-    match_df[f"{feature}_rolling"] = (
+    new_columns[f"{feature}_rolling"] = (
         match_df.groupby("team_1")[feature]
-        .transform(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
+        .transform(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean().fillna(0))
     )
 
 match_df = match_df.sort_values(by=["team_2", "date"])
 rolling_features_team2 = ["team_2_gf", "team_2_ga", "team_2_xg", "team_2_xga", "team_2_poss", "team_2_ast", "team_2_gca"]
 for feature in rolling_features_team2:
-    match_df[f"{feature}_rolling"] = (
+    new_columns[f"{feature}_rolling"] = (
         match_df.groupby("team_2")[feature]
-        .transform(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
+        .transform(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean().fillna(0))
     )
+
+new_columns["team_1_goal_diff_rolling"] = (
+    new_columns["team_1_gf_rolling"] - new_columns["team_1_ga_rolling"]
+)
+new_columns["team_2_goal_diff_rolling"] = (
+    new_columns["team_2_gf_rolling"] - new_columns["team_2_ga_rolling"]
+)
+new_columns["team_1_xg_diff_rolling"] = (
+    new_columns["team_1_xg_rolling"] - new_columns["team_1_xga_rolling"]
+)
+new_columns["team_2_xg_diff_rolling"] = (
+    new_columns["team_2_xg_rolling"] - new_columns["team_2_xga_rolling"]
+)
+
+match_df = pd.concat([match_df, pd.DataFrame(new_columns)], axis=1)
+match_df = match_df.copy()
 
 match_df["result"] = match_df.apply(
     lambda row: "D" if row["team_1_gf"] == row["team_2_gf"]
@@ -116,7 +135,11 @@ team_2_rolling_features = [
     "team_2_gca_rolling"
 ]
 
-all_features = base_features + team_1_rolling_features + team_2_rolling_features
+difference_columns = [
+    "team_1_goal_diff_rolling", "team_2_goal_diff_rolling", "team_1_xg_diff_rolling", "team_2_xg_diff_rolling"
+]
+
+all_features = base_features + team_1_rolling_features + team_2_rolling_features + difference_columns
 
 # ---  Split Data into Training and Test ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
@@ -130,8 +153,8 @@ test_data = test_data.dropna(subset=all_features)
 X_train = train_subset[all_features]
 y_train = train_subset["target"]
 
-sm = SMOTE(random_state=42)
-X_train, y_train = sm.fit_resample(X_train, y_train)
+adasyn = ADASYN(random_state=42)
+X_train, y_train = adasyn.fit_resample(X_train, y_train)
 
 X_test = test_data[all_features]
 y_test = test_data["target"]
@@ -152,26 +175,25 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [100, 200, 300],
-    "max_depth": [4, 6, 8, 10],
-    "min_samples_split": [2, 5, 10],
-    "min_samples_leaf": [1, 2, 4]
+    "n_estimators": [125, 150, 175],
+    #"max_depth": [10, 17, 18, 20],
+    #"min_samples_split": [2, 3, 4],
+    #"min_samples_leaf": [2, 3]
 }
 
 xgb_param_grid = {
-    "n_estimators": [100, 125, 150],
-    "learning_rate": [0.025, 0.05],
-    "max_depth": [2],
-    "subsample": [0.7, 0.8, 0.9],
-    "colsample_bytree": [0.08, 0.1, 0.12],
-    "min_child_weight": [4, 5, 6],
-    "reg_alpha": [0, 0.01],
-    "reg_lambda": [1.5, 2]
+    "n_estimators": [300, 350],
+    #"learning_rate": [0.075, 0.01],
+    #"max_depth": [2],
+    #"subsample": [0.1, 0.25],
+    #"colsample_bytree": [0.04, 0.06],
+    #"min_child_weight": [4, 5],
+    #"reg_alpha": [0, 0.005],
+    #"reg_lambda": [0.5, 1]
 }
 
-class_weights = {0: 3.0, 1: 3.0, 2: 1.0}
 rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
-    RandomForestClassifier(random_state=42, class_weight=class_weights),
+    RandomForestClassifier(random_state=42),
     rf_param_grid,
     X_train,
     y_train
@@ -179,7 +201,7 @@ rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
 print(f"Best RF Params: {rf_best_params}, Best Score: {rf_best_score:.4f}\n")
 
 xgb_classifier, xgb_best_params, xgb_best_score = perform_grid_search(
-    XGBClassifier(random_state=42, objective="multi:softmax", num_class=3, eval_metric="logloss"),
+    XGBClassifier(random_state=42),
     xgb_param_grid,
     X_train,
     y_train
@@ -199,14 +221,15 @@ rf_test_accuracy = evaluate_model(rf_classifier, X_test, y_test)
 print("\nXGBoost Classifier Performance:")
 xgb_test_accuracy = evaluate_model(xgb_classifier, X_test, y_test)
 
-if rf_test_accuracy > xgb_test_accuracy:
-    best_model = rf_classifier
-    model_name = "Random Forest"
-else:
-    best_model = xgb_classifier
-    model_name = "XGBoost"
+ensemble_model = VotingClassifier(
+    estimators=[
+        ("rf", rf_classifier),
+        ("xgb", xgb_classifier)  # Ensure xgb_classifier is trained and available
+    ],
+    voting="soft"
+)
+ensemble_model.fit(X_train, y_train)
 
-print(f"\nBest Model: {model_name}")
 """
 with open("best_classifier.pkl", "wb") as f:
     pickle.dump(best_model, f)
@@ -218,12 +241,13 @@ with open("best_classifier.pkl", "rb") as f:
 new_predictions = loaded_model.predict(X_test)
 print(new_predictions)
 """
-test_pred = best_model.predict(X_test)
+test_pred = ensemble_model.predict(X_test)
 
-# Check if predictions match exactly
+print("Emsemble Model Performance: ")
+final_accuracy = evaluate_model(ensemble_model, X_test, y_test)
+
 matches = (test_pred == y_test).sum()
 print(f"Total Matches Correct: {matches}/{len(y_test)}")
-
 
 # --- Visualize Confusion Matrix ---
 conf_matrix = confusion_matrix(y_test, test_pred)
@@ -241,10 +265,8 @@ plt.xlabel("Predicted Result")
 plt.show()
 
 from collections import Counter
-print("\nPrediction Distribution:", Counter(test_pred))
-
-from sklearn.metrics import classification_report
-print(f"\nFinal Classification Report: \n{classification_report(y_test, test_pred, target_names=["Loss", "Draw", "Win"])}")
+prediction_distribution = Counter(test_pred)
+print("\nPrediction Distribution:", {int(k): int(v) for k, v in prediction_distribution.items()})
 
 def extract_feature_importance(model, features):
     importance = None
@@ -259,9 +281,21 @@ def extract_feature_importance(model, features):
     return pd.DataFrame({"Feature": features, "Importance": importance}).sort_values(by="Importance", ascending=False)
 
 # Extract feature importance for champion models
-feature_importance = extract_feature_importance(best_model, X_test.columns)
+feature_importance_rf = extract_feature_importance(
+    rf_classifier, X_test.columns
+)
+feature_importance_xgb = extract_feature_importance(
+    xgb_classifier, X_test.columns
+)
 
+# Plot feature importance for Team 1
 plt.figure(figsize=(10, 6))
-sns.barplot(x="Importance", y="Feature", data=feature_importance)
-plt.title("Feature Importance for Best Model")
+sns.barplot(x="Importance", y="Feature", data=feature_importance_rf)
+plt.title("Feature Importance for Random Forest Model")
+plt.show()
+
+# Plot feature importance for Team 2
+plt.figure(figsize=(10, 6))
+sns.barplot(x="Importance", y="Feature", data=feature_importance_xgb)
+plt.title("Feature Importance for XGBoost Model")
 plt.show()
