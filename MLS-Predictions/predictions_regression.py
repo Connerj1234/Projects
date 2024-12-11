@@ -9,6 +9,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
+#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
