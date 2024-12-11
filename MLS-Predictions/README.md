@@ -1,83 +1,129 @@
 # MLS Predictions Using ML
 
-### Project Description
+### Predicting Soccer Match Outcomes Using Python, Web Scraping, and Machine Learning
 
-**Predicting Soccer Match Outcomes Using Python, Web Scraping, and Machine Learning**
+This project predicts soccer match outcomes using two complementary machine learning approaches: regression, to forecast the goals scored by both teams, and classification, to directly predict match results (win, draw, loss). By combining web-scraped match data with advanced machine learning techniques, we analyze match statistics, account for opponent difficulty, and develop predictive models to evaluate team performance.
 
-This project predicts the outcome of soccer matches by forecasting the goals scored by two teams (Team 1 and Team 2). By combining web-scraped match data with advanced machine learning techniques, we analyze match statistics, incorporate opponent difficulty, and develop predictive models to evaluate team performance and determine match winners.
+## 1. Data Collection: Web Scraping with Beautiful Soup
 
-#### **1. Data Collection: Web Scraping with Beautiful Soup**
-Using Python's `requests` and `BeautifulSoup` libraries, we scrape match data from FBref.com. The data includes:
+Using Python's requests and BeautifulSoup libraries, we scrape match data from FBref.com. The data includes:
+
 - Team performance metrics: goals scored (GF), goals conceded (GA), shots, shots on target, xG (expected goals), etc.
+
 - Opponent statistics for each match, such as defensive strength, recent form, and rolling averages of key metrics.
 
-This comprehensive dataset enables the model to account for not just the team's strengths but also the difficulty of their opponents.
+This comprehensive dataset enables the models to account for both team strengths and the difficulty of their opponents.
 
-#### **2. Data Cleaning and Feature Engineering**
-We preprocess the scraped data using `pandas`, focusing on:
-- **Standardizing Team Names**: Ensuring consistent naming across datasets for seamless merges.
-- **Incorporating Opponent Data**: Adding rolling averages of key opponent metrics (e.g., goals conceded, shots faced, defensive actions) to evaluate match difficulty.
-- **Rolling Averages**: Calculating rolling averages for the last five games for both teams and their opponents to account for recent form.
-- **Venue Encoding**: Encoding home and away matches with binary flags (`is_home_team1`, `is_home_team2`).
-- **Match Metadata**: Extracting features such as match time and day of the week.
-- **Team Assignments**: Assigning teams as "Team 1" and "Team 2" for neutral representation of matches.
+## 2. Data Cleaning and Feature Engineering
 
-The cleaned and enriched dataset is saved as a CSV file for reproducibility.
+We preprocess the scraped data using pandas, focusing on:
 
-#### **3. Machine Learning Framework**
-To predict goals scored by each team, the framework incorporates features representing both Team 1 and Team 2, as well as their opponents. This enables the model to assess match difficulty and team performance simultaneously.
+- Standardizing Team Names: Ensuring consistent naming across datasets for seamless merges.
 
-##### **Feature Selection:**
+- Incorporating Opponent Data: Adding rolling averages of key opponent metrics (e.g., goals conceded, shots faced, defensive actions) to evaluate match difficulty.
+
+- Rolling Averages: Calculating rolling averages for the last ten games for both teams and their opponents to account for recent form.
+
+- Venue Encoding: Encoding home and away matches with binary flags (is_home_team1, is_home_team2).
+
+- Match Metadata: Extracting features such as match time and day of the week.
+
+- Team Assignments: Assigning teams as "Team 1" and "Team 2" for neutral representation of matches.
+
+## 3. Machine Learning Framework
+
+This project employs two distinct approaches to predict match outcomes:
+
+### Regression Approach
+
+The regression models predict the number of goals scored by each team (Team 1 and Team 2). Predicted scores are then compared to determine the match result.
+
+### Classification Approach
+
+The classification models directly predict match results (win, draw, loss) using a labeled target variable.
+
+### Feature Selection:
+
 Features used in modeling include:
-- **Team Performance Metrics**: Rolling averages of goals scored (`gf`), goals conceded (`ga`), shots on target (`sot`), etc.
-- **Opponent Metrics**: Rolling averages of the opponent's goals conceded (`opponent_ga_rolling`), shots faced, and other defensive metrics.
-- **Home/Away Indicators**: (`is_home_team1`, `is_home_team2`).
-- **Match Metadata**: Hour of the match (`hour`), day of the week (`day_code`).
 
-##### **Model Training:**
-We use two machine learning models:
-- **Random Forest Regressor**: Captures complex interactions between features through ensemble decision trees.
-- **XGBoost Regressor**: A gradient-boosted decision tree model optimized for structured datasets.
+- Team Performance Metrics: Rolling averages of goals scored (gf), goals conceded (ga), shots on target (sot), xG (xg), and xGA (xga).
 
-##### **Opponent Data Integration:**
-The model incorporates rolling averages of opponent statistics (e.g., defensive strength, recent goals conceded) as predictive features. This allows the model to adjust its predictions based on the difficulty of the opponent, reflecting real-world match conditions.
+- Opponent Metrics: Rolling averages of the opponent's goals conceded (opponent_ga_rolling), shots faced, and other defensive metrics.
 
-##### **Model Tuning:**
-We perform hyperparameter tuning using `GridSearchCV` to optimize model performance. Parameters such as `n_estimators`, `max_depth`, and `learning_rate` are tuned for each model.
+- Home/Away Indicators: (is_home_team1, is_home_team2).
 
-#### **4. Model Evaluation**
+- Match Metadata: Hour of the match (hour), day of the week (day_code).
+
+### Model Training:
+
+We use the following machine learning models:
+
+- Random Forest Regressor/Classifier: Captures complex interactions between features through ensemble decision trees.
+
+- XGBoost Regressor/Classifier: A gradient-boosted decision tree model optimized for structured datasets.
+
+### Opponent Data Integration:
+
+Both regression and classification models incorporate rolling averages of opponent statistics (e.g., defensive strength, recent goals conceded) as predictive features. This allows the models to adjust predictions based on match difficulty, reflecting real-world conditions.
+
+### Model Tuning:
+
+We perform hyperparameter tuning using GridSearchCV to optimize model performance. Parameters such as n_estimators, max_depth, and learning_rate are tuned for each model.
+
+## 4. Model Evaluation
+
 To evaluate the models:
-- **Mean Absolute Error (MAE)**: Quantifies prediction accuracy for goals scored by both teams.
-- **Confusion Matrix**: Visualizes the accuracy of match outcome predictions (win, draw, loss).
 
-The inclusion of opponent data significantly improves the model's ability to predict match outcomes by accounting for match difficulty.
+### Regression Models:
 
-#### **5. Match Outcome Predictions**
+- Mean Absolute Error (MAE): Quantifies prediction accuracy for goals scored by both teams.
+
+### Classification Models:
+
+- Accuracy Score: Compares predicted match outcomes against actual match outcomes.
+
+## 5. Match Outcome Predictions
+
 Using the trained models:
-- We predict goals scored by Team 1 and Team 2 for test matches.
-- Compare predicted scores to determine the match result (Win, Draw, or Loss).
-- Calculate prediction accuracy using `accuracy_score`.
 
-#### **6. Feature Importance**
-We analyze feature importance to identify the factors influencing goals scored by both teams:
-- **Team Performance Metrics**: Rolling averages of goals scored and conceded by the team.
-- **Opponent Metrics**: Rolling averages of the opponent's goals conceded and defensive actions.
-- **Home Advantage**: Whether the team played at home or away.
-- **Match Timing**: The impact of match timing and day of the week.
+### Regression Approach:
+
+- Predict goals scored by Team 1 and Team 2.
+
+- Compare predicted scores with a buffer threshold to determine match results (Win, Draw, Loss).
+
+### Classification Approach:
+
+- Predict match outcomes directly using labeled targets.
+
+## 6. Feature Importance
+
+We analyze feature importance to identify the factors influencing match outcomes:
+
+- Regression Models: Analyze the importance of rolling averages and performance metrics for predicting goals.
+
+- Classification Models: Evaluate which features are most impactful for determining win, draw, or loss outcomes.
 
 Feature importance analysis provides actionable insights into which metrics are most influential in determining match outcomes.
 
-#### **7. Visualization**
-We use `matplotlib` and `seaborn` to create:
-- A confusion matrix to assess model accuracy in predicting match results.
+## 7. Visualization
+
+We use matplotlib and seaborn to create:
+
+- Confusion matrices to assess model accuracy in predicting match results.
+
 - Feature importance bar charts to highlight key drivers of performance for both teams.
 
-#### **Libraries and Tools Used**
-- **Web Scraping**: `requests`, `BeautifulSoup`
-- **Data Analysis**: `pandas`, `numpy`
-- **Machine Learning**: `scikit-learn`, `xgboost`
-- **Hyperparameter Tuning**: `GridSearchCV`
-- **Evaluation and Visualization**: `matplotlib`, `seaborn`
+### Libraries and Tools Used
 
-#### **8. Insights and Applications**
-By combining team and opponent data, this project provides a robust framework for predicting soccer match outcomes. It demonstrates how opponent difficulty influences performance, enabling predictions that closely reflect real-world dynamics. The approach is applicable to sports analytics, betting, and team strategy optimization.
+- Web Scraping: requests, BeautifulSoup
+
+- Data Analysis: pandas, numpy
+
+- Machine Learning: scikit-learn, xgboost
+
+- Hyperparameter Tuning: GridSearchCV
+
+- Data Balancing: imblearn, ADASYN
+
+- Evaluation and Visualization: matplotlib, seaborn
