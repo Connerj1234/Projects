@@ -22,7 +22,6 @@ match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
 match_df = match_df.dropna(subset=["result"])
-match_df.fillna(0, inplace=True)
 
 match_df["correct_result"] = match_df.apply(
     lambda row: "D" if row["gf"] == row["ga"]
@@ -36,14 +35,14 @@ print(f"{match_df["result"].value_counts()}\n")
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "ast", "gca",
+rolling_features = ["gf", "ga", "xg", "xga", "ast", "gca",
                     "ast_opponent", "gca_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
-        match_df.groupby("team_1")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
+        match_df.groupby("team_1")[feature].rolling(window=10, min_periods=1).mean().fillna(0).reset_index(0, drop=True)
     )
     match_df[f"team_2_{feature}_rolling"] = (
-        match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
+        match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().fillna(0).reset_index(0, drop=True)
     )
 
 match_df["team_1_goal_diff_rolling"] = (
@@ -101,20 +100,20 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [300, 350, 400],
-    "max_depth": [6, 8, 10],
+    "n_estimators": [250, 275, 300],
+    "max_depth": [6, 10],
     "min_samples_split": [2],
-    "min_samples_leaf": [8, 10],
+    "min_samples_leaf": [9, 10],
 }
 xgb_param_grid = {
-    "n_estimators": [125, 150, 200],
-    "learning_rate": [0.05, 0.075],
+    "n_estimators": [100, 125, 150],
+    "learning_rate": [0.05, 0.0625, 0.075],
     "max_depth": [2],
-    "subsample": [0.5, 0.8],
-    "colsample_bytree": [0.8, 0.1],
-    "min_child_weight": [4, 5, 6],
-    "reg_alpha": [0, 0.01],
-    "reg_lambda": [1, 1.5]
+    "subsample": [0.3, 0.5, 0.7],
+    "colsample_bytree": [0.6, 0.75, 0.9],
+    "min_child_weight": [5, 7],
+    "reg_alpha": [0, 0.005],
+    "reg_lambda": [0.5, 1, 1.5]
 }
 
 # --- Perform Grid Search and Refit for Each Model ---
@@ -217,7 +216,7 @@ team_1_test_pred = champion_model1.predict(X_test)
 team_2_test_pred = champion_model2.predict(X_test)
 
 # --- Predict Match Results + Accuracy ---
-for buffer in [0.05, 0.1, 0.15]:
+for buffer in [0.05, 0.075, 0.1]:
     test_data["predicted_result"] = [
         "W" if team_1_test_pred[i] > team_2_test_pred[i] + buffer else
         ("L" if team_1_test_pred[i] + buffer < team_2_test_pred[i] else "D")
