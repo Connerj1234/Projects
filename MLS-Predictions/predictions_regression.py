@@ -9,7 +9,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -32,6 +32,7 @@ match_df["correct_result"] = match_df.apply(
 )
 
 match_df["result"] = match_df["correct_result"]
+print(f"{match_df["result"].value_counts()}\n")
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
@@ -45,10 +46,19 @@ for feature in rolling_features:
         match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
     )
 
+match_df["team_1_goal_diff_rolling"] = (
+    match_df["team_1_gf_rolling"] - match_df["team_1_ga_rolling"]
+)
+match_df["team_2_goal_diff_rolling"] = (
+    match_df["team_2_gf_rolling"] - match_df["team_2_ga_rolling"]
+)
+
 rolling_feature_columns = [
     f"team_1_{feature}_rolling" for feature in rolling_features
 ] + [
     f"team_2_{feature}_rolling" for feature in rolling_features
+] + [
+    "team_1_goal_diff_rolling", "team_2_goal_diff_rolling"
 ]
 
 base_features = ["is_home_team1", "hour", "day_code"]
@@ -179,7 +189,7 @@ rf_team_2_metrics = evaluate_model(rf_team_2_model, X_test, y_test_team_2)
 xgb_team_1_metrics = evaluate_model(xgb_team_1_model, X_test, y_test_team_1)
 xgb_team_2_metrics = evaluate_model(xgb_team_2_model, X_test, y_test_team_2)
 
-print("\nRandom Forest (Team 1) MAE:", rf_team_1_metrics)
+print("Random Forest (Team 1) MAE:", rf_team_1_metrics)
 print("Random Forest (Team 2) MAE:", rf_team_2_metrics)
 print("\nXGBoost (Team 1) MAE:", xgb_team_1_metrics)
 print("XGBoost (Team 2) MAE:", xgb_team_2_metrics)
@@ -206,14 +216,6 @@ print(f"Best Model (Team 2): {model_name1}\n")
 team_1_test_pred = champion_model1.predict(X_test)
 team_2_test_pred = champion_model2.predict(X_test)
 
-# Check if predictions match exactly
-matches1 = (team_1_test_pred == y_test_team_1).sum()
-print(f"Total Matches Correct Team 1: {matches1}/{len(y_test_team_1)}")
-
-matches2 = (team_2_test_pred == y_test_team_2).sum()
-print(f"Total Matches Correct Team 2: {matches2}/{len(y_test_team_2)}")
-
-
 # --- Predict Match Results + Accuracy ---
 for buffer in [0.05, 0.1, 0.15]:
     test_data["predicted_result"] = [
@@ -228,9 +230,6 @@ for buffer in [0.05, 0.1, 0.15]:
     ]
     accuracy = accuracy_score(actual_results, test_data["predicted_result"])
     print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
-
-print(f"\n{test_data["predicted_result"].value_counts()}")
-print(f"\n{actual_results.count("L"), actual_results.count("W"), actual_results.count("D")}")
 
 # --- Visualize Confusion Matrix ---
 conf_matrix = confusion_matrix(actual_results, test_data["predicted_result"], labels=["W", "D", "L"])
