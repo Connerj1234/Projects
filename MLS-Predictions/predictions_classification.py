@@ -176,20 +176,20 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
 
 rf_param_grid = {
     "n_estimators": [125, 150, 175],
-    #"max_depth": [10, 17, 18, 20],
-    #"min_samples_split": [2, 3, 4],
-    #"min_samples_leaf": [2, 3]
+    "max_depth": [10, 17, 18, 20],
+    "min_samples_split": [2, 3, 4],
+    "min_samples_leaf": [2, 3]
 }
 
 xgb_param_grid = {
     "n_estimators": [300, 350],
-    #"learning_rate": [0.075, 0.01],
-    #"max_depth": [2],
-    #"subsample": [0.1, 0.25],
-    #"colsample_bytree": [0.04, 0.06],
-    #"min_child_weight": [4, 5],
-    #"reg_alpha": [0, 0.005],
-    #"reg_lambda": [0.5, 1]
+    "learning_rate": [0.075, 0.01],
+    "max_depth": [2],
+    "subsample": [0.1, 0.25],
+    "colsample_bytree": [0.04, 0.06],
+    "min_child_weight": [4, 5],
+    "reg_alpha": [0, 0.005],
+    "reg_lambda": [0.5, 1]
 }
 
 rf_classifier, rf_best_params, rf_best_score = perform_grid_search(
@@ -297,5 +297,5 @@ plt.show()
 # Plot feature importance for Team 2
 plt.figure(figsize=(10, 6))
 sns.barplot(x="Importance", y="Feature", data=feature_importance_xgb)
-plt.title("Feature Importance for XGBoost Model")
+plt.title("Feature Importance for XGBoos Model")
 plt.show()
