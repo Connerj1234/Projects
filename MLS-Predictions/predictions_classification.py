@@ -11,7 +11,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Downloads\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -34,7 +34,7 @@ match_df["correct_result"] = match_df.apply(
     else "L",
     axis=1
 )
-
+"""
 # Find mismatched rows
 incorrect_rows = match_df[match_df["result"] != match_df["correct_result"]]
 
@@ -50,12 +50,11 @@ remaining_incorrect_rows = match_df[match_df["result"] != match_df["correct_resu
 # Print any remaining mismatched rows after correction
 print("\nIncorrectly Labeled Rows After Correction:")
 print(remaining_incorrect_rows[["gf", "ga", "result", "correct_result"]])
-
+"""
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "ast", "kp", "gca", "tkl", "team_age",
-                    "sh_opponent", "ast_opponent", "kp_opponent", "gca_opponent",
-                    "tkl_opponent", "team_age_opponent"]
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "ast", "gca",
+                    "ast_opponent", "gca_opponent"]
 
 for feature in rolling_features:
     team_1_rolling = match_df.groupby("team_1")[feature].apply(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
@@ -97,7 +96,8 @@ print()
 
 # ---  Split Data into Training (<2023) and Test (2023-2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
-train_subset = match_df[match_df["year"] < 2023]
+
+train_subset = match_df[(match_df["year"] >= 2020) & (match_df["year"] <= 2022)]
 test_data = match_df[match_df["year"] >= 2023]
 
 train_subset = train_subset.dropna(subset=features)
@@ -126,21 +126,21 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [250, 500, 750],
-    "max_depth": [5, 10],
-    "min_samples_split": [3, 4, 5],
-    "min_samples_leaf": [1, 2],
+    "n_estimators": [225, 250, 275],
+    "max_depth": [4, 6, 8],
+    "min_samples_split": [2, 3],
+    "min_samples_leaf": [2, 3],
 }
 
 xgb_param_grid = {
-    "n_estimators": [250, 300, 350],
-    "learning_rate": [0.1, 0.15],
-    "max_depth": [7, 9, 11],
+    "n_estimators": [100, 125, 150],
+    "learning_rate": [0.025, 0.05],
+    "max_depth": [2],
     "subsample": [0.7, 0.8, 0.9],
-    "colsample_bytree": [1.0, 1.25, 1.5],
-    "min_child_weight": [2, 3, 4],
-    "reg_alpha": [0],
-    "reg_lambda": [1.3, 1.5, 1.7]
+    "colsample_bytree": [0.08, 0.1, 0.12],
+    "min_child_weight": [4, 5, 6],
+    "reg_alpha": [0, 0.01],
+    "reg_lambda": [1.5, 2]
 }
 
 class_weights = {0: 1.0, 1: 1.5, 2: 1.0}
@@ -242,4 +242,3 @@ plt.figure(figsize=(10, 6))
 sns.barplot(x="Importance", y="Feature", data=feature_importance)
 plt.title("Feature Importance for Best Model")
 plt.show()
-

@@ -9,7 +9,7 @@ import seaborn as sns
 import pickle
 
 # ---  Load Data ---
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Downloads\MLS_cleaned.csv")
 
 # Assign Neutral Labels (Team 1 and Team 2)
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
@@ -35,9 +35,8 @@ match_df["result"] = match_df["correct_result"]
 
 # ---  Add Rolling Averages Based on Last 10 Games ---
 match_df = match_df.sort_values(by=["team_1", "date"])
-rolling_features = ["gf", "ga", "xg", "xga", "poss", "sh", "ast", "kp", "gca", "tkl", "team_age",
-                    "sh_opponent", "ast_opponent", "kp_opponent", "gca_opponent",
-                    "tkl_opponent", "team_age_opponent"]
+rolling_features = ["gf", "ga", "xg", "xga", "poss", "ast", "gca",
+                    "ast_opponent", "gca_opponent"]
 for feature in rolling_features:
     match_df[f"team_1_{feature}_rolling"] = (
         match_df.groupby("team_1")[feature].rolling(window=10, min_periods=1).mean().reset_index(0, drop=True)
@@ -58,7 +57,7 @@ features = base_features + rolling_feature_columns
 # ---  Split Data into Training (<2023) and Test (2023-2024) ---
 match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
 
-train_subset = match_df[match_df["year"] < 2023]
+train_subset = match_df[(match_df["year"] >= 2020) & (match_df["year"] <= 2022)]
 test_data = match_df[match_df["year"] >= 2023]
 
 train_subset = train_subset.dropna(subset=features)
@@ -92,18 +91,18 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [375, 400, 425],
-    "max_depth": [10, 14, 18],
+    "n_estimators": [300, 350, 400],
+    "max_depth": [6, 8, 10],
     "min_samples_split": [2],
-    "min_samples_leaf": [6, 8, 10],
+    "min_samples_leaf": [8, 10],
 }
 xgb_param_grid = {
-    "n_estimators": [100, 125, 150],
+    "n_estimators": [125, 150, 200],
     "learning_rate": [0.05, 0.075],
-    "max_depth": [3],
-    "subsample": [0.7, 0.8],
-    "colsample_bytree": [0.6, 0.8],
-    "min_child_weight": [5, 7],
+    "max_depth": [2],
+    "subsample": [0.5, 0.8],
+    "colsample_bytree": [0.8, 0.1],
+    "min_child_weight": [4, 5, 6],
     "reg_alpha": [0, 0.01],
     "reg_lambda": [1, 1.5]
 }
@@ -210,7 +209,7 @@ team_2_test_pred = champion_model2.predict(X_test)
 
 
 # --- Predict Match Results + Accuracy ---
-for buffer in [0.1, 0.2, 0.3]:
+for buffer in [0.05, 0.1, 0.15]:
     test_data["predicted_result"] = [
         "W" if team_1_test_pred[i] > team_2_test_pred[i] + buffer else
         ("L" if team_1_test_pred[i] + buffer < team_2_test_pred[i] else "D")
@@ -237,7 +236,7 @@ plt.title("Confusion Matrix for Match Result Predictions")
 plt.ylabel("Actual Result")
 plt.xlabel("Predicted Result")
 plt.show()
- 
+
 # --- Feature Importance ---
 def extract_feature_importance(model, features):
     importance = None
