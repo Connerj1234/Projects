@@ -9,8 +9,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
-match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
+match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+#match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
@@ -297,5 +297,5 @@ plt.show()
 # Plot feature importance for Team 2
 plt.figure(figsize=(10, 6))
 sns.barplot(x="Importance", y="Feature", data=feature_importance_xgb)
-plt.title("Feature Importance for XGBoos Model")
+plt.title("Feature Importance for XGBoost Model")
 plt.show()
