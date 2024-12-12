@@ -189,5 +189,5 @@ for year, team_urls in all_team_urls.items():
 
 match_df = pd.concat(all_matches, ignore_index=True)
 match_df.columns = [c.lower() for c in match_df.columns]
-match_df.to_csv("match_data.csv", index=False)
+match_df.to_csv("MLS_uncleaned.csv", index=False)
 print("Data saved to csv")

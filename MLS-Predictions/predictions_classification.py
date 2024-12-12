@@ -10,7 +10,6 @@ import seaborn as sns
 import pickle
 
 match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
-#match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 
 match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
 
