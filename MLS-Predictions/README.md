@@ -134,9 +134,9 @@ We use matplotlib and seaborn to create:
 
   ### Regression
 -   By assigning teams as Team 1 (home) and Team 2 (away), the dataset maintained an equal distribution of wins and losses but fewer draws. This imbalance influenced the model's ability to predict draws effectively.
--  The regression models achieved strong recall for wins (70%) and losses (75%), reflecting their ability to accurately predict decisive outcomes. However, recall for draws was low (7%), as the rarity of draws in the data limited the model's performance in this category.
+-  The regression models achieved strong recall for wins (71%) and losses (76%), reflecting their ability to accurately predict decisive outcomes. However, recall for draws was low (4%), as the rarity of draws in the data limited the model's performance in this category.
 -  Overall accuracy for match outcomes (derived from predicted goals) reached 55%, highlighting the effectiveness of the regression approach for most outcomes, except draws.
 
 ### Classification 
 -  In this approach, the home team was always designated as Team 1, resulting in a dataset where wins were significantly more prevalent than losses or draws. This class imbalance caused the model to prioritize predicting wins at the expense of other outcomes.
--  The ensemble model achieved an overall accuracy of 42%, with recall scores of 59% for wins, 34% for losses, and 20% for draws. While the model handled wins reasonably well, its performance for losses and draws was weaker, reflecting the challenges of class imbalance in the data.
+-  The ensemble model achieved an overall accuracy of 42%, with recall scores of 63% for wins, 29% for losses, and 20% for draws. While the model handled wins reasonably well, its performance for losses and draws was weaker, reflecting the challenges of class imbalance in the data.
