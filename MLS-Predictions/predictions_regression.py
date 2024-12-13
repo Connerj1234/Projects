@@ -8,8 +8,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
-match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
+match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+
 # Calculate the distribution of the result column
 target_counts = match_df["result"].value_counts()
 target_percentages = match_df["result"].value_counts(normalize=True) * 100
@@ -72,21 +72,6 @@ test_data = test_data.dropna(subset=features)
 
 target_team_1 = "gf"
 target_team_2 = "ga"
-
-wins = train_subset[train_subset["result"] == "W"]
-losses = train_subset[train_subset["result"] == "L"]
-draws = train_subset[train_subset["result"] == "D"]
-
-# Oversample the "draw" class
-from sklearn.utils import resample
-draws_oversampled = resample(
-    draws,
-    replace=True,
-    n_samples=len(wins),
-    random_state=42
-)
-train_subset = pd.concat([wins, losses, draws_oversampled])
-train_subset = train_subset.sample(frac=1, random_state=42).reset_index(drop=True)
 
 X_train = train_subset[features]
 y_train_team_1 = train_subset[target_team_1]
