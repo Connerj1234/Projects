@@ -8,32 +8,30 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-# ---  Load Data ---
 match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
 
-# Assign Neutral Labels (Team 1 and Team 2)
+# Calculate the distribution of the result column
+target_counts = match_df["result"].value_counts()
+target_percentages = match_df["result"].value_counts(normalize=True) * 100
+
+distribution_df = pd.DataFrame({
+    "Counts": target_counts,
+    "Percentage (%)": target_percentages
+})
+
+print("\nResult Distribution:")
+print(distribution_df)
+print()
+
+# Assigns team_1 and team_2 columns based on is_home flag
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
 match_df["team_2"] = match_df.apply(lambda row: row["opponent"] if row["is_home"] == 1 else row["team"], axis=1)
 
-# Assign Home/Away Flags
+# Assign home/away flags
 match_df["is_home_team1"] = match_df["is_home"]
 match_df["is_home_team2"] = match_df["is_home"].apply(lambda x: 0 if x == 1 else 1)
 
-match_df["date"] = pd.to_datetime(match_df["date"], errors="coerce")
-
-match_df = match_df.dropna(subset=["result"])
-
-match_df["correct_result"] = match_df.apply(
-    lambda row: "D" if row["gf"] == row["ga"]
-    else "W" if row["gf"] > row["ga"]
-    else "L",
-    axis=1
-)
-
-match_df["result"] = match_df["correct_result"]
-print(f"{match_df["result"].value_counts()}\n")
-
-# ---  Add Rolling Averages Based on Last 10 Games ---
+# Creates rolling window features for team_1 and team_2 based on the last 10 games
 match_df = match_df.sort_values(by=["team_1", "date"])
 rolling_features = ["gf", "ga", "xg", "xga", "ast", "gca",
                     "ast_opponent", "gca_opponent"]
@@ -45,6 +43,7 @@ for feature in rolling_features:
         match_df.groupby("team_2")[feature].rolling(window=10, min_periods=1).mean().fillna(0).reset_index(0, drop=True)
     )
 
+# Creates rolling window features for goal difference
 match_df["team_1_goal_diff_rolling"] = (
     match_df["team_1_gf_rolling"] - match_df["team_1_ga_rolling"]
 )
@@ -52,6 +51,7 @@ match_df["team_2_goal_diff_rolling"] = (
     match_df["team_2_gf_rolling"] - match_df["team_2_ga_rolling"]
 )
 
+# Combines all rolling features into a single list
 rolling_feature_columns = [
     f"team_1_{feature}_rolling" for feature in rolling_features
 ] + [
@@ -63,17 +63,30 @@ rolling_feature_columns = [
 base_features = ["is_home_team1", "hour", "day_code"]
 features = base_features + rolling_feature_columns
 
-# ---  Split Data into Training and Test ---
-match_df["year"] = pd.to_datetime(match_df["date"]).dt.year
-
-train_subset = match_df[(match_df["year"] >= 2020) & (match_df["year"] <= 2022)]
-test_data = match_df[match_df["year"] >= 2023]
+# Split data into training and test
+train_subset = match_df[(match_df["season"] >= 2020) & (match_df["season"] <= 2022)]
+test_data = match_df[match_df["season"] >= 2023]
 
 train_subset = train_subset.dropna(subset=features)
 test_data = test_data.dropna(subset=features)
 
 target_team_1 = "gf"
 target_team_2 = "ga"
+
+wins = train_subset[train_subset["result"] == "W"]
+losses = train_subset[train_subset["result"] == "L"]
+draws = train_subset[train_subset["result"] == "D"]
+
+# Oversample the "draw" class
+from sklearn.utils import resample
+draws_oversampled = resample(
+    draws,
+    replace=True,
+    n_samples=len(wins),
+    random_state=42
+)
+train_subset = pd.concat([wins, losses, draws_oversampled])
+train_subset = train_subset.sample(frac=1, random_state=42).reset_index(drop=True)
 
 X_train = train_subset[features]
 y_train_team_1 = train_subset[target_team_1]
@@ -116,7 +129,6 @@ xgb_param_grid = {
     "reg_lambda": [0.5, 1, 1.5]
 }
 
-# --- Perform Grid Search and Refit for Each Model ---
 # Random Forest (Team 1)
 rf_team_1_model, rf_team_1_params, rf_team_1_score = perform_grid_search(
     RandomForestRegressor(random_state=42),
@@ -152,37 +164,14 @@ xgb_team_2_model, xgb_team_2_params, xgb_team_2_score = perform_grid_search(
     y_train_team_2
 )
 print(f"Best XGB Params (Team 2): {xgb_team_2_params}\n")
-"""
-with open("rf_team_1.pkl", "wb") as f:
-    pickle.dump(rf_team_1_model, f)
-with open("rf_team_2.pkl", "wb") as f:
-    pickle.dump(rf_team_2_model, f)
-with open("xgb_team_1.pkl", "wb") as f:
-    pickle.dump(xgb_team_1_model, f)
-with open("xgb_team_2.pkl", "wb") as f:
-    pickle.dump(xgb_team_2_model, f)
-print("\nAll models saved successfully!")
-"""
-# --- Evaluate on Test Set ---
+
+# Evaluates models on Test Set based on MAE
 def evaluate_model(model, X, y_true):
     y_pred = model.predict(X)
     mae = mean_absolute_error(y_true, y_pred)
     return f"{mae:.4f}"
 
-"""
-with open("rf_team_1.pkl", "rb") as f:
-    rf_team_1 = pickle.load(f)
-with open("rf_team_2.pkl", "rb") as f:
-    rf_team_2 = pickle.load(f)
-with open("xgb_team_1.pkl", "rb") as f:
-    xgb_team_1 = pickle.load(f)
-with open("xgb_team_2.pkl", "rb") as f:
-    xgb_team_2 = pickle.load(f)
-
-print("All models loaded successfully!")
-"""
-
-# Evaluate the best models based on full training set
+# Evaluate all the models based on test set
 rf_team_1_metrics = evaluate_model(rf_team_1_model, X_test, y_test_team_1)
 rf_team_2_metrics = evaluate_model(rf_team_2_model, X_test, y_test_team_2)
 xgb_team_1_metrics = evaluate_model(xgb_team_1_model, X_test, y_test_team_1)
@@ -193,7 +182,7 @@ print("Random Forest (Team 2) MAE:", rf_team_2_metrics)
 print("\nXGBoost (Team 1) MAE:", xgb_team_1_metrics)
 print("XGBoost (Team 2) MAE:", xgb_team_2_metrics)
 
-# Choose champion models
+# Choose champion models for both teams
 if rf_team_1_metrics < xgb_team_1_metrics:
     champion_model1 = rf_team_1_model
     model_name1 = "Random Forest"
@@ -209,29 +198,80 @@ else:
     model_name2 = "XGBoost"
 
 print(f"\nBest Model (Team 1): {model_name1}")
-print(f"Best Model (Team 2): {model_name1}\n")
+print(f"Best Model (Team 2): {model_name2}\n")
 
-# --- Test the Champion Models ---
+"""
+with open("best_model_team_1.pkl", "wb") as f:
+    pickle.dump(champion_model1, f)
+with open("best_model_team_2.pkl", "wb") as f:
+    pickle.dump(champion_model2, f)
+print("\nAll models saved successfully!")
+
+with open("best_model_team_1.pkl", "rb") as f:
+    champion_model1 = pickle.load(f)
+with open("best_model_team_2.pkl", "rb") as f:
+    champion_model2 = pickle.load(f)
+print("All models loaded successfully!")
+"""
+
+# Test the champion models
 team_1_test_pred = champion_model1.predict(X_test)
 team_2_test_pred = champion_model2.predict(X_test)
 
-# --- Predict Match Results + Accuracy ---
-for buffer in [0.05, 0.075, 0.1]:
+# Predict match results + accuracy for different buffer values
+best_buffer = None
+highest_accuracy = 0
+buffer_accuracies = {}
+for buffer in [0.025, 0.05, 0.075]:
     test_data["predicted_result"] = [
         "W" if team_1_test_pred[i] > team_2_test_pred[i] + buffer else
         ("L" if team_1_test_pred[i] + buffer < team_2_test_pred[i] else "D")
         for i in range(len(team_1_test_pred))
     ]
-    actual_results = [
+    test_data["actual_results"] = [
         "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] + buffer else
         ("L" if y_test_team_1.iloc[i] + buffer < y_test_team_2.iloc[i] else "D")
         for i in range(len(y_test_team_1))
     ]
-    accuracy = accuracy_score(actual_results, test_data["predicted_result"])
+    accuracy = accuracy_score(test_data["actual_results"], test_data["predicted_result"])
+    buffer_accuracies[buffer] = accuracy
+
     print(f"Buffer: {buffer}, Accuracy: {accuracy:.2f}")
 
-# --- Visualize Confusion Matrix ---
-conf_matrix = confusion_matrix(actual_results, test_data["predicted_result"], labels=["W", "D", "L"])
+    if accuracy > highest_accuracy:
+        highest_accuracy = accuracy
+        best_buffer = buffer
+
+print(f"\nBest Buffer: {best_buffer}, Highest Accuracy: {highest_accuracy:.2f}")
+
+# Use the best buffer for final predictions
+test_data["final_predicted_result"] = [
+    "W" if team_1_test_pred[i] > team_2_test_pred[i] + best_buffer else
+    ("L" if team_1_test_pred[i] + best_buffer < team_2_test_pred[i] else "D")
+    for i in range(len(team_1_test_pred))
+]
+test_data["actual_results"] = [
+        "W" if y_test_team_1.iloc[i] > y_test_team_2.iloc[i] else
+        ("L" if y_test_team_1.iloc[i] < y_test_team_2.iloc[i] else "D")
+        for i in range(len(y_test_team_1))
+    ]
+
+matches = (test_data["final_predicted_result"] == test_data["actual_results"]).sum()
+print(f"Total Matches Predicted Correctly: {matches}/{len(test_data['actual_results'])}\n")
+
+# Generate and display classification report
+report = classification_report(
+    test_data["actual_results"],
+    test_data["final_predicted_result"],
+    labels=["W", "D", "L"],  # Specify the class order
+    target_names=["Wins", "Draws", "Losses"]  # Optional: Human-readable class names
+)
+print("Classification Report:")
+print(report)
+
+
+# Visualize confusion matrix for match result predictions
+conf_matrix = confusion_matrix(test_data["actual_results"], test_data["final_predicted_result"], labels=["W", "D", "L"])
 conf_matrix_df = pd.DataFrame(conf_matrix, index=["W", "D", "L"], columns=["W", "D", "L"])
 
 plt.figure(figsize=(8, 6))
@@ -241,7 +281,7 @@ plt.ylabel("Actual Result")
 plt.xlabel("Predicted Result")
 plt.show()
 
-# --- Feature Importance ---
+# Feature importance extraction
 def extract_feature_importance(model, features):
     importance = None
     if hasattr(model, "feature_importances_"):

@@ -46,7 +46,7 @@ for year, team_urls in all_team_urls.items():
         # Extract links to stats subpages
         links = [l.get("href") for l in soup.find_all("a")]
 
-        # ----------------- Fetch Shooting Stats -----------------
+        # Fetch Shooting Stats
         shooting_links = [l for l in links if l and "all_comps/shooting/" in l]
         if shooting_links:
             shooting_url = f"https://fbref.com{shooting_links[0]}"
@@ -59,7 +59,7 @@ for year, team_urls in all_team_urls.items():
             print("No Shooting link found.")
             shooting = pd.DataFrame(columns=["Date", "Sh", "SoT", "Dist", "FK", "PK", "PKatt"])
 
-        # ----------------- Fetch Passing Stats -----------------
+        # Fetch Passing Stats
         passing_links = [l for l in links if l and "all_comps/passing/" in l]
         if passing_links:
             passing_url = f"https://fbref.com{passing_links[0]}"
@@ -74,7 +74,7 @@ for year, team_urls in all_team_urls.items():
             passing = pd.DataFrame()  # Empty DataFrame if no link is found
 
 
-        # ----------------- Fetch Goal Creation Stats -----------------
+        # Fetch Goal Creation Stats
         creation_links = [l for l in links if l and "all_comps/gca/" in l]
         if creation_links:
             creation_url = f"https://fbref.com{creation_links[0]}"
@@ -87,7 +87,7 @@ for year, team_urls in all_team_urls.items():
             print("No Goal Creation link found.")
             creation = pd.DataFrame(columns=["Date", "SCA", "GCA"])
 
-        # ----------------- Fetch Defensive Actions Stats -----------------
+        # Fetch Defensive Actions Stats
         defensive_links = [l for l in links if l and "all_comps/defense/" in l]
         if defensive_links:
             defensive_url = f"https://fbref.com{defensive_links[0]}"
@@ -119,71 +119,67 @@ for year, team_urls in all_team_urls.items():
         # Pause to avoid being rate-limited
         time.sleep(random.uniform(15, 30))
 
-    if team_stats:
     # Combine all team data for the season
-        season_data = pd.concat(team_stats, ignore_index=True)
-        season_data = season_data.loc[:, ~season_data.columns.duplicated()]
+    season_data = pd.concat(team_stats, ignore_index=True)
+    season_data = season_data.loc[:, ~season_data.columns.duplicated()]
 
-        team_name_mapping = {
-            "Atlanta Utd": "Atlanta United",
-            "Inter-Miami": "Inter Miami",
-            "NYCFC": "New York City FC",
-            "Charlotte": "Charlotte FC",
-            "NY Red Bulls": "New York Red Bulls",
-            "NE Revolution": "New England Revolution",
-            "LAFC": "Los Angeles FC",
-            "Minnesota Utd": "Minnesota United",
-            "Vancouver W'caps": "Vancouver Whitecaps FC",
-            "Austin": "Austin FC",
-            "St. Louis": "St Louis City",
-            "Sporting KC": "Sporting Kansas City",
-            "SJ Earthquakes": "San Jose Earthquakes",
-            "DC United": "D.C. United",
-            "CF Montréal": "CF Montreal",
-        }
-        # Standardize team and opponent names
-        season_data["Team"] = season_data["Team"].replace(team_name_mapping)
-        season_data["Opponent"] = season_data["Opponent"].replace(team_name_mapping)
+    team_name_mapping = {
+        "Atlanta Utd": "Atlanta United",
+        "Inter-Miami": "Inter Miami",
+        "NYCFC": "New York City FC",
+        "Charlotte": "Charlotte FC",
+        "NY Red Bulls": "New York Red Bulls",
+        "NE Revolution": "New England Revolution",
+        "LAFC": "Los Angeles FC",
+        "Minnesota Utd": "Minnesota United",
+        "Vancouver W'caps": "Vancouver Whitecaps FC",
+        "Austin": "Austin FC",
+        "St. Louis": "St Louis City",
+        "Sporting KC": "Sporting Kansas City",
+        "SJ Earthquakes": "San Jose Earthquakes",
+        "DC United": "D.C. United",
+        "CF Montréal": "CF Montreal",
+    }
+    # Standardize team and opponent names
+    season_data["Team"] = season_data["Team"].replace(team_name_mapping)
+    season_data["Opponent"] = season_data["Opponent"].replace(team_name_mapping)
 
-        # Prepare opponent stats
-        opponent_stats = season_data.copy()
+    # Prepare opponent stats
+    opponent_stats = season_data.copy()
 
-        # Rename "Team" to "opponent_team"
-        opponent_stats = opponent_stats.rename(columns={"Team": "opponent_team"})
+    # Rename "Team" to "opponent_team"
+    opponent_stats = opponent_stats.rename(columns={"Team": "opponent_team"})
 
-        # Add suffix to opponent stats columns
-        opponent_stats.columns = [
-            f"{col}_opponent" if col not in ["Date", "opponent_team"] else col
-            for col in opponent_stats.columns
-        ]
+    # Add suffix to opponent stats columns
+    opponent_stats.columns = [
+        f"{col}_opponent" if col not in ["Date", "opponent_team"] else col
+        for col in opponent_stats.columns
+    ]
 
-        # Ensure no duplicate rows in opponent_stats
-        opponent_stats = opponent_stats.drop_duplicates(subset=["Date", "opponent_team"]).reset_index(drop=True)
+    # Ensure no duplicate rows in opponent_stats
+    opponent_stats = opponent_stats.drop_duplicates(subset=["Date", "opponent_team"]).reset_index(drop=True)
 
-        # Ensure indices are unique before merging
-        if not season_data.index.is_unique:
-            print("Season Data Index is not unique. Resetting...")
-            season_data = season_data.reset_index(drop=True)
+    # Ensure indices are unique before merging
+    if not season_data.index.is_unique:
+        print("Season Data Index is not unique. Resetting...")
+        season_data = season_data.reset_index(drop=True)
 
-        if not opponent_stats.index.is_unique:
-            print("Opponent Stats Index is not unique. Resetting...")
-            opponent_stats = opponent_stats.reset_index(drop=True)
+    if not opponent_stats.index.is_unique:
+        print("Opponent Stats Index is not unique. Resetting...")
+        opponent_stats = opponent_stats.reset_index(drop=True)
 
-        # Perform merge
-        combined_data = season_data.merge(
-            opponent_stats,
-            left_on=["Date", "Opponent"],
-            right_on=["Date", "opponent_team"],
-            how="left"
-        )
-        # Reset index for the final combined dataset
-        combined_data = combined_data.reset_index(drop=True)
+    # Perform merge
+    combined_data = season_data.merge(
+        opponent_stats,
+        left_on=["Date", "Opponent"],
+        right_on=["Date", "opponent_team"],
+        how="left"
+    )
+    # Reset index for the final combined dataset
+    combined_data = combined_data.reset_index(drop=True)
 
-        # Append to all_matches
-        all_matches.append(combined_data)
-    else:
-        print(f"No team stats found for year {year}")
-
+    # Append to all_matches
+    all_matches.append(combined_data)
 
 # Save final data
 
