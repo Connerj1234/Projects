@@ -9,8 +9,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
-
+#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 # Assigns team_1 and team_2 columns based on is_home flag
 match_df["team_1"] = match_df.apply(lambda row: row["team"] if row["is_home"] == 1 else row["opponent"], axis=1)
 match_df["team_2"] = match_df.apply(lambda row: row["opponent"] if row["is_home"] == 1 else row["team"], axis=1)
@@ -162,21 +162,21 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [125, 150, 175],
-    "max_depth": [10, 17, 18, 20],
-    "min_samples_split": [2, 3, 4],
+    "n_estimators": [25, 50, 75],
+    "max_depth": [17, 18, 19],
+    "min_samples_split": [2, 3],
     "min_samples_leaf": [2, 3]
 }
 
 xgb_param_grid = {
-    "n_estimators": [300, 350],
-    "learning_rate": [0.075, 0.01],
-    "max_depth": [2],
-    "subsample": [0.1, 0.25],
-    "colsample_bytree": [0.04, 0.06],
-    "min_child_weight": [4, 5],
-    "reg_alpha": [0, 0.005],
-    "reg_lambda": [0.5, 1]
+    "n_estimators": [325, 350, 375],
+    "learning_rate": [0.1, 0.15, 0.2],
+    "max_depth": [2, 3],
+    "subsample": [0.2, 0.3, 0.4],
+    "colsample_bytree": [0, 0.005],
+    "min_child_weight": [4, 5, 6],
+    "reg_alpha": [0.005, 0.01],
+    "reg_lambda": [0, 0.15]
 }
 
 # Random Forest Model

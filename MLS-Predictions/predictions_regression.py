@@ -8,8 +8,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
-
+#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 # Calculate the distribution of the result column
 target_counts = match_df["result"].value_counts()
 target_percentages = match_df["result"].value_counts(normalize=True) * 100
@@ -113,20 +113,20 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [250, 275, 300],
-    "max_depth": [6, 10],
-    "min_samples_split": [2],
-    "min_samples_leaf": [9, 10],
+    "n_estimators": [275, 300, 325],
+    "max_depth": [8, 10, 12],
+    "min_samples_split": [2, 3],
+    "min_samples_leaf": [5, 7, 9],
 }
 xgb_param_grid = {
-    "n_estimators": [100, 125, 150],
+    "n_estimators": [150, 175, 200],
     "learning_rate": [0.05, 0.0625, 0.075],
     "max_depth": [2],
-    "subsample": [0.3, 0.5, 0.7],
-    "colsample_bytree": [0.6, 0.75, 0.9],
-    "min_child_weight": [5, 7],
-    "reg_alpha": [0, 0.005],
-    "reg_lambda": [0.5, 1, 1.5]
+    "subsample": [0.4, 0.5, 0.6],
+    "colsample_bytree": [0.45, 0.6, 0.75],
+    "min_child_weight": [4, 5, 6],
+    "reg_alpha": [0, 0.005, 0.01],
+    "reg_lambda": [0, 0.25, 0.5]
 }
 
 # Random Forest (Team 1)
