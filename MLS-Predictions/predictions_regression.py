@@ -8,7 +8,8 @@ import numpy as np
 import seaborn as sns
 import pickle
 
-match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+#match_df = pd.read_csv("/Users/connerjamison/VSCode/GitHub/Projects/MLS-Predictions/MLS_cleaned.csv")
+match_df = pd.read_csv(r"C:\Users\mailt\Documents\GitHub\Projects\MLS-Predictions\MLS_cleaned.csv")
 
 # Calculate the distribution of the result column
 target_counts = match_df["result"].value_counts()
@@ -98,18 +99,18 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [350, 375, 400],
-    "max_depth": [24, 27, 30],
-    "min_samples_split": [2, 3],
-    "min_samples_leaf": [2, 3]
+    "n_estimators": [300, 325, 350],
+    "max_depth": [19, 20, 21],
+    "min_samples_split": [2],
+    "min_samples_leaf": [8, 9]
 }
 xgb_param_grid = {
     "n_estimators": [275, 300, 325],
-    "learning_rate": [0.075, 0.1],
-    "max_depth": [9, 10, 11],
-    "subsample": [0.8, 0.9],
-    "colsample_bytree": [0.4, 0.5],
-    "min_child_weight": [2, 3, 4],
+    "learning_rate": [0.025, 0.05, 0.075],
+    "max_depth": [11, 13, 15],
+    "subsample": [0.9, 1],
+    "colsample_bytree": [0.2, 0.3, 0.4],
+    "min_child_weight": [2, 3],
     "reg_alpha": [0, 0.01],
     "reg_lambda": [0, 0.25]
 }
