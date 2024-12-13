@@ -113,20 +113,20 @@ def perform_grid_search(model, param_grid, X_train, y_train, n_splits=5):
     return grid_search.best_estimator_, grid_search.best_params_, -grid_search.best_score_
 
 rf_param_grid = {
-    "n_estimators": [275, 300, 325],
-    "max_depth": [8, 10, 12],
+    "n_estimators": [350, 375, 400],
+    "max_depth": [24, 27, 30],
     "min_samples_split": [2, 3],
-    "min_samples_leaf": [5, 7, 9],
+    "min_samples_leaf": [2, 3]
 }
 xgb_param_grid = {
-    "n_estimators": [150, 175, 200],
-    "learning_rate": [0.05, 0.0625, 0.075],
-    "max_depth": [2],
-    "subsample": [0.4, 0.5, 0.6],
-    "colsample_bytree": [0.45, 0.6, 0.75],
-    "min_child_weight": [4, 5, 6],
-    "reg_alpha": [0, 0.005, 0.01],
-    "reg_lambda": [0, 0.25, 0.5]
+    "n_estimators": [275, 300, 325],
+    "learning_rate": [0.075, 0.1],
+    "max_depth": [9, 10, 11],
+    "subsample": [0.8, 0.9],
+    "colsample_bytree": [0.4, 0.5],
+    "min_child_weight": [2, 3, 4],
+    "reg_alpha": [0, 0.01],
+    "reg_lambda": [0, 0.25]
 }
 
 # Random Forest (Team 1)
