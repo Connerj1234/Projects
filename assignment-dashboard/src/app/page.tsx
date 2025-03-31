@@ -6,6 +6,7 @@ import { Header } from '@/app/components/Header';
 import ViewControls from '@/app/components/ViewControls';
 import { AssignmentList } from '@/components/AssignmentList';
 import { CalendarView } from '@/components/CalendarView';
+import { FilterControls } from '@/components/FilterControls';
 import useStore from '@/store/useStore';
 
 export default function Home() {
@@ -27,9 +28,12 @@ export default function Home() {
       <ViewControls />
       <Container maxW="container.xl" py={8}>
         <Box bg={bgColor} rounded="lg" shadow="base" p={6}>
-          <Heading size="lg" color={textColor} fontWeight="bold" mb={6}>
-            Assignment Dashboard
-          </Heading>
+          <Flex justify="space-between" align="center" mb={6}>
+            <Heading size="lg" color={textColor} fontWeight="bold">
+              Assignment Dashboard
+            </Heading>
+            <FilterControls />
+          </Flex>
           {viewMode === 'list' ? <AssignmentList /> : <CalendarView />}
         </Box>
       </Container>

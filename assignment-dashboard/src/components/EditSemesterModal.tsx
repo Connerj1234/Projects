@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -18,20 +18,19 @@ import {
   useColorModeValue,
   useToast,
 } from '@chakra-ui/react';
-import { v4 as uuidv4 } from 'uuid';
 import useStore from '@/store/useStore';
 
-interface SemesterModalProps {
+interface EditSemesterModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSemesterCreated?: (semesterId: string) => void;
+  semesterId: string;
 }
 
-export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterModalProps) {
-  const [newSemesterName, setNewSemesterName] = useState('');
-  const [newSemesterStartDate, setNewSemesterStartDate] = useState('');
-  const [newSemesterEndDate, setNewSemesterEndDate] = useState('');
-  const { addSemester } = useStore();
+export function EditSemesterModal({ isOpen, onClose, semesterId }: EditSemesterModalProps) {
+  const [semesterName, setSemesterName] = useState('');
+  const [semesterStartDate, setSemesterStartDate] = useState('');
+  const [semesterEndDate, setSemesterEndDate] = useState('');
+  const { semesters, updateSemester } = useStore();
   const toast = useToast();
 
   // Dark mode colors
@@ -42,8 +41,18 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
   const labelColor = useColorModeValue('gray.700', 'whiteAlpha.800');
   const placeholderColor = useColorModeValue('gray.500', 'whiteAlpha.400');
 
-  const handleCreateSemester = () => {
-    if (!newSemesterName.trim() || !newSemesterEndDate) {
+  // Load semester data when modal opens
+  useEffect(() => {
+    const semester = semesters.find(s => s.id === semesterId);
+    if (semester) {
+      setSemesterName(semester.name);
+      setSemesterStartDate(semester.startDate || '');
+      setSemesterEndDate(semester.endDate || '');
+    }
+  }, [semesterId, semesters]);
+
+  const handleUpdateSemester = () => {
+    if (!semesterName.trim() || !semesterEndDate) {
       toast({
         title: 'Required fields missing',
         description: 'Please provide both a semester name and end date',
@@ -54,23 +63,18 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
       return;
     }
 
-    const newSemester = {
-      id: uuidv4(),
-      name: newSemesterName.trim(),
-      ...(newSemesterStartDate && { startDate: newSemesterStartDate }),
-      endDate: newSemesterEndDate,
+    const updates = {
+      name: semesterName.trim(),
+      ...(semesterStartDate && { startDate: semesterStartDate }),
+      endDate: semesterEndDate,
     };
 
-    addSemester(newSemester);
-    onSemesterCreated?.(newSemester.id);
-    setNewSemesterName('');
-    setNewSemesterStartDate('');
-    setNewSemesterEndDate('');
+    updateSemester(semesterId, updates);
     onClose();
 
     toast({
-      title: 'Semester created',
-      description: `Successfully created ${newSemesterName}`,
+      title: 'Semester updated',
+      description: `Successfully updated ${semesterName}`,
       status: 'success',
       duration: 3000,
       isClosable: true,
@@ -81,15 +85,15 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent bg={bgColor}>
-        <ModalHeader color={textColor}>Create New Semester</ModalHeader>
+        <ModalHeader color={textColor}>Edit Semester</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <VStack spacing={4}>
             <FormControl isRequired>
               <FormLabel color={textColor}>Semester Name</FormLabel>
               <Input
-                value={newSemesterName}
-                onChange={(e) => setNewSemesterName(e.target.value)}
+                value={semesterName}
+                onChange={(e) => setSemesterName(e.target.value)}
                 placeholder="e.g., Fall 2024"
                 bg={inputBg}
                 borderColor={borderColor}
@@ -101,8 +105,8 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
               <FormLabel color={textColor}>Start Date (Optional)</FormLabel>
               <Input
                 type="date"
-                value={newSemesterStartDate}
-                onChange={(e) => setNewSemesterStartDate(e.target.value)}
+                value={semesterStartDate}
+                onChange={(e) => setSemesterStartDate(e.target.value)}
                 bg={inputBg}
                 borderColor={borderColor}
                 color={textColor}
@@ -115,9 +119,9 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
               <FormLabel color={textColor}>End Date</FormLabel>
               <Input
                 type="date"
-                value={newSemesterEndDate}
-                onChange={(e) => setNewSemesterEndDate(e.target.value)}
-                min={newSemesterStartDate}
+                value={semesterEndDate}
+                onChange={(e) => setSemesterEndDate(e.target.value)}
+                min={semesterStartDate}
                 bg={inputBg}
                 borderColor={borderColor}
                 color={textColor}
@@ -134,10 +138,10 @@ export function SemesterModal({ isOpen, onClose, onSemesterCreated }: SemesterMo
           </Button>
           <Button
             colorScheme="blue"
-            onClick={handleCreateSemester}
-            isDisabled={!newSemesterName.trim()}
+            onClick={handleUpdateSemester}
+            isDisabled={!semesterName.trim()}
           >
-            Create
+            Save
           </Button>
         </ModalFooter>
       </ModalContent>

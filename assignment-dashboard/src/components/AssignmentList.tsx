@@ -38,7 +38,7 @@ export function AssignmentList() {
     semesters,
     assignmentTypes,
     filterOptions,
-    toggleAssignmentComplete,
+    toggleAssignmentCompletion,
     deleteAssignment,
   } = useStore();
 
@@ -169,17 +169,21 @@ export function AssignmentList() {
                       <Flex align="center" gap={3}>
                         <Checkbox
                           isChecked={assignment.completed}
-                          onChange={() => toggleAssignmentComplete(assignment.id)}
-                          colorScheme={assignmentClass?.color?.replace(/\.500$/, '') || 'blue'}
+                          onChange={() => toggleAssignmentCompletion(assignment.id)}
+                          colorScheme="blue"
+                          sx={{
+                            '& .chakra-checkbox__control': {
+                              borderColor: assignment.completed ? 'blue.500' : borderColor,
+                              bg: assignment.completed ? 'blue.500' : 'transparent',
+                            }
+                          }}
                         />
                         <Box>
                           <Text
                             fontSize="lg"
                             fontWeight="medium"
-                            color={textColor}
-                            textDecoration={
-                              assignment.completed ? 'line-through' : 'none'
-                            }
+                            color={assignment.completed ? mutedTextColor : textColor}
+                            textDecoration={assignment.completed ? 'line-through' : 'none'}
                           >
                             {assignment.title}
                           </Text>

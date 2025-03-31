@@ -41,7 +41,7 @@ export type FilterOptions = {
 
 interface Store {
   classes: Class[];
-  assignments: any[]; // TODO: Define proper type
+  assignments: Assignment[];
   assignmentTypes: AssignmentType[];
   semesters: Semester[];
   viewMode: ViewMode;
@@ -58,6 +58,10 @@ interface Store {
   removeSemester: (semesterId: string) => void;
   updateSemester: (semesterId: string, updates: Partial<Semester>) => void;
   getSemesterEvents: () => SemesterEvent[];
+  addAssignment: (assignment: Assignment) => void;
+  updateAssignment: (assignmentId: string, updates: Partial<Assignment>) => void;
+  deleteAssignment: (assignmentId: string) => void;
+  toggleAssignmentCompletion: (assignmentId: string) => void;
 }
 
 const useStore = create<Store>()(
@@ -172,6 +176,30 @@ const useStore = create<Store>()(
 
         return events;
       },
+
+      addAssignment: (assignment) =>
+        set((state) => ({
+          assignments: [...state.assignments, assignment],
+        })),
+
+      updateAssignment: (assignmentId, updates) =>
+        set((state) => ({
+          assignments: state.assignments.map((a) =>
+            a.id === assignmentId ? { ...a, ...updates } : a
+          ),
+        })),
+
+      deleteAssignment: (assignmentId) =>
+        set((state) => ({
+          assignments: state.assignments.filter((a) => a.id !== assignmentId),
+        })),
+
+      toggleAssignmentCompletion: (assignmentId) =>
+        set((state) => ({
+          assignments: state.assignments.map((a) =>
+            a.id === assignmentId ? { ...a, completed: !a.completed } : a
+          ),
+        })),
     }),
     {
       name: 'assignment-store',

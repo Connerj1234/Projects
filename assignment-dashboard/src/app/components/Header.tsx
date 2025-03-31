@@ -9,16 +9,6 @@ import {
   Select,
   useColorMode,
   useColorModeValue,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalCloseButton,
-  FormControl,
-  FormLabel,
-  Input,
   useDisclosure,
   useToast,
   Menu,
@@ -26,10 +16,16 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  HStack,
+  Text,
+  FormControl,
+  FormLabel,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon, AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import useStore from '@/store/useStore';
 import { NewAssignmentModal } from '@/components/NewAssignmentModal';
+import { SemesterModal } from '@/components/SemesterModal';
+import { EditSemesterModal } from '@/components/EditSemesterModal';
 
 export function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -38,47 +34,19 @@ export function Header() {
     filterOptions,
     setFilterOptions,
     semesters,
-    addSemester,
     removeSemester,
   } = useStore();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [newSemesterName, setNewSemesterName] = useState('');
+  const { isOpen: isSemesterModalOpen, onOpen: onSemesterModalOpen, onClose: onSemesterModalClose } = useDisclosure();
+  const { isOpen: isEditSemesterModalOpen, onOpen: onEditSemesterModalOpen, onClose: onEditSemesterModalClose } = useDisclosure();
+  const [selectedSemesterForEdit, setSelectedSemesterForEdit] = useState<string>('');
   const toast = useToast();
 
   const bgColor = useColorModeValue('white', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
-  const inputBg = useColorModeValue('white', 'whiteAlpha.200');
   const selectBg = useColorModeValue('white', 'whiteAlpha.200');
   const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
   const buttonHoverBg = useColorModeValue('gray.100', 'whiteAlpha.300');
   const iconColor = useColorModeValue('gray.600', 'whiteAlpha.900');
-  const labelColor = useColorModeValue('gray.800', 'whiteAlpha.900');
-  const placeholderColor = useColorModeValue('gray.500', 'whiteAlpha.500');
-
-  const handleAddSemester = () => {
-    if (newSemesterName.trim()) {
-      const id = newSemesterName
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-
-      addSemester({
-        id,
-        name: newSemesterName.trim()
-      });
-
-      toast({
-        title: 'Semester added',
-        description: `Successfully added ${newSemesterName}`,
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-
-      setNewSemesterName('');
-      onClose();
-    }
-  };
 
   const handleRemoveSemester = (semesterId: string) => {
     const semester = semesters.find(s => s.id === semesterId);
@@ -97,6 +65,22 @@ export function Header() {
     }
   };
 
+  const handleSemesterCreated = (semesterId: string) => {
+    setFilterOptions({ selectedSemester: semesterId });
+    toast({
+      title: 'Semester created',
+      description: 'New semester has been created and selected',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  const handleEditSemester = (semesterId: string) => {
+    setSelectedSemesterForEdit(semesterId);
+    onEditSemesterModalOpen();
+  };
+
   return (
     <Box
       py={4}
@@ -110,24 +94,25 @@ export function Header() {
     >
       <Flex justify="space-between" align="center">
         <Flex gap={2} align="center">
-          <Select
-            w="200px"
-            value={filterOptions.selectedSemester}
-            onChange={(e) =>
-              setFilterOptions({ selectedSemester: e.target.value })
-            }
-            bg={selectBg}
-            color={textColor}
-            borderColor={borderColor}
-            _hover={{ bg: buttonHoverBg }}
-          >
-            <option value="">All Semesters</option>
-            {semesters.map((semester) => (
-              <option key={semester.id} value={semester.id}>
-                {semester.name}
-              </option>
-            ))}
-          </Select>
+          {/* Semester Selection */}
+          <FormControl maxW="300px">
+            <Select
+              value={filterOptions.selectedSemester}
+              onChange={(e) => setFilterOptions({ ...filterOptions, selectedSemester: e.target.value })}
+              bg={selectBg}
+              color={textColor}
+              borderColor={borderColor}
+              size="sm"
+              placeholder="All Semesters"
+            >
+              {semesters.map((semester) => (
+                <option key={semester.id} value={semester.id}>
+                  {semester.name}
+                </option>
+              ))}
+            </Select>
+          </FormControl>
+
           <Menu>
             <MenuButton
               as={Button}
@@ -141,7 +126,7 @@ export function Header() {
             </MenuButton>
             <MenuList bg={bgColor} borderColor={borderColor}>
               <MenuItem
-                onClick={onOpen}
+                onClick={onSemesterModalOpen}
                 icon={<AddIcon />}
                 bg={bgColor}
                 _hover={{ bg: buttonHoverBg }}
@@ -153,13 +138,37 @@ export function Header() {
               {semesters.map((semester) => (
                 <MenuItem
                   key={semester.id}
-                  onClick={() => handleRemoveSemester(semester.id)}
-                  icon={<DeleteIcon />}
                   bg={bgColor}
                   _hover={{ bg: buttonHoverBg }}
                   color={textColor}
                 >
-                  Remove {semester.name}
+                  <HStack justify="space-between" width="100%">
+                    <Text>{semester.name}</Text>
+                    <HStack spacing={1}>
+                      <IconButton
+                        aria-label="Edit semester"
+                        icon={<EditIcon />}
+                        size="xs"
+                        colorScheme="blue"
+                        variant="ghost"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEditSemester(semester.id);
+                        }}
+                      />
+                      <IconButton
+                        aria-label="Delete semester"
+                        icon={<DeleteIcon />}
+                        size="xs"
+                        colorScheme="red"
+                        variant="ghost"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleRemoveSemester(semester.id);
+                        }}
+                      />
+                    </HStack>
+                  </HStack>
                 </MenuItem>
               ))}
             </MenuList>
@@ -190,39 +199,16 @@ export function Header() {
         onClose={() => setIsNewAssignmentModalOpen(false)}
       />
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent bg={bgColor}>
-          <ModalHeader color={textColor}>Add New Semester</ModalHeader>
-          <ModalCloseButton color={textColor} />
-          <ModalBody>
-            <FormControl>
-              <FormLabel color={labelColor}>Semester Name</FormLabel>
-              <Input
-                value={newSemesterName}
-                onChange={(e) => setNewSemesterName(e.target.value)}
-                placeholder="e.g., Fall 2024"
-                bg={inputBg}
-                borderColor={borderColor}
-                color={textColor}
-                _placeholder={{ color: placeholderColor }}
-              />
-            </FormControl>
-          </ModalBody>
-          <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose} color={textColor}>
-              Cancel
-            </Button>
-            <Button
-              colorScheme="blue"
-              onClick={handleAddSemester}
-              isDisabled={!newSemesterName.trim()}
-            >
-              Add
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <SemesterModal
+        isOpen={isSemesterModalOpen}
+        onClose={onSemesterModalClose}
+        onSemesterCreated={handleSemesterCreated}
+      />
+      <EditSemesterModal
+        isOpen={isEditSemesterModalOpen}
+        onClose={onEditSemesterModalClose}
+        semesterId={selectedSemesterForEdit}
+      />
     </Box>
   );
 }

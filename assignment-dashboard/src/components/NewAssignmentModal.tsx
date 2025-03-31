@@ -50,6 +50,7 @@ import useStore from '@/store/useStore';
 import { v4 as uuidv4 } from 'uuid';
 import { ClassesMenu } from './ViewControls';
 import { SemesterModal } from './SemesterModal';
+import { RecurringSettingsModal, RecurringSettings } from './RecurringSettingsModal';
 
 type NewAssignmentModalProps = {
   isOpen: boolean;
@@ -119,6 +120,12 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
   const [newSemesterStartDate, setNewSemesterStartDate] = useState('');
   const [newSemesterEndDate, setNewSemesterEndDate] = useState('');
 
+  const {
+    isOpen: isRecurringModalOpen,
+    onOpen: onRecurringModalOpen,
+    onClose: onRecurringModalClose,
+  } = useDisclosure();
+
   // Get classes for selected semester
   const semesterClasses = classes.filter(c => c.semesterId === semester);
 
@@ -185,15 +192,36 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
     }
   };
 
+  const handleRecurringSettingsSave = (settings: RecurringSettings) => {
+    setRecurrenceType(settings.recurrenceType);
+    setRecurrenceCount(settings.recurrenceCount);
+    setEndDate(settings.endDate);
+    setIsRecurring(true);
+  };
+
   const handleSubmit = () => {
     try {
+      const selectedType = assignmentTypes.find(t => t.id === typeId);
+      if (!selectedType) {
+        toast({
+          title: 'Error',
+          description: 'Selected assignment type not found',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+        return;
+      }
+
       const baseAssignment = {
+        id: Date.now().toString(),
         title,
         description,
         classId,
-        type: assignmentTypes.find(t => t.id === typeId)!,
+        type: selectedType,
         semester,
         completed: false,
+        dueDate: new Date(dueDate)
       };
 
       if (isBulkCreate) {
@@ -205,13 +233,11 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
 
           let assignments = [];
           let currentDate = new Date(baseDueDate);
+          const endDateObj = new Date(endDate);
+          endDateObj.setHours(23, 59, 59, 999); // End of the day
+
           let i = 0;
-
-          while (true) {
-            // Break if we've reached the number of assignments or the end date
-            if (!useEndDate && i >= numberOfAssignments) break;
-            if (useEndDate && currentDate > new Date(endDate)) break;
-
+          while (currentDate <= endDateObj) {
             const assignmentNumber = (i + 1).toString().padStart(2, '0');
 
             assignments.push({
@@ -223,18 +249,25 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
 
             // Calculate next date
             if (recurrenceType === 'weekly') {
-              currentDate = new Date(currentDate.setDate(currentDate.getDate() + (7 * recurrenceCount)));
+              currentDate = addWeeks(currentDate, recurrenceCount);
             } else if (recurrenceType === 'biweekly') {
-              currentDate = new Date(currentDate.setDate(currentDate.getDate() + (14 * recurrenceCount)));
+              currentDate = addWeeks(currentDate, 2 * recurrenceCount);
             } else if (recurrenceType === 'monthly') {
-              currentDate = new Date(currentDate.setMonth(currentDate.getMonth() + recurrenceCount));
+              currentDate = addMonths(currentDate, recurrenceCount);
             }
 
             i++;
           }
 
           // Add all assignments
-          assignments.forEach(assignment => addAssignment(assignment));
+          for (const assignment of assignments) {
+            try {
+              addAssignment(assignment);
+            } catch (err) {
+              console.error('Failed to add assignment:', assignment, err);
+              throw err;
+            }
+          }
 
           toast({
             title: 'Assignments created',
@@ -250,31 +283,38 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
             const assignmentDate = new Date(dueDate);
             assignmentDate.setHours(12, 0, 0, 0); // Set time to noon
 
-            addAssignment({
+            const assignment = {
               ...baseAssignment,
               id: `${Date.now()}-${i}`,
               title: `${title} ${assignmentNumber}`,
               dueDate: assignmentDate,
-            });
+            };
+
+            try {
+              addAssignment(assignment);
+            } catch (err) {
+              console.error('Failed to add assignment:', assignment, err);
+              throw err;
+            }
           }
+
+          toast({
+            title: 'Assignments created',
+            description: `Successfully created ${numberOfAssignments} assignments`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+          });
         }
-        toast({
-          title: 'Assignments created',
-          description: `Successfully created ${numberOfAssignments} assignments`,
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        });
       } else {
         // Create single assignment
-        const assignmentDate = new Date(dueDate);
-        assignmentDate.setHours(12, 0, 0, 0); // Set time to noon
+        try {
+          addAssignment(baseAssignment);
+        } catch (err) {
+          console.error('Failed to add assignment:', baseAssignment, err);
+          throw err;
+        }
 
-        addAssignment({
-          ...baseAssignment,
-          id: Date.now().toString(),
-          dueDate: assignmentDate,
-        });
         toast({
           title: 'Assignment created',
           description: 'Successfully created the assignment',
@@ -298,11 +338,11 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
       setIsRecurring(false);
       setRecurrenceType('weekly');
       setRecurrenceCount(1);
-      setUseEndDate(false);
     } catch (error) {
+      console.error('Assignment creation error:', error);
       toast({
         title: 'Error',
-        description: 'Failed to create assignment(s)',
+        description: 'Failed to create assignment(s). Please check the console for details.',
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -453,7 +493,7 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
                     </HStack>
                     {isAddingClass ? (
                       <Box>
-                        <InputGroup size="sm">
+                        <InputGroup>
                           <Input
                             value={newClassName}
                             onChange={(e) => setNewClassName(e.target.value)}
@@ -463,11 +503,13 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
                             borderColor={borderColor}
                             color={textColor}
                             _placeholder={{ color: placeholderColor }}
+                            size="md"
+                            height="40px"
                           />
-                          <InputRightElement width="4.5rem">
+                          <InputRightElement width="4.5rem" height="40px">
                             <HStack spacing={1}>
                               <IconButton
-                                h="1.5rem"
+                                h="1.75rem"
                                 size="sm"
                                 aria-label="Pick color"
                                 icon={
@@ -482,24 +524,14 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
                                 }
                                 onClick={() => setSelectedClassForColor('new')}
                               />
-                              <Tooltip
-                                hasArrow
-                                label={!semester ? "Please select a semester first" : !newClassName.trim() ? "Please enter a class name" : ""}
-                                isDisabled={semester && newClassName.trim()}
-                                placement="top"
-                                bg="red.500"
-                              >
-                                <Box>
-                                  <IconButton
-                                    h="1.5rem"
-                                    size="sm"
-                                    aria-label="Create class"
-                                    icon={<AddIcon />}
-                                    onClick={handleAddClass}
-                                    isDisabled={!newClassName.trim() || !semester}
-                                  />
-                                </Box>
-                              </Tooltip>
+                              <IconButton
+                                h="1.75rem"
+                                size="sm"
+                                aria-label="Create class"
+                                icon={<AddIcon />}
+                                onClick={handleAddClass}
+                                isDisabled={!newClassName.trim() || !semester}
+                              />
                             </HStack>
                           </InputRightElement>
                         </InputGroup>
@@ -537,22 +569,94 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
                   </FormControl>
 
                   <FormControl isRequired>
-                    <FormLabel color={labelColor}>Type</FormLabel>
-                    <Select
-                      value={typeId}
-                      onChange={(e) => setTypeId(e.target.value)}
-                      placeholder="Select type"
-                      bg={inputBg}
-                      borderColor={borderColor}
-                      color={textColor}
-                      _placeholder={{ color: placeholderColor }}
-                    >
-                      {assignmentTypes.map((type) => (
-                        <option key={type.id} value={type.id}>
-                          {type.name}
-                        </option>
-                      ))}
-                    </Select>
+                    <HStack justify="space-between" align="center" width="100%">
+                      <FormLabel color={labelColor} mb={0}>Type</FormLabel>
+                      <Button
+                        size="sm"
+                        leftIcon={<AddIcon />}
+                        onClick={() => setIsAddingType(true)}
+                        variant="ghost"
+                        color={textColor}
+                        _hover={{ bg: buttonHoverBg }}
+                      >
+                        Create Type
+                      </Button>
+                    </HStack>
+                    {isAddingType ? (
+                      <Box>
+                        <InputGroup>
+                          <Input
+                            value={newTypeTitle}
+                            onChange={(e) => setNewTypeTitle(e.target.value)}
+                            placeholder="Enter type name"
+                            pr="4.5rem"
+                            bg={inputBg}
+                            borderColor={borderColor}
+                            color={textColor}
+                            _placeholder={{ color: placeholderColor }}
+                            size="md"
+                            height="40px"
+                          />
+                          <InputRightElement width="4.5rem" height="40px">
+                            <HStack spacing={1}>
+                              <IconButton
+                                h="1.75rem"
+                                size="sm"
+                                aria-label="Pick color"
+                                icon={
+                                  <Box
+                                    w="3"
+                                    h="3"
+                                    borderRadius="full"
+                                    bg={newTypeColor}
+                                    border="1px solid"
+                                    borderColor={borderColor}
+                                  />
+                                }
+                                onClick={() => setSelectedTypeForColor('new')}
+                              />
+                              <IconButton
+                                h="1.75rem"
+                                size="sm"
+                                aria-label="Create type"
+                                icon={<AddIcon />}
+                                onClick={handleAddType}
+                                isDisabled={!newTypeTitle.trim()}
+                              />
+                            </HStack>
+                          </InputRightElement>
+                        </InputGroup>
+                        <Button
+                          size="sm"
+                          width="full"
+                          mt={2}
+                          variant="ghost"
+                          onClick={() => {
+                            setIsAddingType(false);
+                            setNewTypeTitle('');
+                            setNewTypeColor('#3182CE');
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                      </Box>
+                    ) : (
+                      <Select
+                        value={typeId}
+                        onChange={(e) => setTypeId(e.target.value)}
+                        placeholder="Select type"
+                        bg={inputBg}
+                        borderColor={borderColor}
+                        color={textColor}
+                        _placeholder={{ color: placeholderColor }}
+                      >
+                        {assignmentTypes.map((type) => (
+                          <option key={type.id} value={type.id}>
+                            {type.name}
+                          </option>
+                        ))}
+                      </Select>
+                    )}
                   </FormControl>
 
                   <FormControl isRequired>
@@ -571,7 +675,12 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
                     <FormLabel mb="0" color={labelColor}>Create Multiple Assignments</FormLabel>
                     <Switch
                       isChecked={isBulkCreate}
-                      onChange={(e) => setIsBulkCreate(e.target.checked)}
+                      onChange={(e) => {
+                        setIsBulkCreate(e.target.checked);
+                        if (!e.target.checked) {
+                          setIsRecurring(false);
+                        }
+                      }}
                       colorScheme="blue"
                     />
                   </FormControl>
@@ -600,97 +709,24 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
 
                       <FormControl display="flex" alignItems="center">
                         <FormLabel mb="0" color={labelColor}>Make Recurring</FormLabel>
-                        <Switch
-                          isChecked={isRecurring}
-                          onChange={(e) => setIsRecurring(e.target.checked)}
-                          colorScheme="blue"
-                        />
-                      </FormControl>
-
-                      {isRecurring && (
-                        <FormControl>
-                          <FormLabel color={labelColor}>Recurrence Pattern</FormLabel>
-                          <RadioGroup
-                            value={recurrenceType}
-                            onChange={setRecurrenceType}
-                            color={textColor}
-                          >
-                            <Stack>
-                              <Radio value="weekly" colorScheme="blue">Weekly</Radio>
-                              <Radio value="biweekly" colorScheme="blue">Bi-weekly</Radio>
-                              <Radio value="monthly" colorScheme="blue">Monthly</Radio>
-                            </Stack>
-                          </RadioGroup>
-                        </FormControl>
-                      )}
-
-                      <FormControl display="flex" alignItems="center">
-                        <FormLabel mb="0" color={labelColor}>Use End Date Instead of Count</FormLabel>
-                        <Switch
-                          isChecked={useEndDate}
-                          onChange={(e) => setUseEndDate(e.target.checked)}
-                          colorScheme="blue"
-                        />
-                      </FormControl>
-
-                      {useEndDate ? (
-                        <FormControl>
-                          <FormLabel color={labelColor}>End Date</FormLabel>
-                          <Input
-                            type="date"
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
-                            min={dueDate}
-                            bg={inputBg}
-                            borderColor={borderColor}
-                            color={textColor}
+                        <HStack spacing={4}>
+                          <Switch
+                            isChecked={isRecurring}
+                            onChange={(e) => setIsRecurring(e.target.checked)}
+                            colorScheme="blue"
                           />
-                        </FormControl>
-                      ) : (
-                        <FormControl>
-                          <FormLabel color={labelColor}>Number of Assignments</FormLabel>
-                          <NumberInput
-                            value={numberOfAssignments}
-                            onChange={(_, value) => setNumberOfAssignments(value)}
-                            min={1}
-                            max={20}
-                          >
-                            <NumberInputField
-                              bg={inputBg}
-                              borderColor={borderColor}
+                          {isRecurring && (
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={onRecurringModalOpen}
                               color={textColor}
-                            />
-                            <NumberInputStepper>
-                              <NumberIncrementStepper />
-                              <NumberDecrementStepper />
-                            </NumberInputStepper>
-                          </NumberInput>
-                        </FormControl>
-                      )}
-
-                      <FormControl>
-                        <FormLabel color={labelColor}>Repeat Every</FormLabel>
-                        <NumberInput
-                          value={recurrenceCount}
-                          onChange={(_, value) => setRecurrenceCount(value)}
-                          min={1}
-                          max={12}
-                        >
-                          <NumberInputField
-                            bg={inputBg}
-                            borderColor={borderColor}
-                            color={textColor}
-                          />
-                          <NumberInputStepper>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper />
-                          </NumberInputStepper>
-                        </NumberInput>
-                        <FormHelperText color={labelColor}>
-                          {recurrenceType === 'weekly' && 'Weeks'}
-                          {recurrenceType === 'biweekly' && 'Bi-weeks'}
-                          {recurrenceType === 'monthly' && 'Months'}
-                        </FormHelperText>
+                              _hover={{ bg: buttonHoverBg }}
+                            >
+                              Configure Recurrence
+                            </Button>
+                          )}
+                        </HStack>
                       </FormControl>
                     </>
                   )}
@@ -726,6 +762,16 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
         }}
       />
 
+      {/* Recurring Settings Modal */}
+      <RecurringSettingsModal
+        isOpen={isRecurringModalOpen}
+        onClose={onRecurringModalClose}
+        onSave={handleRecurringSettingsSave}
+        startDate={dueDate}
+        numberOfAssignments={numberOfAssignments}
+        semester={semester}
+      />
+
       {/* Color picker modal for classes */}
       <Modal
         isOpen={!!selectedClassForColor}
@@ -751,6 +797,37 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
           </ModalBody>
           <ModalFooter>
             <Button onClick={() => setSelectedClassForColor(null)} color={textColor}>
+              Done
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      {/* Color picker modal for types */}
+      <Modal
+        isOpen={!!selectedTypeForColor}
+        onClose={() => setSelectedTypeForColor(null)}
+      >
+        <ModalOverlay />
+        <ModalContent bg={bgColor}>
+          <ModalHeader color={textColor}>
+            {selectedTypeForColor === 'new' ? 'Choose Type Color' : 'Change Type Color'}
+          </ModalHeader>
+          <ModalCloseButton color={textColor} />
+          <ModalBody>
+            <HexColorPicker
+              color={selectedTypeForColor === 'new' ? newTypeColor : (assignmentTypes.find((t) => t.id === selectedTypeForColor)?.color || '#3182CE')}
+              onChange={(color) => {
+                if (selectedTypeForColor === 'new') {
+                  setNewTypeColor(color);
+                } else if (selectedTypeForColor) {
+                  updateAssignmentTypeColor(selectedTypeForColor, color);
+                }
+              }}
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => setSelectedTypeForColor(null)} color={textColor}>
               Done
             </Button>
           </ModalFooter>

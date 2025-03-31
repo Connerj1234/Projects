@@ -40,17 +40,20 @@ import {
   AlertDialogOverlay,
 } from '@chakra-ui/react';
 import { BsCalendar3, BsList } from 'react-icons/bs';
-import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
+import { AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { BsFilter } from 'react-icons/bs';
 import useStore from '@/store/useStore';
 import { v4 as uuidv4 } from 'uuid';
 import { useToast } from '@chakra-ui/react';
 import { Class } from '../types';
 import { SemesterModal } from './SemesterModal';
+import { EditSemesterModal } from './EditSemesterModal';
 
 function ViewControlsContent() {
   const [mounted, setMounted] = useState(false);
   const { isOpen: isSemesterModalOpen, onOpen: onSemesterModalOpen, onClose: onSemesterModalClose } = useDisclosure();
+  const { isOpen: isEditSemesterModalOpen, onOpen: onEditSemesterModalOpen, onClose: onEditSemesterModalClose } = useDisclosure();
+  const [selectedSemesterForEdit, setSelectedSemesterForEdit] = useState<string>('');
 
   // Class management state
   const [newClassName, setNewClassName] = useState('');
@@ -136,6 +139,12 @@ function ViewControlsContent() {
     });
   };
 
+  const handleEditSemester = (semesterId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedSemesterForEdit(semesterId);
+    onEditSemesterModalOpen();
+  };
+
   if (!mounted) {
     return null;
   }
@@ -198,17 +207,27 @@ function ViewControlsContent() {
                   >
                     <HStack justify="space-between" width="100%">
                       <Text>{semester.name}</Text>
-                      <IconButton
-                        aria-label="Delete semester"
-                        icon={<DeleteIcon />}
-                        size="xs"
-                        colorScheme="red"
-                        variant="ghost"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          removeSemester(semester.id);
-                        }}
-                      />
+                      <HStack spacing={1}>
+                        <IconButton
+                          aria-label="Edit semester"
+                          icon={<EditIcon />}
+                          size="xs"
+                          colorScheme="blue"
+                          variant="ghost"
+                          onClick={(e) => handleEditSemester(semester.id, e)}
+                        />
+                        <IconButton
+                          aria-label="Delete semester"
+                          icon={<DeleteIcon />}
+                          size="xs"
+                          colorScheme="red"
+                          variant="ghost"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeSemester(semester.id);
+                          }}
+                        />
+                      </HStack>
                     </HStack>
                   </MenuItem>
                 ))
@@ -267,24 +286,14 @@ function ViewControlsContent() {
                           size="sm"
                           height="32px"
                         />
-                        <Tooltip
-                          hasArrow
-                          label={!filterOptions.selectedSemester ? "Please select a semester first" : !newClassName.trim() ? "Please enter a class name" : undefined}
-                          isDisabled={Boolean(filterOptions.selectedSemester && newClassName.trim())}
-                          placement="top"
-                          bg="red.500"
-                        >
-                          <Box>
-                            <IconButton
-                              aria-label="Create class"
-                              icon={<AddIcon />}
-                              onClick={handleAddClass}
-                              isDisabled={!newClassName.trim() || !filterOptions.selectedSemester}
-                              size="sm"
-                              height="32px"
-                            />
-                          </Box>
-                        </Tooltip>
+                        <IconButton
+                          aria-label="Create class"
+                          icon={<AddIcon />}
+                          onClick={handleAddClass}
+                          isDisabled={!newClassName.trim() || !filterOptions.selectedSemester}
+                          size="sm"
+                          height="32px"
+                        />
                       </HStack>
                     </InputRightElement>
                   </InputGroup>
@@ -416,6 +425,11 @@ function ViewControlsContent() {
         isOpen={isSemesterModalOpen}
         onClose={onSemesterModalClose}
         onSemesterCreated={handleSemesterCreated}
+      />
+      <EditSemesterModal
+        isOpen={isEditSemesterModalOpen}
+        onClose={onEditSemesterModalClose}
+        semesterId={selectedSemesterForEdit}
       />
     </Box>
   );
