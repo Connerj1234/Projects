@@ -1,45 +1,63 @@
-import { Box, Text, Flex } from '@chakra-ui/react'; // Removed Select import
+'use client';
+
+import { Box, Text, Flex } from '@chakra-ui/react';
 import useStore from '@/store/useStore';
-import { useState } from 'react';
 
-interface StatisticsProps {
-  semester: string; // Add semester prop
-}
+export function Statistics() {
+  const { assignments, semesters, filterOptions } = useStore();
 
-export function Statistics({ semester }: StatisticsProps) {
-  const { assignments, semesters } = useStore();
-  const [timeFrame, setTimeFrame] = useState('semester'); // Default to semester
+  const now = new Date();
+  let filteredAssignments = assignments;
 
-  const totalAssignments = assignments.length;
-  const completedAssignments = assignments.filter(a => a.completed).length;
-  const pendingAssignments = totalAssignments - completedAssignments;
+  // Filter by selected semester
+  if (filterOptions.selectedSemester) {
+    filteredAssignments = filteredAssignments.filter(
+      (a) => a.semester === filterOptions.selectedSemester
+    );
+  }
 
-  // Filter assignments based on the selected time frame
-  const filteredAssignments = assignments.filter(assignment => {
-    const dueDate = new Date(assignment.dueDate);
-    const today = new Date();
+  // Apply time frame filtering
+  if (filterOptions.timeFrame === 'day') {
+    filteredAssignments = filteredAssignments.filter((a) => {
+      const due = new Date(a.dueDate);
+      return (
+        due.getDate() === now.getDate() &&
+        due.getMonth() === now.getMonth() &&
+        due.getFullYear() === now.getFullYear()
+      );
+    });
+  } else if (filterOptions.timeFrame === 'week') {
+    const dayOfWeek = now.getDay();
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - dayOfWeek);
+    startOfWeek.setHours(0, 0, 0, 0);
 
-    if (timeFrame === 'day') {
-      return dueDate.toDateString() === today.toDateString();
-    } else if (timeFrame === 'week') {
-      const startOfWeek = new Date();
-      startOfWeek.setDate(today.getDate() - today.getDay());
-      const endOfWeek = new Date();
-      endOfWeek.setDate(today.getDate() + (6 - today.getDay()));
-      return dueDate >= startOfWeek && dueDate <= endOfWeek;
-    } else if (timeFrame === 'semester') {
-      const currentSemester = semesters.find(s => s.id === semester);
-      return currentSemester && dueDate <= new Date(currentSemester.endDate);
+    const endOfWeek = new Date(startOfWeek);
+    endOfWeek.setDate(startOfWeek.getDate() + 6);
+    endOfWeek.setHours(23, 59, 59, 999);
+
+    filteredAssignments = filteredAssignments.filter((a) => {
+      const due = new Date(a.dueDate);
+      return due >= startOfWeek && due <= endOfWeek;
+    });
+  } else if (filterOptions.timeFrame === 'semester') {
+    const currentSemester = semesters.find(s => s.id === filterOptions.selectedSemester);
+    if (currentSemester?.endDate) {
+      const semesterEnd = new Date(currentSemester.endDate);
+      filteredAssignments = filteredAssignments.filter((a) => {
+        const due = new Date(a.dueDate);
+        return due <= semesterEnd;
+      });
     }
-    return true; // Default case
-  });
+  }
 
-  const filteredCompleted = filteredAssignments.filter(a => a.completed).length;
-  const filteredPending = filteredAssignments.length - filteredCompleted;
+  // Count totals from filtered list
+  const total = filteredAssignments.length;
+  const completed = filteredAssignments.filter((a) => a.completed).length;
+  const pending = total - completed;
 
   return (
     <Flex direction="column" mb={4}>
-      {/* Removed the Select dropdown */}
       <Flex justify="space-between" align="center">
         <Box
           p={4}
@@ -52,7 +70,7 @@ export function Statistics({ semester }: StatisticsProps) {
           mr={2}
         >
           <Text fontSize="lg" fontWeight="bold">Total Assignments</Text>
-          <Text fontSize="2xl" color="gray.800">{filteredAssignments.length}</Text>
+          <Text fontSize="2xl" color="gray.800">{total}</Text>
         </Box>
         <Box
           p={4}
@@ -65,7 +83,7 @@ export function Statistics({ semester }: StatisticsProps) {
           mx={2}
         >
           <Text fontSize="lg" fontWeight="bold">Completed</Text>
-          <Text fontSize="2xl" color="green.500">{filteredCompleted}</Text>
+          <Text fontSize="2xl" color="green.500">{completed}</Text>
         </Box>
         <Box
           p={4}
@@ -78,7 +96,7 @@ export function Statistics({ semester }: StatisticsProps) {
           ml={2}
         >
           <Text fontSize="lg" fontWeight="bold">Pending</Text>
-          <Text fontSize="2xl" color="red.500">{filteredPending}</Text>
+          <Text fontSize="2xl" color="red.500">{pending}</Text>
         </Box>
       </Flex>
     </Flex>

@@ -1,214 +1,154 @@
-'use client';
-
-import { useState } from 'react';
+// Combined Header + Controls Layout Redesign
 import {
-  Box,
-  Button,
-  Flex,
-  IconButton,
-  Select,
-  useColorMode,
-  useColorModeValue,
-  useDisclosure,
-  useToast,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  HStack,
-  Text,
-  FormControl,
-  FormLabel,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon, AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import useStore from '@/store/useStore';
-import { NewAssignmentModal } from '@/components/NewAssignmentModal';
-import { SemesterModal } from '@/components/SemesterModal';
-import { EditSemesterModal } from '@/components/EditSemesterModal';
+    Box,
+    Button,
+    Flex,
+    HStack,
+    IconButton,
+    Select,
+    Switch,
+    Text,
+    useColorMode,
+    useColorModeValue,
+    useDisclosure,
+  } from '@chakra-ui/react';
+  import { MoonIcon, SunIcon, AddIcon } from '@chakra-ui/icons';
+  import useStore from '@/store/useStore';
+  import { NewAssignmentModal } from '@/components/NewAssignmentModal';
+  import { SemesterModal } from '@/components/SemesterModal';
+  import { EditSemesterModal } from '@/components/EditSemesterModal';
+  import { EditClassModal } from '@/components/EditClassModal';
+  import { EditTypeModal } from '@/components/EditTypeModal';
+  import { useState } from 'react';
+  import { BsList, BsCalendar3 } from 'react-icons/bs';
 
-export function Header() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [isNewAssignmentModalOpen, setIsNewAssignmentModalOpen] = useState(false);
-  const {
-    filterOptions,
-    setFilterOptions,
-    semesters,
-    removeSemester,
-  } = useStore();
-  const { isOpen: isSemesterModalOpen, onOpen: onSemesterModalOpen, onClose: onSemesterModalClose } = useDisclosure();
-  const { isOpen: isEditSemesterModalOpen, onOpen: onEditSemesterModalOpen, onClose: onEditSemesterModalClose } = useDisclosure();
-  const [selectedSemesterForEdit, setSelectedSemesterForEdit] = useState<string>('');
-  const toast = useToast();
+  export default function DashboardHeader() {
+    const {
+      filterOptions,
+      setFilterOptions,
+      semesters,
+      setViewMode,
+      viewMode,
+    } = useStore();
 
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
-  const selectBg = useColorModeValue('white', 'whiteAlpha.200');
-  const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
-  const buttonHoverBg = useColorModeValue('gray.100', 'whiteAlpha.300');
-  const iconColor = useColorModeValue('gray.600', 'whiteAlpha.900');
+    const { colorMode, toggleColorMode } = useColorMode();
+    const bgColor = useColorModeValue('white', 'gray.800');
+    const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
+    const iconColor = useColorModeValue('gray.600', 'whiteAlpha.900');
+    const activeButtonBg = useColorModeValue('blue.500', 'blue.400');
+    const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
+    const buttonHoverBg = useColorModeValue('gray.100', 'whiteAlpha.300');
 
-  const handleRemoveSemester = (semesterId: string) => {
-    const semester = semesters.find(s => s.id === semesterId);
-    if (semester) {
-      removeSemester(semesterId);
-      if (filterOptions.selectedSemester === semesterId) {
-        setFilterOptions({ selectedSemester: '' });
-      }
-      toast({
-        title: 'Semester removed',
-        description: `Successfully removed ${semester.name}`,
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-    }
-  };
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const {
+      isOpen: isSemesterModalOpen,
+      onOpen: onSemesterModalOpen,
+      onClose: onSemesterModalClose,
+    } = useDisclosure();
+    const {
+      isOpen: isEditSemesterModalOpen,
+      onOpen: onEditSemesterModalOpen,
+      onClose: onEditSemesterModalClose,
+    } = useDisclosure();
+    const {
+      isOpen: isManageClassesOpen,
+      onOpen: onManageClassesOpen,
+      onClose: onManageClassesClose,
+    } = useDisclosure();
+    const {
+      isOpen: isManageTypesOpen,
+      onOpen: onManageTypesOpen,
+      onClose: onManageTypesClose,
+    } = useDisclosure();
 
-  const handleSemesterCreated = (semesterId: string) => {
-    setFilterOptions({ selectedSemester: semesterId });
-    toast({
-      title: 'Semester created',
-      description: 'New semester has been created and selected',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
-  };
+    const [selectedSemesterForEdit, setSelectedSemesterForEdit] = useState<string>('');
+    const handleEditSemester = (semesterId: string) => {
+      setSelectedSemesterForEdit(semesterId);
+      onEditSemesterModalOpen();
+    };
 
-  const handleEditSemester = (semesterId: string) => {
-    setSelectedSemesterForEdit(semesterId);
-    onEditSemesterModalOpen();
-  };
-
-  return (
-    <Box
-      py={4}
-      px={8}
-      borderBottomWidth="1px"
-      borderColor={borderColor}
-      bg={bgColor}
-      position="sticky"
-      top={0}
-      zIndex={10}
-    >
-      <Flex justify="space-between" align="center">
-        <Flex gap={2} align="center">
-          {/* Semester Selection */}
-          <FormControl maxW="300px">
+    return (
+      <Box px={8} pt={4} pb={2} bg={bgColor} borderBottomWidth="1px" borderColor={borderColor}>
+        {/* Top Row */}
+        <Flex justify="space-between" align="center" wrap="wrap" gap={4}>
+          <HStack spacing={4}>
             <Select
+              maxW="200px"
               value={filterOptions.selectedSemester}
               onChange={(e) => setFilterOptions({ ...filterOptions, selectedSemester: e.target.value })}
-              bg={selectBg}
-              color={textColor}
+              bg={bgColor}
               borderColor={borderColor}
-              size="sm"
-              placeholder="All Semesters"
+              color={textColor}
             >
               {semesters.map((semester) => (
-                <option key={semester.id} value={semester.id}>
-                  {semester.name}
-                </option>
+                <option key={semester.id} value={semester.id}>{semester.name}</option>
               ))}
             </Select>
-          </FormControl>
 
-          <Menu>
-            <MenuButton
-              as={Button}
-              leftIcon={<AddIcon />}
-              size="sm"
+            <Button variant="outline" onClick={onSemesterModalOpen}>
+              + Manage Semesters
+            </Button>
+          </HStack>
+
+          <HStack spacing={4}>
+            <Button colorScheme="blue" onClick={onOpen} leftIcon={<AddIcon />}>New Assignment</Button>
+            <IconButton
+              icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              aria-label="Toggle Color Mode"
+              onClick={toggleColorMode}
               variant="ghost"
-              color={iconColor}
-              _hover={{ bg: buttonHoverBg }}
-            >
-              Manage Semesters
-            </MenuButton>
-            <MenuList bg={bgColor} borderColor={borderColor}>
-              <MenuItem
-                onClick={onSemesterModalOpen}
-                icon={<AddIcon />}
-                bg={bgColor}
-                _hover={{ bg: buttonHoverBg }}
-                color={textColor}
-              >
-                Add Semester
-              </MenuItem>
-              {semesters.length > 0 && <MenuDivider />}
-              {semesters.map((semester) => (
-                <MenuItem
-                  key={semester.id}
-                  bg={bgColor}
-                  _hover={{ bg: buttonHoverBg }}
-                  color={textColor}
-                >
-                  <HStack justify="space-between" width="100%">
-                    <Text>{semester.name}</Text>
-                    <HStack spacing={1}>
-                      <IconButton
-                        aria-label="Edit semester"
-                        icon={<EditIcon />}
-                        size="xs"
-                        colorScheme="blue"
-                        variant="ghost"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleEditSemester(semester.id);
-                        }}
-                      />
-                      <IconButton
-                        aria-label="Delete semester"
-                        icon={<DeleteIcon />}
-                        size="xs"
-                        colorScheme="red"
-                        variant="ghost"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleRemoveSemester(semester.id);
-                        }}
-                      />
-                    </HStack>
-                  </HStack>
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
+            />
+          </HStack>
         </Flex>
 
-        <Flex gap={4} align="center">
-          <Button
-            colorScheme="blue"
-            size="sm"
-            onClick={() => setIsNewAssignmentModalOpen(true)}
-          >
-            New Assignment
-          </Button>
-          <IconButton
-            aria-label="Toggle color mode"
-            icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            onClick={toggleColorMode}
-            variant="ghost"
-            color={iconColor}
-            _hover={{ bg: buttonHoverBg }}
-          />
+        {/* Second Row */}
+        <Flex justify="space-between" align="center" mt={4} wrap="wrap" gap={4}>
+          <HStack spacing={4}>
+            <Text fontWeight="medium" color={textColor}>View:</Text>
+            <IconButton
+              aria-label="List view"
+              icon={<BsList />}
+              variant={viewMode === 'list' ? 'solid' : 'ghost'}
+              onClick={() => setViewMode('list')}
+              color={viewMode === 'list' ? 'white' : iconColor}
+              bg={viewMode === 'list' ? activeButtonBg : 'transparent'}
+              _hover={{ bg: viewMode === 'list' ? activeButtonBg : buttonHoverBg }}
+            />
+            <IconButton
+              aria-label="Calendar view"
+              icon={<BsCalendar3 />}
+              variant={viewMode === 'calendar' ? 'solid' : 'ghost'}
+              onClick={() => setViewMode('calendar')}
+              color={viewMode === 'calendar' ? 'white' : iconColor}
+              bg={viewMode === 'calendar' ? activeButtonBg : 'transparent'}
+              _hover={{ bg: viewMode === 'calendar' ? activeButtonBg : buttonHoverBg }}
+            />
+            <HStack>
+              <Switch
+                isChecked={filterOptions.showCompleted}
+                onChange={(e) => setFilterOptions({ ...filterOptions, showCompleted: e.target.checked })}
+                colorScheme="blue"
+              />
+              <Text color={textColor}>Show Completed</Text>
+            </HStack>
+          </HStack>
+
+          <HStack spacing={2}>
+            <Button variant="outline" onClick={onManageClassesOpen}>Manage Classes</Button>
+            <Button variant="outline" onClick={onManageTypesOpen}>Manage Types</Button>
+          </HStack>
         </Flex>
-      </Flex>
 
-      <NewAssignmentModal
-        isOpen={isNewAssignmentModalOpen}
-        onClose={() => setIsNewAssignmentModalOpen(false)}
-      />
-
-      <SemesterModal
-        isOpen={isSemesterModalOpen}
-        onClose={onSemesterModalClose}
-        onSemesterCreated={handleSemesterCreated}
-      />
-      <EditSemesterModal
-        isOpen={isEditSemesterModalOpen}
-        onClose={onEditSemesterModalClose}
-        semesterId={selectedSemesterForEdit}
-      />
-    </Box>
-  );
-}
+        {/* Modals */}
+        <NewAssignmentModal isOpen={isOpen} onClose={onClose} />
+        <SemesterModal isOpen={isSemesterModalOpen} onClose={onSemesterModalClose} />
+        <EditSemesterModal
+          isOpen={isEditSemesterModalOpen}
+          onClose={onEditSemesterModalClose}
+          semesterId={selectedSemesterForEdit}
+        />
+        <EditClassModal isOpen={isManageClassesOpen} onClose={onManageClassesClose} />
+        <EditTypeModal isOpen={isManageTypesOpen} onClose={onManageTypesClose} />
+      </Box>
+    );
+  }

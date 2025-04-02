@@ -10,6 +10,25 @@ import {
 import { format } from 'date-fns';
 import useStore from '@/store/useStore';
 
+// Ensure FilterOptions type includes hideCompleted
+interface FilterOptions {
+  hideCompleted: boolean;
+  selectedClasses: string[];
+  selectedTypes: string[];
+  selectedSemester?: string;
+  timeFrame?: 'day' | 'week' | 'semester';
+}
+
+// Ensure Assignment type includes typeId
+interface Assignment {
+  id: string;
+  title: string;
+  completed: boolean;
+  dueDate: string;
+  classId: string;
+  typeId: string;
+}
+
 export function ListView() {
   const {
     assignments,

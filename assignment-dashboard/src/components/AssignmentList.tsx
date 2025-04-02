@@ -26,10 +26,19 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { format, differenceInDays } from 'date-fns';
-import { EditIcon, DeleteIcon, MoreIcon } from '@chakra-ui/icons';
+import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
 import useStore from '@/store/useStore';
 import { useState, useRef } from 'react';
 import { EditAssignmentModal } from './EditAssignmentModal';
+
+// Ensure FilterOptions type includes timeFrame
+interface FilterOptions {
+  showCompleted: boolean;
+  selectedClasses: string[];
+  selectedTypes: string[];
+  selectedSemester?: string; // Optional if not always present
+  timeFrame?: 'day' | 'week' | 'semester'; // Ensure this is included
+}
 
 export function AssignmentList() {
   const {
@@ -73,7 +82,7 @@ export function AssignmentList() {
       return dueDate >= startOfWeek && dueDate <= endOfWeek;
     } else if (filterOptions.timeFrame === 'semester') {
       const currentSemester = semesters.find(s => s.id === filterOptions.selectedSemester);
-      return currentSemester && dueDate <= new Date(currentSemester.endDate);
+      return currentSemester && currentSemester.endDate && dueDate <= new Date(currentSemester.endDate);
     }
 
     return true; // Default case
