@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
-import { useStore } from '@/store/useStore';
+import useStore from '@/store/useStore';
 import { supabase } from '@/lib/supabaseClient';
 import { SemesterModal } from '@/components/SemesterModal';
 import { NewAssignmentModal } from '@/components/NewAssignmentModal';
@@ -114,27 +114,29 @@ export default function Header() {
       <Flex justify="space-between" align="center" wrap="wrap" gap={4}>
         {/* Left: Semester Controls */}
         <HStack spacing={3}>
-          <Select
-            value={selectedSemesterId || ''}
-            onChange={(e) => setSelectedSemesterId(e.target.value)}
-            size="sm"
-            maxW="170px"
-            borderRadius="md"
-            border="1px solid"
-            borderColor="gray.300"
-            fontWeight="medium"
-            color="gray.800"
-            bg="white"
-            _hover={{ borderColor: 'gray.400' }}
-            _focus={{ borderColor: 'blue.500', boxShadow: 'sm' }}
-            placeholder="Select semester"
-          >
-            {semesters.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name}
-              </option>
-            ))}
-          </Select>
+        <Select
+  value={selectedSemesterId || ''}
+  onChange={(e) => setSelectedSemesterId(e.target.value)}
+  size="sm"
+  maxW="170px"
+  borderRadius="md"
+  border="1px solid"
+  borderColor="gray.300"
+  fontWeight="medium"
+  color="gray.800"
+  bg="white"
+  _hover={{ borderColor: 'gray.400' }}
+  _focus={{ borderColor: 'blue.500', boxShadow: 'sm' }}
+  placeholder="Select semester"
+>
+  {Array.isArray(semesters) &&
+    semesters.map((s) => (
+      <option key={s.id} value={s.id}>
+        {s.name}
+      </option>
+    ))}
+</Select>
+
 
           <Button
             onClick={onOpenManageSemesters}

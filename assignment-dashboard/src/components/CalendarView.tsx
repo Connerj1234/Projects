@@ -41,8 +41,10 @@ import {
   eachWeekOfInterval,
   getDay,
 } from 'date-fns';
-import { useStore } from '@/store/useStore';
+import useStore  from '@/store/useStore';
 import { EditAssignmentModal } from './EditAssignmentModal';
+import { getSemesterEvents } from '@/types/semesterEvents';
+import type { SemesterEvent } from '@/types/semesterEvents';
 
 export function CalendarView() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -55,7 +57,6 @@ export function CalendarView() {
     assignmentTypes,
     filterOptions,
     toggleAssignmentCompletion,
-    getSemesterEvents,
   } = useStore();
 
   const monthStart = startOfMonth(currentDate);
@@ -94,10 +95,10 @@ export function CalendarView() {
     const assignments = filteredAssignments.filter((assignment) =>
       isSameDay(new Date(assignment.dueDate), date)
     );
+    console.log("semesterEvents:", semesterEvents);
 
-    const events = semesterEvents.filter((event) =>
-      isSameDay(event.date, date)
-    );
+    const events = semesterEvents.filter((event: SemesterEvent) => isSameDay(new Date(event.date), date));
+
 
     return { assignments, events };
   };
@@ -176,7 +177,7 @@ export function CalendarView() {
                   </Text>
                   <VStack align="stretch" spacing={1}>
                     {/* Show semester events first */}
-                    {dayEvents.map((event) => (
+                    {dayEvents.map((event: SemesterEvent) => (
                       <Box
                         key={event.id}
                         p={1}
@@ -244,7 +245,7 @@ export function CalendarView() {
               {selectedDate && (
                 <>
                   {/* Show semester events first */}
-                  {getEventsForDay(selectedDate).events.map((event) => (
+                  {getEventsForDay(selectedDate).events.map((event: SemesterEvent) => (
                     <Box
                       key={event.id}
                       p={3}

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { AssignmentRow, AssignmentTypeRow, ClassRow, SemesterEvent } from '@/types';
+import { persist } from 'zustand/middleware';
+import { AssignmentRow, AssignmentTypeRow, ClassRow } from '@/types';
 import {
   getAssignments,
   updateAssignment,
@@ -8,83 +9,180 @@ import { getClasses } from '@/lib/db/classes';
 import { getAssignmentTypes } from '@/lib/db/assignmentTypes';
 import { getSemesterEvents } from '@/types/semesterEvents';
 
+type AssignmentType = {
+  id: string;
+  name: string;
+  color: string;
+};
+
+type Assignment = {
+  id: string;
+  title: string;
+  description?: string;
+  completed: boolean;
+  dueDate: string;
+  classId: string;
+  semester: string;
+  type: AssignmentType;
+};
+
+type Class = {
+  id: string;
+  name: string;
+  color: string;
+  semesterId: string;
+};
+
+type Semester = {
+  id: string;
+  name: string;
+  startDate?: string;
+  endDate: string;
+};
+
 type FilterOptions = {
+  selectedSemester?: string;
   selectedClasses: string[];
   selectedTypes: string[];
-  selectedSemester: string;
+  timeFrame?: 'day' | 'week' | 'semester';
   showCompleted: boolean;
 };
 
+type ViewMode = 'list' | 'calendar';
+
 type Store = {
-  assignments: AssignmentRow[];
-  classes: ClassRow[];
-  assignmentTypes: AssignmentTypeRow[];
-  semesterEvents: SemesterEvent[];
+  semesters: Semester[];
+  classes: Class[];
+  assignments: Assignment[];
+  assignmentTypes: AssignmentType[];
   filterOptions: FilterOptions;
+  viewMode: ViewMode;
+  showCompleted: boolean;
 
-  viewMode: 'list' | 'calendar';
-  setViewMode: (mode: 'list' | 'calendar') => void;
-  setShowCompleted: (val: boolean) => void;
+  // Mutators
+  setFilterOptions: (options: Partial<FilterOptions> | ((prev: FilterOptions) => FilterOptions)) => void;
+  setViewMode: (mode: ViewMode) => void;
+  setShowCompleted: (value: boolean) => void;
 
-  // Loaders
-  loadAssignments: () => Promise<void>;
-  loadClasses: () => Promise<void>;
-  loadAssignmentTypes: () => Promise<void>;
-  loadSemesterEvents: () => Promise<void>;
+  addSemester: (semester: Semester) => void;
+  updateSemester: (id: string, updates: Partial<Semester>) => void;
+  removeSemester: (id: string) => void;
 
-  toggleAssignmentCompletion: (id: string) => Promise<void>;
+  addClass: (c: Class) => void;
+  removeClass: (id: string) => void;
+  updateClassColor: (id: string, color: string) => void;
+
+  addAssignment: (a: Assignment) => void;
+  updateAssignment: (id: string, updates: Partial<Assignment>) => void;
+  deleteAssignment: (id: string) => void;
+  toggleAssignmentCompletion: (id: string) => void;
+
+  addAssignmentType: (type: AssignmentType) => void;
+  removeAssignmentType: (id: string) => void;
+  updateAssignmentTypeColor: (id: string, color: string) => void;
 };
 
-export const useStore = create<Store>((set, get) => ({
-  assignments: [],
-  classes: [],
-  assignmentTypes: [],
-  semesterEvents: [],
-  filterOptions: {
-    selectedClasses: [],
-    selectedTypes: [],
-    selectedSemester: '',
-    showCompleted: false,
-  },
+const useStore = create<Store>()(
+  persist(
+    (set, get) => ({
+      semesters: [],
+      classes: [],
+      assignments: [],
+      assignmentTypes: [],
+      viewMode: 'list',
+      showCompleted: true,
+      filterOptions: {
+        selectedSemester: undefined,
+        selectedClasses: [],
+        selectedTypes: [],
+        timeFrame: 'semester',
+        showCompleted: true,
+      },
 
-  viewMode: 'list',
-  setViewMode: (mode) => set({ viewMode: mode }),
-  setShowCompleted: (val) =>
-    set((state) => ({
-      filterOptions: { ...state.filterOptions, showCompleted: val },
-    })),
+      // Setters
+      setFilterOptions: (options) =>
+        set((state) => ({
+          filterOptions:
+            typeof options === 'function'
+              ? options(state.filterOptions)
+              : { ...state.filterOptions, ...options },
+        })),
+      setViewMode: (mode) => set({ viewMode: mode }),
+      setShowCompleted: (value) => set({ showCompleted: value }),
 
-  loadAssignments: async () => {
-    const data = await getAssignments();
-    set({ assignments: data });
-  },
+      // Semesters
+      addSemester: (semester) => set((state) => ({
+        semesters: [...state.semesters, semester],
+      })),
+      updateSemester: (id, updates) =>
+        set((state) => ({
+          semesters: state.semesters.map((s) =>
+            s.id === id ? { ...s, ...updates } : s
+          ),
+        })),
+      removeSemester: (id) =>
+        set((state) => ({
+          semesters: state.semesters.filter((s) => s.id !== id),
+        })),
 
-  loadClasses: async () => {
-    const data = await getClasses();
-    set({ classes: data });
-  },
+      // Classes
+      addClass: (c) =>
+        set((state) => ({
+          classes: [...state.classes, c],
+        })),
+      removeClass: (id) =>
+        set((state) => ({
+          classes: state.classes.filter((c) => c.id !== id),
+        })),
+      updateClassColor: (id, color) =>
+        set((state) => ({
+          classes: state.classes.map((c) =>
+            c.id === id ? { ...c, color } : c
+          ),
+        })),
 
-  loadAssignmentTypes: async () => {
-    const data = await getAssignmentTypes();
-    set({ assignmentTypes: data });
-  },
+      // Assignments
+      addAssignment: (a) =>
+        set((state) => ({
+          assignments: [...state.assignments, a],
+        })),
+      updateAssignment: (id, updates) =>
+        set((state) => ({
+          assignments: state.assignments.map((a) =>
+            a.id === id ? { ...a, ...updates } : a
+          ),
+        })),
+      deleteAssignment: (id) =>
+        set((state) => ({
+          assignments: state.assignments.filter((a) => a.id !== id),
+        })),
+      toggleAssignmentCompletion: (id) =>
+        set((state) => ({
+          assignments: state.assignments.map((a) =>
+            a.id === id ? { ...a, completed: !a.completed } : a
+          ),
+        })),
 
-  loadSemesterEvents: async () => {
-    const data = await getSemesterEvents();
-    set({ semesterEvents: data });
-  },
+      // Assignment Types
+      addAssignmentType: (type) =>
+        set((state) => ({
+          assignmentTypes: [...state.assignmentTypes, type],
+        })),
+      removeAssignmentType: (id) =>
+        set((state) => ({
+          assignmentTypes: state.assignmentTypes.filter((t) => t.id !== id),
+        })),
+      updateAssignmentTypeColor: (id, color) =>
+        set((state) => ({
+          assignmentTypes: state.assignmentTypes.map((t) =>
+            t.id === id ? { ...t, color } : t
+          ),
+        })),
+    }),
+    {
+      name: 'assignment-dashboard-store', // localStorage key
+    }
+  )
+);
 
-  toggleAssignmentCompletion: async (id) => {
-    const assignment = get().assignments.find((a) => a.id === id);
-    if (!assignment) return;
-
-    const updated = { ...assignment, completed: !assignment.completed };
-    await updateAssignment(id, { completed: updated.completed });
-
-    set((state) => ({
-      assignments: state.assignments.map((a) =>
-        a.id === id ? updated : a
-      ),
-    }));
-  },
-}));
+export default useStore;
