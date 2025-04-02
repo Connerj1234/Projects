@@ -16,6 +16,14 @@ import {
 import { BsList, BsCalendar3 } from 'react-icons/bs';
 import { ViewIcon } from '@chakra-ui/icons';
 
+import {
+    BsGear,
+    BsTag,
+    BsFileEarmarkText,
+    BsCheckCircle,
+    BsClock,
+  } from 'react-icons/bs';
+
 import Header from '@/app/components/Header';
 import { Statistics } from '@/components/Statistics';
 import { AssignmentList } from '@/components/AssignmentList';
@@ -101,12 +109,21 @@ export default function Home() {
 
   {/* Right: Manage buttons */}
   <HStack spacing={3}>
-    <Button variant="outline" onClick={onOpenManageClasses}>
-      Manage Classes
-    </Button>
-    <Button variant="outline" onClick={onOpenManageTypes}>
-      Manage Types
-    </Button>
+  <Button
+  variant="outline"
+  leftIcon={<BsGear />}
+  onClick={onOpenManageClasses}
+>
+  Manage Classes
+</Button>
+
+<Button
+  variant="outline"
+  leftIcon={<BsTag />}
+  onClick={onOpenManageTypes}
+>
+  Manage Types
+</Button>
   </HStack>
 </Flex>
 

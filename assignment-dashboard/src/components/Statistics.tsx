@@ -1,7 +1,12 @@
 'use client';
 
-import { Box, Text, Flex } from '@chakra-ui/react';
+import { Box, Text, Flex, HStack } from '@chakra-ui/react';
 import useStore from '@/store/useStore';
+import {
+  BsFileEarmarkText,
+  BsCheckCircle,
+  BsClock,
+} from 'react-icons/bs';
 
 export function Statistics() {
   const { assignments, semesters, filterOptions } = useStore();
@@ -41,7 +46,9 @@ export function Statistics() {
       return due >= startOfWeek && due <= endOfWeek;
     });
   } else if (filterOptions.timeFrame === 'semester') {
-    const currentSemester = semesters.find(s => s.id === filterOptions.selectedSemester);
+    const currentSemester = semesters.find(
+      (s) => s.id === filterOptions.selectedSemester
+    );
     if (currentSemester?.endDate) {
       const semesterEnd = new Date(currentSemester.endDate);
       filteredAssignments = filteredAssignments.filter((a) => {
@@ -51,7 +58,6 @@ export function Statistics() {
     }
   }
 
-  // Count totals from filtered list
   const total = filteredAssignments.length;
   const completed = filteredAssignments.filter((a) => a.completed).length;
   const pending = total - completed;
@@ -69,9 +75,15 @@ export function Statistics() {
           flex="1"
           mr={2}
         >
-          <Text fontSize="lg" fontWeight="bold">Total Assignments</Text>
+          <HStack spacing={2} mb={1}>
+            <BsFileEarmarkText />
+            <Text fontSize="lg" fontWeight="bold">
+              Total Assignments
+            </Text>
+          </HStack>
           <Text fontSize="2xl" color="gray.800">{total}</Text>
         </Box>
+
         <Box
           p={4}
           borderWidth="1px"
@@ -82,9 +94,15 @@ export function Statistics() {
           flex="1"
           mx={2}
         >
-          <Text fontSize="lg" fontWeight="bold">Completed</Text>
-          <Text fontSize="2xl" color="green.500">{completed}</Text>
+          <HStack spacing={2} mb={1}>
+            <BsCheckCircle />
+            <Text fontSize="lg" fontWeight="bold">
+              Completed
+            </Text>
+          </HStack>
+          <Text fontSize="2xl" color="gray.800">{completed}</Text>
         </Box>
+
         <Box
           p={4}
           borderWidth="1px"
@@ -95,8 +113,13 @@ export function Statistics() {
           flex="1"
           ml={2}
         >
-          <Text fontSize="lg" fontWeight="bold">Pending</Text>
-          <Text fontSize="2xl" color="red.500">{pending}</Text>
+          <HStack spacing={2} mb={1}>
+            <BsClock />
+            <Text fontSize="lg" fontWeight="bold">
+              Pending
+            </Text>
+          </HStack>
+          <Text fontSize="2xl" color="gray.800">{pending}</Text>
         </Box>
       </Flex>
     </Flex>
