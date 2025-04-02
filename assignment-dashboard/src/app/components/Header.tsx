@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
-import useStore from '@/store/useStore';
+import { useStore } from '@/store/useStore';
 import { supabase } from '@/lib/supabaseClient';
 import { SemesterModal } from '@/components/SemesterModal';
 import { NewAssignmentModal } from '@/components/NewAssignmentModal';
