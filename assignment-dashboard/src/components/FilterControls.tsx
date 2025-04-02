@@ -6,6 +6,7 @@ import {
   Menu,
   MenuButton,
   MenuList,
+  MenuItem,
   Text,
   HStack,
   Checkbox,
@@ -14,6 +15,8 @@ import {
   Grid,
   GridItem,
   Divider,
+  Flex,
+  Select,
 } from '@chakra-ui/react';
 import { BsFilter } from 'react-icons/bs';
 import useStore from '@/store/useStore';
@@ -32,6 +35,8 @@ export function FilterControls() {
   const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
   const buttonHoverBg = useColorModeValue('gray.100', 'whiteAlpha.300');
   const mutedTextColor = useColorModeValue('gray.600', 'whiteAlpha.700');
+
+  const [timeFrame, setTimeFrame] = useState('semester'); // Default to semester
 
   // Get classes for selected semester
   const semesterClasses = classes.filter(c => c.semesterId === filterOptions.selectedSemester);
@@ -54,15 +59,13 @@ export function FilterControls() {
     setFilterOptions({ ...filterOptions, selectedTypes: newSelectedTypes });
   };
 
-  const handleSelectAllClasses = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    const allClassIds = semesterClasses.map(c => c.id);
+  const handleSelectAllClasses = () => {
+    const allClassIds = classes.map(c => c.id);
     const newSelectedClasses = filterOptions.selectedClasses.length === allClassIds.length ? [] : allClassIds;
     setFilterOptions({ ...filterOptions, selectedClasses: newSelectedClasses });
   };
 
-  const handleSelectAllTypes = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
+  const handleSelectAllTypes = () => {
     const allTypeIds = assignmentTypes.map(t => t.id);
     const newSelectedTypes = filterOptions.selectedTypes.length === allTypeIds.length ? [] : allTypeIds;
     setFilterOptions({ ...filterOptions, selectedTypes: newSelectedTypes });
@@ -82,6 +85,16 @@ export function FilterControls() {
           Filters
         </MenuButton>
         <MenuList bg={bgColor} borderColor={borderColor} p={4} minW="500px">
+          {/* Time Frame Filter */}
+          <Flex direction="column" mb={4}>
+            <Text fontWeight="medium" mb={2}>Time Frame</Text>
+            <Select value={timeFrame} onChange={(e) => setTimeFrame(e.target.value)} mb={4}>
+              <option value="semester">Current Semester</option>
+              <option value="week">This Week</option>
+              <option value="day">Today</option>
+            </Select>
+          </Flex>
+
           <Grid templateColumns="1fr 2px 1fr" gap={4}>
             {/* Classes Section */}
             <GridItem>

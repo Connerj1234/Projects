@@ -48,24 +48,36 @@ export function AssignmentList() {
   const cancelRef = useRef<HTMLButtonElement>(null);
   const toast = useToast();
 
-  // Filter assignments based on selected classes and types
-  const filteredAssignments = assignments
-    .filter(a => {
-      // Filter by completion status
-      if (!filterOptions?.showCompleted && a.completed) return false;
+  // Filter assignments based on selected classes, types, and time frame
+  const filteredAssignments = assignments.filter(a => {
+    // Filter by completion status
+    if (!filterOptions.showCompleted && a.completed) return false;
 
-      // Filter by semester
-      if (filterOptions?.selectedSemester && a.semester !== filterOptions.selectedSemester) return false;
+    // Filter by selected classes
+    if (filterOptions.selectedClasses.length > 0 && !filterOptions.selectedClasses.includes(a.classId)) return false;
 
-      // Filter by selected classes (if any are selected)
-      if (filterOptions?.selectedClasses?.length > 0 && !filterOptions.selectedClasses.includes(a.classId)) return false;
+    // Filter by selected types
+    if (filterOptions.selectedTypes.length > 0 && !filterOptions.selectedTypes.includes(a.type.id)) return false;
 
-      // Filter by selected types (if any are selected)
-      if (filterOptions?.selectedTypes?.length > 0 && !filterOptions.selectedTypes.includes(a.type.id)) return false;
+    // Filter by time frame
+    const dueDate = new Date(a.dueDate);
+    const today = new Date();
 
-      return true;
-    })
-    .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+    if (filterOptions.timeFrame === 'day') {
+      return dueDate.toDateString() === today.toDateString();
+    } else if (filterOptions.timeFrame === 'week') {
+      const startOfWeek = new Date();
+      startOfWeek.setDate(today.getDate() - today.getDay());
+      const endOfWeek = new Date();
+      endOfWeek.setDate(today.getDate() + (6 - today.getDay()));
+      return dueDate >= startOfWeek && dueDate <= endOfWeek;
+    } else if (filterOptions.timeFrame === 'semester') {
+      const currentSemester = semesters.find(s => s.id === filterOptions.selectedSemester);
+      return currentSemester && dueDate <= new Date(currentSemester.endDate);
+    }
+
+    return true; // Default case
+  });
 
   // Group assignments by semester if no semester is selected
   const groupedAssignments = !filterOptions.selectedSemester
@@ -171,12 +183,6 @@ export function AssignmentList() {
                           isChecked={assignment.completed}
                           onChange={() => toggleAssignmentCompletion(assignment.id)}
                           colorScheme="blue"
-                          sx={{
-                            '& .chakra-checkbox__control': {
-                              borderColor: assignment.completed ? 'blue.500' : borderColor,
-                              bg: assignment.completed ? 'blue.500' : 'transparent',
-                            }
-                          }}
                         />
                         <Box>
                           <Text
@@ -188,6 +194,9 @@ export function AssignmentList() {
                             {assignment.title}
                           </Text>
                           <Flex gap={2} mt={1}>
+                            <Tag colorScheme={assignment.completed ? 'green' : 'red'}>
+                              {assignment.completed ? 'Completed' : 'Pending'}
+                            </Tag>
                             <Tag
                               bg={assignmentClass?.color || 'blue.500'}
                               color="white"

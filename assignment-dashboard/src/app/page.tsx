@@ -8,6 +8,7 @@ import { AssignmentList } from '@/components/AssignmentList';
 import { CalendarView } from '@/components/CalendarView';
 import { FilterControls } from '@/components/FilterControls';
 import useStore from '@/store/useStore';
+import { Statistics } from '@/components/Statistics';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
       <ViewControls />
       <Container maxW="container.xl" py={8}>
         <Box bg={bgColor} rounded="lg" shadow="base" p={6}>
+          <Statistics />
           <Flex justify="space-between" align="center" mb={6}>
             <Heading size="lg" color={textColor} fontWeight="bold">
               Assignment Dashboard
