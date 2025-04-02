@@ -41,7 +41,7 @@ import {
   eachWeekOfInterval,
   getDay,
 } from 'date-fns';
-import useStore from '@/store/useStore';
+import { useStore } from '@/store/useStore';
 import { EditAssignmentModal } from './EditAssignmentModal';
 
 export function CalendarView() {

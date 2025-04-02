@@ -1,122 +1,90 @@
 import { create } from 'zustand';
-import { Assignment, AssignmentType, Class, Semester } from '@/types';
+import { AssignmentRow, AssignmentTypeRow, ClassRow, SemesterEvent } from '@/types';
+import {
+  getAssignments,
+  updateAssignment,
+} from '@/lib/db/assignments';
+import { getClasses } from '@/lib/db/classes';
+import { getAssignmentTypes } from '@/lib/db/assignmentTypes';
+import { getSemesterEvents } from '@/types/semesterEvents';
 
-type Store = {
-  // View
-  viewMode: 'list' | 'calendar';
-  setViewMode: (mode: 'list' | 'calendar') => void;
-
-  // Show completed toggle
+type FilterOptions = {
+  selectedClasses: string[];
+  selectedTypes: string[];
+  selectedSemester: string;
   showCompleted: boolean;
-  setShowCompleted: (value: boolean) => void;
-
-  // Assignments
-  assignments: Assignment[];
-  addAssignment: (assignment: Assignment) => void;
-  updateAssignment: (assignment: Assignment) => void;
-  removeAssignment: (id: string) => void;
-
-  // Semesters
-  semesters: Semester[];
-  addSemester: (semester: Semester) => void;
-  updateSemester: (semester: Semester) => void;
-  removeSemester: (id: string) => void;
-
-  // Classes
-  classes: Class[];
-  addClass: (newClass: Class) => void;
-  removeClass: (id: string) => void;
-  updateClassColor: (id: string, color: string) => void;
-
-  // Types
-  assignmentTypes: AssignmentType[];
-  addAssignmentType: (type: AssignmentType) => void;
-  removeAssignmentType: (id: string) => void;
-  updateAssignmentTypeColor: (id: string, color: string) => void;
-
-  // Filters
-  filterOptions: {
-    selectedSemester: string;
-    selectedClasses: string[];
-    selectedTypes: string[];
-    timeFrame: 'all' | 'day' | 'week';
-  };
-  setFilterOptions: (fn: (prev: Store['filterOptions']) => Store['filterOptions']) => void;
 };
 
-const useStore = create<Store>((set) => ({
-  // View state
-  viewMode: 'list',
-  setViewMode: (mode) => set({ viewMode: mode }),
+type Store = {
+  assignments: AssignmentRow[];
+  classes: ClassRow[];
+  assignmentTypes: AssignmentTypeRow[];
+  semesterEvents: SemesterEvent[];
+  filterOptions: FilterOptions;
 
-  showCompleted: false,
-  setShowCompleted: (value) => set({ showCompleted: value }),
+  viewMode: 'list' | 'calendar';
+  setViewMode: (mode: 'list' | 'calendar') => void;
+  setShowCompleted: (val: boolean) => void;
 
-  // Assignments
+  // Loaders
+  loadAssignments: () => Promise<void>;
+  loadClasses: () => Promise<void>;
+  loadAssignmentTypes: () => Promise<void>;
+  loadSemesterEvents: () => Promise<void>;
+
+  toggleAssignmentCompletion: (id: string) => Promise<void>;
+};
+
+export const useStore = create<Store>((set, get) => ({
   assignments: [],
-  addAssignment: (assignment) =>
-    set((state) => ({ assignments: [...state.assignments, assignment] })),
-  updateAssignment: (updated) =>
-    set((state) => ({
-      assignments: state.assignments.map((a) => (a.id === updated.id ? updated : a)),
-    })),
-  removeAssignment: (id) =>
-    set((state) => ({
-      assignments: state.assignments.filter((a) => a.id !== id),
-    })),
-
-  // Semesters
-  semesters: [],
-  addSemester: (semester) =>
-    set((state) => ({ semesters: [...state.semesters, semester] })),
-  updateSemester: (updated) =>
-    set((state) => ({
-      semesters: state.semesters.map((s) => (s.id === updated.id ? updated : s)),
-    })),
-  removeSemester: (id) =>
-    set((state) => ({
-      semesters: state.semesters.filter((s) => s.id !== id),
-    })),
-
-  // Classes
   classes: [],
-  addClass: (newClass) =>
-    set((state) => ({ classes: [...state.classes, newClass] })),
-  removeClass: (id) =>
-    set((state) => ({
-      classes: state.classes.filter((c) => c.id !== id),
-    })),
-  updateClassColor: (id, color) =>
-    set((state) => ({
-      classes: state.classes.map((c) =>
-        c.id === id ? { ...c, color } : c
-      ),
-    })),
-
-  // Assignment Types
   assignmentTypes: [],
-  addAssignmentType: (type) =>
-    set((state) => ({ assignmentTypes: [...state.assignmentTypes, type] })),
-  removeAssignmentType: (id) =>
-    set((state) => ({
-      assignmentTypes: state.assignmentTypes.filter((t) => t.id !== id),
-    })),
-  updateAssignmentTypeColor: (id, color) =>
-    set((state) => ({
-      assignmentTypes: state.assignmentTypes.map((t) =>
-        t.id === id ? { ...t, color } : t
-      ),
-    })),
-
-  // Filters
+  semesterEvents: [],
   filterOptions: {
-    selectedSemester: '',
     selectedClasses: [],
     selectedTypes: [],
-    timeFrame: 'all',
+    selectedSemester: '',
+    showCompleted: false,
   },
-  setFilterOptions: (fn) =>
-    set((state) => ({ filterOptions: fn(state.filterOptions) })),
-}));
 
-export default useStore;
+  viewMode: 'list',
+  setViewMode: (mode) => set({ viewMode: mode }),
+  setShowCompleted: (val) =>
+    set((state) => ({
+      filterOptions: { ...state.filterOptions, showCompleted: val },
+    })),
+
+  loadAssignments: async () => {
+    const data = await getAssignments();
+    set({ assignments: data });
+  },
+
+  loadClasses: async () => {
+    const data = await getClasses();
+    set({ classes: data });
+  },
+
+  loadAssignmentTypes: async () => {
+    const data = await getAssignmentTypes();
+    set({ assignmentTypes: data });
+  },
+
+  loadSemesterEvents: async () => {
+    const data = await getSemesterEvents();
+    set({ semesterEvents: data });
+  },
+
+  toggleAssignmentCompletion: async (id) => {
+    const assignment = get().assignments.find((a) => a.id === id);
+    if (!assignment) return;
+
+    const updated = { ...assignment, completed: !assignment.completed };
+    await updateAssignment(id, { completed: updated.completed });
+
+    set((state) => ({
+      assignments: state.assignments.map((a) =>
+        a.id === id ? updated : a
+      ),
+    }));
+  },
+}));

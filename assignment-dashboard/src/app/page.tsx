@@ -32,7 +32,7 @@ import { FilterControls } from '@/components/FilterControls';
 import { EditClassModal } from '@/components/EditClassModal';
 import { EditTypeModal } from '@/components/EditTypeModal';
 
-import useStore from '@/store/useStore';
+import { useStore } from '@/store/useStore';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
