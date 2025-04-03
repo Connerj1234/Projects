@@ -24,7 +24,7 @@ import {
     BsClock,
   } from 'react-icons/bs';
 
-import Header from '@/app/components/Header';
+import Header from '@/components/Header';
 import { Statistics } from '@/components/Statistics';
 import { AssignmentList } from '@/components/AssignmentList';
 import { CalendarView } from '@/components/CalendarView';

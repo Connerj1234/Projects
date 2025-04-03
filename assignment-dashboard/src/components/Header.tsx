@@ -127,7 +127,7 @@ export default function Header() {
   bg="white"
   _hover={{ borderColor: 'gray.400' }}
   _focus={{ borderColor: 'blue.500', boxShadow: 'sm' }}
-  placeholder="Select semester"
+  placeholder="Select Semester"
 >
   {Array.isArray(semesters) &&
     semesters.map((s) => (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Grid,
@@ -43,8 +43,8 @@ import {
 } from 'date-fns';
 import useStore  from '@/store/useStore';
 import { EditAssignmentModal } from './EditAssignmentModal';
-import { getSemesterEvents } from '@/types/semesterEvents';
-import type { SemesterEvent } from '@/types/semesterEvents';
+import { getSemesterEvents } from '@/lib/db/semesterEvents';
+import type { SemesterEvent } from '@/lib/db/semesterEvents';
 
 export function CalendarView() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -88,7 +88,22 @@ export function CalendarView() {
     });
 
   // Get semester events
-  const semesterEvents = getSemesterEvents();
+  const [semesterEvents, setSemesterEvents] = useState<SemesterEvent[]>([]);
+
+useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const data = await getSemesterEvents();
+      setSemesterEvents(data);
+    } catch (err) {
+      console.error('Error fetching semester events:', err);
+    }
+  };
+
+  fetchEvents();
+}, []);
+
+
 
   // Group assignments and events by date for the calendar
   const getEventsForDay = (date: Date) => {
