@@ -94,7 +94,7 @@ export function EditAssignmentModal({ isOpen, onClose, assignmentId }: EditAssig
         classId,
         type: assignmentTypes.find(t => t.id === typeId)!,
         semester,
-        dueDate: new Date(dueDate),
+        dueDate: new Date(dueDate + 'T12:00:00').toISOString(),
         completed,
       });
 
@@ -152,7 +152,7 @@ export function EditAssignmentModal({ isOpen, onClose, assignmentId }: EditAssig
         classId,
         type: assignmentTypes.find(t => t.id === typeId)!,
         semester,
-        dueDate: new Date(dueDate),
+        dueDate: new Date(dueDate + 'T12:00:00').toISOString(),
         completed: false,
       });
 
@@ -274,7 +274,7 @@ export function EditAssignmentModal({ isOpen, onClose, assignmentId }: EditAssig
                 <Input
                   type="date"
                   value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
+                  onChange={(e) => setDueDate(e.target.value + 'T12:00:00')}
                   bg={inputBg}
                   borderColor={borderColor}
                   color={textColor}
@@ -312,7 +312,7 @@ export function EditAssignmentModal({ isOpen, onClose, assignmentId }: EditAssig
       </Modal>
 
       {/* Delete Confirmation Dialog */}
-      <AlertDialog isOpen={isDeleteOpen} onClose={onDeleteClose} leastDestructiveRef={undefined}>
+      <AlertDialog isOpen={isDeleteOpen} onClose={onDeleteClose} leastDestructiveRef={null}>
         <AlertDialogOverlay>
           <AlertDialogContent bg={bgColor}>
             <AlertDialogHeader color={textColor}>Delete Assignment</AlertDialogHeader>

@@ -48,7 +48,7 @@ import { AddIcon, DeleteIcon, EditIcon, ChevronDownIcon } from '@chakra-ui/icons
 import { HexColorPicker } from 'react-colorful';
 import useStore from '@/store/useStore';
 import { v4 as uuidv4 } from 'uuid';
-import { ClassesMenu } from './ViewControls';
+import ClassesMenu from './ViewControls';
 import { SemesterModal } from './SemesterModal';
 import { RecurringSettingsModal, RecurringSettings } from './RecurringSettingsModal';
 
@@ -221,7 +221,7 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
         type: selectedType,
         semester,
         completed: false,
-        dueDate: new Date(dueDate)
+        dueDate: new Date(dueDate + 'T12:00:00')
       };
 
       if (isBulkCreate) {
