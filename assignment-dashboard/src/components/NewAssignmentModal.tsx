@@ -755,12 +755,11 @@ function NewAssignmentModalContent({ isOpen, onClose }: NewAssignmentModalProps)
 
       {/* Semester Modal */}
       <SemesterModal
-        isOpen={isSemesterModalOpen}
-        onClose={onSemesterModalClose}
-        onSemesterCreated={(newSemesterId) => {
-          setSemester(newSemesterId);
-        }}
-      />
+  isOpen={isSemesterModalOpen}
+  onClose={onSemesterModalClose}
+  onSemesterCreated={handleCreateSemester}
+  mode="create-only"
+/>
 
       {/* Recurring Settings Modal */}
       <RecurringSettingsModal
