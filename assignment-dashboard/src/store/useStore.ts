@@ -1,21 +1,13 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { AssignmentRow, AssignmentTypeRow, ClassRow } from '@/types';
-import {
-  getAssignments,
-  updateAssignment,
-} from '@/lib/db/assignments';
-import { getClasses } from '@/lib/db/classes';
-import { getAssignmentTypes } from '@/lib/db/assignmentTypes';
-import { getSemesterEvents } from '@/types/semesterEvents';
 
-type AssignmentType = {
+export type AssignmentType = {
   id: string;
   name: string;
   color: string;
 };
 
-type Assignment = {
+export type Assignment = {
   id: string;
   title: string;
   description?: string;
@@ -26,19 +18,21 @@ type Assignment = {
   type: AssignmentType;
 };
 
-type Class = {
+export type Class = {
   id: string;
   name: string;
   color: string;
   semesterId: string;
 };
 
-type Semester = {
+export type Semester = {
   id: string;
   name: string;
   startDate?: string;
   endDate: string;
 };
+
+type ViewMode = 'list' | 'calendar';
 
 type FilterOptions = {
   selectedSemester?: string;
@@ -48,21 +42,16 @@ type FilterOptions = {
   showCompleted: boolean;
 };
 
-type ViewMode = 'list' | 'calendar';
-
 type Store = {
   semesters: Semester[];
   classes: Class[];
   assignments: Assignment[];
   assignmentTypes: AssignmentType[];
-  filterOptions: FilterOptions;
   viewMode: ViewMode;
-  showCompleted: boolean;
+  filterOptions: FilterOptions;
 
-  // Mutators
   setFilterOptions: (options: Partial<FilterOptions> | ((prev: FilterOptions) => FilterOptions)) => void;
   setViewMode: (mode: ViewMode) => void;
-  setShowCompleted: (value: boolean) => void;
 
   addSemester: (semester: Semester) => void;
   updateSemester: (id: string, updates: Partial<Semester>) => void;
@@ -90,7 +79,6 @@ const useStore = create<Store>()(
       assignments: [],
       assignmentTypes: [],
       viewMode: 'list',
-      showCompleted: true,
       filterOptions: {
         selectedSemester: undefined,
         selectedClasses: [],
@@ -99,7 +87,6 @@ const useStore = create<Store>()(
         showCompleted: true,
       },
 
-      // Setters
       setFilterOptions: (options) =>
         set((state) => ({
           filterOptions:
@@ -107,33 +94,36 @@ const useStore = create<Store>()(
               ? options(state.filterOptions)
               : { ...state.filterOptions, ...options },
         })),
-      setViewMode: (mode) => set({ viewMode: mode }),
-      setShowCompleted: (value) => set({ showCompleted: value }),
 
-      // Semesters
-      addSemester: (semester) => set((state) => ({
-        semesters: [...state.semesters, semester],
-      })),
+      setViewMode: (mode) => set({ viewMode: mode }),
+
+      addSemester: (semester) =>
+        set((state) => ({
+          semesters: [...state.semesters, semester],
+        })),
+
       updateSemester: (id, updates) =>
         set((state) => ({
           semesters: state.semesters.map((s) =>
             s.id === id ? { ...s, ...updates } : s
           ),
         })),
+
       removeSemester: (id) =>
         set((state) => ({
           semesters: state.semesters.filter((s) => s.id !== id),
         })),
 
-      // Classes
       addClass: (c) =>
         set((state) => ({
           classes: [...state.classes, c],
         })),
+
       removeClass: (id) =>
         set((state) => ({
           classes: state.classes.filter((c) => c.id !== id),
         })),
+
       updateClassColor: (id, color) =>
         set((state) => ({
           classes: state.classes.map((c) =>
@@ -141,21 +131,23 @@ const useStore = create<Store>()(
           ),
         })),
 
-      // Assignments
       addAssignment: (a) =>
         set((state) => ({
           assignments: [...state.assignments, a],
         })),
+
       updateAssignment: (id, updates) =>
         set((state) => ({
           assignments: state.assignments.map((a) =>
             a.id === id ? { ...a, ...updates } : a
           ),
         })),
+
       deleteAssignment: (id) =>
         set((state) => ({
           assignments: state.assignments.filter((a) => a.id !== id),
         })),
+
       toggleAssignmentCompletion: (id) =>
         set((state) => ({
           assignments: state.assignments.map((a) =>
@@ -163,15 +155,16 @@ const useStore = create<Store>()(
           ),
         })),
 
-      // Assignment Types
       addAssignmentType: (type) =>
         set((state) => ({
           assignmentTypes: [...state.assignmentTypes, type],
         })),
+
       removeAssignmentType: (id) =>
         set((state) => ({
           assignmentTypes: state.assignmentTypes.filter((t) => t.id !== id),
         })),
+
       updateAssignmentTypeColor: (id, color) =>
         set((state) => ({
           assignmentTypes: state.assignmentTypes.map((t) =>
@@ -180,7 +173,7 @@ const useStore = create<Store>()(
         })),
     }),
     {
-      name: 'assignment-dashboard-store', // localStorage key
+      name: 'assignment-dashboard-store',
     }
   )
 );

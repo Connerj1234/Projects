@@ -94,6 +94,7 @@ useEffect(() => {
   const fetchEvents = async () => {
     try {
       const data = await getSemesterEvents();
+      console.log('📦 Semester events from Supabase:', data); // <--
       setSemesterEvents(data);
     } catch (err) {
       console.error('Error fetching semester events:', err);

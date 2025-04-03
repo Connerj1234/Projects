@@ -11,10 +11,6 @@ import {
   Divider,
   useColorModeValue,
   IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   useToast,
   AlertDialog,
   AlertDialogBody,
@@ -30,15 +26,6 @@ import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
 import useStore from '@/store/useStore';
 import { useState, useRef } from 'react';
 import { EditAssignmentModal } from './EditAssignmentModal';
-
-// Ensure FilterOptions type includes timeFrame
-interface FilterOptions {
-  showCompleted: boolean;
-  selectedClasses: string[];
-  selectedTypes: string[];
-  selectedSemester?: string; // Optional if not always present
-  timeFrame?: 'day' | 'week' | 'semester'; // Ensure this is included
-}
 
 export function AssignmentList() {
   const {
@@ -57,18 +44,11 @@ export function AssignmentList() {
   const cancelRef = useRef<HTMLButtonElement>(null);
   const toast = useToast();
 
-  // Filter assignments based on selected classes, types, and time frame
   const filteredAssignments = assignments.filter(a => {
-    // Filter by completion status
     if (!filterOptions.showCompleted && a.completed) return false;
-
-    // Filter by selected classes
     if (filterOptions.selectedClasses.length > 0 && !filterOptions.selectedClasses.includes(a.classId)) return false;
-
-    // Filter by selected types
     if (filterOptions.selectedTypes.length > 0 && !filterOptions.selectedTypes.includes(a.type.id)) return false;
 
-    // Filter by time frame
     const dueDate = new Date(a.dueDate);
     const today = new Date();
 
@@ -85,10 +65,9 @@ export function AssignmentList() {
       return currentSemester && currentSemester.endDate && dueDate <= new Date(currentSemester.endDate);
     }
 
-    return true; // Default case
+    return true;
   });
 
-  // Group assignments by semester if no semester is selected
   const groupedAssignments = !filterOptions.selectedSemester
     ? semesters.reduce((acc, semester) => {
         const semesterAssignments = filteredAssignments.filter(
@@ -202,26 +181,16 @@ export function AssignmentList() {
                           >
                             {assignment.title}
                           </Text>
-                          <Flex gap={2} mt={1}>
+                          <Flex gap={2} mt={1} flexWrap="wrap" align="center">
                             <Tag colorScheme={assignment.completed ? 'green' : 'red'}>
                               {assignment.completed ? 'Completed' : 'Pending'}
                             </Tag>
-                            <Tag
-                              bg={assignmentClass?.color || 'blue.500'}
-                              color="white"
-                            >
+                            <Tag bg={assignmentClass?.color || 'blue.500'} color="white">
                               {assignmentClass?.name}
                             </Tag>
-                            <Tag
-                              bg={assignmentType?.color || 'gray.500'}
-                              color="white"
-                            >
+                            <Tag bg={assignmentType?.color || 'gray.500'} color="white">
                               {assignmentType?.name}
                             </Tag>
-                            <Text fontSize="sm" color={mutedTextColor}>
-                              {format(new Date(assignment.dueDate), 'MMM d, yyyy')} -{' '}
-                              {getDaysLeftText(new Date(assignment.dueDate))}
-                            </Text>
                           </Flex>
                           {assignment.description && (
                             <Text mt={2} color={mutedTextColor}>
@@ -230,7 +199,10 @@ export function AssignmentList() {
                           )}
                         </Box>
                       </Flex>
-                      <Flex gap={2}>
+                      <Flex align="center" gap={4}>
+                        <Text fontSize="sm" color={mutedTextColor}>
+                          {format(new Date(assignment.dueDate), 'MMM d, yyyy')} – {getDaysLeftText(new Date(assignment.dueDate))}
+                        </Text>
                         <IconButton
                           aria-label="Edit assignment"
                           icon={<EditIcon />}
@@ -270,7 +242,6 @@ export function AssignmentList() {
         assignmentId={selectedAssignmentId}
       />
 
-      {/* Delete Confirmation Dialog */}
       <AlertDialog
         isOpen={isDeleteOpen}
         leastDestructiveRef={cancelRef}
