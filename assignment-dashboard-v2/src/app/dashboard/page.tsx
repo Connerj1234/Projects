@@ -69,7 +69,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="max-w-screen-xl mx-auto space-y-10">
+      <div className="w-full px-2 lg:px-32 xl:px-48 space-y-10">
         <DashboardControls
           viewMode={viewMode}
           setViewMode={setViewMode}
@@ -92,7 +92,7 @@ export default function Dashboard() {
       <Dialog open={showSemesters} onOpenChange={setShowSemesters}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-white">Manage Semesters</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Semesters</DialogTitle>
           </DialogHeader>
           <Semesters />
         </DialogContent>
@@ -101,7 +101,7 @@ export default function Dashboard() {
       <Dialog open={showAssignments} onOpenChange={setShowAssignments}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-white">New Assignment</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">New Assignment</DialogTitle>
           </DialogHeader>
           <Assignments selectedSemester={selectedSemester} />
         </DialogContent>
@@ -110,7 +110,7 @@ export default function Dashboard() {
       <Dialog open={showClasses} onOpenChange={setShowClasses}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-white">Manage Classes</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Classes</DialogTitle>
           </DialogHeader>
           <Classes selectedSemester={selectedSemester} />
         </DialogContent>
@@ -119,7 +119,7 @@ export default function Dashboard() {
       <Dialog open={showTypes} onOpenChange={setShowTypes}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-white">Manage Types</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Types</DialogTitle>
           </DialogHeader>
           <AssignmentTypes selectedSemester={selectedSemester} />
         </DialogContent>
