@@ -65,7 +65,16 @@ export default function Dashboard() {
         </div>
         <div className="flex gap-2">
           <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700" onClick={() => setShowAssignments(true)}>+ New Assignment</Button>
-          <Button variant="secondary" className="px-4 py-2 text-sm font-medium">Sign Out</Button>
+          <Button
+             variant="secondary"
+             className="px-4 py-2 text-sm font-medium"
+             onClick={async () => {
+               await supabase.auth.signOut()
+               router.push('/')
+             }}
+           >
+             Sign Out
+           </Button>
         </div>
       </div>
 
