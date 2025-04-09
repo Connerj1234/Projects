@@ -6,14 +6,11 @@ import 'react-calendar/dist/Calendar.css'
 import { format } from 'date-fns'
 import { supabase } from '@/lib/supabase/client'
 
-type Props = {
-  selectedSemester: string
-}
-
 type Assignment = {
   id: string
   title: string
   due_date: string
+  semester_id: string
 }
 
 type Event = {
@@ -21,9 +18,15 @@ type Event = {
   title: string
   event_date: string
   event_type: string
+  semester_id?: string
 }
 
-export default function AssignmentCalendar({ selectedSemester }: Props) {
+type Props = {
+  selectedSemester: string
+  showCompleted: boolean
+}
+
+export default function AssignmentCalendarView({ selectedSemester, showCompleted }: Props) {
   const [assignments, setAssignments] = useState<Assignment[]>([])
   const [events, setEvents] = useState<Event[]>([])
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
@@ -31,8 +34,8 @@ export default function AssignmentCalendar({ selectedSemester }: Props) {
   useEffect(() => {
     const fetchData = async () => {
       const [a, e] = await Promise.all([
-        supabase.from('assignments').select('id, title, due_date'),
-        supabase.from('semester_events').select('id, title, event_date, event_type'),
+        supabase.from('assignments').select('id, title, due_date, semester_id'),
+        supabase.from('semester_events').select('id, title, event_date, event_type, semester_id'),
       ])
       if (a.data) setAssignments(a.data)
       if (e.data) setEvents(e.data)
@@ -41,10 +44,18 @@ export default function AssignmentCalendar({ selectedSemester }: Props) {
     fetchData()
   }, [])
 
+  const filteredAssignments = selectedSemester === 'all'
+    ? assignments
+    : assignments.filter(a => a.semester_id === selectedSemester)
+
+  const filteredEvents = selectedSemester === 'all'
+    ? events
+    : events.filter(e => e.semester_id === selectedSemester)
+
   const getItemsForDate = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd')
-    const dailyAssignments = assignments.filter(a => a.due_date.startsWith(dateStr))
-    const dailyEvents = events.filter(e => e.event_date.startsWith(dateStr))
+    const dailyAssignments = filteredAssignments.filter(a => a.due_date.startsWith(dateStr))
+    const dailyEvents = filteredEvents.filter(e => e.event_date.startsWith(dateStr))
     return [...dailyAssignments, ...dailyEvents]
   }
 

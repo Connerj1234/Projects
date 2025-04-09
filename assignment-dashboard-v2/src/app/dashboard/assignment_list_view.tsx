@@ -3,10 +3,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 
-type Props = {
-  selectedSemester: string
-}
-
 type Assignment = {
   id: string
   title: string
@@ -20,7 +16,12 @@ type Semester = {
   name: string
 }
 
-export default function AssignmentListView({ selectedSemester }: Props) {
+type Props = {
+  selectedSemester: string
+  showCompleted: boolean
+}
+
+export default function AssignmentListView({ selectedSemester, showCompleted }: Props) {
   const [assignments, setAssignments] = useState<Assignment[]>([])
   const [semesters, setSemesters] = useState<Semester[]>([])
 
@@ -28,10 +29,7 @@ export default function AssignmentListView({ selectedSemester }: Props) {
     const fetchData = async () => {
       const [{ data: semesterData }, { data: assignmentData }] = await Promise.all([
         supabase.from('semesters').select('id, name'),
-        supabase
-          .from('assignments')
-          .select('*')
-          .order('due_date', { ascending: true }),
+        supabase.from('assignments').select('*').order('due_date', { ascending: true }),
       ])
 
       if (semesterData) setSemesters(semesterData)
@@ -52,17 +50,20 @@ export default function AssignmentListView({ selectedSemester }: Props) {
         .from('assignments')
         .select('*')
         .order('due_date', { ascending: true })
-
       if (data) setAssignments(data)
     }
   }
+
+  const filteredAssignments = selectedSemester === 'all'
+    ? assignments
+    : assignments.filter(a => a.semester_id === selectedSemester)
 
   return (
     <section className="mt-16">
       <h2 className="text-xl font-semibold mb-4">Assignment List (by Semester)</h2>
 
       {semesters.map(sem => {
-        const grouped = assignments.filter(a => a.semester_id === sem.id)
+        const grouped = filteredAssignments.filter(a => a.semester_id === sem.id)
         if (grouped.length === 0) return null
 
         return (
@@ -97,7 +98,7 @@ export default function AssignmentListView({ selectedSemester }: Props) {
         )
       })}
 
-      {assignments.length === 0 && (
+      {filteredAssignments.length === 0 && (
         <p className="text-zinc-400">No assignments found.</p>
       )}
     </section>

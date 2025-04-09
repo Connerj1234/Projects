@@ -30,7 +30,6 @@ export default function SemesterSelector({ selectedSemester, setSelectedSemester
 
   return (
     <div className="mb-8">
-      <label className="block text-sm font-medium text-zinc-300 mb-2">Viewing Assignments For:</label>
       <select
         value={selectedSemester}
         onChange={e => setSelectedSemester(e.target.value)}
