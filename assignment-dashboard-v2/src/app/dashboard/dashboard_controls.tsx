@@ -3,6 +3,7 @@
 import { Toggle } from '@/components/ui/toggle'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import { Switch } from '@/components/ui/switch'
 
 export type ViewMode = 'list' | 'calendar'
 
@@ -43,20 +44,15 @@ export default function DashboardControls({
           </Toggle>
           <div className="flex items-center gap-2">
             <span className="text-sm text-zinc-400">Show Completed</span>
-            <Toggle
-              pressed={showCompleted}
-              onPressedChange={setShowCompleted}
-            >
-              ✅
-            </Toggle>
+            <Switch id="show-completed" checked={showCompleted} onCheckedChange={setShowCompleted} />
           </div>
         </div>
 
         <div className="flex gap-2">
-          <Button variant="outline" onClick={onManageClasses}>
+          <Button variant="secondary" onClick={onManageClasses}>
             ⚙️ Manage Classes
           </Button>
-          <Button variant="outline" onClick={onManageTypes}>
+          <Button variant="secondary" onClick={onManageTypes}>
             🏷 Manage Types
           </Button>
         </div>

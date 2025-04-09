@@ -29,11 +29,11 @@ export default function SemesterSelector({ selectedSemester, setSelectedSemester
   }, [])
 
   return (
-    <div className="mb-8">
+    <div>
       <select
         value={selectedSemester}
         onChange={e => setSelectedSemester(e.target.value)}
-        className="w-full max-w-sm px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
+        className="h-10 text-sm px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
       >
         <option value="all">All Semesters</option>
         {semesters.map(s => (
@@ -42,6 +42,6 @@ export default function SemesterSelector({ selectedSemester, setSelectedSemester
           </option>
         ))}
       </select>
-    </div>
+</div>
   )
 }

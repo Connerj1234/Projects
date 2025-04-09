@@ -9,7 +9,11 @@ import AssignmentListView from './assignment_list_view'
 import AssignmentCalendarView from './assignment_calendar_view'
 import DashboardControls, { ViewMode } from './dashboard_controls'
 import { Button } from '@/components/ui/button'
-import { Switch } from '@/components/ui/switch'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import Semesters from './semesters'
+import AssignmentTypes from './assignment_types'
+import Classes from './classes'
+import Assignments from './assignments'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -19,6 +23,11 @@ export default function Dashboard() {
   const [viewMode, setViewMode] = useState<ViewMode>('list')
   const [showCompleted, setShowCompleted] = useState(true)
   const [assignmentStats, setAssignmentStats] = useState({ total: 0, completed: 0, pending: 0 })
+
+  const [showSemesters, setShowSemesters] = useState(false)
+  const [showAssignments, setShowAssignments] = useState(false)
+  const [showClasses, setShowClasses] = useState(false)
+  const [showTypes, setShowTypes] = useState(false)
 
   useEffect(() => {
     const checkSession = async () => {
@@ -49,39 +58,27 @@ export default function Dashboard() {
 
   return (
     <main className="w-full min-h-screen bg-zinc-900 text-white px-4 sm:px-6">
-      <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6">
         <div className="flex items-center gap-2">
           <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />
-          <Button variant="secondary" className="px-4 py-2 text-sm font-medium">+ Manage Semesters</Button>
+          <Button variant="secondary" className="px-4 py-2 text-sm font-medium" onClick={() => setShowSemesters(true)}>+ Manage Semesters</Button>
         </div>
         <div className="flex gap-2">
-          <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700">+ New Assignment</Button>
-          <Button variant="outline" className="px-4 py-2 text-sm font-medium">Sign Out</Button>
+          <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700" onClick={() => setShowAssignments(true)}>+ New Assignment</Button>
+          <Button variant="secondary" className="px-4 py-2 text-sm font-medium">Sign Out</Button>
         </div>
       </div>
 
       <div className="max-w-screen-xl mx-auto space-y-10">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3 flex-wrap">
-            <DashboardControls
-              viewMode={viewMode}
-              setViewMode={setViewMode}
-              showCompleted={showCompleted}
-              setShowCompleted={setShowCompleted}
-              onManageClasses={() => {}}
-              onManageTypes={() => {}}
-              stats={assignmentStats}
-            />
-
-            <div className="flex items-center gap-2">
-              <Switch id="show-completed" checked={showCompleted} onCheckedChange={setShowCompleted} />
-              <label htmlFor="show-completed" className="text-sm">Show Completed</label>
-            </div>
-
-            <Button variant="secondary" className="text-sm">Manage Classes</Button>
-            <Button variant="secondary" className="text-sm">Manage Types</Button>
-          </div>
-        </div>
+        <DashboardControls
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          showCompleted={showCompleted}
+          setShowCompleted={setShowCompleted}
+          onManageClasses={() => setShowClasses(true)}
+          onManageTypes={() => setShowTypes(true)}
+          stats={assignmentStats}
+        />
 
         <h1 className="text-3xl font-bold">Welcome back, {email}!</h1>
 
@@ -91,6 +88,42 @@ export default function Dashboard() {
           <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} />
         )}
       </div>
+
+      <Dialog open={showSemesters} onOpenChange={setShowSemesters}>
+        <DialogContent className="bg-zinc-900">
+          <DialogHeader>
+            <DialogTitle className="text-white">Manage Semesters</DialogTitle>
+          </DialogHeader>
+          <Semesters />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showAssignments} onOpenChange={setShowAssignments}>
+        <DialogContent className="bg-zinc-900">
+          <DialogHeader>
+            <DialogTitle className="text-white">New Assignment</DialogTitle>
+          </DialogHeader>
+          <Assignments selectedSemester={selectedSemester} />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showClasses} onOpenChange={setShowClasses}>
+        <DialogContent className="bg-zinc-900">
+          <DialogHeader>
+            <DialogTitle className="text-white">Manage Classes</DialogTitle>
+          </DialogHeader>
+          <Classes selectedSemester={selectedSemester} />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showTypes} onOpenChange={setShowTypes}>
+        <DialogContent className="bg-zinc-900">
+          <DialogHeader>
+            <DialogTitle className="text-white">Manage Types</DialogTitle>
+          </DialogHeader>
+          <AssignmentTypes selectedSemester={selectedSemester} />
+        </DialogContent>
+      </Dialog>
     </main>
   )
 }
