@@ -96,16 +96,17 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
               placeholder="e.g. Quiz"
               value={name}
               onChange={e => setName(e.target.value)}
+              className="text-white placeholder-gray-400"
             />
             <Input
               type="color"
               value={color}
               onChange={e => setColor(e.target.value)}
-              className="h-10 w-12 p-1 border"
+              className="h-10 w-12 p-1 border-none bg-transparent"
             />
           </div>
         </div>
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full bg-zinc-700">
           Add Type
         </Button>
       </form>

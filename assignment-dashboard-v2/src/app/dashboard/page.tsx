@@ -89,8 +89,6 @@ export default function Dashboard() {
           stats={assignmentStats}
         />
 
-        <h1 className="text-3xl font-bold">Welcome back, {email}!</h1>
-
         {viewMode === 'list' ? (
           <AssignmentListView selectedSemester={selectedSemester} showCompleted={showCompleted} />
         ) : (

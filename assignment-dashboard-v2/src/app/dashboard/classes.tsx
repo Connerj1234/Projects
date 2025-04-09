@@ -59,6 +59,7 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
 
   return (
     <div className="space-y-6">
+        
       <ul className="space-y-3">
         {classes.map(cls => (
           <li
@@ -94,17 +95,18 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
               type="text"
               placeholder="e.g. Math 101"
               value={name}
+              className="text-white placeholder-gray-400"
               onChange={e => setName(e.target.value)}
             />
             <Input
               type="color"
               value={color}
               onChange={e => setColor(e.target.value)}
-              className="h-10 w-12 p-1 border"
+              className="h-10 w-12 p-1 border-none bg-transparent"
             />
           </div>
         </div>
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full bg-zinc-700">
           Add Class
         </Button>
       </form>

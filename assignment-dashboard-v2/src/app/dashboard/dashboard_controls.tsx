@@ -43,8 +43,8 @@ export default function DashboardControls({
             🗓 Calendar
           </Toggle>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-zinc-400">Show Completed</span>
-            <Switch id="show-completed" checked={showCompleted} onCheckedChange={setShowCompleted} />
+            <span className="text-sm text-white">Show Completed</span>
+            <Switch id="show-completed" className="border border-zinc-700" checked={showCompleted} onCheckedChange={setShowCompleted} />
           </div>
         </div>
 

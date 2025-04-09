@@ -96,6 +96,7 @@ export default function Semesters() {
           placeholder="e.g. Spring 2025"
           value={name}
           onChange={e => setName(e.target.value)}
+          className="text-white placeholder-gray-400"
         />
 
         <div className="flex gap-3">
@@ -103,15 +104,17 @@ export default function Semesters() {
             type="date"
             value={startDate}
             onChange={e => setStartDate(e.target.value)}
+            className="text-white placeholder-gray-400"
           />
           <Input
             type="date"
             value={endDate}
             onChange={e => setEndDate(e.target.value)}
+            className="text-white placeholder-gray-400"
           />
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full bg-zinc-700">
           Create Semester
         </Button>
       </form>

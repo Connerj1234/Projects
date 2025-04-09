@@ -60,7 +60,7 @@ export default function AssignmentListView({ selectedSemester, showCompleted }: 
 
   return (
     <section className="mt-16">
-      <h2 className="text-xl font-semibold mb-4">Assignment List (by Semester)</h2>
+      <h2 className="text-xl font-semibold mb-4">Assignment Dashboard</h2>
 
       {semesters.map(sem => {
         const grouped = filteredAssignments.filter(a => a.semester_id === sem.id)
