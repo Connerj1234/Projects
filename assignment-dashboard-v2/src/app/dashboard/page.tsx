@@ -21,13 +21,44 @@ export default function Dashboard() {
   const [email, setEmail] = useState('')
   const [selectedSemester, setSelectedSemester] = useState('all')
   const [viewMode, setViewMode] = useState<ViewMode>('list')
-  const [showCompleted, setShowCompleted] = useState(true)
+  const [showCompleted, setShowCompleted] = useState(false)
   const [assignmentStats, setAssignmentStats] = useState({ total: 0, completed: 0, pending: 0 })
 
   const [showSemesters, setShowSemesters] = useState(false)
   const [showAssignments, setShowAssignments] = useState(false)
   const [showClasses, setShowClasses] = useState(false)
   const [showTypes, setShowTypes] = useState(false)
+  const [assignments, setAssignments] = useState<any[]>([])
+
+  const fetchAssignments = async () => {
+    const { data, error } = await supabase.from('assignments').select('*').eq('user_id', (await supabase.auth.getUser()).data.user?.id).order('due_date', { ascending: true })
+    if (error) {
+      console.error('Error fetching assignments:', error)
+      return
+    }
+    setAssignments(data)
+  }
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: userData } = await supabase.auth.getUser()
+      if (userData.user) {
+        fetchAssignments()
+      }
+    }
+    fetchUser()
+  }, [])
+
+  useEffect(() => {
+    const savedShow = localStorage.getItem('showCompleted')
+    if (savedShow !== null) {
+      setShowCompleted(savedShow === 'true')
+    }
+  }, [])
+
+  useEffect(() => {
+  localStorage.setItem('showCompleted', showCompleted.toString())
+}, [showCompleted])
 
   useEffect(() => {
     const checkSession = async () => {
@@ -43,16 +74,27 @@ export default function Dashboard() {
   }, [router])
 
   useEffect(() => {
-    const fetchStats = async () => {
-      const { data } = await supabase.from('assignments').select('*').eq('user_id', (await supabase.auth.getUser()).data.user?.id)
-      if (!data) return
-      const filtered = selectedSemester === 'all' ? data : data.filter(a => a.semester_id === selectedSemester)
+    const saved = localStorage.getItem('selectedSemester')
+    if (saved) setSelectedSemester(saved)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('selectedSemester', selectedSemester)
+  }, [selectedSemester])
+
+  useEffect(() => {
+    const fetchStats = () => {
+      const filtered = selectedSemester === 'all'
+        ? assignments
+        : assignments.filter(a => a.semester_id === selectedSemester)
+
       const completed = filtered.filter(a => a.completed).length
       const total = filtered.length
       setAssignmentStats({ total, completed, pending: total - completed })
     }
+
     fetchStats()
-  }, [selectedSemester])
+  }, [selectedSemester, assignments])
 
   if (loading) return <div className="min-h-screen flex items-center justify-center text-white">Loading...</div>
 
@@ -84,13 +126,25 @@ export default function Dashboard() {
           setViewMode={setViewMode}
           showCompleted={showCompleted}
           setShowCompleted={setShowCompleted}
-          onManageClasses={() => setShowClasses(true)}
-          onManageTypes={() => setShowTypes(true)}
+          onManageClasses={() => {
+            if (selectedSemester === 'all') {
+              alert('Please select a semester before managing classes.')
+              return
+            }
+            setShowClasses(true)
+          }}
+          onManageTypes={() => {
+            if (selectedSemester === 'all') {
+              alert('Please select a semester before managing types.')
+              return
+            }
+            setShowTypes(true)
+          }}
           stats={assignmentStats}
         />
 
         {viewMode === 'list' ? (
-          <AssignmentListView selectedSemester={selectedSemester} showCompleted={showCompleted} />
+          <AssignmentListView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} refreshAssignments={fetchAssignments} />
         ) : (
           <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} />
         )}
@@ -110,7 +164,7 @@ export default function Dashboard() {
           <DialogHeader>
             <DialogTitle className="text-xl font-semibold text-white">New Assignment</DialogTitle>
           </DialogHeader>
-          <Assignments selectedSemester={selectedSemester} />
+          <Assignments selectedSemester={selectedSemester} fetchAssignments={fetchAssignments} />
         </DialogContent>
       </Dialog>
 

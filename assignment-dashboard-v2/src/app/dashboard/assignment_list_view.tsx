@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
+import { Pencil, Trash2 } from 'lucide-react'
 
 type Assignment = {
   id: string
@@ -11,94 +11,87 @@ type Assignment = {
   semester_id: string
 }
 
-type Semester = {
-  id: string
-  name: string
-}
-
 type Props = {
+  assignments: Assignment[]
   selectedSemester: string
   showCompleted: boolean
+  refreshAssignments: () => void
 }
 
-export default function AssignmentListView({ selectedSemester, showCompleted }: Props) {
-  const [assignments, setAssignments] = useState<Assignment[]>([])
-  const [semesters, setSemesters] = useState<Semester[]>([])
+export default function AssignmentListView({ assignments, selectedSemester, showCompleted, refreshAssignments }: Props) {
+  const groupedBySemester: { [semesterId: string]: Assignment[] } = {}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const [{ data: semesterData }, { data: assignmentData }] = await Promise.all([
-        supabase.from('semesters').select('id, name'),
-        supabase.from('assignments').select('*').order('due_date', { ascending: true }),
-      ])
-
-      if (semesterData) setSemesters(semesterData)
-      if (assignmentData) setAssignments(assignmentData)
+  assignments.forEach((a) => {
+    if (
+      (selectedSemester === 'all' || a.semester_id === selectedSemester) &&
+      (showCompleted || !a.completed)
+    ) {
+      if (!groupedBySemester[a.semester_id]) groupedBySemester[a.semester_id] = []
+      groupedBySemester[a.semester_id].push(a)
     }
+  })
 
-    fetchData()
-  }, [])
-
-  const toggleCompleted = async (id: string, current: boolean) => {
-    const { error } = await supabase
+  const toggleCompleted = async (assignment: Assignment) => {
+    await supabase
       .from('assignments')
-      .update({ completed: !current })
-      .eq('id', id)
+      .update({ completed: !assignment.completed })
+      .eq('id', assignment.id)
 
-    if (!error) {
-      const { data } = await supabase
-        .from('assignments')
-        .select('*')
-        .order('due_date', { ascending: true })
-      if (data) setAssignments(data)
-    }
+    refreshAssignments() // ← refresh the assignment list + stats
   }
 
-  const filteredAssignments = selectedSemester === 'all'
-    ? assignments
-    : assignments.filter(a => a.semester_id === selectedSemester)
+  const handleEdit = (assignment: Assignment) => {
+    alert(`Editing assignment: ${assignment.title}`)
+    // Add modal or routing logic here
+  }
+
+  const handleDelete = async (assignment: Assignment) => {
+    const confirmed = confirm(`Are you sure you want to delete "${assignment.title}"?`)
+    if (!confirmed) return
+    await supabase.from('assignments').delete().eq('id', assignment.id)
+    refreshAssignments()
+  }
 
   return (
-    <section className="mt-16">
-      <h2 className="text-xl font-semibold mb-4">Assignment Dashboard</h2>
+    <section className="mt-16 space-y-10">
+      <h2 className="text-2xl font-bold mb-4">Assignment Dashboard</h2>
 
-      {semesters.map(sem => {
-        const grouped = filteredAssignments.filter(a => a.semester_id === sem.id)
-        if (grouped.length === 0) return null
-
-        return (
-          <div key={sem.id} className="mb-8">
-            <h3 className="text-lg font-semibold mb-2 text-zinc-300">{sem.name}</h3>
-            <ul className="space-y-2">
-              {grouped.map(a => (
-                <li
-                  key={a.id}
-                  className="flex justify-between items-center bg-zinc-800 border border-zinc-700 p-3 rounded-lg"
-                >
+      {Object.entries(groupedBySemester).map(([semesterId, items]) => (
+        <div key={semesterId} className="space-y-2">
+          <h3 className="text-lg font-semibold text-zinc-300">Semester: {semesterId}</h3>
+          <ul className="space-y-2">
+            {items.map((a) => (
+              <li
+                key={a.id}
+                className="flex justify-between items-center bg-zinc-800 border border-zinc-700 p-3 rounded-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={a.completed}
+                    onChange={() => toggleCompleted(a)}
+                    className="form-checkbox h-4 w-4 text-blue-600"
+                  />
                   <div>
-                    <div
-                      className={`font-medium ${
-                        a.completed ? 'text-zinc-500 line-through' : 'text-white'
-                      }`}
-                    >
-                      {a.title}
-                    </div>
+                    <div className={`font-medium ${a.completed ? 'text-zinc-500 line-through' : 'text-white'}`}>{a.title}</div>
                     <div className="text-sm text-zinc-400">Due: {a.due_date}</div>
                   </div>
-                  <button
-                    onClick={() => toggleCompleted(a.id, a.completed)}
-                    className="text-sm font-medium text-blue-400 hover:text-blue-500"
-                  >
-                    {a.completed ? 'Undo' : 'Complete'}
+                </div>
+                <div className="flex items-center gap-3">
+                  <button onClick={() => handleEdit(a)}>
+                    <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500" />
                   </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      })}
+                  <button onClick={() => handleDelete(a)}>
+                    <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600" />
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
-      {filteredAssignments.length === 0 && (
+      {Object.keys(groupedBySemester).length === 0 && (
         <p className="text-zinc-400">No assignments found.</p>
       )}
     </section>

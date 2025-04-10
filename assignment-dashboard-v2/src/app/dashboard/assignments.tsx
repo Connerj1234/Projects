@@ -1,28 +1,27 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 interface Props {
-  onClose?: () => void
+  selectedSemester: string
+  fetchAssignments: () => void
 }
 
-export default function Assignments({ onClose }: Props) {
+export default function Assignments({ selectedSemester, fetchAssignments }: Props) {
   const [title, setTitle] = useState('')
   const [dueDate, setDueDate] = useState('')
-  const [semesterId, setSemesterId] = useState('')
+  const [semesterId, setSemesterId] = useState(selectedSemester)
   const [classId, setClassId] = useState('')
   const [typeId, setTypeId] = useState('')
   const [notes, setNotes] = useState('')
   const [classes, setClasses] = useState<any[]>([])
   const [types, setTypes] = useState<any[]>([])
   const [semesters, setSemesters] = useState<any[]>([])
-  const router = useRouter()
-
+  const [error, setError] = useState<string | null>(null)
   const fetchClassesAndTypes = async () => {
     const user = (await supabase.auth.getUser()).data.user
     if (!user) return
@@ -31,11 +30,13 @@ export default function Assignments({ onClose }: Props) {
       .from('classes')
       .select('id, name')
       .eq('user_id', user.id)
+      .eq('semester_id', semesterId)
 
     const { data: typeData } = await supabase
       .from('assignment_types')
       .select('id, name')
       .eq('user_id', user.id)
+      .eq('semester_id', semesterId)
 
     if (classData) setClasses(classData)
     if (typeData) setTypes(typeData)
@@ -44,6 +45,11 @@ export default function Assignments({ onClose }: Props) {
   useEffect(() => {
     fetchClassesAndTypes()
     fetchSemesters()
+  }, [])
+
+  useEffect(() => {
+    const savedSemester = localStorage.getItem('selectedSemester')
+    if (savedSemester) setSemesterId(savedSemester)
   }, [])
 
   const fetchSemesters = async () => {
@@ -56,7 +62,12 @@ export default function Assignments({ onClose }: Props) {
     const user = (await supabase.auth.getUser()).data.user
     if (!user) return
 
-    const { error } = await supabase.from('assignments').insert({
+    if (!title || !dueDate || !classId || !typeId || !semesterId) {
+      alert("Please fill out all required fields before submitting.")
+      return
+    }
+
+  await supabase.from('assignments').insert({
       user_id: user.id,
       semester_id: semesterId,
       title,
@@ -66,14 +77,16 @@ export default function Assignments({ onClose }: Props) {
       notes,
     })
 
-    if (!error) {
+    if (error) {
+      alert("Error creating assignment. Please try again.")
+    } else {
       setTitle('')
       setDueDate('')
       setClassId('')
       setTypeId('')
       setNotes('')
-      onClose?.()
-      router.refresh()
+
+      fetchAssignments()
     }
   }
 
