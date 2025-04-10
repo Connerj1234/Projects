@@ -20,10 +20,11 @@ export default function Dashboard() {
   const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState('')
-  const [selectedSemester, setSelectedSemester] = useState('all')
+  const [selectedSemester, setSelectedSemester] = useState<string>('')
   const [viewMode, setViewMode] = useState<ViewMode>('list')
   const [showCompleted, setShowCompleted] = useState(false)
   const [assignmentStats, setAssignmentStats] = useState({ total: 0, completed: 0, pending: 0 })
+  const [semesters, setSemesters] = useState<any[]>([])
 
   const [showSemesters, setShowSemesters] = useState(false)
   const [showAssignments, setShowAssignments] = useState(false)
@@ -41,6 +42,23 @@ export default function Dashboard() {
     }
     setAssignments(data)
   }
+
+  useEffect(() => {
+    const fetchSemesters = async () => {
+      const { data, error } = await supabase
+        .from('semesters')
+        .select('id, name')
+        .order('start_date', { ascending: true })
+
+      if (error) {
+        console.error('Error loading semesters:', error.message)
+      } else if (data) {
+        setSemesters(data)
+      }
+    }
+
+    fetchSemesters()
+  }, [])
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -105,7 +123,7 @@ export default function Dashboard() {
     <main className="w-full min-h-screen bg-zinc-900 text-white px-4 sm:px-6">
       <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6">
         <div className="flex items-center gap-2">
-          <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />
+        <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} semesters={semesters} />
           <Button variant="secondary" className="px-4 py-2 text-sm font-medium" onClick={() => setShowSemesters(true)}>+ Manage Semesters</Button>
         </div>
         <div className="flex gap-2">
@@ -166,7 +184,7 @@ export default function Dashboard() {
           <DialogHeader>
             <DialogTitle className="text-xl font-semibold text-white">Manage Semesters</DialogTitle>
           </DialogHeader>
-          <Semesters />
+          <Semesters semesters={semesters} setSemesters={setSemesters} />
         </DialogContent>
       </Dialog>
 

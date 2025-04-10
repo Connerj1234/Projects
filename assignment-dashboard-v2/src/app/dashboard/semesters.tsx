@@ -7,8 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Trash2 } from 'lucide-react'
 
-export default function Semesters() {
-  const [semesters, setSemesters] = useState<any[]>([])
+export default function Semesters({semesters, setSemesters}: { semesters: any[], setSemesters: (s: any[]) => void }) {
   const [name, setName] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
@@ -21,7 +20,9 @@ export default function Semesters() {
       .eq('user_id', user?.id)
       .order('created_at')
 
-    if (data) setSemesters(data)
+    if (data) {
+      setSemesters(data)
+    }
   }
 
   useEffect(() => {
@@ -33,18 +34,27 @@ export default function Semesters() {
     const user = (await supabase.auth.getUser()).data.user
     if (!user) return
 
-    await supabase.from('semesters').insert({
-      user_id: user.id,
-      name,
-      start_date: startDate,
-      end_date: endDate,
-    })
+    const { data, error } = await supabase
+      .from('semesters')
+      .insert({
+        user_id: user.id,
+        name,
+        start_date: startDate,
+        end_date: endDate
+      })
+      .select()
 
-    setName('')
-    setStartDate('')
-    setEndDate('')
-    fetchSemesters()
+    if (data) {
+      await fetchSemesters()
+      setSemesters([...semesters, ...data])
+      setName('')
+      setStartDate('')
+      setEndDate('')
+    } else {
+      console.error('Error creating semester:', error)
+    }
   }
+
 
   const deleteSemester = async (id: string) => {
     const { data: assignments } = await supabase
