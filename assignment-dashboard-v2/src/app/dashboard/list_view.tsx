@@ -2,6 +2,7 @@
 
 import { supabase } from '@/lib/supabase/client'
 import { Pencil, Trash2 } from 'lucide-react'
+import { format } from 'date-fns'
 
 type Assignment = {
   id: string
@@ -9,6 +10,7 @@ type Assignment = {
   due_date: string
   completed: boolean
   semester_id: string
+  semesters?: { name: string }
 }
 
 type Props = {
@@ -16,9 +18,32 @@ type Props = {
   selectedSemester: string
   showCompleted: boolean
   refreshAssignments: () => void
+  onEdit?: (assignment: any) => void
 }
 
-export default function AssignmentListView({ assignments, selectedSemester, showCompleted, refreshAssignments }: Props) {
+function formatDate(dateString: string) {
+    const date = new Date(dateString)
+    return date.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  }
+
+  function getDaysAway(dateString: string) {
+    const today = new Date()
+    const due = new Date(dateString)
+    const diffTime = due.getTime() - today.getTime()
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1
+
+    if (diffDays === 0) return '(Today)'
+    if (diffDays === 1) return '(Tomorrow)'
+    if (diffDays < 0) return `(${Math.abs(diffDays)} days ago)`
+    return `in ${diffDays} days`
+  }
+
+
+export default function AssignmentListView({ assignments, selectedSemester, showCompleted, refreshAssignments, onEdit }: Props) {
   const groupedBySemester: { [semesterId: string]: Assignment[] } = {}
 
   assignments.forEach((a) => {
@@ -37,12 +62,11 @@ export default function AssignmentListView({ assignments, selectedSemester, show
       .update({ completed: !assignment.completed })
       .eq('id', assignment.id)
 
-    refreshAssignments() // ← refresh the assignment list + stats
+    refreshAssignments()
   }
 
   const handleEdit = (assignment: Assignment) => {
-    alert(`Editing assignment: ${assignment.title}`)
-    // Add modal or routing logic here
+    onEdit?.(assignment)
   }
 
   const handleDelete = async (assignment: Assignment) => {
@@ -58,7 +82,7 @@ export default function AssignmentListView({ assignments, selectedSemester, show
 
       {Object.entries(groupedBySemester).map(([semesterId, items]) => (
         <div key={semesterId} className="space-y-2">
-          <h3 className="text-lg font-semibold text-zinc-300">Semester: {semesterId}</h3>
+          <h3 className="text-lg font-semibold text-zinc-300">Semester: {items[0]?.semesters?.name || 'Unknown'}</h3>
           <ul className="space-y-2">
             {items.map((a) => (
               <li
@@ -74,7 +98,7 @@ export default function AssignmentListView({ assignments, selectedSemester, show
                   />
                   <div>
                     <div className={`font-medium ${a.completed ? 'text-zinc-500 line-through' : 'text-white'}`}>{a.title}</div>
-                    <div className="text-sm text-zinc-400">Due: {a.due_date}</div>
+                    <div className="text-sm text-zinc-400">Due: {formatDate(a.due_date)} - {getDaysAway(a.due_date)}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

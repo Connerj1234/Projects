@@ -122,7 +122,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             id="semester"
             value={semesterId}
             onChange={e => setSemesterId(e.target.value)}
-            className="bg-black text-white rounded px-3 py-2"
+            className="w-full p-2 bg-zinc-800 border rounded text-white"
           >
             <option value="">Select a semester</option>
             {semesters.map(s => (
@@ -137,7 +137,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             id="class"
             value={classId}
             onChange={e => setClassId(e.target.value)}
-            className="bg-black text-white rounded px-3 py-2"
+            className="w-full p-2 bg-zinc-800 border rounded text-white"
           >
             <option value="">Select a class</option>
             {classes.map(c => (
@@ -152,9 +152,9 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             id="type"
             value={typeId}
             onChange={e => setTypeId(e.target.value)}
-            className="bg-black text-white rounded px-3 py-2"
+            className="w-full p-2 bg-zinc-800 border rounded text-white"
           >
-            <option value="">Select a type</option>
+            <option value="" >Select a type</option>
             {types.map(t => (
               <option key={t.id} value={t.id}>{t.name}</option>
             ))}

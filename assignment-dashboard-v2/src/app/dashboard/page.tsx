@@ -5,8 +5,8 @@ import { supabase } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 
 import SemesterSelector from './semester_selector'
-import AssignmentListView from './assignment_list_view'
-import AssignmentCalendarView from './assignment_calendar_view'
+import AssignmentListView from './list_view'
+import AssignmentCalendarView from './calendar_view'
 import DashboardControls, { ViewMode } from './dashboard_controls'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
@@ -14,6 +14,7 @@ import Semesters from './semesters'
 import AssignmentTypes from './assignment_types'
 import Classes from './classes'
 import Assignments from './assignments'
+import EditAssignment from './edit_assignment'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -29,9 +30,11 @@ export default function Dashboard() {
   const [showClasses, setShowClasses] = useState(false)
   const [showTypes, setShowTypes] = useState(false)
   const [assignments, setAssignments] = useState<any[]>([])
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [editingAssignment, setEditingAssignment] = useState(null)
 
   const fetchAssignments = async () => {
-    const { data, error } = await supabase.from('assignments').select('*').eq('user_id', (await supabase.auth.getUser()).data.user?.id).order('due_date', { ascending: true })
+    const { data, error } = await supabase.from('assignments').select('*, semesters(name)').eq('user_id', (await supabase.auth.getUser()).data.user?.id).order('due_date', { ascending: true })
     if (error) {
       console.error('Error fetching assignments:', error)
       return
@@ -144,7 +147,15 @@ export default function Dashboard() {
         />
 
         {viewMode === 'list' ? (
-          <AssignmentListView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} refreshAssignments={fetchAssignments} />
+          <AssignmentListView
+          selectedSemester={selectedSemester}
+          showCompleted={showCompleted}
+          assignments={assignments}
+          refreshAssignments={fetchAssignments}
+          onEdit={(assignment) => {
+            setEditingAssignment(assignment)
+            setShowEditModal(true)
+          }}/>
         ) : (
           <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} />
         )}
@@ -158,6 +169,17 @@ export default function Dashboard() {
           <Semesters />
         </DialogContent>
       </Dialog>
+
+      <Dialog open={showEditModal} onOpenChange={setShowEditModal}>
+        {editingAssignment && (
+          <EditAssignment
+            currentAssignment={editingAssignment}
+            onClose={() => setShowEditModal(false)}
+            fetchAssignments={fetchAssignments}
+          />
+        )}
+      </Dialog>
+
 
       <Dialog open={showAssignments} onOpenChange={setShowAssignments}>
         <DialogContent className="bg-zinc-900">
