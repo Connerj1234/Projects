@@ -14,62 +14,57 @@ interface Props {
 export default function Assignments({ selectedSemester, fetchAssignments }: Props) {
   const [title, setTitle] = useState('')
   const [dueDate, setDueDate] = useState('')
-  const [semesterId, setSemesterId] = useState(selectedSemester)
   const [classId, setClassId] = useState('')
   const [typeId, setTypeId] = useState('')
   const [notes, setNotes] = useState('')
   const [classes, setClasses] = useState<any[]>([])
   const [types, setTypes] = useState<any[]>([])
-  const [semesters, setSemesters] = useState<any[]>([])
-  const [error, setError] = useState<string | null>(null)
-  const fetchClassesAndTypes = async () => {
-    const user = (await supabase.auth.getUser()).data.user
-    if (!user) return
-
-    const { data: classData } = await supabase
-      .from('classes')
-      .select('id, name')
-      .eq('user_id', user.id)
-      .eq('semester_id', semesterId)
-
-    const { data: typeData } = await supabase
-      .from('assignment_types')
-      .select('id, name')
-      .eq('user_id', user.id)
-      .eq('semester_id', semesterId)
-
-    if (classData) setClasses(classData)
-    if (typeData) setTypes(typeData)
-  }
+  const [semesterName, setSemesterName] = useState('')
 
   useEffect(() => {
-    fetchClassesAndTypes()
-    fetchSemesters()
-  }, [])
+    const fetchData = async () => {
+      const user = (await supabase.auth.getUser()).data.user
+      if (!user || !selectedSemester) return
 
-  useEffect(() => {
-    const savedSemester = localStorage.getItem('selectedSemester')
-    if (savedSemester) setSemesterId(savedSemester)
-  }, [])
+      const [{ data: classData }, { data: typeData }, { data: semesterData }] = await Promise.all([
+        supabase
+          .from('classes')
+          .select('id, name')
+          .eq('user_id', user.id)
+          .eq('semester_id', selectedSemester),
+        supabase
+          .from('assignment_types')
+          .select('id, name')
+          .eq('user_id', user.id)
+          .eq('semester_id', selectedSemester),
+        supabase
+          .from('semesters')
+          .select('name')
+          .eq('id', selectedSemester)
+          .single()
+      ])
 
-  const fetchSemesters = async () => {
-    const { data: semesterData } = await supabase.from('semesters').select('id, name')
-    if (semesterData) setSemesters(semesterData)
-  }
+      if (classData) setClasses(classData)
+      if (typeData) setTypes(typeData)
+      if (semesterData) setSemesterName(semesterData.name)
+    }
+
+    fetchData()
+  }, [selectedSemester])
 
   const createAssignment = async (e: React.FormEvent) => {
     e.preventDefault()
     const user = (await supabase.auth.getUser()).data.user
-    if (!user) return
+    if (!user || !selectedSemester) return
 
-    if (!title || !dueDate || !classId || !typeId || !semesterId) {
+    if (!title || !dueDate || !classId || !typeId) {
       alert("Please fill out all required fields before submitting.")
       return
     }
 
-  await supabase.from('assignments').insert({
+    const { error } = await supabase.from('assignments').insert({
       user_id: user.id,
-      semester_id: semesterId,
+      semester_id: selectedSemester,
       title,
       due_date: dueDate,
       class_id: classId,
@@ -85,7 +80,6 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
       setClassId('')
       setTypeId('')
       setNotes('')
-
       fetchAssignments()
     }
   }
@@ -117,21 +111,6 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
         </div>
 
         <div className="grid gap-3">
-          <Label htmlFor="semester" className="text-white">Semester</Label>
-          <select
-            id="semester"
-            value={semesterId}
-            onChange={e => setSemesterId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded text-white"
-          >
-            <option value="">Select a semester</option>
-            {semesters.map(s => (
-              <option key={s.id} value={s.id}>{s.name}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="grid gap-3">
           <Label htmlFor="class" className="text-white">Class</Label>
           <select
             id="class"
@@ -154,7 +133,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             onChange={e => setTypeId(e.target.value)}
             className="w-full p-2 bg-zinc-800 border rounded text-white"
           >
-            <option value="" >Select a type</option>
+            <option value="">Select a type</option>
             {types.map(t => (
               <option key={t.id} value={t.id}>{t.name}</option>
             ))}

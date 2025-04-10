@@ -202,7 +202,7 @@ export default function Dashboard() {
       <Dialog open={showAssignments} onOpenChange={setShowAssignments}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">New Assignment</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">New Assignment - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <Assignments selectedSemester={selectedSemester} fetchAssignments={fetchAssignments} />
         </DialogContent>

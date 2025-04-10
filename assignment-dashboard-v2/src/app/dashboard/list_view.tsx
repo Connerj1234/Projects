@@ -124,7 +124,8 @@ export default function AssignmentListView({
     const matchesClass = selectedClass === 'all' || a.class_id === selectedClass
     const matchesType = selectedType === 'all' || a.type_id === selectedType
     const matchesSearch = a.title.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesClass && matchesType && matchesSearch
+    const matchesSemester = selectedSemester === 'all' || a.semester_id === selectedSemester
+    return matchesClass && matchesType && matchesSearch && matchesSemester
   })
 
   return (
@@ -169,10 +170,7 @@ export default function AssignmentListView({
           </div>
           <ul className="space-y-2">
             {filteredAssignments.map((a) => (
-              <li
-                key={a.id}
-                className="flex justify-between items-center bg-zinc-800 border border-zinc-700 p-3 rounded-lg"
-              >
+              <li key={a.id} className="flex justify-between items-center bg-zinc-800 border border-zinc-700 p-3 rounded-lg">
                 <div className="flex items-center gap-3">
                   <input
                     type="checkbox"
