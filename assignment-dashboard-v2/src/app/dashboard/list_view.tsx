@@ -11,6 +11,7 @@ type Assignment = {
   completed: boolean
   semester_id: string
   semesters?: { name: string }
+  notes?: string
 }
 
 type Props = {
@@ -99,6 +100,11 @@ export default function AssignmentListView({ assignments, selectedSemester, show
                   <div>
                     <div className={`font-medium ${a.completed ? 'text-zinc-500 line-through' : 'text-white'}`}>{a.title}</div>
                     <div className="text-sm text-zinc-400">Due: {formatDate(a.due_date)} - {getDaysAway(a.due_date)}</div>
+                    {a.notes && (
+                      <div className="text-sm text-zinc-400 mt-1">
+                        Notes: {a.notes}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
