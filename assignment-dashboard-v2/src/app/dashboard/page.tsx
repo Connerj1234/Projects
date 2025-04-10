@@ -34,6 +34,15 @@ export default function Dashboard() {
   const [showEditModal, setShowEditModal] = useState(false)
   const [editingAssignment, setEditingAssignment] = useState(null)
 
+  const handleOpenNewAssignment = () => {
+    if (selectedSemester === 'all') {
+      alert('Please select a semester before creating an assignment.')
+      return
+    }
+
+    setShowAssignments(true)
+  }
+
   const fetchAssignments = async () => {
     const { data, error } = await supabase.from('assignments').select('*, semesters(name)').eq('user_id', (await supabase.auth.getUser()).data.user?.id).order('due_date', { ascending: true })
     if (error) {
@@ -127,7 +136,7 @@ export default function Dashboard() {
           <Button variant="secondary" className="px-4 py-2 text-sm font-medium" onClick={() => setShowSemesters(true)}>+ Manage Semesters</Button>
         </div>
         <div className="flex gap-2">
-          <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700" onClick={() => setShowAssignments(true)}>+ New Assignment</Button>
+          <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700" onClick={handleOpenNewAssignment}>+ New Assignment</Button>
           <Button
              variant="secondary"
              className="px-4 py-2 text-sm font-medium"
