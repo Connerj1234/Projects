@@ -117,43 +117,45 @@ export default function AssignmentListView({
   }, {})
 
   return (
-    <section className="mt-16 space-y-10">
-      <h2 className="text-2xl font-bold mb-4">Assignment Dashboard</h2>
+    <section className="mt-10 space-y-10">
+      <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
+        <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
 
-      <div className="flex gap-3 mb-6">
-            <input
-              type="text"
-              placeholder="Search assignments..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white"
-            />
+        <div className="flex gap-3">
+              <input
+                type="text"
+                placeholder="Search assignments..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white"
+              />
 
-            <select
-              value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
-              className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
-            >
-              <option value="all">All Classes</option>
-              {Object.entries(classMap).map(([id, { name }]) => (
-                <option key={id} value={id}>{name}</option>
-              ))}
-            </select>
+              <select
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+              >
+                <option value="all">All Classes</option>
+                {Object.entries(classMap).map(([id, { name }]) => (
+                  <option key={id} value={id}>{name}</option>
+                ))}
+              </select>
 
-            <select
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
-            >
-              <option value="all">All Types</option>
-              {Object.entries(typeMap).map(([id, { name }]) => (
-                <option key={id} value={id}>{name}</option>
-              ))}
-            </select>
-          </div>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+              >
+                <option value="all">All Types</option>
+                {Object.entries(typeMap).map(([id, { name }]) => (
+                  <option key={id} value={id}>{name}</option>
+                ))}
+              </select>
+            </div>
+        </div>
 
       {Object.entries(grouped).map(([semesterId, items]) => (
-        <div key={semesterId} className="space-y-2">
+        <div key={semesterId} className="space-y-2 pb-10 mt-6">
           <h3 className="text-lg font-semibold text-zinc-300">
             Semester: {items[0]?.semesters?.name || 'Unknown'}
           </h3>
@@ -178,7 +180,7 @@ export default function AssignmentListView({
                       {a.title}
                     </div>
                     <div className="text-sm text-zinc-400">
-                      Due: {formatDate(a.due_date)} - {getDaysAway(a.due_date)}
+                      {a.due_date ? `Due: ${formatDate(a.due_date)} - ${getDaysAway(a.due_date)}` : 'No due date'}
                     </div>
                     {a.notes && <div className="text-sm text-zinc-400 mt-1">Notes: {a.notes}</div>}
                     <div className="flex flex-wrap gap-2 mt-2">

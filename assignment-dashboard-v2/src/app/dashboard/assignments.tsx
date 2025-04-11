@@ -13,13 +13,14 @@ interface Props {
 
 export default function Assignments({ selectedSemester, fetchAssignments }: Props) {
   const [title, setTitle] = useState('')
-  const [dueDate, setDueDate] = useState('')
+  const [dueDate, setDueDate] = useState<string | null>(null)
   const [classId, setClassId] = useState('')
   const [typeId, setTypeId] = useState('')
   const [notes, setNotes] = useState('')
   const [classes, setClasses] = useState<any[]>([])
   const [types, setTypes] = useState<any[]>([])
   const [semesterName, setSemesterName] = useState('')
+  const [noDueDate, setNoDueDate] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,19 +58,21 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
     const user = (await supabase.auth.getUser()).data.user
     if (!user || !selectedSemester) return
 
-    if (!title || !dueDate || !classId || !typeId) {
+    if (!title || !classId || !typeId) {
       alert("Please fill out all required fields before submitting.")
       return
     }
 
-    const localDate = new Date(dueDate);
+    const localDate = new Date(dueDate || '');
     localDate.setHours(20, 0, 0, 0);
+
+    const finalDueDate = noDueDate ? null : localDate.toISOString();
 
     const { error } = await supabase.from('assignments').insert({
       user_id: user.id,
       semester_id: selectedSemester,
       title,
-      due_date: localDate.toISOString(),
+      due_date: finalDueDate,
       class_id: classId,
       type_id: typeId,
       notes,
@@ -79,7 +82,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
       alert("Error creating assignment. Please try again.")
     } else {
       setTitle('')
-      setDueDate('')
+      setDueDate(null)
       setClassId('')
       setTypeId('')
       setNotes('')
@@ -102,16 +105,31 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
           />
         </div>
 
-        <div className="grid gap-3">
-          <Label htmlFor="due-date" className="text-white">Due Date</Label>
-          <Input
-            id="due-date"
-            type="date"
-            value={dueDate}
-            onChange={e => setDueDate(e.target.value)}
-            className="text-white placeholder-gray-400"
-          />
+        <div className="flex justify-between items-center">
+          <Label htmlFor="due-date" className="text-white">
+            Due Date
+          </Label>
+          <div className="flex items-center gap-1">
+            <input
+              type="checkbox"
+              checked={noDueDate}
+              onChange={e => {
+                setNoDueDate(e.target.checked);
+                if (e.target.checked) setDueDate(null);
+              }}
+            />
+            <label className="text-sm text-white">Unknown</label>
+          </div>
         </div>
+
+        <Input
+          id="due-date"
+          type="date"
+          value={dueDate || ''}
+          onChange={e => setDueDate(e.target.value)}
+          disabled={noDueDate}
+          className="text-white placeholder-gray-400 disabled:opacity-50"
+        />
 
         <div className="grid gap-3">
           <Label htmlFor="class" className="text-white">Class</Label>
