@@ -1,29 +1,60 @@
 import { useEffect, useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Assignment } from '@/types'
 import { format } from 'date-fns'
 import { Pencil, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+
+type Assignment = {
+    id: string
+    title: string
+    due_date: string
+    completed: boolean
+    semester_id: string
+    class_id: string
+    type_id: string
+    notes?: string
+    semesters?: { name: string }
+  }
 
 interface Props {
   open: boolean
   onClose: () => void
   date: Date | null
   assignments: Assignment[]
-  selectedSemester: string
-  onToggleComplete: (assignmentId: string, completed: boolean) => void
+  onToggleComplete: (id: string, completed: boolean) => void
   onEdit: (assignment: Assignment) => void
-  onDelete: (assignmentId: string) => void
+  onDelete: (id: string) => void
   classMap: Record<string, { name: string; color: string }>
   typeMap: Record<string, { name: string; color: string }>
 }
+
+function getDaysAway(dateString: string) {
+    const utcDate = new Date(dateString);
+
+    // Convert to local date (no time)
+    const localDue = new Date(
+      utcDate.getUTCFullYear(),
+      utcDate.getUTCMonth(),
+      utcDate.getUTCDate()
+    );
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const diffTime = localDue.getTime() - today.getTime();
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return '(Today)';
+    if (diffDays === 1) return '(Tomorrow)';
+    if (diffDays < 0) return `(${Math.abs(diffDays)} days ago)`;
+    return ` ${diffDays} days away`;
+  }
 
 export default function DayAssignmentModal({
   open,
   onClose,
   date,
   assignments,
-  selectedSemester,
   onToggleComplete,
   onEdit,
   onDelete,
@@ -44,10 +75,15 @@ export default function DayAssignmentModal({
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="bg-zinc-900 border-zinc-700 max-w-md">
         <DialogHeader>
+        <div className="flex items-center gap-2">
           <DialogTitle className="text-white text-xl">
-            Assignments on {date ? format(date, 'MMMM d, yyyy') : ''}
+          Assignments on {date ? format(date, 'MMMM d, yyyy') : ''}
           </DialogTitle>
-        </DialogHeader>
+          <span className="bg-zinc-700 text-white text-xs px-2 py-0.5 rounded-full">
+            {getDaysAway(date ? format(date, 'yyyy-MM-dd') : '')}
+          </span>
+        </div>
+      </DialogHeader>
 
         <div className="space-y-4">
           {dayAssignments.length === 0 ? (
@@ -70,7 +106,7 @@ export default function DayAssignmentModal({
                   </label>
                   <div className="flex gap-2">
                     <Pencil
-                      className="w-4 h-4 text-zinc-400 hover:text-white cursor-pointer"
+                      className="w-4 h-4 text-blue-400 hover:text-blue-500 cursor-pointer"
                       onClick={() => onEdit(a)}
                     />
                     <Trash2
