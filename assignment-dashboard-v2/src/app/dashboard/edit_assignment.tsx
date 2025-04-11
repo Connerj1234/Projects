@@ -31,7 +31,10 @@ export default function EditAssignment({
   useEffect(() => {
     if (currentAssignment) {
       setTitle(currentAssignment.title)
-      setDueDate(currentAssignment.due_date)
+      const formattedDate = currentAssignment.due_date
+        ? new Date(currentAssignment.due_date).toISOString().split('T')[0]
+        : '';
+      setDueDate(formattedDate);
       setClassId(currentAssignment.class_id)
       setTypeId(currentAssignment.type_id)
       setNotes(currentAssignment.notes || '')

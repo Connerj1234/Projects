@@ -26,6 +26,7 @@ type Props = {
 
 function formatDate(dateString: string) {
   const date = new Date(dateString)
+  date.setHours(date.getHours() + 12);
   return date.toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'long',
@@ -34,16 +35,28 @@ function formatDate(dateString: string) {
 }
 
 function getDaysAway(dateString: string) {
-  const today = new Date()
-  const due = new Date(dateString)
-  const diffTime = due.getTime() - today.getTime()
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1
+    const utcDate = new Date(dateString);
 
-  if (diffDays === 0) return '(Today)'
-  if (diffDays === 1) return '(Tomorrow)'
-  if (diffDays < 0) return `(${Math.abs(diffDays)} days ago)`
-  return `in ${diffDays} days`
-}
+    // Convert to local date (no time)
+    const localDue = new Date(
+      utcDate.getUTCFullYear(),
+      utcDate.getUTCMonth(),
+      utcDate.getUTCDate()
+    );
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const diffTime = localDue.getTime() - today.getTime();
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return '(Today)';
+    if (diffDays === 1) return '(Tomorrow)';
+    if (diffDays < 0) return `(${Math.abs(diffDays)} days ago)`;
+    return `(in ${diffDays} days)`;
+  }
+
+
 
 export default function AssignmentListView({
   assignments,

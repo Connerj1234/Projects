@@ -62,11 +62,14 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
       return
     }
 
+    const localDate = new Date(dueDate);
+    localDate.setHours(20, 0, 0, 0);
+
     const { error } = await supabase.from('assignments').insert({
       user_id: user.id,
       semester_id: selectedSemester,
       title,
-      due_date: dueDate,
+      due_date: localDate.toISOString(),
       class_id: classId,
       type_id: typeId,
       notes,
