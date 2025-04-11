@@ -167,7 +167,7 @@ export default function AssignmentListView({
                         .eq('id', a.id)
                         .then(fetchAssignments)
                     }}
-                    className="form-checkbox h-4 w-4 text-blue-600"
+                    className="form-checkbox h-4 w-4 text-blue-600 hover:cursor-pointer"
                   />
                   <div>
                     <div className={`font-medium ${a.completed ? 'text-zinc-500 line-through' : 'text-white'}`}>
@@ -196,7 +196,7 @@ export default function AssignmentListView({
                     setEditingAssignment(a)
                     onEdit?.(a)
                   }}>
-                    <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500" />
+                    <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500 cursor-pointer" />
                   </button>
                   <button onClick={async () => {
                     if (confirm(`Delete "${a.title}"?`)) {
@@ -204,7 +204,7 @@ export default function AssignmentListView({
                       fetchAssignments()
                     }
                   }}>
-                    <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600" />
+                    <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600 cursor-pointer" />
                   </button>
                 </div>
               </li>

@@ -143,10 +143,10 @@ export default function AssignmentCalendarView({
           <div className="text-sm font-semibold text-white mb-1">{formattedDate}</div>
           {assignmentCount > 0 && (
             <div
-              className="absolute bottom-2 left-2 text-xs bg-blue-600 text-white rounded-full px-2 py-0.5 cursor-pointer"
+              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs bg-blue-600 text-white rounded-full px-3 py-0.5 cursor-pointer whitespace-nowrap"
               onClick={() => openModalForDate(cloneDay)}
             >
-              📌 {assignmentCount} assignment{assignmentCount > 1 ? 's' : ''}
+             {assignmentCount} assignment{assignmentCount > 1 ? 's' : ''}
             </div>
           )}
         </div>
@@ -203,11 +203,11 @@ export default function AssignmentCalendarView({
               </select>
             </div>
         </div>
-      <div className="flex justify-center gap-4 text-white pt-4">
-        <button onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
-        <h3 className="text-lg font-medium">{format(currentMonth, 'MMMM yyyy')}</h3>
-        <button onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
-      </div>
+        <div className="flex justify-center items-center gap-4 mb-4 pt-4">
+          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
+          <span className="text-lg font-semibold leading-[1.75rem]">April 2025</span>
+          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
+        </div>
 
       <div className="grid grid-cols-7 text-sm text-center text-white">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
