@@ -65,7 +65,6 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
 
     const { error } = await supabase.from('assignment_types').delete().eq('id', id);
     if (error) alert('Failed to delete type.');
-    else alert('Deleted successfully.');
     fetchTypes();
   }
 

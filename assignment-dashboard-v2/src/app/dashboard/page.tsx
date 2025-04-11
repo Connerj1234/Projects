@@ -46,6 +46,14 @@ export default function Dashboard() {
   const [showEditModal, setShowEditModal] = useState(false)
   const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
 
+  useEffect(() => {
+    const savedView = localStorage.getItem('viewMode')
+    if (savedView === 'calendar' || savedView === 'list') {
+      setViewMode(savedView)
+    }
+  }, [])
+
+
   const handleOpenNewAssignment = () => {
     if (selectedSemester === 'all') {
       alert('Please select a semester before creating an assignment.')

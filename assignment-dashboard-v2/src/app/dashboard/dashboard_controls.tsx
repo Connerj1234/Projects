@@ -2,43 +2,57 @@
 
 import { Toggle } from '@/components/ui/toggle'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Switch } from '@/components/ui/switch'
 
 export type ViewMode = 'list' | 'calendar'
 
 type Props = {
-  viewMode: ViewMode
-  setViewMode: (view: ViewMode) => void
   showCompleted: boolean
   setShowCompleted: (val: boolean) => void
   onManageClasses: () => void
   onManageTypes: () => void
   stats: { total: number; completed: number; pending: number }
+  viewMode: ViewMode
+  setViewMode: (view: ViewMode) => void
 }
 
 export default function DashboardControls({
-  viewMode,
-  setViewMode,
   showCompleted,
   setShowCompleted,
   onManageClasses,
   onManageTypes,
   stats,
+  viewMode,
+  setViewMode,
 }: Props) {
+
+  useEffect(() => {
+    const savedView = localStorage.getItem('viewMode')
+    if (savedView === 'calendar' || savedView === 'list') {
+      setViewMode(savedView)
+    }
+    }, [])
+
   return (
     <div className="mb-8 space-y-6">
       <div className="flex flex-wrap justify-between items-center gap-4">
         <div className="flex items-center gap-3 flex-wrap">
           <Toggle
             pressed={viewMode === 'list'}
-            onPressedChange={() => setViewMode('list')}
+            onPressedChange={() => {
+              setViewMode('list')
+              localStorage.setItem('viewMode', 'list')
+            }}
           >
             📋 List
           </Toggle>
           <Toggle
             pressed={viewMode === 'calendar'}
-            onPressedChange={() => setViewMode('calendar')}
+            onPressedChange={() => {
+              setViewMode('calendar')
+              localStorage.setItem('viewMode', 'calendar')
+            }}
           >
             🗓 Calendar
           </Toggle>

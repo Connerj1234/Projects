@@ -65,7 +65,6 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
 
     const { error } = await supabase.from('classes').delete().eq('id', id); // or 'assignment_types'
     if (error) alert('Failed to delete class/type.');
-    else alert('Deleted successfully.');
     fetchClasses(); // or fetchTypes()
   }
 
