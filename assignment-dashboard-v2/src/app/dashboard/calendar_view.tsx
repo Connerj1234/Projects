@@ -28,7 +28,6 @@ type Assignment = {
   }
 
 interface Props {
-  assignments: Assignment[]
   selectedSemester: string
   showCompleted: boolean
   onToggleComplete: (id: string, completed: boolean) => void
@@ -37,7 +36,6 @@ interface Props {
 }
 
 export default function AssignmentCalendarView({
-  assignments,
   selectedSemester,
   showCompleted,
   onToggleComplete,
@@ -52,6 +50,29 @@ export default function AssignmentCalendarView({
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedClass, setSelectedClass] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
+  const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
+  const [assignments, setAssignments] = useState<Assignment[]>([])
+
+  const fetchAssignments = async () => {
+    const { data, error } = await supabase
+      .from('assignments')
+      .select('*, semesters(name)')
+      .eq('user_id', (await supabase.auth.getUser()).data.user?.id)
+      .order('due_date', { ascending: true });
+
+    if (error) {
+      console.error('Error fetching assignments:', error);
+      return;
+    }
+
+    // Update the local state with the fetched assignments
+    setAssignments(data);
+  }
+
+  useEffect(() => {
+    fetchAssignments()
+  }, [])
+  
 
   useEffect(() => {
     const fetchMeta = async () => {
@@ -88,7 +109,6 @@ export default function AssignmentCalendarView({
       console.warn(`Assignment at index ${i} is invalid:`, a)
     }
   })
-
 
   const filteredAssignments = assignments.filter((a) => {
     if (!a || typeof a !== 'object') return false
@@ -214,12 +234,12 @@ export default function AssignmentCalendarView({
         onClose={() => setModalOpen(false)}
         date={selectedDate}
         assignments={filteredAssignments}
-        selectedSemester={selectedSemester}
         onToggleComplete={onToggleComplete}
         onEdit={onEdit}
         onDelete={onDelete}
         classMap={classMap}
         typeMap={typeMap}
+        refreshAssignments={fetchAssignments}
       />
     </div>
   )

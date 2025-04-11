@@ -184,7 +184,7 @@ export default function Dashboard() {
             setShowEditModal(true)
           }}/>
         ) : (
-          <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} />
+          <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} onToggleComplete={() => {}} onEdit={() => {}} onDelete={() => {}} />
         )}
       </div>
 

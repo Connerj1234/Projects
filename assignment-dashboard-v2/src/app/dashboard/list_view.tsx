@@ -21,7 +21,7 @@ type Props = {
   selectedSemester: string
   showCompleted: boolean
   refreshAssignments: () => void
-  onEdit?: (assignment: any) => void
+  onEdit?: (assignment: Assignment) => void
 }
 
 function formatDate(dateString: string) {
@@ -68,7 +68,7 @@ export default function AssignmentListView({
   const [selectedClass, setSelectedClass] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
-
+  const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
   useEffect(() => {
     const fetchMeta = async () => {
       const user = (await supabase.auth.getUser()).data.user
@@ -163,8 +163,8 @@ export default function AssignmentListView({
                   <input
                     type="checkbox"
                     checked={a.completed}
-                    onChange={() => {
-                      supabase
+                    onChange={async () => {
+                      await supabase
                         .from('assignments')
                         .update({ completed: !a.completed })
                         .eq('id', a.id)
@@ -195,7 +195,10 @@ export default function AssignmentListView({
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <button onClick={() => onEdit?.(a)}>
+                  <button onClick={() => {
+                    setEditingAssignment(a)
+                    onEdit?.(a)
+                  }}>
                     <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500" />
                   </button>
                   <button onClick={async () => {

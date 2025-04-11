@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { format } from 'date-fns'
 import { Pencil, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { supabase } from '@/lib/supabase/client'
 
 type Assignment = {
     id: string
@@ -16,7 +17,7 @@ type Assignment = {
     semesters?: { name: string }
   }
 
-interface Props {
+type Props = {
   open: boolean
   onClose: () => void
   date: Date | null
@@ -26,12 +27,12 @@ interface Props {
   onDelete: (id: string) => void
   classMap: Record<string, { name: string; color: string }>
   typeMap: Record<string, { name: string; color: string }>
+  refreshAssignments: () => void
 }
 
 function getDaysAway(dateString: string) {
     const utcDate = new Date(dateString);
 
-    // Convert to local date (no time)
     const localDue = new Date(
       utcDate.getUTCFullYear(),
       utcDate.getUTCMonth(),
@@ -51,15 +52,16 @@ function getDaysAway(dateString: string) {
   }
 
 export default function DayAssignmentModal({
-  open,
-  onClose,
-  date,
-  assignments,
-  onToggleComplete,
-  onEdit,
-  onDelete,
-  classMap,
-  typeMap,
+    open,
+    onClose,
+    date,
+    assignments,
+    onToggleComplete,
+    onEdit,
+    onDelete,
+    classMap,
+    typeMap,
+    refreshAssignments,
 }: Props) {
   const [dayAssignments, setDayAssignments] = useState<Assignment[]>([])
 
@@ -75,16 +77,15 @@ export default function DayAssignmentModal({
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="bg-zinc-900 border-zinc-700 max-w-md">
         <DialogHeader>
-        <div className="flex items-center gap-2">
-          <DialogTitle className="text-white text-xl">
-          Assignments on {date ? format(date, 'MMMM d, yyyy') : ''}
-          </DialogTitle>
-          <span className="bg-zinc-700 text-white text-xs px-2 py-0.5 rounded-full">
-            {getDaysAway(date ? format(date, 'yyyy-MM-dd') : '')}
-          </span>
-        </div>
-      </DialogHeader>
-
+          <div className="flex items-center gap-2">
+            <DialogTitle className="text-white text-xl">
+              Assignments on {date ? format(date, 'MMMM d, yyyy') : ''}
+            </DialogTitle>
+            <span className="bg-zinc-700 text-white text-xs px-2 py-0.5 rounded-full">
+              {getDaysAway(date ? format(date, 'yyyy-MM-dd') : '')}
+            </span>
+          </div>
+        </DialogHeader>
         <div className="space-y-4">
           {dayAssignments.length === 0 ? (
             <p className="text-sm text-zinc-400">No assignments due.</p>
@@ -99,20 +100,29 @@ export default function DayAssignmentModal({
                     <input
                       type="checkbox"
                       checked={a.completed}
-                      onChange={() => onToggleComplete(a.id, !a.completed)}
+                      onChange={async () => {
+                        await supabase
+                          .from('assignments')
+                          .update({ completed: !a.completed })
+                          .eq('id', a.id)
+                        refreshAssignments();
+                      }}
                       className="form-checkbox h-4 w-4"
                     />
                     <span className={cn('font-medium text-white', a.completed && 'line-through opacity-60')}>{a.title}</span>
                   </label>
-                  <div className="flex gap-2">
-                    <Pencil
-                      className="w-4 h-4 text-blue-400 hover:text-blue-500 cursor-pointer"
-                      onClick={() => onEdit(a)}
-                    />
-                    <Trash2
-                      className="w-4 h-4 text-red-500 hover:text-red-400 cursor-pointer"
-                      onClick={() => onDelete(a.id)}
-                    />
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => onEdit(a)}>
+                      <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500" />
+                    </button>
+                    <button onClick={async () => {
+                    if (confirm(`Delete "${a.title}"?`)) {
+                      await supabase.from('assignments').delete().eq('id', a.id)
+                      refreshAssignments();
+                    }
+                  }}>
+                    <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600" />
+                  </button>
                   </div>
                 </div>
 
