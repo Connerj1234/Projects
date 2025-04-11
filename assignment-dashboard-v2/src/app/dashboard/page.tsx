@@ -129,7 +129,7 @@ export default function Dashboard() {
   if (loading) return <div className="min-h-screen flex items-center justify-center text-white">Loading...</div>
 
   return (
-    <main className="w-full min-h-screen bg-zinc-900 text-white px-4 sm:px-4">
+    <main className="w-full min-h-screen bg-zinc-900 text-white px-6 sm:px-6">
       <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6 pl-2 pr-2">
         <div className="flex items-center gap-2">
         <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} semesters={semesters} />
@@ -184,7 +184,7 @@ export default function Dashboard() {
             setShowEditModal(true)
           }}/>
         ) : (
-          <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} />
+          <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} />
         )}
       </div>
 

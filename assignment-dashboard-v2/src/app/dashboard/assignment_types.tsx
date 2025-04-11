@@ -48,8 +48,25 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
   }
 
   const deleteType = async (id: string) => {
-    await supabase.from('assignment_types').delete().eq('id', id)
-    fetchTypes()
+    const user = await supabase.auth.getUser().then(res => res.data.user);
+    if (!user) return;
+
+    // Check for any linked assignments
+    const { data: linkedAssignments } = await supabase
+      .from('assignments')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('type_id', id);
+
+    if (linkedAssignments && linkedAssignments.length > 0) {
+      alert("This type cannot be deleted. It's still in use by one or more assignments.");
+      return;
+    }
+
+    const { error } = await supabase.from('assignment_types').delete().eq('id', id);
+    if (error) alert('Failed to delete type.');
+    else alert('Deleted successfully.');
+    fetchTypes();
   }
 
   const updateColor = async (id: string, newColor: string) => {

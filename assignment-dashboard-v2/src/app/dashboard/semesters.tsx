@@ -62,8 +62,18 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
       .select('id')
       .eq('semester_id', id)
 
-    if (assignments && assignments.length > 0) {
-      alert('Cannot delete semester with assignments')
+    const { data: classes } = await supabase
+      .from('classes')
+      .select('id')
+      .eq('semester_id', id)
+
+    const { data: types } = await supabase
+      .from('types')
+      .select('id')
+      .eq('semester_id', id)
+
+    if (assignments && assignments.length > 0 || classes && classes.length > 0 || types && types.length > 0) {
+      alert('Cannot delete semester with assignments, classes, or types')
       return
     }
 

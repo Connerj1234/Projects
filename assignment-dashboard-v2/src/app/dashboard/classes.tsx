@@ -48,8 +48,25 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
   }
 
   const deleteClass = async (id: string) => {
-    await supabase.from('classes').delete().eq('id', id)
-    fetchClasses()
+    const user = await supabase.auth.getUser().then(res => res.data.user);
+    if (!user) return;
+
+    // Check for any linked assignments
+    const { data: linkedAssignments } = await supabase
+      .from('assignments')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('class_id', id); // or 'type_id' for types
+
+    if (linkedAssignments && linkedAssignments.length > 0) {
+      alert("This class cannot be deleted. It's still in use by one or more assignments.");
+      return;
+    }
+
+    const { error } = await supabase.from('classes').delete().eq('id', id); // or 'assignment_types'
+    if (error) alert('Failed to delete class/type.');
+    else alert('Deleted successfully.');
+    fetchClasses(); // or fetchTypes()
   }
 
   const updateColor = async (id: string, newColor: string) => {
@@ -59,7 +76,7 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
 
   return (
     <div className="space-y-6">
-        
+
       <ul className="space-y-3">
         {classes.map(cls => (
           <li

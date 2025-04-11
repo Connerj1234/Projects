@@ -56,8 +56,6 @@ function getDaysAway(dateString: string) {
     return `(in ${diffDays} days)`;
   }
 
-
-
 export default function AssignmentListView({
   assignments,
   selectedSemester,
@@ -120,7 +118,6 @@ export default function AssignmentListView({
     <section className="mt-10 space-y-10">
       <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
         <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
-
         <div className="flex gap-3">
               <input
                 type="text"
