@@ -159,7 +159,7 @@ export default function AssignmentCalendarView({ selectedSemester, showCompleted
   }
 
   return (
-    <div className=" pb-10">
+    <div className="mt-10 pb-10">
       <div className="flex flex-wrap justify-between items-center mb-6 gap-y-4">
         <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
         <div className="flex gap-3 flex-wrap">
