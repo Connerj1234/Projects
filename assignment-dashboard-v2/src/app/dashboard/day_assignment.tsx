@@ -22,12 +22,11 @@ type Props = {
   onClose: () => void
   date: Date | null
   assignments: Assignment[]
-  onToggleComplete: (id: string, completed: boolean) => void
   onEdit: (assignment: Assignment) => void
   onDelete: (id: string) => void
   classMap: Record<string, { name: string; color: string }>
   typeMap: Record<string, { name: string; color: string }>
-  refreshAssignments: () => void
+  fetchAssignments: () => void
 }
 
 function getDaysAway(dateString: string) {
@@ -56,12 +55,11 @@ export default function DayAssignmentModal({
     onClose,
     date,
     assignments,
-    onToggleComplete,
     onEdit,
     onDelete,
     classMap,
     typeMap,
-    refreshAssignments,
+    fetchAssignments,
 }: Props) {
   const [dayAssignments, setDayAssignments] = useState<Assignment[]>([])
 
@@ -101,11 +99,8 @@ export default function DayAssignmentModal({
                       type="checkbox"
                       checked={a.completed}
                       onChange={async () => {
-                        await supabase
-                          .from('assignments')
-                          .update({ completed: !a.completed })
-                          .eq('id', a.id)
-                        refreshAssignments();
+                        await supabase.from('assignments').update({ completed: !a.completed }).eq('id', a.id);
+                        fetchAssignments()
                       }}
                       className="form-checkbox h-4 w-4"
                     />
@@ -117,8 +112,8 @@ export default function DayAssignmentModal({
                     </button>
                     <button onClick={async () => {
                     if (confirm(`Delete "${a.title}"?`)) {
-                      await supabase.from('assignments').delete().eq('id', a.id)
-                      refreshAssignments();
+                        await supabase.from('assignments').delete().eq('id', a.id);
+                        fetchAssignments()
                     }
                   }}>
                     <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600" />

@@ -20,7 +20,7 @@ type Props = {
   assignments: Assignment[]
   selectedSemester: string
   showCompleted: boolean
-  refreshAssignments: () => void
+  fetchAssignments: () => void
   onEdit?: (assignment: Assignment) => void
 }
 
@@ -37,7 +37,6 @@ function formatDate(dateString: string) {
 function getDaysAway(dateString: string) {
     const utcDate = new Date(dateString);
 
-    // Convert to local date (no time)
     const localDue = new Date(
       utcDate.getUTCFullYear(),
       utcDate.getUTCMonth(),
@@ -60,7 +59,7 @@ export default function AssignmentListView({
   assignments,
   selectedSemester,
   showCompleted,
-  refreshAssignments,
+  fetchAssignments,
   onEdit,
 }: Props) {
   const [classMap, setClassMap] = useState<{ [id: string]: { name: string; color: string } }>({})
@@ -97,7 +96,6 @@ export default function AssignmentListView({
     fetchMeta()
   }, [selectedSemester])
 
-  // Apply filters first
   const filtered = assignments.filter((a) => {
     const matchesSemester = selectedSemester === 'all' || a.semester_id === selectedSemester
     const matchesCompleted = showCompleted || !a.completed
@@ -107,7 +105,6 @@ export default function AssignmentListView({
     return matchesSemester && matchesCompleted && matchesClass && matchesType && matchesSearch
   })
 
-  // Then group by semester
   const grouped = filtered.reduce<{ [semesterId: string]: Assignment[] }>((acc, curr) => {
     if (!acc[curr.semester_id]) acc[curr.semester_id] = []
     acc[curr.semester_id].push(curr)
@@ -168,7 +165,7 @@ export default function AssignmentListView({
                         .from('assignments')
                         .update({ completed: !a.completed })
                         .eq('id', a.id)
-                        .then(refreshAssignments)
+                        .then(fetchAssignments)
                     }}
                     className="form-checkbox h-4 w-4 text-blue-600"
                   />
@@ -204,7 +201,7 @@ export default function AssignmentListView({
                   <button onClick={async () => {
                     if (confirm(`Delete "${a.title}"?`)) {
                       await supabase.from('assignments').delete().eq('id', a.id)
-                      refreshAssignments()
+                      fetchAssignments()
                     }
                   }}>
                     <Trash2 className="h-4 w-4 text-red-500 hover:text-red-600" />

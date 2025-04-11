@@ -16,6 +16,18 @@ import Classes from './classes'
 import Assignments from './assignments'
 import EditAssignment from './edit_assignment'
 
+type Assignment = {
+  id: string
+  title: string
+  due_date: string
+  completed: boolean
+  semester_id: string
+  class_id: string
+  type_id: string
+  notes?: string
+  semesters?: { name: string }
+}
+
 export default function Dashboard() {
   const router = useRouter()
   const [loading, setLoading] = useState(true)
@@ -30,9 +42,9 @@ export default function Dashboard() {
   const [showAssignments, setShowAssignments] = useState(false)
   const [showClasses, setShowClasses] = useState(false)
   const [showTypes, setShowTypes] = useState(false)
-  const [assignments, setAssignments] = useState<any[]>([])
+  const [assignments, setAssignments] = useState<Assignment[]>([])
   const [showEditModal, setShowEditModal] = useState(false)
-  const [editingAssignment, setEditingAssignment] = useState(null)
+  const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
 
   const handleOpenNewAssignment = () => {
     if (selectedSemester === 'all') {
@@ -50,7 +62,12 @@ export default function Dashboard() {
       return
     }
     setAssignments(data)
+    console.log(data)
   }
+
+  useEffect(() => {
+    fetchAssignments()
+  }, [])
 
   useEffect(() => {
     const fetchSemesters = async () => {
@@ -178,13 +195,27 @@ export default function Dashboard() {
           selectedSemester={selectedSemester}
           showCompleted={showCompleted}
           assignments={assignments}
-          refreshAssignments={fetchAssignments}
+          fetchAssignments={fetchAssignments}
           onEdit={(assignment) => {
             setEditingAssignment(assignment)
             setShowEditModal(true)
           }}/>
         ) : (
-          <AssignmentCalendarView selectedSemester={selectedSemester} showCompleted={showCompleted} assignments={assignments} onToggleComplete={() => {}} onEdit={() => {}} onDelete={() => {}} />
+            <AssignmentCalendarView
+            selectedSemester={selectedSemester}
+            showCompleted={showCompleted}
+            fetchAssignments={fetchAssignments}
+            assignments={assignments}
+            onEdit={(assignment) => {
+              setEditingAssignment(assignment)
+              setShowEditModal(true)
+            }}
+            onDelete={async (id) => {
+              await supabase.from('assignments').delete().eq('id', id)
+              fetchAssignments()
+            }}
+          />
+
         )}
       </div>
 

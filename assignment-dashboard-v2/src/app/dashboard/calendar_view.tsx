@@ -27,20 +27,22 @@ type Assignment = {
     semesters?: { name: string }
   }
 
-interface Props {
+type Props = {
   selectedSemester: string
   showCompleted: boolean
-  onToggleComplete: (id: string, completed: boolean) => void
   onEdit: (assignment: Assignment) => void
   onDelete: (id: string) => void
+  fetchAssignments: () => void
+  assignments: Assignment[]
 }
 
 export default function AssignmentCalendarView({
   selectedSemester,
   showCompleted,
-  onToggleComplete,
   onEdit,
   onDelete,
+  fetchAssignments,
+  assignments,
 }: Props) {
   const [currentMonth, setCurrentMonth] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
@@ -50,29 +52,6 @@ export default function AssignmentCalendarView({
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedClass, setSelectedClass] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
-  const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
-  const [assignments, setAssignments] = useState<Assignment[]>([])
-
-  const fetchAssignments = async () => {
-    const { data, error } = await supabase
-      .from('assignments')
-      .select('*, semesters(name)')
-      .eq('user_id', (await supabase.auth.getUser()).data.user?.id)
-      .order('due_date', { ascending: true });
-
-    if (error) {
-      console.error('Error fetching assignments:', error);
-      return;
-    }
-
-    // Update the local state with the fetched assignments
-    setAssignments(data);
-  }
-
-  useEffect(() => {
-    fetchAssignments()
-  }, [])
-  
 
   useEffect(() => {
     const fetchMeta = async () => {
@@ -104,28 +83,29 @@ export default function AssignmentCalendarView({
   const startDate = startOfWeek(startOfMonth(currentMonth))
   const endDate = endOfWeek(endOfMonth(currentMonth))
 
-  assignments.forEach((a, i) => {
-    if (!a || typeof a !== 'object') {
-      console.warn(`Assignment at index ${i} is invalid:`, a)
-    }
-  })
+  const filteredAssignments = Array.isArray(assignments)
+  ? assignments.filter((a) => {
+      const title = a.title ?? ''
+      const notes = a.notes ?? ''
 
-  const filteredAssignments = assignments.filter((a) => {
-    if (!a || typeof a !== 'object') return false
+      const matchesSemester = selectedSemester === 'all' || a.semester_id === selectedSemester
+      const matchesCompleted = showCompleted || !a.completed
+      const matchesClass = selectedClass === 'all' || a.class_id === selectedClass
+      const matchesType = selectedType === 'all' || a.type_id === selectedType
+      const matchesSearch =
+        title.toLowerCase().includes((searchQuery || '').toLowerCase()) ||
+        notes.toLowerCase().includes((searchQuery || '').toLowerCase())
 
-    const title = a.title ?? ''
-    const notes = a.notes ?? ''
+      return (
+        matchesSemester &&
+        matchesCompleted &&
+        matchesClass &&
+        matchesType &&
+        matchesSearch
+      )
+    })
+  : []
 
-    const matchesSemester = selectedSemester === 'all' || a.semester_id === selectedSemester
-    const matchesCompleted = showCompleted || !a.completed
-    const matchesClass = selectedClass === 'all' || a.class_id === selectedClass
-    const matchesType = selectedType === 'all' || a.type_id === selectedType
-    const matchesSearch =
-      title.toLowerCase().includes((searchQuery || '').toLowerCase()) ||
-      notes.toLowerCase().includes((searchQuery || '').toLowerCase())
-
-    return matchesSemester && matchesClass && matchesType && matchesCompleted && matchesSearch
-  })
 
   const getAssignmentCountForDate = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd')
@@ -196,9 +176,14 @@ export default function AssignmentCalendarView({
                 className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
               >
                 <option value="all">All Classes</option>
-                {Object.entries(classMap).map(([id, { name }]) => (
-                  <option key={id} value={id}>{name}</option>
-                ))}
+                {Object.entries(classMap).map(([id, value]) => {
+                   const { name } = value as { name: string; color: string }
+                   return (
+                     <option key={id} value={id}>
+                       {name}
+                     </option>
+                   )
+                 })}
               </select>
 
               <select
@@ -207,9 +192,14 @@ export default function AssignmentCalendarView({
                 className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
               >
                 <option value="all">All Types</option>
-                {Object.entries(typeMap).map(([id, { name }]) => (
-                  <option key={id} value={id}>{name}</option>
-                ))}
+                {Object.entries(typeMap).map(([id, value]) => {
+                  const { name } = value as { name: string; color: string }
+                  return (
+                    <option key={id} value={id}>
+                      {name}
+                    </option>
+                  )
+                })}
               </select>
             </div>
         </div>
@@ -234,12 +224,11 @@ export default function AssignmentCalendarView({
         onClose={() => setModalOpen(false)}
         date={selectedDate}
         assignments={filteredAssignments}
-        onToggleComplete={onToggleComplete}
         onEdit={onEdit}
         onDelete={onDelete}
         classMap={classMap}
         typeMap={typeMap}
-        refreshAssignments={fetchAssignments}
+        fetchAssignments={fetchAssignments}
       />
     </div>
   )
