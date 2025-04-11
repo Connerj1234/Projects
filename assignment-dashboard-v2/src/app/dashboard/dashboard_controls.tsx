@@ -58,7 +58,7 @@ export default function DashboardControls({
           </Toggle>
           <div className="flex items-center gap-2">
             <span className="text-sm text-white">Show Completed</span>
-            <Switch id="show-completed" className="border border-zinc-700" checked={showCompleted} onCheckedChange={setShowCompleted} />
+            <Switch id="show-completed" className="border border-zinc-700 hover:cursor-pointer" checked={showCompleted} onCheckedChange={setShowCompleted} />
           </div>
         </div>
 

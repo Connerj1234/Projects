@@ -154,8 +154,8 @@ export default function Dashboard() {
   if (loading) return <div className="min-h-screen flex items-center justify-center text-white">Loading...</div>
 
   return (
-    <main className="w-full min-h-screen bg-zinc-900 text-white px-6 sm:px-6">
-      <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6 pl-2 pr-2">
+    <main className="w-full min-h-screen bg-zinc-900 text-white px-6 sm:px-6 pb-6">
+      <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6 pl-2 pr-2 border-b border-zinc-700 pb-6">
         <div className="flex items-center gap-2">
         <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} semesters={semesters} />
           <Button variant="secondary" className="px-4 py-2 text-sm font-medium" onClick={() => setShowSemesters(true)}>+ Manage Semesters</Button>

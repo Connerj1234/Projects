@@ -158,9 +158,9 @@ export default function AssignmentCalendarView({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 bg-zinc-800 rounded-lg shadow-md p-6 mt-10">
         <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
-        <h2 className="text-2xl font-bold pt-2">Assignment Dashboard</h2>
+        <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
         <div className="flex gap-3">
               <input
                 type="text"
@@ -203,15 +203,15 @@ export default function AssignmentCalendarView({
               </select>
             </div>
         </div>
-        <div className="flex justify-center items-center gap-4 mb-4 pt-4">
-          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
+        <div className="flex justify-center items-center gap-20 mb-4 pt-4">
+          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
           <span className="text-lg font-semibold leading-[1.75rem]">April 2025</span>
-          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
+          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
         </div>
 
-      <div className="grid grid-cols-7 text-sm text-center text-white">
+      <div className="grid grid-cols-7 text-sm text-center text-white ">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
-          <div key={d} className="py-1">
+          <div key={d} className="py-">
             {d}
           </div>
         ))}

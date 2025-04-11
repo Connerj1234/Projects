@@ -112,7 +112,7 @@ export default function AssignmentListView({
   }, {})
 
   return (
-    <section className="mt-10 space-y-10">
+    <section className="mt-10 space-y-10 bg-zinc-800 rounded-lg shadow-md p-6">
       <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
         <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
         <div className="flex gap-3">
@@ -149,13 +149,13 @@ export default function AssignmentListView({
         </div>
 
       {Object.entries(grouped).map(([semesterId, items]) => (
-        <div key={semesterId} className="space-y-2 pb-10 mt-6">
+        <div key={semesterId} className="space-y-2 pb-1 mt-6">
           <h3 className="text-lg font-semibold text-zinc-300">
             Semester: {items[0]?.semesters?.name || 'Unknown'}
           </h3>
           <ul className="space-y-2">
             {items.map((a) => (
-              <li key={a.id} className="flex justify-between items-center bg-zinc-800 border border-zinc-700 p-3 rounded-lg">
+              <li key={a.id} className="flex justify-between items-center bg-zinc-800 border border-zinc-600 p-3 rounded-lg">
                 <div className="flex items-center gap-3">
                   <input
                     type="checkbox"
