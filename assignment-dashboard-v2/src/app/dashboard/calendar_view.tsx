@@ -146,7 +146,14 @@ export default function AssignmentCalendarView({
               className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs bg-blue-600 text-white rounded-full px-3 py-0.5 cursor-pointer whitespace-nowrap"
               onClick={() => openModalForDate(cloneDay)}
             >
-             {assignmentCount} assignment{assignmentCount > 1 ? 's' : ''}
+             <span className="hidden sm:inline">
+               {assignmentCount} assignment{assignmentCount > 1 ? 's' : ''}
+             </span>
+           
+             {/* Just the number for mobile */}
+             <span className="inline sm:hidden">
+               {assignmentCount}
+             </span>
             </div>
           )}
         </div>
@@ -161,19 +168,19 @@ export default function AssignmentCalendarView({
     <div className="space-y-4 bg-zinc-800 rounded-lg shadow-md p-6 mt-10">
         <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
         <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap  items-center gap-3">
               <input
                 type="text"
                 placeholder="Search assignments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               />
 
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Classes</option>
                 {Object.entries(classMap).map(([id, value]) => {
@@ -189,7 +196,7 @@ export default function AssignmentCalendarView({
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Types</option>
                 {Object.entries(typeMap).map(([id, value]) => {
@@ -205,7 +212,7 @@ export default function AssignmentCalendarView({
         </div>
         <div className="flex justify-center items-center gap-20 mb-4 pt-4">
           <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
-          <span className="text-lg font-semibold leading-[1.75rem]">April 2025</span>
+          <span className="text-lg font-semibold leading-[1.75rem]">{format(currentMonth, 'MMMM yyyy')}</span>
           <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
         </div>
 

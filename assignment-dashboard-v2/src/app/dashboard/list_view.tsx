@@ -115,19 +115,19 @@ export default function AssignmentListView({
     <section className="mt-10 space-y-10 bg-zinc-800 rounded-lg shadow-md p-6">
       <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
         <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap items-center gap-3">
               <input
                 type="text"
                 placeholder="Search assignments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               />
 
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Classes</option>
                 {Object.entries(classMap).map(([id, { name }]) => (
@@ -138,7 +138,7 @@ export default function AssignmentListView({
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white"
+                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Types</option>
                 {Object.entries(typeMap).map(([id, { name }]) => (
