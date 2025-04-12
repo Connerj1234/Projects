@@ -8,7 +8,7 @@ export default function TabBar() {
   const pathname = usePathname()
 
   const tabs = [
-    { label: 'Dashboard', href: '/main/home', icon: <LayoutDashboard className="h-4 w-4" /> },
+    { label: 'Dashboard', href: '/main/.dashboard', icon: <LayoutDashboard className="h-4 w-4" /> },
     { label: 'Assignments', href: '/main/assignments', icon: <FileText className="h-4 w-4" /> },
     { label: 'To-Do List', href: '/main/todo', icon: <ClipboardList className="h-4 w-4" /> },
     { label: 'Reminders', href: '/main/reminders', icon: <AlarmClock className="h-4 w-4" /> },
@@ -27,7 +27,7 @@ export default function TabBar() {
               className={`flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-all ${
                 isActive
                   ? 'bg-white text-black shadow-sm'
-                  : 'text-white hover:text-zinc-400'
+                  : 'text-zinc-400 hover:text-white'
               }`}
             >
               {icon}

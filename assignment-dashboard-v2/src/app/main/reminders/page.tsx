@@ -2,8 +2,8 @@
 
 export default function Page() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-white mb-4">[Section Title]</h1>
+    <div className="min-h-screen bg-zinc-900 text-white px-4 py-6">
+      <h1 className="text-2xl font-bold text-white mb-4">Reminders</h1>
       <div className="text-zinc-400">
         This is the Reminders page. Add your components or features here.
       </div>
