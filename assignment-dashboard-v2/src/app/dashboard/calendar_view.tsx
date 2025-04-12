@@ -149,8 +149,6 @@ export default function AssignmentCalendarView({
              <span className="hidden sm:inline">
                {assignmentCount} assignment{assignmentCount > 1 ? 's' : ''}
              </span>
-           
-             {/* Just the number for mobile */}
              <span className="inline sm:hidden">
                {assignmentCount}
              </span>

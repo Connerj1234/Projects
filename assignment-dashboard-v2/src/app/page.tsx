@@ -2,9 +2,9 @@ export default function Home() {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-900 text-white px-4 text-center">
         <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Assignment Dashboard</h1>
+          <h1 className="text-4xl font-bold mb-4">Conner's Productivity Hub</h1>
           <p className="text-lg text-zinc-300 mb-8">
-            Organize your classes, tasks, and semesters with ease.
+            Assignments, To-Dos, and Calendar.
           </p>
 
           <div className="flex justify-center gap-4">
