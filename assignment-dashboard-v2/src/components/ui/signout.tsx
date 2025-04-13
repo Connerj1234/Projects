@@ -1,15 +1,14 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import { supabase } from '@/lib/supabase/client'
-import { ArrowLeftRightIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { LogOut } from 'lucide-react'
 
-type SignOutButtonProps = {
-    collapsed: boolean;
-  };
+type Props = {
+  collapsed: boolean
+}
 
-export default function SignOutButton({ collapsed }: SignOutButtonProps) {
+export default function SignOutButton({ collapsed }: Props) {
   const router = useRouter()
 
   const handleSignOut = async () => {
@@ -18,20 +17,14 @@ export default function SignOutButton({ collapsed }: SignOutButtonProps) {
   }
 
   return (
-    <div className="mt-4 px-3">
-      <button
-        onClick={handleSignOut}
-        className={`w-full flex items-center justify-center ${
-          collapsed ? 'p-3' : 'px-4 py-2'
-        } text-sm font-medium bg-zinc-100 text-zinc-900 rounded-md hover:bg-zinc-200 transition`}
-      >
-        {collapsed ? (
-          <ArrowLeftRightIcon className="w-5 h-5" /> // or use an appropriate icon
-        ) : (
-          'Sign Out'
-        )}
-      </button>
-    </div>
-
+    <button
+      onClick={handleSignOut}
+      className={`w-full flex items-center ${
+        collapsed ? 'justify-center p-2' : 'justify-start px-3 py-2'
+      } mt-2 text-sm font-medium bg-zinc-100 text-zinc-900 rounded-md hover:bg-zinc-200 transition`}
+    >
+      <LogOut className="w-5 h-5" />
+      {!collapsed && <span className="ml-3">Sign Out</span>}
+    </button>
   )
 }
