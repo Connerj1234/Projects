@@ -154,7 +154,7 @@ export default function Dashboard() {
   if (loading) return <div className="min-h-screen flex items-center justify-center text-white">Loading...</div>
 
   return (
-    <main className="w-full min-h-screen bg-zinc-900 text-white px-6 sm:px-6 pb-6">
+    <main className="w-full min-h-screen bg-zinc-900 text-white px-2 sm:px-6 pb-6">
       <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-6 pt-6 pl-2 pr-2 border-b border-zinc-700 pb-6">
         <div className="flex items-center gap-2">
         <SemesterSelector selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} semesters={semesters} />
@@ -162,20 +162,10 @@ export default function Dashboard() {
         </div>
         <div className="flex gap-2">
           <Button variant="default" className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700" onClick={handleOpenNewAssignment}>+ New Assignment</Button>
-          <Button
-             variant="secondary"
-             className="px-4 py-2 text-sm font-medium"
-             onClick={async () => {
-               await supabase.auth.signOut()
-               router.push('/')
-             }}
-           >
-             Sign Out
-           </Button>
         </div>
       </div>
 
-      <div className="w-full px-2 lg:px-32 xl:px-48 space-y-10">
+      <div className="w-full px-2 lg:px-32 xl:px-32 space-y-10">
         <DashboardControls
           viewMode={viewMode}
           setViewMode={setViewMode}
