@@ -15,7 +15,7 @@ import {
 import SignOutButton from '@/components/ui/signout'
 
 const navItems = [
-  { name: 'Dashboard', href: '/main/dashboard', icon: LayoutDashboard },
+  { name: 'Dashboard', href: '/main/.dashboard', icon: LayoutDashboard },
   { name: 'Assignments', href: '/main/assignments', icon: BookText },
   { name: 'To-Do List', href: '/main/todo', icon: ClipboardList },
   { name: 'Reminders', href: '/main/reminders', icon: AlarmClock },
@@ -30,7 +30,7 @@ export default function Sidebar() {
     <aside
       className={`${
         collapsed ? 'w-16' : 'w-56'
-      } h-screen flex flex-col bg-zinc-900 text-white transition-all duration-300`}
+      } min-h-screen flex flex-col bg-zinc-900 text-white transition-all duration-300`}
     >
       {/* Header */}
       <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-800`}>
