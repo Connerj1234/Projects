@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import {
   LayoutDashboard,
   CalendarIcon,
@@ -10,7 +10,6 @@ import {
   ClipboardList,
   AlarmClock,
   Menu,
-  LogOut,
 } from 'lucide-react'
 import SignOutButton from '@/components/ui/signout'
 
@@ -26,23 +25,34 @@ export default function Sidebar() {
   const pathname = usePathname()
   const [collapsed, setCollapsed] = useState(false)
 
+  useLayoutEffect(() => {
+    const stored = localStorage.getItem('sidebar-collapsed')
+    if (stored === 'true') setCollapsed(true)
+  }, [])
+
+  const toggleSidebar = () => {
+    setCollapsed((prev) => {
+      const next = !prev
+      localStorage.setItem('sidebar-collapsed', String(next))
+      return next
+    })
+  }
+
   return (
     <aside
       className={`${
         collapsed ? 'w-16' : 'w-56'
       } min-h-screen flex flex-col bg-zinc-900 text-white transition-all duration-300`}
     >
-      {/* Header */}
       <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-800`}>
         {!collapsed && (
           <h1 className="text-lg font-bold whitespace-nowrap">Productivity Hub</h1>
         )}
-        <button onClick={() => setCollapsed(!collapsed)}>
+        <button onClick={toggleSidebar}>
           <Menu className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Navigation + Signout */}
       <nav className="px-2 py-4 space-y-1">
         {navItems.map(({ name, href, icon: Icon }) => (
           <Link key={name} href={href}>
@@ -61,7 +71,6 @@ export default function Sidebar() {
           </Link>
         ))}
 
-        {/* Sign Out */}
         <SignOutButton collapsed={collapsed} />
       </nav>
     </aside>
