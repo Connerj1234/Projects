@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase/client'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 interface TaskList {
@@ -10,33 +9,14 @@ interface TaskList {
 }
 
 interface Props {
-  selectedLists: string[]
-  setSelectedLists: (listIds: string[]) => void
-}
+    lists: TaskList[]
+    selectedLists: string[]
+    setSelectedLists: (listIds: string[]) => void
+  }
 
-export default function ListSelector({ selectedLists, setSelectedLists }: Props) {
-  const [lists, setLists] = useState<TaskList[]>([])
+export default function ListSelector({ selectedLists, setSelectedLists, lists }: Props) {
   const [expanded, setExpanded] = useState(true)
   const [initialized, setInitialized] = useState(false)
-
-  // Load task lists from Supabase
-  useEffect(() => {
-    const fetchLists = async () => {
-      const user = (await supabase.auth.getUser()).data.user
-      if (!user) return
-
-      const { data, error } = await supabase
-        .from('todo_lists')
-        .select('id, name')
-        .eq('user_id', user.id)
-
-      if (!error && data) {
-        setLists(data)
-      }
-    }
-
-    fetchLists()
-  }, [])
 
   // Once lists are loaded, initialize selection
   useEffect(() => {

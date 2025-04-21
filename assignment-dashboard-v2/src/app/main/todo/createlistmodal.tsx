@@ -2,8 +2,15 @@
 
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
+import { TaskList } from './types'
 
-export default function CreateListModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+interface ModalProps {
+    open: boolean
+    setOpen: (open: boolean) => void
+    onCreate: (newList: TaskList) => void
+  }
+
+export default function CreateListModal({ open, setOpen, onCreate }: ModalProps) {
   const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -20,21 +27,28 @@ export default function CreateListModal({ open, onClose }: { open: boolean; onCl
       return
     }
 
-    const { error } = await supabase.from('todo_lists').insert([
-      {
-        name,
-        user_id: user.id,
-      },
-    ])
+    const { data, error } = await supabase
+      .from('todo_lists')
+      .insert([
+        {
+          name,
+          user_id: user.id,
+        },
+      ])
+      .select()
+      .single()
 
     if (error) {
       alert('Error creating list: ' + error.message)
     } else {
-      onClose()
+      onCreate(data)
+      setOpen(false)
       setName('')
     }
+
     setLoading(false)
   }
+
 
   if (!open) return null
 
@@ -51,7 +65,7 @@ export default function CreateListModal({ open, onClose }: { open: boolean; onCl
         />
         <div className="flex justify-end gap-2">
           <button
-            onClick={onClose}
+            onClick={() => setOpen(false)}
             className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm"
           >
             Cancel

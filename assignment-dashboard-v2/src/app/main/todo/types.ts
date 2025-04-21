@@ -16,3 +16,8 @@ export interface Todo {
     name: string
     created_at: string
   }
+  
+  export interface TaskList {
+    id: string
+    name: string
+  }
