@@ -11,7 +11,7 @@ interface TaskList {
 interface Props {
     lists: TaskList[]
     selectedLists: string[]
-    setSelectedLists: (listIds: string[]) => void
+    setSelectedLists: React.Dispatch<React.SetStateAction<string[]>>
   }
 
 export default function ListSelector({ selectedLists, setSelectedLists, lists }: Props) {
@@ -41,9 +41,9 @@ export default function ListSelector({ selectedLists, setSelectedLists, lists }:
   }, [selectedLists, initialized])
 
   const toggleList = (id: string) => {
-    setSelectedLists((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    )
+    setSelectedLists((prev: string[]) =>
+        prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+      )
   }
 
   return (

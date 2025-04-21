@@ -13,7 +13,7 @@ export default function TodoSidebar({
   setSelectedLists,
 }: {
   selectedLists: string[]
-  setSelectedLists: (ids: string[]) => void
+  setSelectedLists: React.Dispatch<React.SetStateAction<string[]>>
 }) {
   const [showTaskModal, setShowTaskModal] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
@@ -23,7 +23,6 @@ export default function TodoSidebar({
     setLists((prev) => [...prev, newList])           // Add to dropdown
     setSelectedLists((prev) => [...prev, newList.id]) // Auto-select
   }
-
 
   useEffect(() => {
     const fetchLists = async () => {
