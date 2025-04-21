@@ -6,18 +6,23 @@ import CreateListModal from './createlistmodal'
 import CreateTaskModal from './createtaskmodal'
 import ListSelector from './listselector'
 import { supabase } from '@/lib/supabase/client'
-import { TaskList } from './types'
+import { Task, TaskList } from './types'
 
 export default function TodoSidebar({
-  selectedLists,
-  setSelectedLists,
-}: {
-  selectedLists: string[]
-  setSelectedLists: React.Dispatch<React.SetStateAction<string[]>>
-}) {
+    selectedLists,
+    setSelectedLists,
+    lists,
+    setLists,
+    onTaskCreate,
+  }: {
+    selectedLists: string[]
+    setSelectedLists: React.Dispatch<React.SetStateAction<string[]>>
+    lists: TaskList[]
+    setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
+    onTaskCreate: (newTask: Task) => void
+  }) {
   const [showTaskModal, setShowTaskModal] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
-  const [lists, setLists] = useState<TaskList[]>([])
 
   const handleNewList = (newList: TaskList) => {
     setLists((prev) => [...prev, newList])           // Add to dropdown
@@ -68,7 +73,7 @@ export default function TodoSidebar({
         setSelectedLists={setSelectedLists}
       />
 
-      <CreateTaskModal open={showTaskModal} setOpen={setShowTaskModal} />
+      <CreateTaskModal open={showTaskModal} setOpen={setShowTaskModal} lists={lists} onCreate={onTaskCreate}    />
       <CreateListModal open={showListModal} setOpen={setShowListModal} onCreate={handleNewList} />
     </aside>
   )

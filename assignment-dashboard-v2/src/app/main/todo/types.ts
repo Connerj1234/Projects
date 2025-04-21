@@ -1,11 +1,8 @@
-export interface Todo {
+export interface Task {
     id: string
-    user_id: string
-    folder_id?: string | null
     title: string
-    notes?: string | null
-    due_date?: string | null
-    priority?: 'low' | 'medium' | 'high'
+    list_id: string
+    user_id: string
     completed: boolean
     created_at: string
   }
@@ -16,7 +13,7 @@ export interface Todo {
     name: string
     created_at: string
   }
-  
+
   export interface TaskList {
     id: string
     name: string
