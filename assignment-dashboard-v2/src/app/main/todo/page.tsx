@@ -82,7 +82,7 @@ export default function TodoPage() {
   }))
 
   return (
-    <div className="flex min-h-screen bg-zinc-900 text-white">
+    <div className="flex">
       <TodoSidebar
         selectedLists={selectedLists}
         setSelectedLists={setSelectedLists}
@@ -91,7 +91,7 @@ export default function TodoPage() {
         onTaskCreate={handleNewTask}
         taskCounts={taskCounts}
       />
-      <main className="flex-1 p-6 overflow-x-auto">
+      <div className="flex-1 max-h-screen overflow-y-auto p-6 bg-zinc-900 text-white">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
         <div className="flex gap-4">
           {grouped.map(({ list, tasks }) => (
@@ -101,10 +101,11 @@ export default function TodoPage() {
               tasks={tasks}
               onTaskCreate={handleNewTask}
               onToggleComplete={handleToggleComplete}
+              onOpenDetail={() => setSelectedListId(list.id)}
             />
           ))}
         </div>
-      </main>
+      </div>
     </div>
   )
 }
