@@ -7,6 +7,7 @@ import RenameListModal from './renamelistmodal'
 import DeleteListConfirmation from './deletelistconfirmation'
 import { Task, TaskList } from './types'
 import { useRef, useEffect } from 'react'
+import AddTaskModal from './addtaskmodal'
 
 export default function TaskListCard({
   list,
@@ -14,12 +15,14 @@ export default function TaskListCard({
   onTaskCreate,
   onToggleComplete,
   setLists,
+  allLists,
 }: {
   list: TaskList
   tasks: Task[]
   onTaskCreate: (task: Task) => void
   onToggleComplete: (taskId: string, value: boolean) => void
-  setLists: React.Dispatch<React.SetStateAction<TaskList[]>>;
+  setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
+  allLists: TaskList[]
 }) {
   const [showInput, setShowInput] = useState(false)
   const [newTitle, setNewTitle] = useState('')
@@ -27,6 +30,7 @@ export default function TaskListCard({
   const [showMenu, setShowMenu] = useState(false)
   const [showRename, setShowRename] = useState(false)
   const [showDelete, setShowDelete] = useState(false)
+  const [showAddModal, setShowAddModal] = useState(false)
 
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
@@ -75,7 +79,7 @@ export default function TaskListCard({
         <div className="flex items-center gap-4 relative">
           <button
             className="text-xs text-blue-400 hover:underline"
-            onClick={() => setShowInput(true)}
+            onClick={() => setShowAddModal(true)}
           >
             Add a task
           </button>
@@ -124,26 +128,13 @@ export default function TaskListCard({
           )}
         </div>
       </div>
-
-      {showInput && (
-        <div className="mb-3 flex gap-2">
-          <input
-            type="text"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            placeholder="New task title"
-            className="flex-1 text-sm px-2 py-1 rounded bg-zinc-900 border border-zinc-700 text-white"
-          />
-          <button
-            onClick={handleSubmit}
-            disabled={loading}
-            className="px-2 py-1 text-sm bg-blue-600 rounded text-white"
-          >
-            {loading ? '...' : 'Add'}
-          </button>
-        </div>
-      )}
-
+      <AddTaskModal
+        open={showAddModal}
+        setOpen={setShowAddModal}
+        initialList={list}
+        allLists={allLists}
+        onTaskCreate={onTaskCreate}
+      />
       {incomplete.length === 0 ? (
         <div className="flex flex-col items-center text-center py-4">
           <div className="text-3xl">✅</div>

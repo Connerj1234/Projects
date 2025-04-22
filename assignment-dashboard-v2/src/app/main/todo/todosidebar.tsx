@@ -7,7 +7,7 @@ import CreateTaskModal from './createtaskmodal'
 import ListSelector from './listselector'
 import { supabase } from '@/lib/supabase/client'
 import { Task, TaskList } from './types'
-import RenameListModal from './RenameListModal'
+import RenameListModal from './renamelistmodal'
 
 export default function TodoSidebar({
     selectedLists,
@@ -37,22 +37,14 @@ export default function TodoSidebar({
 
   useEffect(() => {
     const fetchLists = async () => {
-      const user = (await supabase.auth.getUser()).data.user
-      if (!user) return
-
-      const { data, error } = await supabase
-        .from('todo_lists')
-        .select('id, name')
-        .eq('user_id', user.id)
-
+      const { data, error } = await supabase.from('todo_lists').select('*').order('order', { ascending: true })
       if (!error && data) {
         setLists(data)
         setSelectedLists(data.map((l) => l.id))
       }
     }
-
     fetchLists()
-  }, [])
+  }, [setLists, setSelectedLists])
 
   return (
     <aside className="w-44 min-h-screen bg-zinc-900 text-white p-4 ml-4 b-10 flex flex-col justify-start gap-6">

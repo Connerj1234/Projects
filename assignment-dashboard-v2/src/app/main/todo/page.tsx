@@ -102,6 +102,7 @@ export default function TodoPage() {
               onTaskCreate={handleNewTask}
               onToggleComplete={handleToggleComplete}
               setLists={setLists}
+              allLists={lists}
             />
           ))}
         </div>
