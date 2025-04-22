@@ -41,12 +41,12 @@ export default function Sidebar() {
   return (
     <aside
       className={`${
-        collapsed ? 'w-16' : 'w-56'
+        collapsed ? 'w-16' : 'w-40'
       } min-h-screen flex flex-col bg-zinc-900 text-white transition-all duration-300`}
     >
       <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-800`}>
         {!collapsed && (
-          <h1 className="text-lg font-bold whitespace-nowrap mr-4">Productivity </h1>
+          <h1 className="text-lg font-bold whitespace-nowrap mr-2">Productivity </h1>
         )}
         <button onClick={toggleSidebar}>
           <Menu className="w-5 h-5" />

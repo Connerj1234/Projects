@@ -14,6 +14,7 @@ export default function TaskListCard({
   tasks: Task[]
   onTaskCreate: (task: Task) => void
   onToggleComplete: (taskId: string, value: boolean) => void
+  onOpenDetail?: () => void
 }) {
   const [showInput, setShowInput] = useState(false)
   const [newTitle, setNewTitle] = useState('')
@@ -29,7 +30,7 @@ export default function TaskListCard({
     const {
       data: { user },
     } = await supabase.auth.getUser()
-    
+
     if (!user) {
         setLoading(false)
         return
