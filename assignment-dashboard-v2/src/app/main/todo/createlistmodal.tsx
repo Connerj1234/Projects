@@ -53,15 +53,22 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-zinc-900 p-6 rounded-md w-full max-w-md shadow-md">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          setOpen(false)
+        }
+      }}
+    >
+      <div className="bg-zinc-900 border border-white p-6 rounded-md w-full max-w-md shadow-md">
         <h2 className="text-lg font-semibold mb-4">Create New List</h2>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="List name"
-          className="w-full px-3 py-2 rounded-md bg-zinc-800 border border-zinc-700 text-white mb-4"
+          className="w-full px-3 py-2 rounded-md placeholder-gray-400 bg-zinc-850 border border-white text-white mb-4"
         />
         <div className="flex justify-end gap-2">
           <button

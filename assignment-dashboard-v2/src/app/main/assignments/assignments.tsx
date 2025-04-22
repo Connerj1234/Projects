@@ -137,7 +137,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             id="class"
             value={classId}
             onChange={e => setClassId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded text-white"
+            className="w-full p-2 bg-zinc-800 border rounded-md text-white"
           >
             <option value="">Select a class</option>
             {classes.map(c => (
@@ -152,7 +152,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
             id="type"
             value={typeId}
             onChange={e => setTypeId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded text-white"
+            className="w-full p-2 bg-zinc-800 border rounded-md text-white"
           >
             <option value="">Select a type</option>
             {types.map(t => (
