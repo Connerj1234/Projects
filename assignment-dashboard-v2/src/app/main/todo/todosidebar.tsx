@@ -78,14 +78,6 @@ export default function TodoSidebar({
 
       <CreateTaskModal open={showTaskModal} setOpen={setShowTaskModal} lists={lists} onCreate={onTaskCreate}    />
       <CreateListModal open={showListModal} setOpen={setShowListModal} onCreate={handleNewList} />
-      {selectedList && (
-        <RenameListModal
-          open={showRenameModal}
-          setOpen={setShowRenameModal}
-          list={selectedList}
-          setLists={setLists}
-        />
-      )}
     </aside>
   )
 }

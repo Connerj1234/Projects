@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { MoreVertical } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
-import RenameListModal from './RenameListModal'
+import RenameListModal from './renamelistmodal'
 import DeleteListConfirmation from './deletelistconfirmation'
 import { Task, TaskList } from './types'
 import { useRef, useEffect } from 'react'

@@ -101,7 +101,7 @@ export default function TodoPage() {
               tasks={tasks}
               onTaskCreate={handleNewTask}
               onToggleComplete={handleToggleComplete}
-              onOpenDetail={() => setSelectedListId(list.id)}
+              setLists={setLists}
             />
           ))}
         </div>
