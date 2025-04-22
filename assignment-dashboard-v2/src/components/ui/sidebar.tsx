@@ -46,7 +46,7 @@ export default function Sidebar() {
     >
       <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-800`}>
         {!collapsed && (
-          <h1 className="text-lg font-bold whitespace-nowrap">Productivity Hub</h1>
+          <h1 className="text-lg font-bold whitespace-nowrap mr-4">Productivity </h1>
         )}
         <button onClick={toggleSidebar}>
           <Menu className="w-5 h-5" />

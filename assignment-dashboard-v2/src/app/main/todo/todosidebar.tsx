@@ -21,7 +21,7 @@ export default function TodoSidebar({
     lists: TaskList[]
     setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
     onTaskCreate: (newTask: Task) => void
-    taskCounts: Record<string, number> 
+    taskCounts: Record<string, number>
   })
   {
   const [showTaskModal, setShowTaskModal] = useState(false)
@@ -44,7 +44,7 @@ export default function TodoSidebar({
 
       if (!error && data) {
         setLists(data)
-        setSelectedLists(data.map((l) => l.id)) // default: all selected
+        setSelectedLists(data.map((l) => l.id))
       }
     }
 
