@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { TaskList } from './types'
+import { createPortal } from 'react-dom'
 
 export default function RenameListModal({
   open,
@@ -37,7 +38,7 @@ export default function RenameListModal({
 
   if (!open) return null
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
       onClick={(e) => {
@@ -45,7 +46,7 @@ export default function RenameListModal({
       }}
     >
       <div
-        className="bg-zinc-900 border border-white p-6 rounded-lg shadow-lg w-full max-w-sm"
+        className="bg-zinc-900 border border-white p-6 rounded-md shadow-lg w-full max-w-md"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-white text-lg font-semibold mb-4">Rename List</h2>
@@ -58,7 +59,7 @@ export default function RenameListModal({
         <div className="mt-4 flex justify-end gap-2">
           <button
             onClick={() => setOpen(false)}
-            className="text-sm px-4 py-2 rounded border border-white text-white"
+            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm text-white"
           >
             Cancel
           </button>
@@ -71,6 +72,7 @@ export default function RenameListModal({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

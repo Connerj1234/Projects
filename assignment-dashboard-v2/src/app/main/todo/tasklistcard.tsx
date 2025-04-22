@@ -104,7 +104,7 @@ export default function TaskListCard({
           <div
             {...attributes}
             {...listeners}
-            className="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-zinc-600 rounded-full opacity-80 cursor-grab"
+            className="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-zinc-400 rounded-full opacity-90 cursor-grab"
             title="Drag to reorder"
           />
         <h2 className="text-base font-semibold">{list.name}</h2>

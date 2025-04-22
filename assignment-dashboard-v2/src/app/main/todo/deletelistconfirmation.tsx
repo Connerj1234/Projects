@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { supabase } from '@/lib/supabase/client'
 import { TaskList } from './types'
 
@@ -28,15 +30,15 @@ export default function DeleteListConfirmation({
 
   if (!open) return null
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 "
       onClick={(e) => {
         if (e.target === e.currentTarget) setOpen(false)
       }}
     >
       <div
-        className="bg-zinc-900 border border-white p-6 rounded-lg shadow-lg w-full max-w-sm"
+        className="bg-zinc-900 border border-white p-6 rounded-lg shadow-lg w-full max-w-md"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-white text-lg font-semibold mb-4">
@@ -47,9 +49,9 @@ export default function DeleteListConfirmation({
           without incomplete tasks.
         </p>
         <div className="mt-4 flex justify-end gap-2">
-          <button
+        <button
             onClick={() => setOpen(false)}
-            className="text-sm px-4 py-2 rounded border border-white text-white"
+            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm text-white"
           >
             Cancel
           </button>
@@ -61,6 +63,7 @@ export default function DeleteListConfirmation({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

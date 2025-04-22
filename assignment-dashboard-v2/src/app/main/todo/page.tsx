@@ -6,17 +6,17 @@ import { Task, TaskList } from './types'
 import TodoSidebar from './todosidebar'
 import TaskListCard from './tasklistcard'
 import {
-    DndContext,
-    closestCenter,
-    PointerSensor,
-    useSensor,
-    useSensors,
-  } from '@dnd-kit/core'
-  import {
-    SortableContext,
-    verticalListSortingStrategy,
-    arrayMove,
-  } from '@dnd-kit/sortable'
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core'
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+} from '@dnd-kit/sortable'
 
 export default function TodoPage() {
   const [selectedLists, setSelectedLists] = useState<string[]>([])
@@ -33,8 +33,9 @@ export default function TodoPage() {
 
       const { data, error } = await supabase
         .from('todo_lists')
-        .select('id, name')
+        .select('id, name, order_index')
         .eq('user_id', user.id)
+        .order('order_index', { ascending: true })
 
       if (!error && data) {
         setLists(data)
@@ -75,8 +76,27 @@ export default function TodoPage() {
     setTasks((prev) =>
       prev.map((t) => (t.id === taskId ? { ...t, completed: value } : t))
     )
-
     await supabase.from('todos').update({ completed: value }).eq('id', taskId)
+  }
+
+  const handleDragEnd = async ({ active, over }: any) => {
+    if (!over || active.id === over.id) return
+
+    const oldIndex = lists.findIndex((l) => l.id === active.id)
+    const newIndex = lists.findIndex((l) => l.id === over.id)
+    const reordered = arrayMove(lists, oldIndex, newIndex)
+
+    setLists(reordered)
+
+    // ✅ Persist to Supabase
+    await Promise.all(
+      reordered.map((list, index) =>
+        supabase
+          .from('todo_lists')
+          .update({ order_index: index })
+          .eq('id', list.id)
+      )
+    )
   }
 
   const taskCounts = tasks.reduce((acc, task) => {
@@ -103,26 +123,19 @@ export default function TodoPage() {
         onTaskCreate={handleNewTask}
         taskCounts={taskCounts}
       />
-      <div className="flex-1 max-h-screen overflow-y-auto overflow-x-auto p-6 bg-zinc-900 text-white">
+     <div className="flex-1 p-6 bg-zinc-900 text-white overflow-y-auto">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
-          onDragEnd={({ active, over }) => {
-            if (!over || active.id === over.id) return
-
-            const oldIndex = lists.findIndex(l => l.id === active.id)
-            const newIndex = lists.findIndex(l => l.id === over.id)
-            const newListOrder = arrayMove(lists, oldIndex, newIndex)
-            setLists(newListOrder)
-          }}
+          onDragEnd={handleDragEnd}
         >
-          <SortableContext items={lists.map(l => l.id)} strategy={verticalListSortingStrategy}>
+          <SortableContext items={lists.map((l) => l.id)} strategy={verticalListSortingStrategy}>
             <div className="flex flex-wrap gap-4 items-start">
               {grouped.map(({ list, tasks }) => (
                 <TaskListCard
                   key={list.id}
-                  id={list.id} // required by useSortable
+                  id={list.id}
                   list={list}
                   tasks={tasks}
                   onTaskCreate={handleNewTask}
@@ -134,7 +147,6 @@ export default function TodoPage() {
             </div>
           </SortableContext>
         </DndContext>
-
       </div>
     </div>
   )
