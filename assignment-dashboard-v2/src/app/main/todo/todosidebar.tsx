@@ -7,6 +7,7 @@ import CreateTaskModal from './createtaskmodal'
 import ListSelector from './listselector'
 import { supabase } from '@/lib/supabase/client'
 import { Task, TaskList } from './types'
+import RenameListModal from './RenameListModal'
 
 export default function TodoSidebar({
     selectedLists,
@@ -26,6 +27,8 @@ export default function TodoSidebar({
   {
   const [showTaskModal, setShowTaskModal] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
+  const [showRenameModal, setShowRenameModal] = useState(false)
+  const [selectedList, setSelectedList] = useState<TaskList | null>(null)
 
   const handleNewList = (newList: TaskList) => {
     setLists((prev) => [...prev, newList])           // Add to dropdown
@@ -75,6 +78,14 @@ export default function TodoSidebar({
 
       <CreateTaskModal open={showTaskModal} setOpen={setShowTaskModal} lists={lists} onCreate={onTaskCreate}    />
       <CreateListModal open={showListModal} setOpen={setShowListModal} onCreate={handleNewList} />
+      {selectedList && (
+        <RenameListModal
+          open={showRenameModal}
+          setOpen={setShowRenameModal}
+          list={selectedList}
+          setLists={setLists}
+        />
+      )}
     </aside>
   )
 }

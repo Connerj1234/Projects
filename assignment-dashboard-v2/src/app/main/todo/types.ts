@@ -5,6 +5,8 @@ export interface Task {
     user_id: string
     completed: boolean
     created_at: string
+    notes?: string
+    due_date?: string
   }
 
   export interface Folder {

@@ -1,40 +1,57 @@
 'use client'
 
 import { useState } from 'react'
-import { Task, TaskList } from './types'
+import { MoreVertical } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
+import RenameListModal from './RenameListModal'
+import DeleteListConfirmation from './deletelistconfirmation'
+import { Task, TaskList } from './types'
+import { useRef, useEffect } from 'react'
 
 export default function TaskListCard({
   list,
   tasks,
   onTaskCreate,
   onToggleComplete,
+  setLists,
 }: {
   list: TaskList
   tasks: Task[]
   onTaskCreate: (task: Task) => void
   onToggleComplete: (taskId: string, value: boolean) => void
-  onOpenDetail?: () => void
+  setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
 }) {
   const [showInput, setShowInput] = useState(false)
   const [newTitle, setNewTitle] = useState('')
   const [loading, setLoading] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
+  const [showRename, setShowRename] = useState(false)
+  const [showDelete, setShowDelete] = useState(false)
 
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
 
+  const dropdownRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   const handleSubmit = async () => {
     if (!newTitle) return
-
     setLoading(true)
     const {
       data: { user },
     } = await supabase.auth.getUser()
-
-    if (!user) {
-        setLoading(false)
-        return
-      }
 
     const { data, error } = await supabase
       .from('todos')
@@ -52,15 +69,60 @@ export default function TaskListCard({
   }
 
   return (
-    <div className="bg-zinc-800 rounded-xl p-4 w-[350px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between">
+    <div className="bg-zinc-800 rounded-xl p-4 w-[350px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between relative">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-base font-semibold">{list.name}</h2>
-        <button
-          className="text-xs text-blue-400 hover:underline"
-          onClick={() => setShowInput(true)}
-        >
-          Add a task
-        </button>
+        <div className="flex items-center gap-4 relative">
+          <button
+            className="text-xs text-blue-400 hover:underline"
+            onClick={() => setShowInput(true)}
+          >
+            Add a task
+          </button>
+          <button
+            onClick={() => setShowMenu(!showMenu)}
+            className="text-zinc-400 hover:text-white"
+          >
+            <MoreVertical className="w-4 h-4" />
+          </button>
+
+          {showMenu && (
+            <div ref={dropdownRef} className="absolute right-0 top-6 w-48 bg-zinc-800 border border-zinc-700 rounded shadow-lg text-sm z-50">
+              <div className="px-3 py-2 text-zinc-400">Sort by</div>
+              <ul className="border-b border-zinc-700">
+                <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">My order</li>
+                <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">Date</li>
+                <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">Title</li>
+              </ul>
+              <ul>
+                <li
+                  onClick={() => {
+                    setShowRename(true)
+                    setShowMenu(false)
+                  }}
+                  className="px-4 py-2 hover:bg-zinc-700 cursor-pointer"
+                >
+                  Rename list
+                </li>
+                <li
+                  onClick={() => {
+                    if (incomplete.length === 0) {
+                      setShowDelete(true)
+                      setShowMenu(false)
+                    }
+                  }}
+                  className={`px-4 py-2 ${
+                    incomplete.length > 0
+                      ? 'text-zinc-500 cursor-not-allowed'
+                      : 'hover:bg-zinc-700 cursor-pointer text-red-500'
+                  }`}
+                >
+                  Delete list
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       {showInput && (
@@ -96,7 +158,20 @@ export default function TaskListCard({
                 className="mt-1 accent-blue-500"
                 onChange={() => onToggleComplete(task.id, true)}
               />
-              <span>{task.title}</span>
+              <div>
+                <div>{task.title}</div>
+                {task.notes && (
+                  <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>
+                )}
+                {task.due_date && (
+                  <div className="text-xs text-zinc-500 mt-0.5">
+                    {new Date(task.due_date).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </div>
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -109,15 +184,31 @@ export default function TaskListCard({
             <li key={task.id} className="flex items-start gap-2">
               <input
                 type="checkbox"
-                className="mt-1 accent-blue-500"
+                className="mt-0.5 accent-blue-500"
                 checked
                 onChange={() => onToggleComplete(task.id, false)}
               />
-              <span className="line-through opacity-60">{task.title}</span>
+              <div className="line-through opacity-60">
+                <div>{task.title}</div>
+                {task.notes && (
+                  <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>
+                )}
+                {task.due_date && (
+                  <div className="text-xs text-zinc-500 mt-0.5">
+                    {new Date(task.due_date).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </div>
+                )}
+              </div>
             </li>
           ))}
         </ul>
       </details>
+
+      <RenameListModal open={showRename} setOpen={setShowRename} list={list} setLists={setLists} />
+      <DeleteListConfirmation open={showDelete} setOpen={setShowDelete} list={list} setLists={setLists} />
     </div>
   )
 }

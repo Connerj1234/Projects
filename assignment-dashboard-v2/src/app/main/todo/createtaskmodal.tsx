@@ -13,6 +13,8 @@ interface ModalProps {
 
 export default function CreateTaskModal({ open, setOpen, lists, onCreate }: ModalProps) {
   const [title, setTitle] = useState('')
+  const [notes, setNotes] = useState('')
+  const [dueDate, setDueDate] = useState('')
   const [selectedListId, setSelectedListId] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -35,26 +37,30 @@ export default function CreateTaskModal({ open, setOpen, lists, onCreate }: Moda
     }
 
     const { data, error } = await supabase
-     .from('todos')
-     .insert([{ title, list_id: selectedListId, user_id: user.id }])
-     .select()
-     .single()
+      .from('todos')
+      .insert([{ title, list_id: selectedListId, user_id: user.id, notes, due_date: dueDate }])
+      .select()
+      .single()
+
     if (error) {
       alert('Error creating task: ' + error.message)
     } else {
       onCreate(data)
       setOpen(false)
       setTitle('')
+      setNotes('')
+      setDueDate('')
       setSelectedListId(null)
     }
 
     setLoading(false)
   }
+
   if (!open) return null
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           setOpen(false)
@@ -74,6 +80,22 @@ export default function CreateTaskModal({ open, setOpen, lists, onCreate }: Moda
               placeholder="Task title"
               className="w-full px-3 py-2 rounded-md bg-zinc-900 placeholder-gray-400 border border-white text-white mb-4"
             />
+
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder="Notes (optional)"
+              className="w-full px-3 py-2 rounded-md bg-zinc-900 placeholder-gray-400 border border-white text-white mb-4 resize-none"
+              rows={3}
+            />
+
+            <input
+              type="date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              className="w-full px-3 py-2 rounded-md bg-zinc-900 border border-white text-white mb-4"
+            />
+
             <select
               value={selectedListId ?? ''}
               onChange={(e) => setSelectedListId(e.target.value)}
@@ -89,15 +111,18 @@ export default function CreateTaskModal({ open, setOpen, lists, onCreate }: Moda
 
         <div className="flex justify-end gap-2">
           <button
-            onClick={() => setOpen(false)}
-            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm">
+            onClick={() => setOpen(false)
+            }
+            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm"
+          >
             Cancel
           </button>
 
           <button
             onClick={handleCreate}
             disabled={loading || !title || !selectedListId}
-            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 text-sm text-white">
+            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 text-sm text-white"
+          >
             {loading ? 'Creating...' : 'Create'}
           </button>
         </div>
