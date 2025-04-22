@@ -163,7 +163,7 @@ export default function TaskListCard({
       <AddTaskModal
         open={showAddModal}
         setOpen={setShowAddModal}
-        initialList={list}
+        list={list}
         allLists={allLists}
         onTaskCreate={onTaskCreate}
       />

@@ -118,7 +118,7 @@ export default function TodoPage() {
           }}
         >
           <SortableContext items={lists.map(l => l.id)} strategy={verticalListSortingStrategy}>
-            <div className="flex gap-4 w-max min-w-[100%]">
+            <div className="flex flex-wrap gap-4 items-start">
               {grouped.map(({ list, tasks }) => (
                 <TaskListCard
                   key={list.id}
