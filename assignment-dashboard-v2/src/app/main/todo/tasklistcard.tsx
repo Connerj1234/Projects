@@ -19,7 +19,7 @@ export default function TaskListCard({
   tasks: Task[]
   onTaskCreate: (task: Task) => void
   onToggleComplete: (taskId: string, value: boolean) => void
-  setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
+  setLists: React.Dispatch<React.SetStateAction<TaskList[]>>;
 }) {
   const [showInput, setShowInput] = useState(false)
   const [newTitle, setNewTitle] = useState('')
