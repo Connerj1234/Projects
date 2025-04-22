@@ -5,12 +5,24 @@ import { supabase } from '@/lib/supabase/client'
 import { Task, TaskList } from './types'
 import TodoSidebar from './todosidebar'
 import TaskListCard from './tasklistcard'
+import {
+    DndContext,
+    closestCenter,
+    PointerSensor,
+    useSensor,
+    useSensors,
+  } from '@dnd-kit/core'
+  import {
+    SortableContext,
+    verticalListSortingStrategy,
+    arrayMove,
+  } from '@dnd-kit/sortable'
 
 export default function TodoPage() {
   const [selectedLists, setSelectedLists] = useState<string[]>([])
   const [lists, setLists] = useState<TaskList[]>([])
   const [tasks, setTasks] = useState<Task[]>([])
-  const [selectedListId, setSelectedListId] = useState<string | null>(null)
+  const sensors = useSensors(useSensor(PointerSensor))
 
   useEffect(() => {
     const fetchLists = async () => {
@@ -93,19 +105,36 @@ export default function TodoPage() {
       />
       <div className="flex-1 max-h-screen overflow-y-auto overflow-x-auto p-6 bg-zinc-900 text-white">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
-        <div className="flex gap-6 flex-wrap">
-          {grouped.map(({ list, tasks }) => (
-            <TaskListCard
-              key={list.id}
-              list={list}
-              tasks={tasks}
-              onTaskCreate={handleNewTask}
-              onToggleComplete={handleToggleComplete}
-              setLists={setLists}
-              allLists={lists}
-            />
-          ))}
-        </div>
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={({ active, over }) => {
+            if (!over || active.id === over.id) return
+
+            const oldIndex = lists.findIndex(l => l.id === active.id)
+            const newIndex = lists.findIndex(l => l.id === over.id)
+            const newListOrder = arrayMove(lists, oldIndex, newIndex)
+            setLists(newListOrder)
+          }}
+        >
+          <SortableContext items={lists.map(l => l.id)} strategy={verticalListSortingStrategy}>
+            <div className="flex gap-4 w-max min-w-[100%]">
+              {grouped.map(({ list, tasks }) => (
+                <TaskListCard
+                  key={list.id}
+                  id={list.id} // required by useSortable
+                  list={list}
+                  tasks={tasks}
+                  onTaskCreate={handleNewTask}
+                  onToggleComplete={handleToggleComplete}
+                  setLists={setLists}
+                  allLists={lists}
+                />
+              ))}
+            </div>
+          </SortableContext>
+        </DndContext>
+
       </div>
     </div>
   )

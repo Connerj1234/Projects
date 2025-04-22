@@ -8,8 +8,11 @@ import DeleteListConfirmation from './deletelistconfirmation'
 import { Task, TaskList } from './types'
 import { useRef, useEffect } from 'react'
 import AddTaskModal from './addtaskmodal'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 export default function TaskListCard({
+  id,
   list,
   tasks,
   onTaskCreate,
@@ -17,6 +20,7 @@ export default function TaskListCard({
   setLists,
   allLists,
 }: {
+  id: string
   list: TaskList
   tasks: Task[]
   onTaskCreate: (task: Task) => void
@@ -36,6 +40,20 @@ export default function TaskListCard({
   const complete = tasks.filter((t) => t.completed)
 
   const dropdownRef = useRef<HTMLDivElement | null>(null)
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition
+  } = useSortable({ id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  }
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -73,8 +91,22 @@ export default function TaskListCard({
   }
 
   return (
-    <div className="bg-zinc-800 rounded-xl p-4 w-[350px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between relative">
-      <div className="flex justify-between items-center mb-2">
+    <div
+      ref={setNodeRef}
+      style={{
+        ...style,
+        touchAction: 'manipulation',
+        willChange: 'transform',
+      }}
+      className="bg-zinc-800 rounded-xl w-[350px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between p-4"
+    >
+        <div className="flex justify-between items-center mb-2">
+          <div
+            {...attributes}
+            {...listeners}
+            className="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-zinc-600 rounded-full opacity-80 cursor-grab"
+            title="Drag to reorder"
+          />
         <h2 className="text-base font-semibold">{list.name}</h2>
         <div className="flex items-center gap-4 relative">
           <button
@@ -169,7 +201,11 @@ export default function TaskListCard({
       )}
 
       <details className="mt-4 text-sm text-zinc-400">
-        <summary className="cursor-pointer">Completed ({complete.length})</summary>
+      <summary className="text-sm text-zinc-400">
+        <span className="inline-flex items-center gap-1 hover:text-white cursor-pointer">
+          Completed ({complete.length})
+        </span>
+      </summary>
         <ul className="mt-2 space-y-1">
           {complete.map((task) => (
             <li key={task.id} className="flex items-start gap-2">
