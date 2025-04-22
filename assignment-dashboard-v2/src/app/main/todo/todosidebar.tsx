@@ -52,7 +52,7 @@ export default function TodoSidebar({
   }, [])
 
   return (
-    <aside className="w-44 min-h-screen bg-zinc-900 text-white p-4 b-10 flex flex-col justify-start gap-6">
+    <aside className="w-44 min-h-screen bg-zinc-900 text-white p-4 ml-4 b-10 flex flex-col justify-start gap-6">
       <button
         onClick={() => setShowTaskModal(true)}
         className="bg-blue-600 hover:bg-blue-500 text-white font-medium mt-2 py-2 px-4 rounded-md text-sm flex items-center justify-center">

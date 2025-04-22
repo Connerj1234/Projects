@@ -52,7 +52,7 @@ export default function TaskListCard({
   }
 
   return (
-    <div className="bg-zinc-800 rounded-xl p-4 w-[320px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between">
+    <div className="bg-zinc-800 rounded-xl p-4 w-[350px] flex-shrink-0 shadow-md border border-zinc-700 flex flex-col justify-between">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-base font-semibold">{list.name}</h2>
         <button
@@ -90,7 +90,7 @@ export default function TaskListCard({
       ) : (
         <ul className="flex-1 space-y-2">
           {incomplete.map((task) => (
-            <li key={task.id} className="flex items-start gap-2 text-sm">
+            <li key={task.id} className="flex items-start gap-4 text-sm">
               <input
                 type="checkbox"
                 className="mt-1 accent-blue-500"
