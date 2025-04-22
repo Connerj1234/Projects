@@ -235,7 +235,7 @@ export default function TaskListCard({
       </details>
 
       <RenameListModal open={showRename} setOpen={setShowRename} list={list} setLists={setLists} />
-      <DeleteListConfirmation open={showDelete} setOpen={setShowDelete} list={list} setLists={setLists} />
+      <DeleteListConfirmation open={showDelete} setOpen={setShowDelete} list={list} tasks={tasks} setLists={setLists} />
     </div>
   )
 }
