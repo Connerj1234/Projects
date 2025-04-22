@@ -91,9 +91,9 @@ export default function TodoPage() {
         onTaskCreate={handleNewTask}
         taskCounts={taskCounts}
       />
-      <div className="flex-1 max-h-screen overflow-y-auto p-6 bg-zinc-900 text-white">
+      <div className="flex-1 max-h-screen overflow-y-auto overflow-x-auto p-6 bg-zinc-900 text-white">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap">
           {grouped.map(({ list, tasks }) => (
             <TaskListCard
               key={list.id}
