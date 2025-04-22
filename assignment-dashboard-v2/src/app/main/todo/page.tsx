@@ -4,16 +4,14 @@ import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { Task, TaskList } from './types'
 import TodoSidebar from './todosidebar'
+import TaskListCard from './tasklistcard'
 
 export default function TodoPage() {
   const [selectedLists, setSelectedLists] = useState<string[]>([])
   const [lists, setLists] = useState<TaskList[]>([])
   const [tasks, setTasks] = useState<Task[]>([])
-  const handleNewTask = (newTask: Task) => {
-    setTasks((prev) => [...prev, newTask])
-  }
+  const [selectedListId, setSelectedListId] = useState<string | null>(null)
 
-  // Fetch all task lists (todo_lists)
   useEffect(() => {
     const fetchLists = async () => {
       const {
@@ -34,7 +32,6 @@ export default function TodoPage() {
     fetchLists()
   }, [])
 
-  // Fetch tasks from selected lists
   useEffect(() => {
     const fetchTasks = async () => {
       if (selectedLists.length === 0) return
@@ -58,7 +55,25 @@ export default function TodoPage() {
     fetchTasks()
   }, [selectedLists])
 
-  // Match list names to task groups
+  const handleNewTask = (newTask: Task) => {
+    setTasks((prev) => [...prev, newTask])
+  }
+
+  const handleToggleComplete = async (taskId: string, value: boolean) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === taskId ? { ...t, completed: value } : t))
+    )
+
+    await supabase.from('todos').update({ completed: value }).eq('id', taskId)
+  }
+
+  const taskCounts = tasks.reduce((acc, task) => {
+    if (!task.completed) {
+      acc[task.list_id] = (acc[task.list_id] || 0) + 1
+    }
+    return acc
+  }, {} as Record<string, number>)
+
   const visibleLists = lists.filter((list) => selectedLists.includes(list.id))
 
   const grouped = visibleLists.map((list) => ({
@@ -74,27 +89,19 @@ export default function TodoPage() {
         lists={lists}
         setLists={setLists}
         onTaskCreate={handleNewTask}
+        taskCounts={taskCounts}
       />
       <main className="flex-1 p-6 overflow-x-auto">
+        <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
         <div className="flex gap-4">
           {grouped.map(({ list, tasks }) => (
-            <div
+            <TaskListCard
               key={list.id}
-              className="bg-zinc-800 rounded-lg p-4 min-w-[250px] w-1/3 flex-shrink-0"
-            >
-              <h2 className="text-lg font-semibold mb-2">{list.name}</h2>
-              {tasks.length === 0 ? (
-                <p className="text-sm text-zinc-400">All tasks complete!</p>
-              ) : (
-                <ul className="space-y-1">
-                  {tasks.map((task) => (
-                    <li key={task.id} className="text-sm">
-                      • {task.title}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+              list={list}
+              tasks={tasks}
+              onTaskCreate={handleNewTask}
+              onToggleComplete={handleToggleComplete}
+            />
           ))}
         </div>
       </main>

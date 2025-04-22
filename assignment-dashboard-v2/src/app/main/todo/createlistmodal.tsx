@@ -48,8 +48,6 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
 
     setLoading(false)
   }
-
-
   if (!open) return null
 
   return (
@@ -73,15 +71,13 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
         <div className="flex justify-end gap-2">
           <button
             onClick={() => setOpen(false)}
-            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm"
-          >
+            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm">
             Cancel
           </button>
           <button
             onClick={handleCreate}
             disabled={loading || !name}
-            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 text-sm text-white"
-          >
+            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-500 text-sm text-white">
             {loading ? 'Creating...' : 'Create'}
           </button>
         </div>
