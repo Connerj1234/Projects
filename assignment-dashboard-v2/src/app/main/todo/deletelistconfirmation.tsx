@@ -76,7 +76,7 @@ export default function DeleteListConfirmation({
               setOpen(false)
               setConfirm(false)
             }}
-            className="text-sm px-4 py-2 rounded border border-white text-white"
+            className="px-4 py-2 rounded bg-zinc-700 hover:bg-zinc-600 text-sm text-white"
           >
             Cancel
           </button>

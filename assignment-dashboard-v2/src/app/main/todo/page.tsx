@@ -131,7 +131,7 @@ export default function TodoPage() {
           onDragEnd={handleDragEnd}
         >
           <SortableContext items={lists.map((l) => l.id)} strategy={verticalListSortingStrategy}>
-            <div className="flex flex-wrap gap-4 items-start">
+            <div className="relative flex flex-wrap gap-4 items-start">
               {grouped.map(({ list, tasks }) => (
                 <TaskListCard
                   key={list.id}

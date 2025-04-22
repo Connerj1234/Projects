@@ -10,6 +10,7 @@ import { useRef, useEffect } from 'react'
 import AddTaskModal from './addtaskmodal'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { createPortal } from 'react-dom'
 
 export default function TaskListCard({
   id,
@@ -35,6 +36,8 @@ export default function TaskListCard({
   const [showRename, setShowRename] = useState(false)
   const [showDelete, setShowDelete] = useState(false)
   const [showAddModal, setShowAddModal] = useState(false)
+  const [dropdownPosition, setDropdownPosition] = useState<{ top: number, left: number } | null>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
@@ -54,6 +57,16 @@ export default function TaskListCard({
     transition,
   }
 
+  const handleToggleMenu = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect()
+      setDropdownPosition({
+        top: rect.bottom + 6,
+        left: rect.right - 192, // width of dropdown
+      })
+    }
+    setShowMenu((prev) => !prev)
+  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -116,16 +129,25 @@ export default function TaskListCard({
             Add a task
           </button>
           <button
-            onClick={() => setShowMenu(!showMenu)}
-            className="text-zinc-400 hover:text-white"
+            ref={buttonRef}
+            onClick={handleToggleMenu}
+            className="text-white hover:text-white"
           >
             <MoreVertical className="w-4 h-4" />
           </button>
 
-          {showMenu && (
-            <div ref={dropdownRef} className="absolute right-0 top-6 w-48 bg-zinc-800 border border-zinc-700 rounded shadow-lg text-sm z-50">
+          {showMenu && dropdownPosition &&
+            createPortal(
+                <div
+                    ref={dropdownRef}
+                    className="fixed z-[1000] w-48 bg-zinc-800 border border-zinc-700 rounded-md shadow-lg text-sm"
+                    style={{
+                        top: dropdownPosition.top,
+                        left: dropdownPosition.left,
+                    }}
+                >
               <div className="px-3 py-2 text-zinc-400">Sort by</div>
-              <ul className="border-b border-zinc-700">
+              <ul className="border-b border-zinc-700 text-white">
                 <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">My order</li>
                 <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">Date</li>
                 <li className="px-4 py-2 hover:bg-zinc-700 cursor-pointer">Title</li>
@@ -136,7 +158,7 @@ export default function TaskListCard({
                     setShowRename(true)
                     setShowMenu(false)
                   }}
-                  className="px-4 py-2 hover:bg-zinc-700 cursor-pointer"
+                  className="px-4 py-2 hover:bg-zinc-700 cursor-pointer text-white"
                 >
                   Rename list
                 </li>
@@ -156,7 +178,8 @@ export default function TaskListCard({
                   Delete list
                 </li>
               </ul>
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>
