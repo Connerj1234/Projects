@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react'
 import { MoreVertical } from 'lucide-react'
 import RenameListModal from './renamelistmodal'
 import DeleteListConfirmation from './deletelistconfirmation'
@@ -9,6 +9,7 @@ import AddTaskModal from './addtaskmodal'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { createPortal } from 'react-dom'
+import EditTaskModal from './edittaskmodal'
 
 export default function TaskListCard({
   id,
@@ -18,6 +19,7 @@ export default function TaskListCard({
   onToggleComplete,
   setLists,
   allLists,
+  setTasks
 }: {
   id: string
   list: TaskList
@@ -26,6 +28,7 @@ export default function TaskListCard({
   onToggleComplete: (taskId: string, value: boolean) => void
   setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
   allLists: TaskList[]
+  setTasks: Dispatch<SetStateAction<Task[]>>
 }) {
   const [showMenu, setShowMenu] = useState(false)
   const [showRename, setShowRename] = useState(false)
@@ -56,6 +59,11 @@ export default function TaskListCard({
     }
     return 0
   })
+
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+  const [activeTask, setActiveTask] = useState<Task | null>(null)
+
 
   const {
     attributes,
@@ -129,7 +137,7 @@ export default function TaskListCard({
             createPortal(
               <div
                 ref={dropdownRef}
-                className="fixed z-[1000] w-48 bg-zinc-800 border border-zinc-700 rounded-md shadow-lg text-sm"
+                className="absolute z-[1000] w-48 bg-zinc-800 border border-zinc-700 rounded-md shadow-lg text-sm"
                 style={{ top: dropdownPosition.top, left: dropdownPosition.left }}
               >
                 <div className="px-3 py-2 text-zinc-400">Sort by</div>
@@ -174,6 +182,17 @@ export default function TaskListCard({
                 {task.notes && <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>}
                 {task.due_date && <div className="text-xs text-zinc-500 mt-0.5">{new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>}
               </div>
+              <div className="relative ml-auto">
+                <button
+                  className="text-zinc-400 hover:text-white"
+                  onClick={() => {
+                    setActiveTask(task)
+                    setShowEdit(true)
+                  }}
+                >
+                  <MoreVertical className="w-4 h-4" />
+                </button>
+              </div>
             </li>
           ))}
         </ul>
@@ -203,6 +222,15 @@ export default function TaskListCard({
           ))}
         </ul>
       </details>
+      {activeTask && (
+        <EditTaskModal
+            open={showEdit}
+            setOpen={setShowEdit}
+            task={activeTask}
+            lists={allLists}
+            setTasks={setTasks}
+        />
+      )}
 
       <RenameListModal open={showRename} setOpen={setShowRename} list={list} setLists={setLists} />
       <DeleteListConfirmation open={showDelete} setOpen={setShowDelete} list={list} tasks={tasks} setLists={setLists} />

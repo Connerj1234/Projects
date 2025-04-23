@@ -140,7 +140,7 @@ export default function TodoPage() {
         onTaskCreate={handleNewTask}
         taskCounts={taskCounts}
       />
-     <div className="flex-1 p-6 pl-8 bg-zinc-900 text-white overflow-y-auto">
+     <div className="flex-1 p-6 pl-8 bg-zinc-900 text-white overflow-y-auto pb-20">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
         <DndContext
           sensors={sensors}
@@ -159,6 +159,7 @@ export default function TodoPage() {
                   onToggleComplete={handleToggleComplete}
                   setLists={setLists}
                   allLists={lists}
+                  setTasks={setTasks}
                 />
               ))}
             </div>
