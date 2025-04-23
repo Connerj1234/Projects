@@ -28,14 +28,12 @@ export default function AddTaskModal({
 
   const modalRef = useRef<HTMLDivElement>(null)
 
-  // 🔄 Update selected list when prop changes
   useEffect(() => {
     if (list?.id) {
       setSelectedList(list.id)
     }
   }, [list])
 
-  // ❌ Click outside to close
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {

@@ -73,16 +73,28 @@ export default function TodoPage() {
   }
 
   const handleToggleComplete = async (taskId: string, value: boolean) => {
-    setTasks((prev) =>
-      prev.map((t) => (t.id === taskId ? { ...t, completed: value } : t))
-    )
-    await supabase
-    .from('todos')
-    .update({
+    const completed_on = value ? new Date().toLocaleDateString('en-CA') : null;
+    const { error } = await supabase
+      .from('todos')
+      .update({
         completed: value,
-        completed_on: value ? new Date().toISOString().split('T')[0] : null
-    })
-    .eq('id', taskId)
+        completed_on
+      })
+      .eq('id', taskId)
+
+    if (!error) {
+      setTasks((prev) =>
+        prev.map((task) =>
+          task.id === taskId
+            ? {
+                ...task,
+                completed: value,
+                completed_on
+              }
+            : task
+        )
+      )
+    }
   }
 
   const handleDragEnd = async ({ active, over }: any) => {

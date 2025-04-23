@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { MoreVertical } from 'lucide-react'
-import { supabase } from '@/lib/supabase/client'
 import RenameListModal from './renamelistmodal'
 import DeleteListConfirmation from './deletelistconfirmation'
 import { Task, TaskList } from './types'
@@ -29,19 +28,14 @@ export default function TaskListCard({
   setLists: React.Dispatch<React.SetStateAction<TaskList[]>>
   allLists: TaskList[]
 }) {
-  const [showInput, setShowInput] = useState(false)
-  const [newTitle, setNewTitle] = useState('')
-  const [loading, setLoading] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const [showRename, setShowRename] = useState(false)
   const [showDelete, setShowDelete] = useState(false)
   const [showAddModal, setShowAddModal] = useState(false)
   const [dropdownPosition, setDropdownPosition] = useState<{ top: number, left: number } | null>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
-
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
-
   const dropdownRef = useRef<HTMLDivElement | null>(null)
 
   const {
@@ -189,7 +183,8 @@ export default function TaskListCard({
                 )}
                 {task.due_date && (
                   <div className="text-xs text-zinc-500 mt-0.5">
-                    {new Date(task.due_date).toLocaleDateString('en-US', {
+                    {new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, {
+                      year: 'numeric',
                       month: 'short',
                       day: 'numeric',
                     })}
@@ -224,21 +219,22 @@ export default function TaskListCard({
                         <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>
                       )}
                       {task.due_date && (
-                        <div className="text-xs text-zinc-500 mt-0.5">
-                          {new Date(task.due_date).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                          })}
+                        <div className="text-xs text-zinc-400 mt-0.5">
+                          {new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric',
+                            })}
                         </div>
                       )}
                       {task.completed_on && (
-                        <div className="text-xs text-zinc-200 mt-0.5">
+                        <div className="text-xs text-zinc-400 mt-0.5">
                           Completed on:{' '}
-                          {new Date(task.completed_on).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                          })}
+                          {new Date(task.completed_on + 'T00:00:00').toLocaleDateString(undefined, {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric',
+                            })}
                         </div>
                       )}
                     </div>
