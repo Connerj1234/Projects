@@ -34,7 +34,12 @@ export default function TaskListCard({
   const [dropdownPosition, setDropdownPosition] = useState<{ top: number, left: number } | null>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
-  const [sortOption, setSortOption] = useState<'order' | 'date' | 'title'>('order')
+  const [sortOption, setSortOption] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('sortOption') || 'order';
+    }
+    return 'order';
+  });
 
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
@@ -91,7 +96,8 @@ export default function TaskListCard({
 
   const handleSort = (option: string) => {
     setSortOption(option);
-    setShowMenu(false); // optional: hide menu after selection
+    localStorage.setItem('sortOption', option);
+    setShowMenu(false);
   };
 
   return (

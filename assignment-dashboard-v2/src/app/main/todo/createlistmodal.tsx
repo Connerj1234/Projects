@@ -27,12 +27,26 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
       return
     }
 
+    const { data: existingLists, error: fetchError } = await supabase
+      .from('todo_lists')
+      .select('order_index')
+      .eq('user_id', user.id)
+
+    if (fetchError) {
+      alert('Error fetching list order: ' + fetchError.message)
+      setLoading(false)
+      return
+    }
+
+    const nextIndex = existingLists?.length || 0
+
     const { data, error } = await supabase
       .from('todo_lists')
       .insert([
         {
           name,
           user_id: user.id,
+          order_index: nextIndex,
         },
       ])
       .select()
@@ -48,6 +62,7 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
 
     setLoading(false)
   }
+
   if (!open) return null
 
   return (
