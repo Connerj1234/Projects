@@ -76,7 +76,13 @@ export default function TodoPage() {
     setTasks((prev) =>
       prev.map((t) => (t.id === taskId ? { ...t, completed: value } : t))
     )
-    await supabase.from('todos').update({ completed: value }).eq('id', taskId)
+    await supabase
+    .from('todos')
+    .update({
+        completed: value,
+        completed_on: value ? new Date().toISOString().split('T')[0] : null
+    })
+    .eq('id', taskId)
   }
 
   const handleDragEnd = async ({ active, over }: any) => {
@@ -114,7 +120,7 @@ export default function TodoPage() {
   }))
 
   return (
-    <div className="flex">
+    <div className="flex ">
       <TodoSidebar
         selectedLists={selectedLists}
         setSelectedLists={setSelectedLists}
@@ -123,7 +129,7 @@ export default function TodoPage() {
         onTaskCreate={handleNewTask}
         taskCounts={taskCounts}
       />
-     <div className="flex-1 p-6 bg-zinc-900 text-white overflow-y-auto">
+     <div className="flex-1 p-6 pl-8 bg-zinc-900 text-white overflow-y-auto">
         <h1 className="text-2xl font-bold mb-4">Your Tasks</h1>
         <DndContext
           sensors={sensors}
@@ -131,7 +137,7 @@ export default function TodoPage() {
           onDragEnd={handleDragEnd}
         >
           <SortableContext items={lists.map((l) => l.id)} strategy={verticalListSortingStrategy}>
-            <div className="relative flex flex-wrap gap-4 items-start">
+            <div className="relative flex flex-wrap gap-6 items-start">
               {grouped.map(({ list, tasks }) => (
                 <TaskListCard
                   key={list.id}

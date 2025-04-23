@@ -7,6 +7,7 @@ export interface Task {
     created_at: string
     notes?: string
     due_date?: string
+    completed_on?: string
   }
 
   export interface Folder {

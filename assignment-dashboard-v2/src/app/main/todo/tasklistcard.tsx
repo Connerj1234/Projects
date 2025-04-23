@@ -81,28 +81,6 @@ export default function TaskListCard({
     }
   }, [])
 
-  const handleSubmit = async () => {
-    if (!newTitle) return
-    setLoading(true)
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    const { data, error } = await supabase
-      .from('todos')
-      .insert([{ title: newTitle, list_id: list.id, user_id: user.id }])
-      .select()
-      .single()
-
-    if (!error && data) {
-      onTaskCreate(data)
-      setNewTitle('')
-      setShowInput(false)
-    }
-
-    setLoading(false)
-  }
-
   return (
     <div
       ref={setNodeRef}
@@ -238,20 +216,34 @@ export default function TaskListCard({
                 checked
                 onChange={() => onToggleComplete(task.id, false)}
               />
-              <div className="line-through opacity-60">
-                <div>{task.title}</div>
-                {task.notes && (
-                  <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>
-                )}
-                {task.due_date && (
-                  <div className="text-xs text-zinc-500 mt-0.5">
-                    {new Date(task.due_date).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                    })}
+              <div className="opacity-60">
+                  <div className="flex items-start gap-2">
+                    <div>
+                      <div className="line-through">{task.title}</div>
+                      {task.notes && (
+                        <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>
+                      )}
+                      {task.due_date && (
+                        <div className="text-xs text-zinc-500 mt-0.5">
+                          {new Date(task.due_date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </div>
+                      )}
+                      {task.completed_on && (
+                        <div className="text-xs text-zinc-200 mt-0.5">
+                          Completed on:{' '}
+                          {new Date(task.completed_on).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
-              </div>
+                </div>
             </li>
           ))}
         </ul>
