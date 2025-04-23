@@ -106,7 +106,6 @@ export default function TodoPage() {
 
     setLists(reordered)
 
-    // ✅ Persist to Supabase
     await Promise.all(
       reordered.map((list, index) =>
         supabase
