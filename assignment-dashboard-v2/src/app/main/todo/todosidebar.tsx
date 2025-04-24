@@ -7,7 +7,6 @@ import CreateTaskModal from './createtaskmodal'
 import ListSelector from './listselector'
 import { supabase } from '@/lib/supabase/client'
 import { Task, TaskList } from './types'
-import RenameListModal from './renamelistmodal'
 
 export default function TodoSidebar({
     selectedLists,
@@ -27,12 +26,10 @@ export default function TodoSidebar({
   {
   const [showTaskModal, setShowTaskModal] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
-  const [showRenameModal, setShowRenameModal] = useState(false)
-  const [selectedList, setSelectedList] = useState<TaskList | null>(null)
 
   const handleNewList = (newList: TaskList) => {
-    setLists((prev) => [...prev, newList])           // Add to dropdown
-    setSelectedLists((prev) => [...prev, newList.id]) // Auto-select
+    setLists((prev) => [...prev, newList])
+    setSelectedLists((prev) => [...prev, newList.id])
   }
 
   useEffect(() => {

@@ -31,11 +31,19 @@ export default function EditTaskModal({ open, setOpen, task, lists, setTasks }: 
       .eq('id', task.id)
 
     if (!error) {
-      setTasks(prev =>
-        prev.map(t =>
-          t.id === task.id ? { ...t, title, notes, due_date: dueDate || null, list_id: listId } : t
-        )
-      )
+        setTasks((prev) =>
+            prev.map((t) =>
+              t.id === task.id
+                ? {
+                    ...t,
+                    title: title ?? t.title,
+                    notes: notes ?? t.notes,
+                    due_date: dueDate ?? t.due_date,
+                    list_id: listId ?? t.list_id,
+                  }
+                : t
+            )
+          )
       setOpen(false)
     }
   }

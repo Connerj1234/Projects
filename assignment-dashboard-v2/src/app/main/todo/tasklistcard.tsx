@@ -60,10 +60,8 @@ export default function TaskListCard({
     return 0
   })
 
-  const [showEditModal, setShowEditModal] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [activeTask, setActiveTask] = useState<Task | null>(null)
-
 
   const {
     attributes,
@@ -130,7 +128,7 @@ export default function TaskListCard({
             Add a task
           </button>
           <button ref={buttonRef} onClick={handleToggleMenu} className="text-white hover:text-white">
-            <MoreVertical className="w-4 h-4" />
+            <MoreVertical className="w-4 h-4 cursor-pointer" />
           </button>
 
           {showMenu && dropdownPosition &&
@@ -175,25 +173,38 @@ export default function TaskListCard({
       ) : (
         <ul className="flex-1 space-y-2">
           {sortedIncomplete.map((task) => (
-            <li key={task.id} className="flex items-start gap-4 text-sm">
-              <input type="checkbox" className="mt-1 accent-blue-500" onChange={() => onToggleComplete(task.id, true)} />
+            <li key={task.id} className="group flex justify-between items-start px-2 text-sm">
+            <div className="flex items-start gap-2">
+              <input
+                type="checkbox"
+                className="mt-1 accent-blue-500"
+                onChange={() => onToggleComplete(task.id, true)}
+              />
               <div>
-                <div>{task.title}</div>
+                <div className="">{task.title}</div>
                 {task.notes && <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>}
-                {task.due_date && <div className="text-xs text-zinc-500 mt-0.5">{new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>}
+                {task.due_date && (
+                  <div className="text-xs text-zinc-500 mt-0.5">
+                    {new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </div>
+                )}
               </div>
-              <div className="relative ml-auto">
-                <button
-                  className="text-zinc-400 hover:text-white"
-                  onClick={() => {
-                    setActiveTask(task)
-                    setShowEdit(true)
-                  }}
-                >
-                  <MoreVertical className="w-4 h-4" />
-                </button>
-              </div>
-            </li>
+            </div>
+
+            <button
+              onClick={() => {
+                setActiveTask(task)
+                setShowEdit(true)
+              }}
+              className="invisible group-hover:visible text-white cursor-pointer"
+            >
+              <MoreVertical className="w-4 h-4" />
+            </button>
+          </li>
           ))}
         </ul>
       )}
@@ -213,7 +224,6 @@ export default function TaskListCard({
                   <div>
                     <div className="line-through">{task.title}</div>
                     {task.notes && <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>}
-                    {task.due_date && <div className="text-xs text-zinc-400 mt-0.5">{new Date(task.due_date + 'T00:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>}
                     {task.completed_on && <div className="text-xs text-zinc-400 mt-0.5">Completed on: {new Date(task.completed_on + 'T00:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>}
                   </div>
                 </div>
