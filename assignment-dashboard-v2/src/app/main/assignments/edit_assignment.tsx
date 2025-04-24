@@ -114,7 +114,7 @@ export default function EditAssignment({
             id="semester"
             value={semesterId}
             onChange={e => setSemesterId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded"
+            className="w-full p-2 bg-zinc-800 border rounded-md"
           >
             <option value="">Select a semester</option>
             {semesters.map(s => (
@@ -128,7 +128,7 @@ export default function EditAssignment({
           <select
             value={classId}
             onChange={(e) => setClassId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded"
+            className="w-full p-2 bg-zinc-800 border rounded-md"
           >
             <option value="">Select a class</option>
             {classes.map((c) => (
@@ -142,7 +142,7 @@ export default function EditAssignment({
           <select
             value={typeId}
             onChange={(e) => setTypeId(e.target.value)}
-            className="w-full p-2 bg-zinc-800 border rounded"
+            className="w-full p-2 bg-zinc-800 border rounded-md"
           >
             <option value="">Select a type</option>
             {types.map((t) => (

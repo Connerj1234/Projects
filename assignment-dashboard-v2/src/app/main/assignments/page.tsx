@@ -240,7 +240,7 @@ export default function Dashboard() {
       <Dialog open={showAssignments} onOpenChange={setShowAssignments}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">New Assignment - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">New Assignment for {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <Assignments selectedSemester={selectedSemester} fetchAssignments={fetchAssignments} />
         </DialogContent>
@@ -249,7 +249,7 @@ export default function Dashboard() {
       <Dialog open={showClasses} onOpenChange={setShowClasses}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">Manage Classes - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Classes for {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <Classes selectedSemester={selectedSemester} />
         </DialogContent>
@@ -258,7 +258,7 @@ export default function Dashboard() {
       <Dialog open={showTypes} onOpenChange={setShowTypes}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">Manage Types - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Types for {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <AssignmentTypes selectedSemester={selectedSemester} />
         </DialogContent>

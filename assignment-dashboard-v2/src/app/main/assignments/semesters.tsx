@@ -87,21 +87,20 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
   return (
     <div className="space-y-6">
       <ul className="space-y-3">
-  {semesters.length === 0 ? (
-    <p className="text-sm text-zinc-400 text-center py-4">
-      No semesters created yet. Add one below!
-    </p>
-  ) : (
-    semesters.map((semester) => (
-      <EditSemesterInline
-        key={semester.id}
-        semester={semester}
-        fetchSemesters={fetchSemesters}
-      />
-    ))
-  )}
-</ul>
-
+        {semesters.length === 0 ? (
+          <p className="text-sm text-zinc-400 text-center py-4">
+            No semesters created yet. Add one below!
+          </p>
+        ) : (
+          semesters.map((semester) => (
+            <EditSemesterInline
+              key={semester.id}
+              semester={semester}
+              fetchSemesters={fetchSemesters}
+            />
+          ))
+        )}
+      </ul>
       <form onSubmit={createSemester} className="space-y-4">
         <Label htmlFor="semester-name" className="text-white mb-2">Add New Semester</Label>
         <Input

@@ -121,13 +121,13 @@ export default function AssignmentListView({
                 placeholder="Search assignments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
+                className="rounded-md px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               />
 
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
+                className="rounded-md px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Classes</option>
                 {Object.entries(classMap).map(([id, { name }]) => (
@@ -138,7 +138,7 @@ export default function AssignmentListView({
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
+                className="rounded-md px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
               >
                 <option value="all">All Types</option>
                 {Object.entries(typeMap).map(([id, { name }]) => (

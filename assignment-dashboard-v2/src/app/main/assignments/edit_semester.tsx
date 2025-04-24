@@ -71,7 +71,7 @@ export default function EditSemesterInline({ semester, fetchSemesters }: EditInl
   };
 
   return (
-    <div className="border border-white p-4 rounded-lg mb-4 text-white">
+    <div className="border border-white/20 p-4 rounded-lg mb-4 text-white">
       {editing ? (
         <div className="space-y-2">
           <Input

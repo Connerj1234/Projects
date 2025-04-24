@@ -172,14 +172,12 @@ export default function AssignmentCalendarView({
                 placeholder="Search assignments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
-              />
+                className="rounded-md px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"/>
 
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
-              >
+                className="rounded-md px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto">
                 <option value="all">All Classes</option>
                 {Object.entries(classMap).map(([id, value]) => {
                    const { name } = value as { name: string; color: string }
@@ -194,8 +192,7 @@ export default function AssignmentCalendarView({
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="rounded px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
-              >
+                className="rounded-md px-2 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto">
                 <option value="all">All Types</option>
                 {Object.entries(typeMap).map(([id, value]) => {
                   const { name } = value as { name: string; color: string }
@@ -209,9 +206,9 @@ export default function AssignmentCalendarView({
             </div>
         </div>
         <div className="flex justify-center items-center gap-20 mb-4 pt-4">
-          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
+          <button className="text-sm px-3 py-1 border rounded-md bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>Previous</button>
           <span className="text-lg font-semibold leading-[1.75rem]">{format(currentMonth, 'MMMM yyyy')}</span>
-          <button className="text-sm px-3 py-1 border rounded bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
+          <button className="text-sm px-3 py-1 border rounded-md bg-zinc-800 border-zinc-600 text-white hover:cursor-pointer" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>Next</button>
         </div>
 
       <div className="grid grid-cols-7 text-sm text-center text-white ">
