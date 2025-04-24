@@ -1,43 +1,65 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase/client';
-import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Trash2, Pencil} from 'lucide-react'
 
-type EditSemesterModalProps = {
-  open: boolean;
-  setOpen: (val: boolean) => void;
-  semester: {
-    id: string;
-    name: string;
-    start_date: string | null;
-    end_date: string | null;
-  };
+interface Semester {
+  id: string;
+  name: string;
+  start_date: string | null;
+  end_date: string | null;
+}
+
+interface EditInlineProps {
+  semester: Semester;
   fetchSemesters: () => void;
-};
+}
 
-export default function EditSemesterModal({ open, setOpen, semester, fetchSemesters }: EditSemesterModalProps) {
-  const [name, setName] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+export default function EditSemesterInline({ semester, fetchSemesters }: EditInlineProps) {
+  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState(semester.name);
+  const [startDate, setStartDate] = useState(semester.start_date || '');
+  const [endDate, setEndDate] = useState(semester.end_date || '')
+
+  const deleteSemester = async (id: string) => {
+    const { data: assignments } = await supabase
+      .from('assignments')
+      .select('id')
+      .eq('semester_id', id)
+
+    const { data: classes } = await supabase
+      .from('classes')
+      .select('id')
+      .eq('semester_id', id)
+
+    const { data: types } = await supabase
+      .from('types')
+      .select('id')
+      .eq('semester_id', id)
+
+    if (assignments && assignments.length > 0 || classes && classes.length > 0 || types && types.length > 0) {
+      alert('Cannot delete semester with assignments, classes, or types')
+      return
+    }
+
+    await supabase.from('semesters').delete().eq('id', id)
+    fetchSemesters()
+  }
 
   useEffect(() => {
-    if (semester) {
+    if (!editing) {
       setName(semester.name);
       setStartDate(semester.start_date || '');
       setEndDate(semester.end_date || '');
     }
-  }, [semester]);
+  }, [editing, semester]);
 
   const handleUpdate = async () => {
     const { error } = await supabase
       .from('semesters')
-      .update({
-        name,
-        start_date: startDate || null,
-        end_date: endDate || null,
-      })
-      .eq('id', semester.id)
+      .update({ name, start_date: startDate || null, end_date: endDate || null })
+      .eq('id', semester.id);
 
     if (error) {
       console.error('Error updating semester:', error);
@@ -45,66 +67,71 @@ export default function EditSemesterModal({ open, setOpen, semester, fetchSemest
     }
 
     fetchSemesters();
-    setOpen(false);
+    setEditing(false);
   };
 
   return (
-    open && (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setOpen(false);
-        }}
-      >
-        <div
-          className="relative z-[1001] mx-auto mt-24 w-full max-w-md rounded-2xl border border-white/20 bg-zinc-900 p-6 shadow-xl"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <h2 className="mb-4 text-lg font-semibold text-white">Edit Semester</h2>
-
+    <div className="border border-white p-4 rounded-lg mb-4 text-white">
+      {editing ? (
+        <div className="space-y-2">
           <Input
-            type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Semester name"
-            className="mb-3 text-white placeholder:text-zinc-500"
           />
-
           <div className="flex gap-3">
-            <div className="flex flex-col w-full">
-              <label htmlFor="start-date" className="text-sm font-medium text-white mb-1">
-                Start Date <span className="text-zinc-400">(optional)</span>
-              </label>
-              <Input
-                id="start-date"
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="text-white placeholder-gray-400"
-              />
-            </div>
-
-            <div className="flex flex-col w-full">
-              <label htmlFor="end-date" className="text-sm font-medium text-white mb-1">
-                End Date <span className="text-zinc-400">(optional)</span>
-              </label>
-              <Input
-                id="end-date"
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="text-white placeholder-gray-400"
-              />
-            </div>
+            <Input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full"
+            />
+            <Input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full"
+            />
           </div>
-
-          <div className="mt-4 flex justify-end gap-2">
-            <Button type='button' onClick={handleUpdate} className="w-full bg-zinc-700">
-              Save
-            </Button>
+          <div className="flex justify-end gap-2">
+            <Button onClick={handleUpdate} className='w-full bg-zinc-700'>Save</Button>
           </div>
         </div>
-      </div>
-    )
-  )
+      ) : (
+        <div className="flex justify-between items-start">
+          <div>
+            <p className="text-white font-semibold">{semester.name}</p>
+            <p className="text-sm text-gray-400">
+              {semester.start_date && semester.end_date && (
+                <>
+                  {semester.start_date} to {semester.end_date}
+                </>
+              )}
+              {semester.start_date && !semester.end_date && (
+                <>Starting {semester.start_date}</>
+              )}
+              {!semester.start_date && semester.end_date && (
+                <>Until {semester.end_date}</>
+              )}
+              {!semester.start_date && !semester.end_date && (
+                <>No date set</>
+              )}
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="ghost" size="icon" onClick={() => setEditing(true)}>
+                <Pencil className="w-4 h-4 text-blue-500" />
+            </Button>
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => deleteSemester(semester.id)}
+              >
+                <Trash2 className="w-4 h-4 text-red-500" />
+              </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }

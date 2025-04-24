@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Trash2, Pencil} from 'lucide-react'
-import EditSemesterModal from "./edit_semester"
+import EditSemesterInline from "./edit_semester"
 
 export default function Semesters({semesters, setSemesters}: { semesters: any[], setSemesters: (s: any[]) => void }) {
   const [name, setName] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [showEditModal, setShowEditModal] = useState(false);
-  const [activeSemester, setActiveSemester] = useState<Semester | null>(null);
+  const [activeSemester, setActiveSemester] = useState<Semester | null>(null)
 
   const fetchSemesters = async () => {
     const user = (await supabase.auth.getUser()).data.user
@@ -87,56 +87,20 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
   return (
     <div className="space-y-6">
       <ul className="space-y-3">
-      {semesters.length === 0 ? (
-      <p className="text-sm text-zinc-400 text-center py-4">
-        No semesters created yet. Add one below!
-      </p>
-    ) : semesters.map((semester => (
-          <li
-            key={semester.id}
-            className="flex justify-between items-center border border-zinc-700 rounded-lg px-4 py-2"
-          >
-            <div>
-              <p className="text-white font-medium">{semester.name}</p>
-              <p className="text-sm text-gray-400">
-              {semester.start_date && semester.end_date && (
-                <>
-                  {semester.start_date} to {semester.end_date}
-                </>
-              )}
-              {semester.start_date && !semester.end_date && (
-                <>Starting {semester.start_date}</>
-              )}
-              {!semester.start_date && semester.end_date && (
-                <>Until {semester.end_date}</>
-              )}
-              {!semester.start_date && !semester.end_date && (
-                <>No date set</>
-              )}
-            </p>
-            </div>
-            <div className="flex items-center gap-2 ml-auto">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => {
-                  setActiveSemester(semester);
-                  setShowEditModal(true);
-                }}
-              >
-                <Pencil className="w-4 h-4 text-blue-500" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => deleteSemester(semester.id)}
-              >
-                <Trash2 className="w-4 h-4 text-red-500" />
-              </Button>
-            </div>
-          </li>
-        )))}
-      </ul>
+  {semesters.length === 0 ? (
+    <p className="text-sm text-zinc-400 text-center py-4">
+      No semesters created yet. Add one below!
+    </p>
+  ) : (
+    semesters.map((semester) => (
+      <EditSemesterInline
+        key={semester.id}
+        semester={semester}
+        fetchSemesters={fetchSemesters}
+      />
+    ))
+  )}
+</ul>
 
       <form onSubmit={createSemester} className="space-y-4">
         <Label htmlFor="semester-name" className="text-white mb-2">Add New Semester</Label>
