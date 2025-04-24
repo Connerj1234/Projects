@@ -139,7 +139,7 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
       </ul>
 
       <form onSubmit={createSemester} className="space-y-4">
-        <Label htmlFor="semester-name" className="text-white">Add New Semester</Label>
+        <Label htmlFor="semester-name" className="text-white mb-2">Add New Semester</Label>
         <Input
           id="semester-name"
           type="text"

@@ -105,7 +105,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
           />
         </div>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-2">
           <Label htmlFor="due-date" className="text-white">
             *Due Date
           </Label>
