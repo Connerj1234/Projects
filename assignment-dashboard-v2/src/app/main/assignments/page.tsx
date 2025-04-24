@@ -55,7 +55,7 @@ export default function Dashboard() {
 
 
   const handleOpenNewAssignment = () => {
-    if (!selectedSemester || selectedSemester === 'all') {
+    if (selectedSemester === 'all') {
       alert('Please select a semester before creating an assignment.')
       return
     }

@@ -5,12 +5,15 @@ import { supabase } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Trash2 } from 'lucide-react'
+import { Trash2, Pencil} from 'lucide-react'
+import EditSemesterModal from "./edit_semester"
 
 export default function Semesters({semesters, setSemesters}: { semesters: any[], setSemesters: (s: any[]) => void }) {
   const [name, setName] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [activeSemester, setActiveSemester] = useState<Semester | null>(null);
 
   const fetchSemesters = async () => {
     const user = (await supabase.auth.getUser()).data.user
@@ -83,7 +86,6 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
 
   return (
     <div className="space-y-6">
-
       <ul className="space-y-3">
       {semesters.length === 0 ? (
       <p className="text-sm text-zinc-400 text-center py-4">
@@ -113,20 +115,31 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
               )}
             </p>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => deleteSemester(semester.id)}
-            >
-              <Trash2 className="w-4 h-4 text-red-500" />
-            </Button>
+            <div className="flex items-center gap-2 ml-auto">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => {
+                  setActiveSemester(semester);
+                  setShowEditModal(true);
+                }}
+              >
+                <Pencil className="w-4 h-4 text-blue-500" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => deleteSemester(semester.id)}
+              >
+                <Trash2 className="w-4 h-4 text-red-500" />
+              </Button>
+            </div>
           </li>
         )))}
       </ul>
 
       <form onSubmit={createSemester} className="space-y-4">
         <Label htmlFor="semester-name" className="text-white">Add New Semester</Label>
-
         <Input
           id="semester-name"
           type="text"
@@ -163,10 +176,17 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
             />
           </div>
         </div>
-
         <Button type="submit" className="w-full bg-zinc-700">
           Create Semester
         </Button>
+        {activeSemester && (
+          <EditSemesterModal
+            open={showEditModal}
+            setOpen={setShowEditModal}
+            semester={activeSemester}
+            fetchSemesters={fetchSemesters}
+          />
+        )}
       </form>
     </div>
   )
