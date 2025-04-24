@@ -36,13 +36,13 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
 
     const { data, error } = await supabase
       .from('semesters')
-      .insert({
-        user_id: user.id,
+      .insert([{
+        user_id: user?.id,
         name,
-        start_date: startDate,
-        end_date: endDate
-      })
-      .select()
+        start_date: startDate || null,
+        end_date: endDate || null
+      }])
+      .select('*')
 
     if (data) {
       await fetchSemesters()
@@ -51,7 +51,7 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
       setStartDate('')
       setEndDate('')
     } else {
-      console.error('Error creating semester:', error)
+      console.error('Error creating semester:', JSON.stringify(error, null, 2))
     }
   }
 
@@ -85,7 +85,11 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
     <div className="space-y-6">
 
       <ul className="space-y-3">
-        {semesters.map(semester => (
+      {semesters.length === 0 ? (
+      <p className="text-sm text-zinc-400 text-center py-4">
+        No semesters created yet. Add one below!
+      </p>
+    ) : semesters.map((semester => (
           <li
             key={semester.id}
             className="flex justify-between items-center border border-zinc-700 rounded-lg px-4 py-2"
@@ -93,8 +97,21 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
             <div>
               <p className="text-white font-medium">{semester.name}</p>
               <p className="text-sm text-gray-400">
-                {semester.start_date} to {semester.end_date}
-              </p>
+              {semester.start_date && semester.end_date && (
+                <>
+                  {semester.start_date} to {semester.end_date}
+                </>
+              )}
+              {semester.start_date && !semester.end_date && (
+                <>Starting {semester.start_date}</>
+              )}
+              {!semester.start_date && semester.end_date && (
+                <>Until {semester.end_date}</>
+              )}
+              {!semester.start_date && !semester.end_date && (
+                <>No date set</>
+              )}
+            </p>
             </div>
             <Button
               variant="ghost"
@@ -104,7 +121,7 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
               <Trash2 className="w-4 h-4 text-red-500" />
             </Button>
           </li>
-        ))}
+        )))}
       </ul>
 
       <form onSubmit={createSemester} className="space-y-4">
@@ -120,18 +137,31 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
         />
 
         <div className="flex gap-3">
-          <Input
-            type="date"
-            value={startDate}
-            onChange={e => setStartDate(e.target.value)}
-            className="text-white placeholder-gray-400"
-          />
-          <Input
-            type="date"
-            value={endDate}
-            onChange={e => setEndDate(e.target.value)}
-            className="text-white placeholder-gray-400"
-          />
+          <div className="flex flex-col w-full">
+            <label htmlFor="start-date" className="text-sm font-medium text-white mb-1">
+              Start Date <span className="text-zinc-400">(optional)</span>
+            </label>
+            <Input
+              id="start-date"
+              type="date"
+              value={startDate}
+              onChange={e => setStartDate(e.target.value)}
+              className="text-white placeholder-gray-400"
+            />
+          </div>
+
+          <div className="flex flex-col w-full">
+            <label htmlFor="end-date" className="text-sm font-medium text-white mb-1">
+              End Date <span className="text-zinc-400">(optional)</span>
+            </label>
+            <Input
+              id="end-date"
+              type="date"
+              value={endDate}
+              onChange={e => setEndDate(e.target.value)}
+              className="text-white placeholder-gray-400"
+            />
+          </div>
         </div>
 
         <Button type="submit" className="w-full bg-zinc-700">

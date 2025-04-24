@@ -32,7 +32,7 @@ export default function Dashboard() {
   const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState('')
-  const [selectedSemester, setSelectedSemester] = useState<string>('')
+  const [selectedSemester, setSelectedSemester] = useState('all')
   const [viewMode, setViewMode] = useState<ViewMode>('list')
   const [showCompleted, setShowCompleted] = useState(false)
   const [assignmentStats, setAssignmentStats] = useState({ total: 0, completed: 0, pending: 0 })
@@ -55,7 +55,7 @@ export default function Dashboard() {
 
 
   const handleOpenNewAssignment = () => {
-    if (selectedSemester === 'all') {
+    if (!selectedSemester || selectedSemester === 'all') {
       alert('Please select a semester before creating an assignment.')
       return
     }
@@ -249,7 +249,7 @@ export default function Dashboard() {
       <Dialog open={showClasses} onOpenChange={setShowClasses}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">Manage Classes</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Classes - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <Classes selectedSemester={selectedSemester} />
         </DialogContent>
@@ -258,7 +258,7 @@ export default function Dashboard() {
       <Dialog open={showTypes} onOpenChange={setShowTypes}>
         <DialogContent className="bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-white">Manage Types</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-white">Manage Types - {semesters.find(s => s.id === selectedSemester)?.name}</DialogTitle>
           </DialogHeader>
           <AssignmentTypes selectedSemester={selectedSemester} />
         </DialogContent>

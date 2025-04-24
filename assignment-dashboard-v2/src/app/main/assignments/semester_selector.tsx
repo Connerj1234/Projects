@@ -1,8 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
-
 type Props = {
   selectedSemester: string
   setSelectedSemester: (id: string) => void

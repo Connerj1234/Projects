@@ -58,7 +58,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
     const user = (await supabase.auth.getUser()).data.user
     if (!user || !selectedSemester) return
 
-    if (!title || !classId || !typeId) {
+    if (!title || !classId || !typeId || (!dueDate && !noDueDate)) {
       alert("Please fill out all required fields before submitting.")
       return
     }
@@ -94,7 +94,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
     <div className="space-y-6">
       <form onSubmit={createAssignment} className="space-y-4">
         <div className="grid gap-3">
-          <Label htmlFor="title" className="text-white">Title</Label>
+          <Label htmlFor="title" className="text-white">*Title</Label>
           <Input
             id="title"
             type="text"
@@ -107,7 +107,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
 
         <div className="flex justify-between items-center">
           <Label htmlFor="due-date" className="text-white">
-            Due Date
+            *Due Date
           </Label>
           <div className="flex items-center gap-1">
             <input
@@ -132,7 +132,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
         />
 
         <div className="grid gap-3">
-          <Label htmlFor="class" className="text-white">Class</Label>
+          <Label htmlFor="class" className="text-white">*Class</Label>
           <select
             id="class"
             value={classId}
@@ -147,7 +147,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
         </div>
 
         <div className="grid gap-3">
-          <Label htmlFor="type" className="text-white">Assignment Type</Label>
+          <Label htmlFor="type" className="text-white">*Assignment Type</Label>
           <select
             id="type"
             value={typeId}

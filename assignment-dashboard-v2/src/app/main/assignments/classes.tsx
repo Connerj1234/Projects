@@ -77,7 +77,11 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
     <div className="space-y-6">
 
       <ul className="space-y-3">
-        {classes.map(cls => (
+      {classes.length === 0 ? (
+      <p className="text-sm text-zinc-400 text-center py-4">
+        No classes created yet. Add one below!
+      </p>
+    ) : classes.map((cls => (
           <li
             key={cls.id}
             className="flex justify-between items-center border border-zinc-700 rounded-lg px-4 py-2"
@@ -99,7 +103,7 @@ export default function Classes({ selectedSemester }: { selectedSemester: string
               </Button>
             </div>
           </li>
-        ))}
+        )))}
       </ul>
 
       <form onSubmit={createClass} className="flex flex-col gap-4">

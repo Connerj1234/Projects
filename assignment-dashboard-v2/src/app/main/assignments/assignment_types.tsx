@@ -77,7 +77,11 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
     <div className="space-y-6">
 
       <ul className="space-y-3">
-        {types.map(type => (
+      {types.length === 0 ? (
+      <p className="text-sm text-zinc-400 text-center py-4">
+        No assignment types created yet. Add one below!
+      </p>
+    ) : types.map(type => (
           <li
             key={type.id}
             className="flex justify-between items-center border border-zinc-700 rounded-lg px-4 py-2"
