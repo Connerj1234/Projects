@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react'
-import { MoreVertical } from 'lucide-react'
+import { MoreVertical, Trash } from 'lucide-react'
 import RenameListModal from './renamelistmodal'
 import DeleteListConfirmation from './deletelistconfirmation'
 import { Task, TaskList } from './types'
@@ -10,6 +10,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { createPortal } from 'react-dom'
 import EditTaskModal from './edittaskmodal'
+import { supabase } from '@/lib/supabase/client'
 
 export default function TaskListCard({
   id,
@@ -46,6 +47,17 @@ export default function TaskListCard({
 
   const incomplete = tasks.filter((t) => !t.completed)
   const complete = tasks.filter((t) => t.completed)
+
+  const handleDelete = async (id: string) => {
+    const confirmed = window.confirm('Are you sure you want to permanently delete this completed task?')
+    if (!confirmed) return
+
+    const { error } = await supabase.from('todos').delete().eq('id', id)
+
+    if (!error) {
+      setTasks(prev => prev.filter(t => t.id !== id))
+    }
+  }
 
   const sortedIncomplete = [...incomplete].sort((a, b) => {
     if (sortOption === 'date') {
@@ -209,29 +221,49 @@ export default function TaskListCard({
         </ul>
       )}
 
-      <details className="mt-4 text-sm text-zinc-400">
-        <summary className="text-sm text-zinc-400">
-          <span className="inline-flex items-center gap-1 hover:text-white cursor-pointer">
-            Completed ({complete.length})
-          </span>
-        </summary>
-        <ul className="mt-2 space-y-1">
-          {complete.map((task) => (
-            <li key={task.id} className="flex items-start gap-2">
-              <input type="checkbox" className="mt-0.5 accent-blue-500" checked onChange={() => onToggleComplete(task.id, false)} />
-              <div className="opacity-60">
-                <div className="flex items-start gap-2">
-                  <div>
-                    <div className="line-through">{task.title}</div>
-                    {task.notes && <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>}
-                    {task.completed_on && <div className="text-xs text-zinc-400 mt-0.5">Completed on: {new Date(task.completed_on + 'T00:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>}
-                  </div>
-                </div>
+<details className="mt-4 text-sm text-zinc-400">
+  <summary className="text-sm text-zinc-400">
+    <span className="inline-flex items-center gap-1 hover:text-white cursor-pointer">
+      Completed ({complete.length})
+    </span>
+  </summary>
+  <ul className="mt-2 space-y-1">
+    {complete.map((task) => (
+      <li key={task.id} className="group flex justify-between items-start px-2 text-sm">
+        <div className="flex items-start gap-2">
+          <input
+            type="checkbox"
+            className="mt-1 accent-blue-500"
+            checked
+            onChange={() => onToggleComplete(task.id, false)}
+          />
+          <div className="opacity-60">
+            <div className="line-through">{task.title}</div>
+            {task.notes && <div className="text-xs text-zinc-400 mt-0.5">{task.notes}</div>}
+            {task.completed_on && (
+              <div className="text-xs text-zinc-400 mt-0.5">
+                Completed:{' '}
+                {new Date(task.completed_on + 'T00:00:00').toLocaleDateString(undefined, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
               </div>
-            </li>
-          ))}
-        </ul>
-      </details>
+            )}
+          </div>
+        </div>
+
+        <button
+          onClick={() => handleDelete(task.id)}
+          className="invisible group-hover:visible text-zinc-400 hover:text-red-500"
+        >
+          <Trash className="w-4 h-4 cursor-pointer" />
+        </button>
+      </li>
+    ))}
+  </ul>
+</details>
+
       {activeTask && (
         <EditTaskModal
             open={showEdit}
