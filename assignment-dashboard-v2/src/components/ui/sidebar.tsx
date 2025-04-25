@@ -21,9 +21,13 @@ const navItems = [
   { name: 'Calendar', href: '/main/calendar', icon: CalendarIcon },
 ]
 
-export default function Sidebar() {
+interface SidebarProps {
+    collapsed: boolean
+    setCollapsed: React.Dispatch<React.SetStateAction<boolean>>
+  }
+
+export default function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
   const pathname = usePathname()
-  const [collapsed, setCollapsed] = useState(false)
 
   useLayoutEffect(() => {
     const stored = localStorage.getItem('sidebar-collapsed')
@@ -42,9 +46,9 @@ export default function Sidebar() {
     <aside
       className={`${
         collapsed ? 'w-16' : 'w-40'
-      } min-h-screen flex flex-col bg-zinc-900 text-white transition-all duration-300`}
+      } fixed top-0 left-0 h-screen bg-zinc-800 text-white transition-all duration-300`}
     >
-      <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-800`}>
+      <div className={`flex ${collapsed ? 'justify-center' : 'justify-between'} items-center px-4 py-4 border-b border-zinc-700`}>
         {!collapsed && (
           <h1 className="text-lg font-bold whitespace-nowrap mr-2">Productivity </h1>
         )}
