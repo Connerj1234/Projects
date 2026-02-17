@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { TaskList } from './types'
 
 interface ModalProps {
@@ -19,7 +19,7 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
     const {
       data: { user },
       error: userError,
-    } = await supabase.auth.getUser()
+    } = await db.auth.getUser()
 
     if (userError || !user) {
       alert('Error fetching user info')
@@ -27,7 +27,7 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
       return
     }
 
-    const { data: existingLists, error: fetchError } = await supabase
+    const { data: existingLists, error: fetchError } = await db
       .from('todo_lists')
       .select('order_index')
       .eq('user_id', user.id)
@@ -40,7 +40,7 @@ export default function CreateListModal({ open, setOpen, onCreate }: ModalProps)
 
     const nextIndex = existingLists?.length || 0
 
-    const { data, error } = await supabase
+    const { data, error } = await db
       .from('todo_lists')
       .insert([
         {

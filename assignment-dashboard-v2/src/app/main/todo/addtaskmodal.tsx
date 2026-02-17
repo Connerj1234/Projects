@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
-import { useUser } from '@supabase/auth-helpers-react'
 import { createPortal } from 'react-dom'
 
 export default function AddTaskModal({
@@ -19,7 +18,6 @@ export default function AddTaskModal({
     onTaskCreate: (task: Task) => void
     allLists: TaskList[]
 }) {
-  const user = useUser()
   const [title, setTitle] = useState('')
   const [notes, setNotes] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -56,8 +54,8 @@ export default function AddTaskModal({
     if (!title || !selectedList) return
     setLoading(true)
 
-    const { data: { user } } = await supabase.auth.getUser()
-    const { data, error } = await supabase
+    const { data: { user } } = await db.auth.getUser()
+    const { data, error } = await db
       .from('todos')
       .insert([
         {

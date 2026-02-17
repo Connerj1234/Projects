@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a portfolio-focused [Next.js](https://nextjs.org) productivity dashboard.
+
+## Data model (no external database)
+
+- The app no longer depends on Supabase or login/signup.
+- Default data is seeded from `/Users/connerjamison/GitHub/Projects/assignment-dashboard-v2/src/data/defaultData.json`.
+- Runtime edits are stored in browser `localStorage` via `/Users/connerjamison/GitHub/Projects/assignment-dashboard-v2/src/lib/localdb/client.ts`.
+- To reset to defaults, clear site storage in your browser for this app origin.
 
 ## Getting Started
 

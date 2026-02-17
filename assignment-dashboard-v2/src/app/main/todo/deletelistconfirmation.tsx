@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
 
 export default function DeleteListConfirmation({
@@ -26,10 +26,10 @@ export default function DeleteListConfirmation({
   const handleDelete = async () => {
     // Delete tasks first if they exist
     if (hasTasks) {
-      await supabase.from('todos').delete().eq('list_id', list.id)
+      await db.from('todos').delete().eq('list_id', list.id)
     }
 
-    await supabase.from('todo_lists').delete().eq('id', list.id)
+    await db.from('todo_lists').delete().eq('id', list.id)
 
     setLists((prev) => prev.filter((l) => l.id !== list.id))
     setOpen(false)

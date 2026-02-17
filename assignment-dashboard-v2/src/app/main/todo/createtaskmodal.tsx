@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
 
 interface ModalProps {
@@ -28,7 +28,7 @@ export default function CreateTaskModal({ open, setOpen, lists, onCreate }: Moda
     const {
       data: { user },
       error: userError,
-    } = await supabase.auth.getUser()
+    } = await db.auth.getUser()
 
     if (userError || !user) {
       alert('Error fetching user info')
@@ -36,7 +36,7 @@ export default function CreateTaskModal({ open, setOpen, lists, onCreate }: Moda
       return
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await db
       .from('todos')
       .insert([{ title, list_id: selectedListId, user_id: user.id, notes, due_date: dueDate }])
       .select()

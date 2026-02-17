@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -13,7 +13,7 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
   const [color, setColor] = useState('')
 
   const fetchTypes = async () => {
-    const { data } = await supabase
+    const { data } = await db
       .from('assignment_types')
       .select('*')
       .eq('semester_id', selectedSemester)
@@ -32,10 +32,10 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
 
   const createType = async (e: React.FormEvent) => {
     e.preventDefault()
-    const user = (await supabase.auth.getUser()).data.user
+    const user = (await db.auth.getUser()).data.user
     if (!user || selectedSemester === 'all') return
 
-    await supabase.from('assignment_types').insert({
+    await db.from('assignment_types').insert({
       user_id: user.id,
       name,
       color: color || null,
@@ -48,11 +48,11 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
   }
 
   const deleteType = async (id: string) => {
-    const user = await supabase.auth.getUser().then(res => res.data.user);
+    const user = await db.auth.getUser().then(res => res.data.user);
     if (!user) return;
 
     // Check for any linked assignments
-    const { data: linkedAssignments } = await supabase
+    const { data: linkedAssignments } = await db
       .from('assignments')
       .select('id')
       .eq('user_id', user.id)
@@ -63,13 +63,13 @@ export default function AssignmentTypes({ selectedSemester }: { selectedSemester
       return;
     }
 
-    const { error } = await supabase.from('assignment_types').delete().eq('id', id);
+    const { error } = await db.from('assignment_types').delete().eq('id', id);
     if (error) alert('Failed to delete type.');
     fetchTypes();
   }
 
   const updateColor = async (id: string, newColor: string) => {
-    await supabase.from('assignment_types').update({ color: newColor }).eq('id', id)
+    await db.from('assignment_types').update({ color: newColor }).eq('id', id)
     fetchTypes()
   }
 

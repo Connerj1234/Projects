@@ -11,7 +11,7 @@ import {
   isSameMonth,
   isSameDay,
 } from 'date-fns'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { cn } from '@/lib/utils'
 import DayAssignmentModal from './day_assignment'
 
@@ -55,11 +55,11 @@ export default function AssignmentCalendarView({
 
   useEffect(() => {
     const fetchMeta = async () => {
-      const user = (await supabase.auth.getUser()).data.user
+      const user = (await db.auth.getUser()).data.user
       if (!user) return
 
-      let classQuery = supabase.from('classes').select('id, name, color').eq('user_id', user.id)
-      let typeQuery = supabase.from('assignment_types').select('id, name, color').eq('user_id', user.id)
+      let classQuery = db.from('classes').select('id, name, color').eq('user_id', user.id)
+      let typeQuery = db.from('assignment_types').select('id, name, color').eq('user_id', user.id)
 
       if (selectedSemester !== 'all') {
         classQuery = classQuery.eq('semester_id', selectedSemester)

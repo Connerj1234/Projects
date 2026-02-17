@@ -1,8 +1,9 @@
 'use client'
 
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Pencil, Trash2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Switch } from '@/components/ui/switch'
 
 type Assignment = {
   id: string
@@ -20,6 +21,7 @@ type Props = {
   assignments: Assignment[]
   selectedSemester: string
   showCompleted: boolean
+  setShowCompleted: (val: boolean) => void
   fetchAssignments: () => void
   onEdit?: (assignment: Assignment) => void
 }
@@ -59,6 +61,7 @@ export default function AssignmentListView({
   assignments,
   selectedSemester,
   showCompleted,
+  setShowCompleted,
   fetchAssignments,
   onEdit,
 }: Props) {
@@ -67,14 +70,13 @@ export default function AssignmentListView({
   const [selectedClass, setSelectedClass] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [editingAssignment, setEditingAssignment] = useState<Assignment | null>(null)
   useEffect(() => {
     const fetchMeta = async () => {
-      const user = (await supabase.auth.getUser()).data.user
+      const user = (await db.auth.getUser()).data.user
       if (!user) return
 
-      let classQuery = supabase.from('classes').select('id, name, color').eq('user_id', user.id)
-      let typeQuery = supabase.from('assignment_types').select('id, name, color').eq('user_id', user.id)
+      let classQuery = db.from('classes').select('id, name, color').eq('user_id', user.id)
+      let typeQuery = db.from('assignment_types').select('id, name, color').eq('user_id', user.id)
 
       if (selectedSemester !== 'all') {
         classQuery = classQuery.eq('semester_id', selectedSemester)
@@ -112,16 +114,15 @@ export default function AssignmentListView({
   }, {})
 
   return (
-    <section className="mt-10 space-y-10 bg-zinc-800 rounded-lg shadow-md p-6">
-      <div className="flex flex-wrap justify-between items-center mb-2 gap-y-4">
-        <h2 className="text-2xl font-bold">Assignment Dashboard</h2>
+    <section className="space-y-8">
+      <div className="flex flex-wrap justify-start items-center mb-2 gap-y-4">
         <div className="flex flex-wrap items-center gap-3">
               <input
                 type="text"
                 placeholder="Search assignments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="rounded-md px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-auto"
+                className="rounded-md px-3 py-1 bg-zinc-800 border border-zinc-600 text-white w-full sm:w-72"
               />
 
               <select
@@ -150,9 +151,20 @@ export default function AssignmentListView({
 
       {Object.entries(grouped).map(([semesterId, items]) => (
         <div key={semesterId} className="space-y-2 pb-1 mt-6">
-          <h3 className="text-lg font-semibold text-zinc-300">
-            Semester: {items[0]?.semesters?.name || 'Unknown'}
-          </h3>
+          <div className="flex items-center justify-between gap-4">
+            <h3 className="text-lg font-semibold text-zinc-300">
+              Semester: {items[0]?.semesters?.name || 'Unknown'}
+            </h3>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-white">Show Completed</span>
+              <Switch
+                id={`show-completed-${semesterId}`}
+                className="border border-zinc-700 hover:cursor-pointer"
+                checked={showCompleted}
+                onCheckedChange={setShowCompleted}
+              />
+            </div>
+          </div>
           <ul className="space-y-2">
             {items.map((a) => (
               <li key={a.id} className="flex justify-between items-center bg-zinc-800 border border-zinc-600 p-3 rounded-lg">
@@ -161,7 +173,7 @@ export default function AssignmentListView({
                     type="checkbox"
                     checked={a.completed}
                     onChange={async () => {
-                      await supabase
+                      await db
                         .from('assignments')
                         .update({ completed: !a.completed })
                         .eq('id', a.id)
@@ -193,14 +205,13 @@ export default function AssignmentListView({
                 </div>
                 <div className="flex items-center gap-3">
                   <button onClick={() => {
-                    setEditingAssignment(a)
                     onEdit?.(a)
                   }}>
                     <Pencil className="h-4 w-4 text-blue-400 hover:text-blue-500 cursor-pointer" />
                   </button>
                   <button onClick={async () => {
                     if (confirm(`Delete "${a.title}"?`)) {
-                      await supabase.from('assignments').delete().eq('id', a.id)
+                      await db.from('assignments').delete().eq('id', a.id)
                       fetchAssignments()
                     }
                   }}>

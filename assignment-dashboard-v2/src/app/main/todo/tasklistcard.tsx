@@ -10,7 +10,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { createPortal } from 'react-dom'
 import EditTaskModal from './edittaskmodal'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 
 export default function TaskListCard({
   id,
@@ -52,7 +52,7 @@ export default function TaskListCard({
     const confirmed = window.confirm('Are you sure you want to permanently delete this completed task?')
     if (!confirmed) return
 
-    const { error } = await supabase.from('todos').delete().eq('id', id)
+    const { error } = await db.from('todos').delete().eq('id', id)
 
     if (!error) {
       setTasks(prev => prev.filter(t => t.id !== id))

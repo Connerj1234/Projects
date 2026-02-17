@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
 import { createPortal } from 'react-dom'
 
@@ -25,7 +25,7 @@ export default function EditTaskModal({ open, setOpen, task, lists, setTasks }: 
   }, [task])
 
   const handleSave = async () => {
-    const { error } = await supabase
+    const { error } = await db
       .from('todos')
       .update({ title, notes, due_date: dueDate || null, list_id: listId })
       .eq('id', task.id)
@@ -52,7 +52,7 @@ export default function EditTaskModal({ open, setOpen, task, lists, setTasks }: 
     const confirmed = window.confirm('Are you sure you want to delete this task?')
     if (!confirmed) return
 
-    const { error } = await supabase.from('todos').delete().eq('id', task.id)
+    const { error } = await db.from('todos').delete().eq('id', task.id)
 
     if (!error) {
       setTasks(prev => prev.filter(t => t.id !== task.id))

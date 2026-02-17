@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -16,8 +16,8 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
   const [activeSemester, setActiveSemester] = useState<Semester | null>(null)
 
   const fetchSemesters = async () => {
-    const user = (await supabase.auth.getUser()).data.user
-    const { data } = await supabase
+    const user = (await db.auth.getUser()).data.user
+    const { data } = await db
       .from('semesters')
       .select('*')
       .eq('user_id', user?.id)
@@ -34,10 +34,10 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
 
   const createSemester = async (e: React.FormEvent) => {
     e.preventDefault()
-    const user = (await supabase.auth.getUser()).data.user
+    const user = (await db.auth.getUser()).data.user
     if (!user) return
 
-    const { data, error } = await supabase
+    const { data, error } = await db
       .from('semesters')
       .insert([{
         user_id: user?.id,
@@ -60,17 +60,17 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
 
 
   const deleteSemester = async (id: string) => {
-    const { data: assignments } = await supabase
+    const { data: assignments } = await db
       .from('assignments')
       .select('id')
       .eq('semester_id', id)
 
-    const { data: classes } = await supabase
+    const { data: classes } = await db
       .from('classes')
       .select('id')
       .eq('semester_id', id)
 
-    const { data: types } = await supabase
+    const { data: types } = await db
       .from('types')
       .select('id')
       .eq('semester_id', id)
@@ -80,7 +80,7 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
       return
     }
 
-    await supabase.from('semesters').delete().eq('id', id)
+    await db.from('semesters').delete().eq('id', id)
     fetchSemesters()
   }
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -24,21 +24,21 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
 
   useEffect(() => {
     const fetchData = async () => {
-      const user = (await supabase.auth.getUser()).data.user
+      const user = (await db.auth.getUser()).data.user
       if (!user || !selectedSemester) return
 
       const [{ data: classData }, { data: typeData }, { data: semesterData }] = await Promise.all([
-        supabase
+        db
           .from('classes')
           .select('id, name')
           .eq('user_id', user.id)
           .eq('semester_id', selectedSemester),
-        supabase
+        db
           .from('assignment_types')
           .select('id, name')
           .eq('user_id', user.id)
           .eq('semester_id', selectedSemester),
-        supabase
+        db
           .from('semesters')
           .select('name')
           .eq('id', selectedSemester)
@@ -55,7 +55,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
 
   const createAssignment = async (e: React.FormEvent) => {
     e.preventDefault()
-    const user = (await supabase.auth.getUser()).data.user
+    const user = (await db.auth.getUser()).data.user
     if (!user || !selectedSemester) return
 
     if (!title || !classId || !typeId || (!dueDate && !noDueDate)) {
@@ -68,7 +68,7 @@ export default function Assignments({ selectedSemester, fetchAssignments }: Prop
 
     const finalDueDate = noDueDate ? null : localDate.toISOString();
 
-    const { error } = await supabase.from('assignments').insert({
+    const { error } = await db.from('assignments').insert({
       user_id: user.id,
       semester_id: selectedSemester,
       title,

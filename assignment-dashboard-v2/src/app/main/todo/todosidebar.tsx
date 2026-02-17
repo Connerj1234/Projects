@@ -5,7 +5,7 @@ import { PlusIcon } from 'lucide-react'
 import CreateListModal from './createlistmodal'
 import CreateTaskModal from './createtaskmodal'
 import ListSelector from './listselector'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
 
 export default function TodoSidebar({
@@ -34,7 +34,7 @@ export default function TodoSidebar({
 
   useEffect(() => {
     const fetchLists = async () => {
-      const { data, error } = await supabase.from('todo_lists').select('*').order('order', { ascending: true })
+      const { data, error } = await db.from('todo_lists').select('*').order('order', { ascending: true })
       if (!error && data) {
         setLists(data)
         setSelectedLists(data.map((l) => l.id))

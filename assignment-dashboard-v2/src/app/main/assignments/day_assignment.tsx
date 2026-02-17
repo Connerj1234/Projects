@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { format } from 'date-fns'
 import { Pencil, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 
 type Assignment = {
     id: string
@@ -99,7 +99,7 @@ export default function DayAssignmentModal({
                       type="checkbox"
                       checked={a.completed}
                       onChange={async () => {
-                        await supabase.from('assignments').update({ completed: !a.completed }).eq('id', a.id);
+                        await db.from('assignments').update({ completed: !a.completed }).eq('id', a.id);
                         fetchAssignments()
                       }}
                       className="form-checkbox h-4 w-4 hover:cursor-pointer"
@@ -112,7 +112,7 @@ export default function DayAssignmentModal({
                     </button>
                     <button onClick={async () => {
                     if (confirm(`Delete "${a.title}"?`)) {
-                        await supabase.from('assignments').delete().eq('id', a.id);
+                        await db.from('assignments').delete().eq('id', a.id);
                         fetchAssignments()
                     }
                   }}>

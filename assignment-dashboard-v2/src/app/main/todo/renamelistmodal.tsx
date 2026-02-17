@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { TaskList } from './types'
 import { createPortal } from 'react-dom'
 
@@ -21,7 +21,7 @@ export default function RenameListModal({
 
   const handleSave = async () => {
     setLoading(true)
-    const { error } = await supabase
+    const { error } = await db
       .from('todo_lists')
       .update({ name })
       .eq('id', list.id)

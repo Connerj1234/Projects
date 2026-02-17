@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase/client';
+import { db } from '@/lib/localdb/client';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Trash2, Pencil} from 'lucide-react'
@@ -23,17 +23,17 @@ export default function EditSemesterInline({ semester, fetchSemesters }: EditInl
   const [endDate, setEndDate] = useState(semester.end_date || '')
 
   const deleteSemester = async (id: string) => {
-    const { data: assignments } = await supabase
+    const { data: assignments } = await db
       .from('assignments')
       .select('id')
       .eq('semester_id', id)
 
-    const { data: classes } = await supabase
+    const { data: classes } = await db
       .from('classes')
       .select('id')
       .eq('semester_id', id)
 
-    const { data: types } = await supabase
+    const { data: types } = await db
       .from('types')
       .select('id')
       .eq('semester_id', id)
@@ -43,7 +43,7 @@ export default function EditSemesterInline({ semester, fetchSemesters }: EditInl
       return
     }
 
-    await supabase.from('semesters').delete().eq('id', id)
+    await db.from('semesters').delete().eq('id', id)
     fetchSemesters()
   }
 
@@ -56,7 +56,7 @@ export default function EditSemesterInline({ semester, fetchSemesters }: EditInl
   }, [editing, semester]);
 
   const handleUpdate = async () => {
-    const { error } = await supabase
+    const { error } = await db
       .from('semesters')
       .update({ name, start_date: startDate || null, end_date: endDate || null })
       .eq('id', semester.id);

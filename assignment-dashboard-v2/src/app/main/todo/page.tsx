@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Task, TaskList } from './types'
 import TodoSidebar from './todosidebar'
 import TaskListCard from './tasklistcard'
@@ -28,10 +28,10 @@ export default function TodoPage() {
     const fetchLists = async () => {
       const {
         data: { user },
-      } = await supabase.auth.getUser()
+      } = await db.auth.getUser()
       if (!user) return
 
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('todo_lists')
         .select('id, name, order_index')
         .eq('user_id', user.id)
@@ -51,10 +51,10 @@ export default function TodoPage() {
 
       const {
         data: { user },
-      } = await supabase.auth.getUser()
+      } = await db.auth.getUser()
       if (!user) return
 
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('todos')
         .select('*')
         .eq('user_id', user.id)
@@ -74,7 +74,7 @@ export default function TodoPage() {
 
   const handleToggleComplete = async (taskId: string, value: boolean) => {
     const completed_on = value ? new Date().toLocaleDateString('en-CA') : null;
-    const { error } = await supabase
+    const { error } = await db
       .from('todos')
       .update({
         completed: value,
@@ -108,7 +108,7 @@ export default function TodoPage() {
 
     await Promise.all(
       reordered.map((list, index) =>
-        supabase
+        db
           .from('todo_lists')
           .update({ order_index: index })
           .eq('id', list.id)

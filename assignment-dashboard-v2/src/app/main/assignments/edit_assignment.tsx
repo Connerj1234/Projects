@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { db } from '@/lib/localdb/client'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
@@ -43,22 +43,22 @@ export default function EditAssignment({
 
   useEffect(() => {
     const fetchData = async () => {
-      const user = (await supabase.auth.getUser()).data.user
+      const user = (await db.auth.getUser()).data.user
       if (!user) return
 
-      const { data: classData } = await supabase
+      const { data: classData } = await db
         .from('classes')
         .select('id, name')
         .eq('user_id', user.id)
         .eq('semester_id', currentAssignment.semester_id)
 
-      const { data: typeData } = await supabase
+      const { data: typeData } = await db
         .from('assignment_types')
         .select('id, name')
         .eq('user_id', user.id)
         .eq('semester_id', currentAssignment.semester_id)
 
-      const { data: semesterData } = await supabase.from('semesters').select('id, name').eq('user_id', user.id)
+      const { data: semesterData } = await db.from('semesters').select('id, name').eq('user_id', user.id)
 
       if (classData) setClasses(classData)
       if (typeData) setTypes(typeData)
@@ -76,7 +76,7 @@ export default function EditAssignment({
       return
     }
 
-    await supabase
+    await db
       .from('assignments')
       .update({
         title,

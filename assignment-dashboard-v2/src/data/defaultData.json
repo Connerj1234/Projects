@@ -1,0 +1,726 @@
+{
+  "semesters": [
+    {
+      "id": "sem-fall-2025",
+      "user_id": "local-user",
+      "name": "Fall 2025",
+      "start_date": "2025-08-25",
+      "end_date": "2025-12-12",
+      "created_at": "2025-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "sem-spring-2026",
+      "user_id": "local-user",
+      "name": "Spring 2026",
+      "start_date": "2026-01-12",
+      "end_date": "2026-05-08",
+      "created_at": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "sem-summer-2026",
+      "user_id": "local-user",
+      "name": "Summer 2026",
+      "start_date": "2026-05-18",
+      "end_date": "2026-07-24",
+      "created_at": "2026-05-01T00:00:00.000Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "class-cs301",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "CS 301",
+      "color": "#3b82f6",
+      "created_at": "2025-08-02T00:00:00.000Z"
+    },
+    {
+      "id": "class-math210",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "Math 210",
+      "color": "#10b981",
+      "created_at": "2025-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "class-eng102",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "English 102",
+      "color": "#f59e0b",
+      "created_at": "2025-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "class-hist110",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "name": "History 110",
+      "color": "#eab308",
+      "created_at": "2026-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "class-bio220",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "name": "Biology 220",
+      "color": "#22c55e",
+      "created_at": "2026-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "class-design115",
+      "user_id": "local-user",
+      "semester_id": "sem-summer-2026",
+      "name": "Design 115",
+      "color": "#a855f7",
+      "created_at": "2026-05-03T00:00:00.000Z"
+    }
+  ],
+  "assignment_types": [
+    {
+      "id": "type-homework",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "Homework",
+      "color": "#6366f1",
+      "created_at": "2025-08-02T00:00:00.000Z"
+    },
+    {
+      "id": "type-quiz",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "Quiz",
+      "color": "#ec4899",
+      "created_at": "2025-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "type-project",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "name": "Project",
+      "color": "#8b5cf6",
+      "created_at": "2025-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "type-essay",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "name": "Essay",
+      "color": "#ef4444",
+      "created_at": "2026-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "type-lab",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "name": "Lab",
+      "color": "#14b8a6",
+      "created_at": "2026-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "type-presentation",
+      "user_id": "local-user",
+      "semester_id": "sem-summer-2026",
+      "name": "Presentation",
+      "color": "#f97316",
+      "created_at": "2026-05-03T00:00:00.000Z"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "asg-1",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Homework 1",
+      "due_date": "2025-09-03T20:00:00.000Z",
+      "class_id": "class-cs301",
+      "type_id": "type-homework",
+      "notes": "Read chapters 1-2",
+      "completed": false,
+      "created_at": "2025-08-30T00:00:00.000Z"
+    },
+    {
+      "id": "asg-2",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Quiz 1",
+      "due_date": "2025-09-10T20:00:00.000Z",
+      "class_id": "class-math210",
+      "type_id": "type-quiz",
+      "notes": "Limits and derivatives",
+      "completed": false,
+      "created_at": "2025-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "asg-3",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Discussion Post 1",
+      "due_date": "2025-09-12T20:00:00.000Z",
+      "class_id": "class-eng102",
+      "type_id": "type-essay",
+      "notes": "Respond to prompt on narrative voice",
+      "completed": true,
+      "created_at": "2025-09-02T00:00:00.000Z"
+    },
+    {
+      "id": "asg-4",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "CS Project Milestone",
+      "due_date": "2025-09-18T20:00:00.000Z",
+      "class_id": "class-cs301",
+      "type_id": "type-project",
+      "notes": "Submit wireframes and schema",
+      "completed": false,
+      "created_at": "2025-09-05T00:00:00.000Z"
+    },
+    {
+      "id": "asg-5",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Math Problem Set 3",
+      "due_date": "2025-09-22T20:00:00.000Z",
+      "class_id": "class-math210",
+      "type_id": "type-homework",
+      "notes": "Sections 3.1 through 3.4",
+      "completed": false,
+      "created_at": "2025-09-07T00:00:00.000Z"
+    },
+    {
+      "id": "asg-6",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Reading Reflection",
+      "due_date": "2025-09-28T20:00:00.000Z",
+      "class_id": "class-eng102",
+      "type_id": "type-essay",
+      "notes": "One page on assigned chapters",
+      "completed": false,
+      "created_at": "2025-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "asg-7",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Quiz 2",
+      "due_date": "2025-10-02T20:00:00.000Z",
+      "class_id": "class-math210",
+      "type_id": "type-quiz",
+      "notes": "Integrals",
+      "completed": true,
+      "created_at": "2025-09-11T00:00:00.000Z"
+    },
+    {
+      "id": "asg-8",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Frontend Prototype",
+      "due_date": "2025-10-08T20:00:00.000Z",
+      "class_id": "class-cs301",
+      "type_id": "type-project",
+      "notes": "Interactive prototype with navigation",
+      "completed": false,
+      "created_at": "2025-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "asg-9",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Midterm Essay",
+      "due_date": "2025-10-15T20:00:00.000Z",
+      "class_id": "class-eng102",
+      "type_id": "type-essay",
+      "notes": "1200 words",
+      "completed": false,
+      "created_at": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "id": "asg-10",
+      "user_id": "local-user",
+      "semester_id": "sem-fall-2025",
+      "title": "Database Design Review",
+      "due_date": "2025-10-23T20:00:00.000Z",
+      "class_id": "class-cs301",
+      "type_id": "type-project",
+      "notes": "ER diagram and constraints",
+      "completed": false,
+      "created_at": "2025-09-20T00:00:00.000Z"
+    },
+    {
+      "id": "asg-11",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "History Source Analysis",
+      "due_date": "2026-01-20T20:00:00.000Z",
+      "class_id": "class-hist110",
+      "type_id": "type-essay",
+      "notes": "Primary source commentary",
+      "completed": false,
+      "created_at": "2026-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "asg-12",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Bio Lab Report 1",
+      "due_date": "2026-01-24T20:00:00.000Z",
+      "class_id": "class-bio220",
+      "type_id": "type-lab",
+      "notes": "Cell membrane transport",
+      "completed": false,
+      "created_at": "2026-01-11T00:00:00.000Z"
+    },
+    {
+      "id": "asg-13",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Weekly Quiz",
+      "due_date": "2026-01-29T20:00:00.000Z",
+      "class_id": "class-bio220",
+      "type_id": "type-quiz",
+      "notes": "Microscopy",
+      "completed": true,
+      "created_at": "2026-01-14T00:00:00.000Z"
+    },
+    {
+      "id": "asg-14",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Research Outline",
+      "due_date": "2026-02-05T20:00:00.000Z",
+      "class_id": "class-hist110",
+      "type_id": "type-essay",
+      "notes": "Annotated bibliography",
+      "completed": false,
+      "created_at": "2026-01-16T00:00:00.000Z"
+    },
+    {
+      "id": "asg-15",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Bio Lab Report 2",
+      "due_date": "2026-02-12T20:00:00.000Z",
+      "class_id": "class-bio220",
+      "type_id": "type-lab",
+      "notes": "Genetics simulation",
+      "completed": false,
+      "created_at": "2026-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "asg-16",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "History Presentation",
+      "due_date": "2026-02-19T20:00:00.000Z",
+      "class_id": "class-hist110",
+      "type_id": "type-presentation",
+      "notes": "10-minute timeline presentation",
+      "completed": false,
+      "created_at": "2026-01-23T00:00:00.000Z"
+    },
+    {
+      "id": "asg-17",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Midterm Exam Prep Packet",
+      "due_date": "2026-03-02T20:00:00.000Z",
+      "class_id": "class-bio220",
+      "type_id": "type-homework",
+      "notes": "All chapters 1-6",
+      "completed": false,
+      "created_at": "2026-01-30T00:00:00.000Z"
+    },
+    {
+      "id": "asg-18",
+      "user_id": "local-user",
+      "semester_id": "sem-spring-2026",
+      "title": "Final Paper Draft",
+      "due_date": "2026-03-18T20:00:00.000Z",
+      "class_id": "class-hist110",
+      "type_id": "type-essay",
+      "notes": "Draft for peer review",
+      "completed": false,
+      "created_at": "2026-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "asg-19",
+      "user_id": "local-user",
+      "semester_id": "sem-summer-2026",
+      "title": "Design Critique 1",
+      "due_date": "2026-05-28T20:00:00.000Z",
+      "class_id": "class-design115",
+      "type_id": "type-presentation",
+      "notes": "Moodboard and concept story",
+      "completed": false,
+      "created_at": "2026-05-15T00:00:00.000Z"
+    },
+    {
+      "id": "asg-20",
+      "user_id": "local-user",
+      "semester_id": "sem-summer-2026",
+      "title": "UI Iteration Pack",
+      "due_date": "2026-06-12T20:00:00.000Z",
+      "class_id": "class-design115",
+      "type_id": "type-project",
+      "notes": "Three high-fidelity screens",
+      "completed": false,
+      "created_at": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "id": "asg-21",
+      "user_id": "local-user",
+      "semester_id": "sem-summer-2026",
+      "title": "Portfolio Walkthrough",
+      "due_date": "2026-07-08T20:00:00.000Z",
+      "class_id": "class-design115",
+      "type_id": "type-presentation",
+      "notes": "Present final package",
+      "completed": false,
+      "created_at": "2026-06-10T00:00:00.000Z"
+    }
+  ],
+  "todo_lists": [
+    {
+      "id": "list-school",
+      "user_id": "local-user",
+      "name": "School",
+      "order_index": 0,
+      "order": 0,
+      "created_at": "2025-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "list-personal",
+      "user_id": "local-user",
+      "name": "Personal",
+      "order_index": 1,
+      "order": 1,
+      "created_at": "2025-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "list-health",
+      "user_id": "local-user",
+      "name": "Health",
+      "order_index": 2,
+      "order": 2,
+      "created_at": "2025-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "list-admin",
+      "user_id": "local-user",
+      "name": "Admin",
+      "order_index": 3,
+      "order": 3,
+      "created_at": "2025-08-01T00:00:00.000Z"
+    }
+  ],
+  "todos": [
+    {
+      "id": "todo-1",
+      "title": "Plan weekly study blocks",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-10T00:00:00.000Z",
+      "notes": "Pick times for Monday through Thursday",
+      "due_date": "2025-09-01",
+      "completed_on": null
+    },
+    {
+      "id": "todo-2",
+      "title": "Buy graph paper",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2025-08-11T00:00:00.000Z",
+      "notes": "For math section",
+      "due_date": "2025-09-02",
+      "completed_on": "2025-09-02"
+    },
+    {
+      "id": "todo-3",
+      "title": "Sync notes to cloud",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-12T00:00:00.000Z",
+      "notes": "Backup iPad + laptop",
+      "due_date": "2025-09-04",
+      "completed_on": null
+    },
+    {
+      "id": "todo-4",
+      "title": "Meal prep for week",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-13T00:00:00.000Z",
+      "notes": "Chicken, rice, veggies",
+      "due_date": "2025-09-07",
+      "completed_on": null
+    },
+    {
+      "id": "todo-5",
+      "title": "Room cleanup sprint",
+      "list_id": "list-personal",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-14T00:00:00.000Z",
+      "notes": "20 minutes only",
+      "due_date": "2025-09-10",
+      "completed_on": null
+    },
+    {
+      "id": "todo-6",
+      "title": "Draft scholarship email",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-15T00:00:00.000Z",
+      "notes": "Ask for recommendation",
+      "due_date": "2025-09-15",
+      "completed_on": null
+    },
+    {
+      "id": "todo-7",
+      "title": "Gym session",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2025-08-16T00:00:00.000Z",
+      "notes": "Leg day",
+      "due_date": "2025-09-18",
+      "completed_on": "2025-09-18"
+    },
+    {
+      "id": "todo-8",
+      "title": "Update resume bullet points",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-17T00:00:00.000Z",
+      "notes": "Include dashboard project",
+      "due_date": "2025-09-21",
+      "completed_on": null
+    },
+    {
+      "id": "todo-9",
+      "title": "Schedule office hours",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-08-18T00:00:00.000Z",
+      "notes": "Talk about project scope",
+      "due_date": "2025-09-24",
+      "completed_on": null
+    },
+    {
+      "id": "todo-10",
+      "title": "Call family",
+      "list_id": "list-personal",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2025-08-19T00:00:00.000Z",
+      "notes": "Sunday afternoon",
+      "due_date": "2025-09-28",
+      "completed_on": "2025-09-28"
+    },
+    {
+      "id": "todo-11",
+      "title": "Prepare exam formula sheet",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-10-01T00:00:00.000Z",
+      "notes": "Math midterm",
+      "due_date": "2025-10-06",
+      "completed_on": null
+    },
+    {
+      "id": "todo-12",
+      "title": "Laundry",
+      "list_id": "list-personal",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-10-02T00:00:00.000Z",
+      "notes": "Do not forget towels",
+      "due_date": "2025-10-09",
+      "completed_on": null
+    },
+    {
+      "id": "todo-13",
+      "title": "Replace bike tube",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-10-03T00:00:00.000Z",
+      "notes": "Front tire",
+      "due_date": "2025-10-14",
+      "completed_on": null
+    },
+    {
+      "id": "todo-14",
+      "title": "Group meeting planning",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-10-04T00:00:00.000Z",
+      "notes": "Set deliverables for sprint",
+      "due_date": "2025-10-20",
+      "completed_on": null
+    },
+    {
+      "id": "todo-15",
+      "title": "Renew library books",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2025-10-05T00:00:00.000Z",
+      "notes": "Three titles",
+      "due_date": "2025-10-23",
+      "completed_on": null
+    },
+    {
+      "id": "todo-16",
+      "title": "Set spring semester goals",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-01-05T00:00:00.000Z",
+      "notes": "GPA and portfolio milestones",
+      "due_date": "2026-01-13",
+      "completed_on": null
+    },
+    {
+      "id": "todo-17",
+      "title": "Buy lab notebook",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-01-06T00:00:00.000Z",
+      "notes": "Bound pages",
+      "due_date": "2026-01-19",
+      "completed_on": null
+    },
+    {
+      "id": "todo-18",
+      "title": "Meal prep",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2026-01-07T00:00:00.000Z",
+      "notes": "High protein",
+      "due_date": "2026-01-25",
+      "completed_on": "2026-01-25"
+    },
+    {
+      "id": "todo-19",
+      "title": "Draft internship outreach",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-01-08T00:00:00.000Z",
+      "notes": "Send five emails",
+      "due_date": "2026-02-03",
+      "completed_on": null
+    },
+    {
+      "id": "todo-20",
+      "title": "Review lecture notes",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-01-09T00:00:00.000Z",
+      "notes": "History week 2",
+      "due_date": "2026-02-10",
+      "completed_on": null
+    },
+    {
+      "id": "todo-21",
+      "title": "Doctor appointment",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-01-10T00:00:00.000Z",
+      "notes": "Annual physical",
+      "due_date": "2026-02-17",
+      "completed_on": null
+    },
+    {
+      "id": "todo-22",
+      "title": "Pay rent",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2026-01-11T00:00:00.000Z",
+      "notes": "Auto-pay check",
+      "due_date": "2026-03-01",
+      "completed_on": "2026-03-01"
+    },
+    {
+      "id": "todo-23",
+      "title": "Finalize summer course plan",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-04-20T00:00:00.000Z",
+      "notes": "Adviser approval",
+      "due_date": "2026-04-28",
+      "completed_on": null
+    },
+    {
+      "id": "todo-24",
+      "title": "Portfolio screenshot pass",
+      "list_id": "list-school",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-05-10T00:00:00.000Z",
+      "notes": "Capture mobile and desktop",
+      "due_date": "2026-05-30",
+      "completed_on": null
+    },
+    {
+      "id": "todo-25",
+      "title": "Weekend hike",
+      "list_id": "list-personal",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-06-05T00:00:00.000Z",
+      "notes": "State park trail",
+      "due_date": "2026-06-14",
+      "completed_on": null
+    },
+    {
+      "id": "todo-26",
+      "title": "Update LinkedIn headline",
+      "list_id": "list-admin",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-06-07T00:00:00.000Z",
+      "notes": "Match portfolio focus",
+      "due_date": "2026-06-20",
+      "completed_on": null
+    },
+    {
+      "id": "todo-27",
+      "title": "Buy groceries",
+      "list_id": "list-personal",
+      "user_id": "local-user",
+      "completed": true,
+      "created_at": "2026-06-08T00:00:00.000Z",
+      "notes": "Eggs, oats, fruit",
+      "due_date": "2026-06-22",
+      "completed_on": "2026-06-22"
+    },
+    {
+      "id": "todo-28",
+      "title": "Stretch routine",
+      "list_id": "list-health",
+      "user_id": "local-user",
+      "completed": false,
+      "created_at": "2026-06-09T00:00:00.000Z",
+      "notes": "20 minutes",
+      "due_date": "2026-07-02",
+      "completed_on": null
+    }
+  ]
+}

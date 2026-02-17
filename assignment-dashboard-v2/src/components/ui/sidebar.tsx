@@ -8,16 +8,15 @@ import {
   CalendarIcon,
   BookText,
   ClipboardList,
-  AlarmClock,
+  Timer,
   Menu,
 } from 'lucide-react'
-import SignOutButton from '@/components/ui/signout'
 
 const navItems = [
   { name: 'Dashboard', href: '/main/.dashboard', icon: LayoutDashboard },
   { name: 'Assignments', href: '/main/assignments', icon: BookText },
   { name: 'To-Do List', href: '/main/todo', icon: ClipboardList },
-  { name: 'Reminders', href: '/main/reminders', icon: AlarmClock },
+  { name: 'Focus', href: '/main/focus', icon: Timer },
   { name: 'Calendar', href: '/main/calendar', icon: CalendarIcon },
 ]
 
@@ -74,8 +73,6 @@ export default function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
             </div>
           </Link>
         ))}
-
-        <SignOutButton collapsed={collapsed} />
       </nav>
     </aside>
   )
