@@ -31,35 +31,6 @@
     </header>
 
     <main>
-      <section class="pipeline reveal" aria-labelledby="pipeline-title">
-        <h2 id="pipeline-title">Pipeline</h2>
-        <ol class="steps">
-          <li><strong>Scrape:</strong> team match + shooting/passing/creation/defense stats from FBref.</li>
-          <li><strong>Clean:</strong> normalize teams, parse scores, add time + venue features.</li>
-          <li><strong>Engineer:</strong> 10-match rolling stats and opponent-aware features.</li>
-          <li><strong>Train:</strong> time-aware CV with Random Forest and XGBoost.</li>
-          <li><strong>Evaluate:</strong> confusion matrices, classification reports, feature importances.</li>
-        </ol>
-      </section>
-
-      <section class="explorer reveal" aria-labelledby="explorer-title">
-        <h2 id="explorer-title">Interactive Team Explorer</h2>
-        <p class="explainer-copy">
-          Pick a team and season to inspect per-match performance and compare it to that season's league average.
-        </p>
-        <div class="explorer-controls">
-          <label>
-            Team
-            <select id="team-select" aria-label="Select team"></select>
-          </label>
-          <label>
-            Season
-            <select id="season-select" aria-label="Select season"></select>
-          </label>
-        </div>
-        <div class="metric-grid" id="team-metrics" aria-live="polite"></div>
-      </section>
-
       <section class="metrics reveal" aria-labelledby="metrics-title">
         <h2 id="metrics-title">Headline Results</h2>
         <div class="metric-grid">
@@ -86,6 +57,17 @@
         </div>
       </section>
 
+      <section class="pipeline reveal" aria-labelledby="pipeline-title">
+        <h2 id="pipeline-title">Pipeline</h2>
+        <ol class="steps">
+          <li><strong>Scrape:</strong> team match + shooting/passing/creation/defense stats from FBref.</li>
+          <li><strong>Clean:</strong> normalize teams, parse scores, add time + venue features.</li>
+          <li><strong>Engineer:</strong> 10-match rolling stats and opponent-aware features.</li>
+          <li><strong>Train:</strong> time-aware CV with Random Forest and XGBoost.</li>
+          <li><strong>Evaluate:</strong> confusion matrices, classification reports, feature importances.</li>
+        </ol>
+      </section>
+
       <section class="context reveal" aria-labelledby="context-title">
         <h2 id="context-title">Why The Results Are Hard</h2>
         <p class="explainer-copy">
@@ -105,6 +87,24 @@
           <li><a href="https://www.mlssoccer.com/news/mls-announces-new-playoff-format-for-2023-season" target="_blank" rel="noreferrer">New MLS Cup Playoffs format announced for 2023</a></li>
           <li><a href="https://www.leaguescup.com/news/groups-announced-for-leagues-cup-2023" target="_blank" rel="noreferrer">Leagues Cup 2023 launch format (all 47 MLS + Liga MX clubs)</a></li>
         </ul>
+      </section>
+
+      <section class="explorer reveal" aria-labelledby="explorer-title">
+        <h2 id="explorer-title">Interactive Team Explorer</h2>
+        <p class="explainer-copy">
+          Pick a team and season to inspect per-match performance and compare it to that season's league average.
+        </p>
+        <div class="explorer-controls">
+          <label>
+            Team
+            <select id="team-select" aria-label="Select team"></select>
+          </label>
+          <label>
+            Season
+            <select id="season-select" aria-label="Select season"></select>
+          </label>
+        </div>
+        <div class="metric-grid" id="team-metrics" aria-live="polite"></div>
       </section>
 
       <section class="results reveal" aria-labelledby="results-title">
