@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Dashboard</title>
+  <link rel="stylesheet" href="parking.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header">
+    <img src="./images/logo.png" alt="Logo" class="logo" />
+    <i class="fa-solid fa-house" id="home-btn"></i>
+    <script>
+      document.getElementById("home-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        if (token) {
+          window.location.href = "index.html";
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+    </script>
+  </div>
+
+  <!-- DASHBOARD TITLE -->
+  <div class="dashboard-container">
+    <h1 class="dashboard-title">Parking Dashboard</h1>
+    <button id="refresh-btn">🔄 Refresh</button>
+    <p class="last-updated">Last updated: <span id="last-updated-time">--:--:--</span></p>
+
+    <!-- DECK CARDS -->
+    <div class="deck-list">
+      <div class="deck-card" onclick="showDeckDetails('CC Deck')">
+        <h2>CC Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Courtland St NE</p>
+      </div>
+
+      <div class="deck-card" onclick="showDeckDetails('K Deck')">
+        <h2>K Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+      <div class="deck-card" onclick="showDeckDetails('M Deck')">
+        <h2>M Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+
+      <div class="deck-card" onclick="showDeckDetails('N Deck')">
+        <h2>N Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+
+      <div class="deck-card" onclick="showDeckDetails('S Deck')">
+        <h2>S Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+
+      <div class="deck-card" onclick="showDeckDetails('T Deck')">
+        <h2>T Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--</span>%</p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+
+      <div class="deck-card" onclick="showDeckDetails('G Deck')">
+        <h2>G Deck</h2>
+        <p><strong>Open Spaces:</strong> <span class="spaces">---</span></p>
+        <p><strong>Available:</strong> <span class="percentage">--%</span></p>
+        <p class="address">X Central Ave SW</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="parking.js"></script>
+</body>
+</html>

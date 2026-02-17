@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Train Schedule | Panther-Path</title>
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <link rel="stylesheet" href="train-schedule.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<main class="main-content train-schedule-page">
+    <div class="header">
+        <img src="./images/logo.png" alt="Logo" class="logo" />
+        <i class="fa-solid fa-house" id="home-btn"></i>
+        <script>
+          document.getElementById("home-btn").addEventListener("click", function(event) {
+            event.preventDefault();
+            const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+            if (token) {
+            // Redirect to index or mainScreen
+            window.location.href = "index.html";
+          } else {
+            window.location.href = "index.html";
+          }
+          });
+        </script>
+    </div>
+  <div class="train-schedule-wrapper">
+    <div class="header-section">
+      <h1>Live MARTA Train Schedule</h1>
+      <div class="update-info">
+        <span id="last-updated">Last updated: --:--:--</span>
+        <span id="next-update"></span>
+        <button id="refresh-button" class="refresh-btn">Refresh Now</button>
+      </div>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters-section">
+      <div class="filter-group">
+        <label for="station-filter">Current Station:</label>
+        <select id="station-filter">
+          <option value="">All Stations</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="destination-filter">Destination:</label>
+        <select id="destination-filter">
+          <option value="">All Destinations</option>
+        </select>
+      </div>
+      <div class="button-wrapper">
+        <button id="clear-filters-button" class="clear-filters-btn">Clear Filters</button>
+      </div>
+    </div>
+
+    <div id="schedule-list" class="schedule-container">Loading train schedule...</div>
+  </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let trainData = [];
+  let lastRefreshTime = 0;
+
+  function updateFilters(data) {
+    const stations = [...new Set(data.map(train => train.station))].filter(Boolean).sort();
+    const destinations = [...new Set(data.map(train => train.destination))].filter(Boolean).sort();
+
+    const stationFilter = document.getElementById('station-filter');
+    const destinationFilter = document.getElementById('destination-filter');
+
+    stationFilter.innerHTML = '<option value="">All Stations</option>';
+    destinationFilter.innerHTML = '<option value="">All Destinations</option>';
+
+    stations.forEach(station => {
+      const option = document.createElement('option');
+      option.value = station;
+      option.textContent = station;
+      stationFilter.appendChild(option);
+    });
+
+    destinations.forEach(destination => {
+      const option = document.createElement('option');
+      option.value = destination;
+      option.textContent = destination;
+      destinationFilter.appendChild(option);
+    });
+  }
+
+  function filterAndDisplayData() {
+    const selectedStation = document.getElementById('station-filter').value;
+    const selectedDestination = document.getElementById('destination-filter').value;
+
+    const filteredData = trainData.filter(train => {
+      const stationMatch = !selectedStation || train.station === selectedStation;
+      const destinationMatch = !selectedDestination || train.destination === selectedDestination;
+      return stationMatch && destinationMatch;
+    });
+
+    displayData(filteredData);
+  }
+
+  function displayData(data) {
+    const container = document.getElementById('schedule-list');
+    container.innerHTML = '';
+    data = data.slice(0, 50);
+
+    if (!Array.isArray(data) || data.length === 0) {
+      container.innerHTML = `
+        <div class="no-data-state">
+          <p>No train data found.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const table = document.createElement('table');
+    table.classList.add('schedule-table');
+
+    const header = document.createElement('tr');
+    ['Current Sation', 'Destination', 'Direction', 'Line', 'Waiting Time', 'Updated At', 'Next Arrival']
+      .forEach(text => {
+        const th = document.createElement('th');
+        th.textContent = text;
+        header.appendChild(th);
+      });
+    table.appendChild(header);
+
+    data.forEach(train => {
+      const row = document.createElement('tr');
+      const cells = [
+        train.station,
+        train.destination,
+        train.direction,
+        train.line,
+        train.waiting_time,
+        train.event_time,
+        train.next_arr
+];
+
+
+      cells.forEach(val => {
+        const td = document.createElement('td');
+        td.textContent = val || '—';
+        row.appendChild(td);
+      });
+
+      table.appendChild(row);
+    });
+
+    container.appendChild(table);
+  }
+
+  async function fetchTrainData() {
+    const container = document.getElementById('schedule-list');
+    container.innerHTML = `<p>🔄 Loading...</p>`;
+
+    try {
+        const baseURL = window.location.hostname === 'localhost'
+            ? 'http://localhost:3000'
+            : 'https://gsu-commuter.onrender.com';
+
+        const response = await fetch(`${baseURL}/api/schedule`);
+      if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+
+      const data = await response.json();
+      console.log("✅ Train data:", data);
+
+      trainData = data;
+      updateFilters(trainData);
+      filterAndDisplayData();
+
+      document.getElementById('last-updated').textContent =
+        "Last updated: " + new Date().toLocaleTimeString();
+    } catch (err) {
+      console.error("🚨 Error fetching train data:", err);
+      container.innerHTML = `<p>❌ Failed to load train schedule. Try refreshing.</p>`;
+    }
+  }
+
+  // Event listeners
+  document.getElementById('refresh-button').addEventListener('click', fetchTrainData);
+  document.getElementById('station-filter').addEventListener('change', filterAndDisplayData);
+  document.getElementById('destination-filter').addEventListener('change', filterAndDisplayData);
+  document.getElementById('clear-filters-button').addEventListener('click', () => {
+    document.getElementById('station-filter').value = '';
+    document.getElementById('destination-filter').value = '';
+    filterAndDisplayData();
+  });
+
+  fetchTrainData();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* === GENERAL === */
+body {
+    margin: 0;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #74b9ff, #40739e);
+    color: #002b6c;
+  }
+
+  .dashboard-container {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .dashboard-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: #002b6c;
+  }
+
+  #refresh-btn {
+    background-color: #002b6c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  .last-updated {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  /* === DECK CARDS === */
+  .deck-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .deck-card {
+    background: #002b6c;
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .deck-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .deck-card h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .deck-card p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+
+  .deck-card .percentage {
+    font-weight: bold;
+    color: white;
+  }
+
+  /* === HEADER === */
+  .header {
+    width: 90%;
+    max-width: 1200px;
+    height: 70px;
+    background-color: #002f6c;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto;
+    width: 70px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #home-btn {
+    color:#ffffff;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+  }
