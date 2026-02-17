@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLS Predictions | Project Results</title>
+    <meta name="description" content="Showcase of MLS match outcome prediction models using regression and classification." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-noise"></div>
+    <header class="hero reveal">
+      <p class="eyebrow">Machine Learning + Soccer Analytics</p>
+      <h1>MLS Predictions Dashboard</h1>
+      <p class="hero-copy">
+        End-to-end pipeline from FBref scraping to model evaluation, with two approaches:
+        score forecasting (regression) and direct result prediction (classification).
+      </p>
+      <p class="hero-copy">
+        Project details, modeling notes, and full methodology:
+        <a href="https://github.com/Connerj1234/Projects/blob/main/MLS-Predictions/README.md" target="_blank" rel="noreferrer">View the full GitHub README</a>.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Seasons: 2018-2024</span>
+        <span class="chip">Models: Random Forest + XGBoost</span>
+        <span class="chip">Data: FBref Match Stats</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="pipeline reveal" aria-labelledby="pipeline-title">
+        <h2 id="pipeline-title">Pipeline</h2>
+        <ol class="steps">
+          <li><strong>Scrape:</strong> team match + shooting/passing/creation/defense stats from FBref.</li>
+          <li><strong>Clean:</strong> normalize teams, parse scores, add time + venue features.</li>
+          <li><strong>Engineer:</strong> 10-match rolling stats and opponent-aware features.</li>
+          <li><strong>Train:</strong> time-aware CV with Random Forest and XGBoost.</li>
+          <li><strong>Evaluate:</strong> confusion matrices, classification reports, feature importances.</li>
+        </ol>
+      </section>
+
+      <section class="explorer reveal" aria-labelledby="explorer-title">
+        <h2 id="explorer-title">Interactive Team Explorer</h2>
+        <p class="explainer-copy">
+          Pick a team and season to inspect per-match performance and compare it to that season's league average.
+        </p>
+        <div class="explorer-controls">
+          <label>
+            Team
+            <select id="team-select" aria-label="Select team"></select>
+          </label>
+          <label>
+            Season
+            <select id="season-select" aria-label="Select season"></select>
+          </label>
+        </div>
+        <div class="metric-grid" id="team-metrics" aria-live="polite"></div>
+      </section>
+
+      <section class="metrics reveal" aria-labelledby="metrics-title">
+        <h2 id="metrics-title">Headline Results</h2>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <p class="metric-label">Regression Outcome Accuracy</p>
+            <p class="metric-value">55%</p>
+            <p class="metric-note">from predicted goals -> win/draw/loss</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Classification Ensemble Accuracy</p>
+            <p class="metric-value">42%</p>
+            <p class="metric-note">direct multiclass prediction</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Regression Recall (Wins / Losses / Draws)</p>
+            <p class="metric-value">71% / 76% / 4%</p>
+            <p class="metric-note">draw prediction remained hardest</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Classification Recall (Wins / Losses / Draws)</p>
+            <p class="metric-value">63% / 29% / 20%</p>
+            <p class="metric-note">class imbalance impacts draws + losses</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="context reveal" aria-labelledby="context-title">
+        <h2 id="context-title">Why The Results Are Hard</h2>
+        <p class="explainer-copy">
+          Your data already shows structural difficulty: draws are only 24.8% overall (1,564 of 6,312 rows), while
+          home-perspective outcomes are skewed (3,096 wins vs 1,652 losses). In this setup, direct classification
+          tends to overpredict wins and underperform on draws/losses.
+        </p>
+        <p class="explainer-copy">
+          MLS has also shifted quickly during this window (2018-2024): team count in your data rises from 23 to 29,
+          roster mechanisms are unique and evolving (DP + GAM/TAM + U22), and competition formats have changed.
+          Those shifts create non-stationarity that makes historical patterns less stable for ML models.
+        </p>
+        <ul class="source-list">
+          <li><a href="https://www.mlssoccer.com/news/official-lionel-messi-signs-with-inter-miami" target="_blank" rel="noreferrer">Messi joins Inter Miami (MLS announcement, July 15, 2023)</a></li>
+          <li><a href="https://www.mlssoccer.com/news/major-league-soccer-awards-expansion-team-to-san-diego" target="_blank" rel="noreferrer">MLS awards San Diego expansion team for 2025 (May 18, 2023)</a></li>
+          <li><a href="https://www.mlssoccer.com/news/2025-mls-roster-rules-and-regulations" target="_blank" rel="noreferrer">MLS roster rules (DP, GAM, TAM, U22, salary budget)</a></li>
+          <li><a href="https://www.mlssoccer.com/news/mls-announces-new-playoff-format-for-2023-season" target="_blank" rel="noreferrer">New MLS Cup Playoffs format announced for 2023</a></li>
+          <li><a href="https://www.leaguescup.com/news/groups-announced-for-leagues-cup-2023" target="_blank" rel="noreferrer">Leagues Cup 2023 launch format (all 47 MLS + Liga MX clubs)</a></li>
+        </ul>
+      </section>
+
+      <section class="results reveal" aria-labelledby="results-title">
+        <div class="results-head">
+          <h2 id="results-title">Visual Results</h2>
+          <div class="filter-row" role="tablist" aria-label="Result type filter">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" data-filter="regression" role="tab" aria-selected="false">Regression</button>
+            <button class="filter-btn" data-filter="classification" role="tab" aria-selected="false">Classification</button>
+          </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+          <figure class="shot" data-type="regression">
+            <img src="./assets/regression_model_selection.png" alt="Regression model selection chart" loading="lazy" />
+            <figcaption>Regression model selection</figcaption>
+          </figure>
+          <figure class="shot" data-type="regression">
+            <img src="./assets/regression_best_model_results.png" alt="Regression best model results" loading="lazy" />
+            <figcaption>Regression best model results</figcaption>
+          </figure>
+          <figure class="shot" data-type="regression">
+            <img src="./assets/regression_confusion_matrix.png" alt="Regression confusion matrix" loading="lazy" />
+            <figcaption>Regression confusion matrix</figcaption>
+          </figure>
+          <figure class="shot" data-type="regression">
+            <img src="./assets/regression_feature_importance_team1.png" alt="Regression feature importance team 1" loading="lazy" />
+            <figcaption>Feature importance: team 1</figcaption>
+          </figure>
+          <figure class="shot" data-type="regression">
+            <img src="./assets/regression_feature_importance_team2.png" alt="Regression feature importance team 2" loading="lazy" />
+            <figcaption>Feature importance: team 2</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_result_dsitribution.png" alt="Classification result distribution" loading="lazy" />
+            <figcaption>Classification result distribution</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_confusion_matrix.png" alt="Classification confusion matrix" loading="lazy" />
+            <figcaption>Classification confusion matrix</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_ensemble_classification_report.png" alt="Ensemble classification report" loading="lazy" />
+            <figcaption>Ensemble classification report</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_rf+xgb_classification_report.png" alt="Random forest and XGBoost report" loading="lazy" />
+            <figcaption>RF + XGB classification report</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_feature_importance_random_forest.png" alt="Random forest feature importance" loading="lazy" />
+            <figcaption>Feature importance: Random Forest</figcaption>
+          </figure>
+          <figure class="shot" data-type="classification">
+            <img src="./assets/classification_feature_importance_xgboost.png" alt="XGBoost feature importance" loading="lazy" />
+            <figcaption>Feature importance: XGBoost</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <p>Built from the MLS-Predictions training outputs and result visualizations.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

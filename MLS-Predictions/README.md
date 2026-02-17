@@ -140,3 +140,33 @@ We use matplotlib and seaborn to create:
 ### Classification 
 -  In this approach, the home team was always designated as Team 1, resulting in a dataset where wins were significantly more prevalent than losses or draws. This class imbalance caused the model to prioritize predicting wins at the expense of other outcomes.
 -  The ensemble model achieved an overall accuracy of 42%, with recall scores of 63% for wins, 29% for losses, and 20% for draws. While the model handled wins reasonably well, its performance for losses and draws was weaker, reflecting the challenges of class imbalance in the data.
+
+## 9. Interpreting Results in MLS Context
+
+### What the project data itself shows
+
+- `MLS_cleaned.csv` contains **6,312 rows** across **2018-2024** and **30 teams**.
+- Outcome distribution is **W: 2,374, L: 2,374, D: 1,564** (draws = **24.8%**), so draws are the minority class.
+- In the home-team perspective used by classification, outcomes are skewed to home wins (**W: 3,096, D: 1,564, L: 1,652**), which makes draw/loss prediction harder.
+- Team count in this dataset rises from **23 (2018)** to **29 (2023/2024)**, meaning league composition is not static.
+
+### Why this matters for model performance
+
+- Draw prediction is structurally difficult due to lower class frequency and narrower score margins.
+- Home-field asymmetry plus class imbalance can inflate win recall while suppressing draw/loss recall.
+- Rapid league evolution means historical relationships can drift, reducing generalization for fixed-feature models.
+
+### MLS-specific factors that likely increase volatility
+
+- **Major player shocks:** Lionel Messi signed with Inter Miami in July 2023, which can alter team-level and league-level dynamics quickly.
+- **Expansion and changing opponent mix:** MLS awarded San Diego as the 30th club (starting 2025), continuing the expansion trend.
+- **Roster and budget mechanisms:** MLS roster construction uses unique constraints and mechanisms (Designated Players, GAM, TAM, U22 Initiative, salary budget), which can create nonlinear year-to-year talent changes.
+- **Competition/format changes:** MLS announced a new playoff format in 2023 and Leagues Cup expanded in 2023, adding schedule/context shifts that are hard to encode from standard match stats alone.
+
+### Sources
+
+- Messi signing (MLS): https://www.mlssoccer.com/news/official-lionel-messi-signs-with-inter-miami
+- San Diego expansion club (MLS): https://www.mlssoccer.com/news/major-league-soccer-awards-expansion-team-to-san-diego
+- 2025 MLS roster rules and regulations: https://www.mlssoccer.com/news/2025-mls-roster-rules-and-regulations
+- 2023 MLS Cup Playoffs format: https://www.mlssoccer.com/news/mls-announces-new-playoff-format-for-2023-season
+- 2023 Leagues Cup format: https://www.leaguescup.com/news/groups-announced-for-leagues-cup-2023
