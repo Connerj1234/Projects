@@ -1,27 +1,5 @@
-export default function Home() {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-900 text-white px-4 text-center">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">Conner's Productivity Hub</h1>
-          <p className="text-lg text-zinc-300 mb-8">
-            Assignments, To-Dos, Reminders, and Calendar.
-          </p>
+import { redirect } from 'next/navigation'
 
-          <div className="flex justify-center gap-4">
-            <a
-              href="/main/assignments"
-              className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
-            >
-              Open Dashboard
-            </a>
-            <a
-              href="/main/todo"
-              className="px-6 py-3 rounded-xl border border-blue-500 text-blue-400 font-semibold hover:bg-blue-800 transition"
-            >
-              Open To-Dos
-            </a>
-          </div>
-        </div>
-      </main>
-    )
-  }
+export default function Home() {
+  redirect('/main/.dashboard')
+}

@@ -53,6 +53,11 @@ type FocusSummary = {
   priorities: Array<{ id: string; text: string; completed: boolean }>
 }
 
+type FocusStoredSession = {
+  durationMinutes?: number
+  completedAt?: string
+}
+
 function dateOrNull(value?: string | null) {
   if (!value) return null
   const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? parseISO(value) : new Date(value)
@@ -73,26 +78,40 @@ function readFocusSummary(): FocusSummary {
   try {
     const parsed = JSON.parse(raw) as {
       priorities?: Array<{ id: string; text: string; completed: boolean }>
-      sessions?: Array<{ durationMinutes: number; completedAt: string }>
+      sessions?: FocusStoredSession[]
     }
 
     const priorities = Array.isArray(parsed.priorities) ? parsed.priorities.slice(0, 3) : []
-    const sessions = Array.isArray(parsed.sessions) ? parsed.sessions : []
+    const sessions = Array.isArray(parsed.sessions)
+      ? parsed.sessions.filter(
+          (session): session is Required<FocusStoredSession> =>
+            typeof session?.completedAt === 'string' && Number.isFinite(session?.durationMinutes),
+        )
+      : []
 
     const now = new Date()
     const todayMinutes = sessions
-      .filter((session) => isSameDay(parseISO(session.completedAt), now))
+      .filter((session) => {
+        const parsedDate = parseISO(session.completedAt)
+        return !Number.isNaN(parsedDate.getTime()) && isSameDay(parsedDate, now)
+      })
       .reduce((sum, session) => sum + (session.durationMinutes ?? 0), 0)
 
     const weekStart = subDays(startOfDay(now), 6)
     const weekMinutes = sessions
       .filter((session) => {
         const day = parseISO(session.completedAt)
+        if (Number.isNaN(day.getTime())) return false
         return day >= weekStart && day <= addDays(startOfDay(now), 1)
       })
       .reduce((sum, session) => sum + (session.durationMinutes ?? 0), 0)
 
-    const sessionDays = new Set(sessions.map((session) => format(parseISO(session.completedAt), 'yyyy-MM-dd')))
+    const sessionDays = new Set(
+      sessions
+        .map((session) => parseISO(session.completedAt))
+        .filter((date) => !Number.isNaN(date.getTime()))
+        .map((date) => format(date, 'yyyy-MM-dd')),
+    )
     let streakDays = 0
     let cursor = startOfDay(now)
     while (sessionDays.has(format(cursor, 'yyyy-MM-dd'))) {
