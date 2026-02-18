@@ -157,53 +157,48 @@ export default function CalendarPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white px-4 py-6">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold">Calendar</h1>
-      </div>
-
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-xl font-semibold">{format(currentMonth, 'MMMM yyyy')}</h2>
-        <div className="flex flex-wrap items-center gap-4 text-sm">
-          <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={showAssignments} onChange={(e) => setShowAssignments(e.target.checked)} />
-            Assignments
-          </label>
-          <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={showTodos} onChange={(e) => setShowTodos(e.target.checked)} />
-            To-Dos
-          </label>
-          <label className="inline-flex items-center gap-2">
-            <input type="checkbox" checked={showCompleted} onChange={(e) => setShowCompleted(e.target.checked)} />
-            Show Completed
-          </label>
-          <div className="ml-1 flex items-center gap-2">
-            <button
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1 text-sm"
-              onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-            >
-              Prev
-            </button>
-            <button
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1 text-sm"
-              onClick={() => {
-                setCurrentMonth(new Date())
-                setSelectedDate(new Date())
-              }}
-            >
-              Today
-            </button>
-            <button
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1 text-sm"
-              onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr]">
         <section className="rounded-lg border border-zinc-700 bg-zinc-800 p-4">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-xl font-semibold">{format(currentMonth, 'MMMM yyyy')}</h2>
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <label className="inline-flex items-center gap-2">
+                <input type="checkbox" checked={showAssignments} onChange={(e) => setShowAssignments(e.target.checked)} />
+                Assignments
+              </label>
+              <label className="inline-flex items-center gap-2">
+                <input type="checkbox" checked={showTodos} onChange={(e) => setShowTodos(e.target.checked)} />
+                To-Dos
+              </label>
+              <label className="inline-flex items-center gap-2">
+                <input type="checkbox" checked={showCompleted} onChange={(e) => setShowCompleted(e.target.checked)} />
+                Show Completed
+              </label>
+              <div className="ml-1 flex items-center gap-2">
+                <button
+                  className="rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1 text-sm"
+                  onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
+                >
+                  Prev
+                </button>
+                <button
+                  className="rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1 text-sm"
+                  onClick={() => {
+                    setCurrentMonth(new Date())
+                    setSelectedDate(new Date())
+                  }}
+                >
+                  Today
+                </button>
+                <button
+                  className="rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1 text-sm"
+                  onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
           <div className="mb-2 grid grid-cols-7 text-center text-xs text-zinc-400">
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((label) => (
               <div key={label} className="py-2">

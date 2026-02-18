@@ -13,7 +13,6 @@ type FocusSession = {
   id: string
   durationMinutes: number
   completedAt: string
-  priorityId?: string
   note?: string
 }
 
@@ -54,7 +53,7 @@ function loadFocusState(): FocusState {
   try {
     const parsed = JSON.parse(raw) as FocusState
     return {
-      priorities: Array.isArray(parsed.priorities) ? parsed.priorities.slice(0, 3) : defaultState.priorities,
+      priorities: Array.isArray(parsed.priorities) ? parsed.priorities : defaultState.priorities,
       sessions: Array.isArray(parsed.sessions) ? parsed.sessions : [],
       checklist: parsed.checklist ?? defaultState.checklist,
     }
@@ -82,16 +81,12 @@ export default function FocusPage() {
   const [secondsLeft, setSecondsLeft] = useState(25 * 60)
   const [isRunning, setIsRunning] = useState(false)
   const [newPriority, setNewPriority] = useState('')
-  const [selectedPriorityId, setSelectedPriorityId] = useState('')
   const [sessionNote, setSessionNote] = useState('')
 
   useEffect(() => {
     const loaded = loadFocusState()
     setState(loaded)
     setHydrated(true)
-    if (loaded.priorities[0]) {
-      setSelectedPriorityId(loaded.priorities[0].id)
-    }
   }, [])
 
   useEffect(() => {
@@ -100,9 +95,9 @@ export default function FocusPage() {
   }, [state, hydrated])
 
   useEffect(() => {
-    if (isRunning) return
+    setIsRunning(false)
     setSecondsLeft(modeMinutes * 60)
-  }, [modeMinutes, isRunning])
+  }, [modeMinutes])
 
   useEffect(() => {
     if (!isRunning) return
@@ -120,7 +115,6 @@ export default function FocusPage() {
                 id: newId('session'),
                 durationMinutes: modeMinutes,
                 completedAt: new Date().toISOString(),
-                priorityId: selectedPriorityId || undefined,
                 note: sessionNote.trim() || undefined,
               },
               ...current.sessions,
@@ -135,7 +129,7 @@ export default function FocusPage() {
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [isRunning, modeMinutes, selectedPriorityId, sessionNote])
+  }, [isRunning, modeMinutes, sessionNote])
 
   const todayMinutes = useMemo(() => {
     const now = new Date()
@@ -187,7 +181,7 @@ export default function FocusPage() {
 
   const handleAddPriority = () => {
     const trimmed = newPriority.trim()
-    if (!trimmed || state.priorities.length >= 3) return
+    if (!trimmed) return
 
     const priority: FocusPriority = {
       id: newId('priority'),
@@ -199,10 +193,6 @@ export default function FocusPage() {
       ...current,
       priorities: [...current.priorities, priority],
     }))
-
-    if (!selectedPriorityId) {
-      setSelectedPriorityId(priority.id)
-    }
 
     setNewPriority('')
   }
@@ -217,7 +207,6 @@ export default function FocusPage() {
           id: newId('session'),
           durationMinutes: modeMinutes,
           completedAt: new Date().toISOString(),
-          priorityId: selectedPriorityId || undefined,
           note: sessionNote.trim() || undefined,
         },
         ...current.sessions,
@@ -230,13 +219,6 @@ export default function FocusPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white px-4 py-6">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold">Focus</h1>
-          <p className="text-sm text-zinc-400">Plan a few priorities, run sessions, and build consistency.</p>
-        </div>
-      </div>
-
       <section className="grid grid-cols-2 gap-3 md:grid-cols-4">
         <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
           <p className="text-xs text-zinc-400">Focus Today</p>
@@ -308,35 +290,20 @@ export default function FocusPage() {
             </button>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            <div>
-              <label className="text-xs text-zinc-400">Session Priority</label>
-              <select
-                className="mt-1 w-full rounded-md border border-zinc-600 bg-zinc-900 px-2 py-2 text-sm"
-                value={selectedPriorityId}
-                onChange={(event) => setSelectedPriorityId(event.target.value)}
-              >
-                <option value="">No specific priority</option>
-                {state.priorities.map((priority) => (
-                  <option key={priority.id} value={priority.id}>{priority.text}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="text-xs text-zinc-400">Session Note</label>
-              <input
-                className="mt-1 w-full rounded-md border border-zinc-600 bg-zinc-900 px-2 py-2 text-sm"
-                placeholder="What are you focusing on?"
-                value={sessionNote}
-                onChange={(event) => setSessionNote(event.target.value)}
-              />
-            </div>
+          <div className="mt-4">
+            <label className="text-xs text-zinc-400">Session Note</label>
+            <textarea
+              className="mt-1 min-h-24 w-full rounded-md border border-zinc-600 bg-zinc-900 px-3 py-2 text-sm"
+              placeholder="What are you focusing on for this session?"
+              value={sessionNote}
+              onChange={(event) => setSessionNote(event.target.value)}
+            />
           </div>
         </div>
 
         <div className="space-y-4">
           <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-4">
-            <h2 className="text-lg font-semibold">Top Priorities (max 3)</h2>
+            <h2 className="text-lg font-semibold">Top Priorities</h2>
             <div className="mt-3 space-y-2">
               {state.priorities.map((priority) => (
                 <div key={priority.id} className="flex items-center justify-between gap-2 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-2">
@@ -362,9 +329,6 @@ export default function FocusPage() {
                         ...current,
                         priorities: current.priorities.filter((item) => item.id !== priority.id),
                       }))
-                      if (selectedPriorityId === priority.id) {
-                        setSelectedPriorityId('')
-                      }
                     }}
                   >
                     Remove
@@ -378,12 +342,10 @@ export default function FocusPage() {
                 placeholder="Add a top priority"
                 value={newPriority}
                 onChange={(event) => setNewPriority(event.target.value)}
-                disabled={state.priorities.length >= 3}
               />
               <button
-                className="rounded-md bg-zinc-700 px-3 py-2 text-sm hover:bg-zinc-600 disabled:opacity-50"
+                className="rounded-md bg-zinc-700 px-3 py-2 text-sm hover:bg-zinc-600"
                 onClick={handleAddPriority}
-                disabled={state.priorities.length >= 3}
               >
                 Add
               </button>
@@ -393,7 +355,20 @@ export default function FocusPage() {
           <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-4">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold">Do Not Disturb Checklist</h2>
-              <span className="text-xs text-zinc-400">{checklistPercent}%</span>
+              <span className="text-xs text-zinc-400">
+                {Object.values(state.checklist).filter(Boolean).length}/4 Ready
+              </span>
+            </div>
+            <div className="mt-3">
+              <div className="h-2 w-full rounded-full bg-zinc-700">
+                <div
+                  className="h-2 rounded-full bg-emerald-500 transition-all duration-300"
+                  style={{ width: `${checklistPercent}%` }}
+                />
+              </div>
+              <div className="mt-1 text-xs text-zinc-500">
+                {checklistPercent === 100 ? 'Focus mode engaged.' : 'Complete prep for a smoother session.'}
+              </div>
             </div>
             <div className="mt-3 space-y-2 text-sm">
               {[
@@ -431,16 +406,15 @@ export default function FocusPage() {
             <p className="text-sm text-zinc-400">No sessions yet. Start one above.</p>
           ) : (
             state.sessions.slice(0, 12).map((session) => {
-              const priority = state.priorities.find((item) => item.id === session.priorityId)
               return (
                 <div key={session.id} className="rounded-md border border-zinc-700 bg-zinc-900 px-3 py-2">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="text-sm font-medium">{session.durationMinutes} min session</p>
                     <p className="text-xs text-zinc-400">{format(parseISO(session.completedAt), 'EEE, MMM d · h:mm a')}</p>
                   </div>
-                  {(priority || session.note) && (
+                  {session.note && (
                     <p className="mt-1 text-xs text-zinc-400">
-                      {priority ? `Priority: ${priority.text}` : 'No priority'}{session.note ? ` · Note: ${session.note}` : ''}
+                      Note: {session.note}
                     </p>
                   )}
                 </div>
