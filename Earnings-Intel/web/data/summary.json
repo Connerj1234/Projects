@@ -1,0 +1,11 @@
+{
+  "transcript_rows": 33359,
+  "unique_tickers": 685,
+  "event_date_min": "2005-10-13 00:00:00",
+  "event_date_max": "2025-05-15 00:00:00",
+  "label_coverage": 0.9128140703517588,
+  "labeled_events": 3633,
+  "feature_rows": 3633,
+  "prediction_rows": 6540,
+  "chunk_rows": 182833
+}

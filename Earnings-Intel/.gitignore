@@ -4,6 +4,10 @@ data/
 *.arrow
 *.feather
 
+# Keep deployable web assets tracked
+!web/data/
+!web/data/**
+
 # HuggingFace cache
 .cache/
 **/huggingface/

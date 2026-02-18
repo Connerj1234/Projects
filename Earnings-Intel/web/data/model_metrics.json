@@ -1,0 +1,30 @@
+{
+  "classification": [
+    {
+      "model": "logreg_tabular",
+      "accuracy": 0.46703296703296704
+    },
+    {
+      "model": "logreg_tfidf",
+      "accuracy": 0.4926739926739927
+    },
+    {
+      "model": "majority_class",
+      "accuracy": 0.47435897435897434
+    }
+  ],
+  "regression": [
+    {
+      "model": "elasticnet_tabular",
+      "mae": 0.04662003762172743
+    },
+    {
+      "model": "mean_regression",
+      "mae": 0.04662003762172743
+    },
+    {
+      "model": "ridge_tfidf",
+      "mae": 0.047645937217074746
+    }
+  ]
+}

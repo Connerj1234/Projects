@@ -1,0 +1,318 @@
+[
+  {
+    "period": "2005-Q4",
+    "events": 25
+  },
+  {
+    "period": "2006-Q1",
+    "events": 83
+  },
+  {
+    "period": "2006-Q2",
+    "events": 92
+  },
+  {
+    "period": "2006-Q3",
+    "events": 88
+  },
+  {
+    "period": "2006-Q4",
+    "events": 100
+  },
+  {
+    "period": "2007-Q1",
+    "events": 110
+  },
+  {
+    "period": "2007-Q2",
+    "events": 120
+  },
+  {
+    "period": "2007-Q3",
+    "events": 226
+  },
+  {
+    "period": "2007-Q4",
+    "events": 294
+  },
+  {
+    "period": "2008-Q1",
+    "events": 358
+  },
+  {
+    "period": "2008-Q2",
+    "events": 386
+  },
+  {
+    "period": "2008-Q3",
+    "events": 379
+  },
+  {
+    "period": "2008-Q4",
+    "events": 374
+  },
+  {
+    "period": "2009-Q1",
+    "events": 375
+  },
+  {
+    "period": "2009-Q2",
+    "events": 368
+  },
+  {
+    "period": "2009-Q3",
+    "events": 377
+  },
+  {
+    "period": "2009-Q4",
+    "events": 370
+  },
+  {
+    "period": "2010-Q1",
+    "events": 379
+  },
+  {
+    "period": "2010-Q2",
+    "events": 359
+  },
+  {
+    "period": "2010-Q3",
+    "events": 283
+  },
+  {
+    "period": "2010-Q4",
+    "events": 281
+  },
+  {
+    "period": "2011-Q1",
+    "events": 371
+  },
+  {
+    "period": "2011-Q2",
+    "events": 383
+  },
+  {
+    "period": "2011-Q3",
+    "events": 411
+  },
+  {
+    "period": "2011-Q4",
+    "events": 408
+  },
+  {
+    "period": "2012-Q1",
+    "events": 413
+  },
+  {
+    "period": "2012-Q2",
+    "events": 429
+  },
+  {
+    "period": "2012-Q3",
+    "events": 429
+  },
+  {
+    "period": "2012-Q4",
+    "events": 428
+  },
+  {
+    "period": "2013-Q1",
+    "events": 428
+  },
+  {
+    "period": "2013-Q2",
+    "events": 442
+  },
+  {
+    "period": "2013-Q3",
+    "events": 438
+  },
+  {
+    "period": "2013-Q4",
+    "events": 436
+  },
+  {
+    "period": "2014-Q1",
+    "events": 437
+  },
+  {
+    "period": "2014-Q2",
+    "events": 446
+  },
+  {
+    "period": "2014-Q3",
+    "events": 451
+  },
+  {
+    "period": "2014-Q4",
+    "events": 448
+  },
+  {
+    "period": "2015-Q1",
+    "events": 447
+  },
+  {
+    "period": "2015-Q2",
+    "events": 452
+  },
+  {
+    "period": "2015-Q3",
+    "events": 454
+  },
+  {
+    "period": "2015-Q4",
+    "events": 454
+  },
+  {
+    "period": "2016-Q1",
+    "events": 458
+  },
+  {
+    "period": "2016-Q2",
+    "events": 477
+  },
+  {
+    "period": "2016-Q3",
+    "events": 474
+  },
+  {
+    "period": "2016-Q4",
+    "events": 477
+  },
+  {
+    "period": "2017-Q1",
+    "events": 475
+  },
+  {
+    "period": "2017-Q2",
+    "events": 488
+  },
+  {
+    "period": "2017-Q3",
+    "events": 481
+  },
+  {
+    "period": "2017-Q4",
+    "events": 493
+  },
+  {
+    "period": "2018-Q1",
+    "events": 495
+  },
+  {
+    "period": "2018-Q2",
+    "events": 489
+  },
+  {
+    "period": "2018-Q3",
+    "events": 488
+  },
+  {
+    "period": "2018-Q4",
+    "events": 494
+  },
+  {
+    "period": "2019-Q1",
+    "events": 497
+  },
+  {
+    "period": "2019-Q2",
+    "events": 504
+  },
+  {
+    "period": "2019-Q3",
+    "events": 506
+  },
+  {
+    "period": "2019-Q4",
+    "events": 515
+  },
+  {
+    "period": "2020-Q1",
+    "events": 518
+  },
+  {
+    "period": "2020-Q2",
+    "events": 549
+  },
+  {
+    "period": "2020-Q3",
+    "events": 555
+  },
+  {
+    "period": "2020-Q4",
+    "events": 545
+  },
+  {
+    "period": "2021-Q1",
+    "events": 549
+  },
+  {
+    "period": "2021-Q2",
+    "events": 538
+  },
+  {
+    "period": "2021-Q3",
+    "events": 541
+  },
+  {
+    "period": "2021-Q4",
+    "events": 541
+  },
+  {
+    "period": "2022-Q1",
+    "events": 538
+  },
+  {
+    "period": "2022-Q2",
+    "events": 531
+  },
+  {
+    "period": "2022-Q3",
+    "events": 524
+  },
+  {
+    "period": "2022-Q4",
+    "events": 526
+  },
+  {
+    "period": "2023-Q1",
+    "events": 530
+  },
+  {
+    "period": "2023-Q2",
+    "events": 521
+  },
+  {
+    "period": "2023-Q3",
+    "events": 512
+  },
+  {
+    "period": "2023-Q4",
+    "events": 517
+  },
+  {
+    "period": "2024-Q1",
+    "events": 517
+  },
+  {
+    "period": "2024-Q2",
+    "events": 509
+  },
+  {
+    "period": "2024-Q3",
+    "events": 502
+  },
+  {
+    "period": "2024-Q4",
+    "events": 512
+  },
+  {
+    "period": "2025-Q1",
+    "events": 504
+  },
+  {
+    "period": "2025-Q2",
+    "events": 437
+  }
+]

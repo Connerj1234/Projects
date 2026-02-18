@@ -1,0 +1,98 @@
+[
+  {
+    "feature": "sentiment_net",
+    "corr_target_car": 0.0606951964890591
+  },
+  {
+    "feature": "positive_ratio",
+    "corr_target_car": 0.03660383533341453
+  },
+  {
+    "feature": "numbers_density",
+    "corr_target_car": 0.03624720632765259
+  },
+  {
+    "feature": "positive_count",
+    "corr_target_car": 0.03581718435230872
+  },
+  {
+    "feature": "flesch_proxy",
+    "corr_target_car": 0.01953337039566278
+  },
+  {
+    "feature": "sent_count",
+    "corr_target_car": 0.018844106046959214
+  },
+  {
+    "feature": "token_count",
+    "corr_target_car": 0.005703470363914967
+  },
+  {
+    "feature": "avg_token_len",
+    "corr_target_car": -0.013059228253206476
+  },
+  {
+    "feature": "qa_ratio",
+    "corr_target_car": -0.014674283970431178
+  },
+  {
+    "feature": "avg_sentence_len",
+    "corr_target_car": -0.014907066412351807
+  },
+  {
+    "feature": "risk_ratio",
+    "corr_target_car": -0.05123631164630803
+  },
+  {
+    "feature": "risk_count",
+    "corr_target_car": -0.05185532313627775
+  },
+  {
+    "feature": "flesch_proxy",
+    "corr_target_car": 0.01953337039566278
+  },
+  {
+    "feature": "sent_count",
+    "corr_target_car": 0.018844106046959214
+  },
+  {
+    "feature": "token_count",
+    "corr_target_car": 0.005703470363914967
+  },
+  {
+    "feature": "avg_token_len",
+    "corr_target_car": -0.013059228253206476
+  },
+  {
+    "feature": "qa_ratio",
+    "corr_target_car": -0.014674283970431178
+  },
+  {
+    "feature": "avg_sentence_len",
+    "corr_target_car": -0.014907066412351807
+  },
+  {
+    "feature": "risk_ratio",
+    "corr_target_car": -0.05123631164630803
+  },
+  {
+    "feature": "risk_count",
+    "corr_target_car": -0.05185532313627775
+  },
+  {
+    "feature": "uncertainty_ratio",
+    "corr_target_car": -0.05312035582407673
+  },
+  {
+    "feature": "uncertainty_count",
+    "corr_target_car": -0.05357186558405425
+  },
+  {
+    "feature": "negative_ratio",
+    "corr_target_car": -0.07873752072609874
+  },
+  {
+    "feature": "negative_count",
+    "corr_target_car": -0.07911971652830913
+  }
+]

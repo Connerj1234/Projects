@@ -1,0 +1,82 @@
+[
+  {
+    "ticker": "AAPL",
+    "events": 79
+  },
+  {
+    "ticker": "TPR",
+    "events": 79
+  },
+  {
+    "ticker": "EA",
+    "events": 79
+  },
+  {
+    "ticker": "QCOM",
+    "events": 78
+  },
+  {
+    "ticker": "AVGO",
+    "events": 78
+  },
+  {
+    "ticker": "AKAM",
+    "events": 78
+  },
+  {
+    "ticker": "MSFT",
+    "events": 78
+  },
+  {
+    "ticker": "VZ",
+    "events": 78
+  },
+  {
+    "ticker": "GLW",
+    "events": 78
+  },
+  {
+    "ticker": "NEM",
+    "events": 78
+  },
+  {
+    "ticker": "EL",
+    "events": 78
+  },
+  {
+    "ticker": "XEL",
+    "events": 78
+  },
+  {
+    "ticker": "XOM",
+    "events": 78
+  },
+  {
+    "ticker": "SBUX",
+    "events": 78
+  },
+  {
+    "ticker": "AMZN",
+    "events": 78
+  },
+  {
+    "ticker": "HAL",
+    "events": 78
+  },
+  {
+    "ticker": "PARA",
+    "events": 78
+  },
+  {
+    "ticker": "ADBE",
+    "events": 78
+  },
+  {
+    "ticker": "AZO",
+    "events": 78
+  },
+  {
+    "ticker": "BIIB",
+    "events": 78
+  }
+]
