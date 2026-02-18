@@ -5,15 +5,12 @@ import { db } from '@/lib/localdb/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Trash2, Pencil} from 'lucide-react'
 import EditSemesterInline from "./edit_semester"
 
 export default function Semesters({semesters, setSemesters}: { semesters: any[], setSemesters: (s: any[]) => void }) {
   const [name, setName] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [activeSemester, setActiveSemester] = useState<Semester | null>(null)
 
   const fetchSemesters = async () => {
     const user = (await db.auth.getUser()).data.user
@@ -57,33 +54,6 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
       console.error('Error creating semester:', JSON.stringify(error, null, 2))
     }
   }
-
-
-  const deleteSemester = async (id: string) => {
-    const { data: assignments } = await db
-      .from('assignments')
-      .select('id')
-      .eq('semester_id', id)
-
-    const { data: classes } = await db
-      .from('classes')
-      .select('id')
-      .eq('semester_id', id)
-
-    const { data: types } = await db
-      .from('types')
-      .select('id')
-      .eq('semester_id', id)
-
-    if (assignments && assignments.length > 0 || classes && classes.length > 0 || types && types.length > 0) {
-      alert('Cannot delete semester with assignments, classes, or types')
-      return
-    }
-
-    await db.from('semesters').delete().eq('id', id)
-    fetchSemesters()
-  }
-
   return (
     <div className="space-y-6">
       <ul className="space-y-3">
@@ -142,14 +112,6 @@ export default function Semesters({semesters, setSemesters}: { semesters: any[],
         <Button type="submit" className="w-full bg-zinc-700">
           Create Semester
         </Button>
-        {activeSemester && (
-          <EditSemesterModal
-            open={showEditModal}
-            setOpen={setShowEditModal}
-            semester={activeSemester}
-            fetchSemesters={fetchSemesters}
-          />
-        )}
       </form>
     </div>
   )

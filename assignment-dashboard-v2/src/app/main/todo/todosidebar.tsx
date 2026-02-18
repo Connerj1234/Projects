@@ -36,8 +36,9 @@ export default function TodoSidebar({
     const fetchLists = async () => {
       const { data, error } = await db.from('todo_lists').select('*').order('order', { ascending: true })
       if (!error && data) {
-        setLists(data)
-        setSelectedLists(data.map((l) => l.id))
+        const typedLists = data as TaskList[]
+        setLists(typedLists)
+        setSelectedLists(typedLists.map((l: TaskList) => l.id))
       }
     }
     fetchLists()

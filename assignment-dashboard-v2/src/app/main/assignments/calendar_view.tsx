@@ -44,11 +44,12 @@ export default function AssignmentCalendarView({
   fetchAssignments,
   assignments,
 }: Props) {
+  type MetaRow = { id: string; name: string; color: string }
   const [currentMonth, setCurrentMonth] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
-  const [classMap, setClassMap] = useState<any>({})
-  const [typeMap, setTypeMap] = useState<any>({})
+  const [classMap, setClassMap] = useState<Record<string, { name: string; color: string }>>({})
+  const [typeMap, setTypeMap] = useState<Record<string, { name: string; color: string }>>({})
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedClass, setSelectedClass] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
@@ -69,12 +70,12 @@ export default function AssignmentCalendarView({
       const { data: classes } = await classQuery
       const { data: types } = await typeQuery
 
-      const cMap: any = {}
-      classes?.forEach((c) => (cMap[c.id] = { name: c.name, color: c.color }))
+      const cMap: Record<string, { name: string; color: string }> = {}
+      ;(classes as MetaRow[] | null)?.forEach((c: MetaRow) => (cMap[c.id] = { name: c.name, color: c.color }))
       setClassMap(cMap)
 
-      const tMap: any = {}
-      types?.forEach((t) => (tMap[t.id] = { name: t.name, color: t.color }))
+      const tMap: Record<string, { name: string; color: string }> = {}
+      ;(types as MetaRow[] | null)?.forEach((t: MetaRow) => (tMap[t.id] = { name: t.name, color: t.color }))
       setTypeMap(tMap)
     }
     fetchMeta()

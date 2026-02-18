@@ -65,6 +65,7 @@ export default function AssignmentListView({
   fetchAssignments,
   onEdit,
 }: Props) {
+  type MetaRow = { id: string; name: string; color: string }
   const [classMap, setClassMap] = useState<{ [id: string]: { name: string; color: string } }>({})
   const [typeMap, setTypeMap] = useState<{ [id: string]: { name: string; color: string } }>({})
   const [selectedClass, setSelectedClass] = useState('all')
@@ -86,12 +87,12 @@ export default function AssignmentListView({
       const { data: classes } = await classQuery
       const { data: types } = await typeQuery
 
-      const cMap: any = {}
-      classes?.forEach((c) => (cMap[c.id] = { name: c.name, color: c.color }))
+      const cMap: Record<string, { name: string; color: string }> = {}
+      ;(classes as MetaRow[] | null)?.forEach((c: MetaRow) => (cMap[c.id] = { name: c.name, color: c.color }))
       setClassMap(cMap)
 
-      const tMap: any = {}
-      types?.forEach((t) => (tMap[t.id] = { name: t.name, color: t.color }))
+      const tMap: Record<string, { name: string; color: string }> = {}
+      ;(types as MetaRow[] | null)?.forEach((t: MetaRow) => (tMap[t.id] = { name: t.name, color: t.color }))
       setTypeMap(tMap)
     }
 
