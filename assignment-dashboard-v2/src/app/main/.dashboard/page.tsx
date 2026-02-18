@@ -250,35 +250,37 @@ export default function HomePage() {
     const today = startOfDay(new Date())
     const weekEnd = addDays(today, 6)
 
-    const assignmentItems: PlanItem[] = assignments
+    const assignmentItems = assignments
       .filter((assignment) => !assignment.completed)
-      .map((assignment) => {
+      .reduce<PlanItem[]>((acc, assignment) => {
         const due = dateOrNull(assignment.due_date)
-        if (!due) return null
-        return {
-          id: assignment.id,
-          kind: 'assignment' as const,
-          title: assignment.title,
-          dueDate: due,
-          subtitle: semesterMap.get(assignment.semester_id) ?? 'Assignment',
+        if (due) {
+          acc.push({
+            id: assignment.id,
+            kind: 'assignment',
+            title: assignment.title,
+            dueDate: due,
+            subtitle: semesterMap.get(assignment.semester_id) ?? 'Assignment',
+          })
         }
-      })
-      .filter((item): item is PlanItem => Boolean(item))
+        return acc
+      }, [])
 
-    const todoItems: PlanItem[] = todos
+    const todoItems = todos
       .filter((todo) => !todo.completed)
-      .map((todo) => {
+      .reduce<PlanItem[]>((acc, todo) => {
         const due = dateOrNull(todo.due_date)
-        if (!due) return null
-        return {
-          id: todo.id,
-          kind: 'todo' as const,
-          title: todo.title,
-          dueDate: due,
-          subtitle: 'To-Do',
+        if (due) {
+          acc.push({
+            id: todo.id,
+            kind: 'todo',
+            title: todo.title,
+            dueDate: due,
+            subtitle: 'To-Do',
+          })
         }
-      })
-      .filter((item): item is PlanItem => Boolean(item))
+        return acc
+      }, [])
 
     return [...assignmentItems, ...todoItems]
       .filter((item) => isWithinInterval(item.dueDate, { start: today, end: weekEnd }))
