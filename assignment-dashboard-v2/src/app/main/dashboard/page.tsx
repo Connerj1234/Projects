@@ -351,37 +351,37 @@ export default function HomePage() {
       </div>
 
       <section className="grid grid-cols-2 gap-3 px-2 md:grid-cols-4 xl:grid-cols-8">
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Assignments</p>
-          <p className="text-xl font-bold">{assignments.length}</p>
+          <p className="text-xl font-bold text-right">{assignments.length}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Pending Assignments</p>
-          <p className="text-xl font-bold">{assignments.filter((assignment) => !assignment.completed).length}</p>
+          <p className="text-xl font-bold text-right">{assignments.filter((assignment) => !assignment.completed).length}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Completed Assignments</p>
-          <p className="text-xl font-bold">{assignments.filter((assignment) => assignment.completed).length}</p>
+          <p className="text-xl font-bold text-right">{assignments.filter((assignment) => assignment.completed).length}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">To-Dos</p>
-          <p className="text-xl font-bold">{todos.length}</p>
+          <p className="text-xl font-bold text-right">{todos.length}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Open To-Dos</p>
-          <p className="text-xl font-bold">{todos.filter((todo) => !todo.completed).length}</p>
+          <p className="text-xl font-bold text-right">{todos.filter((todo) => !todo.completed).length}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Due Today</p>
-          <p className="text-xl font-bold">{dueTodayCount}</p>
+          <p className="text-xl font-bold text-right">{dueTodayCount}</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Focus Today</p>
-          <p className="text-xl font-bold">{focusSummary.todayMinutes}m</p>
+          <p className="text-xl font-bold text-right">{focusSummary.todayMinutes}m</p>
         </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3">
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-3 flex min-h-24 flex-col justify-between">
           <p className="text-xs text-zinc-400">Focus Streak</p>
-          <p className="text-xl font-bold">{focusSummary.streakDays}d</p>
+          <p className="text-xl font-bold text-right">{focusSummary.streakDays}d</p>
         </div>
       </section>
 
@@ -404,9 +404,6 @@ export default function HomePage() {
                   <g key={point.key}>
                     <rect x={x} y={120 - assignmentHeight} width="16" height={assignmentHeight} rx="3" fill="#3b82f6" />
                     <rect x={x + 18} y={120 - todoHeight} width="16" height={todoHeight} rx="3" fill="#10b981" />
-                    <text x={x + 17} y={Math.min(116 - Math.max(assignmentHeight, todoHeight), 112)} textAnchor="middle" className="fill-zinc-300 text-[10px]">
-                      {point.total}
-                    </text>
                     <text x={x + 17} y="142" textAnchor="middle" className="fill-zinc-400 text-[10px]">
                       {point.label}
                     </text>
@@ -437,9 +434,6 @@ export default function HomePage() {
                 return (
                   <g key={point.label}>
                     <circle cx={x} cy={y} r="4" fill="#f59e0b" />
-                    <text x={x} y={y - 8} textAnchor="middle" className="fill-zinc-300 text-[10px]">
-                      {point.total}
-                    </text>
                     <text x={x} y="144" textAnchor="middle" className="fill-zinc-400 text-[10px]">
                       {point.label}
                     </text>
