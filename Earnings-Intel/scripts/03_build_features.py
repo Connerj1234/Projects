@@ -33,8 +33,8 @@ def main() -> None:
     # Topic exposure features from transcript text.
     vectorizer = TfidfVectorizer(max_features=4000, ngram_range=(1, 2), min_df=3, max_df=0.85)
     X = vectorizer.fit_transform(df["content"])
-    n_topics = min(8, max(3, X.shape[0] // 20))
-    nmf = NMF(n_components=n_topics, random_state=42)
+    n_topics = min(8, max(1, X.shape[0] // 3))
+    nmf = NMF(n_components=n_topics, random_state=42, init="nndsvda", max_iter=1000)
     topic_matrix = nmf.fit_transform(X)
     for i in range(n_topics):
         df[f"topic_{i + 1}"] = topic_matrix[:, i]

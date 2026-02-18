@@ -1,5 +1,7 @@
 # Earnings Call Intelligence (Senior DS Portfolio Project)
 
+Quick project overview: see `PROJECT_SUMMARY.md`.
+
 This project builds an end-to-end pipeline that:
 1. Ingests earnings call transcripts
 2. Extracts NLP-based risk/opportunity signals
@@ -52,13 +54,20 @@ projects/earnings-intel/
 
 ## Data sources
 ### 1) Earnings call transcripts (primary)
-- Source: Financial Modeling Prep earnings call transcript endpoint
-- URL docs: [https://site.financialmodelingprep.com/developer/docs](https://site.financialmodelingprep.com/developer/docs)
-- You need an API key in `.env`:
-  - `FMP_API_KEY=...`
+- Source: SEC EDGAR filings (official, free)
+- URLs: [https://www.sec.gov/edgar/search-and-access](https://www.sec.gov/edgar/search-and-access), [https://www.sec.gov/edgar/sec-api-documentation](https://www.sec.gov/edgar/sec-api-documentation)
+- Script scans 8-K/6-K filings and extracts transcript-like filing text.
+- You must provide an SEC-compliant user agent in `.env`:
+  - `SEC_USER_AGENT=Your Name your-email@example.com`
+- SEC fair-access compliance:
+  - Requests are rate-limited (`SEC_REQUEST_INTERVAL_SEC`, default `0.25`).
+  - The script sends a contactable `User-Agent` header.
+- If SEC filings do not include transcript-like text for your sample, set a local fallback file:
+  - `TRANSCRIPTS_FALLBACK_PATH=/absolute/path/to/transcripts.csv`
+  - Required columns: `ticker,date,year,quarter,content`
 
 ### 2) Price data for event windows
-- Source: Yahoo Finance (via `yfinance` package)
+- Source: Yahoo Finance (via `yfinance`) with Stooq fallback (`https://stooq.com`) for rate-limit resilience
 - Includes ticker history + benchmark (`SPY` default)
 
 ### 3) Optional extensions for stronger final report
@@ -74,7 +83,8 @@ source .venv/bin/activate
 pip install -U pip
 pip install -r requirements.txt
 cp .env.example .env
-# Fill FMP_API_KEY in .env
+# Fill SEC_USER_AGENT in .env (required by SEC)
+# Optional: set TRANSCRIPTS_FALLBACK_PATH if SEC does not yield transcript-like rows
 ```
 
 ## Run pipeline
@@ -82,8 +92,8 @@ cp .env.example .env
 source .venv/bin/activate
 cd /Users/connerjamison/GitHub/Portfolio-Website/projects/earnings-intel
 
-PYTHONPATH=src python scripts/01_fetch_transcripts_fmp.py --tickers AAPL MSFT NVDA AMD AMZN GOOGL META TSLA --start-year 2019 --end-year 2025
-PYTHONPATH=src python scripts/02_fetch_prices.py --tickers AAPL MSFT NVDA AMD AMZN GOOGL META TSLA --start-date 2018-01-01 --end-date 2026-01-31
+PYTHONPATH=src python scripts/01_fetch_transcripts_fmp.py --tickers AAPL MSFT NVDA AMD AMZN GOOGL META TSLA --start-year 2019 --end-year 2025 --request-interval-sec 0.25
+PYTHONPATH=src python scripts/02_fetch_prices.py --tickers AAPL MSFT NVDA AMD AMZN GOOGL META TSLA --start-date 2018-01-01 --end-date 2026-01-31 --provider auto --max-retries 6 --base-delay-sec 1.0 --pause-between-tickers-sec 0.35
 PYTHONPATH=src python scripts/03_build_features.py
 PYTHONPATH=src python scripts/04_backtest_event_study.py
 PYTHONPATH=src python scripts/05_build_retrieval_index.py
@@ -106,7 +116,7 @@ curl -X POST http://127.0.0.1:8000/search \
 ```
 
 ## Outputs you will get
-- `data/raw/transcripts/fmp_transcripts.parquet`
+- `data/raw/transcripts/fmp_transcripts.parquet` (name retained for pipeline compatibility; source is SEC/fallback)
 - `data/raw/prices/daily_prices.parquet`
 - `data/processed/transcript_features.parquet`
 - `data/processed/event_level_dataset.parquet`

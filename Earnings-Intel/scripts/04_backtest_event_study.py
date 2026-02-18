@@ -4,7 +4,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
-import statsmodels.api as sm
 
 from earnings_intel.event_study import compute_event_return
 
@@ -13,6 +12,26 @@ FEATURES_PATH = ROOT / "data" / "processed" / "transcript_features.parquet"
 PRICES_PATH = ROOT / "data" / "raw" / "prices" / "daily_prices.parquet"
 EVENTS_OUT = ROOT / "data" / "processed" / "event_level_dataset.parquet"
 RESULTS_OUT = ROOT / "models" / "backtest_summary.txt"
+
+
+def _build_fallback_summary(ds: pd.DataFrame, numeric_features: list[str], import_error: str) -> str:
+    lines: list[str] = []
+    lines.append("Earnings Call NLP Signal Backtest")
+    lines.append("=" * 40)
+    lines.append(f"Observations: {len(ds)}")
+    lines.append("")
+    lines.append("Statsmodels unavailable")
+    lines.append(import_error)
+    lines.append("")
+    lines.append("Fallback descriptive summary")
+    lines.append(f"abnormal_1d mean: {ds['abnormal_1d'].mean():.6f}")
+    lines.append(f"abnormal_5d mean: {ds['abnormal_5d'].mean():.6f}")
+    lines.append("")
+    lines.append("Feature means:")
+    for col in numeric_features:
+        if col in ds.columns:
+            lines.append(f"  {col}: {ds[col].mean():.6f}")
+    return "\n".join(lines)
 
 
 def main() -> None:
@@ -59,15 +78,30 @@ def main() -> None:
         "log_word_count",
     ] + [c for c in ds.columns if c.startswith("topic_")]
 
-    X = sm.add_constant(ds[numeric_features].fillna(0.0))
+    try:
+        from statsmodels.regression.linear_model import OLS
+        from statsmodels.tools.tools import add_constant
+    except Exception as exc:
+        summary_text = _build_fallback_summary(ds, numeric_features, f"{type(exc).__name__}: {exc}")
+        RESULTS_OUT.parent.mkdir(parents=True, exist_ok=True)
+        RESULTS_OUT.write_text(summary_text)
+        print("statsmodels import failed; wrote descriptive fallback summary.")
+        print(f"Saved event dataset: {EVENTS_OUT}")
+        print(f"Saved regression summary: {RESULTS_OUT}")
+        return
 
-    model_1d = sm.OLS(ds["abnormal_1d"], X).fit(cov_type="HC3")
-    model_5d = sm.OLS(ds["abnormal_5d"], X).fit(cov_type="HC3")
+    max_features = max(1, len(ds) - 2)
+    selected_features = numeric_features[:max_features]
+    X = add_constant(ds[selected_features].fillna(0.0))
 
-    lines = []
+    model_1d = OLS(ds["abnormal_1d"], X).fit(cov_type="HC3")
+    model_5d = OLS(ds["abnormal_5d"], X).fit(cov_type="HC3")
+
+    lines: list[str] = []
     lines.append("Earnings Call NLP Signal Backtest")
     lines.append("=" * 40)
     lines.append(f"Observations: {len(ds)}")
+    lines.append(f"Regression features used: {len(selected_features)}")
     lines.append("")
     lines.append("Abnormal Return +1d (HC3 robust SE)")
     lines.append(model_1d.summary().as_text())
