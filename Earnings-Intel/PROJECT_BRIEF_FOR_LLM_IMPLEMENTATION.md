@@ -1,7 +1,7 @@
-# Earnings Intelligence Platform - Implementation Gameplan (Codex Ready)
+# Earnings Intelligence Platform - Implementation Gameplan
 
 ## 0) What you are building
-An interview ready end to end Data Science product that turns earnings communication text into measurable signals, links them to post event market behavior, and exposes everything in a clean dashboard with a semantic search demo.
+An end to end Data Science product that turns earnings communication text into measurable signals, links them to post event market behavior, and exposes everything in a clean dashboard with a semantic search demo.
 
 This file expands the original project brief into a step by step build plan with concrete data sources, scripts, artifacts, and acceptance checks for each phase.
 
@@ -12,16 +12,16 @@ Use a pre built transcript dataset (Kaggle) so the pipeline is not blocked by pa
 
 Pick one dataset and commit to it:
 
-Option A: Motley Fool scraped earnings call transcripts  
-- High coverage across tickers and dates  
+Option A: Motley Fool scraped earnings call transcripts
+- High coverage across tickers and dates
 - Columns typically include ticker, date, quarter, and transcript text
 
-Option B: AlphaSpread scraped earnings call transcripts (Top 50)  
-- Smaller than A, easier to start  
+Option B: AlphaSpread scraped earnings call transcripts (Top 50)
+- Smaller than A, easier to start
 - Still enough for a full modeling and dashboard story
 
-Price data: Stooq daily OHLCV, accessed via CSV endpoints  
-- Free, no API keys  
+Price data: Stooq daily OHLCV, accessed via CSV endpoints
+- Free, no API keys
 - Good enough for event study style labels
 
 ### Backup path (if you want to say you built ingestion too): SEC filings as the text source
@@ -37,10 +37,10 @@ You will build labels from prices and then train both interpretable baselines an
 
 Define two tasks:
 
-Task 1: Direction classification  
+Task 1: Direction classification
 - target_up = 1 if CAR(0, 1) > 0 else 0
 
-Task 2: Magnitude regression  
+Task 2: Magnitude regression
 - target_car = CAR(0, 1) in percent units, winsorized at p1 and p99
 
 Where CAR is cumulative abnormal return relative to a benchmark.
@@ -236,7 +236,7 @@ Features (minimum set):
 
 ### 7.2 Text vector features
 Create two representations:
-1. TF IDF with max_features (example 20k)  
+1. TF IDF with max_features (example 20k)
 2. Embeddings using a compact sentence transformer model
 
 Store:
@@ -426,4 +426,3 @@ Step 9: Final polish
 - If using EDGAR, respect the SEC fair access request rate and include a descriptive User Agent header.
 - Cache all downloaded content and never refetch the same filing or price series during normal runs.
 - Prefer static datasets for transcripts to avoid brittle scrapers.
-
