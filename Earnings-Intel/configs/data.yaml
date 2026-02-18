@@ -1,0 +1,9 @@
+transcripts:
+  source_name: "hf://Bose345/sp500_earnings_transcripts"
+  input_path: "data/raw/transcripts/sp500_transcripts.parquet"
+  raw_csv_path: "data/raw/transcripts/transcripts_raw.csv"
+  output_path: "data/processed/transcripts.parquet"
+  min_median_char_len: 5000
+
+report:
+  output_path: "reports/data_quality.md"

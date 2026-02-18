@@ -1,0 +1,9 @@
+# Large data
+data/
+*.parquet
+*.arrow
+*.feather
+
+# HuggingFace cache
+.cache/
+**/huggingface/
