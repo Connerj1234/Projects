@@ -1,0 +1,14 @@
+input:
+  transcripts_path: "data/processed/transcripts.parquet"
+
+output:
+  chunks_path: "data/processed/chunks.parquet"
+  index_dir: "data/processed/retrieval_index"
+
+chunking:
+  chunk_size_tokens: 300
+  overlap_tokens: 50
+  max_docs: 5000
+
+index:
+  max_features: 30000

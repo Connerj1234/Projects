@@ -6,6 +6,8 @@
 - no null tickers: PASS (0 null)
 - event_date parses >=95%: PASS (100.00%)
 - median char_len >= 5000: PASS (53735)
+- ticker price history includes >= 200 days: PASS (100.00% tickers)
+- label coverage >= 80%: PASS (91.28%)
 
 ## Summary stats
 
@@ -14,6 +16,13 @@
 - event_date range: 2005-10-13 00:00:00 to 2025-05-15 00:00:00
 - char_len median: 53735
 - token_len median: 9482
+- price rows: 466723
+- price requested tickers: 76
+- price downloaded tickers: 67
+- price failed tickers: 9
+- benchmark ticker: SPY
+- labeled events: 3633
+- label coverage: 91.28%
 
 ## Counts by ticker (top 25)
 

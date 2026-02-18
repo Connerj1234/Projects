@@ -9,15 +9,17 @@ data:
 	PYTHONPATH=src $(PYTHON) -m earnings_intel.pipelines.data --config configs/data.yaml
 
 features:
-	@echo "Not implemented yet: features pipeline."
+	PYTHONPATH=src $(PYTHON) -m earnings_intel.pipelines.features --config configs/features.yaml
 
 train:
-	@echo "Not implemented yet: training pipeline."
+	PYTHONPATH=src $(PYTHON) -m earnings_intel.modeling.train --config configs/model.yaml
 
 retrieval:
-	@echo "Not implemented yet: retrieval pipeline."
+	PYTHONPATH=src $(PYTHON) -m earnings_intel.pipelines.retrieval --config configs/retrieval.yaml
 
 app:
-	@echo "Not implemented yet: streamlit app."
+	PYTHONPATH=src $(PYTHON) -m earnings_intel.pipelines.web_assets --config configs/web.yaml
+	@echo "Web assets built in web/data"
+	@echo "Run: cd web && python -m http.server 8000"
 
 all: data features train retrieval

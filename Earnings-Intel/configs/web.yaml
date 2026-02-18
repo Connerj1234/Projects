@@ -1,0 +1,12 @@
+input:
+  transcripts_path: "data/processed/transcripts.parquet"
+  event_returns_path: "data/processed/event_returns.parquet"
+  features_tabular_path: "data/features/features_tabular.parquet"
+  predictions_path: "data/processed/predictions.parquet"
+  chunks_path: "data/processed/chunks.parquet"
+
+output:
+  web_data_dir: "web/data"
+
+retrieval:
+  max_chunks_for_browser_search: 5000

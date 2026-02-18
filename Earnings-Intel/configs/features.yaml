@@ -1,0 +1,22 @@
+input:
+  transcripts_path: "data/processed/transcripts.parquet"
+  event_returns_path: "data/processed/event_returns.parquet"
+
+output:
+  tabular_path: "data/features/features_tabular.parquet"
+  text_npz_path: "data/features/features_text.npz"
+  vectorizer_path: "models/trained/tfidf_vectorizer.joblib"
+  embeddings_path: "data/features/embeddings.npy"
+  feature_dictionary_report: "reports/feature_dictionary.md"
+
+tfidf:
+  max_features: 8000
+  min_df: 5
+
+embeddings:
+  dim: 128
+  random_state: 42
+
+labeled_only: true
+max_docs: null
+text_char_limit: 12000

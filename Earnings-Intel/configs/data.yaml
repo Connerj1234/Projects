@@ -5,5 +5,20 @@ transcripts:
   output_path: "data/processed/transcripts.parquet"
   min_median_char_len: 5000
 
+prices:
+  enabled: true
+  raw_dir: "data/raw/prices"
+  output_path: "data/processed/prices.parquet"
+  benchmark_ticker: "SPY"
+  max_tickers: 75
+  min_history_days: 200
+  force_download: false
+
+labels:
+  enabled: true
+  output_path: "data/processed/event_returns.parquet"
+  winsor_lower: 0.01
+  winsor_upper: 0.99
+
 report:
   output_path: "reports/data_quality.md"

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Earnings Intel Web Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <header class="hero">
+      <p class="eyebrow">Earnings Intelligence</p>
+      <h1>Signals from Earnings Language</h1>
+      <p class="subtitle">Custom web product for transcript analytics, model baselines, and semantic passage retrieval.</p>
+      <div id="summary-cards" class="summary-cards"></div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Key Findings</h2>
+        <div id="findings" class="findings"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Coverage Timeline</h2>
+        <canvas id="timelineChart"></canvas>
+      </section>
+
+      <section class="panel">
+        <h2>Top Tickers</h2>
+        <canvas id="tickerChart"></canvas>
+      </section>
+
+      <section class="panel">
+        <h2>Model Snapshot</h2>
+        <div class="grid-two">
+          <div>
+            <h3>Classification Accuracy</h3>
+            <canvas id="clsChart"></canvas>
+          </div>
+          <div>
+            <h3>Regression MAE</h3>
+            <canvas id="regChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Feature vs CAR Correlation</h2>
+        <canvas id="featChart"></canvas>
+      </section>
+
+      <section class="panel">
+        <h2>Retrieval Demo</h2>
+        <div class="search-bar">
+          <input id="queryInput" type="text" placeholder="Try: guidance margin expansion" />
+          <button id="searchBtn">Search</button>
+        </div>
+        <div id="results" class="results"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

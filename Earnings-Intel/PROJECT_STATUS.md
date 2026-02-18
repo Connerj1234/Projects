@@ -21,12 +21,36 @@ For project overview/architecture, use `README.md`.
   - `data/raw/transcripts/transcripts_raw.csv`
   - `data/processed/transcripts.parquet`
   - `reports/data_quality.md`
+- Implemented Stooq price ingestion with caching and combined parquet output:
+  - `data/raw/prices/{ticker}.csv`
+  - `data/processed/prices.parquet`
+- Implemented event-window alignment and abnormal return labels:
+  - `AR_0`, `AR_1`, `CAR_0_1`, `target_car`, `target_up`
+  - `data/processed/event_returns.parquet`
+- Extended QC report with price and label coverage checks.
+- Implemented Phase 3 features pipeline:
+  - Tabular engineered features in `data/features/features_tabular.parquet`
+  - TF-IDF sparse matrix in `data/features/features_text.npz`
+  - Dense embeddings in `data/features/embeddings.npy`
+  - Vectorizer artifact in `models/trained/tfidf_vectorizer.joblib`
+  - Feature dictionary report in `reports/feature_dictionary.md`
+- Implemented Phase 4 modeling pipeline:
+  - Time-based split (train/val/test)
+  - Classification baselines: majority, logistic (TF-IDF), logistic (tabular)
+  - Regression baselines: mean, ridge (TF-IDF), elastic net (tabular)
+  - Predictions artifact in `data/processed/predictions.parquet`
+  - Model evaluation summary in `reports/model_card.md`
+  - Trained model artifacts in `models/trained/*.joblib`
+- Implemented Phase 5 retrieval pipeline:
+  - Transcript chunking with overlap and metadata
+  - Chunk artifact in `data/processed/chunks.parquet`
+  - Local retrieval index in `data/processed/retrieval_index/`
+  - Query API in `src/earnings_intel/retrieval/query.py`
 
 ## Current Focus
 
-- Transitioning from Phase 1 (transcript ingestion/QC) to Phase 2:
-  - Price ingestion
-  - Event-study label construction
+- Phase 6 implementation:
+  - Custom web dashboard polish and integration
 
 ## Verified Data Readiness
 
@@ -41,8 +65,7 @@ All current transcript acceptance checks pass in `reports/data_quality.md`.
 
 ## Next Steps
 
-1. Implement Stooq price ingestion with caching.
-2. Build event windows and abnormal return labels (`AR_0`, `AR_1`, `CAR_0_1`).
-3. Write `data/processed/event_returns.parquet`.
-4. Extend data quality reporting with transcript-to-price coverage metrics.
-5. Update `make data` / `make all` to include completed label pipeline.
+1. Add more narrative copy and screenshots for interview walkthrough.
+2. Expand retrieval UI with ticker/year filters and query presets.
+3. Add final limitations/roadmap section in the web UI.
+4. Prepare demo script tied to the webpage flow.

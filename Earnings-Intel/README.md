@@ -17,7 +17,7 @@ The goal is to demonstrate production-style data science:
 3. Engineer interpretable and text-native features.
 4. Train baseline and primary models for direction and magnitude tasks.
 5. Provide semantic passage search over transcript chunks.
-6. Serve results through a Streamlit app.
+6. Serve results through a custom HTML/CSS/JS web dashboard.
 
 ## Architecture
 
@@ -29,7 +29,7 @@ The goal is to demonstrate production-style data science:
 ## Data sources
 
 - Transcript corpus: Hugging Face dataset `Bose345/sp500_earnings_transcripts`
-- Price data target source: Stooq daily OHLCV (planned in next phase)
+- Price data source: Stooq daily OHLCV
 - Benchmark target: SPY (configurable)
 
 ## Repository layout
@@ -46,12 +46,27 @@ Core folders:
 ```bash
 make setup
 make data
+make features
+make train
+make retrieval
+make app
 make all
 ```
 
 - `make setup` installs the package in editable mode
-- `make data` runs data ingestion/normalization + QC report
+- `make data` runs transcript ingestion, price ingestion, label generation, and QC reporting
+- `make features` builds tabular/text/embedding feature artifacts
+- `make train` runs baseline modeling, evaluation, and writes predictions/model card
+- `make retrieval` builds transcript chunks and a local semantic index
+- `make app` exports compact JSON assets for the custom webpage in `web/`
 - `make all` is the full workflow entry point (expands as phases are implemented)
+
+To run the webpage locally:
+
+```bash
+cd web
+python -m http.server 8000
+```
 
 ## Implementation brief
 
