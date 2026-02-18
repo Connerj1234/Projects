@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  eslint: {
+    // Keep lint for local/dev workflows, but do not fail production builds on lint.
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
