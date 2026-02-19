@@ -490,10 +490,18 @@ async function loadStandingsSnapshot() {
 
 function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
   const completed = seasonFixtures.filter((m) => m.completed && m.outcome);
-  const last10 = completed.slice(-10);
   const last5 = completed.slice(-5);
-  const pointsLast10 = last10.reduce((sum, m) => sum + (m.outcome === "Win" ? 3 : m.outcome === "Draw" ? 1 : 0), 0);
+  const pointsLast5 = last5.reduce((sum, m) => sum + (m.outcome === "Win" ? 3 : m.outcome === "Draw" ? 1 : 0), 0);
   const goalDiffLast5 = last5.reduce((sum, m) => sum + ((m.atlScore ?? 0) - (m.oppScore ?? 0)), 0);
+  const wdlLast5 = last5.reduce(
+    (acc, m) => {
+      if (m.outcome === "Win") acc.wins += 1;
+      if (m.outcome === "Draw") acc.draws += 1;
+      if (m.outcome === "Loss") acc.losses += 1;
+      return acc;
+    },
+    { wins: 0, draws: 0, losses: 0 },
+  );
 
   const now = Date.now();
   const seasonUpcoming = seasonFixtures
@@ -537,10 +545,11 @@ function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
 
   return {
     formTrend: {
-      pointsLast10,
-      maxPoints: 30,
+      pointsLast5,
       goalDiffLast5,
-      samplePlayed: last10.length,
+      formRatingOutOf5: Number(((pointsLast5 / 15) * 5).toFixed(1)),
+      goalDiffPerMatch: Number((goalDiffLast5 / 5).toFixed(2)),
+      wdlLast5,
     },
     nextThree: upcoming,
     playoffLine: playoffSnapshot,

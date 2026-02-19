@@ -27,10 +27,15 @@ window.ATL_DATA = {
   "results": [],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast10": 0,
-      "maxPoints": 30,
+      "pointsLast5": 0,
       "goalDiffLast5": 0,
-      "samplePlayed": 0
+      "formRatingOutOf5": 0,
+      "goalDiffPerMatch": 0,
+      "wdlLast5": {
+        "wins": 0,
+        "draws": 0,
+        "losses": 0
+      }
     },
     "nextThree": [
       {
@@ -59,7 +64,7 @@ window.ATL_DATA = {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-19T03:11:46.469Z"
+    "generatedAt": "2026-02-19T03:15:59.795Z"
   },
   "seasonHistory": [
     {

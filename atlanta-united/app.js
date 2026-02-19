@@ -204,15 +204,19 @@
 
   if (formTrendCard) {
     const trend = data.quickSnapshot?.formTrend;
-    const points10 = trend?.pointsLast10 ?? "-";
-    const maxPts = trend?.maxPoints ?? 30;
+    const formRating = trend?.formRatingOutOf5;
+    const points5 = trend?.pointsLast5;
     const gd5 = trend?.goalDiffLast5;
-    const gdText = gd5 == null ? "-" : gd5 > 0 ? `+${gd5}` : String(gd5);
-    const sample = trend?.samplePlayed ?? 0;
+    const gdPerMatch = trend?.goalDiffPerMatch;
+    const wdl = trend?.wdlLast5;
+    const ratingText = formRating == null ? "-" : `${formRating}/5`;
+    const pointsText = points5 == null ? "-" : `${points5} pts`;
+    const gdText = gdPerMatch == null ? "-" : gdPerMatch > 0 ? `+${gdPerMatch}` : String(gdPerMatch);
+    const wdlText = wdl ? `${wdl.wins}-${wdl.draws}-${wdl.losses}` : "-";
     formTrendCard.innerHTML = `
-      <div><b>Last 10 Points:</b> ${points10}/${maxPts}</div>
-      <div><b>GD (Last 5):</b> ${gdText}</div>
-      <div><b>Matches Sampled:</b> ${sample}</div>
+      <div><b>Form Rating:</b> ${ratingText} <span class="quick-muted">(${pointsText})</span></div>
+      <div><b>GD / Match (Last 5):</b> ${gdText}</div>
+      <div><b>W-D-L (Last 5):</b> ${wdlText}</div>
     `;
   }
 
