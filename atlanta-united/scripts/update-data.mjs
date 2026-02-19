@@ -92,6 +92,8 @@ function parseFixture(event) {
     .flatMap((b) => b?.names ?? [])
     .filter(Boolean)
     .join(", ");
+  const attendanceRaw = event?.competitions?.[0]?.attendance;
+  const attendance = Number.isFinite(Number(attendanceRaw)) ? Number(attendanceRaw) : null;
 
   return {
     dateISO,
@@ -106,6 +108,7 @@ function parseFixture(event) {
     atlScore,
     oppScore,
     score: hasScore ? `${atlScore}-${oppScore}` : "-",
+    attendance,
   };
 }
 
@@ -200,6 +203,8 @@ function deriveSeasonSnapshot(fixtures) {
   let awayWins = 0;
   let awayDraws = 0;
   let awayLosses = 0;
+  let homeAttendanceTotal = 0;
+  let homeAttendanceMatches = 0;
 
   for (const match of completed) {
     if (match.outcome === "Win") wins += 1;
@@ -214,6 +219,10 @@ function deriveSeasonSnapshot(fixtures) {
       if (match.outcome === "Win") homeWins += 1;
       if (match.outcome === "Draw") homeDraws += 1;
       if (match.outcome === "Loss") homeLosses += 1;
+      if (Number.isFinite(match.attendance)) {
+        homeAttendanceTotal += match.attendance;
+        homeAttendanceMatches += 1;
+      }
     } else {
       if (match.outcome === "Win") awayWins += 1;
       if (match.outcome === "Draw") awayDraws += 1;
@@ -230,6 +239,7 @@ function deriveSeasonSnapshot(fixtures) {
       homeRecord: `${homeWins}-${homeDraws}-${homeLosses}`,
       awayRecord: `${awayWins}-${awayDraws}-${awayLosses}`,
       cleanSheets,
+      avgAttendance: homeAttendanceMatches > 0 ? Math.round(homeAttendanceTotal / homeAttendanceMatches) : null,
     },
     formLastFive: completed
       .slice(-5)
@@ -388,12 +398,18 @@ async function buildLiveData() {
   const seasonFixtures = dedupeFixtures(selected.fixtures);
   const snapshot = deriveSeasonSnapshot(seasonFixtures);
   const nextMatch = pickNextMatch(allFixtures);
+  const atlantaStanding = standings?.atlanta ?? null;
+  const position =
+    atlantaStanding && Number.isFinite(Number(atlantaStanding.rank))
+      ? { rank: Number(atlantaStanding.rank), conference: atlantaStanding.conference ?? "Conference" }
+      : null;
 
   return {
     season: selected.label,
     clubName: TEAM_NAME,
     record: snapshot.record,
     stats: snapshot.stats,
+    position,
     formLastFive: snapshot.formLastFive,
     nextMatch,
     results: snapshot.results,

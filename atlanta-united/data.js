@@ -12,8 +12,10 @@ window.ATL_DATA = {
     "goalsAgainst": 0,
     "homeRecord": "0-0-0",
     "awayRecord": "0-0-0",
-    "cleanSheets": 0
+    "cleanSheets": 0,
+    "avgAttendance": null
   },
+  "position": null,
   "formLastFive": [],
   "nextMatch": {
     "opponent": "FC Cincinnati",
@@ -27,7 +29,7 @@ window.ATL_DATA = {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-19T02:36:12.643Z"
+    "generatedAt": "2026-02-19T02:45:58.426Z"
   },
   "seasonHistory": [
     {

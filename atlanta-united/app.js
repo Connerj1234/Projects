@@ -16,19 +16,40 @@
   const timeline = document.getElementById("timeline");
   const historyBody = document.getElementById("historyBody");
 
+  function ordinal(n) {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return `${n}${s[(v - 20) % 10] || s[v] || s[0]}`;
+  }
+
   if (seasonLabel) seasonLabel.textContent = data.season;
   if (recordLine) {
     recordLine.textContent = `${data.clubName}: ${data.record.wins}-${data.record.draws}-${data.record.losses}`;
   }
 
   if (metaStats) {
+    const conferenceLabel =
+      typeof data.position?.conference === "string" && /east/i.test(data.position.conference)
+        ? "East"
+        : typeof data.position?.conference === "string" && /west/i.test(data.position.conference)
+          ? "West"
+          : data.position?.conference || "Conference";
+    const positionText =
+      data.position && Number.isFinite(Number(data.position.rank))
+        ? `${ordinal(Number(data.position.rank))} in ${conferenceLabel}`
+        : "-";
+    const avgAttendance =
+      Number.isFinite(Number(data.stats.avgAttendance)) ? Number(data.stats.avgAttendance).toLocaleString() : "-";
+
     const statsEntries = [
       ["Points", data.stats.points],
       ["GF", data.stats.goalsFor],
       ["GA", data.stats.goalsAgainst],
+      ["Position", positionText],
       ["Home", data.stats.homeRecord],
       ["Away", data.stats.awayRecord],
       ["Clean Sheets", data.stats.cleanSheets],
+      ["Avg Attendance", avgAttendance],
     ];
 
     metaStats.innerHTML = statsEntries
