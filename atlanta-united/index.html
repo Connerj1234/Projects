@@ -84,9 +84,64 @@
               </table>
             </div>
           </section>
+
+          <section class="card full">
+            <div class="card-head">
+              <h3>Live Standings Snapshot</h3>
+              <span class="pill">East + West</span>
+            </div>
+            <div id="standingsUpdated" class="standings-updated"></div>
+            <div class="standings-grid">
+              <div class="standings-conference">
+                <h3>Eastern Conference</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody id="eastStandingsBody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="standings-conference">
+                <h3>Western Conference</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody id="westStandingsBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
     </div>
+
+    <footer class="site-footer">
+      <p>Fan-made by Conner Jamison • <a href="https://github.com/Connerj1234/Projects/tree/main/atlanta-united" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    </footer>
 
     <script src="data.js"></script>
     <script src="app.js"></script>

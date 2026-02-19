@@ -1,0 +1,8 @@
+{
+  "name": "atlanta-united-fan-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update-data": "node scripts/update-data.mjs"
+  }
+}

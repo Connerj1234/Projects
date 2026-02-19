@@ -10,6 +10,9 @@
   const nextMatch = document.getElementById("nextMatch");
   const countdown = document.getElementById("countdown");
   const resultsBody = document.getElementById("resultsBody");
+  const eastStandingsBody = document.getElementById("eastStandingsBody");
+  const westStandingsBody = document.getElementById("westStandingsBody");
+  const standingsUpdated = document.getElementById("standingsUpdated");
   const timeline = document.getElementById("timeline");
   const historyBody = document.getElementById("historyBody");
 
@@ -61,42 +64,52 @@
 
   if (nextMatch) {
     const next = data.nextMatch;
-    const nextDate = new Date(next.dateISO);
-    nextMatch.innerHTML = `
-      <div class="next-opponent">vs ${next.opponent}</div>
-      <div class="next-meta">${next.competition} | ${next.venue}</div>
-      <div class="next-meta">${nextDate.toLocaleString(undefined, {
-        weekday: "short",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-      })}</div>
-      <div class="next-meta">Watch: ${next.broadcast}</div>
-    `;
+    const nextDate = new Date(next?.dateISO ?? "");
+    const hasMatch = next && Number.isFinite(nextDate.getTime());
 
-    if (countdown) {
-      function updateCountdown() {
-        const diff = nextDate.getTime() - Date.now();
-        if (diff <= 0) {
-          countdown.innerHTML = "<div class='count-item'><strong>Live</strong><span>Matchday</span></div>";
-          return;
+    if (!hasMatch) {
+      nextMatch.innerHTML = `
+        <div class="next-opponent">Next Fixture TBD</div>
+        <div class="next-meta">The upcoming match has not been posted by the data source yet.</div>
+      `;
+      if (countdown) countdown.innerHTML = "";
+    } else {
+      nextMatch.innerHTML = `
+        <div class="next-opponent">vs ${next.opponent}</div>
+        <div class="next-meta">${next.competition} | ${next.venue}</div>
+        <div class="next-meta">${nextDate.toLocaleString(undefined, {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        })}</div>
+        <div class="next-meta">Watch: ${next.broadcast}</div>
+      `;
+
+      if (countdown) {
+        function updateCountdown() {
+          const diff = nextDate.getTime() - Date.now();
+          if (diff <= 0) {
+            countdown.innerHTML = "<div class='count-item'><strong>Live</strong><span>Matchday</span></div>";
+            return;
+          }
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+
+          countdown.innerHTML = `
+            <div class="count-item"><strong>${days}</strong><span>Days</span></div>
+            <div class="count-item"><strong>${hours}</strong><span>Hours</span></div>
+            <div class="count-item"><strong>${minutes}</strong><span>Min</span></div>
+            <div class="count-item"><strong>${seconds}</strong><span>Sec</span></div>
+          `;
         }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
 
-        countdown.innerHTML = `
-          <div class="count-item"><strong>${days}</strong><span>Days</span></div>
-          <div class="count-item"><strong>${hours}</strong><span>Hours</span></div>
-          <div class="count-item"><strong>${minutes}</strong><span>Min</span></div>
-          <div class="count-item"><strong>${seconds}</strong><span>Sec</span></div>
-        `;
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
       }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
     }
   }
 
@@ -117,6 +130,51 @@
         `;
       })
       .join("");
+  }
+
+  function valueOrDash(value) {
+    return value == null || value === "" ? "-" : value;
+  }
+
+  function renderStandingsRows(rows) {
+    if (!rows || rows.length === 0) {
+      return `<tr><td colspan="8" class="standings-empty">Standings unavailable right now.</td></tr>`;
+    }
+
+    return rows
+      .map(
+        (row) => `
+        <tr class="${row.isAtlanta ? "atlanta-row" : ""}">
+          <td>${valueOrDash(row.rank)}</td>
+          <td>${valueOrDash(row.team)}</td>
+          <td>${valueOrDash(row.played)}</td>
+          <td>${valueOrDash(row.wins)}</td>
+          <td>${valueOrDash(row.draws)}</td>
+          <td>${valueOrDash(row.losses)}</td>
+          <td>${valueOrDash(row.goalDiff)}</td>
+          <td>${valueOrDash(row.points)}</td>
+        </tr>
+      `,
+      )
+      .join("");
+  }
+
+  if (eastStandingsBody) {
+    eastStandingsBody.innerHTML = renderStandingsRows(data.standings?.east);
+  }
+
+  if (westStandingsBody) {
+    westStandingsBody.innerHTML = renderStandingsRows(data.standings?.west);
+  }
+
+  if (standingsUpdated) {
+    const generatedAt = data.standings?.generatedAt;
+    if (generatedAt) {
+      const ts = new Date(generatedAt);
+      standingsUpdated.textContent = `Updated ${ts.toLocaleString()}`;
+    } else {
+      standingsUpdated.textContent = "Standings update time unavailable.";
+    }
   }
 
   if (timeline) {
