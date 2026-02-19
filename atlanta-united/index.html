@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlanta United Fan Hub | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-left" aria-hidden="true"></div>
+    <div class="ambient ambient-right" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="sidebar-kicker">Atlanta United</div>
+          <h1 class="sidebar-title">Fan Hub</h1>
+          <nav class="side-nav" aria-label="Primary">
+            <a class="side-link active" href="index.html">Home</a>
+            <a class="side-link" href="history.html">History</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="content">
+        <header class="hero">
+          <div class="hero-topline">Current Season</div>
+          <h2>Season Tracker</h2>
+        </header>
+
+        <main class="page-grid">
+          <section class="card season-card">
+            <div class="card-head">
+              <h3>Season Pulse</h3>
+              <span id="seasonLabel" class="pill"></span>
+            </div>
+            <div class="record-wrap">
+              <div class="record-copy">
+                <div class="record-line" id="recordLine"></div>
+                <div class="meta-grid" id="metaStats"></div>
+                <div>
+                  <h3>Last 5</h3>
+                  <div id="lastFive" class="form-row"></div>
+                </div>
+              </div>
+              <div class="record-chart-wrap">
+                <div id="recordChart" class="record-chart"></div>
+                <div class="chart-caption">Win / Draw / Loss Split</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card next-match-card">
+            <div class="card-head">
+              <h3>Next Match</h3>
+              <span class="pill">Countdown</span>
+            </div>
+            <div id="nextMatch" class="next-match"></div>
+            <div id="countdown" class="countdown"></div>
+          </section>
+
+          <section class="card full results-card">
+            <div class="card-head">
+              <h3>Recent Results</h3>
+              <span class="pill">Latest Fixtures</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Venue</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

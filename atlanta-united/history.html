@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlanta United Fan Hub | History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-left" aria-hidden="true"></div>
+    <div class="ambient ambient-right" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="sidebar-kicker">Atlanta United</div>
+          <h1 class="sidebar-title">Fan Hub</h1>
+          <nav class="side-nav" aria-label="Primary">
+            <a class="side-link" href="index.html">Home</a>
+            <a class="side-link active" href="history.html">History</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="content">
+        <header class="hero">
+          <div class="hero-topline">Club History</div>
+          <h2>Timeline and Season Archive</h2>
+        </header>
+
+        <main class="page-grid">
+          <section class="card full">
+            <div class="card-head">
+              <h3>Club Timeline</h3>
+              <span class="pill">Moments</span>
+            </div>
+            <div id="timeline" class="timeline"></div>
+          </section>
+
+          <section class="card full">
+            <div class="card-head">
+              <h3>Season History (Since 2017)</h3>
+              <span class="pill">Regular Season</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Season</th>
+                    <th>W-D-L</th>
+                    <th>Pts</th>
+                    <th>Finish</th>
+                    <th>Playoffs</th>
+                  </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card full">
+            <div class="card-head">
+              <h3>Future Section</h3>
+              <span class="pill">Coming Soon</span>
+            </div>
+            <p class="muted-copy">
+              This page is ready for your all-time Atlanta United starting XI visuals.
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
