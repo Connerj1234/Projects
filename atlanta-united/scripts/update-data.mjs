@@ -42,6 +42,51 @@ async function fetchJson(url) {
   return response.json();
 }
 
+async function fetchJsonSafe(url, fallback = {}) {
+  try {
+    return await fetchJson(url);
+  } catch {
+    return fallback;
+  }
+}
+
+function collectEventLikeNodes(root) {
+  const seen = new Set();
+  const out = [];
+
+  function walk(node) {
+    if (!node || typeof node !== "object") return;
+    if (seen.has(node)) return;
+    seen.add(node);
+
+    if (Array.isArray(node)) {
+      for (const item of node) walk(item);
+      return;
+    }
+
+    if (typeof node.date === "string" && (Array.isArray(node.competitions) || node.status)) {
+      out.push(node);
+    }
+
+    for (const value of Object.values(node)) {
+      walk(value);
+    }
+  }
+
+  walk(root);
+  return out;
+}
+
+function extractFixturesFromPayload(payload) {
+  const explicit = [
+    ...(Array.isArray(payload?.events) ? payload.events : []),
+    ...(Array.isArray(payload?.team?.nextEvent) ? payload.team.nextEvent : []),
+    ...(Array.isArray(payload?.nextEvent) ? payload.nextEvent : []),
+  ];
+  const discovered = collectEventLikeNodes(payload);
+  return dedupeFixtures([...explicit, ...discovered].map(parseFixture).filter(Boolean));
+}
+
 function getCompetitors(event) {
   return event?.competitions?.[0]?.competitors ?? [];
 }
@@ -122,24 +167,87 @@ function dedupeFixtures(fixtures) {
 }
 
 async function loadSeasonFixtures(seasonYear) {
-  const url = `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule?season=${seasonYear}`;
-  const payload = await fetchJson(url);
-  const events = payload?.events ?? payload?.team?.nextEvent ?? [];
-  return events.map(parseFixture).filter(Boolean);
+  const urls = [
+    `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule?season=${seasonYear}`,
+    `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule?season=${seasonYear}&seasontype=2`,
+    `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule?season=${seasonYear}&seasontype=1`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/schedule?season=${seasonYear}`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/schedule?season=${seasonYear}&seasontype=2`,
+  ];
+
+  const all = [];
+  for (const url of urls) {
+    try {
+      const payload = await fetchJson(url);
+      all.push(...extractFixturesFromPayload(payload));
+    } catch {
+      // keep going; some variants may not exist for this sport/season
+    }
+  }
+
+  return dedupeFixtures(all);
 }
 
 async function loadGeneralFixtures() {
-  const url = `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule`;
-  const payload = await fetchJson(url);
-  const events = payload?.events ?? payload?.team?.nextEvent ?? [];
-  return events.map(parseFixture).filter(Boolean);
+  const urls = [
+    `${ESPN_API_BASE}/teams/${TEAM_ID}/schedule`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/schedule`,
+  ];
+  const all = [];
+  for (const url of urls) {
+    try {
+      const payload = await fetchJson(url);
+      all.push(...extractFixturesFromPayload(payload));
+    } catch {
+      // try next url variant
+    }
+  }
+  return dedupeFixtures(all);
+}
+
+function formatDateYYYYMMDD(date) {
+  const y = date.getUTCFullYear();
+  const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(date.getUTCDate()).padStart(2, "0");
+  return `${y}${m}${d}`;
+}
+
+async function loadLeagueFixturesRange(fromDate, toDate) {
+  const all = [];
+  const startMs = Date.UTC(fromDate.getUTCFullYear(), fromDate.getUTCMonth(), fromDate.getUTCDate());
+  const endMs = Date.UTC(toDate.getUTCFullYear(), toDate.getUTCMonth(), toDate.getUTCDate());
+  const dayMs = 24 * 60 * 60 * 1000;
+  const windowDays = 21;
+
+  for (let cursor = startMs; cursor <= endMs; cursor += windowDays * dayMs) {
+    const windowStart = new Date(cursor);
+    const windowEnd = new Date(Math.min(endMs, cursor + (windowDays - 1) * dayMs));
+    const from = formatDateYYYYMMDD(windowStart);
+    const to = formatDateYYYYMMDD(windowEnd);
+    const url = `${ESPN_API_BASE}/scoreboard?dates=${from}-${to}&limit=1000`;
+    const payload = await fetchJsonSafe(url, {});
+    const events = payload?.events ?? [];
+    all.push(...events.map(parseFixture).filter(Boolean));
+  }
+
+  return dedupeFixtures(all);
 }
 
 async function loadTeamOverviewNextEvents() {
-  const url = `${ESPN_API_BASE}/teams/${TEAM_ID}`;
-  const payload = await fetchJson(url);
-  const events = payload?.team?.nextEvent ?? payload?.nextEvent ?? [];
-  return events.map(parseFixture).filter(Boolean);
+  const urls = [
+    `${ESPN_API_BASE}/teams/${TEAM_ID}`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}`,
+  ];
+  const all = [];
+  for (const url of urls) {
+    try {
+      const payload = await fetchJson(url);
+      all.push(...extractFixturesFromPayload(payload));
+    } catch {
+      // continue with fallback variant
+    }
+  }
+  return dedupeFixtures(all);
 }
 
 function pickActiveSeason(fixtures, nowYear) {
@@ -284,6 +392,11 @@ function parseStatValue(raw) {
   return Number.isFinite(asNumber) ? asNumber : str;
 }
 
+function toNumber(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
 function parseStandingsRows(rows, conferenceName) {
   return rows.map((row, idx) => {
     const team = row?.team ?? {};
@@ -375,19 +488,159 @@ async function loadStandingsSnapshot() {
   };
 }
 
+function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
+  const completed = seasonFixtures.filter((m) => m.completed && m.outcome);
+  const last10 = completed.slice(-10);
+  const last5 = completed.slice(-5);
+  const pointsLast10 = last10.reduce((sum, m) => sum + (m.outcome === "Win" ? 3 : m.outcome === "Draw" ? 1 : 0), 0);
+  const goalDiffLast5 = last5.reduce((sum, m) => sum + ((m.atlScore ?? 0) - (m.oppScore ?? 0)), 0);
+
+  const now = Date.now();
+  const seasonUpcoming = seasonFixtures
+    .filter((f) => !f.completed && Number.isFinite(Date.parse(f.dateISO)) && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
+  const allUpcoming = allFixtures
+    .filter((f) => !f.completed && Number.isFinite(Date.parse(f.dateISO)) && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
+  const upcoming = dedupeFixtures([...seasonUpcoming, ...allUpcoming])
+    .slice(0, 3)
+    .map((m) => ({
+      opponent: m.opponent,
+      dateISO: m.dateISO,
+      venue: m.venue,
+      competition: m.competition,
+    }));
+
+  const eastRows = standings?.east ?? [];
+  const atlanta = standings?.atlanta;
+  const playoffLineRank = 9;
+  const playoffLineTeam = eastRows.find((r) => Number(r.rank) === playoffLineRank) ?? null;
+  const atlPoints = toNumber(atlanta?.points);
+  const linePoints = toNumber(playoffLineTeam?.points);
+  const atlPlayed = toNumber(atlanta?.played);
+  const linePlayed = toNumber(playoffLineTeam?.played);
+
+  const playoffSnapshot =
+    atlanta && /east/i.test(atlanta.conference || "")
+      ? {
+          conference: "East",
+          rank: toNumber(atlanta.rank),
+          points: atlPoints,
+          lineRank: playoffLineRank,
+          linePoints,
+          pointsFromLine:
+            atlPoints != null && linePoints != null ? atlPoints - linePoints : null,
+          gamesInHand:
+            atlPlayed != null && linePlayed != null ? linePlayed - atlPlayed : null,
+        }
+      : null;
+
+  return {
+    formTrend: {
+      pointsLast10,
+      maxPoints: 30,
+      goalDiffLast5,
+      samplePlayed: last10.length,
+    },
+    nextThree: upcoming,
+    playoffLine: playoffSnapshot,
+  };
+}
+
+function flattenRosterGroups(payload) {
+  const groups = payload?.athletes ?? payload?.groups ?? [];
+  const all = [];
+  for (const group of groups) {
+    const items = group?.items ?? group?.athletes ?? [];
+    for (const athlete of items) all.push(athlete);
+  }
+  return all;
+}
+
+function collectAthleteStats(node, map) {
+  if (!node || typeof node !== "object") return;
+
+  if (Array.isArray(node)) {
+    for (const item of node) collectAthleteStats(item, map);
+    return;
+  }
+
+  const athlete = node?.athlete ?? node?.player ?? null;
+  const stats = node?.stats ?? node?.statistics ?? null;
+  if (athlete && stats) {
+    const id = String(athlete?.id ?? "");
+    if (id) {
+      const curr = map.get(id) ?? {};
+      const statArr = Array.isArray(stats) ? stats : [];
+      for (const s of statArr) {
+        const key = String(s?.name ?? s?.abbreviation ?? "").toLowerCase();
+        const val = parseStatValue(s?.value ?? s?.displayValue);
+        if (!key) continue;
+        if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$)/.test(key) && curr.appearances == null) curr.appearances = val;
+        if (/(^goals$|^goalsscored$)/.test(key) && curr.goals == null) curr.goals = val;
+        if (/^assists$/.test(key) && curr.assists == null) curr.assists = val;
+        if (/(^minutes$|^mins$|^timeplayed$)/.test(key) && curr.minutes == null) curr.minutes = val;
+      }
+      map.set(id, curr);
+    }
+  }
+
+  for (const value of Object.values(node)) {
+    if (value && typeof value === "object") collectAthleteStats(value, map);
+  }
+}
+
+async function loadPlayerStatsSnapshot() {
+  const [rosterPayload, teamPayload, statsPayload] = await Promise.all([
+    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/roster`, {}),
+    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}`, {}),
+    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/statistics`, {}),
+  ]);
+
+  const rosterAthletes = flattenRosterGroups(rosterPayload);
+  const statsMap = new Map();
+  collectAthleteStats(rosterPayload, statsMap);
+  collectAthleteStats(teamPayload, statsMap);
+  collectAthleteStats(statsPayload, statsMap);
+
+  return rosterAthletes
+    .map((a) => {
+      const id = String(a?.id ?? "");
+      const merged = statsMap.get(id) ?? {};
+      const status = a?.status?.type?.shortDetail || a?.status?.type?.description || "Available";
+      return {
+        id,
+        name: a?.displayName || a?.shortName || "Unknown",
+        number: a?.jersey || "",
+        position: a?.position?.abbreviation || a?.position?.name || "-",
+        appearances: merged.appearances ?? null,
+        goals: merged.goals ?? null,
+        assists: merged.assists ?? null,
+        minutes: merged.minutes ?? null,
+        status,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 async function buildLiveData() {
   const nowYear = new Date().getUTCFullYear();
+  const rangeStart = new Date(Date.UTC(nowYear - 1, 0, 1));
+  const rangeEnd = new Date(Date.UTC(nowYear + 1, 11, 31));
 
-  const [prevSeason, currentSeason, nextSeason, generalFixtures, overviewNextEvents, standings] = await Promise.all([
+  const [prevSeason, currentSeason, nextSeason, generalFixtures, leagueRangeFixtures, overviewNextEvents, standings, playerStats] = await Promise.all([
     loadSeasonFixtures(nowYear - 1),
     loadSeasonFixtures(nowYear),
     loadSeasonFixtures(nowYear + 1),
     loadGeneralFixtures(),
+    loadLeagueFixturesRange(rangeStart, rangeEnd),
     loadTeamOverviewNextEvents(),
     loadStandingsSnapshot(),
+    loadPlayerStatsSnapshot(),
   ]);
 
   const allFixtures = dedupeFixtures([
+    ...leagueRangeFixtures,
     ...generalFixtures,
     ...overviewNextEvents,
     ...prevSeason,
@@ -398,6 +651,7 @@ async function buildLiveData() {
   const seasonFixtures = dedupeFixtures(selected.fixtures);
   const snapshot = deriveSeasonSnapshot(seasonFixtures);
   const nextMatch = pickNextMatch(allFixtures);
+  const quickSnapshot = buildQuickSnapshot(seasonFixtures, allFixtures, standings);
   const atlantaStanding = standings?.atlanta ?? null;
   const position =
     atlantaStanding && Number.isFinite(Number(atlantaStanding.rank))
@@ -413,6 +667,8 @@ async function buildLiveData() {
     formLastFive: snapshot.formLastFive,
     nextMatch,
     results: snapshot.results,
+    quickSnapshot,
+    playerStats,
     standings,
     seasonHistory: STATIC_SEASON_HISTORY,
     timeline: STATIC_TIMELINE,

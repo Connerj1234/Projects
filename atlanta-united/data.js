@@ -25,11 +25,41 @@ window.ATL_DATA = {
     "broadcast": "MLS Season Pass"
   },
   "results": [],
+  "quickSnapshot": {
+    "formTrend": {
+      "pointsLast10": 0,
+      "maxPoints": 30,
+      "goalDiffLast5": 0,
+      "samplePlayed": 0
+    },
+    "nextThree": [
+      {
+        "opponent": "FC Cincinnati",
+        "dateISO": "2026-02-21T21:45Z",
+        "venue": "Away",
+        "competition": "MLS"
+      },
+      {
+        "opponent": "San Jose Earthquakes",
+        "dateISO": "2026-03-01T00:30Z",
+        "venue": "Away",
+        "competition": "MLS"
+      },
+      {
+        "opponent": "Real Salt Lake",
+        "dateISO": "2026-03-08T00:30Z",
+        "venue": "Home",
+        "competition": "MLS"
+      }
+    ],
+    "playoffLine": null
+  },
+  "playerStats": [],
   "standings": {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-19T02:45:58.426Z"
+    "generatedAt": "2026-02-19T03:11:46.469Z"
   },
   "seasonHistory": [
     {

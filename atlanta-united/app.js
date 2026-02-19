@@ -13,6 +13,10 @@
   const eastStandingsBody = document.getElementById("eastStandingsBody");
   const westStandingsBody = document.getElementById("westStandingsBody");
   const standingsUpdated = document.getElementById("standingsUpdated");
+  const formTrendCard = document.getElementById("formTrendCard");
+  const nextThreeCard = document.getElementById("nextThreeCard");
+  const playoffCard = document.getElementById("playoffCard");
+  const rosterBody = document.getElementById("rosterBody");
   const timeline = document.getElementById("timeline");
   const historyBody = document.getElementById("historyBody");
 
@@ -195,6 +199,79 @@
       standingsUpdated.textContent = `Updated ${ts.toLocaleString()}`;
     } else {
       standingsUpdated.textContent = "Standings update time unavailable.";
+    }
+  }
+
+  if (formTrendCard) {
+    const trend = data.quickSnapshot?.formTrend;
+    const points10 = trend?.pointsLast10 ?? "-";
+    const maxPts = trend?.maxPoints ?? 30;
+    const gd5 = trend?.goalDiffLast5;
+    const gdText = gd5 == null ? "-" : gd5 > 0 ? `+${gd5}` : String(gd5);
+    const sample = trend?.samplePlayed ?? 0;
+    formTrendCard.innerHTML = `
+      <div><b>Last 10 Points:</b> ${points10}/${maxPts}</div>
+      <div><b>GD (Last 5):</b> ${gdText}</div>
+      <div><b>Matches Sampled:</b> ${sample}</div>
+    `;
+  }
+
+  if (nextThreeCard) {
+    const upcoming = data.quickSnapshot?.nextThree ?? [];
+    if (upcoming.length === 0) {
+      nextThreeCard.innerHTML = `<div>No upcoming fixtures available yet.</div>`;
+    } else {
+      nextThreeCard.innerHTML = upcoming
+        .map((m) => {
+          const dt = new Date(m.dateISO);
+          const when = Number.isFinite(dt.getTime()) ? dt.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : "TBD";
+          return `<div><b>${m.venue === "Home" ? "vs" : "at"} ${m.opponent}</b> <span class="quick-muted">${when}</span></div>`;
+        })
+        .join("");
+    }
+  }
+
+  if (playoffCard) {
+    const playoff = data.quickSnapshot?.playoffLine;
+    if (!playoff) {
+      playoffCard.innerHTML = `<div>Playoff line data unavailable right now.</div>`;
+    } else {
+      const rank = playoff.rank ?? "-";
+      const points = playoff.points ?? "-";
+      const diff = playoff.pointsFromLine;
+      const diffText = diff == null ? "-" : diff >= 0 ? `+${diff}` : `${diff}`;
+      const gih = playoff.gamesInHand;
+      const gihText = gih == null ? "-" : gih >= 0 ? `+${gih}` : `${gih}`;
+      playoffCard.innerHTML = `
+        <div><b>Rank:</b> ${rank} (${playoff.conference})</div>
+        <div><b>Points:</b> ${points}</div>
+        <div><b>Vs #${playoff.lineRank} Line:</b> ${diffText} pts</div>
+        <div><b>Games in Hand:</b> ${gihText}</div>
+      `;
+    }
+  }
+
+  if (rosterBody) {
+    const players = data.playerStats ?? [];
+    if (players.length === 0) {
+      rosterBody.innerHTML = `<tr><td colspan="8" class="standings-empty">Roster stats unavailable right now.</td></tr>`;
+    } else {
+      rosterBody.innerHTML = players
+        .map(
+          (p) => `
+          <tr>
+            <td>${valueOrDash(p.number)}</td>
+            <td>${valueOrDash(p.name)}</td>
+            <td>${valueOrDash(p.position)}</td>
+            <td>${valueOrDash(p.appearances)}</td>
+            <td>${valueOrDash(p.goals)}</td>
+            <td>${valueOrDash(p.assists)}</td>
+            <td>${valueOrDash(p.minutes)}</td>
+            <td>${valueOrDash(p.status)}</td>
+          </tr>
+        `,
+        )
+        .join("");
     }
   }
 
