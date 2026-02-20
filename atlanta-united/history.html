@@ -37,31 +37,64 @@
         <main class="page-grid">
           <section class="card full">
             <div class="card-head">
-              <h3>Club Timeline</h3>
-              <span class="pill">Moments</span>
+              <h3>Season Explorer</h3>
+              <span class="pill">Historical Season Pulse</span>
             </div>
-            <div id="timeline" class="timeline"></div>
+            <div class="formation-toolbar">
+              <label class="formation-label" for="historySeasonSelect">Season</label>
+              <select id="historySeasonSelect" class="formation-select"></select>
+            </div>
+            <div id="historySeasonPulse" class="history-pulse-grid"></div>
+            <div id="historySeasonMeta" class="standings-updated"></div>
+            <div class="history-split-grid">
+              <div class="history-panel">
+                <div class="history-panel-head">
+                  <h3>Full Schedule</h3>
+                  <button id="historyScheduleToggle" class="history-toggle-btn" type="button">Show full schedule</button>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Opponent</th>
+                        <th>Venue</th>
+                        <th>Result</th>
+                      </tr>
+                    </thead>
+                    <tbody id="historyScheduleBody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="history-panel">
+                <h3>Table Snapshot</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody id="historyTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </section>
 
           <section class="card full">
             <div class="card-head">
-              <h3>Season History (Since 2017)</h3>
-              <span class="pill">Regular Season</span>
+              <h3>Club Timeline</h3>
+              <span class="pill">Moments</span>
             </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Season</th>
-                    <th>W-D-L</th>
-                    <th>Pts</th>
-                    <th>Finish</th>
-                    <th>Playoffs</th>
-                  </tr>
-                </thead>
-                <tbody id="historyBody"></tbody>
-              </table>
-            </div>
+            <div id="timeline" class="timeline"></div>
           </section>
 
           <section class="card full">

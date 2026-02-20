@@ -1,49 +1,59 @@
 # Atlanta United Fan Hub - Implementation Roadmap
 
-## Planned Features
+## Direction Locked
+- Home page: current season only.
+- History page: everything non-current season.
 
-### 1. Starting 11 Snapshots
-- Add visual lineup snapshots for key matches/eras.
-- Support formations (4-3-3, 3-5-2, etc.) with position map layout.
-- Add filters by season, competition, and match.
+## Completed
+- Starting XI infrastructure (pitch renderer + formation templates).
+- Notable lineup filter on History page.
+- Notable lineups added:
+  - 2018 MLS Cup Final (4-3-3)
+  - 2019 U.S. Open Cup Final (3-5-2)
+  - 2019 Campeones Cup (4-3-3)
+- History page season explorer scaffolding added:
+  - historical season pulse
+  - placeholders for full schedule and table snapshot
 
-### 2. Season Toggle On Home (Season Pulse)
-- Add a season selector on the home page (2017 to current).
-- Recompute Season Pulse cards based on selected season.
-- Keep current season as default on initial load.
-- Make selector state URL-friendly so links can open a specific season.
+## Now
+### 1. Historical Season Data Pass
+- Populate `historicalSeasons.fullSchedule` for each season (2017+).
+- Populate `historicalSeasons.tableSnapshot` for each season.
+- Populate season-long stats per season (GF, GA, home/away split, clean sheets, attendance).
+- Keep data generation deterministic in `scripts/update-data.mjs`.
 
-### 3. Deeper History Page Data - replace club timeline section
-- Expand history page with year-by-year sections.
-- Add richer season summaries (coach, trophies, playoff run, key moments).
-- Include notable milestones and records by season.
+### 2. History Page UI Iteration
+- Refine season explorer layout once full data is loaded.
+- Add row highlighting and compact filters for schedule (home/away, competition).
+- Add season context chips for quick reading (finish, points, playoff outcome).
 
-### 4. Full Season Tables - integrate into existing season history table
-- Add final Eastern Conference table snapshot per season.
-- Show Atlanta row highlighted in each historical table.
-- Include core columns: P, W, D, L, GF, GA, GD, Pts, Rank.
+### 3. Club Timeline Overhaul (Explicit Requirement)
+- Replace lightweight timeline with season-by-season narrative.
+- Include every season from 2017 onward.
+- Capture highs and lows each season.
+- Track manager hires/fires and major coaching changes.
+- Include notable club news/events (trophies, transfers, milestones, slumps, turning points).
+
+## Next
+### 4. Deepen Starting XI Module
+- Add lineup metadata chips (formation, competition, date, score).
+- Add optional bench/subs section under the pitch.
+- Add lineup grouping by season/trophy.
 
 ### 5. Historical Player + Roster Stats
-- Add full roster list for each season.
-- Add per-player season stats (apps, starts, minutes, goals, assists, cards).
-- Add sorting/filtering (position, minutes, goals, etc.).
-- Add links to player profile/history views.
+- Add full roster list per season.
+- Add per-player stats (apps, starts, minutes, goals, assists, cards).
+- Add sorting/filtering.
 
-## Data/Architecture Tasks
-- Create versioned data model for `currentSeason` vs `historicalSeasons`.
-- Add data pipeline support for pulling archived season-level data.
-- Cache fetched season data to avoid slow page loads.
-- Add schema validation for generated `data.js` output.
+## Data/Architecture
+- Keep versioned model split between `currentSeason` and `historicalSeasons`.
+- Add cache strategy for historical pulls.
+- Add schema validation for generated `data.js`.
 
-## UX Tasks
-- Keep home focused on "quick glance" metrics only.
-- Keep history page for deep exploration and long tables.
-- Add loading and empty states for season toggle and historical tables.
-
-## Testing Tasks
-- Add regression checks for:
+## Testing
+- Regression checks for:
+  - season label correctness
   - next match detection
   - next 3 fixtures generation
-  - season label correctness
-  - standings availability fallbacks
-- Add snapshot test for `data.js` generation shape.
+  - standings fallback behavior
+- Snapshot shape test for generated `data.js` including `historicalSeasons`.

@@ -1,9 +1,10 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 
 const TEAM_NAME = "Atlanta United";
 const TEAM_ID = "18418";
 const LEAGUE = "usa.1";
 const ESPN_API_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${LEAGUE}`;
+const HISTORICAL_DATA_FILE = new URL("../historical-data.json", import.meta.url);
 
 const STATIC_TIMELINE = [
   { year: "2014", text: "MLS awards Atlanta expansion franchise." },
@@ -210,6 +211,149 @@ const NOTABLE_LINEUPS = [
   },
 ];
 
+function parseRecord(recordStr) {
+  const match = String(recordStr ?? "").match(/(\d+)-(\d+)-(\d+)/);
+  if (!match) return { wins: null, draws: null, losses: null };
+  return {
+    wins: Number.parseInt(match[1], 10),
+    draws: Number.parseInt(match[2], 10),
+    losses: Number.parseInt(match[3], 10),
+  };
+}
+
+function formatHistoricalResult(match) {
+  if (!match.completed || !match.outcome) return "-";
+  return `${match.score} (${match.outcome})`;
+}
+
+function buildHistoricalSeasons(seasonRows, fixturesBySeason, standingsBySeason) {
+  return seasonRows
+    .slice()
+    .sort((a, b) => b.season - a.season)
+    .map((row) => {
+      const season = Number(row.season);
+      const record = parseRecord(row.record);
+      const fixtures = dedupeFixtures(fixturesBySeason.get(season) ?? []);
+      const snapshot = deriveSeasonSnapshot(fixtures);
+      const completedCount = fixtures.filter((m) => m.completed && m.outcome).length;
+      const standings = standingsBySeason.get(season) ?? { east: [], west: [], atlanta: null };
+      const tableSnapshot = standings.east.length > 0 ? standings.east : standings.west;
+
+      return {
+        season,
+        seasonLabel: `${season} MLS Regular Season`,
+        seasonPulse: {
+          wins: record.wins,
+          draws: record.draws,
+          losses: record.losses,
+          points: row.points,
+          finish: row.finish,
+          playoffs: row.playoffs,
+        },
+        seasonLongStats: {
+          goalsFor: completedCount > 0 ? snapshot.stats.goalsFor : null,
+          goalsAgainst: completedCount > 0 ? snapshot.stats.goalsAgainst : null,
+          homeRecord: completedCount > 0 ? snapshot.stats.homeRecord : null,
+          awayRecord: completedCount > 0 ? snapshot.stats.awayRecord : null,
+          cleanSheets: completedCount > 0 ? snapshot.stats.cleanSheets : null,
+          avgAttendance: completedCount > 0 ? snapshot.stats.avgAttendance : null,
+        },
+        fullSchedule: fixtures.map((match) => ({
+          date: match.date,
+          opponent: match.opponent,
+          venue: match.venue,
+          competition: match.competition,
+          result: formatHistoricalResult(match),
+        })),
+        tableSnapshot,
+        notes:
+          fixtures.length > 0 || tableSnapshot.length > 0
+            ? `Loaded ${fixtures.length} fixtures${tableSnapshot.length > 0 ? ` and ${tableSnapshot.length} table rows` : ""}.`
+            : "Historical season feed returned no fixtures/table rows for this season.",
+      };
+    });
+}
+
+function buildHistoricalSeasonsFallback() {
+  return STATIC_SEASON_HISTORY
+    .slice()
+    .sort((a, b) => b.season - a.season)
+    .map((row) => {
+      const record = parseRecord(row.record);
+      return {
+        season: Number(row.season),
+        seasonLabel: `${row.season} MLS Regular Season`,
+        seasonPulse: {
+          wins: record.wins,
+          draws: record.draws,
+          losses: record.losses,
+          points: row.points,
+          finish: row.finish,
+          playoffs: row.playoffs,
+        },
+        seasonLongStats: {
+          goalsFor: null,
+          goalsAgainst: null,
+          homeRecord: null,
+          awayRecord: null,
+          cleanSheets: null,
+          avgAttendance: null,
+        },
+        fullSchedule: [],
+        tableSnapshot: [],
+        notes: "Historical backfill pending. Run: npm run backfill-historical",
+      };
+    });
+}
+
+async function loadHistoricalDataFromFile() {
+  try {
+    const raw = await readFile(HISTORICAL_DATA_FILE, "utf8");
+    const parsed = JSON.parse(raw);
+    const seasons = Array.isArray(parsed?.seasons) ? parsed.seasons : Array.isArray(parsed) ? parsed : null;
+    if (seasons) {
+      return seasons.map((season) => {
+        const scheduleLen = Array.isArray(season?.fullSchedule) ? season.fullSchedule.length : 0;
+        const stats = season?.seasonLongStats ?? {};
+        const looksLikeEmptyStats =
+          scheduleLen === 0 &&
+          Number(stats.goalsFor) === 0 &&
+          Number(stats.goalsAgainst) === 0 &&
+          String(stats.homeRecord ?? "") === "0-0-0" &&
+          String(stats.awayRecord ?? "") === "0-0-0";
+        if (!looksLikeEmptyStats) return season;
+        return {
+          ...season,
+          seasonLongStats: {
+            ...stats,
+            goalsFor: null,
+            goalsAgainst: null,
+            homeRecord: null,
+            awayRecord: null,
+            cleanSheets: null,
+            avgAttendance: null,
+          },
+        };
+      });
+    }
+    return buildHistoricalSeasonsFallback();
+  } catch {
+    return buildHistoricalSeasonsFallback();
+  }
+}
+
+async function writeHistoricalDataFile(seasons) {
+  const output = JSON.stringify(
+    {
+      generatedAt: new Date().toISOString(),
+      seasons,
+    },
+    null,
+    2,
+  );
+  await writeFile(HISTORICAL_DATA_FILE, `${output}\n`, "utf8");
+}
+
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
@@ -371,6 +515,18 @@ async function loadSeasonFixtures(seasonYear) {
   }
 
   return dedupeFixtures(all);
+}
+
+async function loadSeasonFixturesHistorical(seasonYear) {
+  const [seasonFixtures, rangeFixtures] = await Promise.all([
+    loadSeasonFixtures(seasonYear),
+    loadLeagueFixturesRange(
+      new Date(Date.UTC(seasonYear, 0, 1)),
+      new Date(Date.UTC(seasonYear, 11, 31)),
+    ),
+  ]);
+
+  return dedupeFixtures([...seasonFixtures, ...rangeFixtures]);
 }
 
 async function loadGeneralFixtures() {
@@ -673,6 +829,41 @@ async function loadStandingsSnapshot() {
   };
 }
 
+async function loadStandingsSnapshotForSeason(seasonYear) {
+  const urls = [
+    `${ESPN_API_BASE}/standings?season=${seasonYear}`,
+    `${ESPN_API_BASE}/standings?season=${seasonYear}&seasontype=2`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/standings?season=${seasonYear}`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/standings?season=${seasonYear}&seasontype=2`,
+  ];
+
+  for (const url of urls) {
+    const payload = await fetchJsonSafe(url, null);
+    if (!payload) continue;
+
+    const conferences = flattenStandingsGroups(payload);
+    const east = conferences.find((c) => /east/i.test(c.conference));
+    const west = conferences.find((c) => /west/i.test(c.conference));
+    const atlantaRow = [...(east?.rows ?? []), ...(west?.rows ?? [])].find((r) => r.isAtlanta) ?? null;
+
+    if ((east?.rows?.length ?? 0) > 0 || (west?.rows?.length ?? 0) > 0) {
+      return {
+        east: east?.rows ?? [],
+        west: west?.rows ?? [],
+        atlanta: atlantaRow,
+        generatedAt: new Date().toISOString(),
+      };
+    }
+  }
+
+  return {
+    east: [],
+    west: [],
+    atlanta: null,
+    generatedAt: new Date().toISOString(),
+  };
+}
+
 function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
   const completed = seasonFixtures.filter((m) => m.completed && m.outcome);
   const last5 = completed.slice(-5);
@@ -817,10 +1008,33 @@ async function loadPlayerStatsSnapshot() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+async function fetchHistoricalSeasonsFromNetwork() {
+  const historicalYears = [...new Set(STATIC_SEASON_HISTORY.map((row) => Number(row.season)).filter(Number.isFinite))];
+  const historicalBundles = await Promise.all(
+    historicalYears.map(async (seasonYear) => {
+      const [fixtures, seasonStandings] = await Promise.all([
+        loadSeasonFixturesHistorical(seasonYear),
+        loadStandingsSnapshotForSeason(seasonYear),
+      ]);
+      return { seasonYear, fixtures, seasonStandings };
+    }),
+  );
+
+  const fixturesBySeason = new Map();
+  const standingsBySeason = new Map();
+  for (const bundle of historicalBundles) {
+    fixturesBySeason.set(bundle.seasonYear, dedupeFixtures(bundle.fixtures));
+    standingsBySeason.set(bundle.seasonYear, bundle.seasonStandings);
+  }
+
+  return buildHistoricalSeasons(STATIC_SEASON_HISTORY, fixturesBySeason, standingsBySeason);
+}
+
 async function buildLiveData() {
   const nowYear = new Date().getUTCFullYear();
   const rangeStart = new Date(Date.UTC(nowYear - 1, 0, 1));
   const rangeEnd = new Date(Date.UTC(nowYear + 1, 11, 31));
+  const historicalSeasons = await loadHistoricalDataFromFile();
 
   const [prevSeason, currentSeason, nextSeason, generalFixtures, leagueRangeFixtures, overviewNextEvents, standings, playerStats] = await Promise.all([
     loadSeasonFixtures(nowYear - 1),
@@ -865,6 +1079,7 @@ async function buildLiveData() {
     playerStats,
     formationTemplates: FORMATION_TEMPLATES,
     notableLineups: NOTABLE_LINEUPS,
+    historicalSeasons,
     standings,
     seasonHistory: STATIC_SEASON_HISTORY,
     timeline: STATIC_TIMELINE,
@@ -878,9 +1093,16 @@ async function writeDataFile(data) {
 
 async function main() {
   try {
+    if (process.argv.includes("--backfill-history")) {
+      const historicalSeasons = await fetchHistoricalSeasonsFromNetwork();
+      await writeHistoricalDataFile(historicalSeasons);
+      console.log(`Backfilled historical-data.json with ${historicalSeasons.length} seasons.`);
+      return;
+    }
+
     const liveData = await buildLiveData();
     await writeDataFile(liveData);
-    console.log("Updated data.js from ESPN fixtures and standings.");
+    console.log("Updated data.js from ESPN live feeds + local historical-data.json.");
   } catch (error) {
     console.error(`Live update failed: ${error.message}`);
     process.exitCode = 1;

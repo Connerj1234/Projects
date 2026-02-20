@@ -202,7 +202,12 @@
   const playoffCard = document.getElementById("playoffCard");
   const rosterBody = document.getElementById("rosterBody");
   const timeline = document.getElementById("timeline");
-  const historyBody = document.getElementById("historyBody");
+  const historySeasonSelect = document.getElementById("historySeasonSelect");
+  const historySeasonPulse = document.getElementById("historySeasonPulse");
+  const historySeasonMeta = document.getElementById("historySeasonMeta");
+  const historyScheduleBody = document.getElementById("historyScheduleBody");
+  const historyScheduleToggle = document.getElementById("historyScheduleToggle");
+  const historyTableBody = document.getElementById("historyTableBody");
   const formationSelect = document.getElementById("formationSelect");
   const formationPitch = document.getElementById("formationPitch");
   const formationHint = document.getElementById("formationHint");
@@ -478,20 +483,175 @@
       .join("");
   }
 
-  if (historyBody) {
-    historyBody.innerHTML = data.seasonHistory
-      .map(
-        (row) => `
-        <tr>
-          <td>${row.season}</td>
-          <td>${row.record}</td>
-          <td>${row.points}</td>
-          <td>${row.finish}</td>
-          <td>${row.playoffs}</td>
-        </tr>
-      `,
-      )
+  if (historySeasonSelect && historySeasonPulse && historyScheduleBody && historyTableBody) {
+    const SCHEDULE_PREVIEW_LIMIT = 15;
+    let scheduleExpanded = false;
+    let activeHistoricalSeason = null;
+
+    const fallbackHistoricalSeasons = (data.seasonHistory ?? [])
+      .slice()
+      .sort((a, b) => b.season - a.season)
+      .map((row) => {
+        const m = String(row.record ?? "").match(/(\d+)-(\d+)-(\d+)/);
+        return {
+          season: row.season,
+          seasonLabel: `${row.season} MLS Regular Season`,
+          seasonPulse: {
+            wins: m ? Number(m[1]) : null,
+            draws: m ? Number(m[2]) : null,
+            losses: m ? Number(m[3]) : null,
+            points: row.points,
+            finish: row.finish,
+            playoffs: row.playoffs,
+          },
+          seasonLongStats: {
+            goalsFor: null,
+            goalsAgainst: null,
+            homeRecord: null,
+            awayRecord: null,
+            cleanSheets: null,
+            avgAttendance: null,
+          },
+          fullSchedule: [],
+          tableSnapshot: [],
+          notes: "Schedule/table/season-long stat data to be populated in the historical data pass.",
+        };
+      });
+
+    const historicalSeasons =
+      Array.isArray(data.historicalSeasons) && data.historicalSeasons.length > 0 ? data.historicalSeasons : fallbackHistoricalSeasons;
+
+    historySeasonSelect.innerHTML = historicalSeasons
+      .map((season) => `<option value="${season.season}">${season.season}</option>`)
       .join("");
+
+    function renderScheduleRows(selected) {
+      const schedule = selected.fullSchedule ?? [];
+      const visible = scheduleExpanded ? schedule : schedule.slice(0, SCHEDULE_PREVIEW_LIMIT);
+
+      if (schedule.length === 0) {
+        historyScheduleBody.innerHTML = `<tr><td colspan="4" class="standings-empty">Full season schedule will be populated in the history data pass.</td></tr>`;
+        if (historyScheduleToggle) {
+          historyScheduleToggle.style.display = "none";
+        }
+        return;
+      }
+
+      historyScheduleBody.innerHTML = visible
+        .map(
+          (match) => `
+            <tr>
+              <td>${valueOrDash(match.date)}</td>
+              <td>${valueOrDash(match.opponent)}</td>
+              <td>${valueOrDash(match.venue)}</td>
+              <td>${valueOrDash(match.result)}</td>
+            </tr>
+          `,
+        )
+        .join("");
+
+      if (historyScheduleToggle) {
+        if (schedule.length <= SCHEDULE_PREVIEW_LIMIT) {
+          historyScheduleToggle.style.display = "none";
+        } else {
+          historyScheduleToggle.style.display = "inline-block";
+          historyScheduleToggle.textContent = scheduleExpanded ? "Show fewer" : `Show full schedule (${schedule.length})`;
+        }
+      }
+    }
+
+    function renderHistoricalSeason(seasonValue) {
+      const selected =
+        historicalSeasons.find((season) => String(season.season) === String(seasonValue)) ?? historicalSeasons[0];
+      if (!selected) return;
+      activeHistoricalSeason = selected;
+
+      const pulse = selected.seasonPulse ?? {};
+      const recordText =
+        pulse.wins == null || pulse.draws == null || pulse.losses == null ? "-" : `${pulse.wins}-${pulse.draws}-${pulse.losses}`;
+
+      const pulseEntries = [
+        ["Record", recordText],
+        ["Points", valueOrDash(pulse.points)],
+        ["Finish", valueOrDash(pulse.finish)],
+        ["Playoffs", valueOrDash(pulse.playoffs)],
+        ["GF", valueOrDash(selected.seasonLongStats?.goalsFor)],
+        ["GA", valueOrDash(selected.seasonLongStats?.goalsAgainst)],
+        ["Home", valueOrDash(selected.seasonLongStats?.homeRecord)],
+        ["Away", valueOrDash(selected.seasonLongStats?.awayRecord)],
+      ];
+
+      historySeasonPulse.innerHTML = pulseEntries
+        .map(
+          ([label, value]) => `
+          <div class="history-pulse-item">
+            <div class="history-pulse-label">${label}</div>
+            <div class="history-pulse-value">${value}</div>
+          </div>
+        `,
+        )
+        .join("");
+
+      if (historySeasonMeta) {
+        historySeasonMeta.textContent = `${selected.seasonLabel ?? selected.season} • ${selected.notes ?? ""}`;
+      }
+
+      renderScheduleRows(selected);
+
+      const table = selected.tableSnapshot ?? [];
+      if (table.length === 0) {
+        historyTableBody.innerHTML = `<tr><td colspan="8" class="standings-empty">Table snapshot for this season will be populated in the history data pass.</td></tr>`;
+      } else {
+        const sortedTable = table.slice().sort((a, b) => {
+          const pointsA = Number(a?.points);
+          const pointsB = Number(b?.points);
+          const safePointsA = Number.isFinite(pointsA) ? pointsA : Number.NEGATIVE_INFINITY;
+          const safePointsB = Number.isFinite(pointsB) ? pointsB : Number.NEGATIVE_INFINITY;
+          if (safePointsB !== safePointsA) return safePointsB - safePointsA;
+
+          const gdA = Number(a?.goalDiff);
+          const gdB = Number(b?.goalDiff);
+          const safeGdA = Number.isFinite(gdA) ? gdA : Number.NEGATIVE_INFINITY;
+          const safeGdB = Number.isFinite(gdB) ? gdB : Number.NEGATIVE_INFINITY;
+          if (safeGdB !== safeGdA) return safeGdB - safeGdA;
+
+          const winsA = Number(a?.wins);
+          const winsB = Number(b?.wins);
+          const safeWinsA = Number.isFinite(winsA) ? winsA : Number.NEGATIVE_INFINITY;
+          const safeWinsB = Number.isFinite(winsB) ? winsB : Number.NEGATIVE_INFINITY;
+          return safeWinsB - safeWinsA;
+        });
+
+        historyTableBody.innerHTML = sortedTable
+          .map(
+            (row, idx) => `
+            <tr class="${row.isAtlanta ? "atlanta-row" : ""}">
+              <td>${idx + 1}</td>
+              <td>${valueOrDash(row.team)}</td>
+              <td>${valueOrDash(row.played)}</td>
+              <td>${valueOrDash(row.wins)}</td>
+              <td>${valueOrDash(row.draws)}</td>
+              <td>${valueOrDash(row.losses)}</td>
+              <td>${valueOrDash(row.goalDiff)}</td>
+              <td>${valueOrDash(row.points)}</td>
+            </tr>
+          `,
+          )
+          .join("");
+      }
+    }
+
+    historySeasonSelect.addEventListener("change", () => {
+      scheduleExpanded = false;
+      renderHistoricalSeason(historySeasonSelect.value);
+    });
+    if (historyScheduleToggle) {
+      historyScheduleToggle.addEventListener("click", () => {
+        scheduleExpanded = !scheduleExpanded;
+        if (activeHistoricalSeason) renderScheduleRows(activeHistoricalSeason);
+      });
+    }
+    renderHistoricalSeason(historicalSeasons[0]?.season);
   }
 
   if (formationSelect && formationPitch) {

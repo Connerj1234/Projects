@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "update-data": "node scripts/update-data.mjs"
+    "update-data": "node scripts/update-data.mjs",
+    "backfill-historical": "node scripts/update-data.mjs --backfill-history"
   }
 }
