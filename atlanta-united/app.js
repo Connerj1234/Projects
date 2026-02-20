@@ -201,6 +201,7 @@
   const nextThreeCard = document.getElementById("nextThreeCard");
   const playoffCard = document.getElementById("playoffCard");
   const rosterBody = document.getElementById("rosterBody");
+  const rosterTable = document.getElementById("rosterTable");
   const timeline = document.getElementById("timeline");
   const historySeasonSelect = document.getElementById("historySeasonSelect");
   const historySeasonPulse = document.getElementById("historySeasonPulse");
@@ -208,9 +209,17 @@
   const historyScheduleBody = document.getElementById("historyScheduleBody");
   const historyScheduleToggle = document.getElementById("historyScheduleToggle");
   const historyTableBody = document.getElementById("historyTableBody");
+  const historyRosterSeasonSelect = document.getElementById("historyRosterSeasonSelect");
+  const historyRosterMeta = document.getElementById("historyRosterMeta");
+  const historyRosterBody = document.getElementById("historyRosterBody");
+  const historyRosterTable = document.getElementById("historyRosterTable");
+  const historyRosterToggle = document.getElementById("historyRosterToggle");
   const formationSelect = document.getElementById("formationSelect");
   const formationPitch = document.getElementById("formationPitch");
   const formationHint = document.getElementById("formationHint");
+
+  let homeRosterSort = { key: "goals", dir: "desc", type: "numeric" };
+  let historyRosterSort = { key: "goals", dir: "desc", type: "numeric" };
 
   function ordinal(n) {
     const s = ["th", "st", "nd", "rd"];
@@ -353,6 +362,53 @@
     return value == null || value === "" ? "-" : value;
   }
 
+  function getSortDirection(nextKey, currentSort, nextType) {
+    if (!currentSort || currentSort.key !== nextKey) return nextType === "numeric" ? "desc" : "asc";
+    return currentSort.dir === "asc" ? "desc" : "asc";
+  }
+
+  function compareRosterValues(a, b, sort) {
+    const key = sort?.key;
+    const type = sort?.type || "text";
+    const dir = sort?.dir === "asc" ? 1 : -1;
+    const av = a?.[key];
+    const bv = b?.[key];
+
+    if (type === "numeric") {
+      const an = Number(av);
+      const bn = Number(bv);
+      const aValid = Number.isFinite(an);
+      const bValid = Number.isFinite(bn);
+      if (aValid && bValid) return (an - bn) * dir;
+      if (aValid && !bValid) return -1;
+      if (!aValid && bValid) return 1;
+      return 0;
+    }
+
+    const as = String(av ?? "");
+    const bs = String(bv ?? "");
+    return as.localeCompare(bs, undefined, { sensitivity: "base", numeric: true }) * dir;
+  }
+
+  function sortRosterRows(rows, sort) {
+    return rows.slice().sort((a, b) => {
+      const primary = compareRosterValues(a, b, sort);
+      if (primary !== 0) return primary;
+      return String(a?.name ?? "").localeCompare(String(b?.name ?? ""), undefined, { sensitivity: "base" });
+    });
+  }
+
+  function updateSortHeaderIndicators(tableEl, sort) {
+    if (!tableEl) return;
+    const headers = tableEl.querySelectorAll("th[data-sort-key]");
+    headers.forEach((th) => {
+      const key = th.getAttribute("data-sort-key");
+      const active = key === sort?.key;
+      th.setAttribute("data-sort-dir", active ? sort.dir : "none");
+      th.setAttribute("aria-sort", active ? (sort.dir === "asc" ? "ascending" : "descending") : "none");
+    });
+  }
+
   function renderStandingsRows(rows) {
     if (!rows || rows.length === 0) {
       return `<tr><td colspan="8" class="standings-empty">Standings unavailable right now.</td></tr>`;
@@ -448,27 +504,43 @@
   }
 
   if (rosterBody) {
-    const players = data.playerStats ?? [];
-    if (players.length === 0) {
-      rosterBody.innerHTML = `<tr><td colspan="8" class="standings-empty">Roster stats unavailable right now.</td></tr>`;
-    } else {
-      rosterBody.innerHTML = players
-        .map(
-          (p) => `
-          <tr>
-            <td>${valueOrDash(p.number)}</td>
-            <td>${valueOrDash(p.name)}</td>
-            <td>${valueOrDash(p.position)}</td>
-            <td>${valueOrDash(p.appearances)}</td>
-            <td>${valueOrDash(p.goals)}</td>
-            <td>${valueOrDash(p.assists)}</td>
-            <td>${valueOrDash(p.minutes)}</td>
-            <td>${valueOrDash(p.status)}</td>
-          </tr>
-        `,
-        )
-        .join("");
+    const renderHomeRoster = () => {
+      const players = data.playerStats ?? [];
+      if (players.length === 0) {
+        rosterBody.innerHTML = `<tr><td colspan="7" class="standings-empty">Roster stats unavailable right now.</td></tr>`;
+      } else {
+        const sorted = sortRosterRows(players, homeRosterSort);
+        rosterBody.innerHTML = sorted
+          .map(
+            (p) => `
+            <tr>
+              <td>${valueOrDash(p.number)}</td>
+              <td>${valueOrDash(p.name)}</td>
+              <td>${valueOrDash(p.position)}</td>
+              <td>${valueOrDash(p.appearances)}</td>
+              <td>${valueOrDash(p.goals)}</td>
+              <td>${valueOrDash(p.assists)}</td>
+              <td>${valueOrDash(p.minutes)}</td>
+            </tr>
+          `,
+          )
+          .join("");
+      }
+      updateSortHeaderIndicators(rosterTable, homeRosterSort);
+    };
+
+    if (rosterTable) {
+      rosterTable.querySelectorAll("th[data-sort-key]").forEach((th) => {
+        th.addEventListener("click", () => {
+          const key = th.getAttribute("data-sort-key");
+          const type = th.getAttribute("data-sort-type") || "text";
+          homeRosterSort = { key, type, dir: getSortDirection(key, homeRosterSort, type) };
+          renderHomeRoster();
+        });
+      });
     }
+
+    renderHomeRoster();
   }
 
   if (timeline) {
@@ -485,8 +557,11 @@
 
   if (historySeasonSelect && historySeasonPulse && historyScheduleBody && historyTableBody) {
     const SCHEDULE_PREVIEW_LIMIT = 15;
+    const ROSTER_PREVIEW_LIMIT = 10;
     let scheduleExpanded = false;
+    let rosterExpanded = false;
     let activeHistoricalSeason = null;
+    let activeRosterSeasonValue = null;
 
     const fallbackHistoricalSeasons = (data.seasonHistory ?? [])
       .slice()
@@ -514,12 +589,25 @@
           },
           fullSchedule: [],
           tableSnapshot: [],
+          rosterStats: [],
           notes: "Schedule/table/season-long stat data to be populated in the historical data pass.",
         };
       });
 
     const historicalSeasons =
       Array.isArray(data.historicalSeasons) && data.historicalSeasons.length > 0 ? data.historicalSeasons : fallbackHistoricalSeasons;
+
+    if (historyRosterTable) {
+      historyRosterTable.querySelectorAll("th[data-sort-key]").forEach((th) => {
+        th.addEventListener("click", () => {
+          const key = th.getAttribute("data-sort-key");
+          const type = th.getAttribute("data-sort-type") || "text";
+          historyRosterSort = { key, type, dir: getSortDirection(key, historyRosterSort, type) };
+          renderRosterSeason(activeRosterSeasonValue ?? historyRosterSeasonSelect?.value ?? historicalSeasons[0]?.season);
+        });
+      });
+      updateSortHeaderIndicators(historyRosterTable, historyRosterSort);
+    }
 
     historySeasonSelect.innerHTML = historicalSeasons
       .map((season) => `<option value="${season.season}">${season.season}</option>`)
@@ -567,6 +655,16 @@
       activeHistoricalSeason = selected;
 
       const pulse = selected.seasonPulse ?? {};
+      const roster = Array.isArray(selected.rosterStats) ? selected.rosterStats : [];
+      const topScorer = roster
+        .filter((player) => Number.isFinite(Number(player?.goals)))
+        .sort((a, b) => Number(b.goals) - Number(a.goals) || String(a.name).localeCompare(String(b.name)))[0];
+      const topScorerText = topScorer ? `${valueOrDash(topScorer.name)} (${valueOrDash(topScorer.goals)})` : "-";
+      const attendanceValue = selected.seasonLongStats?.avgAttendance;
+      const attendanceText =
+        Number.isFinite(Number(attendanceValue)) && Number(attendanceValue) > 0
+          ? Number(attendanceValue).toLocaleString()
+          : "-";
       const recordText =
         pulse.wins == null || pulse.draws == null || pulse.losses == null ? "-" : `${pulse.wins}-${pulse.draws}-${pulse.losses}`;
 
@@ -575,10 +673,12 @@
         ["Points", valueOrDash(pulse.points)],
         ["Finish", valueOrDash(pulse.finish)],
         ["Playoffs", valueOrDash(pulse.playoffs)],
+        ["Top Scorer", topScorerText],
         ["GF", valueOrDash(selected.seasonLongStats?.goalsFor)],
         ["GA", valueOrDash(selected.seasonLongStats?.goalsAgainst)],
         ["Home", valueOrDash(selected.seasonLongStats?.homeRecord)],
         ["Away", valueOrDash(selected.seasonLongStats?.awayRecord)],
+        ["Attendance", attendanceText],
       ];
 
       historySeasonPulse.innerHTML = pulseEntries
@@ -593,7 +693,15 @@
         .join("");
 
       if (historySeasonMeta) {
-        historySeasonMeta.textContent = `${selected.seasonLabel ?? selected.season} • ${selected.notes ?? ""}`;
+        const rawNotes = String(selected.notes ?? "");
+        const cleanedNotes = rawNotes
+          .replace(/,\s*\d+\s*roster rows?.*$/i, "")
+          .replace(/\s*ATLUTD stats import.*$/i, "")
+          .replace(/\s*FBref.*$/i, "")
+          .trim();
+        historySeasonMeta.textContent = cleanedNotes
+          ? `${selected.seasonLabel ?? selected.season} • ${cleanedNotes}`
+          : `${selected.seasonLabel ?? selected.season}`;
       }
 
       renderScheduleRows(selected);
@@ -639,6 +747,7 @@
           )
           .join("");
       }
+
     }
 
     historySeasonSelect.addEventListener("change", () => {
@@ -651,6 +760,76 @@
         if (activeHistoricalSeason) renderScheduleRows(activeHistoricalSeason);
       });
     }
+
+    function renderRosterSeason(seasonValue) {
+      if (!historyRosterBody) return;
+      activeRosterSeasonValue = seasonValue;
+      const selected =
+        historicalSeasons.find((season) => String(season.season) === String(seasonValue)) ?? historicalSeasons[0];
+      if (!selected) return;
+      const roster = Array.isArray(selected.rosterStats) ? selected.rosterStats : [];
+
+      if (historyRosterMeta) {
+        historyRosterMeta.textContent =
+          roster.length > 0
+            ? `${selected.season} roster rows: ${roster.length}`
+            : `${selected.season} roster stats unavailable (data source may not expose season-level player stats for this year).`;
+      }
+
+      if (roster.length === 0) {
+        historyRosterBody.innerHTML = `<tr><td colspan="7" class="standings-empty">Historical roster stats unavailable for this season.</td></tr>`;
+        if (historyRosterToggle) historyRosterToggle.style.display = "none";
+      } else {
+        const sorted = sortRosterRows(roster, historyRosterSort);
+        const visible = rosterExpanded ? sorted : sorted.slice(0, ROSTER_PREVIEW_LIMIT);
+        historyRosterBody.innerHTML = visible
+          .map(
+            (player) => `
+              <tr>
+                <td>${valueOrDash(player.number)}</td>
+                <td>${valueOrDash(player.name)}</td>
+                <td>${valueOrDash(player.position)}</td>
+                <td>${valueOrDash(player.appearances)}</td>
+                <td>${valueOrDash(player.goals)}</td>
+                <td>${valueOrDash(player.assists)}</td>
+                <td>${valueOrDash(player.minutes)}</td>
+              </tr>
+            `,
+          )
+          .join("");
+
+        if (historyRosterToggle) {
+          if (roster.length <= ROSTER_PREVIEW_LIMIT) {
+            historyRosterToggle.style.display = "none";
+          } else {
+            historyRosterToggle.style.display = "inline-block";
+            historyRosterToggle.textContent = rosterExpanded ? "Show fewer" : `Show full roster (${roster.length})`;
+          }
+        }
+      }
+      updateSortHeaderIndicators(historyRosterTable, historyRosterSort);
+    }
+
+    if (historyRosterSeasonSelect) {
+      historyRosterSeasonSelect.innerHTML = historicalSeasons
+        .map((season) => `<option value="${season.season}">${season.season}</option>`)
+        .join("");
+      historyRosterSeasonSelect.addEventListener("change", () => {
+        rosterExpanded = false;
+        renderRosterSeason(historyRosterSeasonSelect.value);
+      });
+      renderRosterSeason(historicalSeasons[0]?.season);
+    } else {
+      renderRosterSeason(historicalSeasons[0]?.season);
+    }
+
+    if (historyRosterToggle) {
+      historyRosterToggle.addEventListener("click", () => {
+        rosterExpanded = !rosterExpanded;
+        renderRosterSeason(activeRosterSeasonValue ?? historicalSeasons[0]?.season);
+      });
+    }
+
     renderHistoricalSeason(historicalSeasons[0]?.season);
   }
 

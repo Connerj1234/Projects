@@ -346,6 +346,27 @@ th {
   font-weight: 600;
 }
 
+th[data-sort-key] {
+  cursor: pointer;
+  user-select: none;
+}
+
+th[data-sort-key]::after {
+  content: "  ↕";
+  opacity: 0.45;
+  font-size: 0.8em;
+}
+
+th[data-sort-key][data-sort-dir="asc"]::after {
+  content: "  ↑";
+  opacity: 0.95;
+}
+
+th[data-sort-key][data-sort-dir="desc"]::after {
+  content: "  ↓";
+  opacity: 0.95;
+}
+
 .result-chip {
   display: inline-block;
   padding: 0.22rem 0.45rem;
@@ -450,7 +471,7 @@ th {
 
 .history-pulse-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.6rem;
   margin-bottom: 0.8rem;
 }
@@ -489,6 +510,14 @@ th {
 .history-panel h3 {
   font-size: 1.2rem;
   margin-bottom: 0.45rem;
+}
+
+.history-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .history-panel-head {
@@ -704,6 +733,10 @@ th {
 
   .side-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .history-pulse-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

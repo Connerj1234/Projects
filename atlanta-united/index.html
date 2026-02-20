@@ -163,17 +163,16 @@
               <span class="pill">Player Snapshot</span>
             </div>
             <div class="table-wrap">
-              <table>
+              <table id="rosterTable">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Player</th>
-                    <th>Pos</th>
-                    <th>Apps</th>
-                    <th>Goals</th>
-                    <th>Assists</th>
-                    <th>Minutes</th>
-                    <th>Status</th>
+                    <th data-sort-key="number" data-sort-type="numeric">#</th>
+                    <th data-sort-key="name" data-sort-type="text">Player</th>
+                    <th data-sort-key="position" data-sort-type="text">Pos</th>
+                    <th data-sort-key="appearances" data-sort-type="numeric">Apps</th>
+                    <th data-sort-key="goals" data-sort-type="numeric">Goals</th>
+                    <th data-sort-key="assists" data-sort-type="numeric">Assists</th>
+                    <th data-sort-key="minutes" data-sort-type="numeric">Minutes</th>
                   </tr>
                 </thead>
                 <tbody id="rosterBody"></tbody>

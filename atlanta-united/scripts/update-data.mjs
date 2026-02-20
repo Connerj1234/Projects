@@ -7,11 +7,18 @@ const ESPN_API_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${LE
 const HISTORICAL_DATA_FILE = new URL("../historical-data.json", import.meta.url);
 
 const STATIC_TIMELINE = [
-  { year: "2014", text: "MLS awards Atlanta expansion franchise." },
-  { year: "2017", text: "Debut MLS season and instant fan-energy identity." },
-  { year: "2018", text: "MLS Cup champions at Mercedes-Benz Stadium." },
-  { year: "2019", text: "U.S. Open Cup and Campeones Cup trophies." },
-  { year: "Today", text: "New era focused on consistency and playoff pushes." },
+  { year: "2014", text: "MLS awards Atlanta an expansion franchise, setting the foundation for top-flight soccer in the city." },
+  { year: "2016", text: "Gerardo 'Tata' Martino is hired as the club's first head coach before the inaugural season." },
+  { year: "2017", text: "Inaugural MLS season: Miguel Almiron and Josef Martinez headline the launch, Atlanta reaches the playoffs, and the club establishes a major home-attendance culture." },
+  { year: "2018", text: "Major signing: Ezequiel Barco arrives as a DP. On-field peak: Atlanta wins MLS Cup in just its second season under Martino." },
+  { year: "2019", text: "Manager era shifts to Frank de Boer. Transfer cycle includes Almiron's move to Newcastle and Pity Martinez's arrival. Trophy haul: U.S. Open Cup and Campeones Cup." },
+  { year: "2020", text: "Disrupted pandemic season. De Boer departs and Stephen Glass takes over as interim head coach during a reset year." },
+  { year: "2021", text: "Gabriel Heinze is appointed, then relieved midseason. Gonzalo Pineda is hired in August and leads a late push back to the playoffs." },
+  { year: "2022", text: "Thiago Almada joins from Velez Sarsfield and quickly becomes a centerpiece, later winning MLS Newcomer of the Year." },
+  { year: "2023", text: "Key striker signing: Giorgos Giakoumakis. Almada delivers an elite attacking season and earns major league recognition." },
+  { year: "2024", text: "Coaching transition year: Pineda exits, Rob Valentino serves interim duties, and Ronny Deila is hired in December. Major transfer activity includes Almada's MLS-record outgoing move and Alexey Miranchuk's arrival." },
+  { year: "2025", text: "Big-market reset: Miguel Almiron returns and Emmanuel Latte Lath is signed. Deila is dismissed in October, then Tata Martino returns in November for a new cycle." },
+  { year: "2026", text: "Current chapter: the club continues under returning Tata with a focus on restoring consistent playoff-level standards." },
 ];
 
 const STATIC_SEASON_HISTORY = [
@@ -226,7 +233,7 @@ function formatHistoricalResult(match) {
   return `${match.score} (${match.outcome})`;
 }
 
-function buildHistoricalSeasons(seasonRows, fixturesBySeason, standingsBySeason) {
+function buildHistoricalSeasons(seasonRows, fixturesBySeason, standingsBySeason, rosterBySeason) {
   return seasonRows
     .slice()
     .sort((a, b) => b.season - a.season)
@@ -236,17 +243,27 @@ function buildHistoricalSeasons(seasonRows, fixturesBySeason, standingsBySeason)
       const fixtures = dedupeFixtures(fixturesBySeason.get(season) ?? []);
       const snapshot = deriveSeasonSnapshot(fixtures);
       const completedCount = fixtures.filter((m) => m.completed && m.outcome).length;
+      const pulseRecord =
+        completedCount > 0
+          ? {
+              wins: snapshot.record.wins,
+              draws: snapshot.record.draws,
+              losses: snapshot.record.losses,
+            }
+          : record;
+      const pulsePoints = completedCount > 0 ? snapshot.stats.points : row.points;
       const standings = standingsBySeason.get(season) ?? { east: [], west: [], atlanta: null };
       const tableSnapshot = standings.east.length > 0 ? standings.east : standings.west;
+      const rosterStats = (rosterBySeason?.get(season) ?? []).slice().sort((a, b) => String(a.name).localeCompare(String(b.name)));
 
       return {
         season,
         seasonLabel: `${season} MLS Regular Season`,
         seasonPulse: {
-          wins: record.wins,
-          draws: record.draws,
-          losses: record.losses,
-          points: row.points,
+          wins: pulseRecord?.wins ?? null,
+          draws: pulseRecord?.draws ?? null,
+          losses: pulseRecord?.losses ?? null,
+          points: pulsePoints ?? null,
           finish: row.finish,
           playoffs: row.playoffs,
         },
@@ -266,9 +283,10 @@ function buildHistoricalSeasons(seasonRows, fixturesBySeason, standingsBySeason)
           result: formatHistoricalResult(match),
         })),
         tableSnapshot,
+        rosterStats,
         notes:
-          fixtures.length > 0 || tableSnapshot.length > 0
-            ? `Loaded ${fixtures.length} fixtures${tableSnapshot.length > 0 ? ` and ${tableSnapshot.length} table rows` : ""}.`
+          fixtures.length > 0 || tableSnapshot.length > 0 || rosterStats.length > 0
+            ? `Loaded ${fixtures.length} fixtures${tableSnapshot.length > 0 ? `, ${tableSnapshot.length} table rows` : ""}${rosterStats.length > 0 ? `, ${rosterStats.length} roster rows` : ""}.`
             : "Historical season feed returned no fixtures/table rows for this season.",
       };
     });
@@ -301,6 +319,7 @@ function buildHistoricalSeasonsFallback() {
         },
         fullSchedule: [],
         tableSnapshot: [],
+        rosterStats: [],
         notes: "Historical backfill pending. Run: npm run backfill-historical",
       };
     });
@@ -377,6 +396,43 @@ async function fetchJsonSafe(url, fallback = {}) {
   } catch {
     return fallback;
   }
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, {
+    headers: {
+      "user-agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+      accept: "text/html,application/xhtml+xml",
+      "accept-language": "en-US,en;q=0.9",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Request failed (${response.status}) for ${url}`);
+  }
+  return response.text();
+}
+
+async function fetchTextSafe(url, fallback = "") {
+  try {
+    return await fetchText(url);
+  } catch {
+    return fallback;
+  }
+}
+
+function decodeHtmlEntities(text) {
+  return String(text ?? "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function stripHtml(text) {
+  return decodeHtmlEntities(String(text ?? "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
 }
 
 function collectEventLikeNodes(root) {
@@ -962,6 +1018,7 @@ function collectAthleteStats(node, map) {
         const val = parseStatValue(s?.value ?? s?.displayValue);
         if (!key) continue;
         if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$)/.test(key) && curr.appearances == null) curr.appearances = val;
+        if (/(^starts$|^gamesstarted$|^startsplayed$|^gs$)/.test(key) && curr.starts == null) curr.starts = val;
         if (/(^goals$|^goalsscored$)/.test(key) && curr.goals == null) curr.goals = val;
         if (/^assists$/.test(key) && curr.assists == null) curr.assists = val;
         if (/(^minutes$|^mins$|^timeplayed$)/.test(key) && curr.minutes == null) curr.minutes = val;
@@ -975,6 +1032,147 @@ function collectAthleteStats(node, map) {
   }
 }
 
+function collectAthleteProfiles(node, map) {
+  if (!node || typeof node !== "object") return;
+  if (Array.isArray(node)) {
+    for (const item of node) collectAthleteProfiles(item, map);
+    return;
+  }
+
+  const athlete = node?.athlete ?? node?.player ?? null;
+  if (athlete) {
+    const id = String(athlete?.id ?? "");
+    if (id) {
+      const current = map.get(id) ?? {};
+      map.set(id, {
+        ...current,
+        id,
+        name: athlete?.displayName || athlete?.shortName || current.name || "Unknown",
+        position:
+          athlete?.position?.abbreviation || athlete?.position?.name || current.position || "-",
+        number: athlete?.jersey || current.number || "",
+      });
+    }
+  }
+
+  for (const value of Object.values(node)) {
+    if (value && typeof value === "object") collectAthleteProfiles(value, map);
+  }
+}
+
+function dedupeRosterStats(rows) {
+  const map = new Map();
+  for (const row of rows) {
+    const key = row?.id || `${String(row?.name ?? "").toLowerCase()}|${row?.number ?? ""}|${row?.position ?? ""}`;
+    if (!key) continue;
+    map.set(key, row);
+  }
+  return [...map.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+}
+
+function parseFbrefStandardRows(html, seasonYear) {
+  if (!html) return [];
+  const tableMatch =
+    html.match(/<table[^>]*id=["']stats_standard[^"']*["'][\s\S]*?<\/table>/i) ||
+    html.match(/<!--[\s\S]*?(<table[^>]*id=["']stats_standard[^"']*["'][\s\S]*?<\/table>)[\s\S]*?-->/i);
+  if (!tableMatch) return [];
+
+  const tableHtml = tableMatch[1] ?? tableMatch[0];
+  const rowMatches = tableHtml.match(/<tr[\s\S]*?<\/tr>/gi) ?? [];
+  const rows = [];
+
+  for (const rowHtml of rowMatches) {
+    if (/class=["'][^"']*thead/.test(rowHtml)) continue;
+    const cellRegex = /<(td|th)[^>]*data-stat=["']([^"']+)["'][^>]*>([\s\S]*?)<\/\1>/gi;
+    const cells = {};
+    let cellMatch;
+    while ((cellMatch = cellRegex.exec(rowHtml)) !== null) {
+      cells[cellMatch[2]] = stripHtml(cellMatch[3]);
+    }
+
+    const name = cells.player;
+    if (!name || /^squad total$/i.test(name)) continue;
+
+    const appearances = Number(cells.games);
+    const starts = Number(cells.games_starts);
+    const minutes = Number(String(cells.minutes ?? "").replace(/,/g, ""));
+    const goals = Number(cells.goals);
+    const assists = Number(cells.assists);
+
+    rows.push({
+      id: `fbref-${seasonYear}-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      name,
+      number: "",
+      position: cells.position || "-",
+      appearances: Number.isFinite(appearances) ? appearances : Number.isFinite(starts) ? starts : null,
+      starts: Number.isFinite(starts) ? starts : null,
+      goals: Number.isFinite(goals) ? goals : null,
+      assists: Number.isFinite(assists) ? assists : null,
+      minutes: Number.isFinite(minutes) ? minutes : null,
+    });
+  }
+
+  return dedupeRosterStats(rows);
+}
+
+async function loadRosterStatsFromFbref(seasonYear) {
+  const urls = [
+    `https://fbref.com/en/squads/1ebc1a5b/${seasonYear}/Atlanta-United-Stats`,
+    `https://fbref.com/en/squads/1ebc1a5b/Atlanta-United-Stats`,
+  ];
+
+  for (const url of urls) {
+    const html = await fetchTextSafe(url, "");
+    const parsed = parseFbrefStandardRows(html, seasonYear);
+    if (parsed.length > 0) return parsed;
+  }
+  return [];
+}
+
+function buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload) {
+  const rosterAthletes = flattenRosterGroups(rosterPayload);
+  const statsMap = new Map();
+  const profileMap = new Map();
+  collectAthleteStats(rosterPayload, statsMap);
+  collectAthleteStats(teamPayload, statsMap);
+  collectAthleteStats(statsPayload, statsMap);
+  collectAthleteProfiles(rosterPayload, profileMap);
+  collectAthleteProfiles(teamPayload, profileMap);
+  collectAthleteProfiles(statsPayload, profileMap);
+
+  const rosterById = new Map();
+  for (const athlete of rosterAthletes) {
+    const id = String(athlete?.id ?? "");
+    if (id) rosterById.set(id, athlete);
+  }
+
+  const ids = new Set([...rosterById.keys(), ...statsMap.keys(), ...profileMap.keys()]);
+
+  const mergedRows = [...ids]
+    .map((id) => {
+      const athlete = rosterById.get(id) ?? profileMap.get(id) ?? {};
+      const merged = statsMap.get(id) ?? {};
+      return {
+        id,
+        name: athlete?.displayName || athlete?.shortName || profileMap.get(id)?.name || "Unknown",
+        number: athlete?.jersey || profileMap.get(id)?.number || "",
+        position:
+          athlete?.position?.abbreviation ||
+          athlete?.position?.name ||
+          profileMap.get(id)?.position ||
+          "-",
+        appearances: merged.appearances ?? null,
+        starts: merged.starts ?? null,
+        goals: merged.goals ?? null,
+        assists: merged.assists ?? null,
+        minutes: merged.minutes ?? null,
+      };
+    })
+    .filter((row) => row.name && row.name !== "Unknown");
+
+  return dedupeRosterStats(mergedRows);
+}
+
 async function loadPlayerStatsSnapshot() {
   const [rosterPayload, teamPayload, statsPayload] = await Promise.all([
     fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/roster`, {}),
@@ -982,52 +1180,78 @@ async function loadPlayerStatsSnapshot() {
     fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/statistics`, {}),
   ]);
 
-  const rosterAthletes = flattenRosterGroups(rosterPayload);
-  const statsMap = new Map();
-  collectAthleteStats(rosterPayload, statsMap);
-  collectAthleteStats(teamPayload, statsMap);
-  collectAthleteStats(statsPayload, statsMap);
+  return buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload);
+}
 
-  return rosterAthletes
-    .map((a) => {
-      const id = String(a?.id ?? "");
-      const merged = statsMap.get(id) ?? {};
-      const status = a?.status?.type?.shortDetail || a?.status?.type?.description || "Available";
-      return {
-        id,
-        name: a?.displayName || a?.shortName || "Unknown",
-        number: a?.jersey || "",
-        position: a?.position?.abbreviation || a?.position?.name || "-",
-        appearances: merged.appearances ?? null,
-        goals: merged.goals ?? null,
-        assists: merged.assists ?? null,
-        minutes: merged.minutes ?? null,
-        status,
-      };
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+async function loadRosterStatsForSeason(seasonYear) {
+  const urlSets = [
+    [
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/roster?season=${seasonYear}`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}?season=${seasonYear}`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/statistics?season=${seasonYear}`,
+    ],
+    [
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/roster?season=${seasonYear}&seasontype=2`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}?season=${seasonYear}&seasontype=2`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/statistics?season=${seasonYear}&seasontype=2`,
+    ],
+    [
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/roster?season=${seasonYear}`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}?season=${seasonYear}`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/statistics?season=${seasonYear}`,
+    ],
+    [
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/roster?season=${seasonYear}&seasontype=2`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}?season=${seasonYear}&seasontype=2`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/statistics?season=${seasonYear}&seasontype=2`,
+    ],
+  ];
+
+  const merged = [];
+  for (const [rosterUrl, teamUrl, statsUrl] of urlSets) {
+    const [rosterPayload, teamPayload, statsPayload] = await Promise.all([
+      fetchJsonSafe(rosterUrl, {}),
+      fetchJsonSafe(teamUrl, {}),
+      fetchJsonSafe(statsUrl, {}),
+    ]);
+    merged.push(...buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload));
+  }
+
+  const espnMerged = dedupeRosterStats(merged);
+  if (espnMerged.length >= 8) return { rows: espnMerged, source: "ESPN" };
+
+  const fbrefRows = await loadRosterStatsFromFbref(seasonYear);
+  if (fbrefRows.length === 0) return { rows: espnMerged, source: espnMerged.length > 0 ? "ESPN-partial" : "none" };
+
+  return { rows: dedupeRosterStats([...espnMerged, ...fbrefRows]), source: espnMerged.length > 0 ? "ESPN+FBref" : "FBref" };
 }
 
 async function fetchHistoricalSeasonsFromNetwork() {
   const historicalYears = [...new Set(STATIC_SEASON_HISTORY.map((row) => Number(row.season)).filter(Number.isFinite))];
   const historicalBundles = await Promise.all(
     historicalYears.map(async (seasonYear) => {
-      const [fixtures, seasonStandings] = await Promise.all([
+      const [fixtures, seasonStandings, rosterBundle] = await Promise.all([
         loadSeasonFixturesHistorical(seasonYear),
         loadStandingsSnapshotForSeason(seasonYear),
+        loadRosterStatsForSeason(seasonYear),
       ]);
-      return { seasonYear, fixtures, seasonStandings };
+      const rosterStats = rosterBundle?.rows ?? [];
+      const rosterSource = rosterBundle?.source ?? "none";
+      console.log(`Historical ${seasonYear}: fixtures=${fixtures.length}, tableRows=${(seasonStandings?.east?.length ?? 0) + (seasonStandings?.west?.length ?? 0)}, rosterRows=${rosterStats.length} (${rosterSource})`);
+      return { seasonYear, fixtures, seasonStandings, rosterStats };
     }),
   );
 
   const fixturesBySeason = new Map();
   const standingsBySeason = new Map();
+  const rosterBySeason = new Map();
   for (const bundle of historicalBundles) {
     fixturesBySeason.set(bundle.seasonYear, dedupeFixtures(bundle.fixtures));
     standingsBySeason.set(bundle.seasonYear, bundle.seasonStandings);
+    rosterBySeason.set(bundle.seasonYear, bundle.rosterStats ?? []);
   }
 
-  return buildHistoricalSeasons(STATIC_SEASON_HISTORY, fixturesBySeason, standingsBySeason);
+  return buildHistoricalSeasons(STATIC_SEASON_HISTORY, fixturesBySeason, standingsBySeason, rosterBySeason);
 }
 
 async function buildLiveData() {

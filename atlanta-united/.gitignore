@@ -1,0 +1,10 @@
+node_modules/
+atlutd-stats-cache/
+
+.DS_Store
+*.log
+npm-debug.log*
+
+# Optional local env files
+.env
+.env.local

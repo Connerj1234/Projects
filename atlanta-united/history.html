@@ -87,14 +87,38 @@
                 </div>
               </div>
             </div>
+            <p class="history-note">Note: Season Explorer excludes domestic and international cup results.</p>
           </section>
 
           <section class="card full">
             <div class="card-head">
-              <h3>Club Timeline</h3>
-              <span class="pill">Moments</span>
+              <h3>Historical Full Roster Stats</h3>
+              <span class="pill">By Season</span>
             </div>
-            <div id="timeline" class="timeline"></div>
+            <div class="formation-toolbar">
+              <label class="formation-label" for="historyRosterSeasonSelect">Season</label>
+              <select id="historyRosterSeasonSelect" class="formation-select"></select>
+            </div>
+            <div class="history-panel-head">
+              <div id="historyRosterMeta" class="standings-updated"></div>
+              <button id="historyRosterToggle" class="history-toggle-btn" type="button">Show full roster</button>
+            </div>
+            <div class="table-wrap">
+              <table id="historyRosterTable">
+                <thead>
+                  <tr>
+                    <th data-sort-key="number" data-sort-type="numeric">#</th>
+                    <th data-sort-key="name" data-sort-type="text">Player</th>
+                    <th data-sort-key="position" data-sort-type="text">Pos</th>
+                    <th data-sort-key="appearances" data-sort-type="numeric">Apps</th>
+                    <th data-sort-key="goals" data-sort-type="numeric">Goals</th>
+                    <th data-sort-key="assists" data-sort-type="numeric">Assists</th>
+                    <th data-sort-key="minutes" data-sort-type="numeric">Minutes</th>
+                  </tr>
+                </thead>
+                <tbody id="historyRosterBody"></tbody>
+              </table>
+            </div>
           </section>
 
           <section class="card full">
@@ -110,6 +134,14 @@
             <p id="formationHint" class="muted-copy">
               Select a notable XI to view its shape and player placements.
             </p>
+          </section>
+
+          <section class="card full">
+            <div class="card-head">
+              <h3>Club Timeline</h3>
+              <span class="pill">Moments</span>
+            </div>
+            <div id="timeline" class="timeline"></div>
           </section>
         </main>
       </div>

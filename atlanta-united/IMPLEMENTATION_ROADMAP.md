@@ -11,36 +11,37 @@
   - 2018 MLS Cup Final (4-3-3)
   - 2019 U.S. Open Cup Final (3-5-2)
   - 2019 Campeones Cup (4-3-3)
-- History page season explorer scaffolding added:
+- History page Season Explorer is live:
   - historical season pulse
-  - placeholders for full schedule and table snapshot
+  - full schedule table
+  - table snapshot
+- Season Explorer UI updates shipped:
+  - removed old Season History card
+  - full schedule limited to 15 rows with expand/collapse toggle
+  - table snapshot sorted by highest points
+  - `#` column now reflects displayed (points-sorted) order
+- Historical data architecture split shipped:
+  - `historical-data.json` added as historical cache
+  - `npm run backfill-historical` added for one-time/occasional historical refresh
+  - `npm run update-data` now uses live feeds for current season and local historical cache for history page
+- Historical data quality tooling shipped:
+  - `npm run normalize-historical` to normalize cached season pulse/stats from stored schedules
+  - `npm run audit-historical` to generate `HISTORICAL_DATA_QUALITY_REPORT.md`
+  - current audit reports no blocking issues across 2017-2025 cached seasons
+- Club timeline overhaul shipped:
+  - season-by-season timeline expanded across club lifecycle
+  - includes manager changes, major signings/transfers, and trophy milestones
+- Season Explorer note added:
+  - explicit callout that domestic/international cup results are excluded from this view
 
 ## Now
-### 1. Historical Season Data Pass
-- Populate `historicalSeasons.fullSchedule` for each season (2017+).
-- Populate `historicalSeasons.tableSnapshot` for each season.
-- Populate season-long stats per season (GF, GA, home/away split, clean sheets, attendance).
-- Keep data generation deterministic in `scripts/update-data.mjs`.
-
-### 2. History Page UI Iteration
-- Refine season explorer layout once full data is loaded.
-- Add row highlighting and compact filters for schedule (home/away, competition).
-- Add season context chips for quick reading (finish, points, playoff outcome).
-
-### 3. Club Timeline Overhaul (Explicit Requirement)
-- Replace lightweight timeline with season-by-season narrative.
-- Include every season from 2017 onward.
-- Capture highs and lows each season.
-- Track manager hires/fires and major coaching changes.
-- Include notable club news/events (trophies, transfers, milestones, slumps, turning points).
-
-## Next
-### 4. Deepen Starting XI Module
+### 1. Deepen Starting XI Module
 - Add lineup metadata chips (formation, competition, date, score).
 - Add optional bench/subs section under the pitch.
 - Add lineup grouping by season/trophy.
 
-### 5. Historical Player + Roster Stats
+## Next
+### 2. Historical Player + Roster Stats
 - Add full roster list per season.
 - Add per-player stats (apps, starts, minutes, goals, assists, cards).
 - Add sorting/filtering.

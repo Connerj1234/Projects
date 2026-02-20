@@ -4,6 +4,15 @@
   "type": "module",
   "scripts": {
     "update-data": "node scripts/update-data.mjs",
-    "backfill-historical": "node scripts/update-data.mjs --backfill-history"
+    "backfill-historical": "node scripts/update-data.mjs --backfill-history",
+    "audit-historical": "node scripts/audit-historical.mjs",
+    "normalize-historical": "node scripts/normalize-historical.mjs",
+    "import-fbref-roster": "node scripts/import-fbref-roster.mjs",
+    "scrape-fbref-roster": "node scripts/scrape-fbref-roster.mjs",
+    "import-fbref-csv": "node scripts/import-fbref-csv.mjs",
+    "scrape-atlutd-stats": "node scripts/scrape-atlutd-stats.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
   }
 }
