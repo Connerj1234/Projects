@@ -448,6 +448,157 @@ th {
   color: var(--gold);
 }
 
+.formation-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.formation-label {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.formation-select {
+  background: var(--panel-soft);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.42rem 0.6rem;
+  min-width: 180px;
+}
+
+.formation-pitch {
+  position: relative;
+  min-height: 620px;
+  border: 1px solid rgba(201, 163, 79, 0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.16)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.03) 0,
+      rgba(255, 255, 255, 0.03) 54px,
+      rgba(255, 255, 255, 0.01) 54px,
+      rgba(255, 255, 255, 0.01) 108px
+    ),
+    #0f5f2d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.formation-pitch::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 2px;
+}
+
+.pitch-half-line,
+.pitch-center-circle,
+.pitch-box,
+.pitch-goal {
+  position: absolute;
+  pointer-events: none;
+}
+
+.pitch-half-line {
+  left: 1rem;
+  right: 1rem;
+  top: 50%;
+  border-top: 2px solid rgba(255, 255, 255, 0.78);
+}
+
+.pitch-center-circle {
+  width: 170px;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 50%;
+}
+
+.pitch-box {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(64%, 420px);
+  border: 2px solid rgba(255, 255, 255, 0.78);
+}
+
+.pitch-box-top {
+  top: 1rem;
+  height: 110px;
+  border-top: none;
+}
+
+.pitch-box-bottom {
+  bottom: 1rem;
+  height: 110px;
+  border-bottom: none;
+}
+
+.pitch-goal {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(30%, 180px);
+  border: 2px solid rgba(255, 255, 255, 0.78);
+}
+
+.pitch-goal-top {
+  top: 1rem;
+  height: 42px;
+  border-top: none;
+}
+
+.pitch-goal-bottom {
+  bottom: 1rem;
+  height: 42px;
+  border-bottom: none;
+}
+
+.formation-slot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  gap: 0.28rem;
+  z-index: 1;
+}
+
+.formation-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 0 4px rgba(190, 22, 34, 0.2);
+}
+
+.formation-role {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 1.03rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 6px;
+  padding: 0.08rem 0.45rem;
+  line-height: 1.1;
+}
+
+.formation-player {
+  font-size: 0.76rem;
+  color: #f4f5f8;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  padding: 0.1rem 0.34rem;
+  white-space: nowrap;
+}
+
 .site-footer {
   width: min(1320px, calc(100% - 1rem));
   margin: 0 auto;
@@ -516,5 +667,17 @@ th {
 
   .countdown {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formation-pitch {
+    min-height: 500px;
+  }
+
+  .pitch-center-circle {
+    width: 128px;
+  }
+
+  .formation-role {
+    font-size: 0.9rem;
   }
 }

@@ -6,7 +6,6 @@
 - Add visual lineup snapshots for key matches/eras.
 - Support formations (4-3-3, 3-5-2, etc.) with position map layout.
 - Add filters by season, competition, and match.
-- Mark captain and notable substitutions.
 
 ### 2. Season Toggle On Home (Season Pulse)
 - Add a season selector on the home page (2017 to current).
@@ -14,12 +13,12 @@
 - Keep current season as default on initial load.
 - Make selector state URL-friendly so links can open a specific season.
 
-### 3. Deeper History Page Data
+### 3. Deeper History Page Data - replace club timeline section
 - Expand history page with year-by-year sections.
 - Add richer season summaries (coach, trophies, playoff run, key moments).
 - Include notable milestones and records by season.
 
-### 4. Full Season Tables
+### 4. Full Season Tables - integrate into existing season history table
 - Add final Eastern Conference table snapshot per season.
 - Show Atlanta row highlighted in each historical table.
 - Include core columns: P, W, D, L, GF, GA, GD, Pts, Rank.
