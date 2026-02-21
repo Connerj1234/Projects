@@ -1,6 +1,143 @@
 (function () {
-  const data = window.ATL_DATA;
+  let data = window.ATL_DATA;
   if (!data) return;
+
+  function parseResult(result) {
+    if (typeof result !== "string") return null;
+    const m = result.match(/^\s*(\d+)\s*-\s*(\d+)\s*\((Win|Draw|Loss)\)\s*$/i);
+    if (!m) return null;
+    return {
+      goalsFor: Number(m[1]),
+      goalsAgainst: Number(m[2]),
+      outcome: m[3].charAt(0).toUpperCase() + m[3].slice(1).toLowerCase(),
+      score: `${m[1]}-${m[2]}`,
+    };
+  }
+
+  function computeRecordRows(matches) {
+    const record = { wins: 0, draws: 0, losses: 0 };
+    const home = { wins: 0, draws: 0, losses: 0 };
+    const away = { wins: 0, draws: 0, losses: 0 };
+    let goalsFor = 0;
+    let goalsAgainst = 0;
+    let cleanSheets = 0;
+
+    matches.forEach((match) => {
+      const parsed = parseResult(match?.result);
+      if (!parsed) return;
+      goalsFor += parsed.goalsFor;
+      goalsAgainst += parsed.goalsAgainst;
+      if (parsed.goalsAgainst === 0) cleanSheets += 1;
+
+      if (parsed.outcome === "Win") record.wins += 1;
+      if (parsed.outcome === "Draw") record.draws += 1;
+      if (parsed.outcome === "Loss") record.losses += 1;
+
+      const bucket = String(match?.venue).toLowerCase() === "home" ? home : away;
+      if (parsed.outcome === "Win") bucket.wins += 1;
+      if (parsed.outcome === "Draw") bucket.draws += 1;
+      if (parsed.outcome === "Loss") bucket.losses += 1;
+    });
+
+    return {
+      record,
+      stats: {
+        points: record.wins * 3 + record.draws,
+        goalsFor,
+        goalsAgainst,
+        homeRecord: `${home.wins}-${home.draws}-${home.losses}`,
+        awayRecord: `${away.wins}-${away.draws}-${away.losses}`,
+        cleanSheets,
+      },
+      formLastFive: matches
+        .map((m) => parseResult(m?.result)?.outcome?.charAt(0))
+        .filter(Boolean),
+    };
+  }
+
+  function buildSimulatedFirstFive(baseData) {
+    const latestHistorical = Array.isArray(baseData?.historicalSeasons) ? baseData.historicalSeasons[0] : null;
+    const schedule = Array.isArray(latestHistorical?.fullSchedule) ? latestHistorical.fullSchedule : [];
+    const finished = schedule.filter((row) => parseResult(row?.result));
+    const firstFive = finished.slice(0, 5);
+    if (firstFive.length < 5) return baseData;
+
+    const derived = computeRecordRows(firstFive);
+    const simulatedResults = firstFive.map((match) => {
+      const parsed = parseResult(match.result);
+      return {
+        date: match.date,
+        opponent: match.opponent,
+        venue: match.venue,
+        score: parsed?.score ?? "-",
+        outcome: parsed?.outcome ?? "Draw",
+      };
+    });
+
+    const allStandings = Array.isArray(latestHistorical?.tableSnapshot) ? latestHistorical.tableSnapshot : [];
+    const east = allStandings.filter((row) => /east/i.test(String(row?.conference ?? "")));
+    const west = allStandings.filter((row) => /west/i.test(String(row?.conference ?? "")));
+    const atlantaRow = east.find((row) => row?.isAtlanta) ?? west.find((row) => row?.isAtlanta) ?? null;
+    const nextThree = (baseData?.quickSnapshot?.nextThree ?? []).slice(0, 3);
+    const nextMatch = baseData?.nextMatch ?? null;
+    const gamesPlayed = firstFive.length;
+    const formPoints = derived.record.wins * 3 + derived.record.draws;
+
+    return {
+      ...baseData,
+      season: `${baseData.season} [Simulation: First 5 Played]`,
+      record: derived.record,
+      stats: {
+        ...baseData.stats,
+        ...derived.stats,
+      },
+      position: atlantaRow
+        ? {
+            rank: atlantaRow.rank,
+            conference: /west/i.test(String(atlantaRow.conference ?? "")) ? "Western Conference" : "Eastern Conference",
+          }
+        : baseData.position,
+      formLastFive: derived.formLastFive,
+      results: simulatedResults,
+      standings: {
+        east,
+        west,
+        generatedAt: new Date().toISOString(),
+      },
+      playerStats:
+        Array.isArray(latestHistorical?.rosterStats) && latestHistorical.rosterStats.length > 0
+          ? latestHistorical.rosterStats
+          : baseData.playerStats,
+      quickSnapshot: {
+        ...baseData.quickSnapshot,
+        formTrend: {
+          pointsLast5: formPoints,
+          goalDiffLast5: derived.stats.goalsFor - derived.stats.goalsAgainst,
+          formRatingOutOf5: Number(((formPoints / 15) * 5).toFixed(1)),
+          goalDiffPerMatch: Number((((derived.stats.goalsFor - derived.stats.goalsAgainst) / gamesPlayed) || 0).toFixed(2)),
+          wdlLast5: { ...derived.record },
+        },
+        nextThree,
+        playoffLine: atlantaRow
+          ? {
+              rank: atlantaRow.rank,
+              conference: /west/i.test(String(atlantaRow.conference ?? "")) ? "West" : "East",
+              points: derived.stats.points,
+              lineRank: 9,
+              pointsFromLine: 0,
+              gamesInHand: 0,
+            }
+          : null,
+      },
+      nextMatch,
+    };
+  }
+
+  const search = new URLSearchParams(window.location.search);
+  const simulateFirstFive = search.get("simulate") === "first5";
+  if (simulateFirstFive) {
+    data = buildSimulatedFirstFive(data);
+  }
 
   const DEFAULT_FORMATION_TEMPLATES = [
     {
@@ -194,6 +331,7 @@
   const nextMatch = document.getElementById("nextMatch");
   const countdown = document.getElementById("countdown");
   const resultsBody = document.getElementById("resultsBody");
+  const resultsToggle = document.getElementById("resultsToggle");
   const eastStandingsBody = document.getElementById("eastStandingsBody");
   const westStandingsBody = document.getElementById("westStandingsBody");
   const standingsUpdated = document.getElementById("standingsUpdated");
@@ -202,6 +340,8 @@
   const playoffCard = document.getElementById("playoffCard");
   const rosterBody = document.getElementById("rosterBody");
   const rosterTable = document.getElementById("rosterTable");
+  const rosterToggle = document.getElementById("rosterToggle");
+  const recordLegend = document.getElementById("recordLegend");
   const timeline = document.getElementById("timeline");
   const historySeasonSelect = document.getElementById("historySeasonSelect");
   const historySeasonPulse = document.getElementById("historySeasonPulse");
@@ -220,6 +360,11 @@
 
   let homeRosterSort = { key: "goals", dir: "desc", type: "numeric" };
   let historyRosterSort = { key: "goals", dir: "desc", type: "numeric" };
+  let homeResultsExpanded = false;
+  let homeRosterExpanded = false;
+
+  const HOME_RESULTS_PREVIEW_LIMIT = 10;
+  const HOME_ROSTER_PREVIEW_LIMIT = 10;
 
   function ordinal(n) {
     const s = ["th", "st", "nd", "rd"];
@@ -229,19 +374,14 @@
 
   if (seasonLabel) seasonLabel.textContent = data.season;
   if (recordLine) {
-    recordLine.textContent = `${data.clubName}: ${data.record.wins}-${data.record.draws}-${data.record.losses}`;
+    const simulationTag = simulateFirstFive ? " (temporary simulation mode)" : "";
+    recordLine.textContent = `${data.clubName}: ${data.record.wins}-${data.record.draws}-${data.record.losses}${simulationTag}`;
   }
 
   if (metaStats) {
-    const conferenceLabel =
-      typeof data.position?.conference === "string" && /east/i.test(data.position.conference)
-        ? "East"
-        : typeof data.position?.conference === "string" && /west/i.test(data.position.conference)
-          ? "West"
-          : data.position?.conference || "Conference";
     const positionText =
       data.position && Number.isFinite(Number(data.position.rank))
-        ? `${ordinal(Number(data.position.rank))} in ${conferenceLabel}`
+        ? `${ordinal(Number(data.position.rank))}`
         : "-";
     const avgAttendance =
       Number.isFinite(Number(data.stats.avgAttendance)) ? Number(data.stats.avgAttendance).toLocaleString() : "-";
@@ -286,6 +426,16 @@
         #2f3442 ${winPct + drawPct}% 100%
       )`;
     }
+  }
+
+  if (recordLegend) {
+    const total = data.record.wins + data.record.draws + data.record.losses;
+    const pct = (value) => (total > 0 ? `${Math.round((value / total) * 100)}%` : "0%");
+    recordLegend.innerHTML = `
+      <div class="legend-item"><span class="legend-swatch win"></span>Win (${data.record.wins}, ${pct(data.record.wins)})</div>
+      <div class="legend-item"><span class="legend-swatch draw"></span>Draw (${data.record.draws}, ${pct(data.record.draws)})</div>
+      <div class="legend-item"><span class="legend-swatch loss"></span>Loss (${data.record.losses}, ${pct(data.record.losses)})</div>
+    `;
   }
 
   if (nextMatch) {
@@ -340,22 +490,47 @@
   }
 
   if (resultsBody) {
-    resultsBody.innerHTML = data.results
-      .map((match) => {
-        const resultClass = match.outcome.toLowerCase();
-        return `
-          <tr>
-            <td>${new Date(match.date).toLocaleDateString()}</td>
-            <td>${match.opponent}</td>
-            <td>${match.venue}</td>
-            <td>
-              ${match.score}
-              <span class="result-chip ${resultClass}">${match.outcome}</span>
-            </td>
-          </tr>
-        `;
-      })
-      .join("");
+    const renderHomeResults = () => {
+      const allResults = Array.isArray(data.results) ? data.results : [];
+      const visible = homeResultsExpanded ? allResults : allResults.slice(0, HOME_RESULTS_PREVIEW_LIMIT);
+      if (allResults.length === 0) {
+        resultsBody.innerHTML = `<tr><td colspan="4" class="standings-empty">No recent results available yet.</td></tr>`;
+      } else {
+        resultsBody.innerHTML = visible
+          .map((match) => {
+            const resultClass = String(match.outcome ?? "").toLowerCase();
+            return `
+              <tr>
+                <td>${new Date(match.date).toLocaleDateString()}</td>
+                <td>${match.opponent}</td>
+                <td>${match.venue}</td>
+                <td>
+                  ${match.score}
+                  <span class="result-chip ${resultClass}">${match.outcome}</span>
+                </td>
+              </tr>
+            `;
+          })
+          .join("");
+      }
+
+      if (resultsToggle) {
+        if (allResults.length <= HOME_RESULTS_PREVIEW_LIMIT) {
+          resultsToggle.style.display = "none";
+        } else {
+          resultsToggle.style.display = "inline-block";
+          resultsToggle.textContent = homeResultsExpanded ? "Show fewer" : `Show all results (${allResults.length})`;
+        }
+      }
+    };
+
+    if (resultsToggle) {
+      resultsToggle.addEventListener("click", () => {
+        homeResultsExpanded = !homeResultsExpanded;
+        renderHomeResults();
+      });
+    }
+    renderHomeResults();
   }
 
   function valueOrDash(value) {
@@ -510,7 +685,8 @@
         rosterBody.innerHTML = `<tr><td colspan="7" class="standings-empty">Roster stats unavailable right now.</td></tr>`;
       } else {
         const sorted = sortRosterRows(players, homeRosterSort);
-        rosterBody.innerHTML = sorted
+        const visible = homeRosterExpanded ? sorted : sorted.slice(0, HOME_ROSTER_PREVIEW_LIMIT);
+        rosterBody.innerHTML = visible
           .map(
             (p) => `
             <tr>
@@ -526,6 +702,14 @@
           )
           .join("");
       }
+      if (rosterToggle) {
+        if (players.length <= HOME_ROSTER_PREVIEW_LIMIT) {
+          rosterToggle.style.display = "none";
+        } else {
+          rosterToggle.style.display = "inline-block";
+          rosterToggle.textContent = homeRosterExpanded ? "Show fewer" : `Show full roster (${players.length})`;
+        }
+      }
       updateSortHeaderIndicators(rosterTable, homeRosterSort);
     };
 
@@ -537,6 +721,13 @@
           homeRosterSort = { key, type, dir: getSortDirection(key, homeRosterSort, type) };
           renderHomeRoster();
         });
+      });
+    }
+
+    if (rosterToggle) {
+      rosterToggle.addEventListener("click", () => {
+        homeRosterExpanded = !homeRosterExpanded;
+        renderHomeRoster();
       });
     }
 
@@ -627,14 +818,21 @@
 
       historyScheduleBody.innerHTML = visible
         .map(
-          (match) => `
-            <tr>
-              <td>${valueOrDash(match.date)}</td>
-              <td>${valueOrDash(match.opponent)}</td>
-              <td>${valueOrDash(match.venue)}</td>
-              <td>${valueOrDash(match.result)}</td>
-            </tr>
-          `,
+          (match) => {
+            const parsed = parseResult(match?.result);
+            const outcomeClass = String(parsed?.outcome ?? "").toLowerCase();
+            const resultCell = parsed
+              ? `${parsed.score} <span class="result-chip ${outcomeClass}">${parsed.outcome}</span>`
+              : valueOrDash(match.result);
+            return `
+              <tr>
+                <td>${valueOrDash(match.date)}</td>
+                <td>${valueOrDash(match.opponent)}</td>
+                <td>${valueOrDash(match.venue)}</td>
+                <td>${resultCell}</td>
+              </tr>
+            `;
+          },
         )
         .join("");
 

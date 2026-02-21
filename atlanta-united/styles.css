@@ -200,6 +200,12 @@ h3 {
   margin-bottom: 0.8rem;
 }
 
+.card-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .pill {
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -304,6 +310,40 @@ h3 {
 .chart-caption {
   color: var(--muted);
   font-size: 0.86rem;
+}
+
+.chart-legend {
+  display: grid;
+  gap: 0.28rem;
+  justify-items: start;
+  width: 100%;
+}
+
+.legend-item {
+  color: var(--muted);
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.36rem;
+}
+
+.legend-swatch {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.legend-swatch.win {
+  background: #be1622;
+}
+
+.legend-swatch.draw {
+  background: #c9a34f;
+}
+
+.legend-swatch.loss {
+  background: #2f3442;
 }
 
 .next-match {
