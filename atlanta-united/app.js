@@ -372,7 +372,16 @@
     return `${n}${s[(v - 20) % 10] || s[v] || s[0]}`;
   }
 
-  if (seasonLabel) seasonLabel.textContent = data.season;
+  if (seasonLabel) {
+    const seasonText = String(data.season ?? "").replace(/\s*\(upcoming\)\s*$/i, "").trim();
+    const hasPlayedMatch = (Number(data.record?.wins) || 0) + (Number(data.record?.draws) || 0) + (Number(data.record?.losses) || 0) > 0;
+    const nextMatchTs = new Date(data.nextMatch?.dateISO ?? "").getTime();
+    const isMatchdayStarted = Number.isFinite(nextMatchTs) && nextMatchTs <= Date.now();
+    const shouldShowSeasonPill = !hasPlayedMatch && !isMatchdayStarted;
+
+    seasonLabel.textContent = seasonText;
+    seasonLabel.style.display = shouldShowSeasonPill ? "inline-flex" : "none";
+  }
   if (recordLine) {
     const simulationTag = simulateFirstFive ? " (temporary simulation mode)" : "";
     recordLine.textContent = `${data.clubName}: ${data.record.wins}-${data.record.draws}-${data.record.losses}${simulationTag}`;
