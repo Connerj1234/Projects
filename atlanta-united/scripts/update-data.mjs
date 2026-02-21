@@ -373,6 +373,156 @@ async function writeHistoricalDataFile(seasons) {
   await writeFile(HISTORICAL_DATA_FILE, `${output}\n`, "utf8");
 }
 
+function normalizeHistoricalSeasonForDiff(season) {
+  const table = Array.isArray(season?.tableSnapshot)
+    ? season.tableSnapshot
+        .slice()
+        .sort((a, b) => Number(a?.rank ?? 999) - Number(b?.rank ?? 999) || String(a?.team ?? "").localeCompare(String(b?.team ?? "")))
+        .map((row) => ({
+          rank: row?.rank ?? null,
+          teamId: row?.teamId ?? "",
+          team: row?.team ?? "",
+          played: row?.played ?? null,
+          wins: row?.wins ?? null,
+          draws: row?.draws ?? null,
+          losses: row?.losses ?? null,
+          points: row?.points ?? null,
+          goalDiff: row?.goalDiff ?? null,
+          conference: row?.conference ?? "",
+          isAtlanta: Boolean(row?.isAtlanta),
+        }))
+    : [];
+
+  const roster = Array.isArray(season?.rosterStats)
+    ? season.rosterStats
+        .slice()
+        .sort((a, b) => String(a?.name ?? "").localeCompare(String(b?.name ?? "")))
+        .map((row) => ({
+          id: row?.id ?? "",
+          name: row?.name ?? "",
+          number: row?.number ?? "",
+          position: row?.position ?? "",
+          appearances: row?.appearances ?? null,
+          starts: row?.starts ?? null,
+          goals: row?.goals ?? null,
+          assists: row?.assists ?? null,
+          minutes: row?.minutes ?? null,
+        }))
+    : [];
+
+  const schedule = Array.isArray(season?.fullSchedule)
+    ? season.fullSchedule.map((match) => ({
+        date: match?.date ?? "",
+        opponent: match?.opponent ?? "",
+        venue: match?.venue ?? "",
+        competition: match?.competition ?? "",
+        result: match?.result ?? "",
+      }))
+    : [];
+
+  return {
+    season: Number(season?.season),
+    seasonLabel: season?.seasonLabel ?? "",
+    seasonPulse: season?.seasonPulse ?? {},
+    seasonLongStats: season?.seasonLongStats ?? {},
+    fullSchedule: schedule,
+    tableSnapshot: table,
+    rosterStats: roster,
+  };
+}
+
+function mergeSeasonHistoryRow(year, existingSeason) {
+  const seasonRow = STATIC_SEASON_HISTORY.find((row) => Number(row.season) === Number(year));
+  const parsedStaticRecord = seasonRow ? parseRecord(seasonRow.record) : null;
+  return {
+    static: seasonRow ?? null,
+    wins: parsedStaticRecord?.wins ?? existingSeason?.seasonPulse?.wins ?? null,
+    draws: parsedStaticRecord?.draws ?? existingSeason?.seasonPulse?.draws ?? null,
+    losses: parsedStaticRecord?.losses ?? existingSeason?.seasonPulse?.losses ?? null,
+    points: seasonRow?.points ?? existingSeason?.seasonPulse?.points ?? null,
+    finish: seasonRow?.finish ?? existingSeason?.seasonPulse?.finish ?? null,
+    playoffs: seasonRow?.playoffs ?? existingSeason?.seasonPulse?.playoffs ?? null,
+  };
+}
+
+function buildInSeasonHistoricalEntry({ year, fixtures, standings, rosterStats, existingSeason }) {
+  const dedupedFixtures = dedupeFixtures(fixtures ?? []);
+  const snapshot = deriveSeasonSnapshot(dedupedFixtures);
+  const completedCount = dedupedFixtures.filter((m) => m.completed && m.outcome).length;
+  const seasonDefaults = mergeSeasonHistoryRow(year, existingSeason);
+  const east = standings?.east ?? [];
+  const west = standings?.west ?? [];
+  const tableSnapshot = (east.length > 0 ? east : west).slice();
+  const sortedRoster = dedupeRosterStats(rosterStats ?? []);
+
+  const notes =
+    dedupedFixtures.length > 0 || tableSnapshot.length > 0 || sortedRoster.length > 0
+      ? `In-season sync: ${dedupedFixtures.length} fixtures${tableSnapshot.length > 0 ? `, ${tableSnapshot.length} table rows` : ""}${sortedRoster.length > 0 ? `, ${sortedRoster.length} roster rows` : ""}.`
+      : "In-season sync has no fixture/table/roster rows yet.";
+
+  return {
+    season: Number(year),
+    seasonLabel: `${year} MLS Regular Season`,
+    seasonPulse: {
+      wins: completedCount > 0 ? snapshot.record.wins : seasonDefaults.wins,
+      draws: completedCount > 0 ? snapshot.record.draws : seasonDefaults.draws,
+      losses: completedCount > 0 ? snapshot.record.losses : seasonDefaults.losses,
+      points: completedCount > 0 ? snapshot.stats.points : seasonDefaults.points,
+      finish: seasonDefaults.finish,
+      playoffs: seasonDefaults.playoffs,
+    },
+    seasonLongStats: {
+      goalsFor: completedCount > 0 ? snapshot.stats.goalsFor : null,
+      goalsAgainst: completedCount > 0 ? snapshot.stats.goalsAgainst : null,
+      homeRecord: completedCount > 0 ? snapshot.stats.homeRecord : null,
+      awayRecord: completedCount > 0 ? snapshot.stats.awayRecord : null,
+      cleanSheets: completedCount > 0 ? snapshot.stats.cleanSheets : null,
+      avgAttendance: completedCount > 0 ? snapshot.stats.avgAttendance : null,
+    },
+    fullSchedule: dedupedFixtures.map((match) => ({
+      date: match.date,
+      opponent: match.opponent,
+      venue: match.venue,
+      competition: match.competition,
+      result: formatHistoricalResult(match),
+    })),
+    tableSnapshot,
+    rosterStats: sortedRoster,
+    notes,
+  };
+}
+
+function upsertSeasonIfChanged(existingSeasons, nextSeason) {
+  const seasons = Array.isArray(existingSeasons) ? existingSeasons.slice() : [];
+  const idx = seasons.findIndex((row) => Number(row?.season) === Number(nextSeason?.season));
+  const sorted = (rows) => rows.slice().sort((a, b) => Number(b?.season) - Number(a?.season));
+
+  if (idx < 0) {
+    return {
+      seasons: sorted([...seasons, nextSeason]),
+      changed: true,
+      action: "inserted",
+    };
+  }
+
+  const currentNorm = normalizeHistoricalSeasonForDiff(seasons[idx]);
+  const nextNorm = normalizeHistoricalSeasonForDiff(nextSeason);
+  if (JSON.stringify(currentNorm) === JSON.stringify(nextNorm)) {
+    return {
+      seasons: sorted(seasons),
+      changed: false,
+      action: "unchanged",
+    };
+  }
+
+  seasons[idx] = nextSeason;
+  return {
+    seasons: sorted(seasons),
+    changed: true,
+    action: "updated",
+  };
+}
+
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
@@ -677,6 +827,16 @@ function pickActiveSeason(fixtures, nowYear) {
 
   const current = byYear.get(nowYear) ?? [];
   if (current.length > 0) {
+    const hasUnplayedCurrent = current.some((fixture) => !fixture.completed);
+    if (!hasUnplayedCurrent) {
+      const nextYear = nowYear + 1;
+      const nextSeasonFixtures = byYear.get(nextYear) ?? [];
+      return {
+        year: nextYear,
+        label: `${nextYear} MLS Regular Season (Upcoming)`,
+        fixtures: nextSeasonFixtures,
+      };
+    }
     return {
       year: nowYear,
       label: `${nowYear} MLS Regular Season`,
@@ -1290,23 +1450,41 @@ async function buildLiveData() {
       ? { rank: Number(atlantaStanding.rank), conference: atlantaStanding.conference ?? "Conference" }
       : null;
 
-  return {
-    season: selected.label,
-    clubName: TEAM_NAME,
-    record: snapshot.record,
-    stats: snapshot.stats,
-    position,
-    formLastFive: snapshot.formLastFive,
-    nextMatch,
-    results: snapshot.results,
-    quickSnapshot,
-    playerStats,
-    formationTemplates: FORMATION_TEMPLATES,
-    notableLineups: NOTABLE_LINEUPS,
-    historicalSeasons,
+  const inSeasonHistorical = buildInSeasonHistoricalEntry({
+    year: selected.year,
+    fixtures: seasonFixtures,
     standings,
-    seasonHistory: STATIC_SEASON_HISTORY,
-    timeline: STATIC_TIMELINE,
+    rosterStats: playerStats,
+    existingSeason: historicalSeasons.find((row) => Number(row?.season) === Number(selected.year)),
+  });
+  const historicalUpsert = upsertSeasonIfChanged(historicalSeasons, inSeasonHistorical);
+  const historyPageSeasons = historicalUpsert.seasons.filter((row) => Number(row?.season) !== Number(selected.year));
+
+  return {
+    liveData: {
+      season: selected.label,
+      clubName: TEAM_NAME,
+      record: snapshot.record,
+      stats: snapshot.stats,
+      position,
+      formLastFive: snapshot.formLastFive,
+      nextMatch,
+      results: snapshot.results,
+      quickSnapshot,
+      playerStats,
+      formationTemplates: FORMATION_TEMPLATES,
+      notableLineups: NOTABLE_LINEUPS,
+      historicalSeasons: historyPageSeasons,
+      standings,
+      seasonHistory: STATIC_SEASON_HISTORY,
+      timeline: STATIC_TIMELINE,
+    },
+    historicalSync: {
+      season: selected.year,
+      changed: historicalUpsert.changed,
+      action: historicalUpsert.action,
+      seasons: historicalUpsert.seasons,
+    },
   };
 }
 
@@ -1324,7 +1502,13 @@ async function main() {
       return;
     }
 
-    const liveData = await buildLiveData();
+    const { liveData, historicalSync } = await buildLiveData();
+    if (historicalSync.changed) {
+      await writeHistoricalDataFile(historicalSync.seasons);
+      console.log(`Historical sync ${historicalSync.action} season ${historicalSync.season} in historical-data.json.`);
+    } else {
+      console.log(`Historical sync unchanged for season ${historicalSync.season}; no write to historical-data.json.`);
+    }
     await writeDataFile(liveData);
     console.log("Updated data.js from ESPN live feeds + local historical-data.json.");
   } catch (error) {

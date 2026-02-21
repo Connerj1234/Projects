@@ -7721,7 +7721,7 @@ window.ATL_DATA = {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-20T22:25:21.175Z"
+    "generatedAt": "2026-02-21T03:28:37.293Z"
   },
   "seasonHistory": [
     {

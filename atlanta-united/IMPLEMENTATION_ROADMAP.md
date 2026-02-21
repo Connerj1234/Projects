@@ -41,6 +41,14 @@
   - history roster table has season selector
   - history roster table sorted by clicking column headers
   - history roster limited to 10 rows with expand/collapse toggle
+- In-season historical sync workflow shipped:
+  - `npm run update-data` now upserts the active season into `historical-data.json`
+  - write to `historical-data.json` happens only when active-season data actually changes (insert/update diff check)
+  - no-write path is explicit when nothing changed to avoid noisy churn
+  - active-season historical row is built from live fixtures/standings/roster snapshots
+  - this keeps history current during the season while preserving end-of-season finalize pass
+  - history page receives non-current seasons only (active season is excluded from `data.js` history payload)
+  - offseason handoff logic promotes home page season to next year once current-season fixtures are fully completed
 - Home roster quality-of-life updates shipped:
   - home roster table sorted by clicking column headers
   - status/starts UI columns removed for cleaner presentation
@@ -55,6 +63,9 @@
 - Keep versioned model split between `currentSeason` and `historicalSeasons`.
 - Add cache strategy for historical pulls.
 - Add schema validation for generated `data.js`.
+- Season lifecycle policy:
+  - In-season: append/merge active season into `historical-data.json` only when changed.
+  - End-of-season: run `npm run normalize-historical` then `npm run audit-historical` and lock final season snapshot.
 
 ## Testing
 - Regression checks for:
