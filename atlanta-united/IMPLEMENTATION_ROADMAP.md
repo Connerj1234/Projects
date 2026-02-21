@@ -20,6 +20,9 @@
   - full schedule limited to 15 rows with expand/collapse toggle
   - table snapshot sorted by highest points
   - `#` column now reflects displayed (points-sorted) order
+  - season pulse expanded to 10 cards in a 2x5 layout
+  - added Top Scorer and Attendance cards
+  - cleaned season meta text to remove noisy import suffixes
 - Historical data architecture split shipped:
   - `historical-data.json` added as historical cache
   - `npm run backfill-historical` added for one-time/occasional historical refresh
@@ -33,18 +36,20 @@
   - includes manager changes, major signings/transfers, and trophy milestones
 - Season Explorer note added:
   - explicit callout that domestic/international cup results are excluded from this view
+- Historical roster stats shipped and populated:
+  - imported/persisted 2017-2025 historical roster stats into `historical-data.json`
+  - history roster table has season selector
+  - history roster table sorted by clicking column headers
+  - history roster limited to 10 rows with expand/collapse toggle
+- Home roster quality-of-life updates shipped:
+  - home roster table sorted by clicking column headers
+  - status/starts UI columns removed for cleaner presentation
 
 ## Now
 ### 1. Deepen Starting XI Module
 - Add lineup metadata chips (formation, competition, date, score).
 - Add optional bench/subs section under the pitch.
 - Add lineup grouping by season/trophy.
-
-## Next
-### 2. Historical Player + Roster Stats
-- Add full roster list per season.
-- Add per-player stats (apps, starts, minutes, goals, assists, cards).
-- Add sorting/filtering.
 
 ## Data/Architecture
 - Keep versioned model split between `currentSeason` and `historicalSeasons`.
