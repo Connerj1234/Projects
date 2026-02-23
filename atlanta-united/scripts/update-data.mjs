@@ -6,6 +6,9 @@ const LEAGUE = "usa.1";
 const ESPN_API_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${LEAGUE}`;
 const HISTORICAL_DATA_FILE = new URL("../historical-data.json", import.meta.url);
 const UPCOMING_GRACE_MS = 12 * 60 * 60 * 1000;
+const MLS_STATS_API_BASE = "https://stats-api.mlssoccer.com";
+const MLS_COMPETITION_ID = "MLS-COM-000001";
+const MLS_ATLANTA_CLUB_ID = "MLS-CLU-00000A";
 
 const STATIC_TIMELINE = [
   { year: "2014", text: "MLS awards Atlanta an expansion franchise, setting the foundation for top-flight soccer in the city." },
@@ -1503,6 +1506,83 @@ async function loadRosterStatsFromFbref(seasonYear) {
   return [];
 }
 
+function normalizeMlsPosition(raw) {
+  const pos = String(raw ?? "").trim().toLowerCase();
+  if (!pos) return "-";
+  if (pos.includes("goal")) return "GK";
+  if (pos.includes("def")) return "D";
+  if (pos.includes("mid")) return "M";
+  if (pos.includes("forw") || pos.includes("strik") || pos.includes("wing")) return "F";
+  return pos.slice(0, 3).toUpperCase();
+}
+
+async function resolveMlsSeasonId(seasonYear) {
+  const payload = await fetchJsonSafe(`${MLS_STATS_API_BASE}/competitions/${MLS_COMPETITION_ID}/seasons`, null);
+  const seasons = Array.isArray(payload?.seasons) ? payload.seasons : [];
+  const match = seasons.find((s) => Number(s?.season) === Number(seasonYear));
+  return match?.season_id ? String(match.season_id) : null;
+}
+
+async function loadRosterStatsFromMlsStatsApi(seasonYear) {
+  const seasonId = await resolveMlsSeasonId(seasonYear);
+  if (!seasonId) return [];
+
+  const [metaPayload, statsPayload] = await Promise.all([
+    fetchJsonSafe(
+      `${MLS_STATS_API_BASE}/players/seasons/${seasonId}/clubs/${MLS_ATLANTA_CLUB_ID}?per_page=1000&page=1`,
+      {},
+    ),
+    fetchJsonSafe(
+      `${MLS_STATS_API_BASE}/statistics/players/competitions/${MLS_COMPETITION_ID}/seasons/${seasonId}?club_id=${MLS_ATLANTA_CLUB_ID}&per_page=1000&page=1`,
+      {},
+    ),
+  ]);
+
+  const players = Array.isArray(metaPayload?.players) ? metaPayload.players : [];
+  const byPlayerId = new Map();
+  for (const p of players) {
+    const id = String(p?.player_id ?? "").trim();
+    if (!id) continue;
+    byPlayerId.set(id, {
+      name: String(p?.name ?? "").trim(),
+      number: p?.shirt_number != null ? String(p.shirt_number) : "",
+      position: normalizeMlsPosition(p?.playing_position_english),
+    });
+  }
+
+  const rows = Array.isArray(statsPayload?.player_statistics) ? statsPayload.player_statistics : [];
+  const mapped = rows
+    .map((row) => {
+      const playerId = String(row?.player_id ?? "").trim();
+      const meta = playerId ? byPlayerId.get(playerId) : null;
+      const name =
+        String(meta?.name ?? "").trim() ||
+        `${String(row?.player_first_name ?? "").trim()} ${String(row?.player_last_name ?? "").trim()}`.trim();
+      if (!name) return null;
+
+      return {
+        id: playerId ? `mls-${seasonYear}-${playerId}` : `mls-${seasonYear}-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        name,
+        number: meta?.number ?? (row?.jersey_number != null ? String(row.jersey_number) : ""),
+        position: meta?.position ?? normalizeMlsPosition(row?.position),
+        appearances: toNumber(row?.matches_played),
+        starts: toNumber(
+          row?.starts ??
+            row?.games_started ??
+            row?.matches_started ??
+            row?.matches_played_tracking ??
+            row?.games_starts,
+        ),
+        goals: toNumber(row?.goals),
+        assists: toNumber(row?.assists),
+        minutes: toNumber(row?.normalized_player_minutes ?? row?.minutes_played ?? row?.minutes),
+      };
+    })
+    .filter(Boolean);
+
+  return dedupeRosterStats(mapped);
+}
+
 function buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload) {
   const rosterAthletes = flattenRosterGroups(rosterPayload);
   const statsMap = new Map();
@@ -1585,6 +1665,12 @@ async function loadPlayerStatsSnapshot() {
   const rows = dedupeRosterStats(merged);
   if (rows.length > 0 && hasUsableRosterStats(rows)) return rows;
 
+  const mlsRows = await loadRosterStatsFromMlsStatsApi(nowYear);
+  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows)) {
+    if (rows.length === 0) return mlsRows;
+    return mergeRosterStats(rows, mlsRows);
+  }
+
   const seasonal = await loadRosterStatsForSeason(nowYear);
   const seasonalRows = seasonal?.rows ?? [];
   if (rows.length === 0) return seasonalRows;
@@ -1629,6 +1715,14 @@ async function loadRosterStatsForSeason(seasonYear) {
   const espnMerged = dedupeRosterStats(merged);
   if (espnMerged.length >= 8 && hasUsableRosterStats(espnMerged)) {
     return { rows: espnMerged, source: "ESPN" };
+  }
+
+  const mlsRows = await loadRosterStatsFromMlsStatsApi(seasonYear);
+  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows)) {
+    return {
+      rows: espnMerged.length > 0 ? mergeRosterStats(espnMerged, mlsRows) : mlsRows,
+      source: espnMerged.length > 0 ? "ESPN+MLSStatsAPI" : "MLSStatsAPI",
+    };
   }
 
   const fbrefRows = await loadRosterStatsFromFbref(seasonYear);
