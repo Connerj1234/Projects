@@ -18,10 +18,10 @@ window.ATL_DATA = {
   "position": null,
   "formLastFive": [],
   "nextMatch": {
-    "opponent": "FC Cincinnati",
-    "dateISO": "2026-02-21T21:45Z",
+    "opponent": "San Jose Earthquakes",
+    "dateISO": "2026-03-01T00:30Z",
     "competition": "MLS",
-    "venue": "TQL Stadium",
+    "venue": "PayPal Park",
     "broadcast": "MLS Season Pass"
   },
   "results": [],
@@ -39,12 +39,6 @@ window.ATL_DATA = {
     },
     "nextThree": [
       {
-        "opponent": "FC Cincinnati",
-        "dateISO": "2026-02-21T21:45Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
-      {
         "opponent": "San Jose Earthquakes",
         "dateISO": "2026-03-01T00:30Z",
         "venue": "Away",
@@ -53,6 +47,12 @@ window.ATL_DATA = {
       {
         "opponent": "Real Salt Lake",
         "dateISO": "2026-03-08T00:30Z",
+        "venue": "Home",
+        "competition": "MLS"
+      },
+      {
+        "opponent": "Philadelphia Union",
+        "dateISO": "2026-03-14T19:00Z",
         "venue": "Home",
         "competition": "MLS"
       }
@@ -7721,7 +7721,7 @@ window.ATL_DATA = {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-21T03:28:37.293Z"
+    "generatedAt": "2026-02-23T18:38:24.395Z"
   },
   "seasonHistory": [
     {
