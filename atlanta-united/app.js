@@ -533,7 +533,7 @@
           resultsToggle.style.display = "none";
         } else {
           resultsToggle.style.display = "inline-block";
-          resultsToggle.textContent = homeResultsExpanded ? "Show fewer" : `Show all results (${allResults.length})`;
+          resultsToggle.textContent = homeResultsExpanded ? "Show less" : `Show all (${allResults.length})`;
         }
       }
     };
@@ -774,7 +774,7 @@
           rosterToggle.style.display = "none";
         } else {
           rosterToggle.style.display = "inline-block";
-          rosterToggle.textContent = homeRosterExpanded ? "Show fewer" : `Show full roster (${players.length})`;
+          rosterToggle.textContent = homeRosterExpanded ? "Show less" : `Show all (${players.length})`;
         }
       }
       updateSortHeaderIndicators(rosterTable, homeRosterSort);
@@ -908,7 +908,7 @@
           historyScheduleToggle.style.display = "none";
         } else {
           historyScheduleToggle.style.display = "inline-block";
-          historyScheduleToggle.textContent = scheduleExpanded ? "Show fewer" : `Show full schedule (${schedule.length})`;
+          historyScheduleToggle.textContent = scheduleExpanded ? "Show less" : `Show all (${schedule.length})`;
         }
       }
     }
@@ -1070,7 +1070,7 @@
             historyRosterToggle.style.display = "none";
           } else {
             historyRosterToggle.style.display = "inline-block";
-            historyRosterToggle.textContent = rosterExpanded ? "Show fewer" : `Show full roster (${roster.length})`;
+            historyRosterToggle.textContent = rosterExpanded ? "Show less" : `Show all (${roster.length})`;
           }
         }
       }

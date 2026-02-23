@@ -607,19 +607,32 @@ th[data-sort-key][data-sort-dir="desc"]::after {
 }
 
 .history-toggle-btn {
-  border: 1px solid rgba(201, 163, 79, 0.35);
-  background: rgba(201, 163, 79, 0.12);
+  border: 1px solid rgba(201, 163, 79, 0.38);
+  background: linear-gradient(140deg, rgba(201, 163, 79, 0.16), rgba(201, 163, 79, 0.08));
   color: var(--gold);
   border-radius: 999px;
-  padding: 0.22rem 0.58rem;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding: 0.34rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.9rem;
   cursor: pointer;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    transform 140ms ease;
 }
 
 .history-toggle-btn:hover {
-  background: rgba(201, 163, 79, 0.2);
+  background: linear-gradient(140deg, rgba(201, 163, 79, 0.24), rgba(201, 163, 79, 0.12));
+  border-color: rgba(201, 163, 79, 0.56);
+  transform: translateY(-1px);
 }
 
 .formation-toolbar {

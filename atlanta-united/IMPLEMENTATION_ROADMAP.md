@@ -82,6 +82,18 @@
   - verify counts with the existing "liveMeaningful/histMeaningful" check after deploy
   - accept partial coverage early season, but block regressions where previously populated players lose stats unexpectedly
 
+### 3. Season Explorer Conference Expansion (Planned, Not Implemented Yet)
+- Goal:
+  - add Western Conference standings back into Season Explorer (East remains primary/default context for Atlanta)
+- Layout options to decide before implementation:
+  1. full-width schedule first, then East + West standings split below (mirrors home page pattern)
+  2. keep current two-column layout and add an East/West switcher in the standings panel (default East)
+- Current lean:
+  - prefer option 1 (full-width schedule + East/West below) for clarity and consistency with home page
+  - concern to evaluate during build: avoid making the Season Explorer card feel too long/heavy on smaller screens
+- Scope note:
+  - roadmap/planning item only for now; no implementation in this phase
+
 ## Data/Architecture
 - Keep versioned model split between `currentSeason` and `historicalSeasons`.
 - Add cache strategy for historical pulls.
