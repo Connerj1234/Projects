@@ -669,17 +669,24 @@
     const ppm = trend?.pointsPerMatchLastN;
     const gamesSampled = Number.isFinite(Number(trend?.gamesSampled)) ? Number(trend.gamesSampled) : 0;
     const cleanSheets = Number.isFinite(Number(trend?.cleanSheetsLastN)) ? Number(trend.cleanSheetsLastN) : null;
-    const sampleLabel = gamesSampled > 0 ? `Last ${gamesSampled}` : "Sample";
     const ratingText = formRating == null ? "-" : `${formRating}/5`;
     const pointsText = points5 == null ? "-" : `${points5} pts`;
     const gdText = gdPerMatch == null ? "-" : gdPerMatch > 0 ? `+${gdPerMatch}` : String(gdPerMatch);
     const ppmText = ppm == null ? "-" : ppm;
     const cleanSheetsText = cleanSheets == null ? "-" : cleanSheets;
+    const coverageNote =
+      gamesSampled > 0 && gamesSampled < 5
+        ? `Using ${gamesSampled}/5 completed matches so far.`
+        : gamesSampled === 0
+          ? "No completed matches in the current 5-match window yet."
+          : "";
     formTrendCard.innerHTML = `
       <div><b>Form Rating:</b> ${ratingText} <span class="quick-muted">(${pointsText})</span></div>
-      <div><b>GD / Match (${sampleLabel}):</b> ${gdText}</div>
-      <div><b>Pts / Match (${sampleLabel}):</b> ${ppmText}</div>
-      <div><b>Clean Sheets (${sampleLabel}):</b> ${cleanSheetsText}</div>
+      <div class="quick-muted">Form Rating = points from last 5 matches on a 0-5 scale (3/win, 1/draw).</div>
+      <div><b>GD / Match:</b> ${gdText}</div>
+      <div><b>Pts / Match:</b> ${ppmText}</div>
+      <div><b>Clean Sheets:</b> ${cleanSheetsText}</div>
+      ${coverageNote ? `<div class="quick-muted">${coverageNote}</div>` : ""}
     `;
   }
 
