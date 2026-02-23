@@ -1194,6 +1194,7 @@ function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
   const last5 = completed.slice(-5);
   const gamesSampled = last5.length;
   const pointsLast5 = last5.reduce((sum, m) => sum + (m.outcome === "Win" ? 3 : m.outcome === "Draw" ? 1 : 0), 0);
+  const formMaxPoints = gamesSampled > 0 ? gamesSampled * 3 : null;
   const goalDiffLast5 = last5.reduce((sum, m) => sum + ((m.atlScore ?? 0) - (m.oppScore ?? 0)), 0);
   const cleanSheetsLastN = last5.reduce((sum, m) => sum + ((m.oppScore ?? 1) === 0 ? 1 : 0), 0);
   const wdlLast5 = last5.reduce(
@@ -1250,7 +1251,7 @@ function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
     formTrend: {
       pointsLast5,
       goalDiffLast5,
-      formRatingOutOf5: Number(((pointsLast5 / 15) * 5).toFixed(1)),
+      formRatingOutOf5: formMaxPoints ? Number(((pointsLast5 / formMaxPoints) * 5).toFixed(1)) : null,
       goalDiffPerMatch: gamesSampled > 0 ? Number((goalDiffLast5 / gamesSampled).toFixed(2)) : null,
       pointsPerMatchLastN: gamesSampled > 0 ? Number((pointsLast5 / gamesSampled).toFixed(2)) : null,
       gamesSampled,

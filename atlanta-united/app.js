@@ -82,6 +82,7 @@
     const nextMatch = baseData?.nextMatch ?? null;
     const gamesPlayed = firstFive.length;
     const formPoints = derived.record.wins * 3 + derived.record.draws;
+    const formMaxPoints = gamesPlayed > 0 ? gamesPlayed * 3 : null;
 
     return {
       ...baseData,
@@ -113,7 +114,8 @@
         formTrend: {
           pointsLast5: formPoints,
           goalDiffLast5: derived.stats.goalsFor - derived.stats.goalsAgainst,
-          formRatingOutOf5: Number(((formPoints / 15) * 5).toFixed(1)),
+          formRatingOutOf5:
+            formMaxPoints && formMaxPoints > 0 ? Number(((formPoints / formMaxPoints) * 5).toFixed(1)) : null,
           goalDiffPerMatch: Number((((derived.stats.goalsFor - derived.stats.goalsAgainst) / gamesPlayed) || 0).toFixed(2)),
           pointsPerMatchLastN: Number(((formPoints / gamesPlayed) || 0).toFixed(2)),
           gamesSampled: gamesPlayed,
@@ -663,16 +665,64 @@
 
   if (formTrendCard) {
     const trend = data.quickSnapshot?.formTrend;
-    const formRating = trend?.formRatingOutOf5;
-    const points5 = trend?.pointsLast5;
-    const gdPerMatch = trend?.goalDiffPerMatch;
-    const ppm = trend?.pointsPerMatchLastN;
-    const gamesSampled = Number.isFinite(Number(trend?.gamesSampled)) ? Number(trend.gamesSampled) : 0;
-    const cleanSheets = Number.isFinite(Number(trend?.cleanSheetsLastN)) ? Number(trend.cleanSheetsLastN) : null;
+    const wdl = trend?.wdlLast5;
+    const wdlGames =
+      Number.isFinite(Number(wdl?.wins)) && Number.isFinite(Number(wdl?.draws)) && Number.isFinite(Number(wdl?.losses))
+        ? Number(wdl.wins) + Number(wdl.draws) + Number(wdl.losses)
+        : null;
+    const resultsGames = Array.isArray(data.results) ? Math.min(5, data.results.length) : null;
+    const formGames = Array.isArray(data.formLastFive) ? Math.min(5, data.formLastFive.length) : null;
+    const gamesSampled = Number.isFinite(Number(trend?.gamesSampled))
+      ? Number(trend.gamesSampled)
+      : Number.isFinite(Number(wdlGames))
+        ? Number(wdlGames)
+        : Number.isFinite(Number(resultsGames))
+          ? Number(resultsGames)
+          : Number.isFinite(Number(formGames))
+            ? Number(formGames)
+            : 0;
+
+    const points5Raw = Number.isFinite(Number(trend?.pointsLast5))
+      ? Number(trend.pointsLast5)
+      : Number.isFinite(Number(wdl?.wins)) && Number.isFinite(Number(wdl?.draws))
+        ? Number(wdl.wins) * 3 + Number(wdl.draws)
+        : null;
+    const goalDiffLast5 = Number.isFinite(Number(trend?.goalDiffLast5)) ? Number(trend.goalDiffLast5) : null;
+    const gdPerMatchRaw =
+      Number.isFinite(Number(trend?.goalDiffPerMatch))
+        ? Number(trend.goalDiffPerMatch)
+        : goalDiffLast5 != null && gamesSampled > 0
+          ? Number((goalDiffLast5 / gamesSampled).toFixed(2))
+          : null;
+    const ppmRaw =
+      Number.isFinite(Number(trend?.pointsPerMatchLastN))
+        ? Number(trend.pointsPerMatchLastN)
+        : points5Raw != null && gamesSampled > 0
+          ? Number((points5Raw / gamesSampled).toFixed(2))
+          : null;
+    const cleanSheetsRaw = Number.isFinite(Number(trend?.cleanSheetsLastN)) ? Number(trend.cleanSheetsLastN) : null;
+    const derivedCleanSheets =
+      cleanSheetsRaw == null && Array.isArray(data.results)
+        ? data.results.slice(0, 5).reduce((sum, row) => {
+            const score = String(row?.score ?? "");
+            const m = score.match(/^\s*(\d+)\s*-\s*(\d+)\s*$/);
+            if (!m) return sum;
+            return Number(m[2]) === 0 ? sum + 1 : sum;
+          }, 0)
+        : null;
+    const cleanSheets = cleanSheetsRaw != null ? cleanSheetsRaw : derivedCleanSheets;
+
+    const formMaxPoints = gamesSampled > 0 ? gamesSampled * 3 : null;
+    const formRating =
+      Number.isFinite(Number(trend?.formRatingOutOf5)) && gamesSampled >= 5
+        ? Number(trend.formRatingOutOf5)
+        : points5Raw != null && formMaxPoints
+          ? Number(((points5Raw / formMaxPoints) * 5).toFixed(1))
+          : null;
     const ratingText = formRating == null ? "-" : `${formRating}/5`;
-    const pointsText = points5 == null ? "-" : `${points5} pts`;
-    const gdText = gdPerMatch == null ? "-" : gdPerMatch > 0 ? `+${gdPerMatch}` : String(gdPerMatch);
-    const ppmText = ppm == null ? "-" : ppm;
+    const pointsText = points5Raw == null ? "-" : `${points5Raw} pts`;
+    const gdText = gdPerMatchRaw == null ? "-" : gdPerMatchRaw > 0 ? `+${gdPerMatchRaw}` : String(gdPerMatchRaw);
+    const ppmText = ppmRaw == null ? "-" : ppmRaw;
     const cleanSheetsText = cleanSheets == null ? "-" : cleanSheets;
     const coverageNote =
       gamesSampled > 0 && gamesSampled < 5
@@ -682,7 +732,7 @@
           : "";
     formTrendCard.innerHTML = `
       <div><b>Form Rating:</b> ${ratingText} <span class="quick-muted">(${pointsText})</span></div>
-      <div class="quick-muted">Form Rating = points from last 5 matches on a 0-5 scale (3/win, 1/draw).</div>
+      <div class="quick-muted">Form Rating scales points to 0-5 using completed matches in the current 5-match window (3/win, 1/draw).</div>
       <div><b>GD / Match:</b> ${gdText}</div>
       <div><b>Pts / Match:</b> ${ppmText}</div>
       <div><b>Clean Sheets:</b> ${cleanSheetsText}</div>
