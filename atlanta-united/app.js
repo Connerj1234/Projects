@@ -115,6 +115,9 @@
           goalDiffLast5: derived.stats.goalsFor - derived.stats.goalsAgainst,
           formRatingOutOf5: Number(((formPoints / 15) * 5).toFixed(1)),
           goalDiffPerMatch: Number((((derived.stats.goalsFor - derived.stats.goalsAgainst) / gamesPlayed) || 0).toFixed(2)),
+          pointsPerMatchLastN: Number(((formPoints / gamesPlayed) || 0).toFixed(2)),
+          gamesSampled: gamesPlayed,
+          cleanSheetsLastN: derived.stats.cleanSheets,
           wdlLast5: { ...derived.record },
         },
         nextThree,
@@ -662,17 +665,21 @@
     const trend = data.quickSnapshot?.formTrend;
     const formRating = trend?.formRatingOutOf5;
     const points5 = trend?.pointsLast5;
-    const gd5 = trend?.goalDiffLast5;
     const gdPerMatch = trend?.goalDiffPerMatch;
-    const wdl = trend?.wdlLast5;
+    const ppm = trend?.pointsPerMatchLastN;
+    const gamesSampled = Number.isFinite(Number(trend?.gamesSampled)) ? Number(trend.gamesSampled) : 0;
+    const cleanSheets = Number.isFinite(Number(trend?.cleanSheetsLastN)) ? Number(trend.cleanSheetsLastN) : null;
+    const sampleLabel = gamesSampled > 0 ? `Last ${gamesSampled}` : "Sample";
     const ratingText = formRating == null ? "-" : `${formRating}/5`;
     const pointsText = points5 == null ? "-" : `${points5} pts`;
     const gdText = gdPerMatch == null ? "-" : gdPerMatch > 0 ? `+${gdPerMatch}` : String(gdPerMatch);
-    const wdlText = wdl ? `${wdl.wins}-${wdl.draws}-${wdl.losses}` : "-";
+    const ppmText = ppm == null ? "-" : ppm;
+    const cleanSheetsText = cleanSheets == null ? "-" : cleanSheets;
     formTrendCard.innerHTML = `
       <div><b>Form Rating:</b> ${ratingText} <span class="quick-muted">(${pointsText})</span></div>
-      <div><b>GD / Match (Last 5):</b> ${gdText}</div>
-      <div><b>W-D-L (Last 5):</b> ${wdlText}</div>
+      <div><b>GD / Match (${sampleLabel}):</b> ${gdText}</div>
+      <div><b>Pts / Match (${sampleLabel}):</b> ${ppmText}</div>
+      <div><b>Clean Sheets (${sampleLabel}):</b> ${cleanSheetsText}</div>
     `;
   }
 
