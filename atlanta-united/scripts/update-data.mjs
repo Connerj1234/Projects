@@ -1406,6 +1406,7 @@ function dedupeRosterStats(rows) {
 function hasUsableRosterStats(rows) {
   return rows.some((row) =>
     [row?.appearances, row?.starts, row?.goals, row?.assists, row?.minutes].some((value) => {
+      if (value == null) return false;
       const n = Number(value);
       return Number.isFinite(n);
     }),
