@@ -689,16 +689,16 @@
         : null;
     const goalDiffLast5 = Number.isFinite(Number(trend?.goalDiffLast5)) ? Number(trend.goalDiffLast5) : null;
     const gdPerMatchRaw =
-      Number.isFinite(Number(trend?.goalDiffPerMatch))
-        ? Number(trend.goalDiffPerMatch)
-        : goalDiffLast5 != null && gamesSampled > 0
-          ? Number((goalDiffLast5 / gamesSampled).toFixed(2))
+      goalDiffLast5 != null && gamesSampled > 0
+        ? Number((goalDiffLast5 / gamesSampled).toFixed(2))
+        : Number.isFinite(Number(trend?.goalDiffPerMatch))
+          ? Number(trend.goalDiffPerMatch)
           : null;
     const ppmRaw =
-      Number.isFinite(Number(trend?.pointsPerMatchLastN))
-        ? Number(trend.pointsPerMatchLastN)
-        : points5Raw != null && gamesSampled > 0
-          ? Number((points5Raw / gamesSampled).toFixed(2))
+      points5Raw != null && gamesSampled > 0
+        ? Number((points5Raw / gamesSampled).toFixed(2))
+        : Number.isFinite(Number(trend?.pointsPerMatchLastN))
+          ? Number(trend.pointsPerMatchLastN)
           : null;
     const cleanSheetsRaw = Number.isFinite(Number(trend?.cleanSheetsLastN)) ? Number(trend.cleanSheetsLastN) : null;
     const derivedCleanSheets =
@@ -712,31 +712,13 @@
         : null;
     const cleanSheets = cleanSheetsRaw != null ? cleanSheetsRaw : derivedCleanSheets;
 
-    const formMaxPoints = gamesSampled > 0 ? gamesSampled * 3 : null;
-    const formRating =
-      Number.isFinite(Number(trend?.formRatingOutOf5)) && gamesSampled >= 5
-        ? Number(trend.formRatingOutOf5)
-        : points5Raw != null && formMaxPoints
-          ? Number(((points5Raw / formMaxPoints) * 5).toFixed(1))
-          : null;
-    const ratingText = formRating == null ? "-" : `${formRating}/5`;
-    const pointsText = points5Raw == null ? "-" : `${points5Raw} pts`;
     const gdText = gdPerMatchRaw == null ? "-" : gdPerMatchRaw > 0 ? `+${gdPerMatchRaw}` : String(gdPerMatchRaw);
     const ppmText = ppmRaw == null ? "-" : ppmRaw;
     const cleanSheetsText = cleanSheets == null ? "-" : cleanSheets;
-    const coverageNote =
-      gamesSampled > 0 && gamesSampled < 5
-        ? `Using ${gamesSampled}/5 completed matches so far.`
-        : gamesSampled === 0
-          ? "No completed matches in the current 5-match window yet."
-          : "";
     formTrendCard.innerHTML = `
-      <div><b>Form Rating:</b> ${ratingText} <span class="quick-muted">(${pointsText})</span></div>
-      <div class="quick-muted">Form Rating scales points to 0-5 using completed matches in the current 5-match window (3/win, 1/draw).</div>
       <div><b>GD / Match:</b> ${gdText}</div>
       <div><b>Pts / Match:</b> ${ppmText}</div>
       <div><b>Clean Sheets:</b> ${cleanSheetsText}</div>
-      ${coverageNote ? `<div class="quick-muted">${coverageNote}</div>` : ""}
     `;
   }
 
