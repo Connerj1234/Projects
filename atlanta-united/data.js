@@ -151,23 +151,12 @@ window.ATL_DATA = {
       "minutes": 0
     },
     {
-      "id": "361498",
+      "id": "mls-2026-MLS-OBJ-000CRG",
       "name": "Elías Baez",
       "number": "3",
       "position": "D",
-      "appearances": 0,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 0
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-000CRG",
-      "name": "Elías Báez",
-      "number": "3",
-      "position": "D",
       "appearances": 1,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 90
@@ -261,23 +250,12 @@ window.ATL_DATA = {
       "minutes": 6
     },
     {
-      "id": "138636",
-      "name": "Matt Edwards",
-      "number": "47",
-      "position": "D",
-      "appearances": 0,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 0
-    },
-    {
       "id": "mls-2026-MLS-OBJ-0005HF",
       "name": "Matthew Edwards",
       "number": "47",
       "position": "D",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -8480,7 +8458,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-23T20:32:57.250Z"
+    "generatedAt": "2026-02-23T21:23:00.508Z"
   },
   "seasonHistory": [
     {

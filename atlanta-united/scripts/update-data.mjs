@@ -1406,12 +1406,78 @@ function collectAthleteProfiles(node, map) {
   }
 }
 
+function normalizeNameKey(raw) {
+  return String(raw ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s'-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getNameParts(name) {
+  const parts = normalizeNameKey(name)
+    .split(" ")
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (parts.length === 0) return { first: "", last: "" };
+  return {
+    first: parts[0] ?? "",
+    last: parts[parts.length - 1] ?? "",
+  };
+}
+
+function areLikelySamePlayerByRosterAlias(a, b) {
+  if (!a || !b) return false;
+  const numberA = String(a?.number ?? "").trim();
+  const numberB = String(b?.number ?? "").trim();
+  if (!numberA || !numberB || numberA !== numberB) return false;
+
+  const posA = String(a?.position ?? "").trim().toUpperCase();
+  const posB = String(b?.position ?? "").trim().toUpperCase();
+  if (posA && posB && posA !== posB) return false;
+
+  const partsA = getNameParts(a?.name);
+  const partsB = getNameParts(b?.name);
+  if (!partsA.last || !partsB.last || partsA.last !== partsB.last) return false;
+  if (!partsA.first || !partsB.first) return false;
+  return partsA.first.charAt(0) === partsB.first.charAt(0);
+}
+
+function mergeLikelyRosterAliases(rows) {
+  const grouped = new Map();
+  for (const row of rows) {
+    const number = String(row?.number ?? "").trim();
+    const position = String(row?.position ?? "").trim().toUpperCase();
+    const key = `${number}|${position}`;
+    const bucket = grouped.get(key) ?? [];
+    bucket.push(row);
+    grouped.set(key, bucket);
+  }
+
+  const merged = [];
+  for (const bucket of grouped.values()) {
+    const used = new Set();
+    for (let i = 0; i < bucket.length; i += 1) {
+      if (used.has(i)) continue;
+      let base = bucket[i];
+      for (let j = i + 1; j < bucket.length; j += 1) {
+        if (used.has(j)) continue;
+        if (!areLikelySamePlayerByRosterAlias(base, bucket[j])) continue;
+        base = mergeRosterRow(base, bucket[j]);
+        used.add(j);
+      }
+      merged.push(base);
+    }
+  }
+  return merged;
+}
+
 function dedupeRosterStats(rows) {
   const map = new Map();
   for (const row of rows) {
-    const nameKey = String(row?.name ?? "")
-      .trim()
-      .toLowerCase();
+    const nameKey = normalizeNameKey(row?.name);
     const key = nameKey || row?.id || `${row?.number ?? ""}|${row?.position ?? ""}`;
     if (!key) continue;
     const existing = map.get(key);
@@ -1421,7 +1487,7 @@ function dedupeRosterStats(rows) {
     }
     map.set(key, mergeRosterRow(existing, row));
   }
-  return [...map.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  return mergeLikelyRosterAliases([...map.values()]).sort((a, b) => String(a.name).localeCompare(String(b.name)));
 }
 
 function mergeRosterRow(a, b) {
@@ -1478,13 +1544,13 @@ function mergeRosterStats(primaryRows, fallbackRows) {
   const fallbackByName = new Map();
   for (const row of fallbackRows) {
     if (row?.id) fallbackById.set(String(row.id), row);
-    const nameKey = String(row?.name ?? "").trim().toLowerCase();
+    const nameKey = normalizeNameKey(row?.name);
     if (nameKey) fallbackByName.set(nameKey, row);
   }
 
   const mergedPrimary = primaryRows.map((row) => {
     const byId = row?.id ? fallbackById.get(String(row.id)) : null;
-    const byName = fallbackByName.get(String(row?.name ?? "").trim().toLowerCase());
+    const byName = fallbackByName.get(normalizeNameKey(row?.name));
     const fallback = byId ?? byName ?? null;
     if (!fallback) return row;
     return {

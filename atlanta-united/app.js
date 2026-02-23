@@ -346,6 +346,7 @@
   const rosterBody = document.getElementById("rosterBody");
   const rosterTable = document.getElementById("rosterTable");
   const rosterToggle = document.getElementById("rosterToggle");
+  const homeRosterMeta = document.getElementById("homeRosterMeta");
   const recordLegend = document.getElementById("recordLegend");
   const timeline = document.getElementById("timeline");
   const historySeasonSelect = document.getElementById("historySeasonSelect");
@@ -748,6 +749,14 @@
   if (rosterBody) {
     const renderHomeRoster = () => {
       const players = data.playerStats ?? [];
+      if (homeRosterMeta) {
+        const seasonMatch = String(data.season ?? "").match(/\b(20\d{2})\b/);
+        const seasonPrefix = seasonMatch ? `${seasonMatch[1]} ` : "";
+        homeRosterMeta.textContent =
+          players.length > 0
+            ? `${seasonPrefix}roster rows: ${players.length}`
+            : "Roster stats unavailable right now.";
+      }
       if (players.length === 0) {
         rosterBody.innerHTML = `<tr><td colspan="7" class="standings-empty">Roster stats unavailable right now.</td></tr>`;
       } else {

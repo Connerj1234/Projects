@@ -53,11 +53,42 @@
   - home roster table sorted by clicking column headers
   - status/starts UI columns removed for cleaner presentation
 
+## Recently Completed
+- Form + Trend logic and copy cleanup shipped:
+  - removed Form Rating from Quick Fan Check card
+  - early-season averages now correctly use completed matches in current max-5 window
+  - GD/Match and Pts/Match now compute from available completed matches (before hitting 5)
+- Quick Fan Check + standings naming cleanup shipped:
+  - "Next 3 Fixtures" -> "Next 3 Matches"
+  - "Live Standings Snapshot" -> "Live Standings"
+  - removed standalone standings updated timestamp from home card (sidebar remains source of truth)
+- Playoff Line card simplification shipped:
+  - "Rank" replaced with ordinal "Position" (example: 12th)
+  - removed conference suffix and points row from that card
+- History page wording cleanup shipped:
+  - "Table Snapshot" -> "East Standings"
+  - season pulse card label "Attendance" -> "Avg Attendance"
+  - season meta notes normalize "fixtures/games" wording to "matches"
+- Expand/collapse button UX refresh shipped:
+  - toggle labels standardized to compact copy (`Show all (N)` / `Show less`)
+  - shared toggle styling updated for better fit in top-right card headers
+- Production automation hardening shipped:
+  - canonical cron updater script tracked in repo at `scripts/update-and-push.sh`
+  - server cron flow verified end-to-end with live run logs
+  - commit detection now includes both `data.js` and `historical-data.json`
+  - lock-file guard in updater prevents overlapping runs
+- GitHub Actions daily updater removed:
+  - `.github/workflows/update-data.yml` deleted to prevent overlap with server cron source-of-truth
+- Cron failure notifications shipped:
+  - Postfix configured with Gmail relay (SMTP 587 + app password)
+  - cron `MAILTO` path validated with successful test delivery
+  - current behavior: normal output to `/home/claw/atlanta-update.log`, failure output emailed
+
 ## Now
 ### 1. Deepen Starting XI Module
 - Add lineup metadata chips (formation, competition, date, score).
-- Add optional bench/subs section under the pitch.
-- Add lineup grouping by season/trophy.
+- Add optional bench/subs section under the pitch. (not likely- comment added by user)
+- Add lineup grouping by season/trophy. --> so pick season first and then lineups for that season (maybe?)
 
 ### 2. Expand Player Stats (Current + Historical)
 - Target columns to add/standardize across home + history roster tables:
@@ -108,7 +139,7 @@
 - The script:
   - pulls latest `main`
   - runs `npm run update-data`
-  - commits/pushes only when tracked output files changed (currently centered on `data.js`)
+  - commits/pushes only when tracked output files changed (`data.js` + `historical-data.json`)
 - `npm run update-data` performs an in-season upsert into `historical-data.json`:
   - active season row is inserted/updated when changed
   - no-write path is used when nothing changed
@@ -122,6 +153,25 @@
   - daily cron run should keep current-season `data.js` fresh
   - active-season history upsert should keep `historical-data.json` in sync as part of each update run
   - after stat column expansions, ensure automation includes commit detection for any newly changed tracked data files
+
+### Cron safety checklist (always apply during local changes)
+- Server cron is the production data pipeline source-of-truth; treat `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh` as critical infrastructure.
+- Any local change that affects data generation, npm scripts, file paths, git workflow, or script behavior must be validated against server automation assumptions before/after merge.
+- Required checks after relevant merges:
+  1. On server: `git pull origin main`
+  2. On server: run updater once manually and confirm success in `/home/claw/atlanta-update.log`
+  3. Confirm no regressions in commit detection logic (`data.js` + `historical-data.json` only when changed)
+  4. Confirm cron still points to the correct script path and schedule
+- Rule for future work:
+  - when modifying anything related to update flow, include a short note in PR/commit context: "cron impact reviewed" and what was validated.
+
+### Failure notifications (recommended)
+- Current production behavior:
+  - cron output is appended to `/home/claw/atlanta-update.log`
+  - cron `MAILTO` is configured so failure/error output is emailed to the configured Gmail inbox
+- Minimum baseline (if alerts ever need re-setup): keep cron output redirected to `/home/claw/atlanta-update.log` and review after operational changes.
+- Better baseline (if mail setup changes): configure cron email notifications (set `MAILTO`) so stderr/failures are emailed automatically.
+- Optional: add a post-run health ping/webhook notifier so missed/failed runs trigger alerts without manual log checks.
 
 ### End-of-season behavior (as of now)
 - Home page season selection is fixture-driven (active season is inferred from upcoming/current fixtures).
@@ -150,6 +200,6 @@
 - Regression checks for:
   - season label correctness
   - next match detection
-  - next 3 fixtures generation
+  - next 3 matches generation
   - standings fallback behavior
 - Snapshot shape test for generated `data.js` including `historicalSeasons`.
