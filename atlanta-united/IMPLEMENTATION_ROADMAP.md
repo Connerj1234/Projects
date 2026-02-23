@@ -67,6 +67,41 @@
   - In-season: append/merge active season into `historical-data.json` only when changed.
   - End-of-season: run `npm run normalize-historical` then `npm run audit-historical` and lock final season snapshot.
 
+## Operations Workflow (Long-Term Reference)
+### Daily automation (current production flow)
+- The Ubuntu server runs `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh` on cron daily.
+- The script:
+  - pulls latest `main`
+  - runs `npm run update-data`
+  - commits/pushes only when `data.js` changed
+- `npm run update-data` performs an in-season upsert into `historical-data.json`:
+  - active season row is inserted/updated when changed
+  - no-write path is used when nothing changed
+  - this means current-season fixtures/standings/roster snapshots are continuously persisted and do not need a single big end-of-season re-pull
+
+### End-of-season behavior (as of now)
+- Home page season selection is fixture-driven (active season is inferred from upcoming/current fixtures).
+- Offseason handoff:
+  - when current-season fixtures are complete and next-year fixtures exist, home season advances to next year
+  - prior season remains in `historical-data.json` as the locked historical season record
+- Recommended year-end/manual sanity pass:
+  1. Run `npm run update-data`
+  2. Run `npm run normalize-historical`
+  3. Run `npm run audit-historical`
+  4. Inspect `historical-data.json` for expected completed season row counts and final record
+
+### Playoff handling
+- The live fixture ingestion aggregates multiple sources (team schedule endpoints, team overview, and league scoreboard windows).
+- Because the ingest is date-range + event based (not hardcoded to a fixed regular-season game count), postseason matches can flow in when they appear in the upstream feed.
+- Current UI labels still say "MLS Regular Season"; postseason fixtures may still be included in aggregate results if present in the feed.
+- If league calendar format changes (future MLS schedule shift), daily upsert should continue working as long as fixture feeds publish events; keep the year-end sanity pass above as guardrail.
+
+### Recovery / re-sync procedures
+- If active season data looks stale or malformed:
+  1. Run `npm run update-data` once manually
+  2. Verify `data.js` and active season entry in `historical-data.json`
+  3. If historical cache drifted, run `npm run backfill-historical` then `npm run normalize-historical` and `npm run audit-historical`
+
 ## Testing
 - Regression checks for:
   - season label correctness

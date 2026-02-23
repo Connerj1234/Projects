@@ -1516,6 +1516,14 @@ function normalizeMlsPosition(raw) {
   return pos.slice(0, 3).toUpperCase();
 }
 
+function firstNumericValue(obj, keys) {
+  for (const key of keys) {
+    const value = toNumber(obj?.[key]);
+    if (value != null) return value;
+  }
+  return null;
+}
+
 async function resolveMlsSeasonId(seasonYear) {
   const payload = await fetchJsonSafe(`${MLS_STATS_API_BASE}/competitions/${MLS_COMPETITION_ID}/seasons`, null);
   const seasons = Array.isArray(payload?.seasons) ? payload.seasons : [];
@@ -1565,17 +1573,30 @@ async function loadRosterStatsFromMlsStatsApi(seasonYear) {
         name,
         number: meta?.number ?? (row?.jersey_number != null ? String(row.jersey_number) : ""),
         position: meta?.position ?? normalizeMlsPosition(row?.position),
-        appearances: toNumber(row?.matches_played),
-        starts: toNumber(
-          row?.starts ??
-            row?.games_started ??
-            row?.matches_started ??
-            row?.matches_played_tracking ??
-            row?.games_starts,
-        ),
-        goals: toNumber(row?.goals),
-        assists: toNumber(row?.assists),
-        minutes: toNumber(row?.normalized_player_minutes ?? row?.minutes_played ?? row?.minutes),
+        appearances: firstNumericValue(row, [
+          "matches_played",
+          "matches_played_tracking",
+          "games_played",
+          "games",
+          "appearances",
+          "apps",
+        ]),
+        starts: firstNumericValue(row, [
+          "starts",
+          "games_started",
+          "matches_started",
+          "games_starts",
+          "starts_played",
+        ]),
+        goals: firstNumericValue(row, ["goals", "goal", "goals_scored"]),
+        assists: firstNumericValue(row, ["assists", "assist"]),
+        minutes: firstNumericValue(row, [
+          "normalized_player_minutes",
+          "minutes_played",
+          "minutes",
+          "mins",
+          "time_played",
+        ]),
       };
     })
     .filter(Boolean);
