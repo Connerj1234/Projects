@@ -1396,11 +1396,41 @@ function collectAthleteProfiles(node, map) {
 function dedupeRosterStats(rows) {
   const map = new Map();
   for (const row of rows) {
-    const key = row?.id || `${String(row?.name ?? "").toLowerCase()}|${row?.number ?? ""}|${row?.position ?? ""}`;
+    const nameKey = String(row?.name ?? "")
+      .trim()
+      .toLowerCase();
+    const key = nameKey || row?.id || `${row?.number ?? ""}|${row?.position ?? ""}`;
     if (!key) continue;
-    map.set(key, row);
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, row);
+      continue;
+    }
+    map.set(key, mergeRosterRow(existing, row));
   }
   return [...map.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+}
+
+function mergeRosterRow(a, b) {
+  const chooseText = (x, y) => {
+    const sx = String(x ?? "").trim();
+    const sy = String(y ?? "").trim();
+    if (!sx) return sy || "";
+    if (!sy) return sx;
+    return sy.length > sx.length ? sy : sx;
+  };
+
+  return {
+    id: chooseText(a?.id, b?.id),
+    name: chooseText(a?.name, b?.name),
+    number: chooseText(a?.number, b?.number),
+    position: chooseText(a?.position, b?.position),
+    appearances: pickBetterNumericStat(a?.appearances, b?.appearances),
+    starts: pickBetterNumericStat(a?.starts, b?.starts),
+    goals: pickBetterNumericStat(a?.goals, b?.goals),
+    assists: pickBetterNumericStat(a?.assists, b?.assists),
+    minutes: pickBetterNumericStat(a?.minutes, b?.minutes),
+  };
 }
 
 function hasUsableRosterStats(rows) {
@@ -1574,14 +1604,27 @@ async function loadRosterStatsFromMlsStatsApi(seasonYear) {
         name,
         number: meta?.number ?? (row?.jersey_number != null ? String(row.jersey_number) : ""),
         position: meta?.position ?? normalizeMlsPosition(row?.position),
-        appearances: firstNumericValue(row, [
-          "matches_played",
-          "matches_played_tracking",
-          "games_played",
-          "games",
-          "appearances",
-          "apps",
-        ]),
+        appearances:
+          firstNumericValue(row, [
+            "matches_played",
+            "matches_played_tracking",
+            "games_played",
+            "games",
+            "appearances",
+            "apps",
+          ]) ??
+          (firstNumericValue(row, [
+            "starts",
+            "games_started",
+            "matches_started",
+            "games_starts",
+            "starts_played",
+            "normalized_player_minutes",
+            "minutes_played",
+            "minutes",
+          ]) != null
+            ? 0
+            : null),
         starts: firstNumericValue(row, [
           "starts",
           "games_started",
