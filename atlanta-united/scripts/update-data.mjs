@@ -739,7 +739,7 @@ function isUpcomingFixture(fixture, nowMs = Date.now()) {
   const kickoffMs = Date.parse(fixture?.dateISO ?? "");
   if (!Number.isFinite(kickoffMs)) return false;
   if (fixture?.completed) return false;
-  if (Number.isFinite(fixture?.atlScore) && Number.isFinite(fixture?.oppScore)) return false;
+  if (kickoffMs < nowMs - UPCOMING_GRACE_MS) return false;
   return kickoffMs >= nowMs - UPCOMING_GRACE_MS;
 }
 
@@ -1070,19 +1070,38 @@ function flattenStandingsGroups(standingsPayload) {
 }
 
 async function loadStandingsSnapshot() {
-  const url = `${ESPN_API_BASE}/standings`;
-  const payload = await fetchJson(url);
-  const conferences = flattenStandingsGroups(payload);
+  const nowYear = new Date().getUTCFullYear();
+  const urls = [
+    `${ESPN_API_BASE}/standings`,
+    `${ESPN_API_BASE}/standings?season=${nowYear}`,
+    `${ESPN_API_BASE}/standings?season=${nowYear}&seasontype=2`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/standings`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/standings?season=${nowYear}`,
+    `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/standings?season=${nowYear}&seasontype=2`,
+  ];
 
-  const east = conferences.find((c) => /east/i.test(c.conference));
-  const west = conferences.find((c) => /west/i.test(c.conference));
+  for (const url of urls) {
+    const payload = await fetchJsonSafe(url, null);
+    if (!payload) continue;
+    const conferences = flattenStandingsGroups(payload);
+    const east = conferences.find((c) => /east/i.test(c.conference));
+    const west = conferences.find((c) => /west/i.test(c.conference));
+    const atlantaRow = [...(east?.rows ?? []), ...(west?.rows ?? [])].find((r) => r.isAtlanta) ?? null;
 
-  const atlantaRow = [...(east?.rows ?? []), ...(west?.rows ?? [])].find((r) => r.isAtlanta) ?? null;
+    if ((east?.rows?.length ?? 0) > 0 || (west?.rows?.length ?? 0) > 0) {
+      return {
+        east: east?.rows ?? [],
+        west: west?.rows ?? [],
+        atlanta: atlantaRow,
+        generatedAt: new Date().toISOString(),
+      };
+    }
+  }
 
   return {
-    east: east?.rows ?? [],
-    west: west?.rows ?? [],
-    atlanta: atlantaRow,
+    east: [],
+    west: [],
+    atlanta: null,
     generatedAt: new Date().toISOString(),
   };
 }
@@ -1191,12 +1210,41 @@ function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
 }
 
 function flattenRosterGroups(payload) {
-  const groups = payload?.athletes ?? payload?.groups ?? [];
   const all = [];
-  for (const group of groups) {
-    const items = group?.items ?? group?.athletes ?? [];
-    for (const athlete of items) all.push(athlete);
+  const seen = new Set();
+
+  function walk(node) {
+    if (!node || typeof node !== "object") return;
+    if (seen.has(node)) return;
+    seen.add(node);
+
+    if (Array.isArray(node)) {
+      for (const item of node) walk(item);
+      return;
+    }
+
+    const looksLikeAthlete =
+      node?.id != null &&
+      (node?.displayName || node?.shortName || node?.fullName) &&
+      (node?.position || node?.jersey != null || node?.headshot || node?.links);
+    if (looksLikeAthlete) {
+      all.push(node);
+    }
+
+    const collections = [
+      ...(Array.isArray(node?.athletes) ? [node.athletes] : []),
+      ...(Array.isArray(node?.items) ? [node.items] : []),
+      ...(Array.isArray(node?.roster) ? [node.roster] : []),
+      ...(Array.isArray(node?.players) ? [node.players] : []),
+    ];
+    for (const list of collections) walk(list);
+
+    for (const value of Object.values(node)) {
+      if (value && typeof value === "object") walk(value);
+    }
   }
+
+  walk(payload);
   return all;
 }
 
@@ -1376,13 +1424,45 @@ function buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload) 
 }
 
 async function loadPlayerStatsSnapshot() {
-  const [rosterPayload, teamPayload, statsPayload] = await Promise.all([
-    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/roster`, {}),
-    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}`, {}),
-    fetchJsonSafe(`${ESPN_API_BASE}/teams/${TEAM_ID}/statistics`, {}),
-  ]);
+  const nowYear = new Date().getUTCFullYear();
+  const urlSets = [
+    [
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/roster`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/statistics`,
+    ],
+    [
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/roster?season=${nowYear}`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}?season=${nowYear}`,
+      `${ESPN_API_BASE}/teams/${TEAM_ID}/statistics?season=${nowYear}`,
+    ],
+    [
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/roster`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/statistics`,
+    ],
+    [
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/roster?season=${nowYear}`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}?season=${nowYear}`,
+      `https://site.web.api.espn.com/apis/v2/sports/soccer/${LEAGUE}/teams/${TEAM_ID}/statistics?season=${nowYear}`,
+    ],
+  ];
 
-  return buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload);
+  const merged = [];
+  for (const [rosterUrl, teamUrl, statsUrl] of urlSets) {
+    const [rosterPayload, teamPayload, statsPayload] = await Promise.all([
+      fetchJsonSafe(rosterUrl, {}),
+      fetchJsonSafe(teamUrl, {}),
+      fetchJsonSafe(statsUrl, {}),
+    ]);
+    merged.push(...buildRosterStatsFromPayloads(rosterPayload, teamPayload, statsPayload));
+  }
+
+  const rows = dedupeRosterStats(merged);
+  if (rows.length > 0) return rows;
+
+  const seasonal = await loadRosterStatsForSeason(nowYear);
+  return seasonal?.rows ?? [];
 }
 
 async function loadRosterStatsForSeason(seasonYear) {
