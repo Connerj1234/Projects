@@ -88,9 +88,20 @@ window.ATL_DATA = {
       "position": "M",
       "appearances": null,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000CLL",
+      "name": "Adrian Gill",
+      "number": "16",
+      "position": "M",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "380821",
@@ -108,11 +119,22 @@ window.ATL_DATA = {
       "name": "Alexey Miranchuk",
       "number": "59",
       "position": "M",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 17
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0007SK",
+      "name": "Alexey Miranchuk",
+      "number": "59",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 17
     },
     {
       "id": "235093",
@@ -121,20 +143,42 @@ window.ATL_DATA = {
       "position": "F",
       "appearances": null,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0007WA",
+      "name": "Cayman Togashi",
+      "number": "30",
+      "position": "OFF",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "402315",
       "name": "Cooper Sanchez",
       "number": "48",
       "position": "M",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 73
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-00023H",
+      "name": "Cooper Sanchez",
+      "number": "48",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 73
     },
     {
       "id": "400742",
@@ -159,26 +203,59 @@ window.ATL_DATA = {
       "minutes": null
     },
     {
+      "id": "mls-2026-MLS-OBJ-000CRG",
+      "name": "Elías Báez",
+      "number": "3",
+      "position": "D",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
       "id": "242439",
       "name": "Emmanuel Latte Lath",
       "number": "9",
       "position": "F",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-00081B",
+      "name": "Emmanuel Latte Lath",
+      "number": "9",
+      "position": "OFF",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "243195",
       "name": "Enea Mihaj",
       "number": "4",
       "position": "D",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000BVP",
+      "name": "Enea Mihaj",
+      "number": "4",
+      "position": "D",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "211678",
@@ -209,42 +286,86 @@ window.ATL_DATA = {
       "position": "G",
       "appearances": null,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0005GF",
+      "name": "Jayden Hibbert",
+      "number": "42",
+      "position": "GK",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "262061",
       "name": "Juan Berrocal",
       "number": "6",
       "position": "D",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000BY5",
+      "name": "Juan Berrocal",
+      "number": "6",
+      "position": "D",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "109193",
       "name": "Lucas Hoyos",
       "number": "1",
       "position": "G",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000575",
+      "name": "Lucas Hoyos",
+      "number": "1",
+      "position": "GK",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "308892",
       "name": "Luke Brennan",
       "number": "20",
       "position": "M",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 6
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000239",
+      "name": "Luke Brennan",
+      "number": "20",
+      "position": "OFF",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 6
     },
     {
       "id": "138636",
@@ -258,15 +379,37 @@ window.ATL_DATA = {
       "minutes": null
     },
     {
+      "id": "mls-2026-MLS-OBJ-0005HF",
+      "name": "Matthew Edwards",
+      "number": "47",
+      "position": "D",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "48128",
       "name": "Miguel Almirón",
       "number": "10",
       "position": "F",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0003T9",
+      "name": "Miguel Almirón",
+      "number": "10",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "303125",
@@ -284,22 +427,44 @@ window.ATL_DATA = {
       "name": "Ronald Hernández",
       "number": "2",
       "position": "D",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0001IV",
+      "name": "Ronald Hernández",
+      "number": "2",
+      "position": "D",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "221128",
       "name": "Saba Lobjanidze",
       "number": "11",
       "position": "F",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 73
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0003E7",
+      "name": "Saba Lobjanidze",
+      "number": "11",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 73
     },
     {
       "id": "416552",
@@ -328,11 +493,22 @@ window.ATL_DATA = {
       "name": "Steven Alzate",
       "number": "7",
       "position": "M",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 84
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000C5U",
+      "name": "Steven Alzate",
+      "number": "7",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 84
     },
     {
       "id": "188454",
@@ -341,20 +517,42 @@ window.ATL_DATA = {
       "position": "D",
       "appearances": null,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-00053D",
+      "name": "Stian Gregersen",
+      "number": "5",
+      "position": "D",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "330082",
       "name": "Tomás Jacob",
       "number": "55",
       "position": "D",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-00057R",
+      "name": "Tomás Jacob",
+      "number": "55",
+      "position": "D",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 90
     },
     {
       "id": "419246",
@@ -363,20 +561,42 @@ window.ATL_DATA = {
       "position": "D",
       "appearances": null,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-00083K",
+      "name": "Toto Majub",
+      "number": "41",
+      "position": "D",
+      "appearances": null,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "255802",
       "name": "Tristan Muyumba",
       "number": "8",
       "position": "M",
-      "appearances": null,
+      "appearances": 1,
       "starts": null,
-      "goals": null,
-      "assists": null,
-      "minutes": null
+      "goals": 0,
+      "assists": 0,
+      "minutes": 17
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-000391",
+      "name": "Tristan Muyumba",
+      "number": "8",
+      "position": "M",
+      "appearances": 1,
+      "starts": null,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 17
     },
     {
       "id": "290024",
@@ -8455,7 +8675,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-23T19:20:23.180Z"
+    "generatedAt": "2026-02-23T19:26:04.917Z"
   },
   "seasonHistory": [
     {
