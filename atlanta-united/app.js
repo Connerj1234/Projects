@@ -339,7 +339,6 @@
   const resultsToggle = document.getElementById("resultsToggle");
   const eastStandingsBody = document.getElementById("eastStandingsBody");
   const westStandingsBody = document.getElementById("westStandingsBody");
-  const standingsUpdated = document.getElementById("standingsUpdated");
   const sidebarLastUpdated = document.getElementById("sidebarLastUpdated");
   const formTrendCard = document.getElementById("formTrendCard");
   const nextThreeCard = document.getElementById("nextThreeCard");
@@ -643,16 +642,6 @@
     westStandingsBody.innerHTML = renderStandingsRows(data.standings?.west);
   }
 
-  if (standingsUpdated) {
-    const generatedAt = data.standings?.generatedAt;
-    if (generatedAt) {
-      const ts = new Date(generatedAt);
-      standingsUpdated.textContent = `Updated ${ts.toLocaleString()}`;
-    } else {
-      standingsUpdated.textContent = "Standings update time unavailable.";
-    }
-  }
-
   if (sidebarLastUpdated) {
     const generatedAt = data.standings?.generatedAt;
     if (generatedAt) {
@@ -725,7 +714,7 @@
   if (nextThreeCard) {
     const upcoming = data.quickSnapshot?.nextThree ?? [];
     if (upcoming.length === 0) {
-      nextThreeCard.innerHTML = `<div>No upcoming fixtures available yet.</div>`;
+      nextThreeCard.innerHTML = `<div>No upcoming matches available yet.</div>`;
     } else {
       nextThreeCard.innerHTML = upcoming
         .map((m) => {
@@ -743,14 +732,13 @@
       playoffCard.innerHTML = `<div>Playoff line data unavailable right now.</div>`;
     } else {
       const rank = playoff.rank ?? "-";
-      const points = playoff.points ?? "-";
+      const positionText = Number.isFinite(Number(rank)) ? ordinal(Number(rank)) : rank;
       const diff = playoff.pointsFromLine;
       const diffText = diff == null ? "-" : diff >= 0 ? `+${diff}` : `${diff}`;
       const gih = playoff.gamesInHand;
       const gihText = gih == null ? "-" : gih >= 0 ? `+${gih}` : `${gih}`;
       playoffCard.innerHTML = `
-        <div><b>Rank:</b> ${rank} (${playoff.conference})</div>
-        <div><b>Points:</b> ${points}</div>
+        <div><b>Position:</b> ${positionText}</div>
         <div><b>Vs #${playoff.lineRank} Line:</b> ${diffText} pts</div>
         <div><b>Games in Hand:</b> ${gihText}</div>
       `;
@@ -955,7 +943,7 @@
         ["GA", valueOrDash(selected.seasonLongStats?.goalsAgainst)],
         ["Home", valueOrDash(selected.seasonLongStats?.homeRecord)],
         ["Away", valueOrDash(selected.seasonLongStats?.awayRecord)],
-        ["Attendance", attendanceText],
+        ["Avg Attendance", attendanceText],
       ];
 
       historySeasonPulse.innerHTML = pulseEntries
@@ -975,6 +963,8 @@
           .replace(/,\s*\d+\s*roster rows?.*$/i, "")
           .replace(/\s*ATLUTD stats import.*$/i, "")
           .replace(/\s*FBref.*$/i, "")
+          .replace(/\bfixtures?\b/gi, "matches")
+          .replace(/\bgames?\b/gi, "matches")
           .trim();
         historySeasonMeta.textContent = cleanedNotes
           ? `${selected.seasonLabel ?? selected.season} • ${cleanedNotes}`
@@ -985,7 +975,7 @@
 
       const table = selected.tableSnapshot ?? [];
       if (table.length === 0) {
-        historyTableBody.innerHTML = `<tr><td colspan="8" class="standings-empty">Table snapshot for this season will be populated in the history data pass.</td></tr>`;
+        historyTableBody.innerHTML = `<tr><td colspan="8" class="standings-empty">East standings for this season will be populated in the history data pass.</td></tr>`;
       } else {
         const sortedTable = table.slice().sort((a, b) => {
           const pointsA = Number(a?.points);
