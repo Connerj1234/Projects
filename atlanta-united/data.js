@@ -1,62 +1,47 @@
 window.ATL_DATA = {
-  "season": "2026 MLS Regular Season (Upcoming)",
+  "season": "2026 MLS Regular Season",
   "clubName": "Atlanta United",
   "record": {
     "wins": 0,
     "draws": 0,
-    "losses": 0
+    "losses": 1
   },
   "stats": {
     "points": 0,
     "goalsFor": 0,
-    "goalsAgainst": 0,
+    "goalsAgainst": 2,
     "homeRecord": "0-0-0",
-    "awayRecord": "0-0-0",
+    "awayRecord": "0-0-1",
     "cleanSheets": 0,
     "avgAttendance": null
   },
   "position": null,
-  "formLastFive": [],
-  "nextMatch": {
-    "opponent": "San Jose Earthquakes",
-    "dateISO": "2026-03-01T00:30Z",
-    "competition": "MLS",
-    "venue": "PayPal Park",
-    "broadcast": "MLS Season Pass"
-  },
-  "results": [],
+  "formLastFive": [
+    "L"
+  ],
+  "nextMatch": null,
+  "results": [
+    {
+      "date": "2026-02-21",
+      "opponent": "FC Cincinnati",
+      "venue": "Away",
+      "score": "0-2",
+      "outcome": "Loss"
+    }
+  ],
   "quickSnapshot": {
     "formTrend": {
       "pointsLast5": 0,
-      "goalDiffLast5": 0,
+      "goalDiffLast5": -2,
       "formRatingOutOf5": 0,
-      "goalDiffPerMatch": 0,
+      "goalDiffPerMatch": -0.4,
       "wdlLast5": {
         "wins": 0,
         "draws": 0,
-        "losses": 0
+        "losses": 1
       }
     },
-    "nextThree": [
-      {
-        "opponent": "San Jose Earthquakes",
-        "dateISO": "2026-03-01T00:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
-      {
-        "opponent": "Real Salt Lake",
-        "dateISO": "2026-03-08T00:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
-      {
-        "opponent": "Philadelphia Union",
-        "dateISO": "2026-03-14T19:00Z",
-        "venue": "Home",
-        "competition": "MLS"
-      }
-    ],
+    "nextThree": [],
     "playoffLine": null
   },
   "playerStats": [],
@@ -7721,7 +7706,7 @@ window.ATL_DATA = {
     "east": [],
     "west": [],
     "atlanta": null,
-    "generatedAt": "2026-02-23T18:38:24.395Z"
+    "generatedAt": "2026-02-23T18:43:13.515Z"
   },
   "seasonHistory": [
     {
