@@ -996,8 +996,30 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function sortConferenceRows(rows) {
+  const sorted = rows
+    .slice()
+    .sort((a, b) => {
+      const pointsDiff = (toNumber(b?.points) ?? -9999) - (toNumber(a?.points) ?? -9999);
+      if (pointsDiff !== 0) return pointsDiff;
+
+      const gdDiff = (toNumber(b?.goalDiff) ?? -9999) - (toNumber(a?.goalDiff) ?? -9999);
+      if (gdDiff !== 0) return gdDiff;
+
+      const winsDiff = (toNumber(b?.wins) ?? -9999) - (toNumber(a?.wins) ?? -9999);
+      if (winsDiff !== 0) return winsDiff;
+
+      const playedDiff = (toNumber(a?.played) ?? 9999) - (toNumber(b?.played) ?? 9999);
+      if (playedDiff !== 0) return playedDiff;
+
+      return String(a?.team ?? "").localeCompare(String(b?.team ?? ""));
+    });
+
+  return sorted.map((row, idx) => ({ ...row, rank: idx + 1 }));
+}
+
 function parseStandingsRows(rows, conferenceName) {
-  return rows.map((row, idx) => {
+  const parsed = rows.map((row) => {
     const team = row?.team ?? {};
     const stats = row?.stats ?? [];
 
@@ -1014,7 +1036,7 @@ function parseStandingsRows(rows, conferenceName) {
     const goalDiff = findStat("pointDifferential", "GD", "DIFF");
 
     return {
-      rank: idx + 1,
+      rank: null,
       teamId: String(team?.id ?? ""),
       team: team?.displayName || team?.shortDisplayName || "Unknown",
       played: gamesPlayed,
@@ -1027,6 +1049,8 @@ function parseStandingsRows(rows, conferenceName) {
       isAtlanta: String(team?.id ?? "") === TEAM_ID,
     };
   });
+
+  return sortConferenceRows(parsed);
 }
 
 function flattenStandingsGroups(standingsPayload) {
@@ -1256,25 +1280,57 @@ function collectAthleteStats(node, map) {
     return;
   }
 
-  const athlete = node?.athlete ?? node?.player ?? null;
-  const stats = node?.stats ?? node?.statistics ?? null;
-  if (athlete && stats) {
-    const id = String(athlete?.id ?? "");
-    if (id) {
-      const curr = map.get(id) ?? {};
-      const statArr = Array.isArray(stats) ? stats : [];
-      for (const s of statArr) {
-        const key = String(s?.name ?? s?.abbreviation ?? "").toLowerCase();
-        const val = parseStatValue(s?.value ?? s?.displayValue);
-        if (!key) continue;
-        if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$)/.test(key) && curr.appearances == null) curr.appearances = val;
-        if (/(^starts$|^gamesstarted$|^startsplayed$|^gs$)/.test(key) && curr.starts == null) curr.starts = val;
-        if (/(^goals$|^goalsscored$)/.test(key) && curr.goals == null) curr.goals = val;
-        if (/^assists$/.test(key) && curr.assists == null) curr.assists = val;
-        if (/(^minutes$|^mins$|^timeplayed$)/.test(key) && curr.minutes == null) curr.minutes = val;
+  const athlete =
+    node?.athlete ??
+    node?.player ??
+    (node?.id != null && (node?.displayName || node?.shortName || node?.fullName) ? node : null);
+  const id = String(athlete?.id ?? "");
+  if (id) {
+    const curr = map.get(id) ?? {};
+
+    const applyStat = (rawKey, rawValue) => {
+      const key = String(rawKey ?? "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      const val = parseStatValue(rawValue);
+      if (!key || val == null) return;
+      if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$|^mp$)/.test(key) && curr.appearances == null) curr.appearances = val;
+      if (/(^starts$|^gamesstarted$|^startsplayed$|^gs$)/.test(key) && curr.starts == null) curr.starts = val;
+      if (/(^goals$|^goalsscored$|^g$)/.test(key) && curr.goals == null) curr.goals = val;
+      if (/^assists$/.test(key) && curr.assists == null) curr.assists = val;
+      if (/(^minutes$|^mins$|^timeplayed$|^min$)/.test(key) && curr.minutes == null) curr.minutes = val;
+    };
+
+    const consumeStatsSource = (source) => {
+      if (!source) return;
+      if (Array.isArray(source)) {
+        for (const item of source) {
+          if (!item || typeof item !== "object") continue;
+          const key = item?.name ?? item?.abbreviation ?? item?.key;
+          const value = item?.value ?? item?.displayValue ?? item?.stat ?? item?.total;
+          if (key != null || value != null) {
+            applyStat(key, value);
+          } else {
+            for (const [k, v] of Object.entries(item)) applyStat(k, v);
+          }
+        }
+        return;
       }
-      map.set(id, curr);
+      if (typeof source === "object") {
+        for (const [k, v] of Object.entries(source)) applyStat(k, v);
+      }
+    };
+
+    consumeStatsSource(node?.stats);
+    consumeStatsSource(node?.statistics);
+    if (Array.isArray(node?.categories)) {
+      for (const category of node.categories) consumeStatsSource(category?.stats);
     }
+    if (Array.isArray(node?.splits)) {
+      for (const split of node.splits) consumeStatsSource(split?.stats);
+    }
+
+    map.set(id, curr);
   }
 
   for (const value of Object.values(node)) {
@@ -1318,6 +1374,42 @@ function dedupeRosterStats(rows) {
     map.set(key, row);
   }
   return [...map.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+}
+
+function hasUsableRosterStats(rows) {
+  return rows.some((row) =>
+    [row?.appearances, row?.starts, row?.goals, row?.assists, row?.minutes].some((value) => {
+      const n = Number(value);
+      return Number.isFinite(n);
+    }),
+  );
+}
+
+function mergeRosterStats(primaryRows, fallbackRows) {
+  const fallbackById = new Map();
+  const fallbackByName = new Map();
+  for (const row of fallbackRows) {
+    if (row?.id) fallbackById.set(String(row.id), row);
+    const nameKey = String(row?.name ?? "").trim().toLowerCase();
+    if (nameKey) fallbackByName.set(nameKey, row);
+  }
+
+  const mergedPrimary = primaryRows.map((row) => {
+    const byId = row?.id ? fallbackById.get(String(row.id)) : null;
+    const byName = fallbackByName.get(String(row?.name ?? "").trim().toLowerCase());
+    const fallback = byId ?? byName ?? null;
+    if (!fallback) return row;
+    return {
+      ...row,
+      appearances: row?.appearances ?? fallback?.appearances ?? null,
+      starts: row?.starts ?? fallback?.starts ?? null,
+      goals: row?.goals ?? fallback?.goals ?? null,
+      assists: row?.assists ?? fallback?.assists ?? null,
+      minutes: row?.minutes ?? fallback?.minutes ?? null,
+    };
+  });
+
+  return dedupeRosterStats([...mergedPrimary, ...fallbackRows]);
 }
 
 function parseFbrefStandardRows(html, seasonYear) {
@@ -1459,10 +1551,13 @@ async function loadPlayerStatsSnapshot() {
   }
 
   const rows = dedupeRosterStats(merged);
-  if (rows.length > 0) return rows;
+  if (rows.length > 0 && hasUsableRosterStats(rows)) return rows;
 
   const seasonal = await loadRosterStatsForSeason(nowYear);
-  return seasonal?.rows ?? [];
+  const seasonalRows = seasonal?.rows ?? [];
+  if (rows.length === 0) return seasonalRows;
+  if (seasonalRows.length === 0) return rows;
+  return mergeRosterStats(rows, seasonalRows);
 }
 
 async function loadRosterStatsForSeason(seasonYear) {
@@ -1500,12 +1595,19 @@ async function loadRosterStatsForSeason(seasonYear) {
   }
 
   const espnMerged = dedupeRosterStats(merged);
-  if (espnMerged.length >= 8) return { rows: espnMerged, source: "ESPN" };
+  if (espnMerged.length >= 8 && hasUsableRosterStats(espnMerged)) {
+    return { rows: espnMerged, source: "ESPN" };
+  }
 
   const fbrefRows = await loadRosterStatsFromFbref(seasonYear);
-  if (fbrefRows.length === 0) return { rows: espnMerged, source: espnMerged.length > 0 ? "ESPN-partial" : "none" };
+  if (fbrefRows.length === 0) {
+    return { rows: espnMerged, source: espnMerged.length > 0 ? "ESPN-partial" : "none" };
+  }
 
-  return { rows: dedupeRosterStats([...espnMerged, ...fbrefRows]), source: espnMerged.length > 0 ? "ESPN+FBref" : "FBref" };
+  return {
+    rows: mergeRosterStats(espnMerged, fbrefRows),
+    source: espnMerged.length > 0 ? "ESPN+FBref" : "FBref",
+  };
 }
 
 async function fetchHistoricalSeasonsFromNetwork() {
