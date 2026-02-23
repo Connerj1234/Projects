@@ -457,7 +457,14 @@ function buildInSeasonHistoricalEntry({ year, fixtures, standings, rosterStats, 
   const east = standings?.east ?? [];
   const west = standings?.west ?? [];
   const tableSnapshot = (east.length > 0 ? east : west).slice();
-  const sortedRoster = dedupeRosterStats(rosterStats ?? []);
+  const incomingRoster = dedupeRosterStats(rosterStats ?? []);
+  const existingRoster = dedupeRosterStats(existingSeason?.rosterStats ?? []);
+  const sortedRoster =
+    incomingRoster.length > 0 && hasMeaningfulRosterStats(incomingRoster)
+      ? incomingRoster
+      : existingRoster.length > 0
+        ? existingRoster
+        : incomingRoster;
 
   const notes =
     dedupedFixtures.length > 0 || tableSnapshot.length > 0 || sortedRoster.length > 0
@@ -1443,6 +1450,15 @@ function hasUsableRosterStats(rows) {
   );
 }
 
+function hasMeaningfulRosterStats(rows) {
+  return rows.some((row) =>
+    [row?.appearances, row?.starts, row?.goals, row?.assists, row?.minutes].some((value) => {
+      const n = toNumber(value);
+      return n != null && n > 0;
+    }),
+  );
+}
+
 function pickBetterNumericStat(current, incoming) {
   const curr = toNumber(current);
   const next = toNumber(incoming);
@@ -1728,10 +1744,10 @@ async function loadPlayerStatsSnapshot() {
   }
 
   const rows = dedupeRosterStats(merged);
-  if (rows.length > 0 && hasUsableRosterStats(rows)) return rows;
+  if (rows.length > 0 && hasUsableRosterStats(rows) && hasMeaningfulRosterStats(rows)) return rows;
 
   const mlsRows = await loadRosterStatsFromMlsStatsApi(nowYear);
-  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows)) {
+  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows) && hasMeaningfulRosterStats(mlsRows)) {
     if (rows.length === 0) return mlsRows;
     return mergeRosterStats(rows, mlsRows);
   }
@@ -1778,12 +1794,12 @@ async function loadRosterStatsForSeason(seasonYear) {
   }
 
   const espnMerged = dedupeRosterStats(merged);
-  if (espnMerged.length >= 8 && hasUsableRosterStats(espnMerged)) {
+  if (espnMerged.length >= 8 && hasUsableRosterStats(espnMerged) && hasMeaningfulRosterStats(espnMerged)) {
     return { rows: espnMerged, source: "ESPN" };
   }
 
   const mlsRows = await loadRosterStatsFromMlsStatsApi(seasonYear);
-  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows)) {
+  if (mlsRows.length > 0 && hasUsableRosterStats(mlsRows) && hasMeaningfulRosterStats(mlsRows)) {
     return {
       rows: espnMerged.length > 0 ? mergeRosterStats(espnMerged, mlsRows) : mlsRows,
       source: espnMerged.length > 0 ? "ESPN+MLSStatsAPI" : "MLSStatsAPI",
@@ -1855,6 +1871,7 @@ async function buildLiveData() {
     ...nextSeason,
   ]);
   const selected = pickActiveSeason(allFixtures, nowYear);
+  const existingActiveSeason = historicalSeasons.find((row) => Number(row?.season) === Number(selected.year));
   const seasonFixtures = dedupeFixtures(selected.fixtures);
   const snapshot = deriveSeasonSnapshot(seasonFixtures);
   const nextMatch = pickNextMatch(allFixtures);
@@ -1865,12 +1882,18 @@ async function buildLiveData() {
       ? { rank: Number(atlantaStanding.rank), conference: atlantaStanding.conference ?? "Conference" }
       : null;
 
+  const activeSeasonHistoricalRoster = dedupeRosterStats(existingActiveSeason?.rosterStats ?? []);
+  const resolvedPlayerStats =
+    hasMeaningfulRosterStats(playerStats ?? []) || activeSeasonHistoricalRoster.length === 0
+      ? (playerStats ?? [])
+      : activeSeasonHistoricalRoster;
+
   const inSeasonHistorical = buildInSeasonHistoricalEntry({
     year: selected.year,
     fixtures: seasonFixtures,
     standings,
-    rosterStats: playerStats,
-    existingSeason: historicalSeasons.find((row) => Number(row?.season) === Number(selected.year)),
+    rosterStats: resolvedPlayerStats,
+    existingSeason: existingActiveSeason,
   });
   const historicalUpsert = upsertSeasonIfChanged(historicalSeasons, inSeasonHistorical);
   const historyPageSeasons = historicalUpsert.seasons.filter((row) => Number(row?.season) !== Number(selected.year));
@@ -1886,7 +1909,7 @@ async function buildLiveData() {
       nextMatch,
       results: snapshot.results,
       quickSnapshot,
-      playerStats,
+      playerStats: resolvedPlayerStats,
       formationTemplates: FORMATION_TEMPLATES,
       notableLineups: NOTABLE_LINEUPS,
       historicalSeasons: historyPageSeasons,
