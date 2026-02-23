@@ -579,6 +579,19 @@
     return rows.slice().sort((a, b) => {
       const primary = compareRosterValues(a, b, sort);
       if (primary !== 0) return primary;
+
+      const isDefaultScoringSort = sort?.key === "goals" && sort?.dir === "desc";
+      if (isDefaultScoringSort) {
+        const assistsDiff = (Number(b?.assists) || 0) - (Number(a?.assists) || 0);
+        if (assistsDiff !== 0) return assistsDiff;
+
+        const minutesDiff = (Number(b?.minutes) || 0) - (Number(a?.minutes) || 0);
+        if (minutesDiff !== 0) return minutesDiff;
+
+        const appsDiff = (Number(b?.appearances) || 0) - (Number(a?.appearances) || 0);
+        if (appsDiff !== 0) return appsDiff;
+      }
+
       return String(a?.name ?? "").localeCompare(String(b?.name ?? ""), undefined, { sensitivity: "base" });
     });
   }
