@@ -5,6 +5,7 @@ const TEAM_ID = "18418";
 const LEAGUE = "usa.1";
 const ESPN_API_BASE = `https://site.api.espn.com/apis/site/v2/sports/soccer/${LEAGUE}`;
 const HISTORICAL_DATA_FILE = new URL("../historical-data.json", import.meta.url);
+const UPCOMING_GRACE_MS = 12 * 60 * 60 * 1000;
 
 const STATIC_TIMELINE = [
   { year: "2014", text: "MLS awards Atlanta an expansion franchise, setting the foundation for top-flight soccer in the city." },
@@ -657,8 +658,11 @@ function parseFixture(event) {
   const atlScore = parseScore(atl?.score);
   const oppScore = parseScore(opp?.score);
   const hasScore = Number.isFinite(atlScore) && Number.isFinite(oppScore);
+  const statusState = String(event?.status?.type?.state ?? "").toLowerCase();
+  const isPostState = statusState === "post" || statusState === "final";
+  const oldEnoughToBeFinal = parsed <= Date.now() - UPCOMING_GRACE_MS;
 
-  const completed = Boolean(event?.status?.type?.completed);
+  const completed = Boolean(event?.status?.type?.completed) || (hasScore && (isPostState || oldEnoughToBeFinal));
   let outcome = null;
   if (hasScore && completed) {
     if (atlScore > oppScore) outcome = "Win";
@@ -696,9 +700,47 @@ function dedupeFixtures(fixtures) {
   const map = new Map();
   for (const fixture of fixtures) {
     const key = `${fixture.dateISO}|${fixture.opponent}|${fixture.venue}`;
-    map.set(key, fixture);
+    const existing = map.get(key);
+    if (!existing || isBetterFixture(fixture, existing)) {
+      map.set(key, fixture);
+    }
   }
   return [...map.values()].sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
+}
+
+function fixtureQuality(fixture) {
+  const hasScore = Number.isFinite(fixture?.atlScore) && Number.isFinite(fixture?.oppScore);
+  let score = 0;
+  if (fixture?.completed) score += 50;
+  if (hasScore) score += 30;
+  if (fixture?.outcome) score += 20;
+  if (Number.isFinite(fixture?.attendance)) score += 5;
+  if (fixture?.broadcast && fixture.broadcast !== "MLS Season Pass") score += 2;
+  if (fixture?.venueFull && !/^(Home|Away)$/i.test(fixture.venueFull)) score += 2;
+  if (fixture?.competition && fixture.competition !== "MLS") score += 1;
+  return score;
+}
+
+function isBetterFixture(candidate, existing) {
+  const candidateQuality = fixtureQuality(candidate);
+  const existingQuality = fixtureQuality(existing);
+  if (candidateQuality !== existingQuality) return candidateQuality > existingQuality;
+
+  const candidateDate = Date.parse(candidate?.dateISO ?? "");
+  const existingDate = Date.parse(existing?.dateISO ?? "");
+  if (Number.isFinite(candidateDate) && Number.isFinite(existingDate) && candidateDate !== existingDate) {
+    return candidateDate > existingDate;
+  }
+
+  return false;
+}
+
+function isUpcomingFixture(fixture, nowMs = Date.now()) {
+  const kickoffMs = Date.parse(fixture?.dateISO ?? "");
+  if (!Number.isFinite(kickoffMs)) return false;
+  if (fixture?.completed) return false;
+  if (Number.isFinite(fixture?.atlScore) && Number.isFinite(fixture?.oppScore)) return false;
+  return kickoffMs >= nowMs - UPCOMING_GRACE_MS;
 }
 
 async function loadSeasonFixtures(seasonYear) {
@@ -812,7 +854,7 @@ function pickActiveSeason(fixtures, nowYear) {
 
   const now = Date.now();
   const upcoming = fixtures
-    .filter((f) => !f.completed && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .filter((f) => isUpcomingFixture(f, now))
     .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
 
   if (upcoming.length > 0) {
@@ -926,7 +968,7 @@ function deriveSeasonSnapshot(fixtures) {
 function pickNextMatch(fixtures) {
   const now = Date.now();
   const upcoming = fixtures
-    .filter((f) => !f.completed && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .filter((f) => isUpcomingFixture(f, now))
     .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
 
   if (upcoming.length === 0) return null;
@@ -1097,10 +1139,10 @@ function buildQuickSnapshot(seasonFixtures, allFixtures, standings) {
 
   const now = Date.now();
   const seasonUpcoming = seasonFixtures
-    .filter((f) => !f.completed && Number.isFinite(Date.parse(f.dateISO)) && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .filter((f) => isUpcomingFixture(f, now))
     .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
   const allUpcoming = allFixtures
-    .filter((f) => !f.completed && Number.isFinite(Date.parse(f.dateISO)) && Date.parse(f.dateISO) >= now - 12 * 60 * 60 * 1000)
+    .filter((f) => isUpcomingFixture(f, now))
     .sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
   const upcoming = dedupeFixtures([...seasonUpcoming, ...allUpcoming])
     .slice(0, 3)
