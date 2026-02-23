@@ -59,6 +59,29 @@
 - Add optional bench/subs section under the pitch.
 - Add lineup grouping by season/trophy.
 
+### 2. Expand Player Stats (Current + Historical)
+- Target columns to add/standardize across home + history roster tables:
+  - `xG`
+  - `xA`
+  - `Pass%`
+  - optional follow-ons after source validation: key passes, progressive passes/carries, duel win%
+- Data shape policy:
+  - current season (`data.js`) and `historical-data.json` should share the same roster stat keys so table rendering stays schema-compatible
+  - missing values should remain `null` (not coerced to `0`) to avoid false precision in early-season snapshots
+- Source/merge policy:
+  - keep current multi-source ingest order (ESPN -> MLS Stats API -> FBref fallback)
+  - map advanced columns by source and merge per-player with de-dupe rules already used for core stats
+  - do not treat rows as "usable" when advanced stats are entirely null/empty
+- Historical backfill plan:
+  1. define per-column source mapping and unit normalization (`Pass%` scale/rounding, `xG/xA` numeric precision)
+  2. run one-time backfill for past seasons into `historical-data.json`
+  3. normalize + audit, then keep daily in-season upsert for the active season
+  4. confirm home/history tables sort correctly for each new numeric column
+- Quality gates for rollout:
+  - keep last meaningful season snapshot if a new pull is zero-only
+  - verify counts with the existing "liveMeaningful/histMeaningful" check after deploy
+  - accept partial coverage early season, but block regressions where previously populated players lose stats unexpectedly
+
 ## Data/Architecture
 - Keep versioned model split between `currentSeason` and `historicalSeasons`.
 - Add cache strategy for historical pulls.
@@ -73,11 +96,20 @@
 - The script:
   - pulls latest `main`
   - runs `npm run update-data`
-  - commits/pushes only when `data.js` changed
+  - commits/pushes only when tracked output files changed (currently centered on `data.js`)
 - `npm run update-data` performs an in-season upsert into `historical-data.json`:
   - active season row is inserted/updated when changed
   - no-write path is used when nothing changed
   - this means current-season fixtures/standings/roster snapshots are continuously persisted and do not need a single big end-of-season re-pull
+  - roster stats ingest includes multi-source fallback and quality gates so null/zero-only snapshots do not overwrite meaningful cached data
+
+### Server automation notes
+- Production updater location: `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh`
+- Git auth on server uses SSH aliases (including `github-main`) tied to the Connerj1234 account.
+- Operational expectation:
+  - daily cron run should keep current-season `data.js` fresh
+  - active-season history upsert should keep `historical-data.json` in sync as part of each update run
+  - after stat column expansions, ensure automation includes commit detection for any newly changed tracked data files
 
 ### End-of-season behavior (as of now)
 - Home page season selection is fixture-driven (active season is inferred from upcoming/current fixtures).
