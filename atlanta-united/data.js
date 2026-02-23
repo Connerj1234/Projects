@@ -43,7 +43,10 @@ window.ATL_DATA = {
       "pointsLast5": 0,
       "goalDiffLast5": -2,
       "formRatingOutOf5": 0,
-      "goalDiffPerMatch": -0.4,
+      "goalDiffPerMatch": -2,
+      "pointsPerMatchLastN": 0,
+      "gamesSampled": 1,
+      "cleanSheetsLastN": 0,
       "wdlLast5": {
         "wins": 0,
         "draws": 0,
@@ -8477,7 +8480,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-23T19:36:04.582Z"
+    "generatedAt": "2026-02-23T20:24:43.950Z"
   },
   "seasonHistory": [
     {
