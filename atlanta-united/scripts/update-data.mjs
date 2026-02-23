@@ -985,10 +985,24 @@ function pickNextMatch(fixtures) {
 
 function parseStatValue(raw) {
   if (raw == null) return null;
+  if (typeof raw === "number") {
+    return Number.isFinite(raw) ? raw : null;
+  }
   const str = String(raw).trim();
   if (!str) return null;
-  const asNumber = Number(str.replace(/,/g, ""));
-  return Number.isFinite(asNumber) ? asNumber : str;
+  if (/^(-|--|n\/a|null|undefined)$/i.test(str)) return null;
+
+  const compact = str.replace(/,/g, "");
+  const asNumber = Number(compact);
+  if (Number.isFinite(asNumber)) return asNumber;
+
+  const numericMatch = compact.match(/-?\d+(?:\.\d+)?/);
+  if (numericMatch) {
+    const extracted = Number(numericMatch[0]);
+    if (Number.isFinite(extracted)) return extracted;
+  }
+
+  return null;
 }
 
 function toNumber(value) {
@@ -1294,11 +1308,21 @@ function collectAthleteStats(node, map) {
         .replace(/[^a-z]/g, "");
       const val = parseStatValue(rawValue);
       if (!key || val == null) return;
-      if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$|^mp$)/.test(key) && curr.appearances == null) curr.appearances = val;
-      if (/(^starts$|^gamesstarted$|^startsplayed$|^gs$)/.test(key) && curr.starts == null) curr.starts = val;
-      if (/(^goals$|^goalsscored$|^g$)/.test(key) && curr.goals == null) curr.goals = val;
-      if (/^assists$/.test(key) && curr.assists == null) curr.assists = val;
-      if (/(^minutes$|^mins$|^timeplayed$|^min$)/.test(key) && curr.minutes == null) curr.minutes = val;
+      if (/(^appearances$|^gamesplayed$|^matches$|^apps$|^gp$|^mp$)/.test(key)) {
+        curr.appearances = pickBetterNumericStat(curr.appearances, val);
+      }
+      if (/(^starts$|^gamesstarted$|^startsplayed$|^gs$)/.test(key)) {
+        curr.starts = pickBetterNumericStat(curr.starts, val);
+      }
+      if (/(^goals$|^goalsscored$|^g$)/.test(key)) {
+        curr.goals = pickBetterNumericStat(curr.goals, val);
+      }
+      if (/^assists$/.test(key)) {
+        curr.assists = pickBetterNumericStat(curr.assists, val);
+      }
+      if (/(^minutes$|^mins$|^timeplayed$|^min$|^minutesplayed$|^totalminutes$)/.test(key)) {
+        curr.minutes = pickBetterNumericStat(curr.minutes, val);
+      }
     };
 
     const consumeStatsSource = (source) => {
@@ -1383,6 +1407,14 @@ function hasUsableRosterStats(rows) {
       return Number.isFinite(n);
     }),
   );
+}
+
+function pickBetterNumericStat(current, incoming) {
+  const curr = toNumber(current);
+  const next = toNumber(incoming);
+  if (next == null) return curr;
+  if (curr == null) return next;
+  return Math.max(curr, next);
 }
 
 function mergeRosterStats(primaryRows, fallbackRows) {

@@ -125,6 +125,11 @@ h3 {
   line-height: 1.35;
 }
 
+.sidebar-signoff-main {
+  display: block;
+  white-space: nowrap;
+}
+
 .sidebar-signoff a {
   color: var(--gold);
   text-decoration: none;
@@ -132,6 +137,13 @@ h3 {
 
 .sidebar-signoff a:hover {
   text-decoration: underline;
+}
+
+.sidebar-updated {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
 }
 
 .content {

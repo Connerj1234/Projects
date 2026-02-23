@@ -335,6 +335,7 @@
   const eastStandingsBody = document.getElementById("eastStandingsBody");
   const westStandingsBody = document.getElementById("westStandingsBody");
   const standingsUpdated = document.getElementById("standingsUpdated");
+  const sidebarLastUpdated = document.getElementById("sidebarLastUpdated");
   const formTrendCard = document.getElementById("formTrendCard");
   const nextThreeCard = document.getElementById("nextThreeCard");
   const playoffCard = document.getElementById("playoffCard");
@@ -631,6 +632,16 @@
       standingsUpdated.textContent = `Updated ${ts.toLocaleString()}`;
     } else {
       standingsUpdated.textContent = "Standings update time unavailable.";
+    }
+  }
+
+  if (sidebarLastUpdated) {
+    const generatedAt = data.standings?.generatedAt;
+    if (generatedAt) {
+      const ts = new Date(generatedAt);
+      sidebarLastUpdated.textContent = `Last updated: ${ts.toLocaleString()}`;
+    } else {
+      sidebarLastUpdated.textContent = "Last updated: unavailable";
     }
   }
 
