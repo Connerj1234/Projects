@@ -186,7 +186,7 @@ window.ATL_DATA = {
     {
       "id": "211678",
       "name": "Fafà Picault",
-      "number": "22",
+      "number": "19",
       "position": "F",
       "appearances": 0,
       "starts": 0,
@@ -264,7 +264,7 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "M",
+      "position": "F",
       "appearances": 1,
       "starts": 0,
       "goals": 0,
@@ -318,7 +318,7 @@ window.ATL_DATA = {
     {
       "id": "214446",
       "name": "Sergio Santos",
-      "number": "19",
+      "number": "22",
       "position": "F",
       "appearances": 0,
       "starts": 0,
@@ -8458,7 +8458,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-24T08:15:03.729Z"
+    "generatedAt": "2026-02-25T08:15:03.500Z"
   },
   "seasonHistory": [
     {
