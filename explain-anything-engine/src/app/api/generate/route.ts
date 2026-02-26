@@ -99,7 +99,10 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
     new Set([primaryModel, ...(isNetlify ? [] : fallbackModels)])
   );
   const enableShapeFirst = process.env.ENABLE_SHAPE_FIRST === "true" && !isNetlify;
-  const promptOptions = isNetlify ? { minNodes: 12, maxNodes: 20 } : { minNodes: 6, maxNodes: 40 };
+  const netlifyMinNodes = Number(process.env.NETLIFY_MIN_NODES ?? 16);
+  const promptOptions = isNetlify
+    ? { minNodes: netlifyMinNodes, maxNodes: Math.max(netlifyMinNodes + 8, 24) }
+    : { minNodes: 6, maxNodes: 40 };
 
   const errors: string[] = [];
 
@@ -117,7 +120,12 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
         }
       ]);
 
-      const shapeFirstParse = parseAndValidate(shapeFirstText, topic, graphShape);
+      const shapeFirstParse = parseAndValidate(
+        shapeFirstText,
+        topic,
+        graphShape,
+        promptOptions.minNodes
+      );
       if (shapeFirstParse.success) return shapeFirstParse.data;
       errors.push(`[${model} shape-first] ${shapeFirstParse.errorSummary}`);
     }
@@ -133,7 +141,7 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
       }
     ]);
 
-    const firstParse = parseAndValidate(firstAttemptText, topic);
+    const firstParse = parseAndValidate(firstAttemptText, topic, undefined, promptOptions.minNodes);
     if (firstParse.success) return firstParse.data;
 
     if (isNetlify) {
@@ -153,7 +161,7 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
       }
     ]);
 
-    const repairedParse = parseAndValidate(repairedText, topic);
+    const repairedParse = parseAndValidate(repairedText, topic, undefined, promptOptions.minNodes);
     if (repairedParse.success) return repairedParse.data;
 
     errors.push(`[${model}] ${repairedParse.errorSummary}`);
@@ -258,7 +266,8 @@ async function requestText(
 function parseAndValidate(
   text: string,
   topic: string,
-  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] }
+  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] },
+  targetMinNodes = 6
 ):
   | { success: true; data: GenerationResponse }
   | { success: false; errorSummary: string } {
@@ -267,7 +276,7 @@ function parseAndValidate(
     return { success: false, errorSummary: `JSON parse failed: ${parsedJson.error}` };
   }
 
-  const normalizedCandidate = coerceCandidate(parsedJson.value, topic, lockedGraph);
+  const normalizedCandidate = coerceCandidate(parsedJson.value, topic, lockedGraph, targetMinNodes);
   const parsed = generationResponseSchema.safeParse(normalizedCandidate);
   if (parsed.success) return { success: true, data: parsed.data };
 
@@ -308,7 +317,8 @@ function extractJsonCandidate(raw: string): string {
 function coerceCandidate(
   value: unknown,
   topic: string,
-  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] }
+  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] },
+  targetMinNodes = 6
 ): unknown {
   if (!value || typeof value !== "object" || Array.isArray(value)) return value;
   const obj = { ...(value as Record<string, unknown>) };
@@ -356,7 +366,8 @@ function coerceCandidate(
   obj.misconceptions = coerceStringArray(obj.misconceptions);
   obj.prerequisites = coerceStringArray(obj.prerequisites);
   obj.learningPath = coerceStringArray(obj.learningPath);
-  obj.graph = lockedGraph ?? coerceGraph(obj.graph);
+  const baseGraph = lockedGraph ?? coerceGraph(obj.graph);
+  obj.graph = padGraphToMinNodes(baseGraph, topic, targetMinNodes);
 
   return obj;
 }
@@ -522,6 +533,49 @@ function buildShapeFirstContentPrompt(
     "Graph:",
     JSON.stringify(graph)
   ].join("\n");
+}
+
+function padGraphToMinNodes(value: unknown, topic: string, minNodes: number): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+  const graph = value as {
+    nodes?: Array<Record<string, unknown>>;
+    edges?: Array<Record<string, unknown>>;
+  };
+  const nodes = Array.isArray(graph.nodes) ? [...graph.nodes] : [];
+  const edges = Array.isArray(graph.edges) ? [...graph.edges] : [];
+  if (nodes.length >= minNodes) return { ...graph, nodes, edges };
+
+  const topicNode = nodes.find((node) => node.type === "Topic") ?? nodes[0];
+  const topicId = asString(topicNode?.id) ?? "topic";
+  const usedIds = new Set(nodes.map((n) => asString(n.id)).filter(Boolean) as string[]);
+  let counter = 1;
+
+  while (nodes.length < minNodes) {
+    let id = `${topicId}-extra-${counter}`;
+    while (usedIds.has(id)) {
+      counter += 1;
+      id = `${topicId}-extra-${counter}`;
+    }
+    usedIds.add(id);
+    const label = `${topic} Concept ${counter}`;
+    nodes.push({
+      id,
+      label,
+      type: "Subtopic",
+      summary: `Additional supporting concept for ${topic}.`,
+      importance: 4
+    });
+    edges.push({
+      id: `e-extra-${counter}`,
+      source: topicId,
+      target: id,
+      relation: "related_to",
+      strength: 0.5
+    });
+    counter += 1;
+  }
+
+  return { ...graph, nodes, edges };
 }
 
 function formatGenerationError(error: unknown): string {
