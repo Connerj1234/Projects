@@ -9,9 +9,17 @@ type ConceptGraphProps = {
   nodes: GraphNode[];
   edges: GraphEdge[];
   onSelectNode: (node: GraphNode | null) => void;
+  labelDensity: "compact" | "balanced" | "expanded";
+  fitVersion: number;
 };
 
-export function ConceptGraph({ nodes, edges, onSelectNode }: ConceptGraphProps) {
+export function ConceptGraph({
+  nodes,
+  edges,
+  onSelectNode,
+  labelDensity,
+  fitVersion
+}: ConceptGraphProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cyRef = useRef<Core | null>(null);
 
@@ -119,6 +127,30 @@ export function ConceptGraph({ nodes, edges, onSelectNode }: ConceptGraphProps) 
 
     cy.layout({ name: "cose", animate: false, fit: true, padding: 20 }).run();
   }, [elements]);
+
+  useEffect(() => {
+    const cy = cyRef.current;
+    if (!cy) return;
+
+    const settings =
+      labelDensity === "compact"
+        ? { fontSize: "9px", maxWidth: "70px" }
+        : labelDensity === "expanded"
+          ? { fontSize: "11px", maxWidth: "130px" }
+          : { fontSize: "10px", maxWidth: "95px" };
+
+    cy.style()
+      .selector("node")
+      .style("font-size", settings.fontSize)
+      .style("text-max-width", settings.maxWidth)
+      .update();
+  }, [labelDensity]);
+
+  useEffect(() => {
+    const cy = cyRef.current;
+    if (!cy) return;
+    cy.layout({ name: "cose", animate: false, fit: true, padding: 20 }).run();
+  }, [fitVersion]);
 
   return <div ref={containerRef} className="h-[560px] w-full rounded-xl border border-slate-300 bg-white" />;
 }

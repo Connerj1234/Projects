@@ -2,35 +2,38 @@
 
 ## Snapshot
 - Project: Explain Anything Engine
-- Last Updated: 2026-02-25
-- Current Milestone: Milestone 1 MVP scaffold
+- Last Updated: 2026-02-26
+- Current Milestone: Milestone 2 stabilization
 - Status: In progress
 
 ## Completed
-- Created Next.js + TypeScript project scaffold
-- Added strict schema contract and runtime validation
-- Added `/api/generate` endpoint with OpenAI path + mock fallback
-- Added Cytoscape graph renderer and node inspector
-- Added tabbed content area (explanations, glossary, misconceptions)
-- Restructured `README.md` into execution-oriented format
+- Added Prisma + SQLite model for topic history
+- Added anonymous history API (`/api/history`) and UI reload cards
+- Added cookie-based client identity (`anon_client_id`) with no OAuth dependency
+- Upgraded generation pipeline to shape-first (graph-first then content)
+- Added model fallback + repair flow improvements for schema stability
+- Added graph controls: node-type filters, label-density toggle, fit/reset layout
+- Added loading-state animations for graph/inspector/knowledge sections
+- Added contextual node inspector summaries and graph metadata
+- Added basic test suite for graph connectivity and schema constraints
 
 ## In Progress
-- Improve OpenAI prompting reliability for larger graph outputs
-- Add stronger UI handling for generation edge cases and retries
+- Expand automated tests to cover generation normalization edge cases
+- Improve content quality consistency for weak model outputs
 
 ## Blockers
-- None currently
+- `prisma db push` may fail in some sandboxed environments unless `DATABASE_URL` is set and local engine execution is permitted.
 
 ## Decisions
-- Use mock fallback when `OPENAI_API_KEY` is absent so frontend work is unblocked
-- Keep schema strict in API layer to prevent malformed responses reaching UI
-- Defer DB/persistence until graph-generation quality is stable
+- Keep no-auth history using cookie identity for low-friction UX
+- Prefer shape-first generation to reduce malformed JSON from smaller models
+- Keep strict schema validation in API before data reaches UI
 
 ## Next Actions
-- Implement node expansion action (click node -> generate deeper branch)
-- Add persistence with Prisma + SQLite
-- Add topic history and reload
-- Add automated tests for schema + graph connectivity
+- Add branch expansion from selected graph node
+- Add “pin/favorite topic” and search in history panel
+- Add API tests around repair/fallback behavior
+- Add export-to-markdown from loaded history item
 
 ## Thread Handoff Notes
 Use this file at the start of future threads. Update these sections after each work session:

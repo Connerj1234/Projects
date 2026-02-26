@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { z } from "zod";
 
 import { isConnectedGraph, applyImportanceDefaults } from "@/lib/graph";
 import { buildMockResponse } from "@/lib/mockData";
 import { buildGenerationPrompt } from "@/lib/prompt";
 import {
+  graphEdgeSchema,
+  graphNodeSchema,
   generationRequestSchema,
   generationResponseSchema,
   type GenerationResponse
@@ -86,6 +89,24 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
   const errors: string[] = [];
 
   for (const model of modelCandidates) {
+    const graphShape = await generateGraphShape(client, model, topic);
+    if (graphShape) {
+      const shapeFirstText = await requestText(client, model, [
+        {
+          role: "system",
+          content: [{ type: "input_text", text: "Return JSON only." }]
+        },
+        {
+          role: "user",
+          content: [{ type: "input_text", text: buildShapeFirstContentPrompt(topic, graphShape) }]
+        }
+      ]);
+
+      const shapeFirstParse = parseAndValidate(shapeFirstText, topic, graphShape);
+      if (shapeFirstParse.success) return shapeFirstParse.data;
+      errors.push(`[${model} shape-first] ${shapeFirstParse.errorSummary}`);
+    }
+
     const firstAttemptText = await requestText(client, model, [
       {
         role: "system",
@@ -121,6 +142,55 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
   throw new Error(`All models failed schema validation. ${errors.join(" | ")}`);
 }
 
+const graphShapeSchema = z.object({
+  nodes: z.array(graphNodeSchema).min(6),
+  edges: z.array(graphEdgeSchema).min(5)
+});
+
+async function generateGraphShape(
+  client: OpenAI,
+  model: string,
+  topic: string
+): Promise<{ nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] } | null> {
+  const text = await requestText(client, model, [
+    {
+      role: "system",
+      content: [{ type: "input_text", text: "Return strict JSON only." }]
+    },
+    {
+      role: "user",
+      content: [
+        {
+          type: "input_text",
+          text: [
+            "Generate a connected concept graph JSON.",
+            `Topic: ${topic}`,
+            "Output schema:",
+            "{",
+            '  "nodes":[{"id":"string","label":"string","type":"Topic|Prerequisite|Key Term|Subtopic|Misconception|Example","summary":"string","importance":1-10}],',
+            '  "edges":[{"id":"string","source":"nodeId","target":"nodeId","relation":"requires|related_to|part_of|confused_with|example_of","strength":0-1}]',
+            "}",
+            "Rules:",
+            "- Exactly one Topic node.",
+            "- 18 to 32 nodes.",
+            "- No duplicate IDs.",
+            "- Graph must be connected.",
+            "- Return JSON only."
+          ].join("\n")
+        }
+      ]
+    }
+  ]);
+
+  const parsedJson = safeParseJson(extractJsonCandidate(text));
+  if (!parsedJson.ok) return null;
+  const coerced = coerceGraph(parsedJson.value);
+  const parsed = graphShapeSchema.safeParse(coerced);
+  if (!parsed.success) return null;
+  if (!isConnectedGraph(parsed.data.nodes, parsed.data.edges)) return null;
+  return parsed.data;
+}
+
 async function requestText(
   client: OpenAI,
   model: string,
@@ -150,7 +220,11 @@ async function requestText(
   return fallback;
 }
 
-function parseAndValidate(text: string, topic: string):
+function parseAndValidate(
+  text: string,
+  topic: string,
+  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] }
+):
   | { success: true; data: GenerationResponse }
   | { success: false; errorSummary: string } {
   const parsedJson = safeParseJson(extractJsonCandidate(text));
@@ -158,7 +232,7 @@ function parseAndValidate(text: string, topic: string):
     return { success: false, errorSummary: `JSON parse failed: ${parsedJson.error}` };
   }
 
-  const normalizedCandidate = coerceCandidate(parsedJson.value, topic);
+  const normalizedCandidate = coerceCandidate(parsedJson.value, topic, lockedGraph);
   const parsed = generationResponseSchema.safeParse(normalizedCandidate);
   if (parsed.success) return { success: true, data: parsed.data };
 
@@ -196,7 +270,11 @@ function extractJsonCandidate(raw: string): string {
   return trimmed;
 }
 
-function coerceCandidate(value: unknown, topic: string): unknown {
+function coerceCandidate(
+  value: unknown,
+  topic: string,
+  lockedGraph?: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] }
+): unknown {
   if (!value || typeof value !== "object" || Array.isArray(value)) return value;
   const obj = { ...(value as Record<string, unknown>) };
 
@@ -243,7 +321,7 @@ function coerceCandidate(value: unknown, topic: string): unknown {
   obj.misconceptions = coerceStringArray(obj.misconceptions);
   obj.prerequisites = coerceStringArray(obj.prerequisites);
   obj.learningPath = coerceStringArray(obj.learningPath);
-  obj.graph = coerceGraph(obj.graph);
+  obj.graph = lockedGraph ?? coerceGraph(obj.graph);
 
   return obj;
 }
@@ -389,5 +467,24 @@ function buildRepairPrompt(topic: string, invalidOutput: string, errorSummary: s
     "Ensure graph has exactly one Topic node and no duplicate IDs.",
     "Previous invalid output:",
     invalidOutput
+  ].join("\n");
+}
+
+function buildShapeFirstContentPrompt(
+  topic: string,
+  graph: { nodes: z.infer<typeof graphNodeSchema>[]; edges: z.infer<typeof graphEdgeSchema>[] }
+): string {
+  return [
+    "Use the graph below as fixed structure and return full response JSON.",
+    `Topic: ${topic}`,
+    "Return these fields only:",
+    "topic, explanations, glossary, analogies, misconceptions, prerequisites, learningPath, graph",
+    "graph must be copied exactly as provided.",
+    "explanations must be object: eli5, intermediate, advanced, expert.",
+    "glossary must be array of objects: term + definition.",
+    "analogies/misconceptions/prerequisites/learningPath must be arrays of strings.",
+    "JSON only. No markdown.",
+    "Graph:",
+    JSON.stringify(graph)
   ].join("\n");
 }

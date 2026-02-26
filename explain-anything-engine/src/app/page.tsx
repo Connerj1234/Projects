@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import { ConceptGraph } from "@/components/ConceptGraph";
 import { NodeInspector } from "@/components/NodeInspector";
@@ -13,6 +13,16 @@ const tabs: { id: TabKey; label: string; description: string }[] = [
   { id: "glossary", label: "Glossary", description: "Core terms" },
   { id: "misconceptions", label: "Misconceptions", description: "Common pitfalls" }
 ];
+const nodeTypes = [
+  "Topic",
+  "Prerequisite",
+  "Key Term",
+  "Subtopic",
+  "Misconception",
+  "Example"
+] as const;
+type NodeTypeFilter = (typeof nodeTypes)[number];
+type LabelDensity = "compact" | "balanced" | "expanded";
 
 export default function HomePage() {
   const [topic, setTopic] = useState("How transformers work in AI");
@@ -22,6 +32,28 @@ export default function HomePage() {
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [source, setSource] = useState<"openai" | "mock" | null>(null);
   const [result, setResult] = useState<GenerationResponse | null>(null);
+  const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(true);
+  const [clientId, setClientId] = useState<string | null>(null);
+  const [activeNodeTypes, setActiveNodeTypes] = useState<NodeTypeFilter[]>([...nodeTypes]);
+  const [labelDensity, setLabelDensity] = useState<LabelDensity>("balanced");
+  const [fitVersion, setFitVersion] = useState(0);
+
+  async function loadHistory(id: string) {
+    setHistoryLoading(true);
+    try {
+      const items = await fetchHistory(id);
+      setHistoryItems(items);
+    } finally {
+      setHistoryLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    const id = getOrCreateClientId();
+    setClientId(id);
+    void loadHistory(id);
+  }, []);
 
   async function handleGenerate(event: FormEvent) {
     event.preventDefault();
@@ -49,6 +81,10 @@ export default function HomePage() {
 
       setResult(payload.data);
       setSource(payload.source);
+      if (clientId) {
+        await saveHistory(clientId, topic, payload.source, payload.data);
+        await loadHistory(clientId);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unknown generation error.");
     } finally {
@@ -96,6 +132,21 @@ export default function HomePage() {
     );
   }, [activeTab, result]);
 
+  const filteredGraph = useMemo(() => {
+    if (!result) return null;
+    const allowed = new Set(activeNodeTypes);
+    const nodes = result.graph.nodes.filter((node) => allowed.has(node.type as NodeTypeFilter));
+    const ids = new Set(nodes.map((node) => node.id));
+    const edges = result.graph.edges.filter((edge) => ids.has(edge.source) && ids.has(edge.target));
+    return { nodes, edges };
+  }, [activeNodeTypes, result]);
+
+  useEffect(() => {
+    if (!selectedNode || !filteredGraph) return;
+    const visible = filteredGraph.nodes.some((node) => node.id === selectedNode.id);
+    if (!visible) setSelectedNode(null);
+  }, [filteredGraph, selectedNode]);
+
   return (
     <main className="mx-auto max-w-7xl p-6">
       <header className="rounded-xl border border-slate-300 bg-white p-5 shadow-sm">
@@ -126,13 +177,62 @@ export default function HomePage() {
 
       <section className="mt-6 grid gap-4 lg:grid-cols-[1fr_360px]">
         <div>
+          <div className="mb-3 rounded-xl border border-slate-300 bg-white p-3 shadow-sm">
+            <div className="flex flex-wrap items-center gap-2">
+              {nodeTypes.map((type) => {
+                const active = activeNodeTypes.includes(type);
+                return (
+                  <button
+                    key={type}
+                    onClick={() =>
+                      setActiveNodeTypes((prev) =>
+                        prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+                      )
+                    }
+                    className={`rounded-full border px-2.5 py-1 text-xs ${
+                      active
+                        ? "border-slate-700 bg-slate-800 text-white"
+                        : "border-slate-200 bg-slate-50 text-slate-700"
+                    }`}
+                  >
+                    {type}
+                  </button>
+                );
+              })}
+              <button
+                onClick={() => setActiveNodeTypes([...nodeTypes])}
+                className="ml-auto rounded border border-slate-200 px-2.5 py-1 text-xs text-slate-700"
+              >
+                Reset filters
+              </button>
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <select
+                value={labelDensity}
+                onChange={(e) => setLabelDensity(e.target.value as LabelDensity)}
+                className="rounded border border-slate-200 px-2 py-1 text-xs"
+              >
+                <option value="compact">Labels: Compact</option>
+                <option value="balanced">Labels: Balanced</option>
+                <option value="expanded">Labels: Expanded</option>
+              </select>
+              <button
+                onClick={() => setFitVersion((v) => v + 1)}
+                className="rounded border border-slate-200 px-2.5 py-1 text-xs text-slate-700"
+              >
+                Fit / Reset layout
+              </button>
+            </div>
+          </div>
           {loading ? (
             <GraphLoadingState topic={topic} />
-          ) : result ? (
+          ) : filteredGraph ? (
             <ConceptGraph
-              nodes={result.graph.nodes}
-              edges={result.graph.edges}
+              nodes={filteredGraph.nodes}
+              edges={filteredGraph.edges}
               onSelectNode={setSelectedNode}
+              labelDensity={labelDensity}
+              fitVersion={fitVersion}
             />
           ) : (
             <div className="flex h-[560px] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white p-8 text-sm text-slate-500">
@@ -145,8 +245,8 @@ export default function HomePage() {
         ) : (
           <NodeInspector
             node={selectedNode}
-            nodes={result?.graph.nodes ?? []}
-            edges={result?.graph.edges ?? []}
+            nodes={filteredGraph?.nodes ?? []}
+            edges={filteredGraph?.edges ?? []}
           />
         )}
       </section>
@@ -187,6 +287,38 @@ export default function HomePage() {
             )}
           </div>
         </div>
+      </section>
+
+      <section className="mt-6 rounded-xl border border-slate-300 bg-white p-4 shadow-sm">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Recent Topics</h2>
+          <p className="text-xs text-slate-500">{historyItems.length} saved</p>
+        </div>
+        {historyLoading ? (
+          <p className="text-sm text-slate-500">Loading history...</p>
+        ) : historyItems.length === 0 ? (
+          <p className="text-sm text-slate-500">No history yet. Generate your first topic.</p>
+        ) : (
+          <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+            {historyItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setTopic(item.topic);
+                  setResult(item.data);
+                  setSource(item.source);
+                  setSelectedNode(null);
+                }}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-left hover:bg-slate-100"
+              >
+                <p className="line-clamp-1 text-sm font-semibold text-slate-900">{item.topic}</p>
+                <p className="mt-1 text-xs text-slate-500">
+                  {formatTimestamp(item.createdAt)} • {item.source}
+                </p>
+              </button>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );
@@ -270,4 +402,56 @@ function KnowledgeLoadingState() {
       ))}
     </div>
   );
+}
+
+type HistoryItem = {
+  id: string;
+  topic: string;
+  source: "openai" | "mock";
+  createdAt: string;
+  data: GenerationResponse;
+};
+
+function getOrCreateClientId(): string {
+  if (typeof document === "undefined") return "";
+
+  const existing = document.cookie
+    .split(";")
+    .map((chunk) => chunk.trim())
+    .find((chunk) => chunk.startsWith("anon_client_id="))
+    ?.split("=")[1];
+  if (existing) return decodeURIComponent(existing);
+
+  const id = `anon_${crypto.randomUUID()}`;
+  const oneYear = 60 * 60 * 24 * 365;
+  document.cookie = `anon_client_id=${encodeURIComponent(id)}; Path=/; Max-Age=${oneYear}; SameSite=Lax`;
+  return id;
+}
+
+async function saveHistory(
+  clientId: string,
+  topic: string,
+  source: "openai" | "mock",
+  data: GenerationResponse
+) {
+  await fetch("/api/history", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ clientId, topic, source, data })
+  });
+}
+
+async function fetchHistory(clientId: string): Promise<HistoryItem[]> {
+  const response = await fetch(`/api/history?clientId=${encodeURIComponent(clientId)}`);
+  if (!response.ok) return [];
+  const payload = (await response.json()) as { items?: HistoryItem[] };
+  return payload.items ?? [];
+}
+
+function formatTimestamp(value: string) {
+  try {
+    return new Date(value).toLocaleString();
+  } catch {
+    return value;
+  }
 }
