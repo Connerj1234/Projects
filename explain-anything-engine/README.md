@@ -4,7 +4,6 @@ Interactive concept exploration tool that turns any topic into:
 - Multi-level explanations (ELI5 to expert)
 - A connected knowledge graph
 - Misconceptions, analogies, glossary, prerequisites
-- Basic quiz output
 
 ## Current Scope (v0)
 This repository now includes a working MVP scaffold:
@@ -24,7 +23,6 @@ All generated content must validate against this shape:
 - `misconceptions`
 - `prerequisites`
 - `learningPath`
-- `quiz` (`multipleChoice`, `shortAnswer`)
 - `graph` (`nodes`, `edges`)
 
 Graph rules enforced:
@@ -58,7 +56,8 @@ npm run dev
 ## Environment Variables
 ```bash
 OPENAI_API_KEY=
-OPENAI_MODEL=gpt-4.1-mini
+OPENAI_MODEL=gpt-4.1-nano
+OPENAI_FALLBACK_MODELS=gpt-4.1-mini
 ```
 If `OPENAI_API_KEY` is missing, the app serves deterministic mock data so UI development can continue.
 
@@ -68,7 +67,7 @@ If `OPENAI_API_KEY` is missing, the app serves deterministic mock data so UI dev
 - Strict schema validation
 - Connected graph rendering
 - Node inspector
-- Tabs for explanations/glossary/misconceptions/quiz
+- Tabs for explanations/glossary/misconceptions
 
 ### Milestone 2 (next)
 - Stronger prompt + structured output mode

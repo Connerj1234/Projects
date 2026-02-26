@@ -11,7 +11,7 @@
 - Added strict schema contract and runtime validation
 - Added `/api/generate` endpoint with OpenAI path + mock fallback
 - Added Cytoscape graph renderer and node inspector
-- Added tabbed content area (explanations, glossary, misconceptions, quiz)
+- Added tabbed content area (explanations, glossary, misconceptions)
 - Restructured `README.md` into execution-oriented format
 
 ## In Progress

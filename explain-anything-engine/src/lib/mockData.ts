@@ -117,53 +117,6 @@ export function buildMockResponse(topic: string): GenerationResponse {
       "Learn core terms and relationships",
       "Apply concepts in practical examples"
     ],
-    quiz: {
-      multipleChoice: [
-        {
-          question: "What is the purpose of a knowledge graph in this system?",
-          options: [
-            "Store images",
-            "Show relationships between concepts",
-            "Replace all explanations",
-            "Increase server speed"
-          ],
-          answer: "Show relationships between concepts",
-          explanation: "The graph is used to represent conceptual structure and dependencies."
-        },
-        {
-          question: "What does a prerequisite edge imply?",
-          options: [
-            "Two terms are synonyms",
-            "One concept should be understood first",
-            "A concept is optional",
-            "The relationship is random"
-          ],
-          answer: "One concept should be understood first",
-          explanation: "Prerequisite links define dependency order between ideas."
-        },
-        {
-          question: "Why include misconceptions?",
-          options: [
-            "To add complexity",
-            "To reduce topic scope",
-            "To highlight common errors and improve understanding",
-            "To avoid giving examples"
-          ],
-          answer: "To highlight common errors and improve understanding",
-          explanation: "Addressing misconceptions helps learners avoid faulty mental models."
-        }
-      ],
-      shortAnswer: [
-        {
-          question: "Describe how concept dependencies improve learning.",
-          guidance: "Mention sequencing and foundational understanding."
-        },
-        {
-          question: "Give one real-world use case for mapping misconceptions.",
-          guidance: "Describe a context where correcting wrong assumptions matters."
-        }
-      ]
-    },
     graph: {
       nodes: applyImportanceDefaults(nodes, edges),
       edges

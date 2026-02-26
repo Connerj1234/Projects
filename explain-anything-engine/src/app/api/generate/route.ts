@@ -76,10 +76,17 @@ export async function POST(req: Request) {
 
 async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const primaryModel = process.env.OPENAI_MODEL ?? "gpt-4.1-nano";
+  const fallbackModels = (process.env.OPENAI_FALLBACK_MODELS ?? "gpt-4.1-mini")
+    .split(",")
+    .map((m) => m.trim())
+    .filter(Boolean);
+  const modelCandidates = Array.from(new Set([primaryModel, ...fallbackModels]));
 
-  const response = await client.responses.create({
-    model: process.env.OPENAI_MODEL ?? "gpt-4.1-mini",
-    input: [
+  const errors: string[] = [];
+
+  for (const model of modelCandidates) {
+    const firstAttemptText = await requestText(client, model, [
       {
         role: "system",
         content: [{ type: "input_text", text: "Produce strict JSON matching the requested schema." }]
@@ -88,16 +95,299 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
         role: "user",
         content: [{ type: "input_text", text: buildGenerationPrompt(topic) }]
       }
-    ]
-  });
+    ]);
 
-  const text = response.output_text;
-  const json = JSON.parse(text);
+    const firstParse = parseAndValidate(firstAttemptText, topic);
+    if (firstParse.success) return firstParse.data;
 
-  const parsed = generationResponseSchema.safeParse(json);
-  if (!parsed.success) {
-    throw new Error("OpenAI response was not valid for the schema.");
+    const repairPrompt = buildRepairPrompt(topic, firstAttemptText, firstParse.errorSummary);
+    const repairedText = await requestText(client, model, [
+      {
+        role: "system",
+        content: [{ type: "input_text", text: "Return JSON only and strictly satisfy all constraints." }]
+      },
+      {
+        role: "user",
+        content: [{ type: "input_text", text: repairPrompt }]
+      }
+    ]);
+
+    const repairedParse = parseAndValidate(repairedText, topic);
+    if (repairedParse.success) return repairedParse.data;
+
+    errors.push(`[${model}] ${repairedParse.errorSummary}`);
   }
 
-  return parsed.data;
+  throw new Error(`All models failed schema validation. ${errors.join(" | ")}`);
+}
+
+async function requestText(
+  client: OpenAI,
+  model: string,
+  input: Array<{
+    role: "system" | "user";
+    content: Array<{ type: "input_text"; text: string }>;
+  }>
+): Promise<string> {
+  const response = await client.responses.create({
+    model,
+    input
+  });
+
+  if (response.output_text?.trim()) return response.output_text;
+
+  // output_text can be empty when the model responds with block content.
+  const outputItems = ((response as unknown as { output?: unknown[] }).output ?? []) as Array<{
+    content?: Array<{ type?: string; text?: string }>;
+  }>;
+  const fallback = outputItems
+    .flatMap((item) => item.content ?? [])
+    .filter((contentItem) => contentItem.type === "output_text" && Boolean(contentItem.text))
+    .map((contentItem) => contentItem.text as string)
+    .join("\n")
+    .trim();
+
+  return fallback;
+}
+
+function parseAndValidate(text: string, topic: string):
+  | { success: true; data: GenerationResponse }
+  | { success: false; errorSummary: string } {
+  const parsedJson = safeParseJson(extractJsonCandidate(text));
+  if (!parsedJson.ok) {
+    return { success: false, errorSummary: `JSON parse failed: ${parsedJson.error}` };
+  }
+
+  const normalizedCandidate = coerceCandidate(parsedJson.value, topic);
+  const parsed = generationResponseSchema.safeParse(normalizedCandidate);
+  if (parsed.success) return { success: true, data: parsed.data };
+
+  const topIssues = parsed.error.issues
+    .slice(0, 8)
+    .map((issue) => `${issue.path.join(".") || "root"}: ${issue.message}`)
+    .join("; ");
+  return { success: false, errorSummary: topIssues };
+}
+
+function safeParseJson(input: string): { ok: true; value: unknown } | { ok: false; error: string } {
+  try {
+    return { ok: true, value: JSON.parse(input) };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : "Unknown JSON parse error"
+    };
+  }
+}
+
+function extractJsonCandidate(raw: string): string {
+  const trimmed = raw.trim();
+  if (!trimmed) return trimmed;
+
+  const fencedMatch = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fencedMatch?.[1]) return fencedMatch[1].trim();
+
+  const firstBrace = trimmed.indexOf("{");
+  const lastBrace = trimmed.lastIndexOf("}");
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    return trimmed.slice(firstBrace, lastBrace + 1);
+  }
+
+  return trimmed;
+}
+
+function coerceCandidate(value: unknown, topic: string): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+  const obj = { ...(value as Record<string, unknown>) };
+
+  if (typeof obj.topic !== "string" || !obj.topic.trim()) {
+    const maybeTopic =
+      (typeof obj.subject === "string" && obj.subject) ||
+      (typeof obj.title === "string" && obj.title) ||
+      null;
+    obj.topic = maybeTopic ?? topic;
+  }
+
+  if (typeof obj.explanations === "string") {
+    obj.explanations = {
+      eli5: obj.explanations,
+      intermediate: obj.explanations,
+      advanced: obj.explanations,
+      expert: obj.explanations
+    };
+  }
+  if (obj.explanations && typeof obj.explanations === "object" && !Array.isArray(obj.explanations)) {
+    const explanations = obj.explanations as Record<string, unknown>;
+    const fallback =
+      (typeof explanations.eli5 === "string" && explanations.eli5) ||
+      (typeof explanations.beginner === "string" && explanations.beginner) ||
+      (typeof explanations.intermediate === "string" && explanations.intermediate) ||
+      (typeof explanations.advanced === "string" && explanations.advanced) ||
+      (typeof explanations.expert === "string" && explanations.expert) ||
+      `Overview of ${topic}`;
+
+    obj.explanations = {
+      eli5:
+        (typeof explanations.eli5 === "string" && explanations.eli5) ||
+        (typeof explanations.beginner === "string" && explanations.beginner) ||
+        fallback,
+      intermediate:
+        (typeof explanations.intermediate === "string" && explanations.intermediate) || fallback,
+      advanced: (typeof explanations.advanced === "string" && explanations.advanced) || fallback,
+      expert: (typeof explanations.expert === "string" && explanations.expert) || fallback
+    };
+  }
+
+  obj.glossary = coerceGlossary(obj.glossary);
+  obj.analogies = coerceStringArray(obj.analogies);
+  obj.misconceptions = coerceStringArray(obj.misconceptions);
+  obj.prerequisites = coerceStringArray(obj.prerequisites);
+  obj.learningPath = coerceStringArray(obj.learningPath);
+  obj.graph = coerceGraph(obj.graph);
+
+  return obj;
+}
+
+function coerceGlossary(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map((item) => {
+      if (typeof item === "string") {
+        const [term, ...rest] = item.split(":");
+        const definition = rest.join(":").trim();
+        return {
+          term: term.trim() || "Term",
+          definition: definition || item.trim()
+        };
+      }
+      return item;
+    });
+  }
+  if (!value || typeof value !== "object") return value;
+
+  const record = value as Record<string, unknown>;
+  if (typeof record.term === "string" && typeof record.definition === "string") {
+    return [{ term: record.term, definition: record.definition }];
+  }
+
+  const mapped = Object.entries(record)
+    .filter((entry): entry is [string, string] => typeof entry[1] === "string")
+    .map(([term, definition]) => ({ term, definition }));
+  return mapped.length ? mapped : value;
+}
+
+function coerceStringArray(value: unknown): unknown {
+  if (Array.isArray(value)) return value;
+  if (typeof value === "string") {
+    const chunks = value
+      .split(/\n|;/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    return chunks.length ? chunks : [value];
+  }
+  return value;
+}
+
+function coerceGraph(value: unknown): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+  const graph = { ...(value as Record<string, unknown>) };
+
+  graph.nodes = coerceNodes(graph.nodes);
+  graph.edges = coerceEdges(graph.edges);
+
+  return graph;
+}
+
+function coerceNodes(value: unknown): unknown {
+  if (!Array.isArray(value)) return value;
+  return value.map((node, index) => {
+    if (!node || typeof node !== "object" || Array.isArray(node)) return node;
+    const n = { ...(node as Record<string, unknown>) };
+    const label = asString(n.label) ?? asString(n.name) ?? asString(n.title) ?? `Concept ${index + 1}`;
+
+    return {
+      ...n,
+      id: asString(n.id) ?? slugId(label, `node-${index + 1}`),
+      label,
+      summary: asString(n.summary) ?? `Key concept: ${label}`
+    };
+  });
+}
+
+function coerceEdges(value: unknown): unknown {
+  if (!Array.isArray(value)) return value;
+  return value.map((edge, index) => {
+    if (Array.isArray(edge)) {
+      const [sourceRaw, targetRaw, relationRaw] = edge;
+      const source = asString(sourceRaw) ?? `node-${index + 1}`;
+      const target = asString(targetRaw) ?? source;
+      return {
+        id: `e-${index + 1}`,
+        source,
+        target,
+        relation: normalizeRelation(asString(relationRaw))
+      };
+    }
+
+    if (!edge || typeof edge !== "object") return edge;
+    const e = edge as Record<string, unknown>;
+    const source = asString(e.source) ?? asString(e.from) ?? asString(e.start) ?? "";
+    const target = asString(e.target) ?? asString(e.to) ?? asString(e.end) ?? "";
+
+    return {
+      ...e,
+      id: asString(e.id) ?? `e-${index + 1}`,
+      source,
+      target,
+      relation: normalizeRelation(asString(e.relation) ?? asString(e.type) ?? asString(e.label))
+    };
+  });
+}
+
+function normalizeRelation(value: string | null): string {
+  const relation = (value ?? "").toLowerCase();
+  if (
+    relation === "requires" ||
+    relation === "related_to" ||
+    relation === "part_of" ||
+    relation === "confused_with" ||
+    relation === "example_of"
+  ) {
+    return relation;
+  }
+  if (relation === "related" || relation === "relates_to") return "related_to";
+  if (relation === "requires_prerequisite" || relation === "prerequisite_of") return "requires";
+  if (relation === "partof") return "part_of";
+  return "related_to";
+}
+
+function asString(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed ? trimmed : null;
+}
+
+function slugId(input: string, fallback: string): string {
+  return (
+    input
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")
+      .slice(0, 60) || fallback
+  );
+}
+
+function buildRepairPrompt(topic: string, invalidOutput: string, errorSummary: string): string {
+  return [
+    "The previous answer did not satisfy schema validation.",
+    `Topic: ${topic}`,
+    `Validation errors: ${errorSummary}`,
+    "Rewrite the output as valid JSON only.",
+    "Do not include markdown or code fences.",
+    "Keep the same top-level shape and required fields.",
+    "Ensure explanations is an object with eli5/intermediate/advanced/expert.",
+    "Ensure glossary/analogies/misconceptions/prerequisites/learningPath are arrays.",
+    "Ensure graph has exactly one Topic node and no duplicate IDs.",
+    "Previous invalid output:",
+    invalidOutput
+  ].join("\n");
 }

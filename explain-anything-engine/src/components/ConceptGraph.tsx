@@ -33,30 +33,24 @@ export function ConceptGraph({ nodes, edges, onSelectNode }: ConceptGraphProps) 
   );
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || cyRef.current) return;
 
     const cy = cytoscape({
       container: containerRef.current,
-      elements,
-      layout: {
-        name: "cose",
-        animate: true,
-        fit: true,
-        padding: 20
-      },
+      elements: [],
       style: [
         {
           selector: "node",
           style: {
             label: "data(label)",
-            "font-size": 11,
+            "font-size": 10,
             "text-wrap": "wrap",
-            "text-max-width": "110px",
+            "text-max-width": "95px",
             color: "#0f172a",
             "text-valign": "center",
             "text-halign": "center",
-            width: "mapData(importance, 1, 10, 35, 90)",
-            height: "mapData(importance, 1, 10, 35, 90)",
+            width: "mapData(importance, 1, 10, 46, 96)",
+            height: "mapData(importance, 1, 10, 46, 96)",
             "background-color": "#60a5fa",
             "border-color": "#1e3a8a",
             "border-width": 2
@@ -89,17 +83,16 @@ export function ConceptGraph({ nodes, edges, onSelectNode }: ConceptGraphProps) 
           selector: ":selected",
           style: {
             "overlay-opacity": 0,
-            "border-width": 4,
-            "border-color": "#ef4444"
+            "border-width": 3,
+            "border-color": "#dc2626"
           }
         }
       ]
     });
 
     cy.on("tap", "node", (event) => {
-      const selectedId = event.target.id();
-      const selected = nodes.find((node) => node.id === selectedId) ?? null;
-      onSelectNode(selected);
+      const data = event.target.data() as GraphNode;
+      onSelectNode(data ?? null);
     });
 
     cy.on("tap", (event) => {
@@ -109,14 +102,22 @@ export function ConceptGraph({ nodes, edges, onSelectNode }: ConceptGraphProps) 
     cyRef.current = cy;
 
     return () => {
-      cy.destroy();
+      cyRef.current?.stop();
+      cyRef.current?.destroy();
       cyRef.current = null;
     };
-  }, [elements, nodes, onSelectNode]);
+  }, [onSelectNode]);
 
   useEffect(() => {
-    if (!cyRef.current) return;
-    cyRef.current.layout({ name: "cose", animate: true, fit: true, padding: 20 }).run();
+    const cy = cyRef.current;
+    if (!cy) return;
+
+    cy.startBatch();
+    cy.elements().remove();
+    cy.add(elements);
+    cy.endBatch();
+
+    cy.layout({ name: "cose", animate: false, fit: true, padding: 20 }).run();
   }, [elements]);
 
   return <div ref={containerRef} className="h-[560px] w-full rounded-xl border border-slate-300 bg-white" />;

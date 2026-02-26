@@ -45,18 +45,6 @@ const glossaryItemSchema = z.object({
   definition: z.string().min(1)
 });
 
-const quizQuestionSchema = z.object({
-  question: z.string().min(1),
-  options: z.array(z.string().min(1)).length(4),
-  answer: z.string().min(1),
-  explanation: z.string().min(1)
-});
-
-const shortAnswerSchema = z.object({
-  question: z.string().min(1),
-  guidance: z.string().min(1)
-});
-
 export const generationResponseSchema = z
   .object({
     topic: z.string().min(1),
@@ -66,10 +54,6 @@ export const generationResponseSchema = z
     misconceptions: z.array(z.string().min(1)).min(2),
     prerequisites: z.array(z.string().min(1)).min(2),
     learningPath: z.array(z.string().min(1)).min(3),
-    quiz: z.object({
-      multipleChoice: z.array(quizQuestionSchema).length(3),
-      shortAnswer: z.array(shortAnswerSchema).length(2)
-    }),
     graph: z.object({
       nodes: z.array(graphNodeSchema).min(6),
       edges: z.array(graphEdgeSchema).min(5)
