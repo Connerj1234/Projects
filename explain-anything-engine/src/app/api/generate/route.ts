@@ -213,9 +213,12 @@ async function requestText(
     content: Array<{ type: "input_text"; text: string }>;
   }>
 ): Promise<string> {
-  const timeoutMs = Number(process.env.OPENAI_REQUEST_TIMEOUT_MS ?? 9000);
+  const configuredTimeout = process.env.OPENAI_REQUEST_TIMEOUT_MS;
+  const timeoutMs = configuredTimeout ? Number(configuredTimeout) : null;
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const timer = timeoutMs
+    ? setTimeout(() => controller.abort(), timeoutMs)
+    : null;
 
   let response;
   try {
@@ -224,12 +227,10 @@ async function requestText(
         model,
         input
       },
-      {
-        signal: controller.signal
-      }
+      timeoutMs ? { signal: controller.signal } : undefined
     );
   } finally {
-    clearTimeout(timer);
+    if (timer) clearTimeout(timer);
   }
 
   if (response.output_text?.trim()) return response.output_text;
