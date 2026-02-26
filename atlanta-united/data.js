@@ -8094,7 +8094,7 @@ window.ATL_DATA = {
       {
         "rank": 4,
         "teamId": "190",
-        "team": "New York Red Bulls",
+        "team": "Red Bull New York",
         "played": 1,
         "wins": 1,
         "draws": 0,
@@ -8458,7 +8458,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-25T08:15:03.500Z"
+    "generatedAt": "2026-02-26T08:15:03.703Z"
   },
   "seasonHistory": [
     {

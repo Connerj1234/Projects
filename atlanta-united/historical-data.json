@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-25T08:15:15.009Z",
+  "generatedAt": "2026-02-26T08:15:16.756Z",
   "seasons": [
     {
       "season": 2026,
@@ -149,7 +149,7 @@
         },
         {
           "date": "2026-08-15",
-          "opponent": "New York Red Bulls",
+          "opponent": "Red Bull New York",
           "venue": "Home",
           "competition": "MLS",
           "result": "-"
@@ -254,7 +254,7 @@
         },
         {
           "date": "2026-11-07",
-          "opponent": "New York Red Bulls",
+          "opponent": "Red Bull New York",
           "venue": "Away",
           "competition": "MLS",
           "result": "-"
@@ -303,7 +303,7 @@
         {
           "rank": 4,
           "teamId": "190",
-          "team": "New York Red Bulls",
+          "team": "Red Bull New York",
           "played": 1,
           "wins": 1,
           "draws": 0,
