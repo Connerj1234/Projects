@@ -1,7 +1,6 @@
 "use client";
 
-import type { GraphNode } from "@/lib/schema";
-import type { GraphEdge } from "@/lib/schema";
+import type { GraphNode, GraphEdge } from "@/lib/schema";
 
 type NodeInspectorProps = {
   node: GraphNode | null;
@@ -12,10 +11,10 @@ type NodeInspectorProps = {
 export function NodeInspector({ node, nodes, edges }: NodeInspectorProps) {
   if (!node) {
     return (
-      <aside className="rounded-xl border border-slate-300 bg-white p-5 shadow-sm">
+      <aside className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Node Inspector</p>
-        <h2 className="mt-2 text-lg font-semibold text-slate-900">No node selected</h2>
-        <p className="mt-3 text-sm text-slate-600">
+        <h2 className="mt-2 text-lg font-semibold text-slate-100">No node selected</h2>
+        <p className="mt-3 text-sm text-slate-400">
           Click a concept in the graph to view its details, category, and relevance score.
         </p>
       </aside>
@@ -27,26 +26,26 @@ export function NodeInspector({ node, nodes, edges }: NodeInspectorProps) {
   const summary = buildSummary(node, context);
 
   return (
-    <aside className="rounded-xl border border-slate-300 bg-white p-5 shadow-sm">
+    <aside className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Selected Concept</p>
-          <h2 className="mt-1 break-words text-xl font-semibold text-slate-900">{node.label}</h2>
+          <h2 className="mt-1 break-words text-xl font-semibold text-slate-100">{node.label}</h2>
         </div>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+        <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">
           {node.type}
         </span>
       </div>
 
-      <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+      <div className="mt-4 rounded-lg border border-slate-700 bg-slate-800 p-4">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Summary</p>
-        <p className="mt-2 text-sm leading-6 text-slate-700">{summary}</p>
+        <p className="mt-2 text-sm leading-6 text-slate-300">{summary}</p>
         {context.connectedLabels.length > 0 ? (
-          <div className="mt-3 border-t border-slate-200 pt-3">
+          <div className="mt-3 border-t border-slate-700 pt-3">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
               Context At A Glance
             </p>
-            <ul className="mt-2 space-y-1 text-xs text-slate-700">
+            <ul className="mt-2 space-y-1 text-xs text-slate-300">
               <li>
                 Connected concepts: <span className="font-semibold">{context.connectedLabels.length}</span>
               </li>
@@ -66,7 +65,7 @@ export function NodeInspector({ node, nodes, edges }: NodeInspectorProps) {
               {context.connectedLabels.slice(0, 5).map((label) => (
                 <span
                   key={label}
-                  className="rounded-full border border-slate-200 bg-white px-2 py-1 text-[11px] text-slate-700"
+                  className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[11px] text-slate-300"
                 >
                   {label}
                 </span>
@@ -86,9 +85,9 @@ export function NodeInspector({ node, nodes, edges }: NodeInspectorProps) {
 
 function StatCard({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-3">
+    <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
       <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{label}</p>
-      <p className={`mt-1 text-sm text-slate-800 ${mono ? "font-mono text-xs" : "font-semibold"}`}>{value}</p>
+      <p className={`mt-1 text-sm text-slate-200 ${mono ? "font-mono text-xs" : "font-semibold"}`}>{value}</p>
     </div>
   );
 }

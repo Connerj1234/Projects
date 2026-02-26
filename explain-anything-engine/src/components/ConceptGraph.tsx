@@ -54,13 +54,13 @@ export function ConceptGraph({
             "font-size": 10,
             "text-wrap": "wrap",
             "text-max-width": "95px",
-            color: "#0f172a",
+            color: "#e2e8f0",
             "text-valign": "center",
             "text-halign": "center",
             width: "mapData(importance, 1, 10, 46, 96)",
             height: "mapData(importance, 1, 10, 46, 96)",
-            "background-color": "#60a5fa",
-            "border-color": "#1e3a8a",
+            "background-color": "#2563eb",
+            "border-color": "#60a5fa",
             "border-width": 2
           }
         },
@@ -68,22 +68,22 @@ export function ConceptGraph({
           selector: 'node[type = "Topic"]',
           style: {
             "background-color": "#f59e0b",
-            "border-color": "#92400e"
+            "border-color": "#f97316"
           }
         },
         {
           selector: "edge",
           style: {
             width: 2,
-            "line-color": "#94a3b8",
-            "target-arrow-color": "#94a3b8",
+            "line-color": "#64748b",
+            "target-arrow-color": "#64748b",
             "target-arrow-shape": "triangle",
             "curve-style": "bezier",
             label: "data(label)",
             "font-size": 9,
-            color: "#334155",
+            color: "#94a3b8",
             "text-background-opacity": 1,
-            "text-background-color": "#f8fafc",
+            "text-background-color": "#0f172a",
             "text-background-padding": "2px"
           }
         },
@@ -92,7 +92,7 @@ export function ConceptGraph({
           style: {
             "overlay-opacity": 0,
             "border-width": 3,
-            "border-color": "#dc2626"
+            "border-color": "#ef4444"
           }
         }
       ]
@@ -152,5 +152,5 @@ export function ConceptGraph({
     cy.layout({ name: "cose", animate: false, fit: true, padding: 20 }).run();
   }, [fitVersion]);
 
-  return <div ref={containerRef} className="h-[560px] w-full rounded-xl border border-slate-300 bg-white" />;
+  return <div ref={containerRef} className="h-[560px] w-full rounded-xl border border-slate-800 bg-slate-950" />;
 }
