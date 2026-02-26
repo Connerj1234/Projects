@@ -90,17 +90,21 @@ export async function POST(req: Request) {
 async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const primaryModel = process.env.OPENAI_MODEL ?? "gpt-4.1-nano";
+  const isNetlify = process.env.NETLIFY === "true";
   const fallbackModels = (process.env.OPENAI_FALLBACK_MODELS ?? "gpt-4.1-mini")
     .split(",")
     .map((m) => m.trim())
     .filter(Boolean);
-  const modelCandidates = Array.from(new Set([primaryModel, ...fallbackModels]));
+  const modelCandidates = Array.from(
+    new Set([primaryModel, ...(isNetlify ? [] : fallbackModels)])
+  );
+  const enableShapeFirst = process.env.ENABLE_SHAPE_FIRST === "true" && !isNetlify;
 
   const errors: string[] = [];
 
   for (const model of modelCandidates) {
-    const graphShape = await generateGraphShape(client, model, topic);
-    if (graphShape) {
+    const graphShape = enableShapeFirst ? await generateGraphShape(client, model, topic) : null;
+    if (enableShapeFirst && graphShape) {
       const shapeFirstText = await requestText(client, model, [
         {
           role: "system",
@@ -209,10 +213,24 @@ async function requestText(
     content: Array<{ type: "input_text"; text: string }>;
   }>
 ): Promise<string> {
-  const response = await client.responses.create({
-    model,
-    input
-  });
+  const timeoutMs = Number(process.env.OPENAI_REQUEST_TIMEOUT_MS ?? 9000);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  let response;
+  try {
+    response = await client.responses.create(
+      {
+        model,
+        input
+      },
+      {
+        signal: controller.signal
+      }
+    );
+  } finally {
+    clearTimeout(timer);
+  }
 
   if (response.output_text?.trim()) return response.output_text;
 
