@@ -72,26 +72,32 @@ export default function HomePage() {
         body: JSON.stringify({ topic })
       });
 
-      const payload = await response.json();
+      const rawText = await response.text();
+      const payload = safeJsonParse(rawText);
       if (!response.ok) {
-        const detailText =
-          typeof payload?.details === "string"
-            ? payload.details
-            : payload?.details
-              ? JSON.stringify(payload.details)
-              : null;
+        const detailsValue = payload?.details;
+        const detailText = detailsValue
+          ? typeof detailsValue === "string"
+            ? detailsValue
+            : JSON.stringify(detailsValue)
+          : null;
         const messageParts = [
-          payload?.error || `Failed to generate topic output. (HTTP ${response.status})`,
-          detailText
+          payload?.error || payload?.message || `Failed to generate topic output. (HTTP ${response.status})`,
+          detailText,
+          !payload ? rawText.slice(0, 400) : null
         ].filter(Boolean);
         throw new Error(messageParts.join(" "));
       }
 
-      setResult(payload.data);
-      setSource(payload.source);
-      if (typeof payload?.warning === "string") setWarning(payload.warning);
+      if (!payload?.data || !payload?.source) {
+        throw new Error("Generation succeeded but response payload was malformed.");
+      }
+
+      setResult(payload.data as GenerationResponse);
+      setSource(payload.source as "openai" | "mock");
+      if (typeof payload.warning === "string") setWarning(payload.warning);
       if (clientId) {
-        await saveHistory(clientId, topic, payload.source, payload.data);
+        await saveHistory(clientId, topic, payload.source as "openai" | "mock", payload.data as GenerationResponse);
         await loadHistory(clientId);
       }
     } catch (err) {
@@ -463,5 +469,13 @@ function formatTimestamp(value: string) {
     return new Date(value).toLocaleString();
   } catch {
     return value;
+  }
+}
+
+function safeJsonParse(input: string): Record<string, any> | null {
+  try {
+    return JSON.parse(input) as Record<string, any>;
+  } catch {
+    return null;
   }
 }
