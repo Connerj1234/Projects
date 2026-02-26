@@ -1,113 +1,119 @@
 # Explain Anything Engine
 
-Interactive concept exploration tool that turns any topic into:
-- Multi-level explanations (ELI5 to expert)
-- A connected knowledge graph
-- Misconceptions, analogies, glossary, prerequisites
-- Anonymous topic history (no OAuth required)
+Explain Anything Engine is an interactive learning product that turns a single topic into a visual map of understanding.
 
-## Current Scope (v0)
-This repository includes a working scaffold with:
-- Next.js app UI (`src/app/page.tsx`)
-- Generation API (`src/app/api/generate/route.ts`)
-- History API (`src/app/api/history/route.ts`)
-- Strict output schema + validation (`src/lib/schema.ts`)
-- Graph visualization with Cytoscape (`src/components/ConceptGraph.tsx`)
-- Node inspector with contextual summary (`src/components/NodeInspector.tsx`)
-- Prisma + SQLite persistence (`prisma/schema.prisma`)
+Instead of giving one long paragraph, it gives people multiple ways to learn the same idea:
+- simple-to-advanced explanations
+- a live concept graph
+- glossary terms and misconceptions
+- relationship-driven exploration
 
-## Product Contract
-All generated content must validate against:
-- `topic`
-- `explanations` (`eli5`, `intermediate`, `advanced`, `expert`)
-- `glossary`
-- `analogies`
-- `misconceptions`
-- `prerequisites`
-- `learningPath`
-- `graph` (`nodes`, `edges`)
+This project is designed to show that learning is not linear. People usually understand ideas by connecting related concepts, not by reading one block of text from top to bottom.
 
-Graph rules enforced:
-- Exactly one `Topic` node
-- No duplicate IDs
-- Edge references must point to existing nodes
-- Graph must be connected
-- Importance values normalized to `1..10`
+## The Problem It Solves
+Most educational interfaces are static and text-heavy.
+They often fail to answer key learner questions like:
+- What should I understand first?
+- Which concepts connect to this one?
+- What do people usually misunderstand?
+- How does this idea fit into a bigger system?
 
-## Architecture
-- Frontend: Next.js App Router + TypeScript + TailwindCSS
-- Graph: Cytoscape.js
-- AI: OpenAI API (optional, with mock fallback)
-- Validation: Zod
-- Persistence: Prisma + SQLite
+Explain Anything Engine addresses this by treating knowledge as a network and making the network explorable.
 
-## Run Locally
-1. Install dependencies:
-```bash
-npm install
-```
-2. Add environment variables:
-```bash
-cp .env.example .env.local
-```
-3. Generate Prisma client:
-```bash
-npm run prisma:generate
-```
-4. Create/update SQLite schema:
-```bash
-npm run prisma:push
-```
-5. Run dev server:
-```bash
-npm run dev
-```
-6. Open `http://localhost:3000`
+## What the Product Does
+Given a topic, the system generates a structured learning package with:
+- multi-level explanations: `ELI5`, `intermediate`, `advanced`, `expert`
+- glossary: key terms with plain-language definitions
+- misconceptions: common wrong assumptions
+- analogies and prerequisites: bridges to understanding
+- interactive concept graph: nodes + typed relationships
 
-## Environment Variables
-```bash
-OPENAI_API_KEY=
-OPENAI_MODEL=gpt-4.1-nano
-OPENAI_FALLBACK_MODELS=gpt-4.1-mini
-DATABASE_URL=file:./dev.db
-```
+Users can:
+- filter graph nodes by type
+- click a concept to inspect context and connected ideas
+- reset and re-fit the graph layout
+- tune label density for readability
+- switch between knowledge views in a sidebar
 
-## Anonymous History (No OAuth)
-- Client stores an `anon_client_id` cookie.
-- Each generation is saved in `TopicHistory` keyed by that cookie.
-- History appears in the UI as reloadable topic cards.
+## Why the Graph Matters
+The graph is the core interface, not decoration.
 
-## Generation Reliability
-Generation uses a shape-first strategy:
-1. Generate a connected graph shape first.
-2. Generate explanations/glossary/etc against that fixed graph.
-3. Validate and normalize output.
-4. Retry/repair and fallback model if needed.
+Nodes represent concepts.
+Edges represent semantic relationships such as:
+- `requires`
+- `related_to`
+- `part_of`
+- `confused_with`
+- `example_of`
 
-## Graph Controls
-- Node type filters (Topic, Prerequisite, Key Term, etc.)
-- Label density toggle (compact/balanced/expanded)
-- Fit/reset layout button
+This allows users to move through knowledge naturally:
+- from foundational ideas to advanced ones
+- from confusion to clarification
+- from isolated facts to connected understanding
 
-## Tests
-Run:
-```bash
-npm test
-```
-Covers:
-- Graph connectivity checks
-- Schema acceptance/rejection rules (including duplicate IDs and topic-node constraints)
+## How Generation Works (High Level)
+The backend asks an AI model for structured JSON and validates it before sending it to the UI.
 
-## Suggested File Ownership
-- `src/app/page.tsx`: UI orchestration + history integration
-- `src/app/api/generate/route.ts`: generation strategy + validation
-- `src/app/api/history/route.ts`: history persistence API
-- `src/lib/schema.ts`: canonical contract
-- `src/lib/graph.ts`: graph quality checks and importance defaults
+Quality safeguards include:
+- strict schema validation for every response
+- graph consistency checks (connected graph, no duplicate IDs, valid references)
+- normalization of common malformed model outputs
+- production-safe generation strategy tuned for reliability
 
-## Definition of Done (v1)
-- Any topic generates a valid, connected graph
-- Graph is draggable/zoomable and node-click updates inspector
-- Explanation tabs stay synchronized with graph topic
-- API response always passes contract validation
-- Anonymous history persists and can reload past outputs
+This means the frontend receives predictable, typed data instead of free-form text.
+
+## Interface Walkthrough
+### 1. Topic Input
+User enters a topic and triggers generation.
+
+### 2. Graph Canvas
+A force-directed graph appears in the main panel.
+Node size reflects concept importance.
+
+### 3. Node Inspector
+Clicking a node opens a detail panel with:
+- concept type
+- summary
+- relationship context (incoming/outgoing links)
+- nearby connected concepts
+
+### 4. Knowledge Views
+A sidebar switches the lower panel between:
+- explanations
+- glossary
+- misconceptions
+
+The content is presented as styled cards to keep scanning fast and reduce cognitive load.
+
+## Design Philosophy
+Explain Anything Engine is built around three beliefs:
+- understanding comes from connections, not memorized paragraphs
+- one explanation style does not fit every learner
+- interfaces should make relationships visible, not hidden
+
+The result is a product that feels like exploration, not passive reading.
+
+## Technical Depth (Interview Talking Points)
+If you discuss this project in interviews, focus on these themes:
+- **Structured AI outputs**: model output is schema-constrained and validated before UI rendering.
+- **Resilience engineering**: normalization and validation guardrails handle imperfect model responses.
+- **Graph-first UX**: knowledge is represented as a connected semantic system.
+- **Stateful interaction design**: filtering, selection, layout reset, and multi-view knowledge panels.
+- **Performance pragmatism**: generation strategy tuned for serverless reliability.
+
+## What Makes This Project Strong
+- It combines product thinking and engineering rigor.
+- It demonstrates both frontend interaction design and backend reliability patterns.
+- It shows how to turn raw AI output into a trustworthy user experience.
+
+## Future Directions
+Potential extensions include:
+- branch expansion from any selected concept
+- citations and source-backed mode
+- collaborative maps for teams/classrooms
+- progress tracking and mastery pathways
+- export/sharing workflows for study sessions
+
+---
+
+Explain Anything Engine is ultimately a tool for turning “I read it” into “I understand how it fits together.”

@@ -3,37 +3,34 @@
 ## Snapshot
 - Project: Explain Anything Engine
 - Last Updated: 2026-02-26
-- Current Milestone: Milestone 2 stabilization
+- Current Milestone: Polished showcase mode
 - Status: In progress
 
 ## Completed
-- Added Prisma + SQLite model for topic history
-- Added anonymous history API (`/api/history`) and UI reload cards
-- Added cookie-based client identity (`anon_client_id`) with no OAuth dependency
-- Upgraded generation pipeline to shape-first (graph-first then content)
-- Added model fallback + repair flow improvements for schema stability
-- Added graph controls: node-type filters, label-density toggle, fit/reset layout
-- Added loading-state animations for graph/inspector/knowledge sections
-- Added contextual node inspector summaries and graph metadata
-- Added basic test suite for graph connectivity and schema constraints
+- Removed history feature from UI and backend
+- Removed Prisma/SQLite persistence layer and related scripts
+- Switched application to a full dark-theme presentation
+- Kept graph controls, inspector context, and structured generation flow
+- Improved deployment reliability for serverless environments
+- Refined runtime error surfacing for API failures
+- Repositioned product as demo/showcase-focused experience
 
 ## In Progress
-- Expand automated tests to cover generation normalization edge cases
-- Improve content quality consistency for weak model outputs
+- Balancing graph density vs generation reliability in hosted environments
+- Fine-tuning output richness while avoiding serverless timeouts
 
 ## Blockers
-- `prisma db push` may fail in some sandboxed environments unless `DATABASE_URL` is set and local engine execution is permitted.
+- None currently
 
 ## Decisions
-- Keep no-auth history using cookie identity for low-friction UX
-- Prefer shape-first generation to reduce malformed JSON from smaller models
-- Keep strict schema validation in API before data reaches UI
+- Prioritize polished, interview-friendly product narrative over production persistence
+- Keep strict validation pipeline for predictable UI behavior
+- Favor fast, reliable generation path in hosted runtime
 
 ## Next Actions
-- Add branch expansion from selected graph node
-- Add “pin/favorite topic” and search in history panel
-- Add API tests around repair/fallback behavior
-- Add export-to-markdown from loaded history item
+- Improve concept diversity in generated graphs
+- Add optional “deepen this node” exploration action
+- Add branded visual polish (hero section, custom empty states)
 
 ## Thread Handoff Notes
 Use this file at the start of future threads. Update these sections after each work session:
