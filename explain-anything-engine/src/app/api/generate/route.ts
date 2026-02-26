@@ -99,7 +99,7 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
     new Set([primaryModel, ...(isNetlify ? [] : fallbackModels)])
   );
   const enableShapeFirst = process.env.ENABLE_SHAPE_FIRST === "true" && !isNetlify;
-  const promptOptions = isNetlify ? { minNodes: 6, maxNodes: 12 } : { minNodes: 6, maxNodes: 40 };
+  const promptOptions = isNetlify ? { minNodes: 12, maxNodes: 20 } : { minNodes: 6, maxNodes: 40 };
 
   const errors: string[] = [];
 
