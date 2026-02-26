@@ -31,6 +31,7 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [source, setSource] = useState<"openai" | "mock" | null>(null);
+  const [warning, setWarning] = useState<string | null>(null);
   const [result, setResult] = useState<GenerationResponse | null>(null);
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(true);
@@ -58,6 +59,7 @@ export default function HomePage() {
   async function handleGenerate(event: FormEvent) {
     event.preventDefault();
     setError(null);
+    setWarning(null);
     setSelectedNode(null);
     setLoading(true);
 
@@ -72,15 +74,22 @@ export default function HomePage() {
 
       const payload = await response.json();
       if (!response.ok) {
+        const detailText =
+          typeof payload?.details === "string"
+            ? payload.details
+            : payload?.details
+              ? JSON.stringify(payload.details)
+              : null;
         const messageParts = [
-          payload?.error || "Failed to generate topic output.",
-          typeof payload?.details === "string" ? payload.details : null
+          payload?.error || `Failed to generate topic output. (HTTP ${response.status})`,
+          detailText
         ].filter(Boolean);
         throw new Error(messageParts.join(" "));
       }
 
       setResult(payload.data);
       setSource(payload.source);
+      if (typeof payload?.warning === "string") setWarning(payload.warning);
       if (clientId) {
         await saveHistory(clientId, topic, payload.source, payload.data);
         await loadHistory(clientId);
@@ -172,6 +181,7 @@ export default function HomePage() {
         </form>
 
         {error ? <p className="mt-2 text-sm text-red-600">{error}</p> : null}
+        {warning ? <p className="mt-2 text-sm text-amber-700">{warning}</p> : null}
         {source ? <p className="mt-2 text-xs text-slate-500">Data source: {source}</p> : null}
       </header>
 

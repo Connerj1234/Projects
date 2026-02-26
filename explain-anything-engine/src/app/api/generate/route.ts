@@ -3,7 +3,6 @@ import OpenAI from "openai";
 import { z } from "zod";
 
 import { isConnectedGraph, applyImportanceDefaults } from "@/lib/graph";
-import { buildMockResponse } from "@/lib/mockData";
 import { buildGenerationPrompt } from "@/lib/prompt";
 import {
   graphEdgeSchema,
@@ -28,9 +27,19 @@ export async function POST(req: Request) {
 
   const { topic } = parsedBody.data;
   const hasApiKey = Boolean(process.env.OPENAI_API_KEY);
+  if (!hasApiKey) {
+    return NextResponse.json(
+      {
+        error: "Generation failed.",
+        details: "OPENAI_API_KEY is not configured on the server.",
+        source: "openai"
+      },
+      { status: 500 }
+    );
+  }
 
   try {
-    const raw = hasApiKey ? await generateWithOpenAI(topic) : buildMockResponse(topic);
+    const raw = await generateWithOpenAI(topic);
 
     const normalized: GenerationResponse = {
       ...raw,
@@ -46,7 +55,7 @@ export async function POST(req: Request) {
         {
           error: "Generation did not match expected schema.",
           details: parsedResult.error.flatten(),
-          source: hasApiKey ? "openai" : "mock"
+          source: "openai"
         },
         { status: 502 }
       );
@@ -56,7 +65,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           error: "Generated graph is not connected.",
-          source: hasApiKey ? "openai" : "mock"
+          source: "openai"
         },
         { status: 502 }
       );
@@ -64,13 +73,14 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       data: parsedResult.data,
-      source: hasApiKey ? "openai" : "mock"
+      source: "openai"
     });
   } catch (error) {
     return NextResponse.json(
       {
         error: "Generation failed.",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: formatGenerationError(error),
+        source: "openai"
       },
       { status: 500 }
     );
@@ -487,4 +497,18 @@ function buildShapeFirstContentPrompt(
     "Graph:",
     JSON.stringify(graph)
   ].join("\n");
+}
+
+function formatGenerationError(error: unknown): string {
+  if (!error) return "Unknown error";
+
+  const e = error as { message?: string; status?: number; name?: string; code?: string };
+  const parts = [
+    typeof e.message === "string" ? e.message : "Unknown error",
+    typeof e.status === "number" ? `status=${e.status}` : null,
+    typeof e.code === "string" ? `code=${e.code}` : null,
+    typeof e.name === "string" ? `type=${e.name}` : null
+  ].filter(Boolean);
+
+  return parts.join(" | ");
 }
