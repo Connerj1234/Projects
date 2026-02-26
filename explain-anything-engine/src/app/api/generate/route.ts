@@ -99,6 +99,7 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
     new Set([primaryModel, ...(isNetlify ? [] : fallbackModels)])
   );
   const enableShapeFirst = process.env.ENABLE_SHAPE_FIRST === "true" && !isNetlify;
+  const promptOptions = isNetlify ? { minNodes: 6, maxNodes: 12 } : { minNodes: 6, maxNodes: 40 };
 
   const errors: string[] = [];
 
@@ -128,12 +129,17 @@ async function generateWithOpenAI(topic: string): Promise<GenerationResponse> {
       },
       {
         role: "user",
-        content: [{ type: "input_text", text: buildGenerationPrompt(topic) }]
+        content: [{ type: "input_text", text: buildGenerationPrompt(topic, promptOptions) }]
       }
     ]);
 
     const firstParse = parseAndValidate(firstAttemptText, topic);
     if (firstParse.success) return firstParse.data;
+
+    if (isNetlify) {
+      errors.push(`[${model}] ${firstParse.errorSummary}`);
+      continue;
+    }
 
     const repairPrompt = buildRepairPrompt(topic, firstAttemptText, firstParse.errorSummary);
     const repairedText = await requestText(client, model, [

@@ -1,4 +1,12 @@
-export function buildGenerationPrompt(topic: string): string {
+type PromptOptions = {
+  minNodes?: number;
+  maxNodes?: number;
+};
+
+export function buildGenerationPrompt(topic: string, options: PromptOptions = {}): string {
+  const minNodes = options.minNodes ?? 6;
+  const maxNodes = options.maxNodes ?? 40;
+
   return [
     "You are generating a strict JSON payload for a concept-exploration app.",
     `Topic: ${topic}`,
@@ -14,7 +22,7 @@ export function buildGenerationPrompt(topic: string): string {
     "- Include exactly one Topic node in graph.nodes.",
     "- No duplicate IDs.",
     "- Graph should be connected and centered on the topic.",
-    "- Provide 20 to 40 nodes when possible, but never fewer than 6.",
+    `- Provide ${minNodes} to ${maxNodes} nodes when possible, but never fewer than ${minNodes}.`,
     "- Use only allowed node types: Topic, Prerequisite, Key Term, Subtopic, Misconception, Example.",
     "- Use only allowed edge relations: requires, related_to, part_of, confused_with, example_of.",
     "- If importance is included, normalize between 1 and 10."
