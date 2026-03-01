@@ -4,14 +4,14 @@ window.ATL_DATA = {
   "record": {
     "wins": 0,
     "draws": 0,
-    "losses": 1
+    "losses": 2
   },
   "stats": {
     "points": 0,
     "goalsFor": 0,
-    "goalsAgainst": 2,
+    "goalsAgainst": 4,
     "homeRecord": "0-0-0",
-    "awayRecord": "0-0-1",
+    "awayRecord": "0-0-2",
     "cleanSheets": 0,
     "avgAttendance": null
   },
@@ -20,16 +20,24 @@ window.ATL_DATA = {
     "conference": "Eastern Conference"
   },
   "formLastFive": [
+    "L",
     "L"
   ],
   "nextMatch": {
-    "opponent": "San Jose Earthquakes",
-    "dateISO": "2026-03-01T00:30Z",
+    "opponent": "Real Salt Lake",
+    "dateISO": "2026-03-08T00:30Z",
     "competition": "MLS",
-    "venue": "PayPal Park",
+    "venue": "Mercedes-Benz Stadium",
     "broadcast": "Apple TV"
   },
   "results": [
+    {
+      "date": "2026-03-01",
+      "opponent": "San Jose Earthquakes",
+      "venue": "Away",
+      "score": "0-2",
+      "outcome": "Loss"
+    },
     {
       "date": "2026-02-21",
       "opponent": "FC Cincinnati",
@@ -41,25 +49,19 @@ window.ATL_DATA = {
   "quickSnapshot": {
     "formTrend": {
       "pointsLast5": 0,
-      "goalDiffLast5": -2,
+      "goalDiffLast5": -4,
       "formRatingOutOf5": 0,
       "goalDiffPerMatch": -2,
       "pointsPerMatchLastN": 0,
-      "gamesSampled": 1,
+      "gamesSampled": 2,
       "cleanSheetsLastN": 0,
       "wdlLast5": {
         "wins": 0,
         "draws": 0,
-        "losses": 1
+        "losses": 2
       }
     },
     "nextThree": [
-      {
-        "opponent": "San Jose Earthquakes",
-        "dateISO": "2026-03-01T00:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
       {
         "opponent": "Real Salt Lake",
         "dateISO": "2026-03-08T00:30Z",
@@ -71,6 +73,12 @@ window.ATL_DATA = {
         "dateISO": "2026-03-14T19:00Z",
         "venue": "Home",
         "competition": "MLS"
+      },
+      {
+        "opponent": "D.C. United",
+        "dateISO": "2026-03-21T23:30Z",
+        "venue": "Home",
+        "competition": "MLS"
       }
     ],
     "playoffLine": {
@@ -80,7 +88,7 @@ window.ATL_DATA = {
       "lineRank": 9,
       "linePoints": 0,
       "pointsFromLine": 0,
-      "gamesInHand": 0
+      "gamesInHand": -1
     }
   },
   "playerStats": [
@@ -111,11 +119,11 @@ window.ATL_DATA = {
       "name": "Alexey Miranchuk",
       "number": "59",
       "position": "M",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 17
+      "minutes": 47
     },
     {
       "id": "mls-2026-MLS-OBJ-0007WA",
@@ -133,11 +141,11 @@ window.ATL_DATA = {
       "name": "Cooper Sanchez",
       "number": "48",
       "position": "M",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 73
+      "minutes": 143
     },
     {
       "id": "400742",
@@ -155,33 +163,33 @@ window.ATL_DATA = {
       "name": "Elías Baez",
       "number": "3",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "mls-2026-MLS-OBJ-00081B",
       "name": "Emmanuel Latte Lath",
       "number": "9",
       "position": "OFF",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "mls-2026-MLS-OBJ-000BVP",
       "name": "Enea Mihaj",
       "number": "4",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "211678",
@@ -221,22 +229,22 @@ window.ATL_DATA = {
       "name": "Juan Berrocal",
       "number": "6",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "mls-2026-MLS-OBJ-000575",
       "name": "Lucas Hoyos",
       "number": "1",
       "position": "GK",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "mls-2026-MLS-OBJ-000239",
@@ -265,44 +273,44 @@ window.ATL_DATA = {
       "name": "Miguel Almirón",
       "number": "10",
       "position": "F",
+      "appearances": 2,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 180
+    },
+    {
+      "id": "mls-2026-MLS-OBJ-0007KA",
+      "name": "Pedro Amador",
+      "number": "18",
+      "position": "D",
       "appearances": 1,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
-    },
-    {
-      "id": "303125",
-      "name": "Pedro Amador",
-      "number": "18",
-      "position": "D",
-      "appearances": 0,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 0
+      "minutes": 20
     },
     {
       "id": "mls-2026-MLS-OBJ-0001IV",
       "name": "Ronald Hernández",
       "number": "2",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 151
     },
     {
       "id": "mls-2026-MLS-OBJ-0003E7",
       "name": "Saba Lobjanidze",
       "number": "11",
       "position": "F",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 73
+      "minutes": 133
     },
     {
       "id": "416552",
@@ -331,11 +339,11 @@ window.ATL_DATA = {
       "name": "Steven Alzate",
       "number": "7",
       "position": "M",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 84
+      "minutes": 174
     },
     {
       "id": "mls-2026-MLS-OBJ-00053D",
@@ -353,11 +361,11 @@ window.ATL_DATA = {
       "name": "Tomás Jacob",
       "number": "55",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 180
     },
     {
       "id": "mls-2026-MLS-OBJ-00083K",
@@ -375,11 +383,11 @@ window.ATL_DATA = {
       "name": "Tristan Muyumba",
       "number": "8",
       "position": "M",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 17
+      "minutes": 46
     },
     {
       "id": "290024",
@@ -8054,32 +8062,45 @@ window.ATL_DATA = {
     "east": [
       {
         "rank": 1,
-        "teamId": "18986",
-        "team": "Nashville SC",
-        "played": 1,
-        "wins": 1,
+        "teamId": "190",
+        "team": "Red Bull New York",
+        "played": 2,
+        "wins": 2,
         "draws": 0,
         "losses": 0,
-        "points": 3,
-        "goalDiff": 3,
+        "points": 6,
+        "goalDiff": 2,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
       {
         "rank": 2,
-        "teamId": "18267",
-        "team": "FC Cincinnati",
-        "played": 1,
+        "teamId": "18986",
+        "team": "Nashville SC",
+        "played": 2,
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "points": 4,
+        "goalDiff": 3,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 3,
+        "teamId": "182",
+        "team": "Chicago Fire FC",
+        "played": 2,
         "wins": 1,
         "draws": 0,
-        "losses": 0,
+        "losses": 1,
         "points": 3,
         "goalDiff": 2,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
       {
-        "rank": 3,
+        "rank": 4,
         "teamId": "193",
         "team": "D.C. United",
         "played": 1,
@@ -8092,28 +8113,15 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 4,
-        "teamId": "190",
-        "team": "Red Bull New York",
-        "played": 1,
+        "rank": 5,
+        "teamId": "18267",
+        "team": "FC Cincinnati",
+        "played": 2,
         "wins": 1,
         "draws": 0,
-        "losses": 0,
+        "losses": 1,
         "points": 3,
         "goalDiff": 1,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 5,
-        "teamId": "21300",
-        "team": "Charlotte FC",
-        "played": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 0,
-        "points": 1,
-        "goalDiff": 0,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8132,27 +8140,27 @@ window.ATL_DATA = {
       },
       {
         "rank": 7,
-        "teamId": "182",
-        "team": "Chicago Fire FC",
-        "played": 1,
+        "teamId": "183",
+        "team": "Columbus Crew",
+        "played": 2,
         "wins": 0,
-        "draws": 0,
+        "draws": 1,
         "losses": 1,
-        "points": 0,
+        "points": 1,
         "goalDiff": -1,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
       {
         "rank": 8,
-        "teamId": "183",
-        "team": "Columbus Crew",
-        "played": 1,
+        "teamId": "21300",
+        "team": "Charlotte FC",
+        "played": 2,
         "wins": 0,
-        "draws": 0,
+        "draws": 1,
         "losses": 1,
-        "points": 0,
-        "goalDiff": -1,
+        "points": 1,
+        "goalDiff": -3,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8184,32 +8192,6 @@ window.ATL_DATA = {
       },
       {
         "rank": 11,
-        "teamId": "7318",
-        "team": "Toronto FC",
-        "played": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 1,
-        "points": 0,
-        "goalDiff": -1,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 12,
-        "teamId": "18418",
-        "team": "Atlanta United FC",
-        "played": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 1,
-        "points": 0,
-        "goalDiff": -2,
-        "conference": "Eastern Conference",
-        "isAtlanta": true
-      },
-      {
-        "rank": 13,
         "teamId": "20232",
         "team": "Inter Miami CF",
         "played": 1,
@@ -8222,15 +8204,41 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 14,
-        "teamId": "189",
-        "team": "New England Revolution",
-        "played": 1,
+        "rank": 12,
+        "teamId": "18418",
+        "team": "Atlanta United FC",
+        "played": 2,
         "wins": 0,
         "draws": 0,
-        "losses": 1,
+        "losses": 2,
         "points": 0,
-        "goalDiff": -3,
+        "goalDiff": -4,
+        "conference": "Eastern Conference",
+        "isAtlanta": true
+      },
+      {
+        "rank": 13,
+        "teamId": "189",
+        "team": "New England Revolution",
+        "played": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "points": 0,
+        "goalDiff": -4,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 14,
+        "teamId": "7318",
+        "team": "Toronto FC",
+        "played": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "points": 0,
+        "goalDiff": -4,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8238,12 +8246,12 @@ window.ATL_DATA = {
         "rank": 15,
         "teamId": "9720",
         "team": "CF Montréal",
-        "played": 1,
+        "played": 2,
         "wins": 0,
         "draws": 0,
-        "losses": 1,
+        "losses": 2,
         "points": 0,
-        "goalDiff": -5,
+        "goalDiff": -8,
         "conference": "Eastern Conference",
         "isAtlanta": false
       }
@@ -8251,6 +8259,84 @@ window.ATL_DATA = {
     "west": [
       {
         "rank": 1,
+        "teamId": "18966",
+        "team": "LAFC",
+        "played": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "points": 6,
+        "goalDiff": 5,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 2,
+        "teamId": "191",
+        "team": "San Jose Earthquakes",
+        "played": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "points": 6,
+        "goalDiff": 5,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 3,
+        "teamId": "9727",
+        "team": "Vancouver Whitecaps",
+        "played": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "points": 6,
+        "goalDiff": 4,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 4,
+        "teamId": "187",
+        "team": "LA Galaxy",
+        "played": 2,
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "points": 4,
+        "goalDiff": 3,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 5,
+        "teamId": "185",
+        "team": "FC Dallas",
+        "played": 2,
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "points": 4,
+        "goalDiff": 1,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 6,
+        "teamId": "17362",
+        "team": "Minnesota United FC",
+        "played": 2,
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "points": 4,
+        "goalDiff": 1,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 7,
         "teamId": "22529",
         "team": "San Diego FC",
         "played": 1,
@@ -8263,91 +8349,13 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 2,
-        "teamId": "18966",
-        "team": "LAFC",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 3,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 3,
-        "teamId": "191",
-        "team": "San Jose Earthquakes",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 3,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 4,
+        "rank": 8,
         "teamId": "9726",
         "team": "Seattle Sounders FC",
-        "played": 1,
+        "played": 2,
         "wins": 1,
         "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 2,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 5,
-        "teamId": "185",
-        "team": "FC Dallas",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 1,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 6,
-        "teamId": "6077",
-        "team": "Houston Dynamo FC",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 1,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 7,
-        "teamId": "9723",
-        "team": "Portland Timbers",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "points": 3,
-        "goalDiff": 1,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 8,
-        "teamId": "9727",
-        "team": "Vancouver Whitecaps",
-        "played": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
+        "losses": 1,
         "points": 3,
         "goalDiff": 1,
         "conference": "Western Conference",
@@ -8355,6 +8363,58 @@ window.ATL_DATA = {
       },
       {
         "rank": 9,
+        "teamId": "184",
+        "team": "Colorado Rapids",
+        "played": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "points": 3,
+        "goalDiff": 0,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 10,
+        "teamId": "4771",
+        "team": "Real Salt Lake",
+        "played": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "points": 3,
+        "goalDiff": 0,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 11,
+        "teamId": "6077",
+        "team": "Houston Dynamo FC",
+        "played": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "points": 3,
+        "goalDiff": -1,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 12,
+        "teamId": "9723",
+        "team": "Portland Timbers",
+        "played": 2,
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "points": 3,
+        "goalDiff": -1,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 13,
         "teamId": "20906",
         "team": "Austin FC",
         "played": 1,
@@ -8367,33 +8427,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 10,
-        "teamId": "187",
-        "team": "LA Galaxy",
-        "played": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 0,
-        "points": 1,
-        "goalDiff": 0,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 11,
-        "teamId": "17362",
-        "team": "Minnesota United FC",
-        "played": 1,
-        "wins": 0,
-        "draws": 1,
-        "losses": 0,
-        "points": 1,
-        "goalDiff": 0,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 12,
+        "rank": 14,
         "teamId": "21812",
         "team": "St. Louis CITY SC",
         "played": 1,
@@ -8406,40 +8440,14 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 13,
-        "teamId": "4771",
-        "team": "Real Salt Lake",
-        "played": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 1,
-        "points": 0,
-        "goalDiff": -1,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 14,
-        "teamId": "184",
-        "team": "Colorado Rapids",
-        "played": 1,
-        "wins": 0,
-        "draws": 0,
-        "losses": 1,
-        "points": 0,
-        "goalDiff": -2,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
         "rank": 15,
         "teamId": "186",
         "team": "Sporting Kansas City",
-        "played": 1,
+        "played": 2,
         "wins": 0,
-        "draws": 0,
+        "draws": 1,
         "losses": 1,
-        "points": 0,
+        "points": 1,
         "goalDiff": -3,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8449,16 +8457,16 @@ window.ATL_DATA = {
       "rank": 12,
       "teamId": "18418",
       "team": "Atlanta United FC",
-      "played": 1,
+      "played": 2,
       "wins": 0,
       "draws": 0,
-      "losses": 1,
+      "losses": 2,
       "points": 0,
-      "goalDiff": -2,
+      "goalDiff": -4,
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-02-28T08:15:03.432Z"
+    "generatedAt": "2026-03-01T08:15:03.734Z"
   },
   "seasonHistory": [
     {
