@@ -258,6 +258,17 @@ window.ATL_DATA = {
       "minutes": 6
     },
     {
+      "id": "297328",
+      "name": "Matías Galarza",
+      "number": "",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-0005HF",
       "name": "Matthew Edwards",
       "number": "47",
@@ -272,7 +283,7 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "M",
+      "position": "F",
       "appearances": 2,
       "starts": 0,
       "goals": 0,
@@ -327,7 +338,7 @@ window.ATL_DATA = {
       "id": "214446",
       "name": "Sergio Santos",
       "number": "22",
-      "position": "F",
+      "position": "D",
       "appearances": 0,
       "starts": 0,
       "goals": 0,
@@ -8466,7 +8477,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-03-02T08:15:03.252Z"
+    "generatedAt": "2026-03-03T08:15:04.964Z"
   },
   "seasonHistory": [
     {

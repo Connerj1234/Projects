@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-02T08:15:17.588Z",
+  "generatedAt": "2026-03-03T08:15:18.026Z",
   "seasons": [
     {
       "season": 2026,
@@ -624,6 +624,17 @@
           "minutes": 6
         },
         {
+          "id": "297328",
+          "name": "Matías Galarza",
+          "number": "",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
           "id": "mls-2026-MLS-OBJ-0005HF",
           "name": "Matthew Edwards",
           "number": "47",
@@ -638,7 +649,7 @@
           "id": "mls-2026-MLS-OBJ-0003T9",
           "name": "Miguel Almirón",
           "number": "10",
-          "position": "M",
+          "position": "F",
           "appearances": 2,
           "starts": 0,
           "goals": 0,
@@ -693,7 +704,7 @@
           "id": "214446",
           "name": "Sergio Santos",
           "number": "22",
-          "position": "F",
+          "position": "D",
           "appearances": 0,
           "starts": 0,
           "goals": 0,
@@ -767,7 +778,7 @@
           "minutes": 0
         }
       ],
-      "notes": "In-season sync: 34 fixtures, 15 table rows, 28 roster rows."
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 29 roster rows."
     },
     {
       "season": 2025,
