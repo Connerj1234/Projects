@@ -283,7 +283,7 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "M",
+      "position": "F",
       "appearances": 2,
       "starts": 0,
       "goals": 0,
@@ -338,7 +338,7 @@ window.ATL_DATA = {
       "id": "214446",
       "name": "Sergio Santos",
       "number": "22",
-      "position": "D",
+      "position": "F",
       "appearances": 0,
       "starts": 0,
       "goals": 0,
@@ -8477,7 +8477,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-03-04T08:15:03.665Z"
+    "generatedAt": "2026-03-05T08:15:03.584Z"
   },
   "seasonHistory": [
     {
