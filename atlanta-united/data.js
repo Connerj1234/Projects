@@ -13,10 +13,10 @@ window.ATL_DATA = {
     "homeRecord": "0-0-1",
     "awayRecord": "0-0-2",
     "cleanSheets": 0,
-    "avgAttendance": 0
+    "avgAttendance": 53862
   },
   "position": {
-    "rank": 13,
+    "rank": 14,
     "conference": "Eastern Conference"
   },
   "formLastFive": [
@@ -91,11 +91,11 @@ window.ATL_DATA = {
     ],
     "playoffLine": {
       "conference": "East",
-      "rank": 13,
+      "rank": 14,
       "points": 0,
       "lineRank": 9,
-      "linePoints": 2,
-      "pointsFromLine": -2,
+      "linePoints": 3,
+      "pointsFromLine": -3,
       "gamesInHand": 0
     }
   },
@@ -8107,19 +8107,6 @@ window.ATL_DATA = {
       },
       {
         "rank": 3,
-        "teamId": "190",
-        "team": "Red Bull New York",
-        "played": 2,
-        "wins": 2,
-        "draws": 0,
-        "losses": 0,
-        "points": 6,
-        "goalDiff": 2,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 4,
         "teamId": "20232",
         "team": "Inter Miami CF",
         "played": 3,
@@ -8128,6 +8115,19 @@ window.ATL_DATA = {
         "losses": 1,
         "points": 6,
         "goalDiff": 0,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 4,
+        "teamId": "190",
+        "team": "Red Bull New York",
+        "played": 3,
+        "wins": 2,
+        "draws": 0,
+        "losses": 1,
+        "points": 6,
+        "goalDiff": -1,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8161,12 +8161,12 @@ window.ATL_DATA = {
         "rank": 7,
         "teamId": "18267",
         "team": "FC Cincinnati",
-        "played": 2,
+        "played": 3,
         "wins": 1,
         "draws": 0,
-        "losses": 1,
+        "losses": 2,
         "points": 3,
-        "goalDiff": 1,
+        "goalDiff": 0,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8185,6 +8185,32 @@ window.ATL_DATA = {
       },
       {
         "rank": 9,
+        "teamId": "7318",
+        "team": "Toronto FC",
+        "played": 3,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "points": 3,
+        "goalDiff": -3,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 10,
+        "teamId": "9720",
+        "team": "CF Montréal",
+        "played": 3,
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "points": 3,
+        "goalDiff": -5,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 11,
         "teamId": "183",
         "team": "Columbus Crew",
         "played": 3,
@@ -8197,7 +8223,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 10,
+        "rank": 12,
         "teamId": "10739",
         "team": "Philadelphia Union",
         "played": 3,
@@ -8210,7 +8236,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 11,
+        "rank": 13,
         "teamId": "189",
         "team": "New England Revolution",
         "played": 2,
@@ -8223,20 +8249,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 12,
-        "teamId": "7318",
-        "team": "Toronto FC",
-        "played": 2,
-        "wins": 0,
-        "draws": 0,
-        "losses": 2,
-        "points": 0,
-        "goalDiff": -4,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 13,
+        "rank": 14,
         "teamId": "18418",
         "team": "Atlanta United FC",
         "played": 3,
@@ -8247,19 +8260,6 @@ window.ATL_DATA = {
         "goalDiff": -5,
         "conference": "Eastern Conference",
         "isAtlanta": true
-      },
-      {
-        "rank": 14,
-        "teamId": "9720",
-        "team": "CF Montréal",
-        "played": 2,
-        "wins": 0,
-        "draws": 0,
-        "losses": 2,
-        "points": 0,
-        "goalDiff": -8,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
       },
       {
         "rank": 15,
@@ -8473,7 +8473,7 @@ window.ATL_DATA = {
       }
     ],
     "atlanta": {
-      "rank": 13,
+      "rank": 14,
       "teamId": "18418",
       "team": "Atlanta United FC",
       "played": 3,
@@ -8485,7 +8485,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-03-08T08:15:03.073Z"
+    "generatedAt": "2026-03-09T08:15:03.317Z"
   },
   "seasonHistory": [
     {
