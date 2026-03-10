@@ -26,7 +26,7 @@ window.ATL_DATA = {
   ],
   "nextMatch": {
     "opponent": "Philadelphia Union",
-    "dateISO": "2026-03-14T19:00Z",
+    "dateISO": "2026-03-14T19:15Z",
     "competition": "MLS",
     "venue": "Mercedes-Benz Stadium",
     "broadcast": "FOX, Apple TV"
@@ -72,7 +72,7 @@ window.ATL_DATA = {
     "nextThree": [
       {
         "opponent": "Philadelphia Union",
-        "dateISO": "2026-03-14T19:00Z",
+        "dateISO": "2026-03-14T19:15Z",
         "venue": "Home",
         "competition": "MLS"
       },
@@ -8485,7 +8485,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-03-09T08:15:03.317Z"
+    "generatedAt": "2026-03-10T08:15:03.468Z"
   },
   "seasonHistory": [
     {
