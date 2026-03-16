@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-15T08:15:17.361Z",
+  "generatedAt": "2026-03-16T08:15:16.239Z",
   "seasons": [
     {
       "season": 2026,
@@ -367,14 +367,14 @@
         },
         {
           "rank": 9,
-          "teamId": "18267",
-          "team": "FC Cincinnati",
+          "teamId": "189",
+          "team": "New England Revolution",
           "played": 3,
           "wins": 1,
           "draws": 0,
           "losses": 2,
           "points": 3,
-          "goalDiff": 0,
+          "goalDiff": 1,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -393,6 +393,19 @@
         },
         {
           "rank": 11,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 4,
+          "wins": 1,
+          "draws": 0,
+          "losses": 3,
+          "points": 3,
+          "goalDiff": -5,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 12,
           "teamId": "9720",
           "team": "CF Montréal",
           "played": 4,
@@ -405,7 +418,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "teamId": "12011",
           "team": "Orlando City SC",
           "played": 4,
@@ -418,7 +431,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "teamId": "183",
           "team": "Columbus Crew",
           "played": 4,
@@ -427,19 +440,6 @@
           "losses": 2,
           "points": 2,
           "goalDiff": -2,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 14,
-          "teamId": "189",
-          "team": "New England Revolution",
-          "played": 2,
-          "wins": 0,
-          "draws": 0,
-          "losses": 2,
-          "points": 0,
-          "goalDiff": -4,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
