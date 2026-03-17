@@ -299,7 +299,7 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "F",
+      "position": "M",
       "appearances": 4,
       "starts": 0,
       "goals": 0,
@@ -8493,7 +8493,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-03-16T08:15:03.921Z"
+    "generatedAt": "2026-03-17T08:15:03.058Z"
   },
   "seasonHistory": [
     {
