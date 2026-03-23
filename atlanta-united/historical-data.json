@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T08:15:14.327Z",
+  "generatedAt": "2026-03-23T08:15:17.289Z",
   "seasons": [
     {
       "season": 2026,
@@ -18,7 +18,7 @@
         "homeRecord": "1-1-1",
         "awayRecord": "0-0-2",
         "cleanSheets": 1,
-        "avgAttendance": 29723
+        "avgAttendance": 41529
       },
       "fullSchedule": [
         {
@@ -278,17 +278,30 @@
           "rank": 2,
           "teamId": "17606",
           "team": "New York City FC",
-          "played": 4,
+          "played": 5,
           "wins": 3,
           "draws": 1,
-          "losses": 0,
+          "losses": 1,
           "points": 10,
-          "goalDiff": 8,
+          "goalDiff": 7,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 3,
+          "teamId": "20232",
+          "team": "Inter Miami CF",
+          "played": 5,
+          "wins": 3,
+          "draws": 1,
+          "losses": 1,
+          "points": 10,
+          "goalDiff": 1,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 4,
           "teamId": "21300",
           "team": "Charlotte FC",
           "played": 5,
@@ -301,7 +314,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "teamId": "182",
           "team": "Chicago Fire FC",
           "played": 5,
@@ -310,19 +323,6 @@
           "losses": 2,
           "points": 7,
           "goalDiff": 2,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 5,
-          "teamId": "20232",
-          "team": "Inter Miami CF",
-          "played": 4,
-          "wins": 2,
-          "draws": 1,
-          "losses": 1,
-          "points": 7,
-          "goalDiff": 0,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -367,6 +367,19 @@
         },
         {
           "rank": 9,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 5,
+          "wins": 2,
+          "draws": 0,
+          "losses": 3,
+          "points": 6,
+          "goalDiff": -4,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 10,
           "teamId": "18418",
           "team": "Atlanta United FC",
           "played": 5,
@@ -379,7 +392,7 @@
           "isAtlanta": true
         },
         {
-          "rank": 10,
+          "rank": 11,
           "teamId": "189",
           "team": "New England Revolution",
           "played": 4,
@@ -392,28 +405,15 @@
           "isAtlanta": false
         },
         {
-          "rank": 11,
-          "teamId": "18267",
-          "team": "FC Cincinnati",
-          "played": 4,
-          "wins": 1,
-          "draws": 0,
-          "losses": 3,
-          "points": 3,
-          "goalDiff": -5,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
           "rank": 12,
           "teamId": "9720",
           "team": "CF Montréal",
-          "played": 4,
+          "played": 5,
           "wins": 1,
           "draws": 0,
-          "losses": 3,
+          "losses": 4,
           "points": 3,
-          "goalDiff": -6,
+          "goalDiff": -7,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
