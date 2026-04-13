@@ -8229,11 +8229,11 @@ window.ATL_DATA = {
         "rank": 11,
         "teamId": "183",
         "team": "Columbus Crew",
-        "played": 6,
+        "played": 7,
         "wins": 1,
-        "draws": 2,
+        "draws": 3,
         "losses": 3,
-        "points": 5,
+        "points": 6,
         "goalDiff": -1,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8253,6 +8253,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 13,
+        "teamId": "12011",
+        "team": "Orlando City SC",
+        "played": 7,
+        "wins": 1,
+        "draws": 1,
+        "losses": 5,
+        "points": 4,
+        "goalDiff": -18,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 14,
         "teamId": "10739",
         "team": "Philadelphia Union",
         "played": 7,
@@ -8265,7 +8278,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 14,
+        "rank": 15,
         "teamId": "9720",
         "team": "CF Montréal",
         "played": 7,
@@ -8274,19 +8287,6 @@ window.ATL_DATA = {
         "losses": 6,
         "points": 3,
         "goalDiff": -11,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 15,
-        "teamId": "12011",
-        "team": "Orlando City SC",
-        "played": 6,
-        "wins": 1,
-        "draws": 0,
-        "losses": 5,
-        "points": 3,
-        "goalDiff": -18,
         "conference": "Eastern Conference",
         "isAtlanta": false
       }
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-12T08:15:08.890Z"
+    "generatedAt": "2026-04-13T08:15:03.925Z"
   },
   "seasonHistory": [
     {
