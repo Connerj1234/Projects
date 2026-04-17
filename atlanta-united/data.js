@@ -94,7 +94,7 @@ window.ATL_DATA = {
       },
       {
         "opponent": "New England Revolution",
-        "dateISO": "2026-04-22T23:30Z",
+        "dateISO": "2026-04-22T23:45Z",
         "venue": "Home",
         "competition": "MLS"
       },
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-16T08:15:03.536Z"
+    "generatedAt": "2026-04-17T08:15:03.511Z"
   },
   "seasonHistory": [
     {
