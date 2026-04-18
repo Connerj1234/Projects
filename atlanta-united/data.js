@@ -8296,12 +8296,12 @@ window.ATL_DATA = {
         "rank": 1,
         "teamId": "9727",
         "team": "Vancouver Whitecaps",
-        "played": 7,
-        "wins": 6,
+        "played": 8,
+        "wins": 7,
         "draws": 0,
         "losses": 1,
-        "points": 18,
-        "goalDiff": 15,
+        "points": 21,
+        "goalDiff": 18,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8478,12 +8478,12 @@ window.ATL_DATA = {
         "rank": 15,
         "teamId": "186",
         "team": "Sporting Kansas City",
-        "played": 7,
+        "played": 8,
         "wins": 1,
         "draws": 1,
-        "losses": 5,
+        "losses": 6,
         "points": 4,
-        "goalDiff": -10,
+        "goalDiff": -13,
         "conference": "Western Conference",
         "isAtlanta": false
       }
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-17T08:15:03.511Z"
+    "generatedAt": "2026-04-18T08:15:03.678Z"
   },
   "seasonHistory": [
     {
