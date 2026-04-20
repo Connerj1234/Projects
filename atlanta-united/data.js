@@ -13,7 +13,7 @@ window.ATL_DATA = {
     "homeRecord": "1-1-3",
     "awayRecord": "0-0-3",
     "cleanSheets": 1,
-    "avgAttendance": 31744
+    "avgAttendance": 39123
   },
   "position": {
     "rank": 14,
@@ -8309,12 +8309,12 @@ window.ATL_DATA = {
         "rank": 2,
         "teamId": "191",
         "team": "San Jose Earthquakes",
-        "played": 7,
-        "wins": 6,
+        "played": 8,
+        "wins": 7,
         "draws": 0,
         "losses": 1,
-        "points": 18,
-        "goalDiff": 11,
+        "points": 21,
+        "goalDiff": 14,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8322,12 +8322,12 @@ window.ATL_DATA = {
         "rank": 3,
         "teamId": "18966",
         "team": "LAFC",
-        "played": 7,
+        "played": 8,
         "wins": 5,
         "draws": 1,
-        "losses": 1,
+        "losses": 2,
         "points": 16,
-        "goalDiff": 13,
+        "goalDiff": 10,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-19T08:15:03.274Z"
+    "generatedAt": "2026-04-20T08:15:04.399Z"
   },
   "seasonHistory": [
     {
