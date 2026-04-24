@@ -13,7 +13,7 @@ window.ATL_DATA = {
     "homeRecord": "1-1-4",
     "awayRecord": "0-0-3",
     "cleanSheets": 1,
-    "avgAttendance": 32602
+    "avgAttendance": 37653
   },
   "position": {
     "rank": 15,
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-23T08:15:03.120Z"
+    "generatedAt": "2026-04-24T08:15:03.947Z"
   },
   "seasonHistory": [
     {
