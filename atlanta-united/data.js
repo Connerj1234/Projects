@@ -8361,12 +8361,12 @@ window.ATL_DATA = {
         "rank": 6,
         "teamId": "4771",
         "team": "Real Salt Lake",
-        "played": 8,
+        "played": 9,
         "wins": 5,
         "draws": 1,
-        "losses": 2,
+        "losses": 3,
         "points": 16,
-        "goalDiff": 4,
+        "goalDiff": 3,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8398,6 +8398,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 9,
+        "teamId": "187",
+        "team": "LA Galaxy",
+        "played": 10,
+        "wins": 3,
+        "draws": 3,
+        "losses": 4,
+        "points": 12,
+        "goalDiff": -1,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 10,
         "teamId": "6077",
         "team": "Houston Dynamo FC",
         "played": 9,
@@ -8410,7 +8423,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 10,
+        "rank": 11,
         "teamId": "22529",
         "team": "San Diego FC",
         "played": 10,
@@ -8423,7 +8436,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 11,
+        "rank": 12,
         "teamId": "20906",
         "team": "Austin FC",
         "played": 10,
@@ -8436,7 +8449,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 12,
+        "rank": 13,
         "teamId": "9723",
         "team": "Portland Timbers",
         "played": 9,
@@ -8445,19 +8458,6 @@ window.ATL_DATA = {
         "losses": 5,
         "points": 10,
         "goalDiff": -6,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 13,
-        "teamId": "187",
-        "team": "LA Galaxy",
-        "played": 9,
-        "wins": 2,
-        "draws": 3,
-        "losses": 4,
-        "points": 9,
-        "goalDiff": -2,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-04-26T08:15:03.328Z"
+    "generatedAt": "2026-04-27T08:15:03.084Z"
   },
   "seasonHistory": [
     {
