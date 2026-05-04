@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T08:15:16.492Z",
+  "generatedAt": "2026-05-04T08:15:16.281Z",
   "seasons": [
     {
       "season": 2026,
@@ -18,7 +18,7 @@
         "homeRecord": "2-1-4",
         "awayRecord": "1-0-3",
         "cleanSheets": 1,
-        "avgAttendance": 32274
+        "avgAttendance": 37232
       },
       "fullSchedule": [
         {
@@ -315,6 +315,19 @@
         },
         {
           "rank": 5,
+          "teamId": "193",
+          "team": "D.C. United",
+          "played": 11,
+          "wins": 4,
+          "draws": 3,
+          "losses": 4,
+          "points": 15,
+          "goalDiff": -2,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 6,
           "teamId": "18267",
           "team": "FC Cincinnati",
           "played": 11,
@@ -327,7 +340,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "teamId": "21300",
           "team": "Charlotte FC",
           "played": 11,
@@ -340,7 +353,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "teamId": "7318",
           "team": "Toronto FC",
           "played": 11,
@@ -353,20 +366,20 @@
           "isAtlanta": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "teamId": "17606",
           "team": "New York City FC",
-          "played": 10,
+          "played": 11,
           "wins": 3,
           "draws": 3,
-          "losses": 4,
+          "losses": 5,
           "points": 12,
-          "goalDiff": 3,
+          "goalDiff": 1,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "teamId": "183",
           "team": "Columbus Crew",
           "played": 11,
@@ -375,19 +388,6 @@
           "losses": 5,
           "points": 12,
           "goalDiff": 0,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 10,
-          "teamId": "193",
-          "team": "D.C. United",
-          "played": 10,
-          "wins": 3,
-          "draws": 3,
-          "losses": 4,
-          "points": 12,
-          "goalDiff": -4,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },

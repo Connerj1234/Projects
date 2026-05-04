@@ -13,7 +13,7 @@ window.ATL_DATA = {
     "homeRecord": "2-1-4",
     "awayRecord": "1-0-3",
     "cleanSheets": 1,
-    "avgAttendance": 32274
+    "avgAttendance": 37232
   },
   "position": {
     "rank": 12,
@@ -8149,6 +8149,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 5,
+        "teamId": "193",
+        "team": "D.C. United",
+        "played": 11,
+        "wins": 4,
+        "draws": 3,
+        "losses": 4,
+        "points": 15,
+        "goalDiff": -2,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 6,
         "teamId": "18267",
         "team": "FC Cincinnati",
         "played": 11,
@@ -8161,7 +8174,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 6,
+        "rank": 7,
         "teamId": "21300",
         "team": "Charlotte FC",
         "played": 11,
@@ -8174,7 +8187,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 7,
+        "rank": 8,
         "teamId": "7318",
         "team": "Toronto FC",
         "played": 11,
@@ -8187,20 +8200,20 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 8,
+        "rank": 9,
         "teamId": "17606",
         "team": "New York City FC",
-        "played": 10,
+        "played": 11,
         "wins": 3,
         "draws": 3,
-        "losses": 4,
+        "losses": 5,
         "points": 12,
-        "goalDiff": 3,
+        "goalDiff": 1,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
       {
-        "rank": 9,
+        "rank": 10,
         "teamId": "183",
         "team": "Columbus Crew",
         "played": 11,
@@ -8209,19 +8222,6 @@ window.ATL_DATA = {
         "losses": 5,
         "points": 12,
         "goalDiff": 0,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 10,
-        "teamId": "193",
-        "team": "D.C. United",
-        "played": 10,
-        "wins": 3,
-        "draws": 3,
-        "losses": 4,
-        "points": 12,
-        "goalDiff": -4,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8424,6 +8424,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 11,
+        "teamId": "20906",
+        "team": "Austin FC",
+        "played": 11,
+        "wins": 3,
+        "draws": 4,
+        "losses": 4,
+        "points": 13,
+        "goalDiff": -3,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 12,
         "teamId": "22529",
         "team": "San Diego FC",
         "played": 11,
@@ -8432,19 +8445,6 @@ window.ATL_DATA = {
         "losses": 5,
         "points": 12,
         "goalDiff": 0,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 12,
-        "teamId": "20906",
-        "team": "Austin FC",
-        "played": 10,
-        "wins": 2,
-        "draws": 4,
-        "losses": 4,
-        "points": 10,
-        "goalDiff": -5,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8465,12 +8465,12 @@ window.ATL_DATA = {
         "rank": 14,
         "teamId": "21812",
         "team": "St. Louis CITY SC",
-        "played": 9,
+        "played": 10,
         "wins": 1,
         "draws": 3,
-        "losses": 5,
+        "losses": 6,
         "points": 6,
-        "goalDiff": -7,
+        "goalDiff": -9,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-05-03T08:15:03.142Z"
+    "generatedAt": "2026-05-04T08:15:02.971Z"
   },
   "seasonHistory": [
     {
