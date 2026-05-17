@@ -16,6 +16,7 @@ Rules:
 - Keep it concise enough to read in 3 minutes.
 - If a source failed or a section has no useful data, state that briefly only when it matters.
 - Use plain text, not Markdown tables.
+- End with the final brief item. Do not add offers, follow-up questions, or assistant-style closing lines.
 """
 
 
@@ -74,4 +75,3 @@ def extract_response_text(result: dict[str, Any]) -> str:
             if content.get("type") == "output_text" and content.get("text"):
                 parts.append(content["text"])
     return "\n".join(parts)
-
