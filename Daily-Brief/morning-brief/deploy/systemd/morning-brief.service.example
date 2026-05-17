@@ -1,0 +1,11 @@
+[Unit]
+Description=Send daily morning brief
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/path/to/morning-brief
+EnvironmentFile=/path/to/morning-brief/.env
+ExecStart=/usr/bin/python3 /path/to/morning-brief/run_brief.py --send
+

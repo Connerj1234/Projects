@@ -1,0 +1,51 @@
+{
+  "timezone": "America/New_York",
+  "lookahead_days": 7,
+  "locations": [
+    {
+      "name": "Conyers",
+      "latitude": 33.6676,
+      "longitude": -84.0177
+    },
+    {
+      "name": "Atlanta",
+      "latitude": 33.749,
+      "longitude": -84.388
+    }
+  ],
+  "sports": [
+    {
+      "name": "Atlanta Braves",
+      "sport_path": "baseball/mlb",
+      "match_terms": ["Atlanta Braves", "Braves", "ATL"]
+    },
+    {
+      "name": "Atlanta Falcons",
+      "sport_path": "football/nfl",
+      "match_terms": ["Atlanta Falcons", "Falcons", "ATL"]
+    },
+    {
+      "name": "Atlanta United",
+      "sport_path": "soccer/usa.1",
+      "match_terms": ["Atlanta United", "Atlanta United FC", "ATL"]
+    }
+  ],
+  "rss_feeds": {
+    "general_news": [
+      "https://feeds.npr.org/1001/rss.xml",
+      "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml"
+    ],
+    "market_news": [
+      "https://finance.yahoo.com/news/rssindex",
+      "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "https://www.cnbc.com/id/10001147/device/rss/rss.html"
+    ]
+  },
+  "limits": {
+    "news_items_per_feed": 5,
+    "max_general_news": 12,
+    "max_market_news": 10
+  }
+}
+
