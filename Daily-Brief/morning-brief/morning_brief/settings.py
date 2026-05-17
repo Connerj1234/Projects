@@ -14,6 +14,7 @@ class BriefConfig:
     locations: list[dict[str, Any]]
     sports: list[dict[str, Any]]
     sports_major_events: list[dict[str, Any]]
+    market_watchlist: list[dict[str, Any]]
     rss_feeds: dict[str, list[str]]
     limits: dict[str, int]
 
@@ -26,6 +27,7 @@ def load_config(path: Path) -> BriefConfig:
         locations=data.get("locations", []),
         sports=data.get("sports", []),
         sports_major_events=data.get("sports_major_events", []),
+        market_watchlist=data.get("market_watchlist", []),
         rss_feeds=data.get("rss_feeds", {}),
         limits=data.get("limits", {}),
     )

@@ -21,7 +21,12 @@ def collect_rss_group(urls: list[str], per_feed: int, max_items: int) -> list[di
         if error or not text:
             items.append({"source_url": url, "error": error or "Empty RSS response"})
             continue
-        for item in parse_rss(text, url)[:per_feed]:
+        try:
+            parsed_items = parse_rss(text, url)
+        except Exception as exc:
+            items.append({"source_url": url, "error": f"RSS parse error: {exc}"})
+            continue
+        for item in parsed_items[:per_feed]:
             link = item.get("link") or item.get("title", "")
             if link in seen_links:
                 continue
@@ -75,4 +80,3 @@ def normalize_date(value: str) -> str:
         return parsedate_to_datetime(value).isoformat()
     except Exception:
         return value
-

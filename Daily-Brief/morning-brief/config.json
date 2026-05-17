@@ -61,7 +61,62 @@
       "match_terms": ["College Football Playoff", "CFP", "National Championship", "Semifinal"],
       "active_months": [1, 12],
       "lookahead_days": 7
+    },
+    {
+      "name": "FIFA World Cup",
+      "sport_path": "soccer/fifa.world",
+      "active_months": [6, 7],
+      "lookahead_days": 10
+    },
+    {
+      "name": "Tennis Grand Slams - ATP",
+      "sport_path": "tennis/atp",
+      "match_terms": ["Australian Open", "French Open", "Roland Garros", "Wimbledon", "US Open"],
+      "active_months": [1, 5, 6, 7, 8, 9],
+      "lookahead_days": 7
+    },
+    {
+      "name": "Tennis Grand Slams - WTA",
+      "sport_path": "tennis/wta",
+      "match_terms": ["Australian Open", "French Open", "Roland Garros", "Wimbledon", "US Open"],
+      "active_months": [1, 5, 6, 7, 8, 9],
+      "lookahead_days": 7
+    },
+    {
+      "name": "Formula 1",
+      "sport_path": "racing/f1",
+      "active_months": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "lookahead_days": 10
+    },
+    {
+      "name": "Super Bowl",
+      "sport_path": "football/nfl",
+      "match_terms": ["Super Bowl"],
+      "active_months": [2],
+      "lookahead_days": 14
+    },
+    {
+      "name": "NBA Playoffs",
+      "sport_path": "basketball/nba",
+      "match_terms": ["NBA Playoffs", "Finals", "Conference Finals", "Semifinals"],
+      "active_months": [4, 5, 6],
+      "lookahead_days": 7
+    },
+    {
+      "name": "MLS Playoffs",
+      "sport_path": "soccer/usa.1",
+      "match_terms": ["MLS Cup", "Conference Final", "Conference Semifinal", "Wild Card"],
+      "active_months": [10, 11, 12],
+      "lookahead_days": 7
     }
+  ],
+  "market_watchlist": [
+    {"symbol": "SPY", "name": "S&P 500 ETF"},
+    {"symbol": "QQQ", "name": "Nasdaq 100 ETF"},
+    {"symbol": "DIA", "name": "Dow ETF"},
+    {"symbol": "IWM", "name": "Russell 2000 ETF"},
+    {"symbol": "BTC-USD", "name": "Bitcoin"},
+    {"symbol": "NVDA", "name": "Nvidia"}
   ],
   "rss_feeds": {
     "general_news": [
@@ -73,11 +128,27 @@
       "https://finance.yahoo.com/news/rssindex",
       "https://www.cnbc.com/id/100003114/device/rss/rss.html",
       "https://www.cnbc.com/id/10001147/device/rss/rss.html"
+    ],
+    "local_news": [
+      "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en"
+    ],
+    "traffic_commute": [
+      "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "https://news.google.com/rss/search?q=Atlanta%20weather%20alert%20OR%20road%20closure&hl=en-US&gl=US&ceid=US:en"
+    ],
+    "tech_ai": [
+      "https://techcrunch.com/feed/",
+      "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en"
     ]
   },
   "limits": {
     "news_items_per_feed": 5,
     "max_general_news": 12,
-    "max_market_news": 10
+    "max_market_news": 10,
+    "max_local_news": 8,
+    "max_traffic_commute": 6,
+    "max_tech_ai": 8
   }
 }

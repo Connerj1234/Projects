@@ -59,13 +59,17 @@ If you test this on macOS with a python.org Python and see certificate verificat
 | --- | --- |
 | Weather | weather.gov / National Weather Service |
 | Sports | ESPN public scoreboard feeds for Atlanta teams and configured major events |
+| Local Atlanta/Georgia news | RSS feeds configured in `config.json` |
+| Traffic/commute | RSS feeds configured in `config.json`, plus weather.gov alerts in the weather facts |
+| Market watchlist | Yahoo Finance chart endpoint for configured symbols |
 | Market news | RSS feeds configured in `config.json` |
+| Tech/AI news | RSS feeds configured in `config.json` |
 | General news | RSS feeds configured in `config.json` |
 | Holidays | Nager.Date public holiday API |
 
 The model does not browse the web. The script fetches structured facts, then asks OpenAI to write from those facts only.
 
-Sports coverage is configured in `config.json`. Followed teams are always checked across the lookahead window. Major events use deterministic active windows so seasonal tournaments such as Champions League, March Madness, The Masters, and the College Football Playoff are only queried around relevant months.
+Sports coverage is configured in `config.json`. Followed teams are always checked across the lookahead window. Major events use deterministic active windows so seasonal tournaments such as Champions League, March Madness, The Masters, World Cup, Grand Slams, Formula 1, Super Bowl, NBA Playoffs, MLS Playoffs, and the College Football Playoff are only queried around relevant months.
 
 Holiday coverage uses the configured `BRIEF_LOOKAHEAD_DAYS` window, which defaults to 7 days.
 

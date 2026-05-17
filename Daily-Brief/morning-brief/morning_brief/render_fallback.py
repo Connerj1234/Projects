@@ -6,6 +6,14 @@ from typing import Any
 def render_fallback(facts: dict[str, Any]) -> str:
     lines = [f"# Morning Brief for {facts.get('date')}", ""]
 
+    lines.extend(["## One Thing To Know Today", "- Review the top weather, market, and news items below.", ""])
+
+    lines.extend(["## Local Atlanta/Georgia"])
+    append_news_items(lines, facts.get("local_news", []), limit=5)
+
+    lines.extend(["", "## Traffic/Commute/Weather Alerts"])
+    append_news_items(lines, facts.get("traffic_commute", []), limit=4)
+
     lines.append("## Weather")
     for item in facts.get("weather", []):
         lines.append(f"- **{item.get('location')}**:")
@@ -59,6 +67,21 @@ def render_fallback(facts: dict[str, Any]) -> str:
     else:
         lines.append("- No US public holidays found in the lookahead window.")
 
+    lines.extend(["", "## Market Watchlist"])
+    watchlist = facts.get("market_watchlist", [])
+    if watchlist:
+        for item in watchlist:
+            if item.get("error"):
+                lines.append(f"- **{item.get('symbol')}**: {item.get('error')}")
+                continue
+            change = format_change(item)
+            lines.append(
+                f"- **{item.get('symbol')}** ({item.get('name')}): "
+                f"{item.get('price')} {item.get('currency') or ''} {change}".strip()
+            )
+    else:
+        lines.append("- No market watchlist data was collected.")
+
     lines.extend(["", "## Market News"])
     for item in facts.get("market_news", [])[:5]:
         if item.get("error"):
@@ -66,17 +89,36 @@ def render_fallback(facts: dict[str, Any]) -> str:
         else:
             lines.append(f"- {item.get('title')} ({item.get('source')})")
 
+    lines.extend(["", "## Tech/AI"])
+    append_news_items(lines, facts.get("tech_ai", []), limit=5)
+
     lines.extend(["", "## Top News"])
-    for item in facts.get("general_news", [])[:5]:
+    append_news_items(lines, facts.get("general_news", []), limit=5)
+
+    return "\n".join(lines)
+
+
+def append_news_items(lines: list[str], items: list[dict[str, Any]], limit: int) -> None:
+    if not items:
+        lines.append("- No items collected.")
+        return
+    for item in items[:limit]:
         if item.get("error"):
             lines.append(f"- Source error: {item.get('source_url')} - {item.get('error')}")
         else:
             lines.append(f"- {item.get('title')} ({item.get('source')})")
-
-    return "\n".join(lines)
 
 
 def format_temp(period: dict[str, Any]) -> str:
     if period.get("temperature") is None:
         return ""
     return f"{period.get('temperature')} {period.get('temperature_unit', '')}".strip()
+
+
+def format_change(item: dict[str, Any]) -> str:
+    change = item.get("change")
+    change_percent = item.get("change_percent")
+    if not isinstance(change, (int, float)) or not isinstance(change_percent, (int, float)):
+        return ""
+    sign = "+" if change >= 0 else ""
+    return f"({sign}{change:.2f}, {sign}{change_percent:.2f}%)"

@@ -19,6 +19,8 @@ Rules:
 - Do not use Markdown tables.
 - Include Sports with both followed Atlanta teams and major events when supplied in the facts.
 - Include Holidays as a lookahead section for upcoming holidays in the supplied window.
+- Include Local Atlanta/Georgia, Traffic/Commute, Market Watchlist, Tech/AI, and a Sports calendar/results recap when useful facts are supplied.
+- Include a short "One Thing To Know Today" section near the top that identifies the most important actionable or high-signal item from the supplied facts.
 - End with the final brief item. Do not add offers, follow-up questions, or assistant-style closing lines.
 """
 
