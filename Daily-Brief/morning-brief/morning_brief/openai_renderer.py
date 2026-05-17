@@ -15,7 +15,10 @@ Rules:
 - Mention source names when useful.
 - Keep it concise enough to read in 3 minutes.
 - If a source failed or a section has no useful data, state that briefly only when it matters.
-- Use plain text, not Markdown tables.
+- Use lightweight Markdown: `#` for the title, `##` for section headers, `-` for bullets, and `**bold**` for important labels or phrases.
+- Do not use Markdown tables.
+- Include Sports with both followed Atlanta teams and major events when supplied in the facts.
+- Include Holidays as a lookahead section for upcoming holidays in the supplied window.
 - End with the final brief item. Do not add offers, follow-up questions, or assistant-style closing lines.
 """
 

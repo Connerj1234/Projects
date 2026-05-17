@@ -4,11 +4,11 @@ from typing import Any
 
 
 def render_fallback(facts: dict[str, Any]) -> str:
-    lines = [f"Morning Brief for {facts.get('date')}", ""]
+    lines = [f"# Morning Brief for {facts.get('date')}", ""]
 
-    lines.append("Weather")
+    lines.append("## Weather")
     for item in facts.get("weather", []):
-        lines.append(f"- {item.get('location')}:")
+        lines.append(f"- **{item.get('location')}**:")
         if item.get("error"):
             lines.append(f"  {item['error']}")
             continue
@@ -29,17 +29,26 @@ def render_fallback(facts: dict[str, Any]) -> str:
             if alert.get("event"):
                 lines.append(f"  Alert: {alert['event']} - {alert.get('headline', '')}")
 
-    lines.extend(["", "Sports"])
-    sports = facts.get("sports", [])
-    if sports:
-        for game in sports:
+    lines.extend(["", "## Sports"])
+    sports = facts.get("sports", {})
+    followed_teams = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
+    major_events = sports.get("major_events", []) if isinstance(sports, dict) else []
+    if followed_teams:
+        lines.append("### Followed Teams")
+        for game in followed_teams:
             lines.append(
-                f"- {game.get('followed_team')}: {game.get('event')} at {game.get('starts_at')}"
+                f"- **{game.get('followed_team')}**: {game.get('event')} at {game.get('starts_at')}"
             )
     else:
         lines.append("- No followed-team games found in the lookahead window.")
+    if major_events:
+        lines.append("### Major Events")
+        for game in major_events:
+            lines.append(
+                f"- **{game.get('followed_team')}**: {game.get('event')} at {game.get('starts_at')}"
+            )
 
-    lines.extend(["", "Holidays"])
+    lines.extend(["", "## Holidays"])
     holidays = facts.get("holidays", [])
     if holidays:
         for holiday in holidays:
@@ -50,14 +59,14 @@ def render_fallback(facts: dict[str, Any]) -> str:
     else:
         lines.append("- No US public holidays found in the lookahead window.")
 
-    lines.extend(["", "Market News"])
+    lines.extend(["", "## Market News"])
     for item in facts.get("market_news", [])[:5]:
         if item.get("error"):
             lines.append(f"- Source error: {item.get('source_url')} - {item.get('error')}")
         else:
             lines.append(f"- {item.get('title')} ({item.get('source')})")
 
-    lines.extend(["", "Top News"])
+    lines.extend(["", "## Top News"])
     for item in facts.get("general_news", [])[:5]:
         if item.get("error"):
             lines.append(f"- Source error: {item.get('source_url')} - {item.get('error')}")

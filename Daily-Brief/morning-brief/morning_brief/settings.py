@@ -13,6 +13,7 @@ class BriefConfig:
     lookahead_days: int
     locations: list[dict[str, Any]]
     sports: list[dict[str, Any]]
+    sports_major_events: list[dict[str, Any]]
     rss_feeds: dict[str, list[str]]
     limits: dict[str, int]
 
@@ -24,7 +25,7 @@ def load_config(path: Path) -> BriefConfig:
         lookahead_days=int(os.environ.get("BRIEF_LOOKAHEAD_DAYS", data.get("lookahead_days", 7))),
         locations=data.get("locations", []),
         sports=data.get("sports", []),
+        sports_major_events=data.get("sports_major_events", []),
         rss_feeds=data.get("rss_feeds", {}),
         limits=data.get("limits", {}),
     )
-

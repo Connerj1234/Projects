@@ -6,7 +6,7 @@ from typing import Any
 from morning_brief.settings import BriefConfig
 from morning_brief.sources.holidays import collect_holidays
 from morning_brief.sources.news import collect_rss_group
-from morning_brief.sources.sports import collect_sports
+from morning_brief.sources.sports import collect_major_events, collect_sports
 from morning_brief.sources.weather import collect_weather
 
 
@@ -27,7 +27,14 @@ def collect_all(config: BriefConfig, now: datetime) -> dict[str, Any]:
         "date": now.date().isoformat(),
         "timezone": config.timezone,
         "weather": collect_weather(config.locations),
-        "sports": collect_sports(config.sports, now.date(), config.lookahead_days),
+        "sports": {
+            "followed_teams": collect_sports(config.sports, now.date(), config.lookahead_days),
+            "major_events": collect_major_events(
+                config.sports_major_events,
+                now.date(),
+                config.lookahead_days,
+            ),
+        },
         "holidays": collect_holidays(now.date(), config.lookahead_days),
         "general_news": general_news,
         "market_news": market_news,
@@ -36,4 +43,3 @@ def collect_all(config: BriefConfig, now: datetime) -> dict[str, Any]:
             "Personal integrations such as Gmail, calendar, reminders, and portfolio are not enabled yet."
         ],
     }
-

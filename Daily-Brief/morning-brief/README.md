@@ -7,7 +7,7 @@ The first version is intentionally simple:
 - Python standard library only.
 - Public data sources where possible.
 - OpenAI Responses API for final writing.
-- SMTP email delivery.
+- Multipart SMTP email delivery with a styled HTML version and plain-text fallback.
 - Cron or systemd timer for daily scheduling.
 
 Important: a ChatGPT subscription does not automatically include API usage. This script needs an `OPENAI_API_KEY` from the OpenAI API platform with billing enabled.
@@ -58,12 +58,16 @@ If you test this on macOS with a python.org Python and see certificate verificat
 | Section | Source |
 | --- | --- |
 | Weather | weather.gov / National Weather Service |
-| Sports | ESPN public scoreboard feeds |
+| Sports | ESPN public scoreboard feeds for Atlanta teams and configured major events |
 | Market news | RSS feeds configured in `config.json` |
 | General news | RSS feeds configured in `config.json` |
 | Holidays | Nager.Date public holiday API |
 
 The model does not browse the web. The script fetches structured facts, then asks OpenAI to write from those facts only.
+
+Sports coverage is configured in `config.json`. Followed teams are always checked across the lookahead window. Major events use deterministic active windows so seasonal tournaments such as Champions League, March Madness, The Masters, and the College Football Playoff are only queried around relevant months.
+
+Holiday coverage uses the configured `BRIEF_LOOKAHEAD_DAYS` window, which defaults to 7 days.
 
 ## Environment Variables
 
@@ -102,5 +106,5 @@ Good next additions:
 - Google Calendar or iCloud `.ics` events.
 - Gmail digest for important unread/action-needed mail.
 - Portfolio watchlist and earnings calendar.
-- Better sports source coverage for MLS/NFL off-season.
+- More major-event sports windows, such as World Cup, Olympics, Grand Slams, and major boxing/UFC cards.
 - Delivery to Discord or Pushover in addition to email.

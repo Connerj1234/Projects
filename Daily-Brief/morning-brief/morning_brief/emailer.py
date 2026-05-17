@@ -5,7 +5,7 @@ import smtplib
 from email.message import EmailMessage
 
 
-def send_email(subject: str, body: str) -> None:
+def send_email(subject: str, body: str, html_body: str | None = None) -> None:
     host = required_env("SMTP_HOST")
     port = int(os.environ.get("SMTP_PORT", "587"))
     username = required_env("SMTP_USERNAME")
@@ -18,6 +18,8 @@ def send_email(subject: str, body: str) -> None:
     message["From"] = sender
     message["To"] = ", ".join(recipients)
     message.set_content(body)
+    if html_body:
+        message.add_alternative(html_body, subtype="html")
 
     with smtplib.SMTP(host, port, timeout=60) as smtp:
         smtp.starttls()
@@ -30,4 +32,3 @@ def required_env(name: str) -> str:
     if not value:
         raise RuntimeError(f"Missing required environment variable: {name}")
     return value
-

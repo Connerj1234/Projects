@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 from morning_brief.collectors import collect_all
 from morning_brief.emailer import send_email
+from morning_brief.markdown_email import markdown_to_html
 from morning_brief.openai_renderer import render_with_openai
 from morning_brief.render_fallback import render_fallback
 from morning_brief.settings import load_config
@@ -76,7 +77,7 @@ def main() -> int:
 
     if args.send:
         subject = f"Morning Brief - {now.strftime('%A, %B %-d')}"
-        send_email(subject=subject, body=brief)
+        send_email(subject=subject, body=brief, html_body=markdown_to_html(brief))
         print(f"\nSent email: {subject}")
     elif not args.dry_run:
         print("\nNot sent. Re-run with --send to email this brief.")
@@ -86,4 +87,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -32,6 +32,62 @@ def collect_sports(teams: list[dict[str, Any]], start_date: date, lookahead_days
     return sorted(games, key=lambda item: item.get("starts_at") or "")
 
 
+def collect_major_events(
+    events: list[dict[str, Any]],
+    start_date: date,
+    default_lookahead_days: int,
+) -> list[dict[str, Any]]:
+    games: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    for event_config in events:
+        if not is_active_event(event_config, start_date):
+            continue
+
+        lookahead_days = int(event_config.get("lookahead_days", default_lookahead_days))
+        for offset in range(lookahead_days + 1):
+            day = start_date + timedelta(days=offset)
+            url = (
+                "https://site.api.espn.com/apis/site/v2/sports/"
+                f"{event_config['sport_path']}/scoreboard?dates={day.strftime('%Y%m%d')}"
+            )
+            data, error = safe_get_json(url)
+            if error or not isinstance(data, dict):
+                continue
+            for event in data.get("events", []):
+                match_terms = event_config.get("match_terms", [])
+                if match_terms and not event_matches_team(event, match_terms):
+                    continue
+                game_id = str(
+                    event.get("id")
+                    or event.get("uid")
+                    or f"{event_config['name']}-{event.get('name')}-{day}"
+                )
+                if game_id in seen:
+                    continue
+                seen.add(game_id)
+                games.append(
+                    normalize_event(event, event_config["name"], event_config["sport_path"])
+                )
+
+    return sorted(games, key=lambda item: item.get("starts_at") or "")
+
+
+def is_active_event(event_config: dict[str, Any], start_date: date) -> bool:
+    active_months = event_config.get("active_months")
+    if active_months and start_date.month not in set(active_months):
+        return False
+
+    start = event_config.get("active_start")
+    end = event_config.get("active_end")
+    if start and start_date < date.fromisoformat(start):
+        return False
+    if end and start_date > date.fromisoformat(end):
+        return False
+
+    return True
+
+
 def event_matches_team(event: dict[str, Any], match_terms: list[str]) -> bool:
     haystack_parts = [event.get("name", ""), event.get("shortName", "")]
     for competition in event.get("competitions", []):
@@ -82,4 +138,3 @@ def normalize_event(event: dict[str, Any], followed_team: str, sport_path: str) 
         "source_url": (event.get("links") or [{}])[0].get("href"),
         "source": "ESPN public scoreboard",
     }
-

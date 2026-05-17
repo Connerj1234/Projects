@@ -20,6 +20,11 @@
       "match_terms": ["Atlanta Braves", "Braves", "ATL"]
     },
     {
+      "name": "Atlanta Hawks",
+      "sport_path": "basketball/nba",
+      "match_terms": ["Atlanta Hawks", "Hawks", "ATL"]
+    },
+    {
       "name": "Atlanta Falcons",
       "sport_path": "football/nfl",
       "match_terms": ["Atlanta Falcons", "Falcons", "ATL"]
@@ -28,6 +33,34 @@
       "name": "Atlanta United",
       "sport_path": "soccer/usa.1",
       "match_terms": ["Atlanta United", "Atlanta United FC", "ATL"]
+    }
+  ],
+  "sports_major_events": [
+    {
+      "name": "UEFA Champions League",
+      "sport_path": "soccer/uefa.champions",
+      "active_months": [2, 3, 4, 5, 6, 9, 10, 11, 12],
+      "lookahead_days": 7
+    },
+    {
+      "name": "March Madness",
+      "sport_path": "basketball/mens-college-basketball",
+      "match_terms": ["NCAA Tournament", "Final Four", "National Championship"],
+      "active_months": [3, 4],
+      "lookahead_days": 7
+    },
+    {
+      "name": "The Masters",
+      "sport_path": "golf/masters",
+      "active_months": [4],
+      "lookahead_days": 7
+    },
+    {
+      "name": "College Football Playoff",
+      "sport_path": "football/college-football",
+      "match_terms": ["College Football Playoff", "CFP", "National Championship", "Semifinal"],
+      "active_months": [1, 12],
+      "lookahead_days": 7
     }
   ],
   "rss_feeds": {
@@ -48,4 +81,3 @@
     "max_market_news": 10
   }
 }
-
