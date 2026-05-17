@@ -1,0 +1,21 @@
+# Secrets and local environment
+.env
+.env.*
+*.env
+key.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+.next/
+
+# Local app outputs
+out/
+logs/
+
+# macOS
+.DS_Store
