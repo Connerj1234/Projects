@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-17T19:06:14.611Z",
+  "generatedAt": "2026-05-18T08:15:10.519Z",
   "seasons": [
     {
       "season": 2026,
@@ -265,12 +265,12 @@
           "rank": 1,
           "teamId": "18986",
           "team": "Nashville SC",
-          "played": 12,
-          "wins": 8,
+          "played": 13,
+          "wins": 9,
           "draws": 3,
           "losses": 1,
-          "points": 27,
-          "goalDiff": 18,
+          "points": 30,
+          "goalDiff": 19,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -278,12 +278,12 @@
           "rank": 2,
           "teamId": "20232",
           "team": "Inter Miami CF",
-          "played": 13,
-          "wins": 7,
+          "played": 14,
+          "wins": 8,
           "draws": 4,
           "losses": 2,
-          "points": 25,
-          "goalDiff": 7,
+          "points": 28,
+          "goalDiff": 9,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
