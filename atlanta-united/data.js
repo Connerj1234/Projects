@@ -100,7 +100,7 @@ window.ATL_DATA = {
       },
       {
         "opponent": "Charlotte FC",
-        "dateISO": "2026-07-23T00:00Z",
+        "dateISO": "2026-07-23T00:15Z",
         "venue": "Away",
         "competition": "MLS"
       }
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-05-18T08:15:03.367Z"
+    "generatedAt": "2026-05-19T08:15:03.626Z"
   },
   "seasonHistory": [
     {
