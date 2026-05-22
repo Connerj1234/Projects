@@ -340,7 +340,7 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003E7",
       "name": "Saba Lobjanidze",
       "number": "11",
-      "position": "M",
+      "position": "F",
       "appearances": 12,
       "starts": 0,
       "goals": 2,
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-05-21T08:15:02.963Z"
+    "generatedAt": "2026-05-22T08:15:03.330Z"
   },
   "seasonHistory": [
     {
