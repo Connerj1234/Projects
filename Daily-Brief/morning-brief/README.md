@@ -35,13 +35,14 @@ python3 run_brief.py --send
 
 ## Server Schedule
 
-Cron example for 6:30 AM every day:
+Cron example for 8:30 AM Eastern every day:
 
 ```cron
-30 6 * * * cd /path/to/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
+CRON_TZ=America/New_York
+30 8 * * * cd /path/to/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
 ```
 
-Systemd examples are in `deploy/systemd`.
+Use `CRON_TZ` so the send time stays at 8:30 AM Eastern even if the server itself is configured for UTC. Systemd examples are in `deploy/systemd` and also pin the timer to `America/New_York`.
 
 On Ubuntu/Debian, make sure Python can verify HTTPS certificates:
 
