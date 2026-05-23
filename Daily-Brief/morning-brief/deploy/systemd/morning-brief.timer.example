@@ -1,9 +1,9 @@
 [Unit]
-Description=Run daily morning brief at 8:30 AM Eastern
+Description=Run daily morning brief at 7:30 AM Eastern
 
 [Timer]
 # Keep the delivery time tied to Eastern time even if the server runs in UTC.
-OnCalendar=*-*-* 08:30:00 America/New_York
+OnCalendar=*-*-* 07:30:00 America/New_York
 Persistent=true
 
 [Install]

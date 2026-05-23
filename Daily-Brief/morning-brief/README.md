@@ -35,14 +35,14 @@ python3 run_brief.py --send
 
 ## Server Schedule
 
-Cron example for 8:30 AM Eastern every day:
+Cron example for 7:30 AM Eastern every day:
 
 ```cron
 CRON_TZ=America/New_York
-30 8 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
+30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
 ```
 
-Use `CRON_TZ` so the send time stays at 8:30 AM Eastern even if the server itself is configured for UTC. Systemd examples are in `deploy/systemd` and also pin the timer to `America/New_York`.
+Use `CRON_TZ` so the send time stays at 7:30 AM Eastern even if the server itself is configured for UTC. Systemd examples are in `deploy/systemd` and also pin the timer to `America/New_York`.
 
 ## Deploying Changes To The Server
 
@@ -98,13 +98,13 @@ The schedule should be:
 
 ```cron
 CRON_TZ=America/New_York
-30 8 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
+30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
 ```
 
-To update only the morning-brief cron time from 6:30 AM Eastern to 8:30 AM Eastern without opening an editor:
+To update only the morning-brief cron time to 7:30 AM Eastern without opening an editor:
 
 ```bash
-crontab -l | perl -pe 's{^30 6 \* \* \* cd /home/conner/repos/Projects/Daily-Brief/morning-brief}{30 8 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief}' | crontab -
+crontab -l | perl -pe 's{^\d+ \d+ \* \* \* cd /home/conner/repos/Projects/Daily-Brief/morning-brief}{30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief}' | crontab -
 crontab -l
 ```
 
