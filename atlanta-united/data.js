@@ -4,16 +4,16 @@ window.ATL_DATA = {
   "record": {
     "wins": 3,
     "draws": 2,
-    "losses": 9
+    "losses": 8
   },
   "stats": {
     "points": 11,
-    "goalsFor": 14,
-    "goalsAgainst": 23,
-    "homeRecord": "2-1-5",
+    "goalsFor": 13,
+    "goalsAgainst": 20,
+    "homeRecord": "2-1-4",
     "awayRecord": "1-1-4",
     "cleanSheets": 1,
-    "avgAttendance": 37627
+    "avgAttendance": 38126
   },
   "position": {
     "rank": 14,
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-06-08T05:00:03.162Z"
+    "generatedAt": "2026-06-09T05:00:03.713Z"
   },
   "seasonHistory": [
     {

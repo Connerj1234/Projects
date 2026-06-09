@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T05:00:09.654Z",
+  "generatedAt": "2026-06-09T05:00:13.440Z",
   "seasons": [
     {
       "season": 2026,
@@ -7,18 +7,18 @@
       "seasonPulse": {
         "wins": 3,
         "draws": 2,
-        "losses": 9,
+        "losses": 8,
         "points": 11,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 14,
-        "goalsAgainst": 23,
-        "homeRecord": "2-1-5",
+        "goalsFor": 13,
+        "goalsAgainst": 20,
+        "homeRecord": "2-1-4",
         "awayRecord": "1-1-4",
         "cleanSheets": 1,
-        "avgAttendance": 37627
+        "avgAttendance": 38126
       },
       "fullSchedule": [
         {
@@ -61,7 +61,7 @@
           "opponent": "Columbus Crew",
           "venue": "Home",
           "competition": "MLS",
-          "result": "1-3 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-04-12",
