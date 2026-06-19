@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T05:00:26.264Z",
+  "generatedAt": "2026-06-19T05:00:10.027Z",
   "seasons": [
     {
       "season": 2026,
@@ -213,6 +213,41 @@
         {
           "date": "2026-10-10",
           "opponent": "FC Cincinnati",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "-"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "CF Montréal",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "-"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Inter Miami CF",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "-"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Chicago Fire FC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "-"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "New York City FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "-"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Toronto FC",
           "venue": "Home",
           "competition": "MLS",
           "result": "-"
@@ -743,7 +778,7 @@
           "minutes": 218
         }
       ],
-      "notes": "In-season sync: 29 fixtures, 15 table rows, 29 roster rows."
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 29 roster rows."
     },
     {
       "season": 2025,
