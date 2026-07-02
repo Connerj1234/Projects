@@ -1,4 +1,4 @@
-# Earnings Intelligence
+# Earnings Intelligence (https://earnings.connerjamison.com/)
 
 ## Project Overview
 
