@@ -122,7 +122,18 @@ window.ATL_DATA = {
       "number": "16",
       "position": "M",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
+      "id": "380821",
+      "name": "Adyn Torres",
+      "number": "23",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -133,7 +144,7 @@ window.ATL_DATA = {
       "number": "59",
       "position": "M",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 5,
       "assists": 2,
       "minutes": 1010
@@ -144,7 +155,7 @@ window.ATL_DATA = {
       "number": "30",
       "position": "OFF",
       "appearances": 6,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 90
@@ -155,18 +166,29 @@ window.ATL_DATA = {
       "number": "48",
       "position": "M",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 1,
       "minutes": 940
     },
     {
+      "id": "400742",
+      "name": "Dominik Chong Qui",
+      "number": "50",
+      "position": "D",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-000CRG",
-      "name": "Elías Báez",
+      "name": "Elías Baez",
       "number": "3",
       "position": "D",
       "appearances": 12,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 2,
       "minutes": 1044
@@ -177,7 +199,7 @@ window.ATL_DATA = {
       "number": "9",
       "position": "OFF",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 2,
       "assists": 1,
       "minutes": 901
@@ -188,7 +210,7 @@ window.ATL_DATA = {
       "number": "4",
       "position": "D",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 1060
@@ -199,7 +221,7 @@ window.ATL_DATA = {
       "number": "22",
       "position": "OFF",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 1,
       "assists": 1,
       "minutes": 185
@@ -210,7 +232,7 @@ window.ATL_DATA = {
       "number": "35",
       "position": "M",
       "appearances": 9,
-      "starts": null,
+      "starts": 0,
       "goals": 2,
       "assists": 0,
       "minutes": 445
@@ -221,7 +243,7 @@ window.ATL_DATA = {
       "number": "42",
       "position": "GK",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -232,7 +254,7 @@ window.ATL_DATA = {
       "number": "6",
       "position": "D",
       "appearances": 9,
-      "starts": 0,
+      "starts": null,
       "goals": 0,
       "assists": 0,
       "minutes": 732
@@ -243,7 +265,7 @@ window.ATL_DATA = {
       "number": "1",
       "position": "GK",
       "appearances": 14,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 1260
@@ -254,7 +276,7 @@ window.ATL_DATA = {
       "number": "20",
       "position": "OFF",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 181
@@ -276,7 +298,7 @@ window.ATL_DATA = {
       "number": "47",
       "position": "D",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 1,
       "minutes": 249
@@ -285,9 +307,9 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "M",
+      "position": "F",
       "appearances": 8,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 3,
       "minutes": 658
@@ -298,7 +320,7 @@ window.ATL_DATA = {
       "number": "18",
       "position": "D",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 238
@@ -309,7 +331,7 @@ window.ATL_DATA = {
       "number": "2",
       "position": "D",
       "appearances": 2,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 151
@@ -318,12 +340,23 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003E7",
       "name": "Saba Lobjanidze",
       "number": "11",
-      "position": "M",
+      "position": "F",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 2,
       "assists": 0,
       "minutes": 633
+    },
+    {
+      "id": "416552",
+      "name": "Santiago Pita",
+      "number": "40",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "mls-2026-MLS-OBJ-000089",
@@ -331,7 +364,7 @@ window.ATL_DATA = {
       "number": "19",
       "position": "OFF",
       "appearances": 3,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 32
@@ -342,7 +375,7 @@ window.ATL_DATA = {
       "number": "7",
       "position": "M",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 397
@@ -353,7 +386,7 @@ window.ATL_DATA = {
       "number": "5",
       "position": "D",
       "appearances": 9,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 724
@@ -364,7 +397,7 @@ window.ATL_DATA = {
       "number": "55",
       "position": "D",
       "appearances": 12,
-      "starts": null,
+      "starts": 0,
       "goals": 1,
       "assists": 0,
       "minutes": 1031
@@ -372,10 +405,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-00083K",
       "name": "Toto Majub",
-      "number": "",
-      "position": "-",
+      "number": "41",
+      "position": "D",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -386,7 +419,7 @@ window.ATL_DATA = {
       "number": "8",
       "position": "M",
       "appearances": 14,
-      "starts": null,
+      "starts": 0,
       "goals": 1,
       "assists": 0,
       "minutes": 1015
@@ -397,7 +430,7 @@ window.ATL_DATA = {
       "number": "28",
       "position": "M",
       "appearances": 4,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 218
@@ -8468,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-01T05:00:02.834Z"
+    "generatedAt": "2026-07-02T05:00:03.188Z"
   },
   "seasonHistory": [
     {
