@@ -28,7 +28,7 @@ window.ATL_DATA = {
   ],
   "nextMatch": {
     "opponent": "Nashville SC",
-    "dateISO": "2026-07-18T00:00Z",
+    "dateISO": "2026-07-18T00:10Z",
     "competition": "MLS",
     "venue": "GEODIS Park",
     "broadcast": "FOX, Apple TV"
@@ -88,7 +88,7 @@ window.ATL_DATA = {
     "nextThree": [
       {
         "opponent": "Nashville SC",
-        "dateISO": "2026-07-18T00:00Z",
+        "dateISO": "2026-07-18T00:10Z",
         "venue": "Away",
         "competition": "MLS"
       },
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-09T05:00:03.143Z"
+    "generatedAt": "2026-07-10T05:00:03.458Z"
   },
   "seasonHistory": [
     {
