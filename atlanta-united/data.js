@@ -251,8 +251,8 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-000BY5",
       "name": "Juan Berrocal",
-      "number": "",
-      "position": "-",
+      "number": "6",
+      "position": "D",
       "appearances": 9,
       "starts": null,
       "goals": 0,
@@ -284,8 +284,8 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-000CDH",
       "name": "Matías Galarza",
-      "number": "",
-      "position": "-",
+      "number": "88",
+      "position": "M",
       "appearances": 10,
       "starts": null,
       "goals": 0,
@@ -8501,7 +8501,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-16T05:00:02.546Z"
+    "generatedAt": "2026-07-17T05:00:02.473Z"
   },
   "seasonHistory": [
     {
