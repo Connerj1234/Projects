@@ -112,7 +112,7 @@ window.ATL_DATA = {
       "lineRank": 9,
       "linePoints": 18,
       "pointsFromLine": -7,
-      "gamesInHand": 1
+      "gamesInHand": 0
     }
   },
   "playerStats": [
@@ -8110,12 +8110,12 @@ window.ATL_DATA = {
         "rank": 1,
         "teamId": "18986",
         "team": "Nashville SC",
-        "played": 14,
-        "wins": 10,
+        "played": 15,
+        "wins": 11,
         "draws": 3,
         "losses": 1,
-        "points": 33,
-        "goalDiff": 20,
+        "points": 36,
+        "goalDiff": 21,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8240,11 +8240,11 @@ window.ATL_DATA = {
         "rank": 11,
         "teamId": "7318",
         "team": "Toronto FC",
-        "played": 14,
+        "played": 15,
         "wins": 3,
-        "draws": 5,
+        "draws": 6,
         "losses": 6,
-        "points": 14,
+        "points": 15,
         "goalDiff": -7,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8253,11 +8253,11 @@ window.ATL_DATA = {
         "rank": 12,
         "teamId": "9720",
         "team": "CF Montréal",
-        "played": 14,
+        "played": 15,
         "wins": 4,
-        "draws": 2,
+        "draws": 3,
         "losses": 8,
-        "points": 14,
+        "points": 15,
         "goalDiff": -9,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8279,12 +8279,12 @@ window.ATL_DATA = {
         "rank": 14,
         "teamId": "18418",
         "team": "Atlanta United FC",
-        "played": 14,
+        "played": 15,
         "wins": 3,
         "draws": 2,
-        "losses": 9,
+        "losses": 10,
         "points": 11,
-        "goalDiff": -9,
+        "goalDiff": -10,
         "conference": "Eastern Conference",
         "isAtlanta": true
       },
@@ -8503,16 +8503,16 @@ window.ATL_DATA = {
       "rank": 14,
       "teamId": "18418",
       "team": "Atlanta United FC",
-      "played": 14,
+      "played": 15,
       "wins": 3,
       "draws": 2,
-      "losses": 9,
+      "losses": 10,
       "points": 11,
-      "goalDiff": -9,
+      "goalDiff": -10,
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-19T05:00:02.730Z"
+    "generatedAt": "2026-07-20T05:00:02.827Z"
   },
   "seasonHistory": [
     {
