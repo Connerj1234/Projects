@@ -8512,7 +8512,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-20T05:00:02.827Z"
+    "generatedAt": "2026-07-21T05:00:02.787Z"
   },
   "seasonHistory": [
     {
