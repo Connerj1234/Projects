@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T05:00:09.570Z",
+  "generatedAt": "2026-07-22T05:00:15.420Z",
   "seasons": [
     {
       "season": 2026,
@@ -692,10 +692,10 @@
         {
           "id": "mls-2026-MLS-OBJ-0003E7",
           "name": "Saba Lobjanidze",
-          "number": "11",
-          "position": "F",
+          "number": "",
+          "position": "-",
           "appearances": 13,
-          "starts": 0,
+          "starts": null,
           "goals": 2,
           "assists": 0,
           "minutes": 633

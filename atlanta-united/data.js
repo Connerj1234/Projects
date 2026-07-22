@@ -31,7 +31,7 @@ window.ATL_DATA = {
     "dateISO": "2026-07-23T00:15Z",
     "competition": "MLS",
     "venue": "Bank of America Stadium",
-    "broadcast": "FS1, Apple TV"
+    "broadcast": "FS1, FOX Deportes, Apple TV"
   },
   "results": [
     {
@@ -350,10 +350,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-0003E7",
       "name": "Saba Lobjanidze",
-      "number": "11",
-      "position": "F",
+      "number": "",
+      "position": "-",
       "appearances": 13,
-      "starts": 0,
+      "starts": null,
       "goals": 2,
       "assists": 0,
       "minutes": 633
@@ -8512,7 +8512,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-21T05:00:02.787Z"
+    "generatedAt": "2026-07-22T05:00:03.620Z"
   },
   "seasonHistory": [
     {
