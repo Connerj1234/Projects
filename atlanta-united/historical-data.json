@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T05:00:10.411Z",
+  "generatedAt": "2026-07-31T05:00:10.264Z",
   "seasons": [
     {
       "season": 2026,
@@ -464,7 +464,18 @@
           "number": "16",
           "position": "M",
           "appearances": 0,
-          "starts": null,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "380821",
+          "name": "Adyn Torres",
+          "number": "23",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 0
@@ -475,7 +486,7 @@
           "number": "59",
           "position": "M",
           "appearances": 16,
-          "starts": null,
+          "starts": 0,
           "goals": 5,
           "assists": 3,
           "minutes": 1280
@@ -483,10 +494,10 @@
         {
           "id": "mls-2026-MLS-OBJ-00083J",
           "name": "Arif Kovac",
-          "number": "",
-          "position": "-",
+          "number": "39",
+          "position": "F",
           "appearances": 0,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 0
@@ -497,7 +508,7 @@
           "number": "30",
           "position": "OFF",
           "appearances": 7,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 101
@@ -508,18 +519,29 @@
           "number": "48",
           "position": "M",
           "appearances": 16,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 1,
           "minutes": 1203
         },
         {
+          "id": "400742",
+          "name": "Dominik Chong Qui",
+          "number": "50",
+          "position": "D",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
           "id": "mls-2026-MLS-OBJ-000CRG",
-          "name": "Elías Báez",
+          "name": "Elías Baez",
           "number": "3",
           "position": "D",
           "appearances": 15,
-          "starts": null,
+          "starts": 0,
           "goals": 1,
           "assists": 2,
           "minutes": 1314
@@ -530,7 +552,7 @@
           "number": "9",
           "position": "OFF",
           "appearances": 14,
-          "starts": null,
+          "starts": 0,
           "goals": 2,
           "assists": 1,
           "minutes": 907
@@ -541,7 +563,7 @@
           "number": "4",
           "position": "D",
           "appearances": 16,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 1251
@@ -552,7 +574,7 @@
           "number": "22",
           "position": "OFF",
           "appearances": 10,
-          "starts": null,
+          "starts": 0,
           "goals": 1,
           "assists": 1,
           "minutes": 353
@@ -560,10 +582,10 @@
         {
           "id": "mls-2026-MLS-OBJ-000BN6",
           "name": "Ignacio Suarez-Couri",
-          "number": "",
-          "position": "-",
+          "number": "56",
+          "position": "M",
           "appearances": 1,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 1
@@ -574,7 +596,7 @@
           "number": "35",
           "position": "M",
           "appearances": 10,
-          "starts": null,
+          "starts": 0,
           "goals": 2,
           "assists": 0,
           "minutes": 456
@@ -585,7 +607,7 @@
           "number": "42",
           "position": "GK",
           "appearances": 0,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 0
@@ -607,7 +629,7 @@
           "number": "6",
           "position": "D",
           "appearances": 2,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 179
@@ -618,7 +640,7 @@
           "number": "1",
           "position": "GK",
           "appearances": 17,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 1530
@@ -629,7 +651,7 @@
           "number": "20",
           "position": "OFF",
           "appearances": 10,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 304
@@ -651,7 +673,7 @@
           "number": "47",
           "position": "D",
           "appearances": 9,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 1,
           "minutes": 380
@@ -660,12 +682,23 @@
           "id": "mls-2026-MLS-OBJ-0003T9",
           "name": "Miguel Almirón",
           "number": "10",
-          "position": "M",
+          "position": "F",
           "appearances": 11,
-          "starts": null,
+          "starts": 0,
           "goals": 2,
           "assists": 3,
           "minutes": 928
+        },
+        {
+          "id": "184465",
+          "name": "Paulo Díaz",
+          "number": "",
+          "position": "D",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
         },
         {
           "id": "mls-2026-MLS-OBJ-0007KA",
@@ -673,7 +706,7 @@
           "number": "18",
           "position": "D",
           "appearances": 7,
-          "starts": 0,
+          "starts": null,
           "goals": 0,
           "assists": 0,
           "minutes": 238
@@ -684,7 +717,7 @@
           "number": "2",
           "position": "D",
           "appearances": 4,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 200
@@ -701,12 +734,23 @@
           "minutes": 633
         },
         {
+          "id": "416552",
+          "name": "Santiago Pita",
+          "number": "40",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
           "id": "mls-2026-MLS-OBJ-000089",
           "name": "Sergio Santos",
           "number": "19",
           "position": "OFF",
           "appearances": 3,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 32
@@ -717,7 +761,7 @@
           "number": "7",
           "position": "M",
           "appearances": 7,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 397
@@ -728,7 +772,7 @@
           "number": "5",
           "position": "D",
           "appearances": 11,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 804
@@ -739,7 +783,7 @@
           "number": "55",
           "position": "D",
           "appearances": 14,
-          "starts": null,
+          "starts": 0,
           "goals": 1,
           "assists": 1,
           "minutes": 1211
@@ -747,10 +791,10 @@
         {
           "id": "mls-2026-MLS-OBJ-00083K",
           "name": "Toto Majub",
-          "number": "",
-          "position": "-",
+          "number": "41",
+          "position": "D",
           "appearances": 0,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 0
@@ -761,7 +805,7 @@
           "number": "8",
           "position": "M",
           "appearances": 17,
-          "starts": null,
+          "starts": 0,
           "goals": 1,
           "assists": 0,
           "minutes": 1253
@@ -772,13 +816,13 @@
           "number": "28",
           "position": "M",
           "appearances": 7,
-          "starts": null,
+          "starts": 0,
           "goals": 0,
           "assists": 0,
           "minutes": 477
         }
       ],
-      "notes": "In-season sync: 34 fixtures, 15 table rows, 29 roster rows."
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 33 roster rows."
     },
     {
       "season": 2025,
