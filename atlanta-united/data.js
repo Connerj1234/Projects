@@ -238,6 +238,17 @@ window.ATL_DATA = {
       "minutes": 353
     },
     {
+      "id": "3117640",
+      "name": "Gonzalo Riveras",
+      "number": "",
+      "position": "F",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-000BN6",
       "name": "Ignacio Suarez-Couri",
       "number": "56",
@@ -361,8 +372,8 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-0007KA",
       "name": "Pedro Amador",
-      "number": "18",
-      "position": "D",
+      "number": "",
+      "position": "-",
       "appearances": 7,
       "starts": null,
       "goals": 0,
@@ -8195,11 +8206,11 @@ window.ATL_DATA = {
         "rank": 5,
         "teamId": "17606",
         "team": "New York City FC",
-        "played": 17,
+        "played": 18,
         "wins": 7,
-        "draws": 4,
+        "draws": 5,
         "losses": 6,
-        "points": 25,
+        "points": 26,
         "goalDiff": 7,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8286,11 +8297,11 @@ window.ATL_DATA = {
         "rank": 12,
         "teamId": "7318",
         "team": "Toronto FC",
-        "played": 17,
+        "played": 18,
         "wins": 3,
-        "draws": 7,
+        "draws": 8,
         "losses": 7,
-        "points": 16,
+        "points": 17,
         "goalDiff": -8,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8545,7 +8556,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-07-31T05:00:08.107Z"
+    "generatedAt": "2026-08-01T05:00:02.535Z"
   },
   "seasonHistory": [
     {
