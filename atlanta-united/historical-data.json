@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T05:00:10.668Z",
+  "generatedAt": "2026-08-04T05:00:10.428Z",
   "seasons": [
     {
       "season": 2026,
@@ -552,7 +552,7 @@
           "number": "9",
           "position": "OFF",
           "appearances": 14,
-          "starts": 0,
+          "starts": null,
           "goals": 2,
           "assists": 1,
           "minutes": 907

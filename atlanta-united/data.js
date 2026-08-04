@@ -210,7 +210,7 @@ window.ATL_DATA = {
       "number": "9",
       "position": "OFF",
       "appearances": 14,
-      "starts": 0,
+      "starts": null,
       "goals": 2,
       "assists": 1,
       "minutes": 907
@@ -8545,7 +8545,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-03T05:00:03.268Z"
+    "generatedAt": "2026-08-04T05:00:02.693Z"
   },
   "seasonHistory": [
     {
