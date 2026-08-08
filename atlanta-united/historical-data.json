@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T05:00:10.428Z",
+  "generatedAt": "2026-08-08T05:00:10.943Z",
   "seasons": [
     {
       "season": 2026,
@@ -679,6 +679,17 @@
           "minutes": 470
         },
         {
+          "id": "359927",
+          "name": "Mauricio Amaro",
+          "number": "",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
           "id": "mls-2026-MLS-OBJ-0003T9",
           "name": "Miguel Almirón",
           "number": "10",
@@ -822,7 +833,7 @@
           "minutes": 567
         }
       ],
-      "notes": "In-season sync: 34 fixtures, 15 table rows, 33 roster rows."
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 34 roster rows."
     },
     {
       "season": 2025,

@@ -337,6 +337,17 @@ window.ATL_DATA = {
       "minutes": 470
     },
     {
+      "id": "359927",
+      "name": "Mauricio Amaro",
+      "number": "",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
@@ -8545,7 +8556,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-07T05:00:03.166Z"
+    "generatedAt": "2026-08-08T05:00:02.831Z"
   },
   "seasonHistory": [
     {
