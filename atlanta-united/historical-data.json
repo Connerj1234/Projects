@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T05:00:10.943Z",
+  "generatedAt": "2026-08-09T05:00:11.131Z",
   "seasons": [
     {
       "season": 2026,
@@ -291,12 +291,12 @@
           "rank": 3,
           "teamId": "189",
           "team": "New England Revolution",
-          "played": 17,
+          "played": 18,
           "wins": 9,
           "draws": 3,
-          "losses": 5,
+          "losses": 6,
           "points": 30,
-          "goalDiff": 7,
+          "goalDiff": 5,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },

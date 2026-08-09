@@ -8180,12 +8180,12 @@ window.ATL_DATA = {
         "rank": 3,
         "teamId": "189",
         "team": "New England Revolution",
-        "played": 17,
+        "played": 18,
         "wins": 9,
         "draws": 3,
-        "losses": 5,
+        "losses": 6,
         "points": 30,
-        "goalDiff": 7,
+        "goalDiff": 5,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8390,12 +8390,12 @@ window.ATL_DATA = {
         "rank": 4,
         "teamId": "6077",
         "team": "Houston Dynamo FC",
-        "played": 17,
-        "wins": 9,
+        "played": 18,
+        "wins": 10,
         "draws": 2,
         "losses": 6,
-        "points": 29,
-        "goalDiff": 1,
+        "points": 32,
+        "goalDiff": 3,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8556,7 +8556,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-08T05:00:02.831Z"
+    "generatedAt": "2026-08-09T05:00:03.134Z"
   },
   "seasonHistory": [
     {
