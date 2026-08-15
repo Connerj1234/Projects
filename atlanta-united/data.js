@@ -207,8 +207,8 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-00081B",
       "name": "Emmanuel Latte Lath",
-      "number": "",
-      "position": "-",
+      "number": "9",
+      "position": "OFF",
       "appearances": 14,
       "starts": null,
       "goals": 2,
@@ -8556,7 +8556,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-14T05:00:02.587Z"
+    "generatedAt": "2026-08-15T05:00:04.049Z"
   },
   "seasonHistory": [
     {

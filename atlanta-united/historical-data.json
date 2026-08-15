@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T05:00:09.767Z",
+  "generatedAt": "2026-08-15T05:00:09.968Z",
   "seasons": [
     {
       "season": 2026,
@@ -549,8 +549,8 @@
         {
           "id": "mls-2026-MLS-OBJ-00081B",
           "name": "Emmanuel Latte Lath",
-          "number": "",
-          "position": "-",
+          "number": "9",
+          "position": "OFF",
           "appearances": 14,
           "starts": null,
           "goals": 2,
