@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T05:00:11.292Z",
+  "generatedAt": "2026-08-17T05:00:10.132Z",
   "seasons": [
     {
       "season": 2026,
@@ -289,6 +289,19 @@
         },
         {
           "rank": 3,
+          "teamId": "182",
+          "team": "Chicago Fire FC",
+          "played": 18,
+          "wins": 10,
+          "draws": 2,
+          "losses": 6,
+          "points": 32,
+          "goalDiff": 10,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 4,
           "teamId": "189",
           "team": "New England Revolution",
           "played": 19,
@@ -297,19 +310,6 @@
           "losses": 7,
           "points": 30,
           "goalDiff": 4,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 4,
-          "teamId": "182",
-          "team": "Chicago Fire FC",
-          "played": 17,
-          "wins": 9,
-          "draws": 2,
-          "losses": 6,
-          "points": 29,
-          "goalDiff": 9,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -343,12 +343,12 @@
           "rank": 7,
           "teamId": "17606",
           "team": "New York City FC",
-          "played": 18,
+          "played": 19,
           "wins": 7,
           "draws": 5,
-          "losses": 6,
+          "losses": 7,
           "points": 26,
-          "goalDiff": 7,
+          "goalDiff": 6,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -419,6 +419,19 @@
         },
         {
           "rank": 13,
+          "teamId": "10739",
+          "team": "Philadelphia Union",
+          "played": 19,
+          "wins": 5,
+          "draws": 4,
+          "losses": 10,
+          "points": 19,
+          "goalDiff": -7,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 14,
           "teamId": "9720",
           "team": "CF Montréal",
           "played": 19,
@@ -427,19 +440,6 @@
           "losses": 10,
           "points": 17,
           "goalDiff": -11,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 14,
-          "teamId": "10739",
-          "team": "Philadelphia Union",
-          "played": 18,
-          "wins": 4,
-          "draws": 4,
-          "losses": 10,
-          "points": 16,
-          "goalDiff": -8,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
