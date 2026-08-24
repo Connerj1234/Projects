@@ -2,38 +2,45 @@ window.ATL_DATA = {
   "season": "2026 MLS Regular Season",
   "clubName": "Atlanta United",
   "record": {
-    "wins": 5,
+    "wins": 6,
     "draws": 3,
     "losses": 12
   },
   "stats": {
-    "points": 18,
-    "goalsFor": 23,
-    "goalsAgainst": 35,
-    "homeRecord": "3-1-5",
+    "points": 21,
+    "goalsFor": 25,
+    "goalsAgainst": 36,
+    "homeRecord": "4-1-5",
     "awayRecord": "2-2-7",
     "cleanSheets": 1,
-    "avgAttendance": 37720
+    "avgAttendance": 33948
   },
   "position": {
-    "rank": 15,
+    "rank": 14,
     "conference": "Eastern Conference"
   },
   "formLastFive": [
     "W",
     "W",
+    "W",
     "L",
-    "L",
-    "D"
+    "L"
   ],
   "nextMatch": {
-    "opponent": "Sporting Kansas City",
-    "dateISO": "2026-08-23T23:00Z",
+    "opponent": "Charlotte FC",
+    "dateISO": "2026-08-29T23:30Z",
     "competition": "MLS",
     "venue": "Mercedes-Benz Stadium",
     "broadcast": "Apple TV"
   },
   "results": [
+    {
+      "date": "2026-08-23",
+      "opponent": "Sporting Kansas City",
+      "venue": "Home",
+      "score": "2-1",
+      "outcome": "Win"
+    },
     {
       "date": "2026-08-20",
       "opponent": "Minnesota United FC",
@@ -61,37 +68,24 @@ window.ATL_DATA = {
       "venue": "Away",
       "score": "1-4",
       "outcome": "Loss"
-    },
-    {
-      "date": "2026-07-23",
-      "opponent": "Charlotte FC",
-      "venue": "Away",
-      "score": "2-2",
-      "outcome": "Draw"
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 7,
-      "goalDiffLast5": -2,
-      "formRatingOutOf5": 2.3,
-      "goalDiffPerMatch": -0.4,
-      "pointsPerMatchLastN": 1.4,
+      "pointsLast5": 9,
+      "goalDiffLast5": -1,
+      "formRatingOutOf5": 3,
+      "goalDiffPerMatch": -0.2,
+      "pointsPerMatchLastN": 1.8,
       "gamesSampled": 5,
       "cleanSheetsLastN": 0,
       "wdlLast5": {
-        "wins": 2,
-        "draws": 1,
+        "wins": 3,
+        "draws": 0,
         "losses": 2
       }
     },
     "nextThree": [
-      {
-        "opponent": "Sporting Kansas City",
-        "dateISO": "2026-08-23T23:00Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
       {
         "opponent": "Charlotte FC",
         "dateISO": "2026-08-29T23:30Z",
@@ -103,16 +97,22 @@ window.ATL_DATA = {
         "dateISO": "2026-09-05T23:30Z",
         "venue": "Away",
         "competition": "MLS"
+      },
+      {
+        "opponent": "Orlando City SC",
+        "dateISO": "2026-09-09T23:30Z",
+        "venue": "Home",
+        "competition": "MLS"
       }
     ],
     "playoffLine": {
       "conference": "East",
-      "rank": 15,
-      "points": 18,
+      "rank": 14,
+      "points": 21,
       "lineRank": 9,
       "linePoints": 24,
-      "pointsFromLine": -6,
-      "gamesInHand": 1
+      "pointsFromLine": -3,
+      "gamesInHand": 0
     }
   },
   "playerStats": [
@@ -121,19 +121,19 @@ window.ATL_DATA = {
       "name": "Adrian Gill",
       "number": "16",
       "position": "M",
-      "appearances": 2,
+      "appearances": 3,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 174
+      "minutes": 236
     },
     {
       "id": "mls-2026-MLS-OBJ-0002JP",
       "name": "Adyn Torres",
       "number": "23",
-      "position": "M",
+      "position": "D",
       "appearances": 0,
-      "starts": 0,
+      "starts": null,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -143,11 +143,11 @@ window.ATL_DATA = {
       "name": "Alexey Miranchuk",
       "number": "59",
       "position": "M",
-      "appearances": 19,
+      "appearances": 20,
       "starts": 0,
       "goals": 5,
       "assists": 6,
-      "minutes": 1527
+      "minutes": 1617
     },
     {
       "id": "mls-2026-MLS-OBJ-00083J",
@@ -159,6 +159,17 @@ window.ATL_DATA = {
       "goals": 0,
       "assists": 0,
       "minutes": 6
+    },
+    {
+      "id": "202099",
+      "name": "Breel Embolo",
+      "number": "",
+      "position": "F",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "mls-2026-MLS-OBJ-0007WA",
@@ -176,11 +187,11 @@ window.ATL_DATA = {
       "name": "Cooper Sanchez",
       "number": "48",
       "position": "M",
-      "appearances": 18,
+      "appearances": 19,
       "starts": 0,
       "goals": 0,
       "assists": 1,
-      "minutes": 1347
+      "minutes": 1424
     },
     {
       "id": "400742",
@@ -198,11 +209,11 @@ window.ATL_DATA = {
       "name": "Elías Baez",
       "number": "3",
       "position": "D",
-      "appearances": 18,
+      "appearances": 19,
       "starts": 0,
       "goals": 1,
-      "assists": 2,
-      "minutes": 1574
+      "assists": 3,
+      "minutes": 1664
     },
     {
       "id": "mls-2026-MLS-OBJ-00081B",
@@ -231,11 +242,11 @@ window.ATL_DATA = {
       "name": "Fafà Picault",
       "number": "22",
       "position": "OFF",
-      "appearances": 13,
+      "appearances": 14,
       "starts": 0,
-      "goals": 2,
+      "goals": 3,
       "assists": 1,
-      "minutes": 581
+      "minutes": 643
     },
     {
       "id": "mls-2026-MLS-OBJ-000BN6",
@@ -286,33 +297,33 @@ window.ATL_DATA = {
       "name": "Júnior Alonso",
       "number": "6",
       "position": "D",
-      "appearances": 5,
+      "appearances": 6,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 449
+      "minutes": 539
     },
     {
       "id": "mls-2026-MLS-OBJ-000575",
       "name": "Lucas Hoyos",
       "number": "1",
       "position": "GK",
-      "appearances": 20,
+      "appearances": 21,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 1800
+      "minutes": 1890
     },
     {
       "id": "mls-2026-MLS-OBJ-000239",
       "name": "Luke Brennan",
       "number": "20",
       "position": "OFF",
-      "appearances": 13,
+      "appearances": 14,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 346
+      "minutes": 361
     },
     {
       "id": "mls-2026-MLS-OBJ-000CDH",
@@ -330,11 +341,11 @@ window.ATL_DATA = {
       "name": "Matthew Edwards",
       "number": "47",
       "position": "D",
-      "appearances": 12,
+      "appearances": 13,
       "starts": 0,
       "goals": 0,
       "assists": 1,
-      "minutes": 549
+      "minutes": 562
     },
     {
       "id": "359927",
@@ -352,22 +363,22 @@ window.ATL_DATA = {
       "name": "Miguel Almirón",
       "number": "10",
       "position": "F",
-      "appearances": 14,
+      "appearances": 15,
       "starts": 0,
       "goals": 3,
-      "assists": 4,
-      "minutes": 1188
+      "assists": 5,
+      "minutes": 1278
     },
     {
       "id": "mls-2026-MLS-OBJ-0007A4",
       "name": "Paulo Díaz",
       "number": "27",
       "position": "D",
-      "appearances": 1,
+      "appearances": 2,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 6
+      "minutes": 79
     },
     {
       "id": "mls-2026-MLS-OBJ-0007KA",
@@ -429,33 +440,33 @@ window.ATL_DATA = {
       "name": "Steven Alzate",
       "number": "7",
       "position": "M",
-      "appearances": 9,
+      "appearances": 10,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 433
+      "minutes": 446
     },
     {
       "id": "mls-2026-MLS-OBJ-00053D",
       "name": "Stian Gregersen",
       "number": "5",
       "position": "D",
-      "appearances": 14,
+      "appearances": 15,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 928
+      "minutes": 945
     },
     {
       "id": "mls-2026-MLS-OBJ-00057R",
       "name": "Tomás Jacob",
       "number": "55",
       "position": "D",
-      "appearances": 17,
+      "appearances": 18,
       "starts": 0,
-      "goals": 2,
+      "goals": 3,
       "assists": 1,
-      "minutes": 1481
+      "minutes": 1571
     },
     {
       "id": "mls-2026-MLS-OBJ-00083K",
@@ -473,22 +484,22 @@ window.ATL_DATA = {
       "name": "Tristan Muyumba",
       "number": "8",
       "position": "M",
-      "appearances": 20,
+      "appearances": 21,
       "starts": 0,
       "goals": 4,
       "assists": 0,
-      "minutes": 1515
+      "minutes": 1605
     },
     {
       "id": "mls-2026-MLS-OBJ-0007WB",
       "name": "Will Reilly",
       "number": "28",
       "position": "M",
-      "appearances": 8,
+      "appearances": 9,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 567
+      "minutes": 595
     }
   ],
   "formationTemplates": [
@@ -8193,11 +8204,11 @@ window.ATL_DATA = {
         "rank": 4,
         "teamId": "189",
         "team": "New England Revolution",
-        "played": 20,
+        "played": 21,
         "wins": 10,
-        "draws": 3,
+        "draws": 4,
         "losses": 7,
-        "points": 33,
+        "points": 34,
         "goalDiff": 7,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8232,11 +8243,11 @@ window.ATL_DATA = {
         "rank": 7,
         "teamId": "17606",
         "team": "New York City FC",
-        "played": 20,
+        "played": 21,
         "wins": 7,
-        "draws": 5,
+        "draws": 6,
         "losses": 8,
-        "points": 26,
+        "points": 27,
         "goalDiff": 5,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8321,6 +8332,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 14,
+        "teamId": "18418",
+        "team": "Atlanta United FC",
+        "played": 21,
+        "wins": 6,
+        "draws": 3,
+        "losses": 12,
+        "points": 21,
+        "goalDiff": -11,
+        "conference": "Eastern Conference",
+        "isAtlanta": true
+      },
+      {
+        "rank": 15,
         "teamId": "183",
         "team": "Columbus Crew",
         "played": 21,
@@ -8331,19 +8355,6 @@ window.ATL_DATA = {
         "goalDiff": -6,
         "conference": "Eastern Conference",
         "isAtlanta": false
-      },
-      {
-        "rank": 15,
-        "teamId": "18418",
-        "team": "Atlanta United FC",
-        "played": 20,
-        "wins": 5,
-        "draws": 3,
-        "losses": 12,
-        "points": 18,
-        "goalDiff": -12,
-        "conference": "Eastern Conference",
-        "isAtlanta": true
       }
     ],
     "west": [
@@ -8533,30 +8544,30 @@ window.ATL_DATA = {
         "rank": 15,
         "teamId": "186",
         "team": "Sporting Kansas City",
-        "played": 20,
+        "played": 21,
         "wins": 4,
         "draws": 3,
-        "losses": 13,
+        "losses": 14,
         "points": 15,
-        "goalDiff": -30,
+        "goalDiff": -31,
         "conference": "Western Conference",
         "isAtlanta": false
       }
     ],
     "atlanta": {
-      "rank": 15,
+      "rank": 14,
       "teamId": "18418",
       "team": "Atlanta United FC",
-      "played": 20,
-      "wins": 5,
+      "played": 21,
+      "wins": 6,
       "draws": 3,
       "losses": 12,
-      "points": 18,
-      "goalDiff": -12,
+      "points": 21,
+      "goalDiff": -11,
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-23T05:00:02.581Z"
+    "generatedAt": "2026-08-24T05:00:02.804Z"
   },
   "seasonHistory": [
     {
