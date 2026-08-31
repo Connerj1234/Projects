@@ -8224,6 +8224,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 4,
+        "teamId": "189",
+        "team": "New England Revolution",
+        "played": 22,
+        "wins": 11,
+        "draws": 4,
+        "losses": 7,
+        "points": 37,
+        "goalDiff": 9,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 5,
         "teamId": "21300",
         "team": "Charlotte FC",
         "played": 22,
@@ -8232,19 +8245,6 @@ window.ATL_DATA = {
         "losses": 7,
         "points": 35,
         "goalDiff": 8,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 5,
-        "teamId": "189",
-        "team": "New England Revolution",
-        "played": 21,
-        "wins": 10,
-        "draws": 4,
-        "losses": 7,
-        "points": 34,
-        "goalDiff": 7,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8369,12 +8369,12 @@ window.ATL_DATA = {
         "rank": 15,
         "teamId": "183",
         "team": "Columbus Crew",
-        "played": 21,
+        "played": 22,
         "wins": 5,
         "draws": 5,
-        "losses": 11,
+        "losses": 12,
         "points": 20,
-        "goalDiff": -6,
+        "goalDiff": -8,
         "conference": "Eastern Conference",
         "isAtlanta": false
       }
@@ -8436,11 +8436,11 @@ window.ATL_DATA = {
         "rank": 5,
         "teamId": "185",
         "team": "FC Dallas",
-        "played": 21,
+        "played": 22,
         "wins": 9,
-        "draws": 6,
+        "draws": 7,
         "losses": 6,
-        "points": 33,
+        "points": 34,
         "goalDiff": 4,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8449,11 +8449,11 @@ window.ATL_DATA = {
         "rank": 6,
         "teamId": "21812",
         "team": "St. Louis CITY SC",
-        "played": 21,
+        "played": 22,
         "wins": 9,
-        "draws": 6,
+        "draws": 7,
         "losses": 6,
-        "points": 33,
+        "points": 34,
         "goalDiff": 3,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8589,7 +8589,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-08-30T05:00:02.593Z"
+    "generatedAt": "2026-08-31T05:00:03.185Z"
   },
   "seasonHistory": [
     {
