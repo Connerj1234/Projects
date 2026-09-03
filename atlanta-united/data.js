@@ -271,6 +271,17 @@ window.ATL_DATA = {
       "minutes": 707
     },
     {
+      "id": "270889",
+      "name": "Giuliano Galoppo",
+      "number": "",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-000BN6",
       "name": "Ignacio Suarez-Couri",
       "number": "56",
@@ -8589,7 +8600,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-02T05:00:02.808Z"
+    "generatedAt": "2026-09-03T05:00:03.128Z"
   },
   "seasonHistory": [
     {

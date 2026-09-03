@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T05:00:09.455Z",
+  "generatedAt": "2026-09-03T05:00:09.495Z",
   "seasons": [
     {
       "season": 2026,
@@ -613,6 +613,17 @@
           "minutes": 707
         },
         {
+          "id": "270889",
+          "name": "Giuliano Galoppo",
+          "number": "",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
           "id": "mls-2026-MLS-OBJ-000BN6",
           "name": "Ignacio Suarez-Couri",
           "number": "56",
@@ -866,7 +877,7 @@
           "minutes": 658
         }
       ],
-      "notes": "In-season sync: 34 fixtures, 15 table rows, 37 roster rows."
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 38 roster rows."
     },
     {
       "season": 2025,
