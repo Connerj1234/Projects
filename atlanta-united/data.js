@@ -427,10 +427,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-0001IV",
       "name": "Ronald Hernández",
-      "number": "2",
-      "position": "D",
+      "number": "",
+      "position": "-",
       "appearances": 7,
-      "starts": 0,
+      "starts": null,
       "goals": 0,
       "assists": 0,
       "minutes": 238
@@ -8600,7 +8600,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-03T05:00:03.128Z"
+    "generatedAt": "2026-09-04T05:00:02.982Z"
   },
   "seasonHistory": [
     {
