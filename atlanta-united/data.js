@@ -8198,11 +8198,11 @@ window.ATL_DATA = {
         "rank": 1,
         "teamId": "18986",
         "team": "Nashville SC",
-        "played": 22,
+        "played": 23,
         "wins": 16,
-        "draws": 4,
+        "draws": 5,
         "losses": 2,
-        "points": 52,
+        "points": 53,
         "goalDiff": 30,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8276,11 +8276,11 @@ window.ATL_DATA = {
         "rank": 7,
         "teamId": "17606",
         "team": "New York City FC",
-        "played": 22,
+        "played": 23,
         "wins": 7,
-        "draws": 7,
+        "draws": 8,
         "losses": 8,
-        "points": 28,
+        "points": 29,
         "goalDiff": 5,
         "conference": "Eastern Conference",
         "isAtlanta": false
@@ -8600,7 +8600,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-04T05:00:02.982Z"
+    "generatedAt": "2026-09-05T05:00:02.726Z"
   },
   "seasonHistory": [
     {
