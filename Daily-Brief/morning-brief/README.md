@@ -35,14 +35,15 @@ python3 run_brief.py --send
 
 ## Server Schedule
 
-Cron example for 7:30 AM Eastern every day:
+The deployed delivery schedule is 7:30 AM Eastern every day. Its cron entry checks the current time in `America/New_York`, so delivery follows daylight-saving changes even though the server itself uses UTC. The systemd examples in `deploy/systemd` provide an alternative scheduler that also pins the timer to `America/New_York`.
+
+If the server continues to use cron, do not assume its cron implementation supports `CRON_TZ`. A `30 7 * * *` entry interpreted in UTC runs at 3:30 AM Eastern during daylight saving time. This portable cron entry checks Eastern local time every 30 minutes and sends only at 7:30 AM:
 
 ```cron
-CRON_TZ=America/New_York
-30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
+*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1; fi'
 ```
 
-Use `CRON_TZ` so the send time stays at 7:30 AM Eastern even if the server itself is configured for UTC. Systemd examples are in `deploy/systemd` and also pin the timer to `America/New_York`.
+The backslashes before `%` are required in a crontab. Cron treats unescaped percent signs specially before passing the command to the shell.
 
 ## Deploying Changes To The Server
 
@@ -94,19 +95,19 @@ crontab -l
 crontab -e
 ```
 
-The schedule should be:
+For a cron deployment, the active entry should be:
 
 ```cron
-CRON_TZ=America/New_York
-30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1'
+*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1; fi'
 ```
 
-To update only the morning-brief cron time to 7:30 AM Eastern without opening an editor:
+If the current job uses `30 7 * * *` and the server is set to UTC, that explains a 3:30 AM Eastern delivery during daylight saving time. Replace that job using:
 
-```bash
-crontab -l | perl -pe 's{^\d+ \d+ \* \* \* cd /home/conner/repos/Projects/Daily-Brief/morning-brief}{30 7 * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief}' | crontab -
-crontab -l
+```text
+crontab -e
 ```
+
+Remove the old Daily Brief entry, add the timezone-safe entry above, save, and then run `crontab -l` to verify that only one Daily Brief job remains.
 
 From inside the server's `morning-brief` directory, `pwd` should print `/home/conner/repos/Projects/Daily-Brief/morning-brief`.
 
