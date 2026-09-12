@@ -98,7 +98,7 @@
       "title": "Gen Zs recall first learning of 'deeply harrowing, terrifying' 9/11"
     }
   ],
-  "generated_at": "2026-09-12T00:26:09.503240-04:00",
+  "generated_at": "2026-09-12T00:50:05.935366-04:00",
   "holidays": [],
   "local_news": [
     {
@@ -192,20 +192,20 @@
       "title": "Man declares bankruptcy with 34 cents while hiding millions"
     },
     {
-      "link": "https://finance.yahoo.com/healthcare/articles/nyxoah-nyxh-begins-breathe-study-211832079.html",
-      "published_at": "2026-09-10T21:18:32Z",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/northern-trust-ntrs-won-3-213701812.html",
+      "published_at": "2026-09-10T21:37:01Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Nyxoah (NYXH) Begins BREATHE Study. Can Real-World Evidence Drive Genio Adoption?"
+      "title": "Northern Trust (NTRS) Won a \u00a33.6B Pension Mandate. Can it Move Fee Growth?"
     },
     {
-      "link": "https://www.investors.com/research/ibd-stock-of-the-day/apple-stock-rises-after-iphone-duo-debut/?src=A00220&yptr=yahoo",
-      "published_at": "2026-09-10T21:32:28Z",
+      "link": "https://finance.yahoo.com/energy/articles/patterson-uti-pten-averaged-101-213510010.html",
+      "published_at": "2026-09-10T21:35:10Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Apple, IBD Stock Of The Day, Rebounds Bullishly After iPhone Duo Debut"
+      "title": "Patterson-UTI (PTEN) Averaged 101 August Rigs. Can Activity Deliver Better Margins?"
     },
     {
       "link": "https://www.cnbc.com/2026/09/11/cpi-inflation-breakdown-august-2026.html",
@@ -298,14 +298,14 @@
       "symbol": "IWM"
     },
     {
-      "change": 18.319999999992433,
-      "change_percent": 0.023729992067540884,
+      "change": 48.88999999999942,
+      "change_percent": 0.06332747337240935,
       "currency": "USD",
       "exchange": "CCC",
       "market_state": null,
       "name": "Bitcoin",
       "previous_close": 77201.88,
-      "price": 77220.2,
+      "price": 77250.77,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
@@ -823,12 +823,12 @@
       "title": "One week left to book your exhibit table at TechCrunch Disrupt 2026"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTlVNVmVmRkpaMmdEZ2dFdTB6Q0JsUUM1YVpCTC1DcHBVVE45b1otS1djRWJHSFlFX0N2bVAzVkRaaTdpVVpmVFU4UEdQc0NYSVllZ0lxcGliaWpBbmVaZFZGMHRWLVlkYWVSWDVzZ3BaVWtCdXE0b1hBMF8yVWJZWA?oc=5",
-      "published_at": "2026-09-11T09:02:30+00:00",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbUotdlJET1huVjdSelVtX19weWxyRjBBS3ViZGZUTXVETE1vMGR2cjhKbEFrYjd1OEZaQ1VZYUlMYmhEdm1rWTFYT3ZzQVE1MzFwYWNESElrUUFocHIxNmdOWUM5TlpCanhObk9nQUNHQ1N5NllWRGxfbGhPUGtfSzByUmdXSlFseUhIejFiZ3V5MWlBdnN5UVhTblJ0T0lKOENDMHBMQ1BGNU1rYVBHcGZn?oc=5",
+      "published_at": "2026-09-10T00:25:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Opinion | This Is Really Bad The New York Times",
-      "title": "Opinion | This Is Really Bad - The New York Times"
+      "summary": "How Would AI Actually Kill Us All? What to Know About the AI Doomsday Debate WSJMore Anthropic researchers warn of AI\u2019s perils but Musk dismisses \u2018psyop\u2019 The GuardianOpinion | This Is Really Bad The New York Times",
+      "title": "How Would AI Actually Kill Us All? What to Know About the AI Doomsday Debate - WSJ"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNaE5RVzVKR09WQ0pick9xYjhVaXhnYUFpOUt2OElxZjBwbTRvT2d3U2FnRmFacXd5TWFvVnpwRUo5M0lEeWVNbWJURzdlRXFLbnFHa1Y4WU43SmxKYWcwUGRFQmdjV2FGeUg4TVdPVEFkTzJtNUtQV0xtVHROLV9XekJKSTZFbmFNb0xwaFNMejRHYmpwbUdpOGRlYXoza2hjWXRTdVdNcng0cmFNV2ZwTkFYT0tma1kzTkpN?oc=5",
@@ -843,8 +843,8 @@
       "published_at": "2026-09-12T01:04:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "OpenAI reveals another rogue AI attack politico.com",
-      "title": "OpenAI reveals another rogue AI attack - politico.com"
+      "summary": "OpenAI reveals another rogue AI attack Politico",
+      "title": "OpenAI reveals another rogue AI attack - Politico"
     }
   ],
   "timezone": "America/New_York",
@@ -903,25 +903,25 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "A chance of showers and thunderstorms before 10pm, then a slight chance of showers and thunderstorms between 10pm and 11pm, then patchy fog and a slight chance of rain showers between 11pm and 1am, then a chance of rain showers and patchy fog between 1am and 2am, then patchy fog and a chance of showers and thunderstorms. Mostly cloudy, with a low around 71. South wind around 0 mph. Chance of precipitation is 40%.",
-          "name": "Tonight",
-          "short_forecast": "Chance Showers And Thunderstorms",
-          "start_time": "2026-09-11T21:00:00-04:00",
+          "detailed_forecast": "Patchy fog before 4am, then patchy fog and a slight chance of rain showers between 4am and 5am, then patchy fog and a chance of showers and thunderstorms. Mostly cloudy, with a low around 71. South wind around 0 mph. Chance of precipitation is 30%.",
+          "name": "Overnight",
+          "short_forecast": "Patchy Fog",
+          "start_time": "2026-09-12T00:00:00-04:00",
           "temperature": 71,
           "temperature_unit": "F",
           "wind": "0 mph"
         },
         {
-          "detailed_forecast": "Rain showers likely and patchy fog before 11am, then showers and thunderstorms likely between 11am and 5pm, then a chance of showers and thunderstorms. Mostly cloudy. High near 88, with temperatures falling to around 83 in the afternoon. Southwest wind 0 to 5 mph. Chance of precipitation is 70%. New rainfall amounts between a tenth and quarter of an inch possible.",
+          "detailed_forecast": "Patchy fog and showers and thunderstorms before 11am, then a chance of showers and thunderstorms. Partly sunny. High near 88, with temperatures falling to around 83 in the afternoon. Southwest wind 0 to 5 mph. Chance of precipitation is 80%. New rainfall amounts between a tenth and quarter of an inch possible.",
           "name": "Saturday",
-          "short_forecast": "Showers And Thunderstorms Likely",
+          "short_forecast": "Patchy Fog then Chance Showers And Thunderstorms",
           "start_time": "2026-09-12T06:00:00-04:00",
           "temperature": 88,
           "temperature_unit": "F",
           "wind": "0 to 5 mph SW"
         },
         {
-          "detailed_forecast": "A chance of showers and thunderstorms before 7pm, then a chance of showers and thunderstorms between 7pm and 10pm, then a slight chance of showers and thunderstorms between 10pm and 11pm, then a chance of showers and thunderstorms between midnight and 1am, then a slight chance of showers and thunderstorms between 1am and 5am. Partly cloudy, with a low around 71. Southwest wind 0 to 5 mph. Chance of precipitation is 50%. New rainfall amounts between a tenth and quarter of an inch possible.",
+          "detailed_forecast": "A chance of showers and thunderstorms before 3am. Partly cloudy, with a low around 71. Southwest wind 0 to 5 mph. Chance of precipitation is 50%. New rainfall amounts between a tenth and quarter of an inch possible.",
           "name": "Saturday Night",
           "short_forecast": "Chance Showers And Thunderstorms",
           "start_time": "2026-09-12T18:00:00-04:00",
@@ -930,9 +930,9 @@
           "wind": "0 to 5 mph SW"
         },
         {
-          "detailed_forecast": "A slight chance of showers and thunderstorms after 2pm. Mostly sunny, with a high near 91. Heat index values as high as 98. West wind 0 to 5 mph. Chance of precipitation is 20%.",
+          "detailed_forecast": "Sunny, with a high near 91. Heat index values as high as 98. West wind 0 to 5 mph.",
           "name": "Sunday",
-          "short_forecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
+          "short_forecast": "Sunny",
           "start_time": "2026-09-13T06:00:00-04:00",
           "temperature": 91,
           "temperature_unit": "F",
@@ -940,15 +940,6 @@
         }
       ],
       "hourly_next_periods": [
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Patchy Fog",
-          "start_time": "2026-09-11T23:00:00-04:00",
-          "temperature": 75,
-          "temperature_unit": "F",
-          "wind": "0 mph"
-        },
         {
           "detailed_forecast": "",
           "name": "",
@@ -961,7 +952,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Rain Showers",
+          "short_forecast": "Patchy Fog",
           "start_time": "2026-09-12T01:00:00-04:00",
           "temperature": 74,
           "temperature_unit": "F",
@@ -997,7 +988,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Rain Showers",
+          "short_forecast": "Patchy Fog",
           "start_time": "2026-09-12T05:00:00-04:00",
           "temperature": 72,
           "temperature_unit": "F",
@@ -1006,8 +997,17 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Rain Showers",
+          "short_forecast": "Patchy Fog",
           "start_time": "2026-09-12T06:00:00-04:00",
+          "temperature": 72,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Patchy Fog",
+          "start_time": "2026-09-12T07:00:00-04:00",
           "temperature": 72,
           "temperature_unit": "F",
           "wind": "0 mph"
@@ -1062,16 +1062,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Slight Chance Rain Showers",
-          "start_time": "2026-09-11T23:00:00-04:00",
-          "temperature": 76,
-          "temperature_unit": "F",
-          "wind": "5 mph S"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Slight Chance Rain Showers",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-09-12T00:00:00-04:00",
           "temperature": 75,
           "temperature_unit": "F",
@@ -1080,7 +1071,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Rain Showers",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-09-12T01:00:00-04:00",
           "temperature": 75,
           "temperature_unit": "F",
@@ -1089,7 +1080,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Showers And Thunderstorms",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-09-12T02:00:00-04:00",
           "temperature": 74,
           "temperature_unit": "F",
@@ -1098,7 +1089,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Showers And Thunderstorms",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-09-12T03:00:00-04:00",
           "temperature": 74,
           "temperature_unit": "F",
@@ -1107,7 +1098,7 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Chance Showers And Thunderstorms",
+          "short_forecast": "Slight Chance Rain Showers",
           "start_time": "2026-09-12T04:00:00-04:00",
           "temperature": 73,
           "temperature_unit": "F",
@@ -1125,8 +1116,17 @@
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
+          "short_forecast": "Chance Showers And Thunderstorms",
           "start_time": "2026-09-12T06:00:00-04:00",
+          "temperature": 73,
+          "temperature_unit": "F",
+          "wind": "5 mph S"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Showers And Thunderstorms Likely",
+          "start_time": "2026-09-12T07:00:00-04:00",
           "temperature": 73,
           "temperature_unit": "F",
           "wind": "5 mph S"

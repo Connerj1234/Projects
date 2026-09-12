@@ -4,6 +4,8 @@ import re
 from datetime import datetime
 from typing import Any
 
+from morning_brief.time_format import eastern_date, format_eastern
+
 
 NEWS_SECTIONS = (
     "traffic_commute",
@@ -109,12 +111,13 @@ def build_actions(
     games = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
     for game in games:
         starts_at = str(game.get("starts_at", ""))
-        if today and starts_at.startswith(today):
+        if today and eastern_date(starts_at) == today:
             actions.append(
                 {
                     "kind": "sports",
                     "title": f"{game.get('followed_team', 'A followed team')} play today",
-                    "detail": f"{game.get('event', 'Game')} · {starts_at}",
+                    "detail": f"{game.get('event', 'Game')} · {format_eastern(starts_at)}",
+                    "link": game.get("source_url"),
                     "score": 80,
                 }
             )

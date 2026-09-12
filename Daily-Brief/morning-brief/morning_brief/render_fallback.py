@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 from morning_brief.prioritization import NEWS_SECTIONS, SECTION_LABELS, build_briefing
+from morning_brief.time_format import format_eastern
 
 
 def render_fallback(
@@ -108,7 +109,7 @@ def append_sports(lines: list[str], sports: Any) -> None:
     for game in games:
         lines.append(
             f"- **{game.get('followed_team') or 'Major event'}**: "
-            f"{game.get('event')} · {game.get('starts_at')}"
+            f"{game.get('event')} · {format_eastern(game.get('starts_at'))}"
         )
 
 

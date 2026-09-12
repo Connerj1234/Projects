@@ -9,6 +9,7 @@ from morning_brief.http_client import USER_AGENT, headers_for_url
 from morning_brief.markdown_email import markdown_to_html
 from morning_brief.prioritization import build_briefing, compact_for_ai
 from morning_brief.render_fallback import render_fallback
+from morning_brief.time_format import eastern_date, format_eastern
 
 
 def sample_facts() -> dict:
@@ -35,7 +36,8 @@ def sample_facts() -> dict:
                 {
                     "followed_team": "Atlanta Braves",
                     "event": "Braves at Nationals",
-                    "starts_at": "2026-09-11T19:05:00-04:00",
+                    "starts_at": "2026-09-11T23:05:00Z",
+                    "source_url": "https://www.espn.com/mlb/game/example",
                 }
             ],
             "major_events": [],
@@ -89,6 +91,17 @@ class DailyBriefTests(unittest.TestCase):
         facts = sample_facts()
         briefing = build_briefing(facts, market_move_threshold=2.0)
         self.assertEqual(briefing["one_thing"]["kind"], "sports")
+        self.assertEqual(
+            briefing["one_thing"]["link"],
+            "https://www.espn.com/mlb/game/example",
+        )
+
+    def test_dates_are_presented_in_eastern_time(self) -> None:
+        self.assertEqual(eastern_date("2026-09-12T01:15:00Z"), "2026-09-11")
+        self.assertEqual(
+            format_eastern("2026-09-12T23:15:00Z"),
+            "Sep 12, 2026 · 7:15 PM ET",
+        )
 
     def test_previous_story_is_deprioritized(self) -> None:
         facts = sample_facts()
@@ -111,6 +124,9 @@ class DailyBriefTests(unittest.TestCase):
         page = render_dashboard(facts, briefing, [facts["date"]], None)
         self.assertNotIn("<script>alert(1)</script>", page)
         self.assertIn("https://example.com/local", page)
+        self.assertNotIn("The useful parts first", page)
+        self.assertIn('<details class="news-group"', page)
+        self.assertIn("Sep 11, 2026 · 7:05 PM ET", page)
 
     def test_markdown_email_renders_links(self) -> None:
         result = markdown_to_html("[Dashboard](https://example.com/brief)")

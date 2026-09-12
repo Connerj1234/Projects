@@ -167,3 +167,4 @@ Daily Brief is a personal automation with a static read-only dashboard. It does 
 - [Setup, operation, and deployment](morning-brief/README.md)
 - [Model selection and API strategy](docs/model-strategy.md)
 - [Netlify dashboard deployment](docs/netlify-deployment.md)
+- [Home-server handoff checklist](docs/server-handoff.md)
