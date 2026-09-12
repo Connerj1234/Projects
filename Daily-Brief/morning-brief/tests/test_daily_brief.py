@@ -266,7 +266,7 @@ class DailyBriefTests(unittest.TestCase):
     def test_news_headlines_are_visibly_identified_as_external_links(self) -> None:
         facts = sample_facts()
         page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
-        self.assertIn("Underlined headlines open the original story", page)
+        self.assertNotIn("Underlined headlines open the original story", page)
         self.assertIn('class="story-link" href="https://example.com/local"', page)
         self.assertIn('class="link-arrow" aria-hidden="true">↗</span>', page)
         self.assertIn("opens original story in a new tab", page)
