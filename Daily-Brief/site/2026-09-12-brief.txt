@@ -26,7 +26,7 @@
 - **QQQ** 714.88 USD · +0.87%
 - **DIA** 525.79 USD · +0.97%
 - **IWM** 288.89 USD · +0.41%
-- **BTC-USD** 77250.77 USD · +0.06%
+- **BTC-USD** 77229.58 USD · +0.04%
 - **NVDA** 218.29 USD · -0.03%
 
 ## New Since Yesterday

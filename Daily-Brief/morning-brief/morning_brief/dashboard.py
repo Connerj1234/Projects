@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import json
 import shutil
+from collections import defaultdict
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -112,9 +113,9 @@ def render_dashboard(
     sports = facts.get("sports", {})
     followed = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
     major = sports.get("major_events", []) if isinstance(sports, dict) else []
-    sports_cards = "".join(event_card(item) for item in (followed + major)[:8])
-    if not sports_cards:
-        sports_cards = '<p class="empty">No followed games or major events in the window.</p>'
+    sports_groups = render_sports_groups(followed + major)
+    if not sports_groups:
+        sports_groups = '<p class="empty">No followed games or major events in the window.</p>'
     markets = "".join(market_card(item) for item in facts.get("market_watchlist", []))
 
     body = f"""
@@ -145,7 +146,7 @@ def render_dashboard(
         </section>
         <section>
           <div class="section-heading"><div><p class="eyebrow">COMING UP</p><h2>Sports & events</h2></div></div>
-          <div class="card-grid">{sports_cards}</div>
+          <div class="sport-groups">{sports_groups}</div>
         </section>
         <section>
           <div class="section-heading"><div><p class="eyebrow">WATCHLIST</p><h2>Markets</h2></div></div>
@@ -230,6 +231,28 @@ def event_card(item: dict[str, Any]) -> str:
     )
 
 
+def render_sports_groups(items: list[dict[str, Any]], per_sport: int = 3) -> str:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for item in sorted(items, key=lambda value: str(value.get("starts_at") or "")):
+        sport = str(item.get("sport_path") or "other").split("/", 1)[0]
+        grouped[sport].append(item)
+
+    groups = []
+    for sport, events in grouped.items():
+        visible = events[:per_sport]
+        label = SPORT_LABELS.get(sport, sport.replace("_", " ").title())
+        count_label = (
+            f"Next {len(visible)} of {len(events)}" if len(events) > per_sport
+            else f"{len(events)} upcoming"
+        )
+        groups.append(
+            f'<section class="sport-group"><div class="sport-heading">'
+            f'<h3>{escape(label)}</h3><span>{escape(count_label)}</span></div>'
+            f'<div class="card-grid">{"".join(event_card(item) for item in visible)}</div></section>'
+        )
+    return "".join(groups)
+
+
 def market_card(item: dict[str, Any]) -> str:
     if item.get("error"):
         return ""
@@ -282,7 +305,7 @@ def markdown_fragment(value: str) -> str:
 CSS = """
 :root{--ink:#17201d;--muted:#66706b;--paper:#f3f0e8;--card:#fffdf8;--line:#d9d5ca;--green:#1c5b47;--lime:#dce9a8;--red:#a13f37;--shadow:0 14px 35px rgba(34,45,40,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit}body>header,main,footer{width:min(1120px,calc(100% - 32px));margin-inline:auto}.hero{display:flex;justify-content:space-between;gap:40px;padding:64px 0 34px;border-bottom:1px solid var(--line)}.hero.compact{display:block}.hero h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.4rem);font-weight:500;letter-spacing:-.055em;line-height:.96;margin:.16em 0}.hero.compact h1{font-size:clamp(2.6rem,6vw,5rem)}.eyebrow{color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.14em;margin:0 0 8px}.lede{color:var(--muted);font-size:1.08rem;max-width:620px}.archive-picker{align-self:flex-end;color:var(--muted);font-size:.8rem}select{display:block;margin-top:6px;padding:10px 34px 10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}main>section{padding:42px 0;border-bottom:1px solid var(--line)}.signal{background:var(--green);color:white;margin-top:30px;padding:36px;border-radius:18px;border:0;box-shadow:var(--shadow)}.signal .eyebrow{color:var(--lime)}.signal h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:500;line-height:1.05;max-width:800px;margin:10px 0}.signal p:not(.eyebrow){max-width:760px;color:#e7eee9}.editorial{padding:26px 30px;margin-top:18px;background:#e7eadb;border:1px solid #cdd3b4;border-radius:14px}.editorial p:last-child{margin-bottom:0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-heading h2{font-family:Georgia,serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;margin:0}.quiet,.empty{color:var(--muted)}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(34,45,40,.035)}.card h3{margin:4px 0 8px;font-size:1.05rem}.card p:last-child{margin-bottom:0}.action{border-top:4px solid var(--green)}.action.weather{border-top-color:var(--red)}.weather-row{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:10px 0;border-top:1px solid var(--line)}.weather-row p{grid-column:1/-1;color:var(--muted);margin:0}.story-list{display:grid;gap:8px}.story{display:flex;justify-content:space-between;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.story h4{font-size:1.05rem;line-height:1.35;margin:3px 0}.story p{color:var(--muted);font-size:.9rem;margin:7px 0 0}.story .source{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}.story-link{text-decoration:none}.story-link:hover{text-decoration:underline}.badge{display:inline-block;background:#eee9dd;border-radius:20px;padding:2px 7px;margin-left:5px;text-transform:none;letter-spacing:0}.badge.new{background:var(--lime);color:#334018}.save{align-self:start;border:0;background:transparent;color:var(--green);font-size:1.45rem;cursor:pointer}.save.saved{color:#bd7d16}.news-group{padding:20px 0}.news-group h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500}.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.filter{white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:8px 13px;background:transparent;color:var(--ink);cursor:pointer}.filter.active{background:var(--ink);color:white}.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.ticker{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.ticker span{display:block;color:var(--muted);font-size:.75rem}.ticker .price{text-align:right;font-weight:700}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.text-link,.back{display:inline-block;margin-top:8px;font-weight:700;text-underline-offset:3px}.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;padding:30px 0}.compare-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}.compare-card h2{font-family:Georgia,serif;font-size:2rem;margin:0}.model-output{margin-top:24px}.meta{color:var(--muted);font-size:.8rem}footer{padding:30px 0 60px;color:var(--muted);font-size:.8rem}
-.news-group{padding:0;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.news-group summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-family:Georgia,serif;font-size:1.55rem;list-style:none}.news-group summary::-webkit-details-marker{display:none}.news-group summary:after{content:'+';font-family:Inter,sans-serif;color:var(--green);font-size:1.5rem}.news-group[open] summary:after{content:'−'}.news-group .story-list{padding:0 12px 12px}.story-count{margin-left:auto;color:var(--muted);font-family:Inter,sans-serif;font-size:.75rem}
+.sport-groups{display:grid;gap:28px}.sport-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}.sport-heading h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:0}.sport-heading span{color:var(--muted);font-size:.75rem}.news-group{padding:0;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.news-group summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-family:Georgia,serif;font-size:1.55rem;list-style:none}.news-group summary::-webkit-details-marker{display:none}.news-group summary:after{content:'+';font-family:Inter,sans-serif;color:var(--green);font-size:1.5rem}.news-group[open] summary:after{content:'−'}.news-group .story-list{padding:0 12px 12px}.story-count{margin-left:auto;color:var(--muted);font-family:Inter,sans-serif;font-size:.75rem}.filters{scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x;overscroll-behavior-inline:contain}.filters::-webkit-scrollbar{display:none}
 @media(max-width:650px){.hero{display:block;padding-top:38px}.archive-picker{display:block;margin-top:22px}.signal{padding:25px}.section-heading{display:block}.section-heading .quiet{display:block;margin-top:8px}.story{padding:15px}}
 """
 
@@ -301,3 +324,15 @@ NETLIFY_HEADERS = """/*
   X-Frame-Options: DENY
   X-Robots-Tag: noindex, nofollow, noarchive
 """
+
+
+SPORT_LABELS = {
+    "baseball": "Baseball",
+    "basketball": "Basketball",
+    "football": "Football",
+    "hockey": "Hockey",
+    "soccer": "Soccer",
+    "golf": "Golf",
+    "racing": "Racing",
+    "tennis": "Tennis",
+}

@@ -98,7 +98,7 @@
       "title": "Gen Zs recall first learning of 'deeply harrowing, terrifying' 9/11"
     }
   ],
-  "generated_at": "2026-09-12T00:50:05.935366-04:00",
+  "generated_at": "2026-09-12T00:54:08.985736-04:00",
   "holidays": [],
   "local_news": [
     {
@@ -192,20 +192,20 @@
       "title": "Man declares bankruptcy with 34 cents while hiding millions"
     },
     {
-      "link": "https://finance.yahoo.com/markets/stocks/articles/northern-trust-ntrs-won-3-213701812.html",
-      "published_at": "2026-09-10T21:37:01Z",
+      "link": "https://finance.yahoo.com/energy/articles/higher-oil-prices-let-mexico-220000091.html",
+      "published_at": "2026-09-10T22:00:00Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Northern Trust (NTRS) Won a \u00a33.6B Pension Mandate. Can it Move Fee Growth?"
+      "title": "Higher Oil Prices Let Mexico Pull Back Billions in Pemex Support"
     },
     {
-      "link": "https://finance.yahoo.com/energy/articles/patterson-uti-pten-averaged-101-213510010.html",
-      "published_at": "2026-09-10T21:35:10Z",
+      "link": "https://finance.yahoo.com/markets/commodities/articles/corn-squares-ahead-usda-report-222044111.html",
+      "published_at": "2026-09-10T22:20:44Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Patterson-UTI (PTEN) Averaged 101 August Rigs. Can Activity Deliver Better Margins?"
+      "title": "Corn Squares Up Ahead of USDA Report Day"
     },
     {
       "link": "https://www.cnbc.com/2026/09/11/cpi-inflation-breakdown-august-2026.html",
@@ -298,14 +298,14 @@
       "symbol": "IWM"
     },
     {
-      "change": 48.88999999999942,
-      "change_percent": 0.06332747337240935,
+      "change": 27.69999999999709,
+      "change_percent": 0.03587995525497188,
       "currency": "USD",
       "exchange": "CCC",
       "market_state": null,
       "name": "Bitcoin",
       "previous_close": 77201.88,
-      "price": 77250.77,
+      "price": 77229.58,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
