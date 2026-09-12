@@ -120,13 +120,13 @@ def render_dashboard(
 
     body = f"""
       <header class="hero">
-        <div>
+        <div class="hero-meta">
           <p class="eyebrow">YOUR DAILY BRIEF · {escape(date)}</p>
-          <h1>Good morning.</h1>
+          <label class="archive-picker"><span>Past briefs</span>
+            <select aria-label="Past briefs" onchange="if(this.value) location.href=this.value">{archive_options}</select>
+          </label>
         </div>
-        <label class="archive-picker">Past briefs
-          <select onchange="if(this.value) location.href=this.value">{archive_options}</select>
-        </label>
+        <h1>Good morning.</h1>
       </header>
       <main>
         <section class="signal">
@@ -137,7 +137,7 @@ def render_dashboard(
         </section>
         {ai_block}
         <section>
-          <div class="section-heading"><div><p class="eyebrow">RIGHT NOW</p><h2>Needs attention</h2></div></div>
+          <div class="section-heading"><div><p class="eyebrow">RIGHT NOW</p><h2>Today’s highlights</h2></div></div>
           <div class="card-grid actions">{actions}</div>
         </section>
         <section>
@@ -153,7 +153,7 @@ def render_dashboard(
           <div class="ticker-grid">{markets or '<p class="empty">Market data unavailable.</p>'}</div>
         </section>
         <section>
-          <div class="section-heading"><div><p class="eyebrow">SINCE YESTERDAY</p><h2>What changed</h2></div><span class="quiet">{briefing.get('repeated_count', 0)} repeated stories deprioritized</span></div>
+          <div class="section-heading"><div><p class="eyebrow">SINCE YESTERDAY</p><h2>What changed</h2></div></div>
           <div class="story-list">{changes}</div>
         </section>
         <section>
@@ -262,10 +262,52 @@ def market_card(item: dict[str, Any]) -> str:
     if isinstance(change, (int, float)):
         css = "up" if change >= 0 else "down"
         change_text = f"{change:+.2f}%"
+    history_change = item.get("history_change_percent")
+    history_css = "flat"
+    history_text = "6M —"
+    if isinstance(history_change, (int, float)):
+        history_css = "up" if history_change >= 0 else "down"
+        history_text = f"6M {history_change:+.1f}%"
+    chart = market_sparkline(
+        item.get("history_6m", []),
+        str(item.get("symbol", "Market")),
+        history_change,
+    )
     return (
-        f'<article class="ticker"><div><strong>{escape(item.get("symbol"))}</strong>'
+        f'<article class="ticker"><div class="ticker-top"><div><strong>{escape(item.get("symbol"))}</strong>'
         f'<span>{escape(item.get("name"))}</span></div><div class="price">{escape(item.get("price"))}'
-        f'<span class="{css}">{escape(change_text)}</span></div></article>'
+        f'<span class="{css}">{escape(change_text)}</span></div></div>{chart}'
+        f'<span class="market-period {history_css}">{escape(history_text)}</span></article>'
+    )
+
+
+def market_sparkline(history: list[dict[str, Any]], symbol: str, change: Any) -> str:
+    values = [
+        float(point["close"])
+        for point in history
+        if isinstance(point, dict) and isinstance(point.get("close"), (int, float))
+    ]
+    if len(values) < 2:
+        return '<div class="sparkline empty-chart" aria-hidden="true"></div>'
+    if len(values) > 64:
+        values = [values[round(index * (len(values) - 1) / 63)] for index in range(64)]
+    low, high = min(values), max(values)
+    spread = high - low
+    points = []
+    for index, value in enumerate(values):
+        x = index * 240 / (len(values) - 1)
+        y = 26 if spread == 0 else 4 + ((high - value) / spread * 44)
+        points.append(f"{x:.1f},{y:.1f}")
+    direction = "up" if isinstance(change, (int, float)) and change >= 0 else "down"
+    description = (
+        f"{symbol} six-month trend, {change:+.1f} percent"
+        if isinstance(change, (int, float))
+        else f"{symbol} six-month trend"
+    )
+    return (
+        f'<svg class="sparkline {direction}" viewBox="0 0 240 52" role="img" '
+        f'aria-label="{escape(description)}" preserveAspectRatio="none">'
+        f'<polyline points="{escape(" ".join(points))}"/></svg>'
     )
 
 
@@ -306,7 +348,8 @@ CSS = """
 :root{--ink:#17201d;--muted:#66706b;--paper:#f3f0e8;--card:#fffdf8;--line:#d9d5ca;--green:#1c5b47;--lime:#dce9a8;--red:#a13f37;--shadow:0 14px 35px rgba(34,45,40,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit}body>header,main,footer{width:min(1120px,calc(100% - 32px));margin-inline:auto}.hero{display:flex;justify-content:space-between;gap:40px;padding:64px 0 34px;border-bottom:1px solid var(--line)}.hero.compact{display:block}.hero h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.4rem);font-weight:500;letter-spacing:-.055em;line-height:.96;margin:.16em 0}.hero.compact h1{font-size:clamp(2.6rem,6vw,5rem)}.eyebrow{color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.14em;margin:0 0 8px}.lede{color:var(--muted);font-size:1.08rem;max-width:620px}.archive-picker{align-self:flex-end;color:var(--muted);font-size:.8rem}select{display:block;margin-top:6px;padding:10px 34px 10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}main>section{padding:42px 0;border-bottom:1px solid var(--line)}.signal{background:var(--green);color:white;margin-top:30px;padding:36px;border-radius:18px;border:0;box-shadow:var(--shadow)}.signal .eyebrow{color:var(--lime)}.signal h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:500;line-height:1.05;max-width:800px;margin:10px 0}.signal p:not(.eyebrow){max-width:760px;color:#e7eee9}.editorial{padding:26px 30px;margin-top:18px;background:#e7eadb;border:1px solid #cdd3b4;border-radius:14px}.editorial p:last-child{margin-bottom:0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-heading h2{font-family:Georgia,serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;margin:0}.quiet,.empty{color:var(--muted)}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(34,45,40,.035)}.card h3{margin:4px 0 8px;font-size:1.05rem}.card p:last-child{margin-bottom:0}.action{border-top:4px solid var(--green)}.action.weather{border-top-color:var(--red)}.weather-row{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:10px 0;border-top:1px solid var(--line)}.weather-row p{grid-column:1/-1;color:var(--muted);margin:0}.story-list{display:grid;gap:8px}.story{display:flex;justify-content:space-between;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.story h4{font-size:1.05rem;line-height:1.35;margin:3px 0}.story p{color:var(--muted);font-size:.9rem;margin:7px 0 0}.story .source{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}.story-link{text-decoration:none}.story-link:hover{text-decoration:underline}.badge{display:inline-block;background:#eee9dd;border-radius:20px;padding:2px 7px;margin-left:5px;text-transform:none;letter-spacing:0}.badge.new{background:var(--lime);color:#334018}.save{align-self:start;border:0;background:transparent;color:var(--green);font-size:1.45rem;cursor:pointer}.save.saved{color:#bd7d16}.news-group{padding:20px 0}.news-group h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500}.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.filter{white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:8px 13px;background:transparent;color:var(--ink);cursor:pointer}.filter.active{background:var(--ink);color:white}.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.ticker{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.ticker span{display:block;color:var(--muted);font-size:.75rem}.ticker .price{text-align:right;font-weight:700}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.text-link,.back{display:inline-block;margin-top:8px;font-weight:700;text-underline-offset:3px}.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;padding:30px 0}.compare-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}.compare-card h2{font-family:Georgia,serif;font-size:2rem;margin:0}.model-output{margin-top:24px}.meta{color:var(--muted);font-size:.8rem}footer{padding:30px 0 60px;color:var(--muted);font-size:.8rem}
 .sport-groups{display:grid;gap:28px}.sport-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}.sport-heading h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:0}.sport-heading span{color:var(--muted);font-size:.75rem}.news-group{padding:0;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.news-group summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-family:Georgia,serif;font-size:1.55rem;list-style:none}.news-group summary::-webkit-details-marker{display:none}.news-group summary:after{content:'+';font-family:Inter,sans-serif;color:var(--green);font-size:1.5rem}.news-group[open] summary:after{content:'−'}.news-group .story-list{padding:0 12px 12px}.story-count{margin-left:auto;color:var(--muted);font-family:Inter,sans-serif;font-size:.75rem}.filters{scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x;overscroll-behavior-inline:contain}.filters::-webkit-scrollbar{display:none}
-@media(max-width:650px){.hero{display:block;padding-top:38px}.archive-picker{display:block;margin-top:22px}.signal{padding:25px}.section-heading{display:block}.section-heading .quiet{display:block;margin-top:8px}.story{padding:15px}}
+.hero{display:block}.hero-meta{display:flex;align-items:center;justify-content:space-between;gap:20px}.hero-meta .eyebrow{margin:0}.hero h1{margin:.22em 0 0}.archive-picker{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.8rem;white-space:nowrap}.archive-picker select{display:inline-block;margin:0;padding:8px 32px 8px 11px}.ticker-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}.ticker{display:grid;gap:8px}.ticker-top{display:flex;justify-content:space-between;gap:12px}.sparkline{display:block;width:100%;height:52px;color:var(--muted)}.sparkline polyline{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.sparkline.up{color:var(--green)}.sparkline.down{color:var(--red)}.empty-chart{height:52px;background:linear-gradient(180deg,transparent 49%,var(--line) 50%,transparent 51%)}.ticker .market-period{font-size:.68rem;font-weight:700;text-align:right}.ticker .market-period.up{color:var(--green)}.ticker .market-period.down{color:var(--red)}
+@media(max-width:650px){.hero{padding-top:38px}.hero-meta{align-items:flex-start}.archive-picker span{display:none}.archive-picker select{padding:7px 28px 7px 9px}.signal{padding:25px}.section-heading{display:block}.story{padding:15px}}
 """
 
 

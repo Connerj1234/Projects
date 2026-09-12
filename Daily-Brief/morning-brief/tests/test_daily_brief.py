@@ -3,6 +3,7 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from morning_brief.dashboard import (
     render_dashboard,
@@ -14,6 +15,7 @@ from morning_brief.http_client import USER_AGENT, headers_for_url
 from morning_brief.markdown_email import markdown_to_html
 from morning_brief.prioritization import build_briefing, compact_for_ai
 from morning_brief.render_fallback import render_fallback
+from morning_brief.sources.markets import collect_market_watchlist
 from morning_brief.time_format import eastern_date, format_eastern
 
 
@@ -54,6 +56,11 @@ def sample_facts() -> dict:
                 "price": 192.15,
                 "currency": "USD",
                 "change_percent": 2.8,
+                "history_6m": [
+                    {"timestamp": 1, "close": 150.0},
+                    {"timestamp": 2, "close": 192.15},
+                ],
+                "history_change_percent": 28.1,
             }
         ],
         "traffic_commute": [
@@ -137,6 +144,47 @@ class DailyBriefTests(unittest.TestCase):
         page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
         self.assertIn("scrollbar-width:none", page)
         self.assertIn(".filters::-webkit-scrollbar{display:none}", page)
+
+    def test_dashboard_uses_compact_header_and_friendlier_labels(self) -> None:
+        facts = sample_facts()
+        page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
+        self.assertIn('class="hero-meta"', page)
+        self.assertIn("Today’s highlights", page)
+        self.assertNotIn("Needs attention", page)
+        self.assertNotIn("stories deprioritized", page)
+
+    def test_market_card_includes_accessible_six_month_sparkline(self) -> None:
+        facts = sample_facts()
+        page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
+        self.assertIn('class="sparkline up"', page)
+        self.assertIn("NVDA six-month trend, +28.1 percent", page)
+        self.assertIn("6M +28.1%", page)
+
+    @patch("morning_brief.sources.markets.safe_get_json")
+    def test_market_collection_requests_six_month_history(self, get_json) -> None:
+        get_json.return_value = (
+            {
+                "chart": {
+                    "result": [
+                        {
+                            "meta": {
+                                "regularMarketPrice": 120.0,
+                                "previousClose": 118.0,
+                                "currency": "USD",
+                            },
+                            "timestamp": [1, 2, 3],
+                            "indicators": {"quote": [{"close": [100.0, None, 120.0]}]},
+                        }
+                    ]
+                }
+            },
+            None,
+        )
+        result = collect_market_watchlist([{"symbol": "TEST", "name": "Test"}])[0]
+        self.assertIn("range=6mo&interval=1d", get_json.call_args.args[0])
+        self.assertEqual(len(result["history_6m"]), 2)
+        self.assertAlmostEqual(result["history_change_percent"], 20.0)
+        self.assertAlmostEqual(result["change_percent"], (2 / 118) * 100)
 
     def test_previous_story_is_deprioritized(self) -> None:
         facts = sample_facts()
