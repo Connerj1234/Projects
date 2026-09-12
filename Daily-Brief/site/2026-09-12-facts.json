@@ -98,7 +98,7 @@
       "title": "Gen Zs recall first learning of 'deeply harrowing, terrifying' 9/11"
     }
   ],
-  "generated_at": "2026-09-12T02:16:01.377539-04:00",
+  "generated_at": "2026-09-12T02:37:03.634323-04:00",
   "holidays": [],
   "local_news": [
     {
@@ -192,20 +192,20 @@
       "title": "Popular women's clothing chain closes 177 stores"
     },
     {
-      "link": "https://finance.yahoo.com/markets/crypto/articles/citigroup-c-completed-weekend-tokenized-231303058.html",
-      "published_at": "2026-09-10T23:11:19Z",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/casey-general-stores-casy-grew-233742572.html",
+      "published_at": "2026-09-10T23:37:42Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Citigroup (C) Completed a Weekend Tokenized-Dollar Transfer. Can the Network Scale?"
+      "title": "Casey\u2019s General Stores (CASY) Grew EBITDA 17.1%. Can Fuel Sustain Growth?"
     },
     {
-      "link": "https://finance.yahoo.com/technology/ai/articles/cognizant-ctsh-17-ai-agents-231307532.html",
-      "published_at": "2026-09-10T23:13:07Z",
+      "link": "https://finance.yahoo.com/real-estate/articles/high-yield-advertising-reit-just-233002316.html",
+      "published_at": "2026-09-10T23:30:02Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Cognizant (CTSH): Can 17 AI Agents Turn Productivity Into Revenue?"
+      "title": "This High-Yield Advertising REIT Just Raised Its Dividend by More Than 3%"
     },
     {
       "link": "https://www.cnbc.com/2026/09/11/cpi-inflation-breakdown-august-2026.html",
@@ -225,7 +225,7 @@
     },
     {
       "link": "https://www.cnbc.com/2026/09/12/brics-summit-xi-putin-modi-trump.html",
-      "published_at": "2026-09-12T05:58:37+00:00",
+      "published_at": "2026-09-12T06:25:50+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
       "summary": "Xi, Putin and Modi meet in New Delhi as U.S. tariffs, sanctions and the Iran war test whether BRICS members can find more common ground.",
@@ -2342,8 +2342,8 @@
       "symbol": "IWM"
     },
     {
-      "change": 639.4750000000058,
-      "change_percent": 0.8351712935376253,
+      "change": 693.6150000000052,
+      "change_percent": 0.9058795680317432,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
@@ -3080,15 +3080,15 @@
           "timestamp": 1788998400
         },
         {
-          "close": 77207.6015625,
+          "close": 77261.7421875,
           "timestamp": 1789171200
         }
       ],
-      "history_change_percent": 9.524484928400392,
+      "history_change_percent": 9.601286378180253,
       "market_state": null,
       "name": "Bitcoin",
       "previous_close": 76568.125,
-      "price": 77207.6,
+      "price": 77261.74,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
@@ -4121,8 +4121,8 @@
       "published_at": "2026-09-11T09:02:30+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Opinion | This Is Really Bad The New York Times",
-      "title": "Opinion | This Is Really Bad - The New York Times"
+      "summary": "Opinion | This Is Really Bad nytimes.com",
+      "title": "Opinion | This Is Really Bad - nytimes.com"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNaE5RVzVKR09WQ0pick9xYjhVaXhnYUFpOUt2OElxZjBwbTRvT2d3U2FnRmFacXd5TWFvVnpwRUo5M0lEeWVNbWJURzdlRXFLbnFHa1Y4WU43SmxKYWcwUGRFQmdjV2FGeUg4TVdPVEFkTzJtNUtQV0xtVHROLV9XekJKSTZFbmFNb0xwaFNMejRHYmpwbUdpOGRlYXoza2hjWXRTdVdNcng0cmFNV2ZwTkFYT0tma1kzTkpN?oc=5",
@@ -4357,15 +4357,6 @@
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Mostly Cloudy",
-          "start_time": "2026-09-12T01:00:00-04:00",
-          "temperature": 75,
-          "temperature_unit": "F",
-          "wind": "5 mph S"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-09-12T02:00:00-04:00",
           "temperature": 74,
           "temperature_unit": "F",
@@ -4422,6 +4413,15 @@
           "short_forecast": "Showers And Thunderstorms",
           "start_time": "2026-09-12T08:00:00-04:00",
           "temperature": 73,
+          "temperature_unit": "F",
+          "wind": "5 mph S"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Showers And Thunderstorms Likely",
+          "start_time": "2026-09-12T09:00:00-04:00",
+          "temperature": 74,
           "temperature_unit": "F",
           "wind": "5 mph S"
         }
