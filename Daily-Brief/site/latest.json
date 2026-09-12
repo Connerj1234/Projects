@@ -98,7 +98,7 @@
       "title": "Gen Zs recall first learning of 'deeply harrowing, terrifying' 9/11"
     }
   ],
-  "generated_at": "2026-09-12T02:04:05.694711-04:00",
+  "generated_at": "2026-09-12T02:16:01.377539-04:00",
   "holidays": [],
   "local_news": [
     {
@@ -108,14 +108,6 @@
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
       "summary": "2 bodies found in metro Atlanta neighborhood WSB-TV",
       "title": "2 bodies found in metro Atlanta neighborhood - WSB-TV"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNUmllSlBTb1E1cGxOSFBMU2xONTBGTjlidm5TVGRjaTF2UTMxbzY5ck9tX2duY0h6djBOME85SElOQVlJUkM4d0phTmg5WnhwckdhLTBXTUlFVVFWVnJCVXllWWpoSzdDX0h4QmZ0NHlXVmlWSjVKTUdJZDlqNGVEZ3dn?oc=5",
-      "published_at": "2026-09-11T14:35:26+00:00",
-      "source": "\"Atlanta Georgia local news\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "NFL Expert Picks: Who will win in Week 1, Falcons or Steelers? Atlanta Falcons",
-      "title": "NFL Expert Picks: Who will win in Week 1, Falcons or Steelers? - Atlanta Falcons"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNNldtd3lYOWRaQmpuYmxTQ01hMXRNWkg4NlpyYWlCMFVRVl92M1BoaE45Yzc0N1F3dk5NS0RWaVctTGFnUWZJdktULWVmRlZUeW54XzZyV0gyR1dUMmJwdDAwZXlBbUVQWVRUWGd4cWhmeE5qTFV0OE4za2dlWkQyaWpjbmxxOE1DSE1pQWpwNjNjOWJQWVRJU0dLMW9rRmg3dmE0SVpqRHZudw?oc=5",
@@ -140,6 +132,14 @@
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
       "summary": "UGA police IT worker demoted for misusing Flock cameras, school says Atlanta News First",
       "title": "UGA police IT worker demoted for misusing Flock cameras, school says - Atlanta News First"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9ZZHlabWVENWNFT2l3Z2RqOElySVJ5cnRpdmV1b21JWGh1UEdmMzczc1FNdmQ0LTg5dEI5QmVHaE9FTjdKM3B6ZXd2MWV2c3g2N1E?oc=5",
+      "published_at": "2026-09-11T17:53:04+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Add Us On Google Add as a preferred source on Google ROME, Ga. (Atlanta News First) - A shooting involving an officer was reported in Rome on Friday. The shooting incident happened near Etowah Terrace and South Broad Street, according to the Rome P instagram.com",
+      "title": "Add Us On Google Add as a preferred source on Google ROME, Ga. (Atlanta News First) - A shooting involving an officer was reported in Rome on Friday. The shooting incident happened near Etowah Terrace and South Broad Street, according to the Rome P - instagram.com"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObWpKQ0tWaG54MzRjMmdNQWN1ZU5jbzN4NGtKc3Q2OHhiN093cG83d3VwWVJ2YTNsbzNzNjFnc0hkRTBFMUZTQUZXWnRSUkItVXVEZGFNRmkwaWNYMWpCdmp6SU1VY3JaaWtlZUVHdFozSUpWSTg4MktnY05haFRTX3Jham1rMXdIeHI5NWRYbFlIQ3pNbFh1alpB?oc=5",
@@ -168,6 +168,14 @@
   ],
   "market_news": [
     {
+      "link": "https://finance.yahoo.com/markets/crypto/articles/man-declares-bankruptcy-34-cents-234136167.html",
+      "published_at": "2026-09-10T23:41:36Z",
+      "source": "Yahoo Finance",
+      "source_feed": "https://finance.yahoo.com/news/rssindex",
+      "summary": "",
+      "title": "Man declares bankruptcy with 34 cents while hiding millions"
+    },
+    {
       "link": "https://finance.yahoo.com/technology/ai/articles/hive-brings-enterprise-veteran-scale-233612805.html",
       "published_at": "2026-09-10T23:36:12Z",
       "source": "Yahoo Finance",
@@ -184,28 +192,20 @@
       "title": "Popular women's clothing chain closes 177 stores"
     },
     {
-      "link": "https://finance.yahoo.com/markets/crypto/articles/man-declares-bankruptcy-34-cents-234136167.html",
-      "published_at": "2026-09-10T23:41:36Z",
+      "link": "https://finance.yahoo.com/markets/crypto/articles/citigroup-c-completed-weekend-tokenized-231303058.html",
+      "published_at": "2026-09-10T23:11:19Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Man declares bankruptcy with 34 cents while hiding millions"
+      "title": "Citigroup (C) Completed a Weekend Tokenized-Dollar Transfer. Can the Network Scale?"
     },
     {
-      "link": "https://finance.yahoo.com/energy/articles/why-united-states-belated-critical-230000986.html",
-      "published_at": "2026-09-10T23:00:00Z",
+      "link": "https://finance.yahoo.com/technology/ai/articles/cognizant-ctsh-17-ai-agents-231307532.html",
+      "published_at": "2026-09-10T23:13:07Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Why The United States\u2019 Belated Critical Minerals Gambit Won\u2019t Stop China"
-    },
-    {
-      "link": "https://finance.yahoo.com/markets/stocks/articles/descartes-reports-another-record-breaking-230516971.html",
-      "published_at": "2026-09-10T23:05:16Z",
-      "source": "Yahoo Finance",
-      "source_feed": "https://finance.yahoo.com/news/rssindex",
-      "summary": "",
-      "title": "Descartes reports another record-breaking quarter"
+      "title": "Cognizant (CTSH): Can 17 AI Agents Turn Productivity Into Revenue?"
     },
     {
       "link": "https://www.cnbc.com/2026/09/11/cpi-inflation-breakdown-august-2026.html",
@@ -224,6 +224,14 @@
       "title": "Saudi Arabia shut down East-West crude oil pipeline after multiple attacks by drones from Iraq"
     },
     {
+      "link": "https://www.cnbc.com/2026/09/12/brics-summit-xi-putin-modi-trump.html",
+      "published_at": "2026-09-12T05:58:37+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Xi, Putin and Modi meet in New Delhi as U.S. tariffs, sanctions and the Iran war test whether BRICS members can find more common ground.",
+      "title": "Trump's America-first world is pushing other powers to hedge their bets"
+    },
+    {
       "link": "https://www.cnbc.com/2026/09/11/the-inside-story-on-the-historic-us-venezuela-oil-deal-and-how-it-will-work.html",
       "published_at": "2026-09-11T16:59:05+00:00",
       "source": "US Top News and Analysis",
@@ -232,20 +240,12 @@
       "title": "I went to Caracas for Venezuela\u2019s new oil deals. Here\u2019s what stood out"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/11/dell-stock-rbc-initiation.html",
-      "published_at": "2026-09-11T20:48:19+00:00",
+      "link": "https://www.cnbc.com/2026/09/11/iran-russia-brics-sanctions-energy.html",
+      "published_at": "2026-09-11T15:10:45+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Dell sold about $16.4 billion of AI servers in its second quarter, RBC said.",
-      "title": "Dell stock jumps on RBC initiation, now up nearly 350% in 2026"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/09/11/dan-chung-rebuilt-a-decimated-alger-management-after-9/11-hes-still-finding-the-markets-winners.html",
-      "published_at": "2026-09-11T20:21:01+00:00",
-      "source": "US Top News and Analysis",
-      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The CEO and chief investment officer at Fred Alger Management survived the attack by chance. He was tasked with reconstruction after 35 staffers died.",
-      "title": "Dan Chung rebuilt a decimated Alger Management after 9/11. He's still finding the market's winners"
+      "summary": "Iranian President Masoud Pezeshkian and Russian President Vladimir Putin criticized Western sanctions and asked the BRICS bloc to deepen trade ties.",
+      "title": "Iran, Russia condemn Western economic sanctions and urge BRICS bloc to deepen economic ties"
     }
   ],
   "market_watchlist": [
@@ -2342,8 +2342,8 @@
       "symbol": "IWM"
     },
     {
-      "change": 622.4550000000017,
-      "change_percent": 0.8129427225754866,
+      "change": 639.4750000000058,
+      "change_percent": 0.8351712935376253,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
@@ -3080,15 +3080,15 @@
           "timestamp": 1788998400
         },
         {
-          "close": 77190.578125,
+          "close": 77207.6015625,
           "timestamp": 1789171200
         }
       ],
-      "history_change_percent": 9.500340845000807,
+      "history_change_percent": 9.524484928400392,
       "market_state": null,
       "name": "Bitcoin",
       "previous_close": 76568.125,
-      "price": 77190.58,
+      "price": 77207.6,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
