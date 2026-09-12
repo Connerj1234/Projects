@@ -17,6 +17,8 @@ class BriefConfig:
     market_watchlist: list[dict[str, Any]]
     rss_feeds: dict[str, list[str]]
     limits: dict[str, int]
+    preferred_keywords: list[str]
+    market_move_threshold: float
 
 
 def load_config(path: Path) -> BriefConfig:
@@ -30,4 +32,6 @@ def load_config(path: Path) -> BriefConfig:
         market_watchlist=data.get("market_watchlist", []),
         rss_feeds=data.get("rss_feeds", {}),
         limits=data.get("limits", {}),
+        preferred_keywords=data.get("preferred_keywords", []),
+        market_move_threshold=float(data.get("market_move_threshold", 2.0)),
     )

@@ -4,15 +4,15 @@
 
 The morning brief currently uses the OpenAI API, not a ChatGPT subscription.
 
-The server runs `morning-brief/run_brief.py` from cron. The script fetches weather, sports, news RSS, and holiday facts itself, writes the facts to JSON, then sends that JSON to the OpenAI Responses API. The model's job is to turn known facts into a concise plain-text email.
+The server runs `morning-brief/run_brief.py` from cron. The script fetches weather, sports, news RSS, and holiday facts itself, writes the facts to JSON, then locally ranks and renders a static dashboard and concise email. When enabled, the model writes only a short editorial note from a bounded selection of the highest-ranked facts.
 
 Default model:
 
 ```env
-OPENAI_MODEL=gpt-5.4-mini
+OPENAI_MODEL=gpt-5.4-nano
 ```
 
-This is the right default for now because the task is constrained summarization and prioritization over already-fetched facts. A larger model may write slightly better prose, but it is unlikely to change the core usefulness until the app has richer personal context.
+This is the cost-first default because the remaining model task is short, constrained synthesis. Use `BRIEF_AI_MODE=off` for a completely local brief, `daily` for a daily note, or `weekly` for a Sunday recap. Run `python3 run_brief.py --dry-run --compare-ai` to compare the complete free brief with the same brief plus the live API-written note before deciding whether to keep it.
 
 ## Subscription Versus API
 
@@ -25,7 +25,7 @@ If subscription-based automation becomes practical later, evaluate it separately
 - Does it expose usage limits clearly enough for a daily scheduled job?
 - Can it receive the same deterministic facts JSON without browsing or inventing data?
 
-For now, keep the production path API-based and inexpensive.
+For now, keep the production path deterministic and treat the API as an optional enhancement.
 
 ## When To Revisit
 

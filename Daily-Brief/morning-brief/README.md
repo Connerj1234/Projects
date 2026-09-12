@@ -6,7 +6,8 @@ The first version is intentionally simple:
 
 - Python standard library only.
 - Public data sources where possible.
-- OpenAI Responses API for final writing.
+- Deterministic ranking, cross-day deduplication, and static dashboard generation.
+- Optional OpenAI Responses API editorial note over only the highest-ranked facts.
 - Multipart SMTP email delivery with a styled HTML version and plain-text fallback.
 - Cron or systemd timer for daily scheduling.
 
@@ -26,6 +27,20 @@ Run a local dry run:
 ```bash
 python3 run_brief.py --dry-run
 ```
+
+Generate without any API call:
+
+```bash
+python3 run_brief.py --dry-run --no-ai
+```
+
+Compare the complete free brief with the same brief plus its live API-written editor's note (this makes one paid API call by default):
+
+```bash
+python3 run_brief.py --dry-run --compare-ai
+```
+
+Open `out/index.html` for the dashboard. For the Git-connected Netlify deployment, the server publisher writes the same output to the tracked `Daily-Brief/site` directory. Set `BRIEF_BASE_URL` so the email can link back to it.
 
 Send a real email:
 
@@ -147,7 +162,10 @@ Required for OpenAI rendering:
 
 ```bash
 OPENAI_API_KEY=...
-OPENAI_MODEL=gpt-5.4-mini
+OPENAI_MODEL=gpt-5.4-nano
+BRIEF_AI_MODE=daily
+BRIEF_AI_WEEKDAY=6
+BRIEF_COMPARE_MODELS=gpt-5.4-nano
 ```
 
 Required for email sending:
@@ -167,11 +185,16 @@ Optional:
 BRIEF_TIMEZONE=America/New_York
 BRIEF_LOOKAHEAD_DAYS=7
 BRIEF_OUTPUT_DIR=./out
+BRIEF_BASE_URL=https://brief.example.com
 ```
+
+`BRIEF_AI_MODE` accepts `off`, `daily`, or `weekly`. Weekly mode defaults to Sunday (`6`, using Python's Monday-as-zero weekday numbering). The model never controls factual layout, links, or numeric values; it writes only the optional short editor's note.
+
+`--compare-ai` is intended to answer whether the API adds enough value to keep. To test more than one paid model, set `BRIEF_COMPARE_MODELS` to a comma-separated list such as `gpt-5.4-nano,gpt-5.4-mini`.
 
 For Gmail SMTP, use a Google app password, not your normal account password.
 
-## Next Iterations
+## Possible Later Iterations
 
 Good next additions:
 

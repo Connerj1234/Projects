@@ -5,6 +5,7 @@ import re
 
 
 BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
+LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^)]+)\)")
 
 
 def markdown_to_html(text: str) -> str:
@@ -60,8 +61,20 @@ def markdown_to_html(text: str) -> str:
 
 
 def format_inline(text: str) -> str:
-    escaped = html.escape(text)
-    return BOLD_RE.sub(r"<strong>\1</strong>", escaped)
+    parts: list[str] = []
+    cursor = 0
+    for match in LINK_RE.finditer(text):
+        parts.append(format_bold(text[cursor:match.start()]))
+        label = format_bold(match.group(1))
+        url = html.escape(match.group(2), quote=True)
+        parts.append(f'<a href="{url}" target="_blank" rel="noopener noreferrer">{label}</a>')
+        cursor = match.end()
+    parts.append(format_bold(text[cursor:]))
+    return "".join(parts)
+
+
+def format_bold(text: str) -> str:
+    return BOLD_RE.sub(r"<strong>\1</strong>", html.escape(text))
 
 
 HTML_TEMPLATE = """<!doctype html>
@@ -103,6 +116,10 @@ HTML_TEMPLATE = """<!doctype html>
       }}
       strong {{
         font-weight: 700;
+      }}
+      a {{
+        color: #1c5b47;
+        text-decoration: underline;
       }}
     </style>
   </head>

@@ -2,123 +2,131 @@ from __future__ import annotations
 
 from typing import Any
 
+from morning_brief.prioritization import NEWS_SECTIONS, SECTION_LABELS, build_briefing
 
-def render_fallback(facts: dict[str, Any]) -> str:
-    lines = [f"# Morning Brief for {facts.get('date')}", ""]
 
-    lines.extend(["## One Thing To Know Today", "- Review the top weather, market, and news items below.", ""])
+def render_fallback(
+    facts: dict[str, Any],
+    briefing: dict[str, Any] | None = None,
+    dashboard_url: str = "",
+    ai_summary: str | None = None,
+) -> str:
+    """Render a concise email locally; the dashboard holds the complete detail."""
+    briefing = briefing or build_briefing(facts)
+    lines = [f"# Morning Brief · {facts.get('date')}", ""]
 
-    lines.extend(["## Local Atlanta/Georgia"])
-    append_news_items(lines, facts.get("local_news", []), limit=5)
+    one = briefing.get("one_thing", {})
+    lines.extend(
+        [
+            "## One Thing To Know",
+            f"**{one.get('title', 'A quiet start')}** — {one.get('detail') or one.get('summary') or ''}",
+            "",
+        ]
+    )
 
-    lines.extend(["", "## Traffic/Commute/Weather Alerts"])
-    append_news_items(lines, facts.get("traffic_commute", []), limit=4)
+    if ai_summary:
+        lines.extend(["## Editor’s Note", ai_summary.strip(), ""])
 
-    lines.append("## Weather")
-    for item in facts.get("weather", []):
-        lines.append(f"- **{item.get('location')}**:")
-        if item.get("error"):
-            lines.append(f"  {item['error']}")
-            continue
-        for period in item.get("forecast_periods", [])[:2]:
-            lines.append(
-                "  "
-                + " - ".join(
-                    str(part)
-                    for part in [
-                        period.get("name"),
-                        format_temp(period),
-                        period.get("short_forecast"),
-                    ]
-                    if part
-                )
-            )
-        for alert in item.get("alerts", []):
-            if alert.get("event"):
-                lines.append(f"  Alert: {alert['event']} - {alert.get('headline', '')}")
-
-    lines.extend(["", "## Sports"])
-    sports = facts.get("sports", {})
-    followed_teams = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
-    major_events = sports.get("major_events", []) if isinstance(sports, dict) else []
-    if followed_teams:
-        lines.append("### Followed Teams")
-        for game in followed_teams:
-            lines.append(
-                f"- **{game.get('followed_team')}**: {game.get('event')} at {game.get('starts_at')}"
-            )
+    lines.append("## Right Now")
+    actions = briefing.get("actions", [])[:4]
+    if actions:
+        for item in actions:
+            lines.append(f"- **{item.get('title')}** — {item.get('detail', '')}")
     else:
-        lines.append("- No followed-team games found in the lookahead window.")
-    if major_events:
-        lines.append("### Major Events")
-        for game in major_events:
-            lines.append(
-                f"- **{game.get('followed_team')}**: {game.get('event')} at {game.get('starts_at')}"
-            )
+        lines.append("- Nothing urgent was detected this morning.")
 
-    lines.extend(["", "## Holidays"])
-    holidays = facts.get("holidays", [])
-    if holidays:
-        for holiday in holidays:
-            if holiday.get("error"):
-                lines.append(f"- Source error: {holiday.get('error')}")
-            else:
-                lines.append(f"- {holiday.get('date')}: {holiday.get('name')}")
-    else:
-        lines.append("- No US public holidays found in the lookahead window.")
+    lines.extend(["", "## Weather"])
+    append_weather(lines, facts.get("weather", []))
+
+    lines.extend(["", "## Sports & Events"])
+    append_sports(lines, facts.get("sports", {}))
 
     lines.extend(["", "## Market Watchlist"])
-    watchlist = facts.get("market_watchlist", [])
-    if watchlist:
-        for item in watchlist:
-            if item.get("error"):
-                lines.append(f"- **{item.get('symbol')}**: {item.get('error')}")
-                continue
-            change = format_change(item)
-            lines.append(
-                f"- **{item.get('symbol')}** ({item.get('name')}): "
-                f"{item.get('price')} {item.get('currency') or ''} {change}".strip()
-            )
-    else:
-        lines.append("- No market watchlist data was collected.")
+    append_markets(lines, facts.get("market_watchlist", []))
 
-    lines.extend(["", "## Market News"])
-    for item in facts.get("market_news", [])[:5]:
-        if item.get("error"):
-            lines.append(f"- Source error: {item.get('source_url')} - {item.get('error')}")
-        else:
-            lines.append(f"- {item.get('title')} ({item.get('source')})")
+    lines.extend(["", "## New Since Yesterday"])
+    for item in briefing.get("new_items", [])[:5]:
+        source = f" · {item.get('source')}" if item.get("source") else ""
+        lines.append(f"- {markdown_link(item.get('title'), item.get('link'))}{source}")
+    if not briefing.get("new_items"):
+        lines.append("- No new high-priority headlines were collected.")
 
-    lines.extend(["", "## Tech/AI"])
-    append_news_items(lines, facts.get("tech_ai", []), limit=5)
-
-    lines.extend(["", "## Top News"])
-    append_news_items(lines, facts.get("general_news", []), limit=5)
-
+    if dashboard_url:
+        lines.extend(["", f"[Open the full dashboard]({dashboard_url}) for every section, source link, and previous brief."])
     return "\n".join(lines)
 
 
-def append_news_items(lines: list[str], items: list[dict[str, Any]], limit: int) -> None:
-    if not items:
-        lines.append("- No items collected.")
-        return
-    for item in items[:limit]:
+def render_full_brief(
+    facts: dict[str, Any], briefing: dict[str, Any] | None = None
+) -> str:
+    """Render a complete Markdown edition for archives and non-web clients."""
+    briefing = briefing or build_briefing(facts)
+    lines = [render_fallback(facts, briefing), ""]
+    for section in NEWS_SECTIONS:
+        lines.extend([f"## {SECTION_LABELS[section]}"])
+        items = briefing.get("news", {}).get(section, [])
+        if not items:
+            lines.append("- No items collected.")
+        for item in items[:6]:
+            repeat = " · seen yesterday" if item.get("repeated") else ""
+            lines.append(
+                f"- {markdown_link(item.get('title'), item.get('link'))}"
+                f" · {item.get('source', 'Unknown source')}{repeat}"
+            )
+        lines.append("")
+    return "\n".join(lines).strip()
+
+
+def append_weather(lines: list[str], weather: list[dict[str, Any]]) -> None:
+    if not weather:
+        lines.append("- Weather unavailable.")
+    for item in weather:
         if item.get("error"):
-            lines.append(f"- Source error: {item.get('source_url')} - {item.get('error')}")
-        else:
-            lines.append(f"- {item.get('title')} ({item.get('source')})")
+            lines.append(f"- **{item.get('location')}**: unavailable")
+            continue
+        periods = item.get("forecast_periods", [])[:2]
+        details = []
+        for period in periods:
+            temp = period.get("temperature")
+            temp_text = f"{temp}°{period.get('temperature_unit', '')}" if temp is not None else ""
+            details.append(
+                " · ".join(
+                    str(value)
+                    for value in (period.get("name"), temp_text, period.get("short_forecast"))
+                    if value
+                )
+            )
+        lines.append(f"- **{item.get('location')}**: {'; '.join(details)}")
 
 
-def format_temp(period: dict[str, Any]) -> str:
-    if period.get("temperature") is None:
-        return ""
-    return f"{period.get('temperature')} {period.get('temperature_unit', '')}".strip()
+def append_sports(lines: list[str], sports: Any) -> None:
+    followed = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
+    major = sports.get("major_events", []) if isinstance(sports, dict) else []
+    games = (followed + major)[:6]
+    if not games:
+        lines.append("- No followed games or major events in the lookahead window.")
+    for game in games:
+        lines.append(
+            f"- **{game.get('followed_team') or 'Major event'}**: "
+            f"{game.get('event')} · {game.get('starts_at')}"
+        )
 
 
-def format_change(item: dict[str, Any]) -> str:
-    change = item.get("change")
-    change_percent = item.get("change_percent")
-    if not isinstance(change, (int, float)) or not isinstance(change_percent, (int, float)):
-        return ""
-    sign = "+" if change >= 0 else ""
-    return f"({sign}{change:.2f}, {sign}{change_percent:.2f}%)"
+def append_markets(lines: list[str], watchlist: list[dict[str, Any]]) -> None:
+    available = [item for item in watchlist if not item.get("error")]
+    if not available:
+        lines.append("- Market data unavailable.")
+    for item in available:
+        change = item.get("change_percent")
+        movement = f"{change:+.2f}%" if isinstance(change, (int, float)) else "—"
+        lines.append(
+            f"- **{item.get('symbol')}** {item.get('price')} {item.get('currency') or ''} · {movement}"
+        )
+
+
+def markdown_link(label: Any, url: Any) -> str:
+    text = str(label or "Untitled")
+    value = str(url or "")
+    if value.startswith(("https://", "http://")):
+        return f"[{text}]({value})"
+    return text

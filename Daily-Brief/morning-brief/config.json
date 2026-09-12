@@ -1,6 +1,11 @@
 {
   "timezone": "America/New_York",
   "lookahead_days": 7,
+  "preferred_keywords": [
+    "artificial intelligence",
+    "OpenAI"
+  ],
+  "market_move_threshold": 2.0,
   "locations": [
     {
       "name": "Conyers",

@@ -1,6 +1,6 @@
 # Daily Brief
 
-Daily Brief is a personal morning briefing system that turns weather, sports, markets, traffic, and news into one concise email each morning.
+Daily Brief is a personal morning briefing system that turns weather, sports, markets, traffic, and news into a concise email and mobile-friendly static dashboard each morning.
 
 It is scheduled to run unattended on a home server at 7:30 AM Eastern, with daylight-saving changes handled automatically. A deterministic Python pipeline collects facts from configured public sources, then the OpenAI Responses API organizes and summarizes only those facts. The finished brief is delivered as a styled HTML email with a plain-text alternative.
 
@@ -23,11 +23,12 @@ It is scheduled to run unattended on a home server at 7:30 AM Eastern, with dayl
 1. The server starts the script on a time-zone-aware daily schedule.
 2. Python collectors fetch structured facts from public APIs and RSS feeds.
 3. The complete fact set is saved locally as JSON for traceability.
-4. The facts are sent to the OpenAI Responses API with instructions to use no outside information.
-5. The resulting Markdown brief is saved locally and converted into email-safe HTML.
-6. A multipart HTML and plain-text email is delivered over authenticated SMTP.
+4. Local rules rank urgent and new items, while stories repeated from the previous brief are deprioritized.
+5. A static HTML dashboard, dated archive, source JSON, and concise email are generated without requiring an API.
+6. Optionally, the OpenAI Responses API writes a short editorial note from a compact set of top-ranked facts.
+7. A multipart HTML and plain-text email is delivered over authenticated SMTP.
 
-The model does not browse the web or collect its own facts. Keeping collection and writing separate makes the output easier to inspect and reduces unsupported claims. If the OpenAI step is not configured, the application can still produce a deterministic fallback brief.
+The model does not browse the web or collect its own facts. It is an optional editorial layer rather than the renderer, so disabling AI still produces the complete dashboard and email.
 
 ## Data Sources
 
@@ -99,7 +100,10 @@ The primary environment variables are:
 
 ```env
 OPENAI_API_KEY=
-OPENAI_MODEL=gpt-5.4-mini
+OPENAI_MODEL=gpt-5.4-nano
+BRIEF_AI_MODE=daily
+BRIEF_AI_WEEKDAY=6
+BRIEF_COMPARE_MODELS=gpt-5.4-nano
 
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
@@ -111,6 +115,7 @@ EMAIL_TO=
 BRIEF_TIMEZONE=America/New_York
 BRIEF_LOOKAHEAD_DAYS=7
 BRIEF_OUTPUT_DIR=./out
+BRIEF_BASE_URL=https://brief.example.com
 ```
 
 A ChatGPT subscription does not include API usage. The unattended server workflow requires an OpenAI API key with API billing enabled.
@@ -129,8 +134,10 @@ Daily-Brief/
 │   │   ├── collectors.py      # Collection orchestration
 │   │   ├── emailer.py         # SMTP delivery
 │   │   ├── markdown_email.py  # Markdown-to-HTML email rendering
-│   │   ├── openai_renderer.py # Responses API integration and grounding prompt
-│   │   ├── render_fallback.py # Deterministic non-AI renderer
+│   │   ├── dashboard.py       # Static dashboard, archive, and comparison UI
+│   │   ├── prioritization.py  # Ranking, deduplication, and compact AI input
+│   │   ├── openai_renderer.py # Optional short AI editorial note
+│   │   ├── render_fallback.py # Deterministic email and Markdown renderer
 │   │   └── settings.py        # JSON and environment configuration
 │   ├── config.json
 │   └── run_brief.py           # Command-line entry point
@@ -145,7 +152,7 @@ The system fetches and normalizes source data before making a model request. The
 
 ### Useful without the model
 
-The fallback renderer turns the same facts into a readable brief when no API key is configured. Collection can also run independently with `--collect-only`, which helps diagnose upstream sources without involving generation or email delivery.
+The deterministic renderer is the primary output path. It turns the same facts into a readable email and static dashboard whether or not an API key is configured. Collection can also run independently with `--collect-only`.
 
 ### Simple deployment
 
@@ -153,9 +160,10 @@ The runtime uses only Python’s standard library, so the server does not need a
 
 ## Scope
 
-Daily Brief is a personal automation, not a hosted web application or public service. It does not currently integrate with private email, calendars, reminders, brokerage accounts, or personal portfolios. Those systems are intentionally outside the finished project’s current scope.
+Daily Brief is a personal automation with a static read-only dashboard. It does not currently integrate with private email, calendars, reminders, brokerage accounts, or personal portfolios. Those systems remain outside the current scope.
 
 ## Documentation
 
 - [Setup, operation, and deployment](morning-brief/README.md)
 - [Model selection and API strategy](docs/model-strategy.md)
+- [Netlify dashboard deployment](docs/netlify-deployment.md)
