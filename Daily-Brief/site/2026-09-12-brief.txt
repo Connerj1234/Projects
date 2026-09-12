@@ -26,7 +26,7 @@
 - **QQQ** 714.88 USD · +0.87%
 - **DIA** 525.79 USD · +0.97%
 - **IWM** 288.89 USD · +0.41%
-- **BTC-USD** 77229.58 USD · +0.04%
+- **BTC-USD** 77220.06 USD · +0.02%
 - **NVDA** 218.29 USD · -0.03%
 
 ## New Since Yesterday
@@ -35,3 +35,5 @@
 - [Gwinnett traffic stop takes strange turn - FOX 5 Atlanta](https://news.google.com/rss/articles/CBMiigFBVV95cUxQLWpCUVZXNXBYVDMtRjZaVVJHY3BHSUhhVk5ZT2hKczVOLW83UVB5djBMOXV6TVNJRnNEemZLTTl6NzlTZ0pDMFNHbWVLRUFWdGRwc2lnTnhJcnZlaGJnSTVQZ2YwbWprLVR6aGpyLWdEVnpSZ0FSWGRtanl4V2c0WVpoY2JFTzRncmfSAY8BQVVfeXFMUDl3MEFoZlFSaVVHeEpKQkM2RUh0WVBNWVpLLXE1QUp1NFcxU3BHSXRRWjJqQXJNNm9NQnZpM2czbXdnMm4wX3NFU19vMWN6YVA1enRUS192XzI2amJBNlhPRW1JVk5TcFV1MVVTZWRCb0hFZWNuTkx6d09qNWluWGIzZWVEVTgxbjRfR1RwWEE?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
 - [MARTA bus crashes in metro Atlanta, 3 reportedly injured - WSB-TV](https://news.google.com/rss/articles/CBMixgFBVV95cUxNaHlFUmdfOTVGQzFBTV9faXBzMk5jQjAyZVh3d1ZvVURqY0Y1eWhSRVpmdTY1Tms4ai1NLVZhUXd4VFVtcnZjSXlNUGFZb2s4SldnQkhpMjNEWjRUS1ZZT2tycVI3cGw2TFJ4cXRSRHg2Y1MwMWU2QV9IbGdrbGk4NzVmWXpETGthWEs2ZkZ5dlZjaVl0OWpOcV9UVjQtbm83VGhoV0VaenBIZmtybF9ra3ZIOURyTUhMZW90X0JUOUtUY2tVWnfSAdoBQVVfeXFMT2FVZWNkOGs0cE9RMGY5TTc4ZFMyQWx1ZmJiMzk1dkF2V3NEY0RfTmR2Y3pDTjRnbmh1VC00LUZJLXJydU5MZmFURXNsck8wVUlFeWtxTm9YSXRvYjk5ZXpqM1NoRHE4bG5HZzdIRTZabWd6MlhoZWdIZXZELWFEbDZUM0RzRjJfdlViUkxJWjRnLVhEVjEtNXRWbWhFT3BkU3pxTTdXTHh6Rl9BY0VaVlQtaEhjaGRkTHNldzFZclhKekJtb3ZNNWVla2dncVF5dGMtT0lTQ3hHU3c?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
 - [MARTA to hold public hearing on Decatur bus route adjustments, Reach zone in Atlanta - Rough Draft Atlanta](https://news.google.com/rss/articles/CBMieEFVX3lxTE9sNHdDM3VrQ3hyY3FUS2tneGJhTGU0SnFuaVhnUHlNZHJ4elBaOU1peU9DY1JHRm5QcUJvRHhSU1NzYk10U1VZM1hlc0daNkJwMGdYby1Ob2Vra3RyRWZXTnJyQy1MRlI1MU9IV0ZqMHdpVEk2bEV3eA?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
+
+[Open the full dashboard](https://dailybrief.connerjamison.com/) for every section, source link, and previous brief.
