@@ -27,13 +27,6 @@ log "Pulling latest ${BRANCH}..."
 git pull --ff-only origin "${BRANCH}"
 
 cd "${APP_DIR}"
-if [[ -f .env ]]; then
-  set -a
-  # shellcheck disable=SC1091
-  source .env
-  set +a
-fi
-
 mkdir -p "${PUBLISH_DIR}"
 export BRIEF_OUTPUT_DIR="${PUBLISH_DIR}"
 
