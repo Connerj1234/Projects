@@ -263,6 +263,15 @@ class DailyBriefTests(unittest.TestCase):
         self.assertIn('<details class="news-group"', page)
         self.assertIn("Sep 11, 2026 · 7:05 PM ET", page)
 
+    def test_news_headlines_are_visibly_identified_as_external_links(self) -> None:
+        facts = sample_facts()
+        page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
+        self.assertIn("Underlined headlines open the original story", page)
+        self.assertIn('class="story-link" href="https://example.com/local"', page)
+        self.assertIn('class="link-arrow" aria-hidden="true">↗</span>', page)
+        self.assertIn("opens original story in a new tab", page)
+        self.assertIn(".story-link{text-decoration:underline", page)
+
     def test_markdown_email_renders_links(self) -> None:
         result = markdown_to_html("[Dashboard](https://example.com/brief)")
         self.assertIn('href="https://example.com/brief"', result)
