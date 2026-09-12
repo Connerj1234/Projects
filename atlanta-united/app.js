@@ -14,6 +14,12 @@
     };
   }
 
+  function formatCompactDate(dateValue) {
+    const date = new Date(`${dateValue}T12:00:00`);
+    if (!Number.isFinite(date.getTime())) return dateValue ?? "-";
+    return date.toLocaleDateString(undefined, { month: "numeric", day: "numeric", year: "2-digit" });
+  }
+
   function computeRecordRows(matches) {
     const record = { wins: 0, draws: 0, losses: 0 };
     const home = { wins: 0, draws: 0, losses: 0 };
@@ -100,6 +106,20 @@
         : baseData.position,
       formLastFive: derived.formLastFive,
       results: simulatedResults,
+      seasonProgress: firstFive.map((match, index) => {
+        const parsed = parseResult(match.result);
+        const points = firstFive.slice(0, index + 1).reduce((sum, row) => {
+          const outcome = parseResult(row.result)?.outcome;
+          return sum + (outcome === "Win" ? 3 : outcome === "Draw" ? 1 : 0);
+        }, 0);
+        return {
+          match: index + 1,
+          date: match.date,
+          opponent: match.opponent,
+          result: match.result,
+          points,
+        };
+      }),
       standings: {
         east,
         west,
@@ -343,6 +363,10 @@
   const formTrendCard = document.getElementById("formTrendCard");
   const nextThreeCard = document.getElementById("nextThreeCard");
   const playoffCard = document.getElementById("playoffCard");
+  const seasonProgressChart = document.getElementById("seasonProgressChart");
+  const seasonProgressLegend = document.getElementById("seasonProgressLegend");
+  const onThisDayDate = document.getElementById("onThisDayDate");
+  const onThisDay = document.getElementById("onThisDay");
   const rosterBody = document.getElementById("rosterBody");
   const rosterTable = document.getElementById("rosterTable");
   const rosterToggle = document.getElementById("rosterToggle");
@@ -516,7 +540,7 @@
             const resultClass = String(match.outcome ?? "").toLowerCase();
             return `
               <tr>
-                <td>${new Date(match.date).toLocaleDateString()}</td>
+                <td>${formatCompactDate(match.date)}</td>
                 <td>${match.opponent}</td>
                 <td>${match.venue}</td>
                 <td>
@@ -746,6 +770,236 @@
     }
   }
 
+  function progressFromSchedule(schedule, matchLimit = null) {
+    let points = 0;
+    const completed = (Array.isArray(schedule) ? schedule : [])
+      .slice()
+      .sort((a, b) => String(a?.date ?? "").localeCompare(String(b?.date ?? "")))
+      .map((row) => ({ row, parsed: parseResult(row?.result) }))
+      .filter((item) => item.parsed);
+    const regularSeason = Number.isFinite(Number(matchLimit)) ? completed.slice(0, Number(matchLimit)) : completed;
+
+    return regularSeason
+      .map((item, index) => {
+        points += item.parsed.outcome === "Win" ? 3 : item.parsed.outcome === "Draw" ? 1 : 0;
+        return {
+          match: index + 1,
+          date: item.row.date,
+          opponent: item.row.opponent,
+          result: item.row.result,
+          points,
+        };
+      });
+  }
+
+  if (seasonProgressChart && seasonProgressLegend) {
+    const historical = Array.isArray(data.historicalSeasons) ? data.historicalSeasons : [];
+    const currentYear = Number(data.seasonArchiveYear ?? String(data.season ?? "").match(/\b(20\d{2})\b/)?.[1]);
+    const currentProgress = Array.isArray(data.seasonProgress) ? data.seasonProgress : [];
+    const currentSeasonLength = Number(data.expectedRegularSeasonMatches) || 34;
+    const shortSeasonLabel = (label, fallback) =>
+      String(label ?? fallback ?? "")
+        .replace(/\s+MLS Regular Season.*$/i, "")
+        .replace(/\s+MLS Sprint Season.*$/i, " Sprint");
+    const officialSeasonRow = (season) =>
+      (Array.isArray(data.seasonHistory) ? data.seasonHistory : []).find(
+        (row) => Number(row?.season) === Number(season?.season),
+      );
+    const seasonMatchCount = (season) => {
+      const officialRecord = String(officialSeasonRow(season)?.record ?? "").match(/(\d+)-(\d+)-(\d+)/);
+      if (officialRecord) return Number(officialRecord[1]) + Number(officialRecord[2]) + Number(officialRecord[3]);
+      const pulse = season?.seasonPulse ?? {};
+      const values = [pulse.wins, pulse.draws, pulse.losses].map(Number);
+      return values.every(Number.isFinite) ? values.reduce((sum, value) => sum + value, 0) : null;
+    };
+    const seasonPoints = (season) => {
+      const officialPoints = Number(officialSeasonRow(season)?.points);
+      return Number.isFinite(officialPoints) ? officialPoints : Number(season?.seasonPulse?.points ?? -1);
+    };
+    const previousSeason = historical
+      .filter((season) => Number(season?.season) < currentYear)
+      .sort((a, b) => Number(b.season) - Number(a.season))[0];
+    const bestSeason = historical
+      .slice()
+      .sort((a, b) => seasonPoints(b) - seasonPoints(a))[0];
+
+    const series = [
+      {
+        year: shortSeasonLabel(data.season, Number.isFinite(currentYear) ? currentYear : "Current"),
+        label: "Current",
+        color: "#be1622",
+        className: "current",
+        values: currentProgress,
+      },
+      bestSeason
+        ? {
+            year: shortSeasonLabel(bestSeason.seasonLabel, bestSeason.season),
+            label: "Club-best points season",
+            color: "#c9a34f",
+            className: "best",
+            values: progressFromSchedule(
+              bestSeason.fullSchedule,
+              Math.min(currentSeasonLength, seasonMatchCount(bestSeason) ?? currentSeasonLength),
+            ),
+          }
+        : null,
+      previousSeason && Number(previousSeason.season) !== Number(bestSeason?.season)
+        ? {
+            year: shortSeasonLabel(previousSeason.seasonLabel, previousSeason.season),
+            label: "Previous season",
+            color: "#7f8595",
+            className: "previous",
+            values: progressFromSchedule(
+              previousSeason.fullSchedule,
+              Math.min(currentSeasonLength, seasonMatchCount(previousSeason) ?? currentSeasonLength),
+            ),
+          }
+        : null,
+    ].filter((item) => item && item.values.length > 0);
+
+    if (series.length === 0) {
+      seasonProgressChart.innerHTML = `<div class="progress-empty">Season progress will appear after the first completed match.</div>`;
+      seasonProgressLegend.innerHTML = "";
+    } else {
+      const width = 760;
+      const height = 300;
+      const margin = { top: 18, right: 22, bottom: 38, left: 42 };
+      const plotWidth = width - margin.left - margin.right;
+      const plotHeight = height - margin.top - margin.bottom;
+      const maxMatches = Math.max(currentSeasonLength, ...series.map((item) => item.values.length));
+      const maxPointsRaw = Math.max(10, ...series.flatMap((item) => item.values.map((value) => Number(value.points) || 0)));
+      const maxPoints = Math.ceil(maxPointsRaw / 10) * 10;
+      const x = (match) => margin.left + (Number(match) / maxMatches) * plotWidth;
+      const y = (points) => margin.top + plotHeight - (Number(points) / maxPoints) * plotHeight;
+      const yTicks = Array.from({ length: maxPoints / 10 + 1 }, (_, index) => index * 10);
+      const xTicks = Array.from({ length: Math.floor(maxMatches / 5) + 1 }, (_, index) => index * 5).filter(Boolean);
+
+      const grid = [
+        ...yTicks.map(
+          (tick) => `
+            <line class="progress-grid-line" x1="${margin.left}" y1="${y(tick)}" x2="${width - margin.right}" y2="${y(tick)}"></line>
+            <text class="progress-axis-label" x="${margin.left - 10}" y="${y(tick) + 4}" text-anchor="end">${tick}</text>
+          `,
+        ),
+        ...xTicks.map(
+          (tick) => `
+            <text class="progress-axis-label" x="${x(tick)}" y="${height - 12}" text-anchor="middle">${tick}</text>
+          `,
+        ),
+        `<text class="progress-axis-label" x="${margin.left + plotWidth / 2}" y="${height - 1}" text-anchor="middle">Match</text>`,
+      ].join("");
+
+      const lines = series
+        .map((item) => {
+          const values = [{ match: 0, points: 0 }, ...item.values];
+          const polyline = values.map((value) => `${x(value.match)},${y(value.points)}`).join(" ");
+          const points = item.values
+            .map(
+              (value) => `
+                <circle cx="${x(value.match)}" cy="${y(value.points)}" r="3" fill="${item.color}" opacity="0.9">
+                  <title>${item.year}, match ${value.match}: ${value.points} points${value.opponent ? ` after ${value.opponent}` : ""}</title>
+                </circle>
+              `,
+            )
+            .join("");
+          const last = item.values[item.values.length - 1];
+          return `
+            <polyline class="progress-line ${item.className}" points="${polyline}" stroke="${item.color}"></polyline>
+            ${points}
+            <circle class="progress-endpoint" cx="${x(last.match)}" cy="${y(last.points)}" r="5" fill="${item.color}"></circle>
+          `;
+        })
+        .join("");
+
+      seasonProgressChart.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="seasonProgressTitle seasonProgressDesc">
+          <title id="seasonProgressTitle">Atlanta United cumulative season points comparison</title>
+          <desc id="seasonProgressDesc">Points after each completed regular-season match for the current season, the previous season, and the club's best points season.</desc>
+          ${grid}
+          ${lines}
+        </svg>
+      `;
+
+      seasonProgressLegend.innerHTML = series
+        .map((item) => {
+          const last = item.values[item.values.length - 1];
+          return `
+            <div class="progress-legend-item">
+              <span class="progress-legend-swatch" style="background:${item.color}"></span>
+              <span><b>${item.year}</b> · ${last.points} pts after ${last.match}${item.label === "Current" ? "" : ` · ${item.label}`}</span>
+            </div>
+          `;
+        })
+        .join("");
+    }
+  }
+
+  function monthDayLabel(monthDay) {
+    const [month, day] = String(monthDay).split("-").map(Number);
+    return new Date(2000, month - 1, day).toLocaleDateString(undefined, { month: "long", day: "numeric" });
+  }
+
+  function archiveDayDistance(left, right) {
+    const toDay = (monthDay) => {
+      const [month, day] = monthDay.split("-").map(Number);
+      return Math.round((Date.UTC(2000, month - 1, day) - Date.UTC(2000, 0, 1)) / 86400000);
+    };
+    const distance = Math.abs(toDay(left) - toDay(right));
+    return Math.min(distance, 366 - distance);
+  }
+
+  if (onThisDay) {
+    const now = new Date();
+    const monthDay = `${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    if (onThisDayDate) onThisDayDate.textContent = monthDayLabel(monthDay);
+
+    const archiveEvents = (Array.isArray(data.historicalSeasons) ? data.historicalSeasons : [])
+      .flatMap((season) =>
+        (Array.isArray(season?.fullSchedule) ? season.fullSchedule : [])
+          .filter((match) => parseResult(match?.result) && /^\d{4}-\d{2}-\d{2}$/.test(String(match?.date ?? "")))
+          .map((match) => ({ ...match, season: season.season, seasonLabel: season.seasonLabel, monthDay: String(match.date).slice(5) })),
+      )
+      .sort((a, b) => Number(b.season) - Number(a.season));
+
+    const exact = archiveEvents.filter((event) => event.monthDay === monthDay);
+    let visible = exact;
+    let nearbyLabel = "";
+    if (visible.length === 0 && archiveEvents.length > 0) {
+      const closestDistance = Math.min(...archiveEvents.map((event) => archiveDayDistance(monthDay, event.monthDay)));
+      if (closestDistance <= 4) {
+        visible = archiveEvents.filter((event) => archiveDayDistance(monthDay, event.monthDay) === closestDistance);
+        nearbyLabel = `Nearby in club history · ${monthDayLabel(visible[0].monthDay)}`;
+      }
+    }
+
+    const eventCards = visible
+      .slice(0, 3)
+      .map((event) => {
+        const parsed = parseResult(event.result);
+        const opponentPrefix = String(event.venue).toLowerCase() === "home" ? "vs" : "at";
+        return `
+          <article class="otd-event">
+            <div class="otd-year">${String(event.seasonLabel ?? event.season).replace(/\s+MLS (Regular|Sprint) Season.*$/i, "")}</div>
+            <div class="otd-title">${parsed.score} ${opponentPrefix} ${event.opponent}</div>
+            <div class="otd-meta">${parsed.outcome} · ${event.venue}${event.competition ? ` · ${event.competition}` : ""}</div>
+          </article>
+        `;
+      })
+      .join("");
+
+    if (exact.length > 0) {
+      onThisDay.innerHTML = eventCards;
+    } else if (visible.length > 0) {
+      onThisDay.innerHTML = `
+        <div class="otd-empty">No archived Atlanta match was played on ${monthDayLabel(monthDay)}.</div>
+        <div class="otd-nearby-label">${nearbyLabel}</div>
+        ${eventCards}
+      `;
+    } else {
+      onThisDay.innerHTML = `<div class="otd-empty">No archived Atlanta match was played on ${monthDayLabel(monthDay)}.</div>`;
+    }
+  }
+
   if (rosterBody) {
     const renderHomeRoster = () => {
       const players = data.playerStats ?? [];
@@ -863,6 +1117,11 @@
 
     const historicalSeasons =
       Array.isArray(data.historicalSeasons) && data.historicalSeasons.length > 0 ? data.historicalSeasons : fallbackHistoricalSeasons;
+    const historicalSeasonKey = (season) => String(season?.seasonId ?? season?.season ?? "");
+    const historicalSeasonOptionLabel = (season) =>
+      String(season?.seasonLabel ?? season?.season ?? "")
+        .replace(/\s+MLS Regular Season.*$/i, "")
+        .replace(/\s+MLS Sprint Season.*$/i, " Sprint");
 
     if (historyRosterTable) {
       historyRosterTable.querySelectorAll("th[data-sort-key]").forEach((th) => {
@@ -877,7 +1136,7 @@
     }
 
     historySeasonSelect.innerHTML = historicalSeasons
-      .map((season) => `<option value="${season.season}">${season.season}</option>`)
+      .map((season) => `<option value="${historicalSeasonKey(season)}">${historicalSeasonOptionLabel(season)}</option>`)
       .join("");
 
     function renderScheduleRows(selected) {
@@ -924,7 +1183,7 @@
 
     function renderHistoricalSeason(seasonValue) {
       const selected =
-        historicalSeasons.find((season) => String(season.season) === String(seasonValue)) ?? historicalSeasons[0];
+        historicalSeasons.find((season) => historicalSeasonKey(season) === String(seasonValue)) ?? historicalSeasons[0];
       if (!selected) return;
       activeHistoricalSeason = selected;
 
@@ -1041,7 +1300,7 @@
       if (!historyRosterBody) return;
       activeRosterSeasonValue = seasonValue;
       const selected =
-        historicalSeasons.find((season) => String(season.season) === String(seasonValue)) ?? historicalSeasons[0];
+        historicalSeasons.find((season) => historicalSeasonKey(season) === String(seasonValue)) ?? historicalSeasons[0];
       if (!selected) return;
       const roster = Array.isArray(selected.rosterStats) ? selected.rosterStats : [];
 
@@ -1088,25 +1347,25 @@
 
     if (historyRosterSeasonSelect) {
       historyRosterSeasonSelect.innerHTML = historicalSeasons
-        .map((season) => `<option value="${season.season}">${season.season}</option>`)
+        .map((season) => `<option value="${historicalSeasonKey(season)}">${historicalSeasonOptionLabel(season)}</option>`)
         .join("");
       historyRosterSeasonSelect.addEventListener("change", () => {
         rosterExpanded = false;
         renderRosterSeason(historyRosterSeasonSelect.value);
       });
-      renderRosterSeason(historicalSeasons[0]?.season);
+      renderRosterSeason(historicalSeasonKey(historicalSeasons[0]));
     } else {
-      renderRosterSeason(historicalSeasons[0]?.season);
+      renderRosterSeason(historicalSeasonKey(historicalSeasons[0]));
     }
 
     if (historyRosterToggle) {
       historyRosterToggle.addEventListener("click", () => {
         rosterExpanded = !rosterExpanded;
-        renderRosterSeason(activeRosterSeasonValue ?? historicalSeasons[0]?.season);
+        renderRosterSeason(activeRosterSeasonValue ?? historicalSeasonKey(historicalSeasons[0]));
       });
     }
 
-    renderHistoricalSeason(historicalSeasons[0]?.season);
+    renderHistoricalSeason(historicalSeasonKey(historicalSeasons[0]));
   }
 
   if (formationSelect && formationPitch) {

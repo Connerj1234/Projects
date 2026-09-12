@@ -13,7 +13,13 @@ function parseResult(result) {
 }
 
 function normalizeSeason(season) {
-  const schedule = Array.isArray(season?.fullSchedule) ? season.fullSchedule : [];
+  const allCompletedMatches = (Array.isArray(season?.fullSchedule) ? season.fullSchedule : []).filter((match) =>
+    parseResult(match?.result),
+  );
+  const expectedMatches = Number(season?.expectedRegularSeasonMatches);
+  const schedule = Number.isFinite(expectedMatches)
+    ? allCompletedMatches.slice(0, expectedMatches)
+    : allCompletedMatches;
   let wins = 0;
   let draws = 0;
   let losses = 0;
@@ -30,7 +36,6 @@ function normalizeSeason(season) {
 
   for (const match of schedule) {
     const parsed = parseResult(match?.result);
-    if (!parsed) continue;
     parsedCount += 1;
     gf += parsed.gf;
     ga += parsed.ga;

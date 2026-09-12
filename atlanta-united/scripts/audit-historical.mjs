@@ -35,7 +35,9 @@ function detectSeasonIssues(season) {
   const pulse = season.seasonPulse ?? {};
   const long = season.seasonLongStats ?? {};
 
-  if (schedule.length < 20) issues.push(`Low schedule count (${schedule.length})`);
+  const configuredSeasonLength = asNumber(season?.expectedRegularSeasonMatches);
+  const minimumScheduleCount = configuredSeasonLength != null ? Math.min(20, configuredSeasonLength) : 20;
+  if (schedule.length < minimumScheduleCount) issues.push(`Low schedule count (${schedule.length})`);
   if (table.length < 10) issues.push(`Low table rows (${table.length})`);
 
   const hasLongStats = [long.goalsFor, long.goalsAgainst, long.homeRecord, long.awayRecord].every((v) => v != null && v !== "");

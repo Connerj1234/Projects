@@ -1,9 +1,11 @@
 {
-  "generatedAt": "2026-09-10T05:00:09.205Z",
+  "generatedAt": "2026-09-12T00:31:44.053Z",
   "seasons": [
     {
       "season": 2026,
+      "seasonId": "2026",
       "seasonLabel": "2026 MLS Regular Season",
+      "expectedRegularSeasonMatches": 34,
       "seasonPulse": {
         "wins": 6,
         "draws": 4,

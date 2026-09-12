@@ -54,6 +54,28 @@
   - status/starts UI columns removed for cleaner presentation
 
 ## Recently Completed
+- Responsive mobile layout polish shipped:
+  - desktop retains the full-height sticky sidebar
+  - mobile uses a compact sticky brand/navigation bar without the sidebar footer
+  - mobile home-page titling uses a single-row Season Tracker heading with a compact Current pill
+  - mobile page gutters are consistent across all cards and Season Pulse uses the full card width
+  - Season Pulse uses a condensed side-by-side donut/legend panel on small screens
+  - Season Progress removes the mobile-only empty chart space and keeps a compact legend
+  - recent-result dates use compact two-digit years and roster tables preserve readable column widths with horizontal scrolling
+  - conference-position history tracking and UI were removed
+- MLS calendar-transition hardening shipped:
+  - 2027 Sprint Season routing uses the announced 14-match season and eighth-place playoff line
+  - the 2027-28 season is grouped as one archive across both calendar years instead of being split at January 1
+  - the 2027-28 playoff-line card stays unavailable until MLS finalizes that still-unannounced playoff format, avoiding a stale hardcoded cutoff
+  - subsequent summer-to-spring seasons use the same cross-year season-window model
+  - standings and roster requests use the active season's query year through the winter portion of a season
+  - normalization and audit tools respect configured season length, including the 14-match Sprint Season
+  - `npm run test-season-routing` covers legacy, Sprint, and cross-year calendar cases
+- Home-page lightweight history/progress additions shipped:
+  - added a cumulative regular-season points chart comparing the current season, previous season, and club-best points season
+  - comparison lines use official regular-season record lengths so playoff matches do not inflate the chart
+  - added an On This Day archive card using historical match data, with a nearby-date fallback when no exact anniversary exists
+  - current-season progress is generated automatically by the existing daily data update flow
 - Form + Trend logic and copy cleanup shipped:
   - removed Form Rating from Quick Fan Check card
   - early-season averages now correctly use completed matches in current max-5 window
@@ -132,6 +154,7 @@
 - Season lifecycle policy:
   - In-season: append/merge active season into `historical-data.json` only when changed.
   - End-of-season: run `npm run normalize-historical` then `npm run audit-historical` and lock final season snapshot.
+  - Calendar routing: 2027 Sprint is archived separately; seasons beginning July 2027 and later are grouped summer-to-spring using an ending-year archive key.
 
 ## Operations Workflow (Long-Term Reference)
 ### Daily automation (current production flow)
@@ -176,7 +199,9 @@
 ### End-of-season behavior (as of now)
 - Home page season selection is fixture-driven (active season is inferred from upcoming/current fixtures).
 - Offseason handoff:
-  - when current-season fixtures are complete and next-year fixtures exist, home season advances to next year
+  - when a fixture from the next season is published, the home page advances automatically according to its season window
+  - the 2027 Sprint Season and 2027-28 season remain separate even though both begin in calendar year 2027
+  - winter-break fixtures remain attached to the same summer-to-spring season after January 1
   - prior season remains in `historical-data.json` as the locked historical season record
 - Recommended year-end/manual sanity pass:
   1. Run `npm run update-data`

@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "update-data": "node scripts/update-data.mjs",
+    "test-season-routing": "node scripts/update-data.mjs --validate-season-routing",
     "backfill-historical": "node scripts/update-data.mjs --backfill-history",
     "audit-historical": "node scripts/audit-historical.mjs",
     "normalize-historical": "node scripts/normalize-historical.mjs",
