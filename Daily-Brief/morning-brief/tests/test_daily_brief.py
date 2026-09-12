@@ -149,9 +149,14 @@ class DailyBriefTests(unittest.TestCase):
         facts = sample_facts()
         page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
         self.assertIn('class="hero-meta"', page)
+        self.assertIn("YOUR DAILY BRIEF · 26-09-11", page)
+        self.assertIn(">26-09-11</option>", page)
         self.assertIn("Today’s highlights", page)
         self.assertNotIn("Needs attention", page)
         self.assertNotIn("stories deprioritized", page)
+        self.assertNotIn("Save story", page)
+        self.assertNotIn("dailyBriefSaved", page)
+        self.assertNotIn('<span class="badge', page)
 
     def test_market_card_includes_accessible_six_month_sparkline(self) -> None:
         facts = sample_facts()
@@ -159,6 +164,7 @@ class DailyBriefTests(unittest.TestCase):
         self.assertIn('class="sparkline up"', page)
         self.assertIn("NVDA six-month trend, +28.1 percent", page)
         self.assertIn("6M +28.1%", page)
+        self.assertIn("width:calc(100% + 12px)", page)
 
     @patch("morning_brief.sources.markets.safe_get_json")
     def test_market_collection_requests_six_month_history(self, get_json) -> None:
