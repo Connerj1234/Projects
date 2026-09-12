@@ -85,9 +85,10 @@ Use these facts if more copy is needed for an expanded card, modal, project deta
 - Collects facts from public sources before any model call; the model itself does not browse.
 - Covers National Weather Service forecasts and alerts, followed Atlanta teams and major sporting events via ESPN scoreboard data, market watchlist data, local and general news, traffic/commute headlines, tech/AI news, and upcoming U.S. holidays.
 - Sends a multipart email with a styled HTML version and a plain-text alternative.
-- Uses the OpenAI Responses API to prioritize and summarize only the collected facts.
-- Saves the collected fact set and rendered brief locally for traceability.
-- Includes a deterministic fallback renderer when the OpenAI step is not configured.
+- Uses deterministic Python rules to prioritize, deduplicate, and render the collected facts.
+- Publishes a mobile-friendly static dashboard and dated archive through Git-connected Netlify deployment.
+- Keeps the OpenAI Responses API as an optional short editorial note rather than a runtime requirement.
+- Saves the collected fact set and rendered brief for traceability.
 - Uses Python’s standard library only; there are no third-party runtime packages.
 - Is configurable through JSON and environment variables, with secrets kept outside version control.
 - Supports cron and systemd scheduling examples.
@@ -96,16 +97,16 @@ Use these facts if more copy is needed for an expanded card, modal, project deta
 
 Use only if the portfolio supports a longer project view:
 
-> Daily Brief is a server-run Python automation that assembles a personalized morning email from deterministic public data sources. It collects local weather and alerts, Atlanta sports schedules, market movements, traffic and news headlines, technology updates, and upcoming holidays. The collected facts are passed to the OpenAI Responses API with instructions to summarize only the supplied data, reducing unsupported claims while keeping the result concise. The system sends both HTML and plain-text email, saves source facts for traceability, and includes a deterministic renderer for use when the AI step is not configured.
+> Daily Brief is a server-run Python automation that assembles a personalized morning email and static dashboard from deterministic public data sources. It collects local weather and alerts, Atlanta sports schedules, market movements, traffic and news headlines, technology updates, and upcoming holidays. Local rules prioritize and deduplicate the facts, then deterministic renderers produce the complete output without requiring a paid API. An optional OpenAI editor's note can add bounded synthesis when enabled. The server emails the brief, commits the generated site to GitHub, and Netlify publishes it automatically.
 
 ## Engineering Themes to Emphasize
 
 If space allows, prioritize these themes over a long list of APIs:
 
 1. **Reliable automation:** unattended, time-zone-aware daily operation on a home server.
-2. **Grounded AI:** deterministic collection first, constrained summarization second.
-3. **Fallback path:** the brief can still render when the AI step is not configured.
-4. **Practical delivery:** styled HTML email plus a plain-text alternative.
+2. **Local-first output:** deterministic collection, ranking, deduplication, and rendering with no required paid API.
+3. **Optional grounded AI:** constrained synthesis over selected facts without model browsing.
+4. **Practical delivery:** styled email plus a responsive, Git-published static dashboard.
 5. **Privacy-aware configuration:** credentials remain in server-local environment variables.
 
 ## Claims to Avoid

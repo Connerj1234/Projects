@@ -2,9 +2,30 @@
 
 Daily Brief is a personal morning briefing system that turns weather, sports, markets, traffic, and news into a concise email and mobile-friendly static dashboard each morning.
 
-It is scheduled to run unattended on a home server at 7:30 AM Eastern, with daylight-saving changes handled automatically. A deterministic Python pipeline collects facts from configured public sources, then the OpenAI Responses API organizes and summarizes only those facts. The finished brief is delivered as a styled HTML email with a plain-text alternative.
+The current architecture is deterministic and local-first. Python collects facts from configured public sources, ranks and deduplicates them, renders the email and dashboard, and preserves the source JSON for inspection. OpenAI is no longer required to produce the brief: it is an optional, narrowly scoped editorial layer that can be disabled entirely.
 
-**Status:** Complete and deployed for personal use.
+The intended production workflow runs unattended on a home server at 7:30 AM Eastern. The server sends the email, writes the static dashboard, commits the generated site to GitHub, and Netlify publishes it at [dailybrief.connerjamison.com](https://dailybrief.connerjamison.com).
+
+**Status:** Dashboard deployed. The one-time home-server cron migration is documented and ready to apply.
+
+## How the Project Evolved
+
+Daily Brief began as an API-centered experiment. Python retrieved information from selected sources and normalized it into JSON, then the OpenAI API turned that material into the finished prose briefing. The cost was already small, but the model sat in the critical output path: a paid request was needed every day for work that was largely predictable formatting, grouping, and prioritization.
+
+The project now treats those responsibilities as application logic:
+
+| Area | Original approach | Current approach |
+| --- | --- | --- |
+| Fact collection | Python collectors | Python collectors |
+| Prioritization | Primarily delegated to the model | Explicit local scoring and urgency rules |
+| Repeated stories | Included in the model input | Fingerprinted and deprioritized locally |
+| Formatting | OpenAI-generated prose | Deterministic Python email and HTML renderers |
+| Main interface | Daily email | Concise email plus a responsive static dashboard and dated archive |
+| OpenAI dependency | Part of the normal daily path | Optional short editor's note only |
+| Default API cost | Small recurring charge | Zero when `BRIEF_AI_MODE=off` |
+| Publishing | Email delivery | Email plus Git-connected Netlify deployment |
+
+This keeps the useful part of the original premise—one personalized brief assembled from a controlled set of sources—while making the routine path free, auditable, predictable, and resilient. The API remains available for comparison or occasional synthesis when its writing quality adds enough value to justify the cost.
 
 ## What It Covers
 
@@ -27,6 +48,8 @@ It is scheduled to run unattended on a home server at 7:30 AM Eastern, with dayl
 5. A static HTML dashboard, dated archive, source JSON, and concise email are generated without requiring an API.
 6. Optionally, the OpenAI Responses API writes a short editorial note from a compact set of top-ranked facts.
 7. A multipart HTML and plain-text email is delivered over authenticated SMTP.
+8. The server publishing script commits only the generated `site` directory and pushes it to GitHub.
+9. Netlify detects the push and deploys the static files; it performs no data collection or AI processing.
 
 The model does not browse the web or collect its own facts. It is an optional editorial layer rather than the renderer, so disabling AI still produces the complete dashboard and email.
 
@@ -45,10 +68,12 @@ Source selection, followed teams, major-event windows, locations, watchlist symb
 ## Technical Highlights
 
 - Python standard library only; no third-party runtime packages
-- OpenAI Responses API for grounded summarization and prioritization
+- Deterministic local ranking, deduplication, email rendering, and dashboard generation
+- Optional OpenAI Responses API editor's note over a bounded set of top-ranked facts
 - Explicit per-source error handling so one unavailable feed does not stop all collection
 - RSS parsing, deduplication, and configurable per-section limits
 - Time-zone-aware cron and systemd deployment examples
+- Git-connected static publishing to Netlify without a Netlify token on the server
 - Local fact and brief artifacts for inspection and troubleshooting
 - SMTP delivery with TLS, HTML formatting, and a plain-text alternative
 - Secrets stored in environment variables and excluded from version control
@@ -59,8 +84,8 @@ Source selection, followed teams, major-event windows, locations, watchlist symb
 Requirements:
 
 - Python 3.10 or newer
-- An OpenAI API key for AI-written briefs
 - SMTP credentials only when sending email
+- An OpenAI API key only if the optional editor's note is enabled
 
 From this directory:
 
@@ -101,7 +126,7 @@ The primary environment variables are:
 ```env
 OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5.4-nano
-BRIEF_AI_MODE=daily
+BRIEF_AI_MODE=off
 BRIEF_AI_WEEKDAY=6
 BRIEF_COMPARE_MODELS=gpt-5.4-nano
 
@@ -118,7 +143,7 @@ BRIEF_OUTPUT_DIR=./out
 BRIEF_BASE_URL=https://brief.example.com
 ```
 
-A ChatGPT subscription does not include API usage. The unattended server workflow requires an OpenAI API key with API billing enabled.
+`BRIEF_AI_MODE=off` is the free default and does not require `OPENAI_API_KEY`. If AI mode is `daily` or `weekly`, API billing is separate from a ChatGPT subscription.
 
 ## Project Structure
 
@@ -126,7 +151,9 @@ A ChatGPT subscription does not include API usage. The unattended server workflo
 Daily-Brief/
 ├── docs/
 │   ├── model-strategy.md
-│   └── portfolio-handoff.md
+│   ├── netlify-deployment.md
+│   ├── portfolio-handoff.md
+│   └── server-handoff.md
 ├── morning-brief/
 │   ├── deploy/systemd/        # Service and timer examples
 │   ├── morning_brief/
@@ -140,7 +167,11 @@ Daily-Brief/
 │   │   ├── render_fallback.py # Deterministic email and Markdown renderer
 │   │   └── settings.py        # JSON and environment configuration
 │   ├── config.json
+│   ├── scripts/
+│   │   └── update-and-push.sh # Unattended email and static-site publisher
 │   └── run_brief.py           # Command-line entry point
+├── site/                      # Generated files published by Netlify
+├── netlify.toml
 └── README.md
 ```
 
@@ -148,15 +179,15 @@ Daily-Brief/
 
 ### Deterministic collection before AI
 
-The system fetches and normalizes source data before making a model request. The model receives a bounded JSON document and is instructed to write only from that document. This makes the AI step a presentation layer rather than an unbounded research agent.
+The system fetches and normalizes source data before considering a model request. Local rules decide ordering, urgency, grouping, and repeated-story penalties. When enabled, the model receives a bounded JSON document and writes only the optional editor's note; it is not an unbounded research agent.
 
 ### Useful without the model
 
-The deterministic renderer is the primary output path. It turns the same facts into a readable email and static dashboard whether or not an API key is configured. Collection can also run independently with `--collect-only`.
+The deterministic renderer is the primary output path. It turns the same facts into a readable email and static dashboard whether or not an API key is configured. Use `BRIEF_AI_MODE=off` or `--no-ai` for zero OpenAI calls. Collection can also run independently with `--collect-only`.
 
 ### Simple deployment
 
-The runtime uses only Python’s standard library, so the server does not need a virtual environment or dependency installation. Cron and systemd examples keep delivery tied to Eastern time even when the host uses a different system time zone.
+The runtime uses only Python’s standard library, so the server does not need a virtual environment or dependency installation. Cron and systemd examples keep delivery tied to Eastern time even when the host uses a different system time zone. Netlify serves files already generated by the home server rather than rebuilding the application or receiving private server credentials.
 
 ## Scope
 

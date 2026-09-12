@@ -2,7 +2,7 @@
 
 Daily email brief for weather, sports, market news, holidays/events, and broad news.
 
-The first version is intentionally simple:
+The current implementation is intentionally simple to operate:
 
 - Python standard library only.
 - Public data sources where possible.
@@ -11,7 +11,7 @@ The first version is intentionally simple:
 - Multipart SMTP email delivery with a styled HTML version and plain-text fallback.
 - Cron or systemd timer for daily scheduling.
 
-Important: a ChatGPT subscription does not automatically include API usage. This script needs an `OPENAI_API_KEY` from the OpenAI API platform with billing enabled.
+OpenAI is optional. With `BRIEF_AI_MODE=off`, the complete email and dashboard are generated locally without an API key or API charge. A ChatGPT subscription does not include API usage if the optional editor's note is enabled.
 
 ## Quick Start
 
@@ -20,7 +20,7 @@ cd morning-brief
 cp .env.example .env
 ```
 
-Edit `.env` with your API key and email settings.
+Edit `.env` with your email settings. Add an API key only if you want the optional editor's note.
 
 Run a local dry run:
 
@@ -50,12 +50,12 @@ python3 run_brief.py --send
 
 ## Server Schedule
 
-The deployed delivery schedule is 7:30 AM Eastern every day. Its cron entry checks the current time in `America/New_York`, so delivery follows daylight-saving changes even though the server itself uses UTC. The systemd examples in `deploy/systemd` provide an alternative scheduler that also pins the timer to `America/New_York`.
+The intended production schedule is 7:30 AM Eastern every day. Its cron entry checks the current time in `America/New_York`, so delivery follows daylight-saving changes even though the server itself uses UTC. The systemd examples in `deploy/systemd` provide an alternative scheduler that also pins the timer to `America/New_York`.
 
 If the server continues to use cron, do not assume its cron implementation supports `CRON_TZ`. A `30 7 * * *` entry interpreted in UTC runs at 3:30 AM Eastern during daylight saving time. This portable cron entry checks Eastern local time every 30 minutes and sends only at 7:30 AM:
 
 ```cron
-*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1; fi'
+*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then ./scripts/update-and-push.sh >> logs/cron.log 2>&1; fi'
 ```
 
 The backslashes before `%` are required in a crontab. Cron treats unescaped percent signs specially before passing the command to the shell.
@@ -65,12 +65,12 @@ The backslashes before `%` are required in a crontab. Cron treats unescaped perc
 The normal workflow is:
 
 1. Make and test changes locally.
-2. Commit and push to GitHub from this Mac.
+2. Commit and push to GitHub from the development device.
 3. SSH into the home server.
 4. Pull `main` in the server checkout.
 5. Update cron only when the schedule command itself changes.
 
-The most recent known SSH target from this Mac's shell history is:
+The most recent known SSH target is:
 
 ```bash
 ssh conner@server
@@ -113,7 +113,7 @@ crontab -e
 For a cron deployment, the active entry should be:
 
 ```cron
-*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then set -a; source .env; set +a; python3 run_brief.py --send >> logs/cron.log 2>&1; fi'
+*/30 * * * * cd /home/conner/repos/Projects/Daily-Brief/morning-brief && /usr/bin/env bash -lc 'if [ "$(TZ=America/New_York date +\%H:\%M)" = "07:30" ]; then ./scripts/update-and-push.sh >> logs/cron.log 2>&1; fi'
 ```
 
 If the current job uses `30 7 * * *` and the server is set to UTC, that explains a 3:30 AM Eastern delivery during daylight saving time. Replace that job using:
@@ -150,7 +150,7 @@ If you test this on macOS with a python.org Python and see certificate verificat
 | General news | RSS feeds configured in `config.json` |
 | Holidays | Nager.Date public holiday API |
 
-The model does not browse the web. The script fetches structured facts, then asks OpenAI to write from those facts only.
+The script fetches, ranks, and renders structured facts locally. If enabled, the model does not browse the web; it receives a compact fact selection and writes only the optional editor's note.
 
 Sports coverage is configured in `config.json`. Followed teams are always checked across the lookahead window. Major events use deterministic active windows so seasonal tournaments such as Champions League, March Madness, The Masters, World Cup, Grand Slams, Formula 1, Super Bowl, NBA Playoffs, MLS Playoffs, and the College Football Playoff are only queried around relevant months.
 
@@ -163,7 +163,7 @@ Required for OpenAI rendering:
 ```bash
 OPENAI_API_KEY=...
 OPENAI_MODEL=gpt-5.4-nano
-BRIEF_AI_MODE=daily
+BRIEF_AI_MODE=off
 BRIEF_AI_WEEKDAY=6
 BRIEF_COMPARE_MODELS=gpt-5.4-nano
 ```
