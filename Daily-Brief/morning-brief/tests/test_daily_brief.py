@@ -13,7 +13,7 @@ from morning_brief.dashboard import (
 )
 from morning_brief.http_client import USER_AGENT, headers_for_url
 from morning_brief.markdown_email import markdown_to_html
-from morning_brief.prioritization import build_briefing, compact_for_ai
+from morning_brief.prioritization import NEWS_SECTIONS, build_briefing, compact_for_ai
 from morning_brief.render_fallback import render_fallback
 from morning_brief.sources.markets import collect_market_watchlist
 from morning_brief.time_format import eastern_date, format_eastern
@@ -99,14 +99,58 @@ class DailyBriefTests(unittest.TestCase):
             USER_AGENT,
         )
 
-    def test_priority_prefers_today_game_over_market_move(self) -> None:
+    def test_priority_prefers_current_commute_disruption_over_routine_game(self) -> None:
         facts = sample_facts()
         briefing = build_briefing(facts, market_move_threshold=2.0)
-        self.assertEqual(briefing["one_thing"]["kind"], "sports")
+        self.assertEqual(briefing["one_thing"]["kind"], "traffic")
         self.assertEqual(
             briefing["one_thing"]["link"],
-            "https://www.espn.com/mlb/game/example",
+            "https://example.com/traffic",
         )
+
+    def test_new_items_are_balanced_across_news_sections(self) -> None:
+        facts = sample_facts()
+        for section in ("market_news", "tech_ai", "general_news"):
+            facts[section] = [
+                {
+                    "title": f"New {section} item",
+                    "summary": "A useful update.",
+                    "source": "Example",
+                    "published_at": "2026-09-11T06:00:00-04:00",
+                }
+            ]
+        facts["traffic_commute"].append(
+            {
+                "title": "Second traffic update",
+                "summary": "Another commute item.",
+                "source": "Example",
+                "published_at": "2026-09-11T06:05:00-04:00",
+            }
+        )
+        briefing = build_briefing(facts)
+        first_five_sections = {item["section"] for item in briefing["new_items"][:5]}
+        self.assertEqual(first_five_sections, set(NEWS_SECTIONS))
+
+    def test_traffic_ranking_favors_commute_impact_and_trims_source_suffix(self) -> None:
+        facts = sample_facts()
+        facts["traffic_commute"] = [
+            {
+                "title": "Unrelated discovery during traffic stop - Example News",
+                "summary": "A routine police stop produced an unusual discovery.",
+                "source": "Example",
+                "published_at": "2026-09-11T07:00:00-04:00",
+            },
+            {
+                "title": "Airport delays continue - CBS News",
+                "summary": "Flights are delayed this morning.",
+                "source": "Example",
+                "link": "https://example.com/airport",
+                "published_at": "2026-09-11T06:30:00-04:00",
+            },
+        ]
+        briefing = build_briefing(facts)
+        self.assertEqual(briefing["news"]["traffic_commute"][0]["link"], "https://example.com/airport")
+        self.assertEqual(briefing["one_thing"]["title"], "Airport delays continue")
 
     def test_dates_are_presented_in_eastern_time(self) -> None:
         self.assertEqual(eastern_date("2026-09-12T01:15:00Z"), "2026-09-11")
@@ -149,7 +193,9 @@ class DailyBriefTests(unittest.TestCase):
         facts = sample_facts()
         page = render_dashboard(facts, build_briefing(facts), [facts["date"]], None)
         self.assertIn('class="hero-meta"', page)
-        self.assertIn("YOUR DAILY BRIEF · 26-09-11", page)
+        self.assertIn("<h1>Good morning.</h1>", page)
+        self.assertIn("YOUR DAILY BRIEF", page)
+        self.assertNotIn("YOUR DAILY BRIEF ·", page)
         self.assertIn(">26-09-11</option>", page)
         self.assertIn("Today’s highlights", page)
         self.assertNotIn("Needs attention", page)

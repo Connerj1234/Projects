@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
 from morning_brief.time_format import eastern_date, format_eastern
@@ -60,23 +60,17 @@ def build_briefing(
                 "fingerprint": fingerprint,
             }
             ranked.append(ranked_item)
-        ranked.sort(key=lambda value: (-value["score"], str(value.get("title", ""))))
+        ranked.sort(
+            key=lambda value: (value["score"], str(value.get("published_at", ""))),
+            reverse=True,
+        )
         news[section] = ranked
         all_news.extend(ranked)
 
     actions = build_actions(facts, today, market_move_threshold)
-    new_items = sorted(
-        (item for item in all_news if not item["repeated"]),
-        key=lambda value: -value["score"],
-    )
+    new_items = balanced_new_items(news, limit=8)
     repeated_items = sum(1 for item in all_news if item["repeated"])
-    # An actionable item should not be displaced by a high-scoring general headline.
-    one_thing = actions[0] if actions else (new_items[0] if new_items else {
-        "title": "A quiet start",
-        "detail": "No urgent alerts or unusually high-signal items were collected.",
-        "score": 0,
-        "kind": "status",
-    })
+    one_thing = choose_one_thing(actions, new_items)
 
     return {
         "date": today,
@@ -84,7 +78,7 @@ def build_briefing(
         "one_thing": one_thing,
         "actions": actions,
         "news": news,
-        "new_items": new_items[:8],
+        "new_items": new_items,
         "repeated_count": repeated_items,
         "market_moves": market_moves(facts, market_move_threshold),
     }
@@ -112,13 +106,16 @@ def build_actions(
     for game in games:
         starts_at = str(game.get("starts_at", ""))
         if today and eastern_date(starts_at) == today:
+            event = str(game.get("event", "Game"))
+            major_terms = ("championship", "final", "masters", "playoff", "super bowl", "world cup")
+            score = 82 if any(term in event.casefold() for term in major_terms) else 55
             actions.append(
                 {
                     "kind": "sports",
                     "title": f"{game.get('followed_team', 'A followed team')} play today",
-                    "detail": f"{game.get('event', 'Game')} · {format_eastern(starts_at)}",
+                    "detail": f"{event} · {format_eastern(starts_at)}",
                     "link": game.get("source_url"),
-                    "score": 80,
+                    "score": score,
                 }
             )
 
@@ -137,6 +134,8 @@ def build_actions(
 
     for item in facts.get("traffic_commute", [])[:3]:
         if item.get("error") or not item.get("title"):
+            continue
+        if not is_recent(item.get("published_at"), facts.get("generated_at"), hours=30):
             continue
         title = str(item["title"])
         lowered = title.casefold()
@@ -159,18 +158,96 @@ def build_actions(
             continue
         if not any(term in lowered for term in commute_terms):
             continue
+        resolved_terms = ("cleared", "lifted", "reopened", "resolved", "restored")
+        active_terms = ("closure", "closed", "crash", "delay", "warning")
+        if any(term in lowered for term in resolved_terms) and not any(
+            term in lowered for term in active_terms
+        ):
+            continue
         actions.append(
-            {
-                "kind": "traffic",
-                "title": title,
+                {
+                    "kind": "traffic",
+                    "title": concise_headline(title),
                 "detail": item.get("summary") or f"Reported by {item.get('source', 'a configured source')}.",
                 "link": item.get("link"),
-                "score": 65,
+                "score": 78,
             }
         )
 
     actions.sort(key=lambda value: -value["score"])
     return actions[:6]
+
+
+def balanced_new_items(
+    news: dict[str, list[dict[str, Any]]], limit: int
+) -> list[dict[str, Any]]:
+    """Choose the strongest item per section before filling remaining slots."""
+    selected: list[dict[str, Any]] = []
+    used: set[str] = set()
+    for section in NEWS_SECTIONS:
+        item = next(
+            (
+                candidate
+                for candidate in news.get(section, [])
+                if not candidate["repeated"] and candidate["fingerprint"] not in used
+            ),
+            None,
+        )
+        if item is not None:
+            selected.append(item)
+            used.add(item["fingerprint"])
+    selected.sort(key=lambda value: -value["score"])
+    remaining = sorted(
+        (
+            item
+            for section in NEWS_SECTIONS
+            for item in news.get(section, [])
+            if not item["repeated"] and item["fingerprint"] not in used
+        ),
+        key=lambda value: -value["score"],
+    )
+    return (selected + remaining)[:limit]
+
+
+def choose_one_thing(
+    actions: list[dict[str, Any]], new_items: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Reserve the lead position for genuinely high-signal items."""
+    for item in actions:
+        if float(item.get("score", 0)) >= 75:
+            return item
+    if new_items and float(new_items[0].get("score", 0)) >= 75:
+        item = new_items[0]
+        return {
+            **item,
+            "kind": item.get("section", "news"),
+            "detail": item.get("summary") or f"Reported by {item.get('source', 'a configured source')}.",
+        }
+    return {
+        "title": "A quiet start",
+        "detail": "No urgent alerts or unusually high-signal items were collected.",
+        "score": 0,
+        "kind": "status",
+    }
+
+
+def is_recent(published_at: Any, generated_at: Any, hours: int) -> bool:
+    if not published_at or not generated_at:
+        return True
+    try:
+        published = datetime.fromisoformat(str(published_at).replace("Z", "+00:00"))
+        generated = datetime.fromisoformat(str(generated_at).replace("Z", "+00:00"))
+        age = generated - published
+        return timedelta(0) <= age <= timedelta(hours=hours)
+    except (TypeError, ValueError):
+        return True
+
+
+def concise_headline(title: str) -> str:
+    headline, separator, source = title.rpartition(" - ")
+    if separator and headline and 2 <= len(source) <= 40:
+        return headline
+    return title
 
 
 def market_moves(facts: dict[str, Any], threshold: float) -> list[dict[str, Any]]:
@@ -197,6 +274,10 @@ def news_score(
     }.get(section, 30)
     haystack = f"{item.get('title', '')} {item.get('summary', '')}".casefold()
     score += 15 * sum(1 for keyword in preferred_keywords if keyword in haystack)
+    if section == "traffic_commute" and "traffic stop" in haystack and not any(
+        term in haystack for term in ("closure", "closed", "crash", "delay", "lane", "road")
+    ):
+        score -= 50
     if item.get("published_at"):
         score += 3
     if repeated:
