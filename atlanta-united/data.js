@@ -290,8 +290,8 @@ window.ATL_DATA = {
       "rank": 14,
       "points": 23,
       "lineRank": 9,
-      "linePoints": 30,
-      "pointsFromLine": -7,
+      "linePoints": 32,
+      "pointsFromLine": -9,
       "gamesInHand": -1
     }
   },
@@ -8404,12 +8404,12 @@ window.ATL_DATA = {
         "rank": 3,
         "teamId": "189",
         "team": "New England Revolution",
-        "played": 24,
-        "wins": 12,
+        "played": 25,
+        "wins": 13,
         "draws": 4,
         "losses": 8,
-        "points": 40,
-        "goalDiff": 9,
+        "points": 43,
+        "goalDiff": 10,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8430,12 +8430,12 @@ window.ATL_DATA = {
         "rank": 5,
         "teamId": "182",
         "team": "Chicago Fire FC",
-        "played": 23,
+        "played": 24,
         "wins": 11,
         "draws": 6,
-        "losses": 6,
+        "losses": 7,
         "points": 39,
-        "goalDiff": 11,
+        "goalDiff": 10,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8454,6 +8454,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 7,
+        "teamId": "10739",
+        "team": "Philadelphia Union",
+        "played": 25,
+        "wins": 9,
+        "draws": 6,
+        "losses": 10,
+        "points": 33,
+        "goalDiff": 7,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 8,
         "teamId": "17606",
         "team": "New York City FC",
         "played": 25,
@@ -8466,7 +8479,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 8,
+        "rank": 9,
         "teamId": "18267",
         "team": "FC Cincinnati",
         "played": 24,
@@ -8475,19 +8488,6 @@ window.ATL_DATA = {
         "losses": 8,
         "points": 32,
         "goalDiff": -7,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 9,
-        "teamId": "10739",
-        "team": "Philadelphia Union",
-        "played": 24,
-        "wins": 8,
-        "draws": 6,
-        "losses": 10,
-        "points": 30,
-        "goalDiff": 2,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8575,12 +8575,12 @@ window.ATL_DATA = {
         "rank": 1,
         "teamId": "9727",
         "team": "Vancouver Whitecaps",
-        "played": 23,
+        "played": 24,
         "wins": 14,
         "draws": 4,
-        "losses": 5,
+        "losses": 6,
         "points": 46,
-        "goalDiff": 31,
+        "goalDiff": 30,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8679,12 +8679,12 @@ window.ATL_DATA = {
         "rank": 9,
         "teamId": "22529",
         "team": "San Diego FC",
-        "played": 24,
+        "played": 25,
         "wins": 8,
         "draws": 6,
-        "losses": 10,
+        "losses": 11,
         "points": 30,
-        "goalDiff": 5,
+        "goalDiff": 0,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8729,6 +8729,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 13,
+        "teamId": "20906",
+        "team": "Austin FC",
+        "played": 25,
+        "wins": 7,
+        "draws": 8,
+        "losses": 10,
+        "points": 29,
+        "goalDiff": -12,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 14,
         "teamId": "9726",
         "team": "Seattle Sounders FC",
         "played": 23,
@@ -8737,19 +8750,6 @@ window.ATL_DATA = {
         "losses": 9,
         "points": 28,
         "goalDiff": -5,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 14,
-        "teamId": "20906",
-        "team": "Austin FC",
-        "played": 24,
-        "wins": 6,
-        "draws": 8,
-        "losses": 10,
-        "points": 26,
-        "goalDiff": -13,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8780,7 +8780,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-13T05:00:09.424Z"
+    "generatedAt": "2026-09-14T05:00:11.036Z"
   },
   "seasonHistory": [
     {
