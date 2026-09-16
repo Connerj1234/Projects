@@ -5,286 +5,43 @@ window.ATL_DATA = {
   "expectedRegularSeasonMatches": 34,
   "clubName": "Atlanta United",
   "record": {
-    "wins": 6,
-    "draws": 5,
-    "losses": 14
+    "wins": 0,
+    "draws": 0,
+    "losses": 0
   },
   "stats": {
-    "points": 23,
-    "goalsFor": 29,
-    "goalsAgainst": 43,
-    "homeRecord": "4-1-7",
-    "awayRecord": "2-4-7",
-    "cleanSheets": 2,
-    "avgAttendance": 28290
+    "points": 0,
+    "goalsFor": 0,
+    "goalsAgainst": 0,
+    "homeRecord": "0-0-0",
+    "awayRecord": "0-0-0",
+    "cleanSheets": 0,
+    "avgAttendance": null
   },
   "position": {
     "rank": 14,
     "conference": "Eastern Conference"
   },
-  "formLastFive": [
-    "D",
-    "L",
-    "D",
-    "L",
-    "W"
-  ],
-  "nextMatch": {
-    "opponent": "Portland Timbers",
-    "dateISO": "2026-09-20T02:30Z",
-    "competition": "MLS",
-    "venue": "Providence Park",
-    "broadcast": "Apple TV"
-  },
-  "results": [
-    {
-      "date": "2026-09-12",
-      "opponent": "D.C. United",
-      "venue": "Away",
-      "score": "0-0",
-      "outcome": "Draw"
-    },
-    {
-      "date": "2026-09-09",
-      "opponent": "Orlando City SC",
-      "venue": "Home",
-      "score": "2-3",
-      "outcome": "Loss"
-    },
-    {
-      "date": "2026-09-06",
-      "opponent": "Inter Miami CF",
-      "venue": "Away",
-      "score": "2-2",
-      "outcome": "Draw"
-    },
-    {
-      "date": "2026-08-29",
-      "opponent": "Charlotte FC",
-      "venue": "Home",
-      "score": "0-2",
-      "outcome": "Loss"
-    },
-    {
-      "date": "2026-08-23",
-      "opponent": "Sporting Kansas City",
-      "venue": "Home",
-      "score": "2-1",
-      "outcome": "Win"
-    }
-  ],
-  "seasonProgress": [
-    {
-      "match": 1,
-      "date": "2026-02-21",
-      "opponent": "FC Cincinnati",
-      "result": "0-2 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 2,
-      "date": "2026-03-01",
-      "opponent": "San Jose Earthquakes",
-      "result": "0-2 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 3,
-      "date": "2026-03-08",
-      "opponent": "Real Salt Lake",
-      "result": "2-3 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 4,
-      "date": "2026-03-14",
-      "opponent": "Philadelphia Union",
-      "result": "3-1 (Win)",
-      "points": 3
-    },
-    {
-      "match": 5,
-      "date": "2026-03-21",
-      "opponent": "D.C. United",
-      "result": "0-0 (Draw)",
-      "points": 4
-    },
-    {
-      "match": 6,
-      "date": "2026-04-04",
-      "opponent": "Columbus Crew",
-      "result": "1-3 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 7,
-      "date": "2026-04-12",
-      "opponent": "Chicago Fire FC",
-      "result": "0-1 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 8,
-      "date": "2026-04-18",
-      "opponent": "Nashville SC",
-      "result": "0-2 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 9,
-      "date": "2026-04-22",
-      "opponent": "New England Revolution",
-      "result": "1-2 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 10,
-      "date": "2026-04-25",
-      "opponent": "Toronto FC",
-      "result": "2-1 (Win)",
-      "points": 7
-    },
-    {
-      "match": 11,
-      "date": "2026-05-02",
-      "opponent": "CF Montréal",
-      "result": "3-1 (Win)",
-      "points": 10
-    },
-    {
-      "match": 12,
-      "date": "2026-05-09",
-      "opponent": "LA Galaxy",
-      "result": "1-2 (Loss)",
-      "points": 10
-    },
-    {
-      "match": 13,
-      "date": "2026-05-16",
-      "opponent": "Orlando City SC",
-      "result": "1-1 (Draw)",
-      "points": 11
-    },
-    {
-      "match": 14,
-      "date": "2026-05-24",
-      "opponent": "Columbus Crew",
-      "result": "0-2 (Loss)",
-      "points": 11
-    },
-    {
-      "match": 15,
-      "date": "2026-07-18",
-      "opponent": "Nashville SC",
-      "result": "0-1 (Loss)",
-      "points": 11
-    },
-    {
-      "match": 16,
-      "date": "2026-07-23",
-      "opponent": "Charlotte FC",
-      "result": "2-2 (Draw)",
-      "points": 12
-    },
-    {
-      "match": 17,
-      "date": "2026-07-25",
-      "opponent": "New England Revolution",
-      "result": "1-4 (Loss)",
-      "points": 12
-    },
-    {
-      "match": 18,
-      "date": "2026-08-01",
-      "opponent": "Philadelphia Union",
-      "result": "2-3 (Loss)",
-      "points": 12
-    },
-    {
-      "match": 19,
-      "date": "2026-08-15",
-      "opponent": "Red Bull New York",
-      "result": "2-1 (Win)",
-      "points": 15
-    },
-    {
-      "match": 20,
-      "date": "2026-08-20",
-      "opponent": "Minnesota United FC",
-      "result": "2-1 (Win)",
-      "points": 18
-    },
-    {
-      "match": 21,
-      "date": "2026-08-23",
-      "opponent": "Sporting Kansas City",
-      "result": "2-1 (Win)",
-      "points": 21
-    },
-    {
-      "match": 22,
-      "date": "2026-08-29",
-      "opponent": "Charlotte FC",
-      "result": "0-2 (Loss)",
-      "points": 21
-    },
-    {
-      "match": 23,
-      "date": "2026-09-06",
-      "opponent": "Inter Miami CF",
-      "result": "2-2 (Draw)",
-      "points": 22
-    },
-    {
-      "match": 24,
-      "date": "2026-09-09",
-      "opponent": "Orlando City SC",
-      "result": "2-3 (Loss)",
-      "points": 22
-    },
-    {
-      "match": 25,
-      "date": "2026-09-12",
-      "opponent": "D.C. United",
-      "result": "0-0 (Draw)",
-      "points": 23
-    }
-  ],
+  "formLastFive": [],
+  "nextMatch": null,
+  "results": [],
+  "seasonProgress": [],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 5,
-      "goalDiffLast5": -2,
-      "formRatingOutOf5": 1.7,
-      "goalDiffPerMatch": -0.4,
-      "pointsPerMatchLastN": 1,
-      "gamesSampled": 5,
-      "cleanSheetsLastN": 1,
+      "pointsLast5": 0,
+      "goalDiffLast5": 0,
+      "formRatingOutOf5": null,
+      "goalDiffPerMatch": null,
+      "pointsPerMatchLastN": null,
+      "gamesSampled": 0,
+      "cleanSheetsLastN": 0,
       "wdlLast5": {
-        "wins": 1,
-        "draws": 2,
-        "losses": 2
+        "wins": 0,
+        "draws": 0,
+        "losses": 0
       }
     },
-    "nextThree": [
-      {
-        "opponent": "Portland Timbers",
-        "dateISO": "2026-09-20T02:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
-      {
-        "opponent": "New York City FC",
-        "dateISO": "2026-09-26T23:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
-      {
-        "opponent": "FC Cincinnati",
-        "dateISO": "2026-10-10T23:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      }
-    ],
+    "nextThree": [],
     "playoffLine": {
       "conference": "East",
       "rank": 14,
@@ -8780,7 +8537,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-15T05:00:09.976Z"
+    "generatedAt": "2026-09-16T05:00:07.541Z"
   },
   "seasonHistory": [
     {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T05:00:12.554Z",
+  "generatedAt": "2026-09-16T05:00:08.570Z",
   "seasons": [
     {
       "season": 2026,
@@ -15,12 +15,12 @@
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 29,
-        "goalsAgainst": 43,
-        "homeRecord": "4-1-7",
-        "awayRecord": "2-4-7",
-        "cleanSheets": 2,
-        "avgAttendance": 28290
+        "goalsFor": null,
+        "goalsAgainst": null,
+        "homeRecord": null,
+        "awayRecord": null,
+        "cleanSheets": null,
+        "avgAttendance": null
       },
       "fullSchedule": [
         {
@@ -28,235 +28,172 @@
           "opponent": "FC Cincinnati",
           "venue": "Away",
           "competition": "MLS",
-          "result": "0-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-03-01",
           "opponent": "San Jose Earthquakes",
           "venue": "Away",
           "competition": "MLS",
-          "result": "0-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-03-08",
           "opponent": "Real Salt Lake",
           "venue": "Home",
           "competition": "MLS",
-          "result": "2-3 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-03-14",
           "opponent": "Philadelphia Union",
           "venue": "Home",
           "competition": "MLS",
-          "result": "3-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-03-21",
           "opponent": "D.C. United",
           "venue": "Home",
           "competition": "MLS",
-          "result": "0-0 (Draw)"
+          "result": "-"
         },
         {
           "date": "2026-04-04",
           "opponent": "Columbus Crew",
           "venue": "Home",
           "competition": "MLS",
-          "result": "1-3 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-04-12",
           "opponent": "Chicago Fire FC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "0-1 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-04-18",
           "opponent": "Nashville SC",
           "venue": "Home",
           "competition": "MLS",
-          "result": "0-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-04-22",
           "opponent": "New England Revolution",
           "venue": "Home",
           "competition": "MLS",
-          "result": "1-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-04-25",
           "opponent": "Toronto FC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "2-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-05-02",
           "opponent": "CF Montréal",
           "venue": "Home",
           "competition": "MLS",
-          "result": "3-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-05-09",
           "opponent": "LA Galaxy",
           "venue": "Home",
           "competition": "MLS",
-          "result": "1-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-05-16",
           "opponent": "Orlando City SC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "1-1 (Draw)"
+          "result": "-"
         },
         {
           "date": "2026-05-24",
           "opponent": "Columbus Crew",
           "venue": "Away",
           "competition": "MLS",
-          "result": "0-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-07-18",
           "opponent": "Nashville SC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "0-1 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-07-23",
           "opponent": "Charlotte FC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "2-2 (Draw)"
+          "result": "-"
         },
         {
           "date": "2026-07-25",
           "opponent": "New England Revolution",
           "venue": "Away",
           "competition": "MLS",
-          "result": "1-4 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-08-01",
           "opponent": "Philadelphia Union",
           "venue": "Away",
           "competition": "MLS",
-          "result": "2-3 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-08-15",
           "opponent": "Red Bull New York",
           "venue": "Home",
           "competition": "MLS",
-          "result": "2-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-08-20",
           "opponent": "Minnesota United FC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "2-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-08-23",
           "opponent": "Sporting Kansas City",
           "venue": "Home",
           "competition": "MLS",
-          "result": "2-1 (Win)"
+          "result": "-"
         },
         {
           "date": "2026-08-29",
           "opponent": "Charlotte FC",
           "venue": "Home",
           "competition": "MLS",
-          "result": "0-2 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-09-06",
           "opponent": "Inter Miami CF",
           "venue": "Away",
           "competition": "MLS",
-          "result": "2-2 (Draw)"
+          "result": "-"
         },
         {
           "date": "2026-09-09",
           "opponent": "Orlando City SC",
           "venue": "Home",
           "competition": "MLS",
-          "result": "2-3 (Loss)"
+          "result": "-"
         },
         {
           "date": "2026-09-12",
           "opponent": "D.C. United",
-          "venue": "Away",
-          "competition": "MLS",
-          "result": "0-0 (Draw)"
-        },
-        {
-          "date": "2026-09-20",
-          "opponent": "Portland Timbers",
-          "venue": "Away",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-09-26",
-          "opponent": "New York City FC",
-          "venue": "Home",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-10-10",
-          "opponent": "FC Cincinnati",
-          "venue": "Home",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-10-14",
-          "opponent": "CF Montréal",
-          "venue": "Away",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Inter Miami CF",
-          "venue": "Home",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Chicago Fire FC",
-          "venue": "Home",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-10-28",
-          "opponent": "New York City FC",
-          "venue": "Away",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-11-01",
-          "opponent": "Toronto FC",
-          "venue": "Home",
-          "competition": "MLS",
-          "result": "-"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Red Bull New York",
           "venue": "Away",
           "competition": "MLS",
           "result": "-"
@@ -879,7 +816,7 @@
           "minutes": 714
         }
       ],
-      "notes": "In-season sync: 34 fixtures, 15 table rows, 38 roster rows."
+      "notes": "In-season sync: 25 fixtures, 15 table rows, 38 roster rows."
     },
     {
       "season": 2025,
