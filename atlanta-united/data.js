@@ -49,7 +49,7 @@ window.ATL_DATA = {
       "lineRank": 9,
       "linePoints": 32,
       "pointsFromLine": -9,
-      "gamesInHand": -1
+      "gamesInHand": 1
     }
   },
   "playerStats": [
@@ -8224,19 +8224,32 @@ window.ATL_DATA = {
       },
       {
         "rank": 8,
-        "teamId": "17606",
-        "team": "New York City FC",
-        "played": 25,
-        "wins": 8,
-        "draws": 8,
-        "losses": 9,
-        "points": 32,
-        "goalDiff": 6,
+        "teamId": "190",
+        "team": "Red Bull New York",
+        "played": 26,
+        "wins": 9,
+        "draws": 6,
+        "losses": 11,
+        "points": 33,
+        "goalDiff": -14,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
       {
         "rank": 9,
+        "teamId": "17606",
+        "team": "New York City FC",
+        "played": 26,
+        "wins": 8,
+        "draws": 8,
+        "losses": 10,
+        "points": 32,
+        "goalDiff": 5,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 10,
         "teamId": "18267",
         "team": "FC Cincinnati",
         "played": 24,
@@ -8245,19 +8258,6 @@ window.ATL_DATA = {
         "losses": 8,
         "points": 32,
         "goalDiff": -7,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 10,
-        "teamId": "190",
-        "team": "Red Bull New York",
-        "played": 25,
-        "wins": 8,
-        "draws": 6,
-        "losses": 11,
-        "points": 30,
-        "goalDiff": -15,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8537,7 +8537,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-18T05:00:07.612Z"
+    "generatedAt": "2026-09-19T05:00:12.076Z"
   },
   "seasonHistory": [
     {
