@@ -24,10 +24,10 @@ window.ATL_DATA = {
   },
   "formLastFive": [],
   "nextMatch": {
-    "opponent": "Portland Timbers",
-    "dateISO": "2026-09-20T02:30Z",
+    "opponent": "New York City FC",
+    "dateISO": "2026-09-26T23:30Z",
     "competition": "MLS",
-    "venue": "Providence Park",
+    "venue": "Mercedes-Benz Stadium",
     "broadcast": "MLS Season Pass"
   },
   "results": [],
@@ -48,12 +48,6 @@ window.ATL_DATA = {
       }
     },
     "nextThree": [
-      {
-        "opponent": "Portland Timbers",
-        "dateISO": "2026-09-20T02:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
       {
         "opponent": "New York City FC",
         "dateISO": "2026-09-26T23:30Z",
@@ -78,7 +72,7 @@ window.ATL_DATA = {
       "number": "16",
       "position": "M",
       "appearances": 6,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 341
@@ -100,7 +94,7 @@ window.ATL_DATA = {
       "number": "59",
       "position": "M",
       "appearances": 25,
-      "starts": null,
+      "starts": 0,
       "goals": 6,
       "assists": 6,
       "minutes": 2055
@@ -108,10 +102,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-000CX8",
       "name": "Andrew Jardines",
-      "number": "",
-      "position": "-",
+      "number": "78",
+      "position": "M",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -119,10 +113,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-00083J",
       "name": "Arif Kovac",
-      "number": "",
-      "position": "-",
+      "number": "39",
+      "position": "F",
       "appearances": 1,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 6
@@ -133,7 +127,7 @@ window.ATL_DATA = {
       "number": "36",
       "position": "OFF",
       "appearances": 4,
-      "starts": null,
+      "starts": 0,
       "goals": 1,
       "assists": 0,
       "minutes": 348
@@ -144,7 +138,7 @@ window.ATL_DATA = {
       "number": "30",
       "position": "OFF",
       "appearances": 7,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 101
@@ -155,18 +149,29 @@ window.ATL_DATA = {
       "number": "48",
       "position": "M",
       "appearances": 23,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 1,
       "minutes": 1682
     },
     {
+      "id": "400742",
+      "name": "Dominik Chong Qui",
+      "number": "50",
+      "position": "D",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-000CRG",
-      "name": "Elías Báez",
+      "name": "Elías Baez",
       "number": "3",
       "position": "D",
       "appearances": 23,
-      "starts": null,
+      "starts": 0,
       "goals": 1,
       "assists": 3,
       "minutes": 2024
@@ -188,7 +193,7 @@ window.ATL_DATA = {
       "number": "4",
       "position": "D",
       "appearances": 21,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 1394
@@ -196,10 +201,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-000CUY",
       "name": "Enzo Dovlo",
-      "number": "",
-      "position": "-",
+      "number": "67",
+      "position": "F",
       "appearances": 1,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 20
@@ -210,7 +215,7 @@ window.ATL_DATA = {
       "number": "22",
       "position": "OFF",
       "appearances": 18,
-      "starts": null,
+      "starts": 0,
       "goals": 3,
       "assists": 1,
       "minutes": 741
@@ -221,7 +226,7 @@ window.ATL_DATA = {
       "number": "11",
       "position": "M",
       "appearances": 1,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 65
@@ -229,10 +234,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-000BN6",
       "name": "Ignacio Suarez-Couri",
-      "number": "",
-      "position": "-",
+      "number": "56",
+      "position": "M",
       "appearances": 1,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 1
@@ -243,7 +248,7 @@ window.ATL_DATA = {
       "number": "35",
       "position": "M",
       "appearances": 13,
-      "starts": null,
+      "starts": 0,
       "goals": 2,
       "assists": 0,
       "minutes": 566
@@ -254,7 +259,7 @@ window.ATL_DATA = {
       "number": "42",
       "position": "GK",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -276,7 +281,7 @@ window.ATL_DATA = {
       "number": "6",
       "position": "D",
       "appearances": 11,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 956
@@ -287,7 +292,7 @@ window.ATL_DATA = {
       "number": "1",
       "position": "GK",
       "appearances": 26,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 2340
@@ -298,7 +303,7 @@ window.ATL_DATA = {
       "number": "20",
       "position": "OFF",
       "appearances": 16,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 390
@@ -320,7 +325,7 @@ window.ATL_DATA = {
       "number": "47",
       "position": "D",
       "appearances": 17,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 1,
       "minutes": 741
@@ -331,7 +336,7 @@ window.ATL_DATA = {
       "number": "14",
       "position": "M",
       "appearances": 4,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 271
@@ -340,9 +345,9 @@ window.ATL_DATA = {
       "id": "mls-2026-MLS-OBJ-0003T9",
       "name": "Miguel Almirón",
       "number": "10",
-      "position": "M",
+      "position": "F",
       "appearances": 20,
-      "starts": null,
+      "starts": 0,
       "goals": 4,
       "assists": 6,
       "minutes": 1692
@@ -353,7 +358,7 @@ window.ATL_DATA = {
       "number": "27",
       "position": "D",
       "appearances": 6,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 419
@@ -392,12 +397,23 @@ window.ATL_DATA = {
       "minutes": 633
     },
     {
+      "id": "416552",
+      "name": "Santiago Pita",
+      "number": "40",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
+    },
+    {
       "id": "mls-2026-MLS-OBJ-000089",
       "name": "Sergio Santos",
       "number": "19",
       "position": "OFF",
       "appearances": 6,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 74
@@ -408,7 +424,7 @@ window.ATL_DATA = {
       "number": "7",
       "position": "M",
       "appearances": 12,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 506
@@ -430,7 +446,7 @@ window.ATL_DATA = {
       "number": "55",
       "position": "D",
       "appearances": 23,
-      "starts": null,
+      "starts": 0,
       "goals": 3,
       "assists": 1,
       "minutes": 1939
@@ -438,10 +454,10 @@ window.ATL_DATA = {
     {
       "id": "mls-2026-MLS-OBJ-00083K",
       "name": "Toto Majub",
-      "number": "",
-      "position": "-",
+      "number": "41",
+      "position": "D",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
@@ -452,7 +468,7 @@ window.ATL_DATA = {
       "number": "8",
       "position": "M",
       "appearances": 26,
-      "starts": null,
+      "starts": 0,
       "goals": 4,
       "assists": 0,
       "minutes": 1932
@@ -463,7 +479,7 @@ window.ATL_DATA = {
       "number": "28",
       "position": "M",
       "appearances": 11,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 714
@@ -8143,6 +8159,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 2,
+        "teamId": "20232",
+        "team": "Inter Miami CF",
+        "played": 26,
+        "wins": 12,
+        "draws": 10,
+        "losses": 4,
+        "points": 46,
+        "goalDiff": 15,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 3,
         "teamId": "189",
         "team": "New England Revolution",
         "played": 26,
@@ -8151,19 +8180,6 @@ window.ATL_DATA = {
         "losses": 8,
         "points": 46,
         "goalDiff": 12,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 3,
-        "teamId": "20232",
-        "team": "Inter Miami CF",
-        "played": 25,
-        "wins": 12,
-        "draws": 9,
-        "losses": 4,
-        "points": 45,
-        "goalDiff": 15,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8446,11 +8462,11 @@ window.ATL_DATA = {
         "rank": 10,
         "teamId": "22529",
         "team": "San Diego FC",
-        "played": 25,
+        "played": 26,
         "wins": 8,
-        "draws": 6,
+        "draws": 7,
         "losses": 11,
-        "points": 30,
+        "points": 31,
         "goalDiff": 0,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8534,7 +8550,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-20T05:00:09.813Z"
+    "generatedAt": "2026-09-21T05:00:08.244Z"
   },
   "seasonHistory": [
     {
