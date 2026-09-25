@@ -1,145 +1,145 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-24",
   "general_news": [
     {
-      "link": "https://www.npr.org/2026/09/25/g-s1-144994/up-first-newsletter-trump-xi-netanyahu-united-nations-mortgage-rates",
-      "published_at": "2026-09-25T07:18:52-04:00",
+      "link": "https://www.npr.org/2026/09/24/g-s1-144850/up-first-newsletter-cnn-msnow-politico-iran-ukraine-unga-china-xi-jinping-trump",
+      "published_at": "2026-09-24T07:10:14-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Trump and Xi's U.S. summit continues after a state dinner Thursday night. And, Netanyahu returns to Israel after giving a defensive and defiant speech at the U.N. General Assembly.",
-      "title": "Trump and Xi strike cordial tone at summit. And, Netanyahu gives defiant UNGA speech"
+      "summary": "A judge has ordered that the Trump administration restore journalists' access to White House. And, Tucker Carlson sits down with Morning Edition's Steve Inskeep for a Newsmakers interview.",
+      "title": "Judge restores journalists' White House access. And, Tucker Carlson on his MAGA split"
     },
     {
-      "link": "https://www.npr.org/sections/planet-money/2026/09/25/nx-s1-5980393/why-this-pokemon-set-is-dropping-in-value",
-      "published_at": "2026-09-25T07:00:00-04:00",
+      "link": "https://www.npr.org/2026/09/24/g-s1-144544/cash-transfer-poverty-liberia-partner-violence",
+      "published_at": "2026-09-24T06:43:25-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "How does one price a cemetery plot? Are they using dynamic pricing to figure it out? We tackle that question and many more in this week's Indicator newsletter.",
-      "title": "Why this Pok\u00e9mon set is dropping in value"
+      "summary": "In Liberia, joint financial planning boosted cash aid's benefits. It also had an unexpected consequence for some families.",
+      "title": "Needy couples got cash and a spending plan. Results were good -- and bad"
     },
     {
-      "link": "https://www.npr.org/2026/09/25/nx-s1-5979852/israels-prime-minister-addresses-u-n-general-assembly",
-      "published_at": "2026-09-25T06:25:03-04:00",
+      "link": "https://www.npr.org/2026/09/24/nx-s1-5931971/trump-nih-science-funding-disruptions-charts",
+      "published_at": "2026-09-24T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Middle East crises in focus as UN General Assembly hears from Israel, the Palestinian Authority, and Yemen.",
-      "title": "Netanyahu rages against critics, including Mamdani, at the U.N. General Assembly"
+      "summary": "Stories of science funding being cut, labs shutting down and scientists losing jobs have flooded the media under Trump's administration. These six graphics show how those changes have affected U.S. biomedical research.",
+      "title": "Under Trump, NIH funding disruptions have evolved. Here's what the numbers show"
     },
     {
-      "link": "https://www.npr.org/2026/09/25/g-s1-144665/trump-arch-fat-bear-media-ai-news-quiz",
-      "published_at": "2026-09-25T05:01:00-04:00",
+      "link": "https://www.npr.org/2026/09/24/nx-s1-5968605/education-department-dismantling-how-its-going",
+      "published_at": "2026-09-24T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Plus: It's a very special week! But which one?",
-      "title": "Fill in the blank in the quiz: Trump's says his triumphal arch will include _____"
+      "summary": "Education staff are being scattered across several other federal agencies. Despite the Trump administration's claims, employees say it's adding bureaucracy and making it harder to serve students.",
+      "title": "The Education Dept. hasn't been dismantled. It's become more inefficient, staff say"
     },
     {
-      "link": "https://www.npr.org/2026/09/25/nx-s1-5978936/how-to-manage-mom-rage",
-      "published_at": "2026-09-25T05:01:00-04:00",
+      "link": "https://www.npr.org/2026/09/24/nx-s1-5978124/ebay-bans-airbags-faulty-counterfeit-auto-parts",
+      "published_at": "2026-09-24T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Parenthood can be overwhelming. A therapist and mom of three shares techniques to help calibrate your emotions \u2014 so you can show up better for yourself and your family.",
-      "title": "Mom! Mom! MOM! 3 ways to stay calm in stressful parenting moments"
+      "summary": "eBay became the latest online retailer to ban the sale of airbags and many of their components. Aftermarket parts can be risky if they turn out to be fake or defective.",
+      "title": "eBay bans airbag sales as concerns about faulty or counterfeit parts rise"
     },
     {
-      "link": "https://www.nytimes.com/2026/09/25/us/ice-surge-immigration-arrests.html",
-      "published_at": "2026-09-25T09:00:35+00:00",
+      "link": "https://www.nytimes.com/2026/09/23/business/media/cnn-ms-now-politico-white-house-trump-ban-ruling.html",
+      "published_at": "2026-09-24T08:13:36+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "A review of dozens of incidents caught on camera sheds new light on a largely invisible crackdown.",
-      "title": "Inside the Record Summer ICE Surge That Swept Across the U.S."
+      "summary": "Judge Timothy J. Kelly issued a temporary restraining order and told the White House to immediately restore the press credentials for the employees of the three news outlets.",
+      "title": "Court Blocks Trump\u2019s White House Ban on CNN, MS NOW and Politico"
     },
     {
-      "link": "https://www.nytimes.com/2026/09/24/us/politics/gao-report-finds-waste-immigrant-detention.html",
-      "published_at": "2026-09-25T00:00:24+00:00",
+      "link": "https://www.nytimes.com/2026/09/24/podcasts/the-headlines/trump-ban-press-ai-health-care-costs.html",
+      "published_at": "2026-09-24T10:00:56+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "In a report Thursday, the Government Accountability Office said the Trump administration squandered millions of dollars to expand detention.",
-      "title": "Unused Tents and Uneaten Food: Watchdog Finds \u2018Waste\u2019 in Immigration Crackdown"
+      "summary": "Plus, the undamming of U.S. rivers.",
+      "title": "Judge Blocks Trump\u2019s Ban on Reporters, and How A.I. Is Driving Up Health Care Costs"
     },
     {
-      "link": "https://www.nytimes.com/2026/09/25/podcasts/the-headlines/trump-white-house-reporters-meta-glasses.html",
-      "published_at": "2026-09-25T10:00:07+00:00",
+      "link": "https://www.nytimes.com/2026/09/23/us/politics/mary-peltola-alaska-senate-race.html",
+      "published_at": "2026-09-24T03:24:57+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Plus, the Friday news quiz.",
-      "title": "Trump\u2019s Standoff With White House Reporters, and the Rise and Fall of \u2018Pervert Glasses\u2019"
+      "summary": "Democrats hope that Mary Peltola can flip a Republican Senate seat in Alaska. Former aides describe a campaign and congressional office marked by chaos.",
+      "title": "Mary Peltola\u2019s Campaign in Alaska Senate Race Is Rocked by Tumult, With Angry Outbursts and Slurs"
     },
     {
-      "link": "https://www.nytimes.com/2026/09/24/us/politics/trump-xi-press-pool-boycott-media.html",
-      "published_at": "2026-09-25T00:38:47+00:00",
+      "link": "https://www.nytimes.com/2026/09/24/us/politics/trump-republicans-midterms-break.html",
+      "published_at": "2026-09-24T09:02:54+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "The showdown over President Trump\u2019s partial media ban played out as he welcomed President Xi Jinping, whose government is ranked among the most repressive in the world.",
-      "title": "In Trump\u2019s White House, China\u2019s Dictator Is Welcome. American Media, Less So."
+      "summary": "The dissent reflects growing unease about the party\u2019s prospects in November, as the G.O.P. struggles to overcome the president\u2019s unpopularity.",
+      "title": "\u2018Survival Mode Time\u2019: Republicans Accelerate Their Break With Trump"
     },
     {
-      "link": "https://www.nytimes.com/2026/09/24/us/politics/trump-xi-summit-china.html",
-      "published_at": "2026-09-25T03:10:18+00:00",
+      "link": "https://www.nytimes.com/2026/09/23/us/politics/timothy-mellon-republicans-midterms.html",
+      "published_at": "2026-09-24T01:42:58+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "President Trump pressed his personal brand of diplomacy as President Xi Jinping of China made his first trip to the White House in more than a decade.",
-      "title": "Flyovers and Pandas Masked Divides in Trump and Xi\u2019s U.S.-China Summit"
+      "summary": "Timothy Mellon, one of the party\u2019s biggest donors in 2024, has so far withheld his midterm donations for Republican senators because he is unhappy about the failure to pass a key Trump priority.",
+      "title": "Timothy Mellon, a G.O.P. Billionaire, Pulls Back His Money From Senate Republicans"
     },
     {
-      "link": "https://www.bbc.co.uk/news/videos/cmvgy95g0n3lo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-09-25T00:09:21+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cqgmrk7187lzo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-09-24T03:52:21+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The BBC\u2019s Nada Tawfik explains what happened even before the Israeli prime minister took to the stage at the United Nations General Assembly in New York.",
-      "title": "Watch: Protests and walkouts as Netanyahu addresses UN"
+      "summary": "The US treasury secretary said that the US and China had reached an agreement to extend a trade truce as Xi began his visit.",
+      "title": "Trump offers warm welcome as China's Xi arrives for US visit"
     },
     {
-      "link": "https://www.bbc.co.uk/news/videos/cjdx5747g7evo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-09-24T22:04:12+00:00",
+      "link": "https://www.bbc.co.uk/news/videos/c6804ne8knklo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-09-23T23:03:56+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The Canadian Prime Minister told The New York Times that Canada has considered the remote possibility of US military action.",
-      "title": "A military threat from US? Canadians react to Carney's concerns"
+      "summary": "The two B-1 bombers that flew overhead are a key part of the US's combat arsenal, and produce a notoriously loud roar when they pass by.",
+      "title": "A red carpet and military flyover - How Trump welcomed Xi"
     }
   ],
-  "generated_at": "2026-09-25T07:30:02.016426-04:00",
+  "generated_at": "2026-09-24T07:30:02.271695-04:00",
   "holidays": [],
   "local_news": [
     {
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQejFxVktZZW1NWDZDeUVSc0ZJX1poRER1d3c1QW01ZUc0Yy1TWlZNdlJGNVdkOUNjbkYwUlhqdlhwSHd1M0x3aUdmS1FEZlBrVW0yV055VzFjNHVwUlFMX1V1U0s1d3UtdmpJUWp6WUxyTUpGZjNTT2xjSDR5WWpOVHIwYmh1Qk5rNHhYQmlLWFozUndERVJTd2doQU90aHVnVlJyaXN0dXVPVWh20gHAAUFVX3lxTE9zbEhYallheG9iMzBSZWFuZFdwVEJuV3U5eWNyT3BfenVwVGNEN2VwY3R2MFd5VFozbDRMQkZLbGVlNE5lamJYd3hKc2V4cnY0QnVmZWJBZkZnWklxdGY1V3MxZWNMTVhyX0cxQmtFSHRXQTZSQms5d0Z5RFFHcldkS1BkX2lkaTNnVXZQRm5mWndvRjdPS3N3cFVvWWhZamptRkJSZXliRFA5ZWNHN2lRNGt6aS1kRlJjVGh2QWFYYw?oc=5",
-      "published_at": "2026-09-24T23:49:01+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUGpFREw3dThxVnhoN1JmdVZCcXRIdGFKdE9WSG54a096UkdKYUk2QWk2QkRaSWNBbGhVd09pMzJHeTFFUzNzeDd5WlNKbXJidDl2ajFtckFhQ3l1N3RWb1JnQ24wT1k5UW5KUWUzdEZpQkczcnNmR2l2N3lQbjVmelMxWlVFQXV0Zk42UUFEX2xzbEdLa0lmN3h5eUdkVEd0enNlVWFyY003MmVBVGg5UXZIOXprQ3RWWGU0Z3NselDSAdQBQVVfeXFMUHVDMmhqQnQ4UHhidDRfOUZYcTV0ZmN5dmV5S1RyVE1YNVhzZ2k2cDhQdXUyWEw4eThjQ1pqVGFueGNMTFJKcmFPSXJRUWFZWU9WSEZNY2RLRU9JajdQNkpGajNjZzh6ZkFLb0JINGFMbmYtVld3eTAtNk96Nm5uXzA2SGRXanN5MVV5aGZHbUUyekZIZVJXRU1CelpheXZ4SzZsdERWaGp1X2pMX085aFB2OHh0d0QwNVk0MkJvVWg3WE93MTBIazZ0ai1GT1dYLVFrcHk?oc=5",
+      "published_at": "2026-09-23T18:54:38+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Missing woman found dismembered at metro Atlanta apartment; 18-year-old arrested WSB-TV",
-      "title": "Missing woman found dismembered at metro Atlanta apartment; 18-year-old arrested - WSB-TV"
+      "summary": "Police investigating deadly shooting at apartment complex WSB-TV",
+      "title": "Police investigating deadly shooting at apartment complex - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcEV0XzZ1SFpZOWttSnFNM0FtYTVxLUZjZUpYTmlEX2ctc29HMXRnUXZhT3N3eElUekpkSVV0RkxGWjVsMzl1T2d1bVktSXlxbWJJdHBKNVU3aGFkNHpJOHpaQTFRUWlVcVlsS0NiQXNRU3gxRy04N0FsRFM4Ry14Mm1yQ0tjazRTLXpwWXJqanl0Ykd5eC02NlRfTjV2NjNZVEFWcHNBMnRrdw?oc=5",
-      "published_at": "2026-09-24T20:30:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOUk92WWhrMzZ6N2lReGJkRWNFWGNSLXAweFJEWjNsMVhKQzAxa1dXN0p3a3JFQk01N0o0VWZTT1VIYzh1Y3lHaFZzLWx0NEphcERGWEVPYmJoNVRGcTRlNWFuTUlvaTR6ZGc3LTM5OEtfNlNDTTBrYjRCS0lScXk3blY4V2d0a2FjUy1KenIwOHVpWFpQQXVCYXNUUVdmWnB0VXppRE9zU2NZNDRpSEg0ZGlUbUZ6UERXYUhrUWl3?oc=5",
+      "published_at": "2026-09-24T10:42:15+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "City of Social Circle decertified after data center land dispute Atlanta News First",
-      "title": "City of Social Circle decertified after data center land dispute - Atlanta News First"
+      "summary": "Atlanta food bank absorbs record-high diesel costs to keep feeding Georgia families CBS News",
+      "title": "Atlanta food bank absorbs record-high diesel costs to keep feeding Georgia families - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZUJQM0R0U01lajBXMDJTM2Q1UDB4aUR5VzNvUFdPTEZEdHVMTElES3Y5cEZRT3E4b1BlSjRPcnZyc3JScjhnVmJ5LXgwWFp5WDRaOEp2MEhMNXBieUY0M3JucmRrQ2M4RmpuXzB6aHNXX3J3WVRhS3JHd2JqZG5Mc0RYMmpmU0Fxa1VPQ1lOSUdzbjFzYzQ5TmJDQXJmZHV3dzJEdGROSmdleDFTc2JpaWZIZGExZ1Jf?oc=5",
-      "published_at": "2026-09-24T16:09:38+00:00",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSWsxNUdyWDRzVjF5Q09lYnM2dks3dDRNcXl6bGRRT3lVRS1yZFNocVRsQW8xQ2V3cDdndXFkMFROMkw0bmF3bnpkNy1YaVMxc0hGcDRiMVpRTERNNURLeXpySW1ra2Z1SWp5Y0Rka1BkVzVEaDdNOTh5WWVLd0JQTkNTdW5WcGo2TVl5Sk10clhSS0Jya08wdFNpOEFTX0JWQmNwbg?oc=5",
+      "published_at": "2026-09-24T02:36:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Police charge Georgia teen after woman's body found during missing person search CBS News",
-      "title": "Police charge Georgia teen after woman's body found during missing person search - CBS News"
+      "summary": "All lanes of I-20 eastbound in DeKalb County closed after crash Atlanta News First",
+      "title": "All lanes of I-20 eastbound in DeKalb County closed after crash - Atlanta News First"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMRXBUcW53eXRFMjFkb0FxNFRqajhCT3Uyclk5b3Y3c0FrZ2tZRUNyZjdUN2VUQU5ZR1ZFTlBjamxrNlBDMmNuc29BTXA2VUdscTc3OXlrbHBheHZZaV85eTZpRll2eE5rNjdvQ0ZWSQ?oc=5",
-      "published_at": "2026-09-21T21:25:41+00:00",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOFpXM1NURkZHSHd6LWNhUzhhSlVsbkVYLWlhT2YtTEU3bDVzS3BSVnRJUDdsTmRtWU5kNW4yMGhpR1MtNGhhdlJwbDlXejlzWXNIZWFPRG9UUmg0ZzRrRUFUUVJsWmJfdDdxaUowZVktM0EtQWcwR3FpY2RNenh0XzVkOF9mdG0yeHhaWWx3?oc=5",
+      "published_at": "2026-09-23T14:03:41+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Mayor Andre Dickens Hosts 2026 Mayor\u2019s Golf Cup City Of Atlanta, Ga (.gov)",
-      "title": "Mayor Andre Dickens Hosts 2026 Mayor\u2019s Golf Cup - City Of Atlanta, Ga (.gov)"
+      "summary": "Build-Outs Of Coffee: Bellwood Coffee In Atlanta, GA Sprudge",
+      "title": "Build-Outs Of Coffee: Bellwood Coffee In Atlanta, GA - Sprudge"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxObXA5WTV0aDFzVDVlVGQxeVk5S3FwRnZRajRZOUx1el9aZ0wxdk5OUEZ3eU1NODZGRVU3YVoxUVlBTllXLVlPMFBpY2RYXzRpU0w0ODYyQzkyTlNPVThDN3Z0ekxHeTBmVndmaE84UzdQZmVKUDlCY2lUb1F6SkFscWdwRUh3SVkwcnVwWnhfR1pIUXFPcGlDQlFCZVlfeGFMZnUtb1JQbDVzenJNZVo5cW1DQnlfd0JtelFSLXVYZ3NFN1ZBeXh4OE1BS21ZN0tqb3lVd2xkSEc1MU1OYkg1LVg0djUtTkU?oc=5",
-      "published_at": "2026-09-24T18:01:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1ub3FVWW9fZ0M5cXRxSlZZOFRCazBNMkRleTUybS1yTmNZT2d4bjJ5UWlkaW05cjdWOW00S0Q1cWJDOS1MT2EySFkyeGFwSDFobEVGT0tmQjI0OU4yNFhKN0d0d3FfMXB0QWdWWFkwMFU2Zzd3SEJlS3RtaXY?oc=5",
+      "published_at": "2026-09-24T04:00:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Atlanta native identified as one of two students whose deaths are under investigation at Ole Miss 11Alive.com",
-      "title": "Atlanta native identified as one of two students whose deaths are under investigation at Ole Miss - 11Alive.com"
+      "summary": "Cincinnati Reds vs. Atlanta Braves - Wednesday WHIO TV",
+      "title": "Cincinnati Reds vs. Atlanta Braves - Wednesday - WHIO TV"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMGgwMnRQWEJKTWZSUEo1ek94cjlybGdLNzhMMW5MRnhkZjJ2eHNNZmhGTFdlX3VEdV9TekswQ0gtcE5wZl9BTHFWOHFoYXNIdzQtcktwUHpLbXpubHFpQ3J1T1h0OWFFNUFsbkwwMUQ5UC1jNGpRMDUwOWZjNl93VnVWWmRBRHRGel9VY01OMVQ5MlRCM1VDNGpwUTctbGEzdzhwZEEycGNncktQSXA4REw1aE9lQm8?oc=5",
@@ -154,8 +154,8 @@
       "published_at": "2026-09-09T07:00:00+00:00",
       "source": "\"Georgia state government Atlanta\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Attorney General Todd Blanche Celebrates Prosecutorial Successes and Record-Setting Hiring During Atlanta Visit Department of Justice (.gov)",
-      "title": "Attorney General Todd Blanche Celebrates Prosecutorial Successes and Record-Setting Hiring During Atlanta Visit - Department of Justice (.gov)"
+      "summary": "Attorney General Todd Blanche Celebrates Prosecutorial Successes and Record-Setting Hiring During Atlanta Visit justice.gov",
+      "title": "Attorney General Todd Blanche Celebrates Prosecutorial Successes and Record-Setting Hiring During Atlanta Visit - justice.gov"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOeEZtaFFONTNPc1RwakgxODFYNXN5M2tGQzNHSFA5V1ZlNFcyOG1oLWd2Vk5wbEZRM1NrV05ZZ3phZzdUcHJlOUlOOXVBekFOMXQ2clNFYnNtNDBCMDI0Z05jMElGLWo1ZWhOdE5LbmRrY1RTVzFTOHl0ZmUwdTJVZlE5a0ZBLVJhNzVLczcyRFdyLWJuT2p4VWF0X1hrZm8temd1cy0xWU9ldHFrVi1iTUF2UVE0b3ZKQm5WVjFYNzlnM1dNLXc?oc=5",
@@ -168,93 +168,97 @@
   ],
   "market_news": [
     {
-      "link": "https://finance.yahoo.com/markets/stocks/articles/ennis-ebf-grows-sales-earns-015226342.html",
-      "published_at": "2026-09-23T01:52:26Z",
+      "link": "https://finance.yahoo.com/small-business/articles/techcrunch-founder-summit-agenda-revealed-232149079.html",
+      "published_at": "2026-09-22T23:21:49Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Ennis (EBF) Grows Sales but Earns Less. Are Legal Items Hiding a Better Business?"
+      "title": "TechCrunch Founder Summit\u2019s agenda revealed: Unlock fundraising, hiring, and AI insights in Boston on November 4"
     },
     {
-      "link": "https://finance.yahoo.com/markets/crypto/articles/strive-ceo-bitcoin-could-infinity-015100441.html",
-      "published_at": "2026-09-23T01:51:00Z",
+      "link": "https://finance.yahoo.com/markets/crypto/articles/crypto-etfs-surging-bitcoin-ether-232240681.html",
+      "published_at": "2026-09-22T23:22:40Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Strive CEO: Bitcoin Could \u2018Go to Infinity' as Dollar Debt Crisis Breaks"
+      "title": "Crypto ETFs Are Surging, but Bitcoin Ether Aren\u2019t the Big Winners"
     },
     {
-      "link": "https://finance.yahoo.com/markets/stocks/articles/westinghouse-air-brake-wab-signs-014350177.html",
-      "published_at": "2026-09-23T01:43:50Z",
+      "link": "https://finance.yahoo.com/markets/options/articles/bonkers-etf-market-zine-edition-232536088.html",
+      "published_at": "2026-09-22T23:25:36Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Westinghouse Air Brake (WAB) Signs $700 Million-Plus Rail Services Deal. Can Profits Grow?"
+      "title": "This Bonkers ETF Market: The Zine Edition"
     },
     {
-      "link": "https://finance.yahoo.com/markets/commodities/articles/vista-gold-vgz-agrees-sale-014206537.html",
-      "published_at": "2026-09-23T01:42:06Z",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/chemed-che-buys-60-6m-233037814.html",
+      "published_at": "2026-09-22T23:30:37Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "Vista Gold (VGZ) Agrees to Sale. Can its Buyer Fund the Mt Todd Gold Mine?"
+      "title": "Chemed (CHE) Buys a $60.6M Roto-Rooter Franchise. Can Ownership Lift Returns?"
     },
     {
-      "link": "https://finance.yahoo.com/technology/ai/articles/little-known-ai-chip-stock-042916921.html",
-      "published_at": "2026-09-23T04:29:16Z",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/high-yield-tobacco-stock-just-233002517.html",
+      "published_at": "2026-09-22T23:30:02Z",
       "source": "Yahoo Finance",
       "source_feed": "https://finance.yahoo.com/news/rssindex",
       "summary": "",
-      "title": "This Little-Known AI Chip Stock Doubled. Its New Chips Now Double Optical Speed"
+      "title": "This High-Yield Tobacco Stock Just Raised Its Dividend by 8.8%"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/25/us-iran-trump-hormuz-.html",
-      "published_at": "2026-09-25T11:14:24+00:00",
+      "link": "https://www.cnbc.com/2026/09/24/us-treasury-yields-bonds-fed-inflation.html",
+      "published_at": "2026-09-24T09:36:19+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The remarks came as the Houthis launched a new wave of missile and drone attacks at Saudi targets Friday morning.",
-      "title": "Iran offers to reopen Strait of Hormuz within 7 days and restart nuclear talks"
+      "summary": "U.S. Treasury yields continued their upward momentum after hitting a 19-year high on Wednesday.",
+      "title": "30-year Treasury yield hits highest level since 2004"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/25/kevin-warsh-fed-interest-rates-balance-sheet.html",
-      "published_at": "2026-09-25T10:30:01+00:00",
+      "link": "https://www.cnbc.com/2026/09/24/judge-lifts-trumps-white-house-ban-on-cnn-ms-now-and-politico.html",
+      "published_at": "2026-09-24T06:22:46+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Fed Chairman Kevin Warsh is driving rapid change in some areas, while his emerging policy framework suggests further rate hikes remain possible.",
-      "title": "Warsh's regime change at the Fed pushes ahead \u2013 and meets resistance"
+      "summary": "District Judge Tim Kelly said the three outlets should have their access immediately restored from the ban that the president had announced on Sept. 18.",
+      "title": "Judge lifts Trump ban on CNN, MS NOW, Politico from White House"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/25/house-midterms-toss-ups-campaign-cash-incumbents.html",
-      "published_at": "2026-09-25T11:17:27+00:00",
+      "link": "https://www.cnbc.com/2026/09/24/trump-xi-meeting-china-washington.html",
+      "published_at": "2026-09-24T11:20:52+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Incumbents hold commanding cash advantages in many of the U.S. House 2026 midterm election races expected to help decide control of Congress.",
-      "title": "See which incumbents have the biggest cash advantage in the tightest U.S. House races"
+      "summary": "Trump greeted China's Xi at Joint Base Andrews, his first time traveling to the facility to welcome a foreign leader.",
+      "title": "Trump, Xi expected to talk Taiwan, AI, trade and Iran as DC summit kicks off"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/25/china-exports-surplus-trade-tariffs-.html",
-      "published_at": "2026-09-25T10:25:01+00:00",
+      "link": "https://www.cnbc.com/2026/09/23/mark-zuckerberg-1299-meta-vr-glasses-ai-agent.html",
+      "published_at": "2026-09-24T01:56:50+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "A private survey shows a rebound in China's exports to the U.S. as companies position for continued stability between the world's two largest economies.",
-      "title": "China saw 'surprise' jump in U.S. orders ahead of Trump-Xi summit, private survey shows"
+      "summary": "At Meta Connect, CEO Mark Zuckerberg revealed new VR Glasses and the Muse Charm gadget for AI agents.",
+      "title": "Mark Zuckerberg debuts $1,299 Meta VR Glasses and Muse Charm pendant as part of AI agent push"
     },
     {
-      "link": "https://www.cnbc.com/2026/09/25/novo-eli-lilly-obesity-drugs.html",
-      "published_at": "2026-09-25T11:00:01+00:00",
+      "link": "https://www.cnbc.com/2026/09/24/feds-williams-another-rate-hike-by-year-end.html",
+      "published_at": "2026-09-24T09:06:18+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "As Novo works to turn itself around, some analysts say Lilly has advantages that could help it maintain its position at the top of the obesity drug market.",
-      "title": "Novo is betting on its next chapter as Eli Lilly gains more ground in GLP-1s"
+      "summary": "John Williams was speaking at the London Macro Policy Forum on Thursday.",
+      "title": "New York Fed\u2019s Williams says it's 'reasonable' to expect another rate hike by year-end"
     }
   ],
   "market_watchlist": [
     {
-      "change": -0.6299975585938,
-      "change_percent": -0.08205123150219507,
+      "change": -5.570004882812555,
+      "change_percent": -0.7202157862429553,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
+        {
+          "close": 653.1799926757812,
+          "timestamp": 1774359000
+        },
         {
           "close": 656.8200073242188,
           "timestamp": 1774445400
@@ -758,26 +762,26 @@
         {
           "close": 767.8099975585938,
           "timestamp": 1790170200
-        },
-        {
-          "close": 767.1799926757812,
-          "timestamp": 1790256600
         }
       ],
-      "history_change_percent": 16.802166719215883,
+      "history_change_percent": 17.549528247892546,
       "market_state": null,
       "name": "S&P 500 ETF",
-      "previous_close": 767.8099975585938,
-      "price": 767.18,
+      "previous_close": 773.3800048828125,
+      "price": 767.81,
       "source": "Yahoo Finance chart API",
       "symbol": "SPY"
     },
     {
-      "change": -0.11002197265622726,
-      "change_percent": -0.014843562471459144,
+      "change": -6.250021972656214,
+      "change_percent": -0.8361680610237177,
       "currency": "USD",
       "exchange": "NGM",
       "history_6m": [
+        {
+          "close": 583.97998046875,
+          "timestamp": 1774359000
+        },
         {
           "close": 587.8200073242188,
           "timestamp": 1774445400
@@ -1281,26 +1285,26 @@
         {
           "close": 741.2100219726562,
           "timestamp": 1790170200
-        },
-        {
-          "close": 741.0999755859375,
-          "timestamp": 1790256600
         }
       ],
-      "history_change_percent": 26.07600809191885,
+      "history_change_percent": 26.923871500705275,
       "market_state": null,
       "name": "Nasdaq 100 ETF",
-      "previous_close": 741.2100219726562,
-      "price": 741.1,
+      "previous_close": 747.4600219726562,
+      "price": 741.21,
       "source": "Yahoo Finance chart API",
       "symbol": "QQQ"
     },
     {
-      "change": -1.6199877929688,
-      "change_percent": -0.31498888419591514,
+      "change": -5.4800292968750455,
+      "change_percent": -1.0542977775210172,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
+        {
+          "close": 461.1700134277344,
+          "timestamp": 1774359000
+        },
         {
           "close": 464.1400146484375,
           "timestamp": 1774445400
@@ -1800,26 +1804,26 @@
         {
           "close": 514.2999877929688,
           "timestamp": 1790170200
-        },
-        {
-          "close": 512.6799926757812,
-          "timestamp": 1790256600
         }
       ],
-      "history_change_percent": 10.45804796389491,
+      "history_change_percent": 11.520694109611938,
       "market_state": null,
       "name": "Dow ETF",
-      "previous_close": 514.2999877929688,
-      "price": 512.68,
+      "previous_close": 519.780029296875,
+      "price": 514.3,
       "source": "Yahoo Finance chart API",
       "symbol": "DIA"
     },
     {
-      "change": -0.26001342773435,
-      "change_percent": -0.09222950317466562,
+      "change": -5.289991455078109,
+      "change_percent": -1.841854953679599,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
+        {
+          "close": 248.77999877929688,
+          "timestamp": 1774359000
+        },
         {
           "close": 251.82000732421875,
           "timestamp": 1774445400
@@ -2323,26 +2327,26 @@
         {
           "close": 281.9200134277344,
           "timestamp": 1790170200
-        },
-        {
-          "close": 281.6600036621094,
-          "timestamp": 1790256600
         }
       ],
-      "history_change_percent": 11.849730683774553,
+      "history_change_percent": 13.32100706781618,
       "market_state": null,
       "name": "Russell 2000 ETF",
-      "previous_close": 281.9200134277344,
-      "price": 281.66,
+      "previous_close": 287.2099914550781,
+      "price": 281.92,
       "source": "Yahoo Finance chart API",
       "symbol": "IWM"
     },
     {
-      "change": 546.4774999999936,
-      "change_percent": 0.6476458540884992,
+      "change": -877.0278125000041,
+      "change_percent": -1.0393417291414522,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
+        {
+          "close": 70517.859375,
+          "timestamp": 1774310400
+        },
         {
           "close": 71309.8828125,
           "timestamp": 1774396800
@@ -3076,28 +3080,28 @@
           "timestamp": 1790121600
         },
         {
-          "close": 84379.0625,
+          "close": 83505.9765625,
           "timestamp": 1790208000
-        },
-        {
-          "close": 84925.5390625,
-          "timestamp": 1790294400
         }
       ],
-      "history_change_percent": 19.093646841771683,
+      "history_change_percent": 18.41820035394402,
       "market_state": null,
       "name": "Bitcoin",
-      "previous_close": 84379.0625,
-      "price": 84925.54,
+      "previous_close": 84383.0078125,
+      "price": 83505.98,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
     {
-      "change": -0.929994506835925,
-      "change_percent": -0.41239613741719716,
+      "change": -3.359995117187509,
+      "change_percent": -1.4680802153498114,
       "currency": "USD",
       "exchange": "NMS",
       "history_6m": [
+        {
+          "close": 175.1999969482422,
+          "timestamp": 1774359000
+        },
         {
           "close": 178.67999267578125,
           "timestamp": 1774445400
@@ -3601,17 +3605,13 @@
         {
           "close": 225.50999450683594,
           "timestamp": 1790170200
-        },
-        {
-          "close": 224.5800018310547,
-          "timestamp": 1790256600
         }
       ],
-      "history_change_percent": 25.688386616125136,
+      "history_change_percent": 28.715755666719815,
       "market_state": null,
       "name": "Nvidia",
-      "previous_close": 225.50999450683594,
-      "price": 224.58,
+      "previous_close": 228.8699951171875,
+      "price": 225.51,
       "source": "Yahoo Finance chart API",
       "symbol": "NVDA"
     }
@@ -3622,6 +3622,63 @@
   ],
   "sports": {
     "followed_teams": [
+      {
+        "broadcasts": [
+          "BravesVision",
+          "FS1",
+          "MLB.TV",
+          "Reds.TV"
+        ],
+        "event": "Cincinnati Reds at Atlanta Braves",
+        "followed_team": "Atlanta Braves",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/mlb/game/_/gameId/401817060/reds-braves",
+        "sport_path": "baseball/mlb",
+        "starts_at": "2026-09-24T23:15Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "ATL",
+            "home_away": "home",
+            "name": "Atlanta Braves",
+            "score": "0"
+          },
+          {
+            "abbreviation": "CIN",
+            "home_away": "away",
+            "name": "Cincinnati Reds",
+            "score": "0"
+          }
+        ],
+        "venue": "Truist Park"
+      },
+      {
+        "broadcasts": [
+          "Prime Video"
+        ],
+        "event": "Atlanta Falcons at Green Bay Packers",
+        "followed_team": "Atlanta Falcons",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nfl/game/_/gameId/401872948/falcons-packers",
+        "sport_path": "football/nfl",
+        "starts_at": "2026-09-25T00:15Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "GB",
+            "home_away": "home",
+            "name": "Green Bay Packers",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Falcons",
+            "score": "0"
+          }
+        ],
+        "venue": "Lambeau Field"
+      },
       {
         "broadcasts": [
           "BravesVision",
@@ -3736,91 +3793,6 @@
           }
         ],
         "venue": "loanDepot park"
-      },
-      {
-        "broadcasts": [
-          "NBC",
-          "NBCSN"
-        ],
-        "event": "TBD at Atlanta Braves",
-        "followed_team": "Atlanta Braves",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/mlb/game/_/gameId/401907965/tbd-braves",
-        "sport_path": "baseball/mlb",
-        "starts_at": "2026-09-29T04:00Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta Braves",
-            "score": "0"
-          },
-          {
-            "abbreviation": "TBD",
-            "home_away": "away",
-            "name": "TBD",
-            "score": "0"
-          }
-        ],
-        "venue": "Truist Park"
-      },
-      {
-        "broadcasts": [
-          "NBC",
-          "NBCSN",
-          "Universo"
-        ],
-        "event": "TBD at Atlanta Braves",
-        "followed_team": "Atlanta Braves",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/mlb/game/_/gameId/401907972/tbd-braves",
-        "sport_path": "baseball/mlb",
-        "starts_at": "2026-09-30T04:00Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta Braves",
-            "score": "0"
-          },
-          {
-            "abbreviation": "TBD",
-            "home_away": "away",
-            "name": "TBD",
-            "score": "0"
-          }
-        ],
-        "venue": "Truist Park"
-      },
-      {
-        "broadcasts": [
-          "NBC",
-          "NBCSN"
-        ],
-        "event": "TBD at Atlanta Braves",
-        "followed_team": "Atlanta Braves",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/mlb/game/_/gameId/401907973/tbd-braves",
-        "sport_path": "baseball/mlb",
-        "starts_at": "2026-10-01T04:00Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta Braves",
-            "score": "0"
-          },
-          {
-            "abbreviation": "TBD",
-            "home_away": "away",
-            "name": "TBD",
-            "score": "0"
-          }
-        ],
-        "venue": "Truist Park"
       }
     ],
     "major_events": [
@@ -3989,96 +3961,72 @@
   },
   "tech_ai": [
     {
-      "link": "https://techcrunch.com/2026/09/24/lightspeed-targets-250m-for-new-india-fund-focusing-on-early-stage-ai/",
-      "published_at": "2026-09-25T05:00:00+00:00",
+      "link": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "published_at": "2026-09-24T01:13:32+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "The venture firm is aligning its India fundraising cycle with its global funds for the first time, as it shifts to a shorter investment period.",
-      "title": "Lightspeed targets $250M for new India fund, focusing on early-stage AI"
+      "summary": "CEO Mark Zuckerberg kicked off the company\u2019s annual Connect event in Menlo Park on Wednesday with a keynote that made one thing clear: Meta is going all-in on Muse. It's even coming to Meta's AI glasses.",
+      "title": "Everything new coming to Meta\u2019s AI agent Muse"
     },
     {
-      "link": "https://techcrunch.com/2026/09/24/waymo-is-scaling-fast-heres-what-the-fleet-data-shows/",
-      "published_at": "2026-09-24T23:24:33+00:00",
+      "link": "https://techcrunch.com/2026/09/23/meta-made-a-tamagotchi-like-wearable-for-its-muse-ai-agent/",
+      "published_at": "2026-09-24T00:46:17+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "In the past month, Waymo has expanded its fleet in Texas by 49%. There are other hot spots as well.",
-      "title": "Waymo is scaling fast: Here\u2019s what the fleet data shows"
+      "summary": "The tiny hardware device creates another mobile home for its AI agent Muse.",
+      "title": "Meta made a Tamagotchi-like wearable for its Muse AI agent"
     },
     {
-      "link": "https://techcrunch.com/2026/09/24/nexterity-wants-to-automate-the-hard-dangerous-part-of-pipefitting/",
-      "published_at": "2026-09-24T20:45:00+00:00",
+      "link": "https://techcrunch.com/2026/09/23/meta-is-trying-vr-glasses-again-this-time-with-more-imax/",
+      "published_at": "2026-09-23T23:47:35+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "The startup's robot can tighten or loosen four bolts at a time, and it fits in a Pelican case.",
-      "title": "Nexterity wants to automate the hard, dangerous part of pipefitting"
+      "summary": "Meta's return to the VR glasses realm comes with a promising combination of light weight form factor and enhanced entertainment options.",
+      "title": "Meta is trying VR glasses (again), this time with more IMAX"
     },
     {
-      "link": "https://techcrunch.com/2026/09/24/bring-your-co-founder-partner-or-colleague-and-get-50-off-a-second-techcrunch-disrupt-2026-pass/",
-      "published_at": "2026-09-24T19:15:00+00:00",
+      "link": "https://techcrunch.com/2026/09/23/meta-introduces-camera-free-ai-glasses/",
+      "published_at": "2026-09-23T23:39:44+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Buy one pass to TechCrunch Disrupt 2026 and get 50% off a second of the same ticket type. Register before event starts on October 13 at 8 a.m. PT.",
-      "title": "Bring your co-founder, partner, or colleague and get 50% off a second TechCrunch Disrupt 2026 pass"
+      "summary": "Meta says the camera-free glasses will be lighter and have up to 12 hours battery life.",
+      "title": "Meta introduces camera-free AI glasses"
     },
     {
-      "link": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/",
-      "published_at": "2026-09-24T19:00:42+00:00",
+      "link": "https://techcrunch.com/2026/09/23/vogue-sent-robots-down-the-runway-at-vogue-world-and-people-were-not-impressed/",
+      "published_at": "2026-09-23T23:33:22+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Prism's larger goal is open-weight AI that runs on devices and makes better use of the computing power they already have.",
-      "title": "PrismML brings its tiny LLMs to Qualcomm-powered smart glasses"
+      "summary": "Nothing says Italian craftsmanship like a Chinese robot doing a lasso to \"L'Amour Toujours.\"",
+      "title": "Vogue sent robots down the runway at Vogue World, and people were not impressed"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNZ2JBWXpIY0JLX3BubURTeG51WWRlSGhhTmVkdjhfZEItMklHeHd6WV9zdDV0ZzVKbk5Bb1FOTnBWNzM4dU1WYnlUM0NEbkpEXzExRm5KblRpYVgxQ25uVFhoSHVYRkx1TTdTMUdyemtnOTJGQWM1Wk1TZWtsbFhKS1Y3d3VpV3pST2c?oc=5",
-      "published_at": "2026-09-25T02:00:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNU5hc3l2YkY1LTNySVZVcTBkQnNoWDIyVXRyMFpPSFF6YklnT1QwQlNkSjZSd184MGhacEN4bTFxXzBNX0dBY1N5ZklOeXRtekFMLTltVDlPU2tZSGhKb0ZSUkZlamU4STliaG9yeHA5V1RuLXlsbXlSMkRINGppZVJoTFJMamZwZ1MwSlhOYzFLUQ?oc=5",
+      "published_at": "2026-09-23T21:37:20+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Australian PM warns in UN speech about the \u2018furious pace\u2019 of AI after security breach Politico",
-      "title": "Australian PM warns in UN speech about the \u2018furious pace\u2019 of AI after security breach - Politico"
+      "summary": "At UN, tech chiefs urge caution in AI development Yahoo",
+      "title": "At UN, tech chiefs urge caution in AI development - Yahoo"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOZmdNdEU4T2dVMHUwV05rNkZjM0hrcWZRWUlLOTBoOU9BLVl1VTVCR3c5MkQ5QTRkSHFTb0dFUU1lUW56S2R5X3ZRaUR3UFViaGJuTm5FRk5LTmJXanFoUWVEbklfdVI3azB6dEMzbXdwUnhNZUd0UFJDWjFVS21wOXdzRQ?oc=5",
-      "published_at": "2026-09-24T02:28:53+00:00",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOazV6Q242LXE0TVZZRV9wcXl4UmJlMHp2ZHMtX0h4RGlPeGlUbkhGQklJTDhuN0FKaFdzUUs3cS0zN1ZsTVR1Mk51M190NFFuVjdZekJVSjlXMXpuaDAwVGVaSl9LbnpKMWlmMG1YaUVOQ3lqTXl4ck5nZm94RlMxaFA2N091TUxyNWJCSkpLOER1TDAtRF94TWZ6NVNIM01lcWxvOUJaWTVHYUZ3WlJjSm16WWtUSldqcHdWOFNR?oc=5",
+      "published_at": "2026-09-23T10:05:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "OpenAI\u2019s A.I. Tried Breaching Four Other Targets, With No Prompting The New York Times",
-      "title": "OpenAI\u2019s A.I. Tried Breaching Four Other Targets, With No Prompting - The New York Times"
+      "summary": "AI leaders warn UN of security risks as systems grow more powerful Reuters",
+      "title": "AI leaders warn UN of security risks as systems grow more powerful - Reuters"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOTVRZSTRyQzJvQkQ1a0twRFVrS0RhTlFnZDg4XzdveG1kX2ZHXzdUbEEySjVTdTZvczQ0Q2pBMlpyeHU5eDFzTzhQaVJTYVJ1OEdSUE1aM3prQmNuNnBjYVFCZlRPWDdpM0F0R1FPZWhCOVI4WkZyU3dWY0t5d1dEUHBPRXZKbTlQTzVHTHVKcG1KLXdEWVpSdEtrYUVLMVFQR2lCZi1OS0Itc0YwcnV3NGZTdHYxaS1leFBYNmYtUTVkc0NfNVpIeVBfN2ozTE0?oc=5",
-      "published_at": "2026-09-25T06:56:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SWk1rQ1FuSE9FaWtMWUhfVE1QUDlITnJkd1MzWm11VGhERWNhX2c3OXBqUzdmcjdBa1ZoSlplckxfdlBKcUVRN3hIZkp6WHdQaVFMQ3ZTYzVsbms?oc=5",
+      "published_at": "2026-09-23T22:35:14+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Pocock calls for AI safety act after Medicare breach \u2013 as it happened The Guardian",
-      "title": "Pocock calls for AI safety act after Medicare breach \u2013 as it happened - The Guardian"
+      "summary": "US rejects pleas from OpenAI, Anthropic for global AI standards BBC",
+      "title": "US rejects pleas from OpenAI, Anthropic for global AI standards - BBC"
     }
   ],
   "timezone": "America/New_York",
   "traffic_commute": [
-    {
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPTTNJYzY4eTBvcGVGNGV6Z2N5NmJVcVBmeDB6bTRObU80b2hJSFBRODRzWUNzVzFtSGZaTkh0TGRISHBUNzkwRWtzRTVySzYxNTI0YjBDNW9CdnZMMGR6N0ZJV05DWVhhZjdZMkxzUE1kWEFvU29wQkFIbmZGVHNWV1FzbV9QUDdYNzdxZWoyTnNrSEZDb1ptVW0tdF8?oc=5",
-      "published_at": "2026-09-23T21:17:58+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Former Houston traffic anchor makes TV comeback 2 years after sudden exit Chron",
-      "title": "Former Houston traffic anchor makes TV comeback 2 years after sudden exit - Chron"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUWplNC00LVdWb211blJlV1BmSjBDY3BqX2ZOLUpnRzJTNGFYNUltdWpkQVNEMDFmOXhoVGQzOWRwUGU0dmc4SWN5WjVtZXg2TlFHU3NQaTl0X1Q2VHdqUEI4LVVzQ0FCVk1sNUk2UFpvVFNQVElDWGtlVlBjb29iSk9kYW9MVmkwOXp3MnJtVGxxNmpVcHpYVURBcXhLVHhKNXFGcmhtb1hJX3Fr?oc=5",
-      "published_at": "2026-09-22T10:24:00+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Atlanta City Council backs light rail along full 22-mile Beltline loop CBS News",
-      "title": "Atlanta City Council backs light rail along full 22-mile Beltline loop - CBS News"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQdzBRZHA2VXRHMWhhejN2b0NUcTV6Z0RIY2lOMWVka24ySEtoVHdPaUJLS3BzZDRYN0lqRFZkSU1TQ3dRZk03RXk2amJBUzR6S2k2ZUMyR1hhSjFjTHBQSWxTTjRTMzZadHV5NG0xMU9JTVJBOEdLRzlPS2REOHBRd1dVRl9SZlh2b2FnVF9wNmg?oc=5",
-      "published_at": "2026-09-24T12:16:54+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MARTA moves safety features to main app Atlanta News First",
-      "title": "MARTA moves safety features to main app - Atlanta News First"
-    },
     {
       "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPUUY4Rk5kcGdBUWhfMjh1MXppSEdrM0NOdkJDQklYd2tyNEt0LU5KZ2JjZ0hSSWU4TDNMaVBpdV96RVZkejUyNGpoeWh6aWRaVlVncGVCWGJJbDdiSGpicWlJZXRNdUtCV0R1c0pfdTVvd0hEdFh6RG01dnZHNy0yS0c2NjFITnpCc2FUNy1mbnJpTkhBalE0LWpfTWJ6dWxWVDVqSENjNDlGQVRGTVRmQzI0bGlOZGR5cmVzSlVycGZISjB4VlJZSTNlc1Bxc0lnZU1uamhHYmdoczQ1dFlzZ1dpaFlLbWtDR0FPYlN1VEZjQ0VIdUpPV0w1TWxheEk?oc=5",
       "published_at": "2026-09-24T10:23:00+00:00",
@@ -4088,12 +4036,36 @@
       "title": "Atlanta man feels lucky to be alive after tree lands on truck and remains in road for almost a day - 11Alive.com"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE50Y29YUEhHTUFLY25WQklEWExBNmp6T2txWlI4OUNueTVpMlRPMEN2cmxCaUhYUjEtUHE5UFFYM29IMlFLWkFXNldPTExzRnFGQVF0Q2wzb25za0I0QVZ2bXMxclfSAWpBVV95cUxNRXptMG5UMng2bElZcUVqdlNkME1VOG1vZ0FqNlRGWU9jZ242S0pHWWlEaXBPQUhxbzFXYmRsTmF4OHlZOHRiU09GUk1mYjIzbGpiQ1dSNi0wV2dmeE9UbE0yX2w3ckp2c2Vn?oc=5",
-      "published_at": "2026-09-23T16:06:17+00:00",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPd1hCeFFLSzdzZndoejRreTZyYnpzbG1NTzFsUWw4eVlwVHJzOTZMc1l4WUxQbDhTRXBKMFl1WFptYzVtSWx6dGdNVlNpbkdtc2hWVWJUUG1iYjMwVXllU0N6ckFNbUg5TDNINUt3b1VPUkNJSThQd211clE0RnlUT3hQcG9aRnpwSENnaXczcGpRVEYtZkR5MTVCbVpEcTFmTzdEV2lB?oc=5",
+      "published_at": "2026-09-23T21:18:00+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Report: Air Traffic Control messages vulnerable to spoofing FOX 5 Atlanta",
-      "title": "Report: Air Traffic Control messages vulnerable to spoofing - FOX 5 Atlanta"
+      "summary": "Trending Now: MARTA app changes, expanding parental leave, and more CBS News",
+      "title": "Trending Now: MARTA app changes, expanding parental leave, and more - CBS News"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPTTNJYzY4eTBvcGVGNGV6Z2N5NmJVcVBmeDB6bTRObU80b2hJSFBRODRzWUNzVzFtSGZaTkh0TGRISHBUNzkwRWtzRTVySzYxNTI0YjBDNW9CdnZMMGR6N0ZJV05DWVhhZjdZMkxzUE1kWEFvU29wQkFIbmZGVHNWV1FzbV9QUDdYNzdxZWoyTnNrSEZDb1ptVW0tdF8?oc=5",
+      "published_at": "2026-09-23T21:17:58+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Former Houston traffic anchor makes TV comeback 2 years after sudden exit Chron",
+      "title": "Former Houston traffic anchor makes TV comeback 2 years after sudden exit - Chron"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPeVRVeVZsSTdtRmpUTHFWbG9TdTRUNl9JaHlCdzg4a3BzdE9jcGxiSGhYN0dXTC1ycEp3SXZJWHZJQ2ZEUmxKejlIdXUzOExiTEpZMXR5ekFGWi1yVFVBQ1U1T0tWYXhkRzlvZUcwZFhlMHEzcnpjaGx6U3B0R0F6UDE5TzZDd3M?oc=5",
+      "published_at": "2026-09-23T22:38:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Justina Latimer joins FOX 5 Atlanta mikemcguff.com",
+      "title": "Justina Latimer joins FOX 5 Atlanta - mikemcguff.com"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNNWtMTmVWYUpyQUJRLUFoWk8wMFpYOXRkN0NEXzdZdjJrQV9OalczLVVHVy1CMFJEZEd3Z2pzYkRmTXlVUkRJaFpqejlJbmRiRWVIN1NhUERZMVRIdFBlbTRkV0Y0Xzc1UTdBSlVQRlowMDVZNmpFTmFZTjlFbENHclhNTXQtNlFoWnhqWURTSmp0YlZWRThBamxoSHljZVZrUTVpZ0ZDZXV4bFdiOXJyTVd6dFk2VHEwRFpTbTRTZVFLZzBySGFlN3JqeGEzLWZNY1pCdnZiOEswSFNq0gHwAUFVX3lxTE9HbjVsZkNkamtzaDl0R0ZJSExNeFNteVZVUzV1UHF1Q3V4QzJoTWY2N1EtalhVQ1pLdkpYdVlybXpxUGJ5OWxCdlNxaEcyTEpNTlFRRm9SdXQ0TlZYc09hMVpWZ0xNQ3NtaWVFSGNhMDZiNWwyQVZ2dmRqNUZkTHhad0NzN2VmeHk3TnJWNDBzVXJoMXA4RkwzZ3piSU9hQVRsZjUxdEdfeGVhRm85cGhoTWhWNXRkNkowb0lPRUljS0hhV0o4NEpqUmQzYmlTUFc0WVp2Y1B5TUZobzZKUVhKa25TVmVmN0F0NkpCV2w5eg?oc=5",
+      "published_at": "2026-09-21T21:56:08+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia officials defend new express lane model amid affordability concerns WSB-TV",
+      "title": "Georgia officials defend new express lane model amid affordability concerns - WSB-TV"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPS3ZBNFVGeWh4MGhFbndyYW04dGowRTF3SEhwcjJOWTg4YjdCQVVfV25XM1ZMbnhJMll0cFFtS080UXUxeTVDUWRURlA5RmVPZnhUWUg4d2tPUjgxRE1UN1dZUGdfNTMxLTdBY2cxTWVESkZKMUhXMlp5eVdKTEpoZk16RERvR2VZUUpaSzFzMGdVUdIBlwFBVV95cUxQU1lJVnhHak9lZWwyUjF2bkZ4UENVemRuMHI2X25nTFlqdWRKZUJMSWp5Y2xFRTVWbXl6ZmpZaDI5em5rSU5Jam84aEpZaEU1eWM0aE9tUS1DMWl1b092cHlGV0hmMGswaS1makdmbGpKMkI1UVJUTTB0aDF2YWtlQjZ5ZktJdWZwQU1iNm8wMmViSUlndlRn?oc=5",
@@ -4109,114 +4081,114 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Sunny, with a high near 77. Northeast wind around 5 mph.",
+          "detailed_forecast": "Mostly cloudy, with a high near 73. Northeast wind around 10 mph, with gusts as high as 20 mph.",
           "name": "Today",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T06:00:00-04:00",
+          "temperature": 73,
+          "temperature_unit": "F",
+          "wind": "10 mph NE"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 57. Northeast wind 5 to 10 mph, with gusts as high as 20 mph.",
+          "name": "Tonight",
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-09-24T18:00:00-04:00",
+          "temperature": 57,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NE"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 78. Northeast wind around 5 mph.",
+          "name": "Friday",
           "short_forecast": "Sunny",
           "start_time": "2026-09-25T06:00:00-04:00",
-          "temperature": 77,
+          "temperature": 78,
           "temperature_unit": "F",
           "wind": "5 mph NE"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 55. North wind 0 to 5 mph.",
-          "name": "Tonight",
+          "detailed_forecast": "Mostly clear, with a low around 54. Northeast wind around 0 mph.",
+          "name": "Friday Night",
           "short_forecast": "Mostly Clear",
           "start_time": "2026-09-25T18:00:00-04:00",
-          "temperature": 55,
+          "temperature": 54,
           "temperature_unit": "F",
-          "wind": "0 to 5 mph N"
-        },
-        {
-          "detailed_forecast": "Sunny, with a high near 80. Northwest wind 0 to 5 mph.",
-          "name": "Saturday",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-26T06:00:00-04:00",
-          "temperature": 80,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 55. Northwest wind 0 to 5 mph.",
-          "name": "Saturday Night",
-          "short_forecast": "Mostly Clear",
-          "start_time": "2026-09-26T18:00:00-04:00",
-          "temperature": 55,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
+          "wind": "0 mph"
         }
       ],
       "hourly_next_periods": [
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T07:00:00-04:00",
-          "temperature": 58,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T07:00:00-04:00",
+          "temperature": 63,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T08:00:00-04:00",
-          "temperature": 58,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T08:00:00-04:00",
+          "temperature": 63,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T09:00:00-04:00",
-          "temperature": 58,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T09:00:00-04:00",
+          "temperature": 63,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T10:00:00-04:00",
-          "temperature": 61,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-09-24T10:00:00-04:00",
+          "temperature": 63,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T11:00:00-04:00",
+          "short_forecast": "Cloudy",
+          "start_time": "2026-09-24T11:00:00-04:00",
           "temperature": 64,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T12:00:00-04:00",
-          "temperature": 67,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-09-24T12:00:00-04:00",
+          "temperature": 66,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T13:00:00-04:00",
-          "temperature": 70,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T13:00:00-04:00",
+          "temperature": 68,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "10 mph NE"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T14:00:00-04:00",
-          "temperature": 73,
+          "short_forecast": "Partly Sunny",
+          "start_time": "2026-09-24T14:00:00-04:00",
+          "temperature": 69,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "10 mph NE"
         }
       ],
       "latitude": 33.6676,
@@ -4228,114 +4200,114 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Mostly sunny, with a high near 76. North wind 5 to 10 mph.",
+          "detailed_forecast": "Mostly cloudy, with a high near 74. Northeast wind around 10 mph, with gusts as high as 20 mph.",
           "name": "Today",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T06:00:00-04:00",
-          "temperature": 76,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T06:00:00-04:00",
+          "temperature": 74,
           "temperature_unit": "F",
-          "wind": "5 to 10 mph N"
+          "wind": "10 mph NE"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 58. North wind 0 to 5 mph.",
+          "detailed_forecast": "Partly cloudy, with a low around 59. Northeast wind 5 to 10 mph, with gusts as high as 20 mph.",
           "name": "Tonight",
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-09-24T18:00:00-04:00",
+          "temperature": 59,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NE"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 78. North wind around 5 mph.",
+          "name": "Friday",
+          "short_forecast": "Sunny",
+          "start_time": "2026-09-25T06:00:00-04:00",
+          "temperature": 78,
+          "temperature_unit": "F",
+          "wind": "5 mph N"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 57. Northeast wind 0 to 5 mph.",
+          "name": "Friday Night",
           "short_forecast": "Mostly Clear",
           "start_time": "2026-09-25T18:00:00-04:00",
-          "temperature": 58,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph N"
-        },
-        {
-          "detailed_forecast": "Sunny, with a high near 79. West wind 0 to 5 mph.",
-          "name": "Saturday",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-26T06:00:00-04:00",
-          "temperature": 79,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph W"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 57. Northwest wind 0 to 5 mph.",
-          "name": "Saturday Night",
-          "short_forecast": "Mostly Clear",
-          "start_time": "2026-09-26T18:00:00-04:00",
           "temperature": 57,
           "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
+          "wind": "0 to 5 mph NE"
         }
       ],
       "hourly_next_periods": [
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T07:00:00-04:00",
-          "temperature": 60,
-          "temperature_unit": "F",
-          "wind": "5 mph NE"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-09-25T08:00:00-04:00",
-          "temperature": 60,
-          "temperature_unit": "F",
-          "wind": "5 mph NE"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T09:00:00-04:00",
-          "temperature": 60,
-          "temperature_unit": "F",
-          "wind": "5 mph NE"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T10:00:00-04:00",
-          "temperature": 62,
-          "temperature_unit": "F",
-          "wind": "5 mph NE"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T11:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T07:00:00-04:00",
           "temperature": 64,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph E"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T12:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T08:00:00-04:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T09:00:00-04:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "10 mph NE"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T10:00:00-04:00",
+          "temperature": 65,
+          "temperature_unit": "F",
+          "wind": "10 mph NE"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Cloudy",
+          "start_time": "2026-09-24T11:00:00-04:00",
+          "temperature": 66,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Cloudy",
+          "start_time": "2026-09-24T12:00:00-04:00",
           "temperature": 67,
           "temperature_unit": "F",
-          "wind": "5 mph NE"
+          "wind": "10 mph E"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T13:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T13:00:00-04:00",
+          "temperature": 69,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-09-24T14:00:00-04:00",
           "temperature": 70,
           "temperature_unit": "F",
-          "wind": "5 mph N"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-09-25T14:00:00-04:00",
-          "temperature": 73,
-          "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "10 mph NE"
         }
       ],
       "latitude": 33.749,

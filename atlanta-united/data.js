@@ -8685,6 +8685,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 10,
+        "teamId": "9726",
+        "team": "Seattle Sounders FC",
+        "played": 25,
+        "wins": 8,
+        "draws": 8,
+        "losses": 9,
+        "points": 32,
+        "goalDiff": -3,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 11,
         "teamId": "22529",
         "team": "San Diego FC",
         "played": 26,
@@ -8697,7 +8710,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 11,
+        "rank": 12,
         "teamId": "20906",
         "team": "Austin FC",
         "played": 26,
@@ -8710,28 +8723,15 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 12,
+        "rank": 13,
         "teamId": "4771",
         "team": "Real Salt Lake",
-        "played": 25,
+        "played": 26,
         "wins": 8,
         "draws": 5,
-        "losses": 12,
+        "losses": 13,
         "points": 29,
-        "goalDiff": -5,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 13,
-        "teamId": "9726",
-        "team": "Seattle Sounders FC",
-        "played": 24,
-        "wins": 7,
-        "draws": 8,
-        "losses": 9,
-        "points": 29,
-        "goalDiff": -5,
+        "goalDiff": -7,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8775,7 +8775,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-23T05:00:08.875Z"
+    "generatedAt": "2026-09-25T05:00:07.121Z"
   },
   "seasonHistory": [
     {
