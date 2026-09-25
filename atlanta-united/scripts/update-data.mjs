@@ -656,8 +656,17 @@ function isAtlantaCompetitor(competitor) {
 }
 
 function parseScore(value) {
-  const score = Number.parseInt(value ?? "", 10);
-  return Number.isFinite(score) ? score : null;
+  const raw = value && typeof value === "object" ? (value.value ?? value.displayValue) : value;
+  if (raw == null || !/^\d+$/.test(String(raw).trim())) return null;
+  return Number(raw);
+}
+
+function formatAtlantaMatchDate(dateISO) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit",
+  }).formatToParts(new Date(dateISO));
+  const get = (type) => parts.find((part) => part.type === type)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
 function parseFixture(event) {
@@ -698,7 +707,7 @@ function parseFixture(event) {
 
   return {
     dateISO,
-    date: dateISO.slice(0, 10),
+    date: formatAtlantaMatchDate(dateISO),
     opponent: opp?.team?.displayName || "Unknown",
     venue: atl?.homeAway === "home" ? "Home" : "Away",
     venueFull: event?.competitions?.[0]?.venue?.fullName || (atl?.homeAway === "home" ? "Home" : "Away"),
@@ -723,6 +732,24 @@ function dedupeFixtures(fixtures) {
     }
   }
   return [...map.values()].sort((a, b) => Date.parse(a.dateISO) - Date.parse(b.dateISO));
+}
+
+function restoreHistoricalScores(fixtures, historicalSeason) {
+  const saved = Array.isArray(historicalSeason?.fullSchedule) ? historicalSeason.fullSchedule : [];
+  return fixtures.map((fixture) => {
+    if (fixture.completed && fixture.outcome) return fixture;
+    const fixtureDay = Date.parse(fixture.date);
+    const match = saved.find((row) => {
+      const savedDay = Date.parse(row?.date);
+      return row?.opponent === fixture.opponent && row?.venue === fixture.venue &&
+        Number.isFinite(savedDay) && Math.abs(savedDay - fixtureDay) <= 2 * 86400000 &&
+        /^\d+-\d+ \((Win|Draw|Loss)\)$/.test(row?.result ?? "");
+    });
+    if (!match) return fixture;
+    const [, atlScore, oppScore, outcome] = match.result.match(/^(\d+)-(\d+) \((Win|Draw|Loss)\)$/);
+    return { ...fixture, completed: true, outcome, atlScore: Number(atlScore),
+      oppScore: Number(oppScore), score: `${atlScore}-${oppScore}` };
+  });
 }
 
 function fixtureQuality(fixture) {
@@ -804,6 +831,25 @@ function getSeasonDefinitionForDate(dateValue) {
 }
 
 function validateSeasonRouting() {
+  const scoredFixture = parseFixture({
+    date: "2026-09-20T00:00:00Z",
+    status: { type: { completed: true } },
+    competitions: [{ competitors: [
+      { id: TEAM_ID, homeAway: "away", team: { displayName: TEAM_NAME }, score: { value: 1, displayValue: "1" } },
+      { id: "9723", homeAway: "home", team: { displayName: "Portland Timbers" }, score: { displayValue: "0" } },
+    ] }],
+  });
+  if (!scoredFixture?.completed || scoredFixture.score !== "1-0" || scoredFixture.outcome !== "Win" || scoredFixture.date !== "2026-09-19") {
+    throw new Error(`Object score parsing check failed: ${JSON.stringify(scoredFixture)}`);
+  }
+  const restored = restoreHistoricalScores(
+    [{ ...scoredFixture, date: "2026-09-20", completed: false, outcome: null, score: "-" }],
+    { fullSchedule: [{ date: "2026-09-19", opponent: "Portland Timbers", venue: "Away", result: "1-0 (Win)" }] },
+  )[0];
+  if (!restored.completed || restored.score !== "1-0" || restored.outcome !== "Win") {
+    throw new Error(`Saved result recovery check failed: ${JSON.stringify(restored)}`);
+  }
+
   const cases = [
     ["2026-10-01T00:00:00Z", "2026", 2026, 34, 9],
     ["2027-03-01T00:00:00Z", "2027-sprint", 2027, 14, 8],
@@ -2053,7 +2099,18 @@ async function buildLiveData() {
   const existingActiveSeason = historicalSeasons.find(
     (row) => String(row?.seasonId ?? row?.season) === selectedSeasonKey,
   );
-  const seasonFixtures = dedupeFixtures(selected.fixtures);
+  const seasonFixtures = restoreHistoricalScores(dedupeFixtures(selected.fixtures), existingActiveSeason);
+  const savedCompletedCount = (existingActiveSeason?.fullSchedule ?? []).filter((row) =>
+    /^\d+-\d+ \((Win|Draw|Loss)\)$/.test(row?.result ?? ""),
+  ).length;
+  const completedCount = seasonFixtures.filter((fixture) => fixture.completed && fixture.outcome).length;
+  if (completedCount < savedCompletedCount) {
+    throw new Error(`Only ${completedCount} completed scores for ${selected.id}, down from ${savedCompletedCount}; keeping existing data files.`);
+  }
+  const pastFixtures = seasonFixtures.filter((fixture) => Date.parse(fixture.dateISO) < Date.now() - UPCOMING_GRACE_MS);
+  if (pastFixtures.length >= 3 && completedCount === 0) {
+    throw new Error(`No completed scores for ${selected.id} despite ${pastFixtures.length} past fixtures; keeping existing data files.`);
+  }
   const regularSeasonFixtures = seasonFixtures.slice(0, selected.expectedRegularSeasonMatches);
   const snapshot = deriveSeasonSnapshot(regularSeasonFixtures);
   const nextMatch = pickNextMatch(allFixtures);
