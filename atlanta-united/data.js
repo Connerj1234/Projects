@@ -8519,12 +8519,12 @@ window.ATL_DATA = {
         "rank": 10,
         "teamId": "190",
         "team": "Red Bull New York",
-        "played": 26,
+        "played": 27,
         "wins": 9,
         "draws": 6,
-        "losses": 11,
+        "losses": 12,
         "points": 33,
-        "goalDiff": -14,
+        "goalDiff": -17,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8610,6 +8610,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 2,
+        "teamId": "21812",
+        "team": "St. Louis CITY SC",
+        "played": 27,
+        "wins": 13,
+        "draws": 8,
+        "losses": 6,
+        "points": 47,
+        "goalDiff": 12,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 3,
         "teamId": "185",
         "team": "FC Dallas",
         "played": 27,
@@ -8622,7 +8635,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 3,
+        "rank": 4,
         "teamId": "191",
         "team": "San Jose Earthquakes",
         "played": 27,
@@ -8631,19 +8644,6 @@ window.ATL_DATA = {
         "losses": 8,
         "points": 45,
         "goalDiff": 10,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 4,
-        "teamId": "21812",
-        "team": "St. Louis CITY SC",
-        "played": 26,
-        "wins": 12,
-        "draws": 8,
-        "losses": 6,
-        "points": 44,
-        "goalDiff": 9,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8804,7 +8804,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-09-30T05:00:07.636Z"
+    "generatedAt": "2026-10-01T05:00:06.803Z"
   },
   "seasonHistory": [
     {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T05:00:08.763Z",
+  "generatedAt": "2026-10-01T05:00:08.429Z",
   "seasons": [
     {
       "season": 2026,
@@ -342,12 +342,12 @@
           "rank": 10,
           "teamId": "190",
           "team": "Red Bull New York",
-          "played": 26,
+          "played": 27,
           "wins": 9,
           "draws": 6,
-          "losses": 11,
+          "losses": 12,
           "points": 33,
-          "goalDiff": -14,
+          "goalDiff": -17,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
