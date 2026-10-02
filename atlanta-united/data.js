@@ -8675,6 +8675,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 7,
+        "teamId": "9726",
+        "team": "Seattle Sounders FC",
+        "played": 27,
+        "wins": 10,
+        "draws": 8,
+        "losses": 9,
+        "points": 38,
+        "goalDiff": 0,
+        "conference": "Western Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 8,
         "teamId": "184",
         "team": "Colorado Rapids",
         "played": 27,
@@ -8687,7 +8700,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 8,
+        "rank": 9,
         "teamId": "187",
         "team": "LA Galaxy",
         "played": 28,
@@ -8696,19 +8709,6 @@ window.ATL_DATA = {
         "losses": 10,
         "points": 36,
         "goalDiff": -7,
-        "conference": "Western Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 9,
-        "teamId": "9726",
-        "team": "Seattle Sounders FC",
-        "played": 26,
-        "wins": 9,
-        "draws": 8,
-        "losses": 9,
-        "points": 35,
-        "goalDiff": -1,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8781,12 +8781,12 @@ window.ATL_DATA = {
         "rank": 15,
         "teamId": "186",
         "team": "Sporting Kansas City",
-        "played": 26,
+        "played": 27,
         "wins": 6,
         "draws": 3,
-        "losses": 17,
+        "losses": 18,
         "points": 21,
-        "goalDiff": -32,
+        "goalDiff": -33,
         "conference": "Western Conference",
         "isAtlanta": false
       }
@@ -8804,7 +8804,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-01T05:00:06.803Z"
+    "generatedAt": "2026-10-02T05:00:07.406Z"
   },
   "seasonHistory": [
     {
