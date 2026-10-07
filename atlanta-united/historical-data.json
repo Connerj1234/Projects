@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T05:00:08.429Z",
+  "generatedAt": "2026-10-07T05:00:09.312Z",
   "seasons": [
     {
       "season": 2026,
@@ -262,6 +262,19 @@
         },
         {
           "rank": 4,
+          "teamId": "182",
+          "team": "Chicago Fire FC",
+          "played": 27,
+          "wins": 13,
+          "draws": 6,
+          "losses": 8,
+          "points": 45,
+          "goalDiff": 10,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 5,
           "teamId": "21300",
           "team": "Charlotte FC",
           "played": 27,
@@ -270,19 +283,6 @@
           "losses": 8,
           "points": 43,
           "goalDiff": 9,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 5,
-          "teamId": "182",
-          "team": "Chicago Fire FC",
-          "played": 26,
-          "wins": 12,
-          "draws": 6,
-          "losses": 8,
-          "points": 42,
-          "goalDiff": 8,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },

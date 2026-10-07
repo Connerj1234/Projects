@@ -8439,6 +8439,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 4,
+        "teamId": "182",
+        "team": "Chicago Fire FC",
+        "played": 27,
+        "wins": 13,
+        "draws": 6,
+        "losses": 8,
+        "points": 45,
+        "goalDiff": 10,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 5,
         "teamId": "21300",
         "team": "Charlotte FC",
         "played": 27,
@@ -8447,19 +8460,6 @@ window.ATL_DATA = {
         "losses": 8,
         "points": 43,
         "goalDiff": 9,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 5,
-        "teamId": "182",
-        "team": "Chicago Fire FC",
-        "played": 26,
-        "wins": 12,
-        "draws": 6,
-        "losses": 8,
-        "points": 42,
-        "goalDiff": 8,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8599,12 +8599,12 @@ window.ATL_DATA = {
         "rank": 1,
         "teamId": "9727",
         "team": "Vancouver Whitecaps",
-        "played": 26,
+        "played": 27,
         "wins": 15,
         "draws": 5,
-        "losses": 6,
+        "losses": 7,
         "points": 50,
-        "goalDiff": 33,
+        "goalDiff": 31,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8804,7 +8804,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-06T05:00:07.518Z"
+    "generatedAt": "2026-10-07T05:00:08.004Z"
   },
   "seasonHistory": [
     {
