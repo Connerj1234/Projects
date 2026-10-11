@@ -1,104 +1,104 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-10-11",
   "general_news": [
     {
-      "link": "https://www.npr.org/2026/10/10/nx-s1-5996652/glp1-fda-naion-blind-lawsuit-ozempic",
-      "published_at": "2026-10-10T07:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/11/nx-s1-5996655/heat-therapy-sauna-thermoregulation-health-benefits",
+      "published_at": "2026-10-11T06:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Scant data about serious adverse effects makes it harder to answer scientific and legal questions about how often the drugs might cause serious harm like blindness or pancreatitis.",
-      "title": "Ongoing lawsuits allege GLP-1s can cause serious harm. But we don't know how often"
+      "summary": "A group of international researchers is pushing to rigorously study the potential health benefits of sauna and other heat therapies. They hope to bring scientific legitimacy to the age-old practices.",
+      "title": "Sweating the details: Sauna's potential health benefits draw scientists' interest"
     },
     {
-      "link": "https://www.npr.org/sections/the-picture-show/2026/10/10/nx-s1-5991619/gaza-ceasefire-israel-life",
-      "published_at": "2026-10-10T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/11/nx-s1-5995238/jobs-employment-economy-unemployment-benefits",
+      "published_at": "2026-10-11T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "It has been one year since Hamas released the remaining Israeli hostages and President Trump promised an end to the war, but Palestinians say the past 12 months have been a ceasefire in name only.",
-      "title": "A year of ceasefire in Gaza through the lens of NPR's reporter"
+      "summary": "People who lose their jobs in this economy are taking longer to find new work. Nearly four in ten people exhaust their unemployment benefits before they land a new job.",
+      "title": "It's taking longer to find a new job after losing one"
     },
     {
-      "link": "https://www.npr.org/2026/10/10/nx-s1-5991897/democrats-latino-voters-influencers-bold-pac",
-      "published_at": "2026-10-10T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/11/nx-s1-5968691/midterm-elections-washington-congressional-district",
+      "published_at": "2026-10-11T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Democrats are hoping to win back Latino voters who have soured on both parties. They hope Latino content creators will bridge the gap.",
-      "title": "After losing ground with Latino voters, Democrats are turning to influencers for help"
+      "summary": "In a highly competitive Washington congressional race, the incumbent Democrat has angered part of her party base and the Trump-backed Republican challenger faces backlash against the party in power.",
+      "title": "In one of the country's most competitive districts, a Democrat tries to keep her seat"
     },
     {
-      "link": "https://www.npr.org/2026/10/10/nx-s1-5993688/16-cozy-activities-to-add-to-your-fall-bucket-list",
-      "published_at": "2026-10-10T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/11/g-s1-145063/justice-department-civil-rights-transformed",
+      "published_at": "2026-10-11T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Carve a pumpkin? You can do better than that. Fun and unusual ways to celebrate the season, from writing a gratitude letter to making an ancestral altar.",
-      "title": "16 cozy activities to add to your fall bucket list"
+      "summary": "Harmeet Dhillon has pushed out hundreds of longtime attorneys, replaced many with inexperienced ideological allies, and used the division's enforcement powers to pursue the president's agenda.",
+      "title": "Reshaped civil rights mission at Justice Department transforms its work, workforce"
     },
     {
-      "link": "https://www.npr.org/2026/10/10/nx-s1-5920376/lee-krasner-jackson-pollock-met",
-      "published_at": "2026-10-10T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/10/g-s1-147682/attack-on-riyadh-airport-killed-12-people-and-wounded-over-300-more-saudi-authorities-say",
+      "published_at": "2026-10-10T19:44:15-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "In a blockbuster show, The Metropolitan Museum of Art places the work of two major 20th century artists side by side: the married couple Lee Krasner and Jackson Pollock.",
-      "title": "The Met puts a modern artist front and center (and there's some Jackson Pollock, too)"
+      "summary": "Saudi authorities say the latest attack on the international airport in the capital, Riyadh, has killed 12 people and injured over 300. Their statement says the dead on Saturday included four Saudi citizens as well as two Bangladeshi nationals, a Palestinian, a U.S. citizen, an Egyptian, a Jordanian, a Syrian and a Sudanese. It said some of those injured were in critical condition. The attack \u2014 the latest of several in the past week on King Khalid International Airport \u2014 is expected to increase Saudi pressure on allies including the United States to provide military support for the kingdom.",
+      "title": "Attack on Riyadh airport killed 12 people and wounded over 300 more, Saudi authorities say"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/09/weather/ai-models-hurricane-isaias.html",
-      "published_at": "2026-10-10T01:44:39+00:00",
+      "link": "https://www.nytimes.com/2026/10/11/us/politics/elections-political-violence-harassment.html",
+      "published_at": "2026-10-11T09:00:39+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Expert forecasters say the new technology is helping them understand where a storm will go.",
-      "title": "A.I. Hurricane Models Were Front and Center as Isaias Headed Toward Land"
+      "summary": "A Times investigation has found that violent threats have become a new normal among public officials, reshaped private lives, cost millions in security and pushed people out of office.",
+      "title": "Threats of Political Violence Have America\u2019s Elected Officials Living in Fear"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/10/us/politics/trump-inflation-midterms-republicans.html",
-      "published_at": "2026-10-10T09:01:19+00:00",
+      "link": "https://www.nytimes.com/2026/10/11/us/arizona-alma-hernandez-threats-violence.html",
+      "published_at": "2026-10-11T09:00:53+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Inflation has hurt Americans at many levels: Farmers, truckers, consumers. It has also expanded the electoral map into what was safely Republican country just a few months ago.",
-      "title": "Economic Pain and an Unpopular Trump Put G.O.P. on its Heels With Three Weeks to Go"
+      "summary": "Threats have altered the lives of State Representative Alma Hernandez, her family, friends and neighbors. They have even transformed her policymaking.",
+      "title": "After Many Threats, an Arizona Lawmaker Asks: \u2018Is It Really Worth It?\u2019"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/10/us/elections/oregon-governor-republican-election.html",
-      "published_at": "2026-10-10T09:00:53+00:00",
+      "link": "https://www.nytimes.com/2026/10/11/us/politics/white-house-manufactured-narrative-solomon.html",
+      "published_at": "2026-10-11T09:01:26+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Republicans are playing defense in some of the most conservative parts of the country, but an unpopular Democratic governor has them hopeful in a progressive West Coast state.",
-      "title": "Could the Oregon Governor\u2019s Race Be a Republican Hope?"
+      "summary": "A release of selected records from the classified documents inquiry is a case study in how omitting context can create political ammunition.",
+      "title": "How the White House Manufactured a Narrative About a Trump Aide\u2019s Call Logs"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/09/us/james-talarico-absence-texas-senate.html",
-      "published_at": "2026-10-09T22:23:04+00:00",
+      "link": "https://www.nytimes.com/2026/10/10/business/media/trump-justice-department-tv-networks.html",
+      "published_at": "2026-10-11T02:40:52+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Mr. Talarico, the Democratic nominee for Senate in Texas, showed up at a music festival, saying he had been at home with \u201ca nasty case of the flu.\u201d",
-      "title": "James Talarico Returns to Senate Campaign Trail in Texas After 10-Day Absence"
+      "summary": "Major TV networks were notified on Friday that the department was examining whether they violated antitrust laws when they suspended pool coverage of President Trump.",
+      "title": "Justice Dept. Is Investigating TV Networks Over Trump Pool Coverage"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/09/nyregion/mamdani-trump-ice-shooting-nyc.html",
-      "published_at": "2026-10-10T01:01:12+00:00",
+      "link": "https://www.nytimes.com/2026/10/10/us/politics/trump-rally-tennessee-public-execution.html",
+      "published_at": "2026-10-11T00:11:51+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "After a federal agent shot an immigrant in New York City, inciting protests, some of Mayor Zohran Mamdani\u2019s allies questioned his attitude toward the president and his own Police Department.",
-      "title": "Mamdani\u2019s Ability to Persuade Trump Hits Limit in Wake of ICE Shooting"
+      "summary": "A sample of people at the president\u2019s midterm stump speech in Tennessee defended the Pentagon\u2019s announcement that it would livestream the execution of a mass shooter.",
+      "title": "\u2018Not Pleasant\u2019 but \u2018Necessary\u2019: Support at Trump Rally for Public Execution"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/cm1dwgr666wno?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-10-10T04:38:20+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cqe8r5l7n92jo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-10-11T01:41:29+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "Ukraine's president sharply criticised the move, calling it an \"investment in war that must be ended, not prolonged\".",
-      "title": "Trump announces deal for Russian diesel as Zelensky calls it a gift to Putin"
+      "summary": "Ukraine's leader had said the deal with Russia to release diesel into the US would help Moscow fund the war.",
+      "title": "'Time for Ukraine to get new president,' says Trump after Zelensky condemns diesel deal"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/c5lye9z4xw4yo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-10-09T22:30:22+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cmlyle97pqd7o?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-10-10T17:44:26+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The US president hopes to ease his party's pain before next month's midterm elections, writes the BBC's North America correspondent.",
-      "title": "Analysis: Trump's shock Russia deal highlights mounting pressure to curb fuel prices"
+      "summary": "Pike's lawyers say she is \"grateful\" to the medical team who cared for her after she survived two lethal injections last month.",
+      "title": "US murderer Christa Pike discharged from hospital 10 days after failed execution"
     }
   ],
-  "generated_at": "2026-10-10T07:30:02.703515-04:00",
+  "generated_at": "2026-10-11T07:30:02.436535-04:00",
   "holidays": [
     {
       "counties": [
@@ -178,52 +178,44 @@
   ],
   "local_news": [
     {
-      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZnFUMFlHSlBtVjZmbWY2YjYtOHR4eFhVaXhIc19UZVkxMHJHbE9vVlJTaERDa25CUUR3Nkh3aWZpYkpCc0dpcDk2WUFjWVlRVWNSWkYxeDMxTlRycTEzMjBhR3dUamdJLVVpSjJnWm42bjZCcnFVeWVrWTVyM3d3Qy1hb1BiY0NCSExSNm5ROGtjQi1pc3FaNFdXYmhDWEQzaU9KTEVhcEVCQ254LWtvUnl3NEVUMU5rRzFZX0FZc0cteC1pdHV2VFJwa9IB3wFBVV95cUxOTzRhLTF0NGVGZmk3ZkM1bXJjU2VJeURvSWlYWVVmd3dQWGRIcTlqd1NIX3ZxWG1pU0dUZ3duVzVjTWhKUVZFb1F6QU9rMkVVS3dOdkFtbVhRMThNNnNIV0taQVloYVlMNVIyMUd5eFltS0lJbXlCcWQzb2Q4ank5MDNrdTQ4SEx4WnpNREJVOGVkUkxVVTV6YkRZU25pTlNrNjRrd3dsMlYwZmN3TWxwVnJ1OXlBdkdGQ0RVbVBKekh5Q2VEMlZ4cGpZZzB6RDlvdXNSZlJBUlhFcUxPTm44?oc=5",
-      "published_at": "2026-10-10T04:48:34+00:00",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxON3hUY0lHZVdTRmhjdVJNS0xvOXJWQ2dfRXdBM0JjRk9kU1NVUTZpTzdQTjAtRzFLNVVHZmphUVV6S3pWY0oxOWVqclFhSUdScnhqc3BOelVzc3MxUlBpc0FmbmpWOUVNRDBaVU81V3A4aXlXLThBWnNod09KRDM0UFZzTFFKWUJ0TUZPWkROVmU?oc=5",
+      "published_at": "2026-10-10T19:31:12+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Hurricane Isaias: List of events canceling, postponing in metro Atlanta WSB-TV",
-      "title": "Hurricane Isaias: List of events canceling, postponing in metro Atlanta - WSB-TV"
+      "summary": "Isaias causes thousands of power outages in metro Atlanta WABE",
+      "title": "Isaias causes thousands of power outages in metro Atlanta - WABE"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOR2w1elhnRUFUal9QczVTY0F0N1JzQWpmcTlJOW42Q01LTEhrTFVDOHZ4R2o3aHJHdjE2YmZkR0RYTU1VckRUbmNLT2MxWFBad3RiU3FIdllQdE5fcFprQWdGYUhkdHdYUjh4NEJ0MHY3Q1lGMURsQUtGT093cDBHcWFsTkVXQkk1TzF1ZlFvQWJja1lkS3VEZi13?oc=5",
-      "published_at": "2026-10-09T20:42:57+00:00",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPYUVqaDY2WmJacHpkZERPUGV3SFB4bXA2R0Q4VTBYM0dKMDZCM09UNU1pOHFnVmNyWTdyQTg0YUZJS283VEtqZjJTakh4Y3lpVmRWYkpzQXFUd0hXYjJRSTJNZmh4M2prWHhxVEpBX2VsNlB6T0NvQ3hBa21LQzlvVDhjbDlwdVZBbDRiMV9GRU03dmtLT1gyZDJlMVJORVBOeVBmNENyMEVsNktiMzdTa0VqdUlXR1hYQjFYNWFUQkh1VUE5V1BJOVRCSUZzX1pD0gHkAUFVX3lxTFBSRWZ4YWxGX0d5Y3pxRnlfVG5tWTliNGlLTmZILUducG1ybnhCdTIwa3lwa1RlS1BSakZzYnR1c1Mwb3FaWFRYVWdpRlRnTXZYNUpZNVBoRTJ1UEw0S1dFWUF2OS1wZ0NWWnV0OWhXU1hZaUM0LWFZalJjMC11cE5TWkNvZEUwV0xVRTZ4b1dMVHMyeGhaZFF6cF9aTExCd2RmM0U3S1dobHQ2R3Z1WkduU3l0UXRldVlvQi0xOW9pQXdHUFl3Z0VzLUoxclhLdlpucXhxYlk5Z2JBZm5DTFg2Z3p5aA?oc=5",
+      "published_at": "2026-10-10T19:06:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Metro Atlanta cancellations mount as Hurricane Isaias approaches Georgia WABE",
-      "title": "Metro Atlanta cancellations mount as Hurricane Isaias approaches Georgia - WABE"
+      "summary": "Trump approves emergency declaration federal assistance for Georgia following Hurricane Isaias Atlanta News First",
+      "title": "Trump approves emergency declaration federal assistance for Georgia following Hurricane Isaias - Atlanta News First"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZkFyZVVQOTRXVG4teGdkYTFZS3c4YlB4ZGZ5MVhueUV2N2k3RHlaRzVRd0NUZ0ZyZzV4c1ZKb0lDT3FYa2IzU09UckdtbTJYZDFvTWhVV1A2WWpfV21zNUtxdTY0R2g0N295R2Q1NWlLQ0tXMW1xOWdYSkJsVG1GMUJxdnlaVER3VEhvQXA2blBLM05lMmRKVjJJRmZuVTJIZzJ1YS1VOVZkZ9IBuwFBVV95cUxQNnFqZ084X0lDUGw3SzhRRW03TUNLckNYcC1Wa25pTWZocVlVZkpTVXpGNTBaUjVnSi0xYmh5eWZnd0paNnZrUTROYk1ncUZldGljQy1oa1hMR2RNM0VCTG9OYzRiUDdUbVpjNEJkRXpraFZXR1VoRHV5Vm5iYWdvRHVINEtZeXpUejU0b1gtRGtNN0xxN0lWNkM5TWQ2TDk3OVp1SnBTUERFTFZnSVJ2dHNXY3k0cV8xWTA4?oc=5",
-      "published_at": "2026-10-09T21:09:46+00:00",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPaTd0ci1kUHVpY2J1SVEwRmtQRW12MmtnNWJnS09CUWNVOFFMZlVLcXlDNDhTZUF6LThiUlRkRi03Vm9VM3NRMzdfbUpiV3Y1cnFacE0yOTRRdWF0TGN0UDM4Z25XMGpZSjhLU1d3WE11YkpDVXd6WHR0SVkxdHRzTVE5UnhkZUhYaHVOV2tRc2dFSlpWaEpYbktGTjdmdDA2QVJiclUtbUxIZ1plcGJ3YU00aUZaZnN2TGM2R3NQZHhLOUYzSGpjb3BOa2ZRQmVQWTJFU0hVSl9abWFL0gHwAUFVX3lxTFBFb2hqYnA0a3BjTUx4SWx2NXJBT2VNWFBFUTMxRGVlWlBKZURxRjlsTTVwdTQwUHBVaXFIazRpVGFyZEFwSDNEYXQ2ZzlBaWhKbGtKenlxTmJtSDlmUTNIOWhyeWxTR1V4MkhRMHlQTEEwM3VBQmpmeHR5T3ZIdHRCaFBLQzBhS1QwQTJBOUlNWE5zYVpsaDB1VU95bkZJTlZURk01RlkwR2ZDb2Jld0g2ckl6Qi1jc0s4QXdDV2hRa3VwYVJfRnUxUVFuUEI2cllZaHpOaWpMVGlDRTdBMjh2dGpSTldMVlBKYXFzLVA0TQ?oc=5",
+      "published_at": "2026-10-11T02:23:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Mass Shooting Kills 2 | Trapped Worker Rescued |Isaias Threatens SE: GA News Patch",
-      "title": "Mass Shooting Kills 2 | Trapped Worker Rescued |Isaias Threatens SE: GA News - Patch"
+      "summary": "Isaias: Tornado warning for 2 Georgia counties expires; 4 storm-related deaths reported WSB-TV",
+      "title": "Isaias: Tornado warning for 2 Georgia counties expires; 4 storm-related deaths reported - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQYU9QM2tzWlZDMFd4TzRqUklHN2FrTjZGVl9XWG5SRFMxT3N5WUZuaFNYMmtSYmNDSzZCZlo2MjlKWTR1Z04zNlM3bm9ydTc3S1NXeHUzSjhMNTlGTHh3ZUZmUld5bTEyOUl2YXIyQWlWMWJRQkVWRHlvdEVMOTNxZm81R1ZWUjZKV0U5V2F0a2NrWFJhd1JrMHVB0gGuAUFVX3lxTE1Lc01kSXgteHFOUmJxVzJPSVJEbUpDdHFyNUM3QjVhVkV5RDFvc0NBZElxaGRxNFBrZUxhcUt6a1JnV1VYc2FzMHNoSzBIeTg2QU9sYjhLTGRKTHFXOEJ5cWlORkozYzJkeHk0NUFFTTMwZV9IQjl5UUZNVDdoUkJIQVF5TkxFWnIwTEEtemhZeGxDQU81SWhteDhhWEVyejJlVHFqVXQ4azVGQmVRdw?oc=5",
-      "published_at": "2026-10-08T22:41:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdW1GNHJnS3IwRzYwWlVZZWgtMmpvZUtUbEstYk1iSkR4LUZkLWhBeUhIcFFXX0dwQkJhWUdPbi1mbnd6dVFrRk56VDN6bTR6ei1nM2dwRk52V013MjdDX1gzbG9kcjBpV01WQ3dlS21qbEt2cF80UTh4TlR1LTNTbjJINjVldUlKTVRnaGk1ZnBORS1GNW5UenJRYzZPd1ZJaHBZYUZ6ZWxncHRVSFZZb2JNQ0lGdllqQTc0MkJqUDZwNjA?oc=5",
+      "published_at": "2026-10-08T14:08:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Watch Georgia US Senate debate on Atlanta News First Atlanta News First",
-      "title": "Watch Georgia US Senate debate on Atlanta News First - Atlanta News First"
+      "summary": "Will Hurricane Isaias impact Atlanta? Flooding rain, isolated tornadoes possible for metro Atlanta CBS News",
+      "title": "Will Hurricane Isaias impact Atlanta? Flooding rain, isolated tornadoes possible for metro Atlanta - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSXJUeEVLRTN4UE01ZGtKUXAxV2RHd2hiZlFtdjJFbnBZb3FGLWtrd291cDBCcVY3UnI5SXJjdnJwdk9ZQkpKZGxPLVo1WTRmMXdNa2laRGx4bmhCZXUtSm1jV3d6amRqOUxmUkUxRWdkXzM5dUd3RnJnd2wtYUU1clVrLTM2ZFBrZ2NYTFhfdkgyLWtkWWRwWlFPT2kxcW5BZ2dYS1ZQbVpicGRDSzNKenFpWlNwSDdnendVSjZpbllXTTR4N2FKaUZ2U1FUQQ?oc=5",
-      "published_at": "2026-10-09T15:34:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOOXNkYTg5bzdicHNFRWIwZGRheFhvb2J5UEtWVVdnT2xoRGVSTEluUmlFSE9CcEs0S0RLV0JqT0tBbmhtVEJlOHRRdGlGb21NQnpjNEJXcDJzWTJWR3JjdlBESmFHakJuMmN3YzIxcFNFUzNNX3RKZF9pWFRrR1BiakxWS2UzRWczVnV2a1JqUFE0TGlxTnFLQmJHd1F3UdIBowFBVV95cUxPTTJURTdsek5LOFA0amd5cWZPNWFMUDljajBhdXFSZHo1aVpQWncwbm51Ui0xQ0o0MmlwSUp1M3c1SnZIV3FXcF9yVzRKbklSQ1JLQ0lGeWRxcjF6Unhrb3FQX3hoM29nbnhDVDBFUmJVRUNFT2FManBQOHhIdkRleHJKdG1zQ3VreUUxVHBUZWYtazl6cWpwUEFEN2R6WVFBLVVv?oc=5",
+      "published_at": "2026-10-10T23:11:14+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Hurricane Isaias strengthens to Category 3; metro Atlanta braces for weekend heavy rain and wind CBS News",
-      "title": "Hurricane Isaias strengthens to Category 3; metro Atlanta braces for weekend heavy rain and wind - CBS News"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWllzWWg2cGtxY1VGc3VRbnZlSHJ0cDVNQ3hfSjJrMjRqSTgzNmFHUEJOeWV3N3hQWWZsV2RfZDhDd3Z0TG4wQUdMd1V5SjA4bGxsUHlpLVVtdk9fWXNGOUhVOTFkbElpS3dFT3kwZVY0OGpNakt1Rmk5dnFtNnktTDY0bkpocWVseGZmbTd1b2NHVE90?oc=5",
-      "published_at": "2026-10-09T17:48:43+00:00",
-      "source": "\"Georgia state government Atlanta\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Georgia launches chatbot to help residents navigate state services StateScoop",
-      "title": "Georgia launches chatbot to help residents navigate state services - StateScoop"
+      "summary": "Crews still working to restore power for thousands in Georgia FOX 5 Atlanta",
+      "title": "Crews still working to restore power for thousands in Georgia - FOX 5 Atlanta"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVmUxUkpsZ0dZUGRrUW1JVUF0Z3BHbFJZdlBSdmlmdENDNmlvS1lKWGZXNDZCc2hYM1BEOGI1bnBVTjFLdXlQTlVCSUxSZ2o0dl9va2VQUXlwOHR6UzljQ0JONlhBdUEzZFFXc0gxYU1ybmlDSkJWbXNvUlZuV3c5QUU2bTY1V0tfWHdYQUxEYnF6MVVfekk5ZTFrVlI?oc=5",
@@ -232,6 +224,14 @@
       "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
       "summary": "Georgia Gov. Brian Kemp issues state of emergency ahead of Hurricane Isaias WABE",
       "title": "Georgia Gov. Brian Kemp issues state of emergency ahead of Hurricane Isaias - WABE"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWllzWWg2cGtxY1VGc3VRbnZlSHJ0cDVNQ3hfSjJrMjRqSTgzNmFHUEJOeWV3N3hQWWZsV2RfZDhDd3Z0TG4wQUdMd1V5SjA4bGxsUHlpLVVtdk9fWXNGOUhVOTFkbElpS3dFT3kwZVY0OGpNakt1Rmk5dnFtNnktTDY0bkpocWVseGZmbTd1b2NHVE90?oc=5",
+      "published_at": "2026-10-09T17:48:43+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia launches chatbot to help residents navigate state services StateScoop",
+      "title": "Georgia launches chatbot to help residents navigate state services - StateScoop"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQd1FteGdrODdMVGVQUWU1enpacVVGbXpkWTlsS09DNHZHZzl5WFVUcmpzSC1nWWQweWxIUXZrbldWWTAzdjVEdHlvLVYwMklZYWpnM3BrdTUtQkRUR0Y0Q0tIV3hhaTFOeDNQNjNuWGF4anBhNVJ0R1BveFdFclJpTWhJRlBpQ1JKaHhsMWJ4ZVVPZ1ZHX1RmYWNKdVZMcnpnSEczaGRNUmdFSFppZmdwRjBoNkUxeEt6MUZGOW9EU01MaUdFOUlwM1RnNFVHY3hwQktGcA?oc=5",
@@ -248,12 +248,28 @@
       "source_url": "https://finance.yahoo.com/news/rssindex"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/09/trump-putin-diesel-russia-sanctions-ukraine.html",
-      "published_at": "2026-10-10T02:09:00+00:00",
+      "link": "https://www.cnbc.com/2026/10/10/vance-microsoft-h1b-layoffs-visa-data.html",
+      "published_at": "2026-10-10T14:22:23+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Ukraine President Volodymyr Zelenskyy said in a searing statement that the U.S. easing sanctions on Moscow \"plays into Russia's hands.\"",
-      "title": "Trump's diesel agreement with Putin accused of contradicting Russia sanctions law"
+      "summary": "The administration barred Microsoft and seven other firms from sponsoring green cards over claims they favor foreign workers. Here's what the visa data shows.",
+      "title": "Vance says Microsoft replaced laid-off workers with foreign hires. Here\u2019s what the visa data shows"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/10/10/microsoft-satya-nadella-ai-emergency-brake-safety.html",
+      "published_at": "2026-10-10T20:59:28+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Nadella joined other tech moguls and researchers in calling for stronger safeguards and, in some cases, for the pacing of frontier development.",
+      "title": "Microsoft's Nadella says AI needs an \u2018emergency brake\u2019 that humans control"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/10/11/ai-dynamic-pricing-shoppers-groceries.html",
+      "published_at": "2026-10-11T05:00:01+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "As retailers turn to AI tools to streamline operations, experts warn that collecting more detailed consumer data increases the risk of personalized pricing.",
+      "title": "AI may change the price of your Big Mac and groceries \u2014 what this means for shoppers"
     },
     {
       "link": "https://www.cnbc.com/2026/10/10/nvidia-gpus-are-everywhere-heres-how-companies-access-them.html",
@@ -264,28 +280,20 @@
       "title": "Nvidia GPUs are everywhere. Here are the ways companies are accessing them"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/10/ukraine-grain-exports-russia-harvest.html",
-      "published_at": "2026-10-10T05:00:01+00:00",
+      "link": "https://www.cnbc.com/2026/10/10/putin-trump-iran-war-russia-diesel.html",
+      "published_at": "2026-10-10T13:42:36+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Cash-strapped farmers have no incentive to sow for 2027 with exports remaining trapped, as analysts say commodity markets could \"flip fast.\"",
-      "title": "The world needs Ukraine\u2019s grain. Its farmers are running out of reasons to plant"
+      "summary": "Putin's reported call with Trump regarding the Iran war comes on the heels of a deal for the U.S. to buy Russian diesel amid a surge in fuel prices.",
+      "title": "Putin relayed Iran war proposal to Trump, Kremlin says"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/10/ai-lawyers-billable-hour-legal-careers.html",
-      "published_at": "2026-10-10T05:00:01+00:00",
-      "source": "US Top News and Analysis",
-      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "AI adoption is forcing the legal profession to rethink the billable hour and how lawyers build expertise.",
-      "title": "AI is changing how lawyers work \u2014 and putting the billable hour under pressure"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/10/09/american-debt-delinquency.html",
-      "published_at": "2026-10-09T19:18:24+00:00",
-      "source": "US Top News and Analysis",
-      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Researchers found that while wealth disparities narrowed somewhat, the ability to meet debt payments deteriorated significantly.",
-      "title": "Americans' debt problems are flashing a warning not seen since the Great Recession"
+      "link": "https://www.cnbc.com/2026/10/10/from-bjs-to-lululemon-retailers-are-trimming-assortments.html",
+      "published_at": "2026-10-10T12:00:01+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Retail brands are shrinking assortments to get back to healthy growth, while box stores are culling products to better curate offerings and stabilize business.",
+      "title": "From BJ\u2019s to Lululemon, retailers are trimming assortments to boost business"
     },
     {
       "link": "https://www.cnbc.com/2026/10/09/delta-riyadh-flight-safety-houthi-attacks.html",
@@ -310,14 +318,6 @@
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
       "summary": "Starbucks has reportedly been working with advisers on a takeover proposal for Chipotle, but a potential deal comes with pros and cons for investors.",
       "title": "Why a Starbucks takeover of Chipotle would \u2014 and wouldn't \u2014 make sense for both companies"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/10/08/skydance-co-ceos-ellison-kreiz.html",
-      "published_at": "2026-10-08T16:25:40+00:00",
-      "source": "Business News",
-      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Skydance includes two film studios, the CBS broadcast network, a sprawling pay TV portfolio and streaming services Paramount+ and HBO Max.",
-      "title": "Skydance's David Ellison tells CNBC combined company is 'positioned to win in every single vertical'"
     }
   ],
   "market_watchlist": [
@@ -2414,15 +2414,11 @@
       "symbol": "IWM"
     },
     {
-      "change": 193.68968749999476,
-      "change_percent": 0.2346436361629851,
+      "change": 69.43343750000349,
+      "change_percent": 0.08374330346521804,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
-        {
-          "close": 72979.046875,
-          "timestamp": 1775779200
-        },
         {
           "close": 73054.2734375,
           "timestamp": 1775865600
@@ -3152,15 +3148,19 @@
           "timestamp": 1791504000
         },
         {
-          "close": 82740.0078125,
+          "close": 82912.2265625,
           "timestamp": 1791590400
+        },
+        {
+          "close": 82981.65625,
+          "timestamp": 1791676800
         }
       ],
-      "history_change_percent": 13.37502138349213,
+      "history_change_percent": 13.58905659501653,
       "market_state": null,
       "name": "Bitcoin",
-      "previous_close": 82546.3203125,
-      "price": 82740.01,
+      "previous_close": 82912.2265625,
+      "price": 82981.66,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
@@ -3695,58 +3695,6 @@
   "sports": {
     "followed_teams": [
       {
-        "broadcasts": [],
-        "event": "Atlanta Hawks at Indiana Pacers",
-        "followed_team": "Atlanta Hawks",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/nba/game/_/gameId/401898396/hawks-pacers",
-        "sport_path": "basketball/nba",
-        "starts_at": "2026-10-10T23:00Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "IND",
-            "home_away": "home",
-            "name": "Indiana Pacers",
-            "score": "0"
-          },
-          {
-            "abbreviation": "ATL",
-            "home_away": "away",
-            "name": "Atlanta Hawks",
-            "score": "0"
-          }
-        ],
-        "venue": "Gainbridge Fieldhouse"
-      },
-      {
-        "broadcasts": [
-          "Apple TV"
-        ],
-        "event": "FC Cincinnati at Atlanta United FC",
-        "followed_team": "Atlanta United",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/soccer/match/_/gameId/761850/fc-cincinnati-atlanta-united-fc",
-        "sport_path": "soccer/usa.1",
-        "starts_at": "2026-10-10T23:30Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta United FC",
-            "score": "0"
-          },
-          {
-            "abbreviation": "CIN",
-            "home_away": "away",
-            "name": "FC Cincinnati",
-            "score": "0"
-          }
-        ],
-        "venue": "Mercedes-Benz Stadium"
-      },
-      {
         "broadcasts": [
           "NBC"
         ],
@@ -3872,6 +3820,33 @@
             "abbreviation": "MIA",
             "home_away": "away",
             "name": "Inter Miami CF",
+            "score": "0"
+          }
+        ],
+        "venue": "Mercedes-Benz Stadium"
+      },
+      {
+        "broadcasts": [
+          "Fox"
+        ],
+        "event": "Chicago Bears at Atlanta Falcons",
+        "followed_team": "Atlanta Falcons",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nfl/game/_/gameId/401872999/bears-falcons",
+        "sport_path": "football/nfl",
+        "starts_at": "2026-10-18T17:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "ATL",
+            "home_away": "home",
+            "name": "Atlanta Falcons",
+            "score": "0"
+          },
+          {
+            "abbreviation": "CHI",
+            "home_away": "away",
+            "name": "Chicago Bears",
             "score": "0"
           }
         ],
@@ -4516,52 +4491,52 @@
   },
   "tech_ai": [
     {
-      "link": "https://techcrunch.com/2026/10/09/elon-musk-intensifies-attack-on-ambani-over-starlink-india-launch-delay/",
-      "published_at": "2026-10-10T03:10:06+00:00",
+      "link": "https://techcrunch.com/2026/10/10/microsofts-satya-nadella-says-ai-models-need-an-emergency-brake/",
+      "published_at": "2026-10-10T21:47:51+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Elon Musk has accused Indian billionaire Mukesh Ambani of blocking competition.",
-      "title": "Elon Musk intensifies attack on Ambani over Starlink India launch delay"
+      "summary": "In a Saturday morning post, Microsoft's CEO wrote that it\u2019s time \u201cto step back and assess the trust architecture\u201d of AI.",
+      "title": "Microsoft\u2019s Satya Nadella says AI models need an \u2018emergency brake\u2019"
     },
     {
-      "link": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
-      "published_at": "2026-10-10T00:18:32+00:00",
+      "link": "https://techcrunch.com/2026/10/10/apple-discloses-deal-to-hire-team-and-license-tech-from-personalized-podcast-startup-huxe/",
+      "published_at": "2026-10-10T19:50:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.",
-      "title": "Anthropic can\u2019t reliably control its AI agents. It\u2019s cutting off its internal evals from the live internet instead"
+      "summary": "Is Apple hoping to get into the AI-generated podcast business?",
+      "title": "Apple discloses deal to hire team and license tech from personalized podcast startup Huxe"
     },
     {
-      "link": "https://techcrunch.com/2026/10/09/long-live-the-mechanical-keyboard/",
-      "published_at": "2026-10-09T22:08:24+00:00",
+      "link": "https://techcrunch.com/2026/10/10/petra-power-looks-to-modernize-energy-for-data-centers-and-defense-vehicles/",
+      "published_at": "2026-10-10T17:00:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Keychron made a name for itself after launching on Kickstarter in 2017. Today, it offers the value K2 model as well as a variety of other versions, including one with an all-wood body.",
-      "title": "Long live the mechanical keyboard"
+      "summary": "The startup says its fuel cells are super efficient and cut fuel costs during a time when the tech industry can\u2019t get enough electricity.",
+      "title": "Petra Power looks to modernize energy for data centers and defense vehicles"
     },
     {
-      "link": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
-      "published_at": "2026-10-09T21:41:29+00:00",
+      "link": "https://techcrunch.com/2026/10/10/cloudflare-acquires-deno-to-improve-its-workers-programming-model/",
+      "published_at": "2026-10-10T16:25:42+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "What has users and large corporations so excited about Jev is TypeSafe\u2019s claim that it works significantly faster and uses far fewer tokens than LLMs.",
-      "title": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch"
+      "summary": "Cloudflare will use this acquisition to improve its Workers programming model and platform.",
+      "title": "Cloudflare acquires Deno to improve its Workers programming model"
     },
     {
-      "link": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
-      "published_at": "2026-10-09T19:36:56+00:00",
+      "link": "https://techcrunch.com/2026/10/10/3-days-to-disrupt-2026-meet-the-startups-before-they-hit-mainstream/",
+      "published_at": "2026-10-10T15:00:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Anthropic did not discover this behavior until over two months after its AI submitted the false tip.",
-      "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police"
+      "summary": "TechCrunch Disrupt 2026 takes place October 13-15 in San Francisco. Over 300 startups will show what they\u2019ve built to 10,000 tech leaders. Plus, 250+ speakers are ready to share insights across 200+ sessions. Register before doors open to save up to $100 and get a second pass at 50% off.",
+      "title": "3 days to TechCrunch Disrupt 2026: Meet the startups before they hit mainstream"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQnJfdmQzcThvdk5kMkxlWXpMZlhIUXM1ZGR4SGlycFdUZV82Z1N3eHVCVGk4UnpKb0s3U2lvX3d0RVFDNnVVekhyUVhSQlJOYlQyLVpETDI5V3FSZDFYeDcyLU5nbXB2SGhmeTNBbFIzNUsyZFRFcWs0OHBZSU9IZlpkRVUwUl83ck55U2E5dkZpM1hoN0s3blJScUZaT3J6a0w4b1FOXzQ4U2JVQTREUEVyYkY5bVU?oc=5",
-      "published_at": "2026-10-09T16:00:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE82U3g1TEhGeGhWTHJYYnlYeGR2SHJiWHVieWYwei0teDJRSDdodVVmN2lnNnNEel92a1RXei1mMy11Nm5LX1ZkRHNGZzczbzNXd29RM3FGY3IyeUU?oc=5",
+      "published_at": "2026-10-10T23:18:16+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "A Florida local newspaper ran an op-ed. It was an Iranian AI fake. The Washington Post",
-      "title": "A Florida local newspaper ran an op-ed. It was an Iranian AI fake. - The Washington Post"
+      "summary": "AI is creating a 'human premium' for art made by people. But will it hold? BBC",
+      "title": "AI is creating a 'human premium' for art made by people. But will it hold? - BBC"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQS095NGg1SGdvMzZKSjktTWo5ZkFWMkJmdGsxRHJuRHJ6bUYzcV80V3RnUkpIYmp2OHlhNDZxZjVuaWJVQUl4WUhSX1JQZDM4eXlYMGVGRmh2ZUZ1bDljYVZSSDRocGR5LUUtYU56QVh1d1RoUVhFcDZZWGxXWGw1SFpSSVcyVEtWZVh1b2kwUlhfQURUOXhPOWVLOXNtTWNzem9PRGdfMFNoaXFvbGx2MVln?oc=5",
@@ -4572,12 +4547,12 @@
       "title": "Using AI for just 10 minutes erodes your ability to persist at hard things - University of California, Berkeley"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOU3ZZVGp0NnVEbEwyN3lJeUFnVHRkNW9oRnZDQk15SmhZWEJLNThBWXhZaG5HOFFwRXBKR0h2SDRkdGI3MFpaM1ZVaTdrTjBVQzdmVFNhWlJVTXlxLXBiV1BvRWdRampPdUFyaV9ITGhkUjRNRXRQVFh6SVJUZFdaeE9LQUJwM09SdVBBZWFvWHl5VXlxQkhNTHZOLXZCVjhURnFIUGVRWFFMWkwyNHc?oc=5",
-      "published_at": "2026-10-10T10:00:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSW45eVowQUtrRDU1czZqQ25KNW1UU0VLc201dkpjOEpJR2NFYUNmTnhITG94WnB6WlNsVkFfRzV5ZU1MeUJpY0NqX19lNVcyN3NLdXpSYk1xb0twRl85Z1RLRVllUVpNQTFPal9FaWp1SnNoNk8tbnN1a1ZpN1MxNVhR?oc=5",
+      "published_at": "2026-10-09T23:15:12+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "UK must not be beholden to foreign AI, says head of Alan Turing Institute The Guardian",
-      "title": "UK must not be beholden to foreign AI, says head of Alan Turing Institute - The Guardian"
+      "summary": "Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website The New York Times",
+      "title": "Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website - The New York Times"
     }
   ],
   "timezone": "America/New_York",
@@ -4599,180 +4574,151 @@
       "title": "Men stab each other during fight over cellphone at Midtown MARTA station, police say - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi-gNBVV95cUxNWEUyeWxrUEw4LUo1MXVRQzF0Vi1WQWJMRkhnckdiWktjLUJrMlFxQmlyMTM0R2w4SjVoOGFzdGd6c1Nfa3ZTdDdpQ3JEQlNpTUlVUHVxOWJPR3NCM1JCRDlLc0VjMU5TTzI1ekZzc2I2MldvWHp6TjI0OGg2UmxpeGpaWGczSWpJR1NaV2RlSHE3TnJZb1otNVFkTDJZcGlmbkJBRmRVcEYtcTQ4ejVGRnBLbUZzWk9Hcy1uckJMMUNMVnN5blo4dWhQLXJEVnpxdHB3X0lCS21HTGtKQ2RibnNuc21XeTJSaFJVbEYtcnRPam0zR1pPM0U2dGZQdnFvWnpKU3ZIUXB0dnNWVTJURUZ6SGtuVjllcE9Ed2VWaU5FbjNzNlpsOEJrM1cxRndiX2N6TnVXMGxpdDRuVmphUWE0MGdWelc2aU9nUmlEeGt3bkVBajNEVVNmVTIzRllOb2pKOHF1aFlrZzhIVzk2MEtxMTJ6YXd3QW1PMHhYdWpCcFB5Q3QyV1pJOHJSWEZSeFphMnNCZE1HYWstLUlrbWVrbmZ3eXNMMnpoSVQyX1l1WDhTbEMwOE5TSXc4ZndkMTJWSHJhM09wQ0tWbkhiX2VXYXhTc19hNFJ4V3diRll2UW8ya3dDVEVGcWN5MjlXYnNWMU81MUJrQQ?oc=5",
-      "published_at": "2026-10-10T06:28:42+00:00",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxObXd0dWt0SEs5cW5uR0NUdWE3VFgxUkZJSWJ2aUh1RGdGRjVwdUpPODF5ZF9oZ25nbVpJc04tNWgzeHpuenB2SzM0M2V4MG5VN2JnM3U0cXhfSlhJdEhDbHZpSjJxelVQNVE1QU1STkxGOEtldmZWTEszMTdEWGI1b2V6Y052dnVUNlJQbkpLRW1wbknSAacBQVVfeXFMTUlJeVpWRURGUkhXWkdhNHZKc3RXRTN0TGdtalFkQVlJOW80WE9wLWhSM3UwenNweXYwR0pNT3lxZ3hia0NqdngwVjlrbFhib0pwTFNDVmxEcDNrTVJRb2taTWZNSXllUk40dHJfUjVQeHl2NjhOMVkwa1VVbGE5MVZJaXpueVFLbzE3TTRkMDRaMUMyVS1DUVBWRVRGUlNRSzVmeTRtWE0?oc=5",
+      "published_at": "2026-09-25T07:00:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "MARTA payroll error leaves agency out $620,000 Atlanta News First",
+      "title": "MARTA payroll error leaves agency out $620,000 - Atlanta News First"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNRUYxQ3o0MkFGTTlRZ1lDS0twM2pocE9STWVUcnFJdTFoM3pYdG84MVdDR2JaUVFvSVY2R0NCVXI2bUtheXZ1eXBGV19zaG9KLVd3d0NEcUpPcG5sNzJuN0k1N05sZzh2endrWkRwUElzUHFCdFBuRlZtNFY2aUtrT1FTME11S3ZYQ2syeVJtTklqX1UwY19PZUUtd2RqNU5SdlFyVngwRGlralRJUEtVTUdscXJXcWJBY2FvbGF0LXZrdUZFUm5FNFBjenBjTDhNcmFyQ185bzN6MjZLQnQwMldBUGRkYkREeG5fWmRieXpDMk1DU3BQNGVuVS1VOUFn?oc=5",
+      "published_at": "2026-10-08T12:16:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Traffic Alert: Downtown intersection reopening after deadly collision involving bus in Atlanta 11Alive.com",
+      "title": "Traffic Alert: Downtown intersection reopening after deadly collision involving bus in Atlanta - 11Alive.com"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMijgRBVV95cUxOc2xyb1JnTXA5dDhqcmlmZXYxWEhXam9wZ1o1Qm9UUHJHLURNS0VLMlBYeFpUUUhsWl9EN0RkSG1jX3llLUIxbTRzVUpUUW9JODRVVVdWcGJTelVrV2VQR3N6QmN2UFJyN1V1T3BFMFBIUFFhbV82VTR3XzlBSWNqZExIZXIwYklEWFVZOU5xWkhCNGxJd0FOd1B5ek1fSlYzOE1zd1Q5WUZqWkpSMnVWUUNQMG52Qk5odmxwdzJ2dG9XZjlndEhKdU1uMFJxb1pxM2dKQVVCckQxczBkaDlCTjNNb2xhemVLdHZFS0JpUkU5dlMtS3hCaVJGYW9oU0xqeG5tV0FGSmhUREU5Mlh1SENaYjJWVXZ1Ukp5Vlk4bFFKUm5JQlVnOU9fTlUwczZTLTRtQmtpWUxJVDBhRDJwNGZuNXc2UmNNSFhtbmN2dFJYb1g4c21sRFkwOFY3X3dWYnU4ZmJPS3RBd2stWURtLTFVMXB5anJ3eVhGbXJ0MFRiSUZnZUE2MWs5eFhwQkgwaHZaX0N4T3pTcUZfOTRta0R1QWRiM2lJSFJncFZMY2VyMmk5SC1YTEZlanpCZkpKcGFscGxtUERDS0lNd2RrVm40cXMyRDdubTdCNkpCckNwLWNSWjd3WjVwZ1BDUGRKVFBFV1p4d1N3WTlFMk50Ykx2ek9FVjNNNUs3OTZ3?oc=5",
+      "published_at": "2026-10-10T06:11:19+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
       "summary": "WSBTV Atlanta News, Weather, Traffic and Sports \u2013 WSB-TV Channel 2 - Atlanta WSB-TV",
       "title": "WSBTV Atlanta News, Weather, Traffic and Sports \u2013 WSB-TV Channel 2 - Atlanta - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQSGxyNGNfZnlFcFYtcU80LW1UVXlGUG1jV2RuRHVKNjJTQkJHcnFhSW9VbGw5OTlRNGxFSVRyYXlfeFJWUjBzSWQ1ZHpUVFFPNmFXMkFnbGs2RFdneTNzd1A0MXR1WS1wNkZ6c3VIdE9qT2ROWXh5TF9EbE5oazN6NF96WVVOcTFmUGFkZ1JVN2d2N3M?oc=5",
-      "published_at": "2026-10-09T19:29:00+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "2 stabbed near Midtown MARTA station, police say Atlanta News First",
-      "title": "2 stabbed near Midtown MARTA station, police say - Atlanta News First"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5qQkNfMFhXUDU1Ujlud080cDBOZXVZMDl0MWwxMXZoVXVrMkpwVzByX1djZUxFR2RXdGRSTFZFRXpqM05xU3RGb2gzVG52RmowRWc?oc=5",
-      "published_at": "2026-10-10T03:56:29+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Police said two men stabbed each other during an argument over a cellphone near the Midtown Atlanta MARTA station Friday afternoon. #atlantanewsfirst #crimewatchatlanta Instagram",
-      "title": "Police said two men stabbed each other during an argument over a cellphone near the Midtown Atlanta MARTA station Friday afternoon. #atlantanewsfirst #crimewatchatlanta - Instagram"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPeng2cnJkdGxiOTRCQU10YWRISVQ3YXRKX044VDZ0REpOM09hSFF3Q0VaRWdyZmFhTjFLSXZuc19NRWtpbFdKM3N3LVlqVDhDUHFvMzZWWmtHVnJ4Y2JpTi1GMWIyV1E3ZER0bE56UmM2VVRTUVRZbUhLTFRqLURvUjJhUVA0dmkwNDRTVGlJYU96bllfU1NCMDhmQU1OSlI4TEhzQTNuZExjVFdjX0FQd2tqMVozY0RJMFoya1lieHdPeV9kbjJDal92T2VGZzR5Q08tYm1qaFprSV92X3Y0?oc=5",
-      "published_at": "2026-10-10T00:36:32+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOYjIxdmNCSEM3Ni1KMHVHRlgtUGktbHd5QnZwU1gtZVVxcllZaUhmSVJkNmtSMElWYkl4VEZKRElEM0ZPX25ONkZqMlVuRjZJenpnVFhGT3o1VTkxc0VqaWtocWN2M0g1dGhBcjAtZHMxVlc3UGx3R29IMjJuNHVRWlM1bWRHd1cwQ3N3bjM2cHY1LV81NUQ1SC0yMG9LcUpTd0JZOFQzWUptaGE0QkhQV0hHakZobWVtOUFUMl9QR05kYndDQWtMeERNUk40SXlBSEF0a3EwSWFkWkJJNGFoUjlXdXFENVM1OVB5TjVWX1IzUlU4c19GTHg3V3piSXBzcXFJMVYybXI?oc=5",
+      "published_at": "2026-10-10T11:49:00+00:00",
       "source": "\"Atlanta weather alert OR road closure\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20weather%20alert%20OR%20road%20closure&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Atlanta, Safety Reminder! Never drive into standing water!\ud83d\udea8 Rain can quickly turn roadways into dangerous driving conditions. Never drive through standing or flooded water. You may not know how deep it is, and just a few inches of moving water can cause y Facebook",
-      "title": "Atlanta, Safety Reminder! Never drive into standing water!\ud83d\udea8 Rain can quickly turn roadways into dangerous driving conditions. Never drive through standing or flooded water. You may not know how deep it is, and just a few inches of moving water can cause y - Facebook"
+      "summary": "Strong storms bring down large tree, power lines in Atlanta neighborhood, blocking road 11Alive.com",
+      "title": "Strong storms bring down large tree, power lines in Atlanta neighborhood, blocking road - 11Alive.com"
     }
   ],
   "weather": [
     {
-      "alerts": [
-        {
-          "effective": "2026-10-10T05:23:00-04:00",
-          "event": "Tropical Cyclone Local Statement",
-          "expires": "2026-10-10T13:30:00-04:00",
-          "headline": "Tropical Cyclone Local Statement issued October 10 at 5:23AM EDT by NWS Peachtree City GA",
-          "severity": "Moderate"
-        },
-        {
-          "effective": "2026-10-10T05:03:00-04:00",
-          "event": "Flood Watch",
-          "expires": "2026-10-11T08:00:00-04:00",
-          "headline": "Flood Watch issued October 10 at 5:03AM EDT until October 11 at 8:00AM EDT by NWS Peachtree City GA",
-          "severity": "Severe"
-        },
-        {
-          "effective": "2026-10-10T05:00:00-04:00",
-          "event": "High Wind Warning",
-          "expires": "2026-10-11T08:00:00-04:00",
-          "headline": "High Wind Warning issued October 10 at 5:00AM EDT until October 11 at 8:00AM EDT by NWS Peachtree City GA",
-          "severity": "Severe"
-        },
-        {
-          "effective": "2026-10-09T11:38:00-04:00",
-          "event": "Tropical Cyclone Local Statement",
-          "expires": "2026-10-10T08:00:00-04:00",
-          "headline": "Tropical Cyclone Local Statement issued October 9 at 11:38AM EDT by NWS Peachtree City GA",
-          "severity": "Moderate"
-        }
-      ],
+      "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Showers and thunderstorms. Some of the storms could produce heavy rain. Cloudy, with a high near 74. East wind 15 to 20 mph, with gusts as high as 45 mph. Chance of precipitation is 100%. New rainfall amounts between 2 and 3 inches possible.",
+          "detailed_forecast": "Mostly cloudy, with a high near 72. Southwest wind 10 to 15 mph, with gusts as high as 25 mph.",
           "name": "Today",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T06:00:00-04:00",
-          "temperature": 74,
-          "temperature_unit": "F",
-          "wind": "15 to 20 mph E"
-        },
-        {
-          "detailed_forecast": "Showers and thunderstorms likely before 3am. Mostly cloudy, with a low around 62. South wind 5 to 15 mph, with gusts as high as 30 mph. Chance of precipitation is 70%. New rainfall amounts between three quarters and one inch possible.",
-          "name": "Tonight",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T18:00:00-04:00",
-          "temperature": 62,
-          "temperature_unit": "F",
-          "wind": "5 to 15 mph S"
-        },
-        {
-          "detailed_forecast": "Partly sunny, with a high near 73. Southwest wind 5 to 15 mph, with gusts as high as 25 mph.",
-          "name": "Sunday",
-          "short_forecast": "Partly Sunny",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-10-11T06:00:00-04:00",
-          "temperature": 73,
+          "temperature": 72,
           "temperature_unit": "F",
-          "wind": "5 to 15 mph SW"
+          "wind": "10 to 15 mph SW"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 62. West wind 5 to 10 mph, with gusts as high as 20 mph.",
-          "name": "Sunday Night",
-          "short_forecast": "Mostly Clear",
+          "detailed_forecast": "Partly cloudy, with a low around 61. West wind 5 to 10 mph, with gusts as high as 25 mph.",
+          "name": "Tonight",
+          "short_forecast": "Partly Cloudy",
           "start_time": "2026-10-11T18:00:00-04:00",
-          "temperature": 62,
+          "temperature": 61,
           "temperature_unit": "F",
           "wind": "5 to 10 mph W"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 83. Northwest wind around 10 mph, with gusts as high as 25 mph.",
+          "name": "Columbus Day",
+          "short_forecast": "Sunny",
+          "start_time": "2026-10-12T06:00:00-04:00",
+          "temperature": 83,
+          "temperature_unit": "F",
+          "wind": "10 mph NW"
+        },
+        {
+          "detailed_forecast": "Clear, with a low around 60. Northwest wind around 5 mph.",
+          "name": "Monday Night",
+          "short_forecast": "Clear",
+          "start_time": "2026-10-12T18:00:00-04:00",
+          "temperature": 60,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
         }
       ],
       "hourly_next_periods": [
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T07:00:00-04:00",
-          "temperature": 63,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T06:00:00-04:00",
+          "temperature": 62,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T08:00:00-04:00",
-          "temperature": 63,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T07:00:00-04:00",
+          "temperature": 62,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T09:00:00-04:00",
-          "temperature": 63,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-10-11T08:00:00-04:00",
+          "temperature": 62,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T10:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T09:00:00-04:00",
+          "temperature": 62,
+          "temperature_unit": "F",
+          "wind": "10 mph SW"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T10:00:00-04:00",
+          "temperature": 62,
+          "temperature_unit": "F",
+          "wind": "10 mph SW"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T11:00:00-04:00",
           "temperature": 64,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph W"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T11:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T12:00:00-04:00",
           "temperature": 65,
           "temperature_unit": "F",
-          "wind": "15 mph E"
+          "wind": "15 mph W"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T12:00:00-04:00",
-          "temperature": 66,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T13:00:00-04:00",
+          "temperature": 68,
           "temperature_unit": "F",
-          "wind": "20 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T13:00:00-04:00",
-          "temperature": 69,
-          "temperature_unit": "F",
-          "wind": "20 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T14:00:00-04:00",
-          "temperature": 70,
-          "temperature_unit": "F",
-          "wind": "15 mph E"
+          "wind": "15 mph W"
         }
       ],
       "latitude": 33.6676,
@@ -4781,153 +4727,117 @@
       "source": "weather.gov"
     },
     {
-      "alerts": [
-        {
-          "effective": "2026-10-10T07:12:00-04:00",
-          "event": "Flash Flood Warning",
-          "expires": "2026-10-10T13:15:00-04:00",
-          "headline": "Flash Flood Warning issued October 10 at 7:12AM EDT until October 10 at 1:15PM EDT by NWS Peachtree City GA",
-          "severity": "Severe"
-        },
-        {
-          "effective": "2026-10-10T05:23:00-04:00",
-          "event": "Tropical Cyclone Local Statement",
-          "expires": "2026-10-10T13:30:00-04:00",
-          "headline": "Tropical Cyclone Local Statement issued October 10 at 5:23AM EDT by NWS Peachtree City GA",
-          "severity": "Moderate"
-        },
-        {
-          "effective": "2026-10-10T05:03:00-04:00",
-          "event": "Flood Watch",
-          "expires": "2026-10-11T08:00:00-04:00",
-          "headline": "Flood Watch issued October 10 at 5:03AM EDT until October 11 at 8:00AM EDT by NWS Peachtree City GA",
-          "severity": "Severe"
-        },
-        {
-          "effective": "2026-10-10T05:00:00-04:00",
-          "event": "High Wind Warning",
-          "expires": "2026-10-11T08:00:00-04:00",
-          "headline": "High Wind Warning issued October 10 at 5:00AM EDT until October 11 at 8:00AM EDT by NWS Peachtree City GA",
-          "severity": "Severe"
-        },
-        {
-          "effective": "2026-10-09T11:38:00-04:00",
-          "event": "Tropical Cyclone Local Statement",
-          "expires": "2026-10-10T08:00:00-04:00",
-          "headline": "Tropical Cyclone Local Statement issued October 9 at 11:38AM EDT by NWS Peachtree City GA",
-          "severity": "Moderate"
-        }
-      ],
+      "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Showers and thunderstorms. Some of the storms could produce heavy rain. Cloudy, with a high near 74. East wind 15 to 25 mph, with gusts as high as 50 mph. Chance of precipitation is 100%. New rainfall amounts between 2 and 3 inches possible.",
+          "detailed_forecast": "Mostly cloudy, with a high near 72. Southwest wind 10 to 15 mph, with gusts as high as 30 mph.",
           "name": "Today",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T06:00:00-04:00",
-          "temperature": 74,
-          "temperature_unit": "F",
-          "wind": "15 to 25 mph E"
-        },
-        {
-          "detailed_forecast": "Showers and thunderstorms before 2am. Some of the storms could produce heavy rain. Mostly cloudy, with a low around 62. South wind 10 to 15 mph, with gusts as high as 35 mph. Chance of precipitation is 80%. New rainfall amounts between three quarters and one inch possible.",
-          "name": "Tonight",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T18:00:00-04:00",
-          "temperature": 62,
-          "temperature_unit": "F",
-          "wind": "10 to 15 mph S"
-        },
-        {
-          "detailed_forecast": "Partly sunny, with a high near 74. Southwest wind 10 to 15 mph, with gusts as high as 30 mph.",
-          "name": "Sunday",
-          "short_forecast": "Partly Sunny",
+          "short_forecast": "Mostly Cloudy",
           "start_time": "2026-10-11T06:00:00-04:00",
-          "temperature": 74,
+          "temperature": 72,
           "temperature_unit": "F",
           "wind": "10 to 15 mph SW"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 62. West wind 5 to 10 mph, with gusts as high as 25 mph.",
-          "name": "Sunday Night",
+          "detailed_forecast": "Mostly clear, with a low around 60. West wind around 10 mph, with gusts as high as 25 mph.",
+          "name": "Tonight",
           "short_forecast": "Mostly Clear",
           "start_time": "2026-10-11T18:00:00-04:00",
-          "temperature": 62,
+          "temperature": 60,
           "temperature_unit": "F",
-          "wind": "5 to 10 mph W"
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 83. Northwest wind around 10 mph, with gusts as high as 25 mph.",
+          "name": "Columbus Day",
+          "short_forecast": "Sunny",
+          "start_time": "2026-10-12T06:00:00-04:00",
+          "temperature": 83,
+          "temperature_unit": "F",
+          "wind": "10 mph NW"
+        },
+        {
+          "detailed_forecast": "Clear, with a low around 61. Northwest wind 0 to 5 mph.",
+          "name": "Monday Night",
+          "short_forecast": "Clear",
+          "start_time": "2026-10-12T18:00:00-04:00",
+          "temperature": 61,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph NW"
         }
       ],
       "hourly_next_periods": [
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T06:00:00-04:00",
+          "short_forecast": "Cloudy",
+          "start_time": "2026-10-11T07:00:00-04:00",
           "temperature": 61,
           "temperature_unit": "F",
-          "wind": "25 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T07:00:00-04:00",
-          "temperature": 62,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T08:00:00-04:00",
+          "temperature": 61,
           "temperature_unit": "F",
-          "wind": "25 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T08:00:00-04:00",
-          "temperature": 62,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T09:00:00-04:00",
+          "temperature": 61,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms",
-          "start_time": "2026-10-10T09:00:00-04:00",
+          "short_forecast": "Cloudy",
+          "start_time": "2026-10-11T10:00:00-04:00",
           "temperature": 63,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "10 mph SW"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T10:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T11:00:00-04:00",
           "temperature": 64,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "15 mph W"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T11:00:00-04:00",
-          "temperature": 64,
-          "temperature_unit": "F",
-          "wind": "20 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T12:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T12:00:00-04:00",
           "temperature": 66,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "15 mph W"
         },
         {
           "detailed_forecast": "",
           "name": "",
-          "short_forecast": "Showers And Thunderstorms Likely",
-          "start_time": "2026-10-10T13:00:00-04:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T13:00:00-04:00",
           "temperature": 68,
           "temperature_unit": "F",
-          "wind": "20 mph E"
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-10-11T14:00:00-04:00",
+          "temperature": 69,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
         }
       ],
       "latitude": 33.749,
