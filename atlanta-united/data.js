@@ -7,36 +7,43 @@ window.ATL_DATA = {
   "record": {
     "wins": 7,
     "draws": 6,
-    "losses": 14
+    "losses": 15
   },
   "stats": {
     "points": 27,
-    "goalsFor": 32,
-    "goalsAgainst": 45,
-    "homeRecord": "4-2-7",
+    "goalsFor": 33,
+    "goalsAgainst": 48,
+    "homeRecord": "4-2-8",
     "awayRecord": "3-4-7",
     "cleanSheets": 3,
-    "avgAttendance": 26114
+    "avgAttendance": 24249
   },
   "position": {
     "rank": 14,
     "conference": "Eastern Conference"
   },
   "formLastFive": [
+    "L",
     "D",
     "W",
     "D",
-    "L",
-    "D"
+    "L"
   ],
   "nextMatch": {
-    "opponent": "FC Cincinnati",
-    "dateISO": "2026-10-10T23:30Z",
+    "opponent": "CF Montréal",
+    "dateISO": "2026-10-14T23:30Z",
     "competition": "MLS",
-    "venue": "Mercedes-Benz Stadium",
+    "venue": "Stade Saputo",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-10-10",
+      "opponent": "FC Cincinnati",
+      "venue": "Home",
+      "score": "1-3",
+      "outcome": "Loss"
+    },
     {
       "date": "2026-09-26",
       "opponent": "New York City FC",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Home",
       "score": "2-3",
       "outcome": "Loss"
-    },
-    {
-      "date": "2026-09-05",
-      "opponent": "Inter Miami CF",
-      "venue": "Away",
-      "score": "2-2",
-      "outcome": "Draw"
     }
   ],
   "seasonProgress": [
@@ -262,30 +262,31 @@ window.ATL_DATA = {
       "opponent": "New York City FC",
       "result": "2-2 (Draw)",
       "points": 27
+    },
+    {
+      "match": 28,
+      "date": "2026-10-10",
+      "opponent": "FC Cincinnati",
+      "result": "1-3 (Loss)",
+      "points": 27
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 6,
-      "goalDiffLast5": 0,
-      "formRatingOutOf5": 2,
-      "goalDiffPerMatch": 0,
-      "pointsPerMatchLastN": 1.2,
+      "pointsLast5": 5,
+      "goalDiffLast5": -2,
+      "formRatingOutOf5": 1.7,
+      "goalDiffPerMatch": -0.4,
+      "pointsPerMatchLastN": 1,
       "gamesSampled": 5,
       "cleanSheetsLastN": 2,
       "wdlLast5": {
         "wins": 1,
-        "draws": 3,
-        "losses": 1
+        "draws": 2,
+        "losses": 2
       }
     },
     "nextThree": [
-      {
-        "opponent": "FC Cincinnati",
-        "dateISO": "2026-10-10T23:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
       {
         "opponent": "CF Montréal",
         "dateISO": "2026-10-14T23:30Z",
@@ -8618,12 +8619,12 @@ window.ATL_DATA = {
         "rank": 2,
         "teamId": "21812",
         "team": "St. Louis CITY SC",
-        "played": 27,
-        "wins": 13,
+        "played": 28,
+        "wins": 14,
         "draws": 8,
         "losses": 6,
-        "points": 47,
-        "goalDiff": 12,
+        "points": 50,
+        "goalDiff": 16,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8709,12 +8710,12 @@ window.ATL_DATA = {
         "rank": 9,
         "teamId": "187",
         "team": "LA Galaxy",
-        "played": 28,
+        "played": 29,
         "wins": 9,
         "draws": 9,
-        "losses": 10,
+        "losses": 11,
         "points": 36,
-        "goalDiff": -7,
+        "goalDiff": -11,
         "conference": "Western Conference",
         "isAtlanta": false
       },
@@ -8810,7 +8811,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-11T05:00:07.823Z"
+    "generatedAt": "2026-10-12T05:00:06.841Z"
   },
   "seasonHistory": [
     {
