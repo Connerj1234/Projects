@@ -1,229 +1,145 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "general_news": [
     {
-      "link": "https://www.npr.org/2026/10/12/nx-s1-5888604/police-chinese-drones-bans-costs",
-      "published_at": "2026-10-12T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/13/g-s1-147822/up-first-newsletter-trump-ads-funding-campaign-rallies-ilhan-omar",
+      "published_at": "2026-10-13T07:08:14-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "The U.S. government is trying to end the dominance of high-quality, low-cost drones made in China. But more restrictions mean higher costs for cash-strapped police forces that rely on those drones.",
-      "title": "U.S. restrictions on Chinese drones are leaving police departments in the lurch"
+      "summary": "The government is using millions of taxpayers' dollars on pro-Trump ads, even after the president said this would not happen. And, federal agents search Rep. Ilhan Omar's D.C. home.",
+      "title": "Government spent millions on Trump ads. And, federal agents raid Ilhan Omar's home"
     },
     {
-      "link": "https://www.npr.org/2026/10/12/nx-s1-5991904/measles-vaccination-status-outbreak-extra-dose",
-      "published_at": "2026-10-12T05:00:00-04:00",
+      "link": "https://www.npr.org/2026/10/13/nx-s1-5998798/pakistan-imposes-emergency-rule-in-former-prime-ministers-stronghold",
+      "published_at": "2026-10-13T06:51:33-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Vaccination is the best way to protect yourself against measles. For most adults, one shot of the MMR is considered enough protection. But there are certain situations that call for a second dose.",
-      "title": "Here's what to know if you're unsure about your measles immunity status"
+      "summary": "Pakistan has imposed emergency rule in the province governed by the political party of imprisoned former prime minister Imran Khan.",
+      "title": "Pakistan imposes emergency rule in former prime minister's stronghold"
     },
     {
-      "link": "https://www.npr.org/2026/10/12/nx-s1-5995584/newsbrief-trump-russia-ukraine-trump-priorities-saudi-airport-strikes",
-      "published_at": "2026-10-12T04:38:03-04:00",
+      "link": "https://www.npr.org/sections/planet-money/2026/10/13/g-s1-147816/what-ice-cream-has-to-do-with-this-years-nobel-prize-in-economics",
+      "published_at": "2026-10-13T06:30:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "",
-      "title": "Morning news brief"
+      "summary": "Prices can get sticky. That helps explain why recessions hurt so much \u2014 and what policymakers can do about them.",
+      "title": "What ice cream has to do with this year's Nobel Prize in economics"
     },
     {
-      "link": "https://www.npr.org/2026/10/09/nx-s1-5996634/nobel-prize-in-economics",
-      "published_at": "2026-10-12T04:35:16-04:00",
+      "link": "https://www.npr.org/2026/10/13/nx-s1-5994388/2026-elections-midterm-independent-candidates",
+      "published_at": "2026-10-13T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Two Americans have won the Nobel Prize in Economics for their work on how to smooth boom-and-bust cycles to limit unemployment and inflation.",
-      "title": "Two Americans win Nobel Prize in Economics for work on boom-bust cycles"
+      "summary": "Nearly 200 independent candidates in more than 100 congressional races are trying to prove there's an alternative to the two party system \u2014 even though the chance of winning is very low.",
+      "title": "Win or lose, independent candidates want to meet voters in the middle"
     },
     {
-      "link": "https://www.npr.org/2026/10/12/nx-s1-5998614/trump-russia-ukraine-energy-ceasefire",
-      "published_at": "2026-10-12T02:41:57-04:00",
+      "link": "https://www.npr.org/2026/10/13/nx-s1-5996916/2026-election-midterms-polls-horse-race",
+      "published_at": "2026-10-13T05:00:00-04:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "President Trump said Sunday that Russia and Ukraine had agreed to an \"energy ceasefire,\" but he offered no details on it and Kyiv reported attacks by Moscow on energy sites after his statement.",
-      "title": "Trump says Russia and Ukraine agree to an 'energy ceasefire'"
+      "summary": "With Election Day just a few weeks away \u2014 and millions of votes already cast \u2014 midterm polls are everywhere. While polling can be a helpful tool to understand the electorate, it's not a crystal ball.",
+      "title": "Polls are a snapshot, and other helpful things to remember during the midterm elections"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/12/us/politics/elon-musk-midterms.html",
-      "published_at": "2026-10-12T10:40:30+00:00",
+      "link": "https://www.nytimes.com/2026/10/13/world/middleeast/israel-october-7-attacks-elections.html",
+      "published_at": "2026-10-13T11:07:28+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "The world\u2019s richest person has quietly become by far the biggest known midterm donor, trying to save Republicans\u2019 Senate majority with some of the largest donations in American political history.",
-      "title": "Inside Elon Musk\u2019s $276 Million Midterm Rescue Mission for Republicans"
+      "summary": "As Israelis prepare to vote for the first time since the Hamas-led assault, they remain divided over whether to hold Prime Minister Benjamin Netanyahu responsible for negligence or fault the \u201ctreason\u201d of his generals.",
+      "title": "The Oct. 7 Attack Changed Israel, but Not Its Politics"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/12/us/politics/whos-winning-the-race-for-congress.html",
-      "published_at": "2026-10-12T09:02:39+00:00",
+      "link": "https://www.nytimes.com/2026/10/13/podcasts/the-headlines/musk-pours-276-million-into-the-midterms-and-federal-agents-raid-home-of-rep-ilhan-omar.html",
+      "published_at": "2026-10-13T10:00:07+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "It\u2019s Oct. 12 \u2014 22 days away from the midterms. Here\u2019s the state of play.",
-      "title": "Who\u2019s Winning the Race for Congress?"
+      "summary": "Plus, setting a record on Mars.",
+      "title": "Musk Pours $276 Million Into the Midterms, and Federal Agents Raid Home of Rep. Ilhan Omar"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/12/us/democrats-midterms-corruption-affordability.html",
-      "published_at": "2026-10-12T09:02:32+00:00",
+      "link": "https://www.nytimes.com/2026/10/13/world/europe/trump-putin-diesel-uk-europe-gift.html",
+      "published_at": "2026-10-13T09:03:47+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Party leaders are working to connect Washington profiteering and the influence of billionaires and corporate America to affordability, in what they hope will be a potent closing message.",
-      "title": "Democrats Tie Corruption to High Costs in Final Midterms Push"
+      "summary": "Shocked by the U.S. agreement with Russia, which Ukraine has called \u201ca gift\u201d to President Putin, officials in Europe have coalesced around a cautious diplomatic message.",
+      "title": "U.K. and Europe Recoil From Trump\u2019s Diesel Deal With Putin"
     },
     {
-      "link": "https://www.nytimes.com/2026/10/12/podcasts/the-headlines/threats-public-officials-trump-putin-diesel.html",
-      "published_at": "2026-10-12T10:00:11+00:00",
+      "link": "https://www.nytimes.com/2026/10/13/world/europe/russia-migrant-workers-killed.html",
+      "published_at": "2026-10-13T09:01:28+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Plus, how much will holiday travel cost this year?",
-      "title": "Growing Threats Against Public Officials, and Trump\u2019s Diesel Deal With Putin"
+      "summary": "Ukrainian strikes on oil refineries and warehouses have led to casualties among the foreigners easing Russia\u2019s labor shortage.",
+      "title": "They Came to Russia for Work. Now They Are Under Fire."
     },
     {
-      "link": "https://www.nytimes.com/2026/10/12/business/middle-east-oil-exports-houthi-saudi.html",
-      "published_at": "2026-10-12T09:03:18+00:00",
+      "link": "https://www.nytimes.com/2026/10/13/us/byron-donalds-florida-governor-black-voters.html",
+      "published_at": "2026-10-13T10:56:56+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "\u201cWe are entering an age of prolonged insecurity,\u201d one former U.S. energy official said of what have become chronic threats on the Middle East\u2019s energy core.",
-      "title": "World\u2019s Energy Order Tested Again as Iran War\u2019s Reach Extends Further"
+      "summary": "Byron Donalds, the Republican nominee for governor, is working to win over Black voters who usually support Democrats as his party girds for the possibility of low turnout.",
+      "title": "He Would Be Florida\u2019s First Black Governor. Can He Sway Black Voters?"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/c6pvg4jyz1m0o?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-10-11T21:36:40+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/ck1exg6qjdz3o?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-10-13T09:11:08+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "Ukraine's leader says he will support such a truce if Moscow does, after initially expressing surprise at Donald Trump's announcement.",
-      "title": "Zelensky backs Trump's 'energy ceasefire' but says Russia continues to hit power plants"
+      "summary": "The killer of Colleen Slemmer was ultimately taken to hospital after two doses of lethal injection did not kill her.",
+      "title": "US emergency call records reveal confusion after failed execution of Christa Pike"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/cjn5v21py07vo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-10-11T23:18:45+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cr20wlp09gn3o?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-10-13T05:02:44+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "Both Republican and Democratic lawmakers have criticised the deal, which was announced weeks before the US midterm elections.",
-      "title": "Trump faces growing backlash over plans to import diesel from Russia"
+      "summary": "An in-depth look at the key polling, races and issues ahead of an election that will define Trump\u2019s final two years as president.",
+      "title": "Where the US midterm elections will be won and lost"
     }
   ],
-  "generated_at": "2026-10-12T07:30:02.627515-04:00",
-  "holidays": [
-    {
-      "counties": [
-        "US-AL",
-        "US-AZ",
-        "US-CO",
-        "US-CT",
-        "US-GA",
-        "US-ID",
-        "US-IL",
-        "US-IN",
-        "US-IA",
-        "US-KS",
-        "US-KY",
-        "US-LA",
-        "US-ME",
-        "US-MD",
-        "US-MA",
-        "US-MS",
-        "US-MO",
-        "US-MT",
-        "US-NE",
-        "US-NH",
-        "US-NJ",
-        "US-NM",
-        "US-NY",
-        "US-NC",
-        "US-OH",
-        "US-OK",
-        "US-PA",
-        "US-RI",
-        "US-SC",
-        "US-TN",
-        "US-UT",
-        "US-VA",
-        "US-WV"
-      ],
-      "date": "2026-10-12",
-      "global": false,
-      "name": "Columbus Day",
-      "source": "Nager.Date"
-    },
-    {
-      "counties": null,
-      "date": "2026-10-12",
-      "global": true,
-      "name": "Columbus Day",
-      "source": "Nager.Date"
-    },
-    {
-      "counties": [
-        "US-AK",
-        "US-AL",
-        "US-CA",
-        "US-HI",
-        "US-IA",
-        "US-LA",
-        "US-ME",
-        "US-MI",
-        "US-MN",
-        "US-NC",
-        "US-NE",
-        "US-NM",
-        "US-OK",
-        "US-OR",
-        "US-SD",
-        "US-TX",
-        "US-VA",
-        "US-VT",
-        "US-WI"
-      ],
-      "date": "2026-10-12",
-      "global": false,
-      "name": "Indigenous Peoples' Day",
-      "source": "Nager.Date"
-    }
-  ],
+  "generated_at": "2026-10-13T07:30:02.015837-04:00",
+  "holidays": [],
   "local_news": [
     {
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPRm5TSFYzeC1vbE1xWHVOZkxhNGswRUJGZDlLUldrTC1ZY193SUZBbld4WnNYQnhlSEdPblFXb2hBM3ljZ1phTXJFc3JqNXotZ3BtQ2poUXhzZjFhWHpnTUNSM24yWGc5d0xnT05JT0FNR2tsRnl3NzQ0YkVodGthZXU3cnU1X0lBaUdJSVBvdGRmcVEzdml6OXR2QV9xbk4xZ2RLTFNxOC1wWkpKa3hQcWliYmRlcXAwYjNiLUZ4dGPSAdQBQVVfeXFMTU50Q3oyWFhzd3hqaHkwRngxYWZFLUgzZ2VSR0k0Vk5ub2w0d2ZqNmpkYWRoSExSSkI0VTMyQ3FoRlNnaUxhQkFxV0hmeGZLS0gwYy1MTDBPTlFfb1RoS2tSSlFaZWJPTUR1LTEtckhWY3RxbDdlUVVhR0lkYzhtVUdYclVvcjU2N3ZXeXJ2eVU2cFVIX3U2azRURVFhZ1B3NW0tRnNVMjB1THpUS1lMQzFCTVY2VXpxZ08xNWJJOHpwQkJENU1SekhNbUYyMXAxSFh4X3Q?oc=5",
-      "published_at": "2026-10-12T07:25:55+00:00",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPMU9vZWJ3UTZzN2FsMEd5b0lRRHVEZEx5ejVRbFpXTmpQYUprLXJ6UDFVRDZUSjQ0NHhyTWhobEpfTlMxYmRqTEJBREdOZHNBckI5U0dtSkpZM1FMV3FGaFZFS0FEWmlhNVk0d0pRX0UzRkMxd2h2eWVzVnVyM0JtNFVnMFdSd1daLVk3RHZoOTMtamdlU1BBU0xIR2hYejVBVXJUa3ZmaXZWX2xzUUJTWXd2eFM2MWs4dENpdXhpOXFFeWwzZXQxeWdkNGhKODZLV1VkaktKWEVzQQ?oc=5",
+      "published_at": "2026-10-12T21:01:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Boil water advisory issued for multiple areas across metro Atlanta WSB-TV",
-      "title": "Boil water advisory issued for multiple areas across metro Atlanta - WSB-TV"
+      "summary": "Witnesses describe horrifying moment when man was killed on the Six Flags Goliath roller coaster 11Alive.com",
+      "title": "Witnesses describe horrifying moment when man was killed on the Six Flags Goliath roller coaster - 11Alive.com"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYl9xREFWZEh1WTZ4QmVVVVdoZnB1dUkwZWQzRHkxcWZJNmVwZ3hkbEhyc0dLRVNHRXAyMHZSZExwc2Zybm9EVEIyd2VOX0xJekl3SVJuNE1SYWhva3drZUxNUjE0VjBVeS1ndjRENW1WTEI5SWR0eGZ3TFJobTNDSUh4UWxnQlplSGU2ZTJGVzhxY2JhQWhOemFIOFkxVUVRcFlzYU94VVJvenprVms1YnlvYznSAcgBQVVfeXFMT1lOMURyd21tZVllX0ZnQVJycnJGMmZLdVVaQ25oMjd2WVVDR3B6WWNSbXRpUGZUVVpMVUVzUDA5cERfUUp0aTFjc3paVlFVQ0JQd0xWdDM4WjVSZnFNVW1UZDN5WjFtMElNSElPa2RHbnZJVm80UlhvZ1NhWHhMNGFlU0VwcDYzTG5obTJVZTVHOXFHOXVNeWtQNURNZ2VnZE1QZlh0U21sMTNaUzE4NElxM0NJemtGNHljN212NTc1bkc2dnpWelk?oc=5",
-      "published_at": "2026-10-11T19:46:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcGRhSmtfWHpNMW9QeUl6Q3RKTVVPOFBNMHNvNHhsSFRqellkV0hBTy1WckxST0JpdmhxZUFNRGp0Q05nQVZvYlFrSlBWSjhQYzVCRXN4eUM4b3JYRlJXTFU5dDVKRVgzOVN5ZjVGQmc3ZjgxVXBxVE0tVm04R0MzUWp4ZENxa0l0b3RVdUNRVE9ZbmVCS1V4TWswYVdWcU5MQ3piWlFJUy1ocVByU3RrOVZSandRclRxMHfSAc4BQVVfeXFMUFBaeVBiXzVhVlp6ZDZDNVE1X0RXR00wUzAxalRFYnJsemt5bnJGOG54YzA5OU5pMUNDSmlGVXFib3gyNlBUdmd0RTVXNXZlbVFyZnd5dUdtYVcwSHZDZ2tsSUZHVWw4enNMTlRiSWlzOFdlV2UxOXJqZElHVnFlcEdvRy0tYnZGRW94YUdzUE5RODJ3TjRtb2hxOE1aZE54Q3dwT0ktVjY4OEVlS1BJTG1kT2lSbF9oODNiYk5nZFFWNFRkNGRNaWRfcksxX1E?oc=5",
+      "published_at": "2026-10-13T10:32:19+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Infant, driver killed in 10-vehicle crash after I-20 pursuit, DPS says Atlanta News First",
-      "title": "Infant, driver killed in 10-vehicle crash after I-20 pursuit, DPS says - Atlanta News First"
+      "summary": "1 dead, 4 injured in Goliath ride incident at Six Flags Over Georgia WSB-TV",
+      "title": "1 dead, 4 injured in Goliath ride incident at Six Flags Over Georgia - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxON3hUY0lHZVdTRmhjdVJNS0xvOXJWQ2dfRXdBM0JjRk9kU1NVUTZpTzdQTjAtRzFLNVVHZmphUVV6S3pWY0oxOWVqclFhSUdScnhqc3BOelVzc3MxUlBpc0FmbmpWOUVNRDBaVU81V3A4aXlXLThBWnNod09KRDM0UFZzTFFKWUJ0TUZPWkROVmU?oc=5",
-      "published_at": "2026-10-10T19:31:12+00:00",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRzBGTnlmZ0JFbkpfXzR0QU9QVFlVM21zaXUxMlpraFhoYWhrTW04OU5DV1ZDVHBsQmVRR09OajBZbVp2UWd6V0tzYnB1NW02bXF2d0RDdjJLSHh0TV9IckRNZi1QRHlGMHQ0OHRFN01fLUJaaUE2aGh4OURDN1NaX3prTUg0N0VfV0U2VGljZnRXNHNqYUVuOHhVdw?oc=5",
+      "published_at": "2026-10-12T21:16:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Isaias causes thousands of power outages in metro Atlanta WABE",
-      "title": "Isaias causes thousands of power outages in metro Atlanta - WABE"
+      "summary": "1 killed, several injured in incident at Six Flags Over Georgia Atlanta News First",
+      "title": "1 killed, several injured in incident at Six Flags Over Georgia - Atlanta News First"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOX2liNUJ4c1lSSDdTMk1aUzJCUThHSENtSVRKanhzNV9KclMzVHhrN0t0VVk0YlI4dV9qbDRMam0zOW14U1NMc0U0QXA5ZG5abmVoTzFia1pjQ1dVZ3hRWjJnUlpSYlJNOTMxZnhuc0UtcC16Wks1M3VQTmFkQ2czUkxPMWlWcXlMR01vNEpyZjhQWUtYUWlj?oc=5",
-      "published_at": "2026-10-11T19:17:28+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQUE5aTGVuWkVxeFRHd0RKRnZzbDFSVE1kV2YyeFF2M1hnQS1qTlg2SWg3Z245dG1TVnprWDlhMVA1amI4T0had00wY2kwZHR5LWVIVl84QXdBV2thU3Bsci1qNjVPb2FnMUJ2YXlZdjROUGkxd2FzOTZ3c2RCY2lpTDZXaHhQakdSekxJVE1KQkZhNDYwM0tsVUNTcHNoSVZRbVFldVFxV1NCeEVnd3EtZVhPOA?oc=5",
+      "published_at": "2026-10-13T10:31:17+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Baby dies after Georgia police chase ends in 10-car crash on I-20 FOX 5 Atlanta",
-      "title": "Baby dies after Georgia police chase ends in 10-car crash on I-20 - FOX 5 Atlanta"
+      "summary": "Incident on Six Flags Over Georgia roller coaster leaves 1 dead, several injured, police say CBS News",
+      "title": "Incident on Six Flags Over Georgia roller coaster leaves 1 dead, several injured, police say - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSXJUeEVLRTN4UE01ZGtKUXAxV2RHd2hiZlFtdjJFbnBZb3FGLWtrd291cDBCcVY3UnI5SXJjdnJwdk9ZQkpKZGxPLVo1WTRmMXdNa2laRGx4bmhCZXUtSm1jV3d6amRqOUxmUkUxRWdkXzM5dUd3RnJnd2wtYUU1clVrLTM2ZFBrZ2NYTFhfdkgyLWtkWWRwWlFPT2kxcW5BZ2dYS1ZQbVpicGRDSzNKenFpWlNwSDdnendVSjZpbllXTTR4N2FKaUZ2U1FUQQ?oc=5",
-      "published_at": "2026-10-09T15:34:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOFdkVkl2Q3hRdmZEQlI4Ukx2WERJekFHZXNFRE5HdXU2dkR6ZWFCWjFEeU1mN3JxT0xUbFUxdkRUNjFNeklJOXRwSUpybzdlMjJjS2ZGbS1aaFhzdzJtYV8tQUJGM1V4b3ZVc09Ya2xfSjJaTUdSQk5LQ3lVOUNKMWZLM0lXUdIBiwFBVV95cUxPRm1WZ3QtbnRON29nSDZRZ0FPd3o1TWRvZEc0Ti1YckowZXAxZ3VtQm9sZW9ZUlZ0ek1XYUwwRndWQVl3V2lNUU1ZLWF1eUFEVC1obWprdU0ybTlpNDdBY2NPZm1PdFQyeGw4MmpDdmIzNGs3S29ra1RpUVlLSmVKLXN2UU10S3o0SnE0?oc=5",
+      "published_at": "2026-10-13T09:19:17+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Hurricane Isaias strengthens to Category 3; metro Atlanta braces for weekend heavy rain and wind CBS News",
-      "title": "Hurricane Isaias strengthens to Category 3; metro Atlanta braces for weekend heavy rain and wind - CBS News"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVmUxUkpsZ0dZUGRrUW1JVUF0Z3BHbFJZdlBSdmlmdENDNmlvS1lKWGZXNDZCc2hYM1BEOGI1bnBVTjFLdXlQTlVCSUxSZ2o0dl9va2VQUXlwOHR6UzljQ0JONlhBdUEzZFFXc0gxYU1ybmlDSkJWbXNvUlZuV3c5QUU2bTY1V0tfWHdYQUxEYnF6MVVfekk5ZTFrVlI?oc=5",
-      "published_at": "2026-10-08T20:26:24+00:00",
-      "source": "\"Georgia state government Atlanta\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Georgia Gov. Brian Kemp issues state of emergency ahead of Hurricane Isaias WABE",
-      "title": "Georgia Gov. Brian Kemp issues state of emergency ahead of Hurricane Isaias - WABE"
+      "summary": "Crashes close lanes on I-400 and I-85 FOX 5 Atlanta",
+      "title": "Crashes close lanes on I-400 and I-85 - FOX 5 Atlanta"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWllzWWg2cGtxY1VGc3VRbnZlSHJ0cDVNQ3hfSjJrMjRqSTgzNmFHUEJOeWV3N3hQWWZsV2RfZDhDd3Z0TG4wQUdMd1V5SjA4bGxsUHlpLVVtdk9fWXNGOUhVOTFkbElpS3dFT3kwZVY0OGpNakt1Rmk5dnFtNnktTDY0bkpocWVseGZmbTd1b2NHVE90?oc=5",
@@ -234,12 +150,20 @@
       "title": "Georgia launches chatbot to help residents navigate state services - StateScoop"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQd1FteGdrODdMVGVQUWU1enpacVVGbXpkWTlsS09DNHZHZzl5WFVUcmpzSC1nWWQweWxIUXZrbldWWTAzdjVEdHlvLVYwMklZYWpnM3BrdTUtQkRUR0Y0Q0tIV3hhaTFOeDNQNjNuWGF4anBhNVJ0R1BveFdFclJpTWhJRlBpQ1JKaHhsMWJ4ZVVPZ1ZHX1RmYWNKdVZMcnpnSEczaGRNUmdFSFppZmdwRjBoNkUxeEt6MUZGOW9EU01MaUdFOUlwM1RnNFVHY3hwQktGcA?oc=5",
-      "published_at": "2026-10-08T19:30:41+00:00",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMGgwMnRQWEJKTWZSUEo1ek94cjlybGdLNzhMMW5MRnhkZjJ2eHNNZmhGTFdlX3VEdV9TekswQ0gtcE5wZl9BTHFWOHFoYXNIdzQtcktwUHpLbXpubHFpQ3J1T1h0OWFFNUFsbkwwMUQ5UC1jNGpRMDUwOWZjNl93VnVWWmRBRHRGel9VY01OMVQ5MlRCM1VDNGpwUTctbGEzdzhwZEEycGNncktQSXA4REw1aE9lQm8?oc=5",
+      "published_at": "2026-09-21T07:00:00+00:00",
       "source": "\"Georgia state government Atlanta\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Gov. Kemp calls state of emergency over all Georgia counties ahead of Hurricane Isaias News4JAX",
-      "title": "Gov. Kemp calls state of emergency over all Georgia counties ahead of Hurricane Isaias - News4JAX"
+      "summary": "Georgia\u2019s center of political gravity is shifting toward Atlanta. Why it matters. The Atlanta Journal-Constitution",
+      "title": "Georgia\u2019s center of political gravity is shifting toward Atlanta. Why it matters. - The Atlanta Journal-Constitution"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQa0Q5WXdHTTNHU0o4US1HVVQyVmM3YS1Xa0xoOHhSSW42RkpnblZuRWJWbURwNV9UTVlZZXFrRk1RcUxEX0l5dlJwZnlLV29XQ3NORVlRV2lpbVZBQ3FETXpIbFR4MjJOeTFvZ0FCWW5DTVBKSXZhRmxBckJmLTVQVFdKU1F3Njh1MlE?oc=5",
+      "published_at": "2026-06-09T07:00:00+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Images: Georgia Gold Dome's 'skybridge' connector is taking shape Urbanize Atlanta",
+      "title": "Images: Georgia Gold Dome's 'skybridge' connector is taking shape - Urbanize Atlanta"
     }
   ],
   "market_news": [
@@ -248,89 +172,85 @@
       "source_url": "https://finance.yahoo.com/news/rssindex"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/12/oil-prics-today-iran-us-saudi-arabia-crude-.html",
-      "published_at": "2026-10-12T11:19:41+00:00",
+      "link": "https://www.cnbc.com/2026/10/13/anthropic-ai-models-self-replication-smart-devices.html",
+      "published_at": "2026-10-13T08:27:20+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Ukrainian President Volodymyr Zelenskyy said that \"Ukraine supports the ceasefire, and it is important that Russia support it as well.\"",
-      "title": "Brent tops $105 as doubts grow over supply boost from Trump\u2019s \u2018energy ceasefire\u2019"
+      "summary": "Anthropic's latest research adds to the growing safety concerns around AI from the ability for models to carry out cyberattacks to the technology going rogue.",
+      "title": "Anthropic warns AI models could soon copy themselves across home devices"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/12/nobel-economics-prize-winner-woodford-hall.html",
-      "published_at": "2026-10-12T10:42:49+00:00",
+      "link": "https://www.cnbc.com/2026/10/13/unitedhealth-group-unh-earnings-q3-2026.html",
+      "published_at": "2026-10-13T10:01:37+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The U.S. economists were awarded for work that underpins the models used by central banks and governments to stabilize the economy.",
-      "title": "Nobel prize in economics awarded to Robert E. Hall and Michael Woodford"
+      "summary": "UnitedHealth Group said it expects 2026 adjusted earnings of at least $20.50 per share, up from a previous outlook of $19.50 to $20.00 per share.",
+      "title": "UnitedHealth Group tops estimates, hikes profit outlook as insurer manages high medical costs"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/12/us-iran-war-trump-hormuz-saudi.html",
-      "published_at": "2026-10-12T11:27:42+00:00",
+      "link": "https://www.cnbc.com/2026/10/13/santoli-the-stock-market-is-at-a-critical-juncture.html",
+      "published_at": "2026-10-13T10:59:35+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The Saudi-led coalition responding to the attacks said Monday it was dealing with more drones and missiles heading toward the Kingdom.",
-      "title": "Global travel warnings after Iran-backed Houthi militants strike Riyadh airport"
+      "summary": "There's an extraordinary split between the headline S&P 500 pinned just under a record high and the median stock in the index struggling in a 16% drawdown.",
+      "title": "The stock market is at a critical juncture. Wall Street is convinced it will resolve in the bulls' favor"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html",
-      "published_at": "2026-10-12T08:27:52+00:00",
+      "link": "https://www.cnbc.com/2026/10/13/six-flags-shares-plunge-after-hours-deadly-roller-coaster-incident-goliath-georgia.html",
+      "published_at": "2026-10-13T02:29:14+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The CEOs of Intel and Broadcom warned that access to capital could emerge as a major constraint on the artificial intelligence boom.",
-      "title": "Intel, Broadcom CEOs warn capital crunch could become AI's biggest bottleneck"
+      "summary": "Six Flags shares plunged more than 10% in after-hours trading Monday following reports of a deadly roller coaster incident at its Georgia amusement park.",
+      "title": "Six Flags shares plunge after-hours following report of deadly roller coaster incident"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/11/trump-katie-zacharia-white-house-press-secretary.html",
-      "published_at": "2026-10-11T22:16:40+00:00",
+      "link": "https://www.cnbc.com/2026/10/13/sk-hynix-softbank-samsung-electronics-shares-tech-stocks-fall.html",
+      "published_at": "2026-10-13T08:56:10+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Trump named Katie Zacharia to take over as the next press secretary.",
-      "title": "Trump Media advisor Katie Zacharia named White House press secretary"
+      "summary": "Technology stocks tumbled Tuesday as a sell-off in U.S. semiconductor shares spilled into Asian and European markets.",
+      "title": "Micron, SoftBank and ASML slide as Wall Street chip rout spreads"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/10/from-bjs-to-lululemon-retailers-are-trimming-assortments.html",
-      "published_at": "2026-10-11T17:08:30+00:00",
+      "link": "https://www.cnbc.com/2026/10/12/delta-riyadh-nonstop-service-delay.html",
+      "published_at": "2026-10-12T15:48:28+00:00",
       "source": "Business News",
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Retail brands are shrinking assortments to get back to healthy growth, while box stores are culling products to better curate offerings and stabilize business.",
-      "title": "From BJ\u2019s to Lululemon, retailers are trimming assortments to boost business"
+      "summary": "Delta planned to begin the route on Oct. 23, in what would have marked the first nonstop commercial flight between the U.S. and Saudi Arabia.",
+      "title": "Delta delays debut of Saudi Arabia service until March after Riyadh airport attacks"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/09/delta-riyadh-flight-safety-houthi-attacks.html",
-      "published_at": "2026-10-09T11:57:05+00:00",
+      "link": "https://www.cnbc.com/2026/10/12/mcdonalds-chicken-beverage-growth.html",
+      "published_at": "2026-10-12T14:56:42+00:00",
       "source": "Business News",
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Delta is weighing whether to continue with its Riyadh, Saudi Arabia flight debut as planned.",
-      "title": "Delta CEO: 'Safety is going to make the call' on launching Saudi Arabia flight"
+      "summary": "McDonald's is targeting growth in chicken and beverages, but Consumer Edge data shows Chick-fil-A and coffee chains gaining in customer spending.",
+      "title": "McDonald's is leaning into chicken and drinks to grow. New data shows it could be a tough task"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/09/delta-air-lines-dal-q3-2026-earnings.html",
-      "published_at": "2026-10-09T15:07:46+00:00",
+      "link": "https://www.cnbc.com/2026/10/12/starbucks-denies-chipotle-takeover.html",
+      "published_at": "2026-10-12T14:22:48+00:00",
       "source": "Business News",
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Delta Air Lines reported third-quarter earnings and missed Wall Street estimates for the first time in two years.",
-      "title": "Delta Air Lines cuts 2026 forecast on fuel surge, but CEO says demand is still strong"
+      "summary": "\"Starbucks is not buying Chipotle,\" a Starbucks spokesperson told CNBC.",
+      "title": "Starbucks says it is not buying Chipotle after takeover speculation"
     },
     {
-      "link": "https://www.cnbc.com/2026/10/08/starbucks-chipotle-acquisition.html",
-      "published_at": "2026-10-08T20:12:33+00:00",
+      "link": "https://www.cnbc.com/2026/10/12/faa-saudi-arabia-flight-risks.html",
+      "published_at": "2026-10-12T16:50:44+00:00",
       "source": "Business News",
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Starbucks has reportedly been working with advisers on a takeover proposal for Chipotle, but a potential deal comes with pros and cons for investors.",
-      "title": "Why a Starbucks takeover of Chipotle would \u2014 and wouldn't \u2014 make sense for both companies"
+      "summary": "The FAA warned U.S. airlines about flight risks over Saudi Arabia as Riyadh airport attacks disrupt travel and Delta weighs an Oct. 23 launch.",
+      "title": "FAA warns U.S. airlines of safety risks over Saudi Arabia after attacks"
     }
   ],
   "market_watchlist": [
     {
-      "change": 4.6400073242188,
-      "change_percent": 0.5995383779063096,
+      "change": -0.47000732421872726,
+      "change_percent": -0.06036802340152346,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 679.4600219726562,
-          "timestamp": 1775827800
-        },
         {
           "close": 686.0999755859375,
           "timestamp": 1776087000
@@ -834,26 +754,26 @@
         {
           "close": 778.5700073242188,
           "timestamp": 1791552600
+        },
+        {
+          "close": 778.0999755859375,
+          "timestamp": 1791811800
         }
       ],
-      "history_change_percent": 14.586579757790712,
+      "history_change_percent": 13.409128069927917,
       "market_state": null,
       "name": "S&P 500 ETF",
-      "previous_close": 773.9299926757812,
-      "price": 778.57,
+      "previous_close": 778.5700073242188,
+      "price": 778.1,
       "source": "Yahoo Finance chart API",
       "symbol": "SPY"
     },
     {
-      "change": 3.689982910156232,
-      "change_percent": 0.49359036167398945,
+      "change": -5.230019531250036,
+      "change_percent": -0.6961570933594918,
       "currency": "USD",
       "exchange": "NGM",
       "history_6m": [
-        {
-          "close": 611.0700073242188,
-          "timestamp": 1775827800
-        },
         {
           "close": 617.3900146484375,
           "timestamp": 1776087000
@@ -1357,26 +1277,26 @@
         {
           "close": 751.27001953125,
           "timestamp": 1791552600
+        },
+        {
+          "close": 746.0399780273438,
+          "timestamp": 1791811800
         }
       ],
-      "history_change_percent": 22.943360170743016,
+      "history_change_percent": 20.83771721264719,
       "market_state": null,
       "name": "Nasdaq 100 ETF",
-      "previous_close": 747.5800170898438,
-      "price": 751.27,
+      "previous_close": 751.27001953125,
+      "price": 746.04,
       "source": "Yahoo Finance chart API",
       "symbol": "QQQ"
     },
     {
-      "change": 4.460006103515639,
-      "change_percent": 0.8716908348909264,
+      "change": 1.8000146484374682,
+      "change_percent": 0.34876570876871116,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 479.25,
-          "timestamp": 1775827800
-        },
         {
           "close": 482.1300048828125,
           "timestamp": 1776087000
@@ -1880,26 +1800,26 @@
         {
           "close": 516.1099853515625,
           "timestamp": 1791552600
+        },
+        {
+          "close": 517.9099731445312,
+          "timestamp": 1791811800
         }
       ],
-      "history_change_percent": 7.69118414188837,
+      "history_change_percent": 7.421233848717676,
       "market_state": null,
       "name": "Dow ETF",
-      "previous_close": 511.6499938964844,
-      "price": 516.11,
+      "previous_close": 516.1099853515625,
+      "price": 517.91,
       "source": "Yahoo Finance chart API",
       "symbol": "DIA"
     },
     {
-      "change": 1.3699926757812477,
-      "change_percent": 0.4935665380377399,
+      "change": -1.0400024414062727,
+      "change_percent": -0.3728409092649715,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 261.29998779296875,
-          "timestamp": 1775827800
-        },
         {
           "close": 265.07000732421875,
           "timestamp": 1776087000
@@ -2403,26 +2323,26 @@
         {
           "close": 278.94000244140625,
           "timestamp": 1791552600
+        },
+        {
+          "close": 277.8999938964844,
+          "timestamp": 1791811800
         }
       ],
-      "history_change_percent": 6.750866066250126,
+      "history_change_percent": 4.840227985540553,
       "market_state": null,
       "name": "Russell 2000 ETF",
-      "previous_close": 277.57000732421875,
-      "price": 278.94,
+      "previous_close": 278.94000244140625,
+      "price": 277.9,
       "source": "Yahoo Finance chart API",
       "symbol": "IWM"
     },
     {
-      "change": -342.88874999999825,
-      "change_percent": -0.40976449196207193,
+      "change": 1681.9075000000012,
+      "change_percent": 2.0570630965730814,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
-        {
-          "close": 70753.40625,
-          "timestamp": 1775952000
-        },
         {
           "close": 74484.640625,
           "timestamp": 1776038400
@@ -3152,28 +3072,28 @@
           "timestamp": 1791676800
         },
         {
-          "close": 83336.578125,
+          "close": 81762.5625,
           "timestamp": 1791763200
+        },
+        {
+          "close": 83444.46875,
+          "timestamp": 1791849600
         }
       ],
-      "history_change_percent": 17.784548358758347,
+      "history_change_percent": 12.029096602760177,
       "market_state": null,
       "name": "Bitcoin",
-      "previous_close": 83679.46875,
-      "price": 83336.58,
+      "previous_close": 81762.5625,
+      "price": 83444.47,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
     {
-      "change": -1.1999957275390614,
-      "change_percent": -0.5206507071258502,
+      "change": -2.959998779296882,
+      "change_percent": -1.2909973809560917,
       "currency": "USD",
       "exchange": "NMS",
       "history_6m": [
-        {
-          "close": 188.6300048828125,
-          "timestamp": 1775827800
-        },
         {
           "close": 189.30999755859375,
           "timestamp": 1776087000
@@ -3677,13 +3597,17 @@
         {
           "close": 229.27999877929688,
           "timestamp": 1791552600
+        },
+        {
+          "close": 226.32000732421875,
+          "timestamp": 1791811800
         }
       ],
-      "history_change_percent": 21.55012143611063,
+      "history_change_percent": 19.549946077174923,
       "market_state": null,
       "name": "Nvidia",
-      "previous_close": 230.47999572753906,
-      "price": 229.28,
+      "previous_close": 229.27999877929688,
+      "price": 226.32,
       "source": "Yahoo Finance chart API",
       "symbol": "NVDA"
     }
@@ -3694,31 +3618,6 @@
   ],
   "sports": {
     "followed_teams": [
-      {
-        "broadcasts": [],
-        "event": "Oklahoma City Thunder at Atlanta Hawks",
-        "followed_team": "Atlanta Hawks",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/nba/game/_/gameId/401898402/thunder-hawks",
-        "sport_path": "basketball/nba",
-        "starts_at": "2026-10-12T23:00Z",
-        "status": "Scheduled",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta Hawks",
-            "score": "0"
-          },
-          {
-            "abbreviation": "OKC",
-            "home_away": "away",
-            "name": "Oklahoma City Thunder",
-            "score": "0"
-          }
-        ],
-        "venue": "State Farm Arena"
-      },
       {
         "broadcasts": [
           "Apple TV"
@@ -4312,84 +4211,357 @@
           }
         ],
         "venue": "N\u00e1rodny Futbalovy Stadi\u00f3n"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Slavia Prague at Fenerbahce",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915403/slavia-prague-fenerbahce",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T16:45Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "FEN",
+            "home_away": "home",
+            "name": "Fenerbahce",
+            "score": "0"
+          },
+          {
+            "abbreviation": "SLP",
+            "home_away": "away",
+            "name": "Slavia Prague",
+            "score": "0"
+          }
+        ],
+        "venue": "\u015e\u00fckr\u00fc Saraco\u011flu Stadium"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Borussia Dortmund at Sabah FK",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915404/borussia-dortmund-sabah-fk",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T16:45Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "SAB",
+            "home_away": "home",
+            "name": "Sabah FK",
+            "score": "0"
+          },
+          {
+            "abbreviation": "DOR",
+            "home_away": "away",
+            "name": "Borussia Dortmund",
+            "score": "0"
+          }
+        ],
+        "venue": "Baku Olympic Stadium"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Slovan Bratislava at AS Roma",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915402/slovan-bratislava-as-roma",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "ROMA",
+            "home_away": "home",
+            "name": "AS Roma",
+            "score": "0"
+          },
+          {
+            "abbreviation": "SLB",
+            "home_away": "away",
+            "name": "Slovan Bratislava",
+            "score": "0"
+          }
+        ],
+        "venue": "Olimpico"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "PSV Eindhoven at FC Porto",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915398/psv-eindhoven-fc-porto",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "FCP",
+            "home_away": "home",
+            "name": "FC Porto",
+            "score": "0"
+          },
+          {
+            "abbreviation": "PSV",
+            "home_away": "away",
+            "name": "PSV Eindhoven",
+            "score": "0"
+          }
+        ],
+        "venue": "Est\u00e1dio do Drag\u00e3o"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Villarreal at Liverpool",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915397/villarreal-liverpool",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "LIV",
+            "home_away": "home",
+            "name": "Liverpool",
+            "score": "0"
+          },
+          {
+            "abbreviation": "VIL",
+            "home_away": "away",
+            "name": "Villarreal",
+            "score": "0"
+          }
+        ],
+        "venue": "Anfield"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "AEK Athens at Manchester City",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915401/aek-athens-manchester-city",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "MNC",
+            "home_away": "home",
+            "name": "Manchester City",
+            "score": "0"
+          },
+          {
+            "abbreviation": "AEK",
+            "home_away": "away",
+            "name": "AEK Athens",
+            "score": "0"
+          }
+        ],
+        "venue": "Etihad Stadium"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Bodo/Glimt at Napoli",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915400/bodoglimt-napoli",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "NAP",
+            "home_away": "home",
+            "name": "Napoli",
+            "score": "0"
+          },
+          {
+            "abbreviation": "BODO",
+            "home_away": "away",
+            "name": "Bodo/Glimt",
+            "score": "0"
+          }
+        ],
+        "venue": "Stadio Diego Armando Maradona"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Barcelona at Paris Saint-Germain",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915399/barcelona-paris-saint-germain",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "PSG",
+            "home_away": "home",
+            "name": "Paris Saint-Germain",
+            "score": "0"
+          },
+          {
+            "abbreviation": "BAR",
+            "home_away": "away",
+            "name": "Barcelona",
+            "score": "0"
+          }
+        ],
+        "venue": "Parc des Princes"
+      },
+      {
+        "broadcasts": [
+          "Paramount+"
+        ],
+        "event": "Atl\u00e9tico Madrid at VfB Stuttgart",
+        "followed_team": "UEFA Champions League",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/soccer/match/_/gameId/401915392/atletico-madrid-vfb-stuttgart",
+        "sport_path": "soccer/uefa.champions",
+        "starts_at": "2026-10-20T19:00Z",
+        "status": "Scheduled",
+        "teams": [
+          {
+            "abbreviation": "VFB",
+            "home_away": "home",
+            "name": "VfB Stuttgart",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATM",
+            "home_away": "away",
+            "name": "Atl\u00e9tico Madrid",
+            "score": "0"
+          }
+        ],
+        "venue": "MHPArena"
+      },
+      {
+        "broadcasts": [
+          "Apple TV"
+        ],
+        "event": "MSC Cruises United States Grand Prix",
+        "followed_team": "Formula 1",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/f1/race/_/id/600057446",
+        "sport_path": "racing/f1",
+        "starts_at": "2026-10-23T17:30Z",
+        "status": "Scheduled",
+        "teams": [],
+        "venue": null
       }
     ]
   },
   "tech_ai": [
     {
-      "link": "https://techcrunch.com/2026/10/11/the-founders-guide-to-techcrunch-disrupt-2026-everything-you-need-to-know/",
-      "published_at": "2026-10-12T00:59:01+00:00",
+      "link": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+      "published_at": "2026-10-12T17:56:56+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "TechCrunch Disrupt 2026 is built around one question: How do you build an enduring company in the AI era? Our programming and speaker lineup reflect that.",
-      "title": "The founder\u2019s guide to TechCrunch Disrupt 2026: Everything you need to know"
+      "summary": "Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and better results on complex tasks like coding.",
+      "title": "Meta releases its first frontier model, Muse Wonder"
     },
     {
-      "link": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
-      "published_at": "2026-10-11T21:14:40+00:00",
+      "link": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+      "published_at": "2026-10-12T17:19:14+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Over the past couple of years, we\u2019ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date.",
-      "title": "Will the HomeView be Apple\u2019s first smart home success?"
+      "summary": "A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million.",
+      "title": "WindBorne wins a hefty US Air Force contract for its balloon data"
     },
     {
-      "link": "https://techcrunch.com/2026/10/11/aaron-sorkins-social-reckoning-is-off-to-a-weak-start/",
-      "published_at": "2026-10-11T20:51:47+00:00",
+      "link": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+      "published_at": "2026-10-12T15:45:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "What does this mean for a fall full of movies starring villainous tech CEOs?",
-      "title": "Aaron Sorkin\u2019s \u2018Social Reckoning\u2019 is off to a weak start"
+      "summary": "Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken. But could AI actually make things better?",
+      "title": "Honeyjar offers AI tools to improve PR and comms at every company"
     },
     {
-      "link": "https://techcrunch.com/2026/10/11/48-hours-to-techcrunch-disrupt-2026-hear-directly-from-the-people-building-whats-next/",
-      "published_at": "2026-10-11T19:00:00+00:00",
+      "link": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+      "published_at": "2026-10-12T15:31:19+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Less than 48 hours, TechCrunch Disrupt 2026 starts in San Francisco\u2019s Moscone West. Save up to $100 on your pass before prices increase at the door, plus get 50% on a second pass. Or score other deals.",
-      "title": "48 hours to TechCrunch Disrupt 2026 \u2014 hear directly from the people building what\u2019s next"
+      "summary": "Microsoft president Brad Smith calls for urgent AI regulation, saying milk and washing machines have more oversight than AI companies.",
+      "title": "Microsoft president says UK is best placed to drive AI regulation"
     },
     {
-      "link": "https://techcrunch.com/2026/10/11/the-investors-guide-to-techcrunch-disrupt-2026-everything-you-need-to-know/",
-      "published_at": "2026-10-11T17:53:37+00:00",
+      "link": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+      "published_at": "2026-10-12T15:27:59+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Year after year, investors who've explored the Expo Halls, met founders, and learned from peers have proven why you need to be on the ground at Disrupt Oct. 13.",
-      "title": "The investor\u2019s guide to TechCrunch Disrupt 2026: Everything you need to know"
+      "summary": "Blueprints AI, a bootstrapped startup based in Santa Monica, developed software that produces code-compliant construction blueprints from a photo, PDF, or sketch.",
+      "title": "This AI startup says it can generate permit-ready blueprints in minutes"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBWblVtb0hnbURUVU1uMXNTMmFyUmxwUGNETm1ZUmpGRVJmcVdUVVlzT2N4LUFzbVRkLVVtR1VvWURJc3NYRkhoY0Q4UDRGTm9sZWxhUVJvMThuWTQ?oc=5",
-      "published_at": "2026-10-12T07:47:37+00:00",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQWNyQzh5ak9WNUlLTW1wbWV4QkhuWGFqUHBocXhiZnllY0t2VGRXMWxiVTRpX05neGhMSlBXQml4VXlOZGRmazJ3VVhMRmlhVWRkd2JzNkd1Vm9RMlpWTDNUamZnQ3lJcXZJRDJDNGFBTDlhbDNOVEF5cUxiX1h3RG10bnM3OW9JQjRZN0R1OXTSAZYBQVVfeXFMTVRBTkdGclhPT1A4aEJuZW9Gdm1ndW14S1JoZGRZamN6Zlo3TFpQV0k5cjE5TEIxWnRBSFR4R1VkY1licnBqX0x2aGVJMC1vQzRLYXVYbkszcUxaSFdNMTZ2ZVZtYk5ZZ1BXQllBUTA5Z09BcGR2ZHYtUXB5WW52OXpTci1VcUtIbWhQanNXMUxEVXFIODl3?oc=5",
+      "published_at": "2026-10-13T08:27:20+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "AI is less regulated than milk, says Microsoft president BBC",
-      "title": "AI is less regulated than milk, says Microsoft president - BBC"
+      "summary": "Anthropic warns AI models could soon copy themselves across home devices CNBC",
+      "title": "Anthropic warns AI models could soon copy themselves across home devices - CNBC"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNakhDNFlaMk9mSGQwbi0zcWlFSW1hQVRUckFFekhNbWF0MUVHSFVFNUhDYXRicUpQV1dTcEFka2RsNXk2a2tYV21NcUJOWWFJU09NTjNMVlBjOHBHa0tfRW1UTUJpRFl3bE96LUZTZzhFUm8waHR0dTdHZmlmd2E4dTQ4bWRKY3dlWUR2RkpUOW42clIwUUxYa0ZsTHNZT0JyRW9NNWY3c0c0Rk5QSTFJcm9McnFfMThhdnoydEE5WQ?oc=5",
-      "published_at": "2026-10-12T08:11:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ3hUd1VrZ2o4V1lPMjZHeUd1RnRpMTRMZHQ3QUppcWtUdFo0TXYzM1FDUHZoZ0wtUWtwTUhFZFl3b19xT1IwMEpTcWUxcEY4NEliN2ZWRWM5ckJlYkVIZnM3bzg5TUN3dFZyTHNydWNKZ05aTHVqOGRNdXhOUW5jNXl0bEd2QQ?oc=5",
+      "published_at": "2026-10-12T17:00:06+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "AI less regulated than milk, Microsoft president says in warning over safety The Guardian",
-      "title": "AI less regulated than milk, Microsoft president says in warning over safety - The Guardian"
+      "summary": "Meta Unveils New Series of Advanced A.I. Models The New York Times",
+      "title": "Meta Unveils New Series of Advanced A.I. Models - The New York Times"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWllxOVA0bTc2VGhkSDNzOWpRT0pRZjU1d084VDJMZmZmZGdSOEFfUGNZdG1NNWdVWG9nZjJxZVNVYVVlOE5hUl9lZU5hYW9xZjRaWFgzQWlwWXkxY3VBcXVXUkQxaHlxTTdxMC1QalJyWWFzUVRaWF8wSUJzdnNqSGctZ24wZDBHdkswZmtJTdIBlAFBVV95cUxPNHRQX2VXbDZtb2Z0WS1RRHAzc1NxZjdsWHNDZ1oweTYxTi10NGNESm9KLWNnNmhVYUdQblRqODlmWUdjQlFxYzRJbjVJLUlkUkdib2lwb3VUZ3pYNnJCclhid25RYlRyWEhnbE5ibGY5bWNTb2tzOWNEQlBPcllvMms1YkZxcEJSZHJPbHVpaTZQejRx?oc=5",
-      "published_at": "2026-10-10T20:59:28+00:00",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMmEtcTdxem5KMG95LXRKM2VIcGF2X3FjLTdCVmNYQzhMODdzQ2plTW5EQ1F4SHZ6RThpUDllZWVpWVVpdmxCODZyMVEybm1oZ3pNX2pOb0VrTzllbXhDTkp0Q1ZmLUhJQklNR0hOUy1mRWlrdGV4cUxkUWthZUVUQkVUZzc?oc=5",
+      "published_at": "2026-10-12T17:00:02+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Microsoft's Nadella says AI needs an \u2018emergency brake\u2019 that humans control CNBC",
-      "title": "Microsoft's Nadella says AI needs an \u2018emergency brake\u2019 that humans control - CNBC"
+      "summary": "Mark Zuckerberg says Meta has reached AI \u2018frontier\u2019 Financial Times",
+      "title": "Mark Zuckerberg says Meta has reached AI \u2018frontier\u2019 - Financial Times"
     }
   ],
   "timezone": "America/New_York",
   "traffic_commute": [
     {
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVHlxdkdnRHZrNk9TVGkxVE1nXzFoY2trTE5Tb3BsU1NWbUJZWkZ5ZVlMS3F2V2p6LVdRLWoxNjNxb3g2UzVmamI0aWVodlNJNFNPU002ZFgxRnJScjJGMXVkNnpYNW1XNENqTXYzRXZVN2dEcDAwNm1TbGZBaDJtV0JRU0hQVjJld3JaMlZZVnB5alNZcWhQWTNtZ01VQQ?oc=5",
-      "published_at": "2026-10-09T19:29:28+00:00",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQZlV6cG5oZV9zd3hCaXF4NUFxekh5SkliTkpiaVAzeVNLWDdoUzlLTmZzUUNtdk5yQzJOd0JlV1Y0SGRtbXRjX0ZWSElDSENSdU9iWW0tOG1kNnhGb2dGcS1mLWlWZE1LTklNVThoX1FWWVdPNmpkaV9kaUVhQjBWRDY1UFZfWjBxTk5MY3kyRVRXeEJRZjh0WHZyZW5KRnZHU0U0Rkw5RFUtMHNrNzJQMzVDYTMySjFBRjhTN2FKdVBNOG9rOVk1VjJod2g?oc=5",
+      "published_at": "2026-10-13T09:21:00+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "2 stabbed during fight over cellphone near Midtown MARTA Station: police FOX 5 Atlanta",
-      "title": "2 stabbed during fight over cellphone near Midtown MARTA Station: police - FOX 5 Atlanta"
+      "summary": "Traffic Alerts: Overturned semi-truck closes lanes on GA-400 in Alpharetta 11Alive.com",
+      "title": "Traffic Alerts: Overturned semi-truck closes lanes on GA-400 in Alpharetta - 11Alive.com"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOFdkVkl2Q3hRdmZEQlI4Ukx2WERJekFHZXNFRE5HdXU2dkR6ZWFCWjFEeU1mN3JxT0xUbFUxdkRUNjFNeklJOXRwSUpybzdlMjJjS2ZGbS1aaFhzdzJtYV8tQUJGM1V4b3ZVc09Ya2xfSjJaTUdSQk5LQ3lVOUNKMWZLM0lXUdIBiwFBVV95cUxPRm1WZ3QtbnRON29nSDZRZ0FPd3o1TWRvZEc0Ti1YckowZXAxZ3VtQm9sZW9ZUlZ0ek1XYUwwRndWQVl3V2lNUU1ZLWF1eUFEVC1obWprdU0ybTlpNDdBY2NPZm1PdFQyeGw4MmpDdmIzNGs3S29ra1RpUVlLSmVKLXN2UU10S3o0SnE0?oc=5",
+      "published_at": "2026-10-13T09:19:17+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Crashes close lanes on I-400 and I-85 FOX 5 Atlanta",
+      "title": "Crashes close lanes on I-400 and I-85 - FOX 5 Atlanta"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOQm9pZkxDY0E1dVVMZHIxTzFia0d5TWxIZXJncS1TLS02cTBrY3AyT0dXMURFblpXdTU1NU1Ra0RHajR4Y05rSWV3d25rb2l0ZTBhRGtmY0paX2hmNDRnUDhia1psejJocDhGQjRnTGJ1Znp1R1RyZEFNazNlOC03eE5hTkRvSGZvOVp3SFltZVZRSFZrWXgwVTgxTDJrRC0zMEtfWkJUWVk1S21TVmFhREFNVGpIZG92SW5LWDU3T0d1Q2JuUDc4alJWUWVtVXlkVFNvWGJjVzUxNlAwVUtDdlRSd2dXUUJRaVR5Uw?oc=5",
+      "published_at": "2026-10-13T11:17:14+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "MARTA Transforms Bus Service with NextGen Bus Network Mass Transit",
+      "title": "MARTA Transforms Bus Service with NextGen Bus Network - Mass Transit"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmk5NVptb0JaU2xYZGZtamFQMmxWMUk5M3ltSmloV0hEN1c4WnhxQ1Y1VzJVVDc4N0dvaDhnNmVBclNaWXQzX19HSzFjNnRiQjBYQVBJeFY4dnRsYmtlZUIzNFNqZEdkYlJqVWVWQUhFT3RiVmVRMWlpWjE0Q0czQktnbnF0ZnJVOWJmUFRwRHp2dFBxQlVFZzcyTVBiUmEwNlB5TVFsd043eE1VSWpfSGZn?oc=5",
@@ -4400,28 +4572,12 @@
       "title": "MARTA bus shooting suspect arrested, permanently banned from transit system - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxObXd0dWt0SEs5cW5uR0NUdWE3VFgxUkZJSWJ2aUh1RGdGRjVwdUpPODF5ZF9oZ25nbVpJc04tNWgzeHpuenB2SzM0M2V4MG5VN2JnM3U0cXhfSlhJdEhDbHZpSjJxelVQNVE1QU1STkxGOEtldmZWTEszMTdEWGI1b2V6Y052dnVUNlJQbkpLRW1wbknSAacBQVVfeXFMTUlJeVpWRURGUkhXWkdhNHZKc3RXRTN0TGdtalFkQVlJOW80WE9wLWhSM3UwenNweXYwR0pNT3lxZ3hia0NqdngwVjlrbFhib0pwTFNDVmxEcDNrTVJRb2taTWZNSXllUk40dHJfUjVQeHl2NjhOMVkwa1VVbGE5MVZJaXpueVFLbzE3TTRkMDRaMUMyVS1DUVBWRVRGUlNRSzVmeTRtWE0?oc=5",
-      "published_at": "2026-09-25T07:00:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOYlZiOHZnZ1RSSjlkcU9Vb0FISjlpdXdUZkdMZ2pZVXBSa1duSHVIRnB2SHp4X3lNMk9BdjNWM2l1bHhrQUxjRkJPcVd5VmIteG9EQk1JTk0waDFxVzJvbkN0WVg3M0tJN0Mzdk9pV1AxRzJ3a09oY1ZtZjZXT1NpTlV5dFh2WmxQUXVWdkFCYVhvelpCelg3ajJNczUybjJINnV1LVV5Q3JHTGVsVmgyT0d4Z2xBRmF2SXc?oc=5",
+      "published_at": "2026-10-13T05:21:39+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MARTA payroll error leaves agency out $620,000 Atlanta News First",
-      "title": "MARTA payroll error leaves agency out $620,000 - Atlanta News First"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNX2RJdFFiNGZHdHFoaFpqY1Z3THRsQ2x1ZF9SS2hHdzFRdG5GaGloN05BVlIzaVZlSnNVSFBUUE05X0VTVmpBYmY3ZnA2dWNVZE8yNGwxb1dXZHpCZXdheURvSE9meDUtdkIxVU9pMTY2M2pkZGwydS11d1lfSkp0aHdUaDVXbGhjRmxIN1RpdGVELXRVSm56aUVIWmJUbTVPR3d3S1FnN0xOMTBDb3UxOEVRdjR1aUVSbVJMek9aZ015T3dCUzk5eDBPTVB2Skwtc1BvOVhn0gHqAUFVX3lxTE5OTFdvd0lEaXg0TVJyR3NvM0dtTk4xRjd4RkY1Wk5peTBnakxrZ2RRSGI1R0FDdnBvcnp1cEN4T1QzU3lmeVh6VGhjbFlMaDd1ZW5pdjllaHpyWHBIbVBnNEtvdXk3akNIbWhnNDVhb05QTkZGMk9TY1NhNnBtVHJNdnhlaDl5UV94bk9oMGFacFhDSHkxa01zQzdTMWM4RDF0OFVNb2ZPVWVVX0hEbWhWLUxvUzJ3T052UVgxaGQ4andIdXZlZEp4VUtkbXFzV0xCY1Q5SXo5a0MwRjFIVmFkX2FqWVhidUJxUQ?oc=5",
-      "published_at": "2026-10-08T17:52:14+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MARTA financial audit shows spending nearly 17% over budget for fiscal year WSB-TV",
-      "title": "MARTA financial audit shows spending nearly 17% over budget for fiscal year - WSB-TV"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9ZZXp0dHpqNU9JMVRvdWxWdmprWHRkYzlIN2RCMk1QNWhHNy1DbElsMFdKM1UtdVJaYXd1cVM4WTVsVl9FRjZfODVoZVFickpITUE?oc=5",
-      "published_at": "2026-10-09T22:16:31+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Atlanta Police are investigating after two people were possibly stabbed at 33 Peachtree Place NE, which is near the Midtown MARTA station, on Friday afternoon. MARTA said police were flagged down about the incident around 2 p.m., which happened off stat Instagram",
-      "title": "Atlanta Police are investigating after two people were possibly stabbed at 33 Peachtree Place NE, which is near the Midtown MARTA station, on Friday afternoon. MARTA said police were flagged down about the incident around 2 p.m., which happened off stat - Instagram"
+      "summary": "Traffic closures planned for later this week WSB-TV",
+      "title": "Traffic closures planned for later this week - WSB-TV"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOYjIxdmNCSEM3Ni1KMHVHRlgtUGktbHd5QnZwU1gtZVVxcllZaUhmSVJkNmtSMElWYkl4VEZKRElEM0ZPX25ONkZqMlVuRjZJenpnVFhGT3o1VTkxc0VqaWtocWN2M0g1dGhBcjAtZHMxVlc3UGx3R29IMjJuNHVRWlM1bWRHd1cwQ3N3bjM2cHY1LV81NUQ1SC0yMG9LcUpTd0JZOFQzWUptaGE0QkhQV0hHakZobWVtOUFUMl9QR05kYndDQWtMeERNUk40SXlBSEF0a3EwSWFkWkJJNGFoUjlXdXFENVM1OVB5TjVWX1IzUlU4c19GTHg3V3piSXBzcXFJMVYybXI?oc=5",
@@ -4437,38 +4593,38 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Sunny, with a high near 84. Northwest wind 5 to 10 mph, with gusts as high as 20 mph.",
-          "name": "Columbus Day",
-          "short_forecast": "Sunny",
-          "start_time": "2026-10-12T06:00:00-04:00",
-          "temperature": 84,
-          "temperature_unit": "F",
-          "wind": "5 to 10 mph NW"
-        },
-        {
-          "detailed_forecast": "Clear, with a low around 60. Northwest wind 0 to 5 mph.",
-          "name": "Tonight",
-          "short_forecast": "Clear",
-          "start_time": "2026-10-12T18:00:00-04:00",
-          "temperature": 60,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
-        },
-        {
-          "detailed_forecast": "Sunny, with a high near 86. Northwest wind 0 to 5 mph.",
-          "name": "Tuesday",
+          "detailed_forecast": "Sunny, with a high near 87. Northwest wind 0 to 5 mph.",
+          "name": "Today",
           "short_forecast": "Sunny",
           "start_time": "2026-10-13T06:00:00-04:00",
-          "temperature": 86,
+          "temperature": 87,
           "temperature_unit": "F",
           "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Clear, with a low around 60. Northwest wind around 0 mph.",
-          "name": "Tuesday Night",
+          "detailed_forecast": "Clear, with a low around 61. Northwest wind around 0 mph.",
+          "name": "Tonight",
           "short_forecast": "Clear",
           "start_time": "2026-10-13T18:00:00-04:00",
-          "temperature": 60,
+          "temperature": 61,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 88. West wind around 0 mph.",
+          "name": "Wednesday",
+          "short_forecast": "Sunny",
+          "start_time": "2026-10-14T06:00:00-04:00",
+          "temperature": 88,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "Clear, with a low around 62. Wind around 0 mph.",
+          "name": "Wednesday Night",
+          "short_forecast": "Clear",
+          "start_time": "2026-10-14T18:00:00-04:00",
+          "temperature": 62,
           "temperature_unit": "F",
           "wind": "0 mph"
         }
@@ -4478,73 +4634,73 @@
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T07:00:00-04:00",
+          "start_time": "2026-10-13T06:00:00-04:00",
           "temperature": 61,
           "temperature_unit": "F",
-          "wind": "5 mph W"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T08:00:00-04:00",
+          "start_time": "2026-10-13T07:00:00-04:00",
           "temperature": 61,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T09:00:00-04:00",
-          "temperature": 63,
+          "start_time": "2026-10-13T08:00:00-04:00",
+          "temperature": 61,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T10:00:00-04:00",
-          "temperature": 68,
+          "start_time": "2026-10-13T09:00:00-04:00",
+          "temperature": 64,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T11:00:00-04:00",
-          "temperature": 72,
+          "start_time": "2026-10-13T10:00:00-04:00",
+          "temperature": 70,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T12:00:00-04:00",
+          "start_time": "2026-10-13T11:00:00-04:00",
           "temperature": 75,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T13:00:00-04:00",
+          "start_time": "2026-10-13T12:00:00-04:00",
           "temperature": 79,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T14:00:00-04:00",
-          "temperature": 81,
+          "start_time": "2026-10-13T13:00:00-04:00",
+          "temperature": 82,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "5 mph NW"
         }
       ],
       "latitude": 33.6676,
@@ -4556,38 +4712,38 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Sunny, with a high near 84. Northwest wind around 10 mph, with gusts as high as 20 mph.",
-          "name": "Columbus Day",
-          "short_forecast": "Sunny",
-          "start_time": "2026-10-12T06:00:00-04:00",
-          "temperature": 84,
-          "temperature_unit": "F",
-          "wind": "10 mph NW"
-        },
-        {
-          "detailed_forecast": "Clear, with a low around 60. Northwest wind 0 to 5 mph.",
-          "name": "Tonight",
-          "short_forecast": "Clear",
-          "start_time": "2026-10-12T18:00:00-04:00",
-          "temperature": 60,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
-        },
-        {
           "detailed_forecast": "Sunny, with a high near 86. Northwest wind 0 to 5 mph.",
-          "name": "Tuesday",
+          "name": "Today",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-13T06:00:00-04:00",
+          "start_time": "2026-10-13T07:00:00-04:00",
           "temperature": 86,
           "temperature_unit": "F",
           "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Clear, with a low around 61. West wind around 0 mph.",
-          "name": "Tuesday Night",
+          "detailed_forecast": "Clear, with a low around 62. West wind around 0 mph.",
+          "name": "Tonight",
           "short_forecast": "Clear",
           "start_time": "2026-10-13T18:00:00-04:00",
-          "temperature": 61,
+          "temperature": 62,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 87. West wind 0 to 5 mph.",
+          "name": "Wednesday",
+          "short_forecast": "Sunny",
+          "start_time": "2026-10-14T06:00:00-04:00",
+          "temperature": 87,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph W"
+        },
+        {
+          "detailed_forecast": "Clear, with a low around 63. Northwest wind around 0 mph.",
+          "name": "Wednesday Night",
+          "short_forecast": "Clear",
+          "start_time": "2026-10-14T18:00:00-04:00",
+          "temperature": 63,
           "temperature_unit": "F",
           "wind": "0 mph"
         }
@@ -4597,73 +4753,73 @@
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T07:00:00-04:00",
+          "start_time": "2026-10-13T07:00:00-04:00",
           "temperature": 61,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T08:00:00-04:00",
+          "start_time": "2026-10-13T08:00:00-04:00",
           "temperature": 61,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T09:00:00-04:00",
-          "temperature": 63,
+          "start_time": "2026-10-13T09:00:00-04:00",
+          "temperature": 65,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T10:00:00-04:00",
-          "temperature": 68,
+          "start_time": "2026-10-13T10:00:00-04:00",
+          "temperature": 71,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T11:00:00-04:00",
-          "temperature": 72,
-          "temperature_unit": "F",
-          "wind": "10 mph NW"
-        },
-        {
-          "detailed_forecast": "",
-          "name": "",
-          "short_forecast": "Sunny",
-          "start_time": "2026-10-12T12:00:00-04:00",
+          "start_time": "2026-10-13T11:00:00-04:00",
           "temperature": 75,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "5 mph NW"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T13:00:00-04:00",
+          "start_time": "2026-10-13T12:00:00-04:00",
           "temperature": 79,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "5 mph NW"
         },
         {
           "detailed_forecast": "",
           "name": "",
           "short_forecast": "Sunny",
-          "start_time": "2026-10-12T14:00:00-04:00",
-          "temperature": 81,
+          "start_time": "2026-10-13T13:00:00-04:00",
+          "temperature": 82,
           "temperature_unit": "F",
-          "wind": "10 mph NW"
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "name": "",
+          "short_forecast": "Sunny",
+          "start_time": "2026-10-13T14:00:00-04:00",
+          "temperature": 84,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
         }
       ],
       "latitude": 33.749,
