@@ -5,17 +5,17 @@ window.ATL_DATA = {
   "expectedRegularSeasonMatches": 34,
   "clubName": "Atlanta United",
   "record": {
-    "wins": 7,
+    "wins": 8,
     "draws": 6,
     "losses": 15
   },
   "stats": {
-    "points": 27,
-    "goalsFor": 33,
+    "points": 30,
+    "goalsFor": 36,
     "goalsAgainst": 48,
     "homeRecord": "4-2-8",
-    "awayRecord": "3-4-7",
-    "cleanSheets": 3,
+    "awayRecord": "4-4-7",
+    "cleanSheets": 4,
     "avgAttendance": 24249
   },
   "position": {
@@ -23,20 +23,27 @@ window.ATL_DATA = {
     "conference": "Eastern Conference"
   },
   "formLastFive": [
+    "W",
     "L",
     "D",
     "W",
-    "D",
-    "L"
+    "D"
   ],
   "nextMatch": {
-    "opponent": "CF Montréal",
-    "dateISO": "2026-10-14T23:30Z",
+    "opponent": "Inter Miami CF",
+    "dateISO": "2026-10-17T23:30Z",
     "competition": "MLS",
-    "venue": "Stade Saputo",
+    "venue": "Mercedes-Benz Stadium",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-10-14",
+      "opponent": "CF Montréal",
+      "venue": "Away",
+      "score": "3-0",
+      "outcome": "Win"
+    },
     {
       "date": "2026-10-10",
       "opponent": "FC Cincinnati",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Away",
       "score": "0-0",
       "outcome": "Draw"
-    },
-    {
-      "date": "2026-09-09",
-      "opponent": "Orlando City SC",
-      "venue": "Home",
-      "score": "2-3",
-      "outcome": "Loss"
     }
   ],
   "seasonProgress": [
@@ -269,30 +269,31 @@ window.ATL_DATA = {
       "opponent": "FC Cincinnati",
       "result": "1-3 (Loss)",
       "points": 27
+    },
+    {
+      "match": 29,
+      "date": "2026-10-14",
+      "opponent": "CF Montréal",
+      "result": "3-0 (Win)",
+      "points": 30
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 5,
-      "goalDiffLast5": -2,
-      "formRatingOutOf5": 1.7,
-      "goalDiffPerMatch": -0.4,
-      "pointsPerMatchLastN": 1,
+      "pointsLast5": 8,
+      "goalDiffLast5": 2,
+      "formRatingOutOf5": 2.7,
+      "goalDiffPerMatch": 0.4,
+      "pointsPerMatchLastN": 1.6,
       "gamesSampled": 5,
-      "cleanSheetsLastN": 2,
+      "cleanSheetsLastN": 3,
       "wdlLast5": {
-        "wins": 1,
+        "wins": 2,
         "draws": 2,
-        "losses": 2
+        "losses": 1
       }
     },
     "nextThree": [
-      {
-        "opponent": "CF Montréal",
-        "dateISO": "2026-10-14T23:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
       {
         "opponent": "Inter Miami CF",
         "dateISO": "2026-10-17T23:30Z",
@@ -8817,7 +8818,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-15T05:00:07.104Z"
+    "generatedAt": "2026-10-16T05:00:08.596Z"
   },
   "seasonHistory": [
     {

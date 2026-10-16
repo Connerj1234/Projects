@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T05:00:08.940Z",
+  "generatedAt": "2026-10-16T05:00:09.618Z",
   "seasons": [
     {
       "season": 2026,
@@ -7,19 +7,19 @@
       "seasonLabel": "2026 MLS Regular Season",
       "expectedRegularSeasonMatches": 34,
       "seasonPulse": {
-        "wins": 7,
+        "wins": 8,
         "draws": 6,
         "losses": 15,
-        "points": 27,
+        "points": 30,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 33,
+        "goalsFor": 36,
         "goalsAgainst": 48,
         "homeRecord": "4-2-8",
-        "awayRecord": "3-4-7",
-        "cleanSheets": 3,
+        "awayRecord": "4-4-7",
+        "cleanSheets": 4,
         "avgAttendance": 24249
       },
       "fullSchedule": [
@@ -224,7 +224,7 @@
           "opponent": "CF Montréal",
           "venue": "Away",
           "competition": "MLS",
-          "result": "-"
+          "result": "3-0 (Win)"
         },
         {
           "date": "2026-10-17",
