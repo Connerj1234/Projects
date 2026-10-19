@@ -20,7 +20,7 @@ def render_fallback(
     lines.extend(
         [
             "## One Thing To Know",
-            f"**{one.get('title', 'A quiet start')}** — {one.get('detail') or one.get('summary') or ''}",
+            f"**{markdown_link(one.get('title', 'A quiet start'), one.get('link'))}** — {one.get('detail') or one.get('summary') or ''}",
             "",
         ]
     )

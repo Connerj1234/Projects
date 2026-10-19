@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import Any
 
 from morning_brief.http_client import safe_get_json
+from morning_brief.time_format import parse_datetime, eastern_date
 
 
-def collect_sports(teams: list[dict[str, Any]], start_date: date, lookahead_days: int) -> list[dict[str, Any]]:
+def collect_sports(teams: list[dict[str, Any]], start_date: date, lookahead_days: int, as_of: datetime | None = None) -> list[dict[str, Any]]:
     games: list[dict[str, Any]] = []
     seen: set[str] = set()
 
@@ -27,7 +28,9 @@ def collect_sports(teams: list[dict[str, Any]], start_date: date, lookahead_days
                 if game_id in seen:
                     continue
                 seen.add(game_id)
-                games.append(normalize_event(event, team["name"], team["sport_path"]))
+                normalized = normalize_event(event, team["name"], team["sport_path"])
+                if is_upcoming_event(normalized, as_of, start_date):
+                    games.append(normalized)
 
     return sorted(games, key=lambda item: item.get("starts_at") or "")
 
@@ -36,6 +39,7 @@ def collect_major_events(
     events: list[dict[str, Any]],
     start_date: date,
     default_lookahead_days: int,
+    as_of: datetime | None = None,
 ) -> list[dict[str, Any]]:
     games: list[dict[str, Any]] = []
     seen: set[str] = set()
@@ -66,11 +70,27 @@ def collect_major_events(
                 if game_id in seen:
                     continue
                 seen.add(game_id)
-                games.append(
-                    normalize_event(event, event_config["name"], event_config["sport_path"])
-                )
+                normalized = normalize_event(event, event_config["name"], event_config["sport_path"])
+                if is_upcoming_event(normalized, as_of, start_date):
+                    games.append(normalized)
 
     return sorted(games, key=lambda item: item.get("starts_at") or "")
+
+
+def is_upcoming_event(item: dict[str, Any], as_of: datetime | None = None, start_date: date | None = None) -> bool:
+    status = str(item.get("status") or "").lower()
+    if item.get("completed") or item.get("status_state") in {"in", "post"}:
+        return False
+    if any(term in status for term in ("final", "complete", "canceled", "cancelled", "postponed", "in progress", "halftime", "full time")):
+        return False
+    starts = parse_datetime(item.get("starts_at"))
+    if starts is None:
+        return False
+    if as_of is not None and starts < as_of:
+        return False
+    if start_date is not None and eastern_date(starts.isoformat()) < start_date.isoformat():
+        return False
+    return True
 
 
 def is_active_event(event_config: dict[str, Any], start_date: date) -> bool:
@@ -127,11 +147,14 @@ def normalize_event(event: dict[str, Any], followed_team: str, sport_path: str) 
             broadcasts.extend(names)
 
     return {
+        "event_id": event.get("id") or event.get("uid"),
         "followed_team": followed_team,
         "sport_path": sport_path,
         "event": event.get("name") or event.get("shortName"),
         "starts_at": event.get("date"),
         "status": event.get("status", {}).get("type", {}).get("description"),
+        "status_state": event.get("status", {}).get("type", {}).get("state"),
+        "completed": event.get("status", {}).get("type", {}).get("completed"),
         "venue": competition.get("venue", {}).get("fullName"),
         "teams": teams,
         "broadcasts": sorted(set(broadcasts)),

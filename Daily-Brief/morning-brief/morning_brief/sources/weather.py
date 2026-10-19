@@ -30,7 +30,7 @@ def collect_weather(locations: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if forecast_url:
             forecast, error = safe_get_json(forecast_url)
             if isinstance(forecast, dict):
-                forecast_periods = forecast.get("properties", {}).get("periods", [])[:4]
+                forecast_periods = forecast.get("properties", {}).get("periods", [])[:14]
             elif error:
                 forecast_periods = [{"error": error}]
 
@@ -50,6 +50,10 @@ def collect_weather(locations: list[dict[str, Any]]) -> list[dict[str, Any]]:
                         "event": props.get("event"),
                         "headline": props.get("headline"),
                         "severity": props.get("severity"),
+                        "id": feature.get("id") or props.get("@id") or props.get("id"),
+                        "source_url": feature.get("id") or props.get("@id"),
+                        "description": props.get("description"),
+                        "instruction": props.get("instruction"),
                         "effective": props.get("effective"),
                         "expires": props.get("expires"),
                     }
@@ -66,6 +70,7 @@ def collect_weather(locations: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "hourly_next_periods": simplify_periods(hourly_periods),
                 "alerts": alerts,
                 "source": "weather.gov",
+                "source_url": f"https://forecast.weather.gov/MapClick.php?lat={lat}&lon={lon}",
             }
         )
     return results
@@ -81,6 +86,8 @@ def simplify_periods(periods: list[dict[str, Any]]) -> list[dict[str, Any]]:
             {
                 "name": period.get("name"),
                 "start_time": period.get("startTime"),
+                "is_daytime": period.get("isDaytime"),
+                "precipitation_probability": (period.get("probabilityOfPrecipitation") or {}).get("value"),
                 "temperature": period.get("temperature"),
                 "temperature_unit": period.get("temperatureUnit"),
                 "wind": " ".join(

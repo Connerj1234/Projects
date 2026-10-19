@@ -20,11 +20,12 @@ def collect_all(config: BriefConfig, now: datetime) -> dict[str, Any]:
         "timezone": config.timezone,
         "weather": collect_weather(config.locations),
         "sports": {
-            "followed_teams": collect_sports(config.sports, now.date(), config.lookahead_days),
+            "followed_teams": collect_sports(config.sports, now.date(), config.lookahead_days, as_of=now),
             "major_events": collect_major_events(
                 config.sports_major_events,
                 now.date(),
                 config.lookahead_days,
+                as_of=now,
             ),
         },
         "holidays": collect_holidays(now.date(), config.lookahead_days),

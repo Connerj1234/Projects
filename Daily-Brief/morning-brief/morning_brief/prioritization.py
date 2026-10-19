@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+from urllib.parse import quote, urlparse
+
 import re
 from datetime import datetime, timedelta
 from typing import Any
 
-from morning_brief.time_format import eastern_date, format_eastern
+from morning_brief.time_format import eastern_date, format_eastern, parse_datetime
 
 
 NEWS_SECTIONS = (
@@ -89,17 +91,50 @@ def build_actions(
 ) -> list[dict[str, Any]]:
     actions: list[dict[str, Any]] = []
 
+    weather_alerts: dict[tuple, dict[str, Any]] = {}
+    generated = parse_datetime(facts.get("generated_at") or today)
     for location in facts.get("weather", []):
         for alert in location.get("alerts", []):
+            if alert.get("error"):
+                continue
+            expires = parse_datetime(alert.get("expires"))
+            if generated and expires and expires <= generated:
+                continue
             event = alert.get("event") or "Weather alert"
-            actions.append(
-                {
-                    "kind": "weather",
-                    "title": f"{event} for {location.get('location', 'your area')}",
-                    "detail": alert.get("headline") or "Check the latest alert details.",
-                    "score": 100,
-                }
-            )
+            identity = alert.get("id") or alert.get("source_url")
+            fallback = tuple(str(alert.get(key) or "").strip() for key in ("event", "headline", "effective", "expires"))
+            key = ("id", identity) if identity else ("bulletin", *fallback)
+            # Without an identity or bulletin text, keep different locations separate.
+            if not identity and not alert.get("headline"):
+                key += (str(location.get("location")),)
+            if key in weather_alerts:
+                names = weather_alerts[key]["locations"]
+                name = location.get("location", "your area")
+                if name not in names:
+                    names.append(name)
+                continue
+            source_url = alert.get("source_url")
+            exact_source = bool(source_url)
+            if not source_url:
+                source_url = location.get("source_url")
+            if not source_url and location.get("latitude") is not None and location.get("longitude") is not None:
+                source_url = f"https://forecast.weather.gov/MapClick.php?lat={location['latitude']}&lon={location['longitude']}"
+            score = {"Extreme": 100, "Severe": 95, "Moderate": 85, "Minor": 65}.get(alert.get("severity"), 78)
+            weather_alerts[key] = {
+                "kind": "weather", "event": event,
+                "locations": [location.get("location", "your area")],
+                "detail": (alert.get("description") or alert.get("headline") or "Check the latest alert details.").strip()[:420],
+                "alert_description": alert.get("description"),
+                "alert_instruction": alert.get("instruction"),
+                "effective": alert.get("effective"), "expires": alert.get("expires"),
+                "link": source_url, "source": "National Weather Service",
+                "source_label": "NWS alert record" if exact_source else "NWS local forecast & active alerts",
+                "source_is_current": not exact_source,
+                "score": score,
+            }
+    for alert in weather_alerts.values():
+        alert["title"] = f"{alert['event']} for {' & '.join(alert['locations'])}"
+        actions.append(alert)
 
     sports = facts.get("sports", {})
     games = sports.get("followed_teams", []) if isinstance(sports, dict) else sports
@@ -128,6 +163,7 @@ def build_actions(
                     "kind": "markets",
                     "title": f"{item.get('symbol')} is {direction} {abs(change):.2f}%",
                     "detail": f"{item.get('name', item.get('symbol'))} crossed your {market_move_threshold:.1f}% movement threshold.",
+                    "link": f"https://finance.yahoo.com/quote/{quote(str(item.get('symbol', '')), safe='')}/" if item.get("symbol") else None,
                     "score": 70 + min(abs(change), 20),
                 }
             )
@@ -213,15 +249,24 @@ def choose_one_thing(
     actions: list[dict[str, Any]], new_items: list[dict[str, Any]]
 ) -> dict[str, Any]:
     """Reserve the lead position for genuinely high-signal items."""
-    for item in actions:
-        if float(item.get("score", 0)) >= 75:
-            return item
-    if new_items and float(new_items[0].get("score", 0)) >= 75:
-        item = new_items[0]
+    candidates = []
+    for item in actions + new_items:
+        link = urlparse(str(item.get("link") or ""))
+        if float(item.get("score", 0)) >= 75 and link.scheme in {"http", "https"} and link.netloc:
+            candidates.append(item)
+    if candidates:
+        item = max(candidates, key=lambda value: float(value.get("score", 0)))
         return {
             **item,
-            "kind": item.get("section", "news"),
-            "detail": item.get("summary") or f"Reported by {item.get('source', 'a configured source')}.",
+            "kind": item.get("kind") or item.get("section", "news"),
+            "detail": item.get("detail") or item.get("summary") or f"Reported by {item.get('source', 'a configured source')}.",
+        }
+    if any(float(item.get("score", 0)) >= 75 for item in actions + new_items):
+        return {
+            "title": "No sourced lead available",
+            "detail": "High-priority items were collected without a usable source link. Check the highlights below.",
+            "score": 0,
+            "kind": "status",
         }
     return {
         "title": "A quiet start",
