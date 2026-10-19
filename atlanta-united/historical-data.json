@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T05:00:09.779Z",
+  "generatedAt": "2026-10-19T05:00:12.103Z",
   "seasons": [
     {
       "season": 2026,
@@ -9,18 +9,18 @@
       "seasonPulse": {
         "wins": 8,
         "draws": 6,
-        "losses": 15,
+        "losses": 16,
         "points": 30,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 36,
-        "goalsAgainst": 48,
-        "homeRecord": "4-2-8",
+        "goalsFor": 37,
+        "goalsAgainst": 51,
+        "homeRecord": "4-2-9",
         "awayRecord": "4-4-7",
         "cleanSheets": 4,
-        "avgAttendance": 24249
+        "avgAttendance": 22632
       },
       "fullSchedule": [
         {
@@ -231,7 +231,7 @@
           "opponent": "Inter Miami CF",
           "venue": "Home",
           "competition": "MLS",
-          "result": "-"
+          "result": "1-3 (Loss)"
         },
         {
           "date": "2026-10-24",
@@ -335,19 +335,6 @@
         },
         {
           "rank": 8,
-          "teamId": "18267",
-          "team": "FC Cincinnati",
-          "played": 28,
-          "wins": 9,
-          "draws": 9,
-          "losses": 10,
-          "points": 36,
-          "goalDiff": -8,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 9,
           "teamId": "7318",
           "team": "Toronto FC",
           "played": 30,
@@ -356,6 +343,19 @@
           "losses": 10,
           "points": 36,
           "goalDiff": -9,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 9,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 29,
+          "wins": 9,
+          "draws": 9,
+          "losses": 11,
+          "points": 36,
+          "goalDiff": -10,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -374,6 +374,19 @@
         },
         {
           "rank": 11,
+          "teamId": "183",
+          "team": "Columbus Crew",
+          "played": 30,
+          "wins": 10,
+          "draws": 5,
+          "losses": 15,
+          "points": 35,
+          "goalDiff": -1,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 12,
           "teamId": "17606",
           "team": "New York City FC",
           "played": 30,
@@ -386,7 +399,7 @@
           "isAtlanta": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "teamId": "193",
           "team": "D.C. United",
           "played": 29,
@@ -395,19 +408,6 @@
           "losses": 10,
           "points": 33,
           "goalDiff": -14,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 13,
-          "teamId": "183",
-          "team": "Columbus Crew",
-          "played": 29,
-          "wins": 9,
-          "draws": 5,
-          "losses": 15,
-          "points": 32,
-          "goalDiff": -3,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },

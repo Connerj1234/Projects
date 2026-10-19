@@ -7,36 +7,43 @@ window.ATL_DATA = {
   "record": {
     "wins": 8,
     "draws": 6,
-    "losses": 15
+    "losses": 16
   },
   "stats": {
     "points": 30,
-    "goalsFor": 36,
-    "goalsAgainst": 48,
-    "homeRecord": "4-2-8",
+    "goalsFor": 37,
+    "goalsAgainst": 51,
+    "homeRecord": "4-2-9",
     "awayRecord": "4-4-7",
     "cleanSheets": 4,
-    "avgAttendance": 24249
+    "avgAttendance": 22632
   },
   "position": {
     "rank": 14,
     "conference": "Eastern Conference"
   },
   "formLastFive": [
+    "L",
     "W",
     "L",
     "D",
-    "W",
-    "D"
+    "W"
   ],
   "nextMatch": {
-    "opponent": "Inter Miami CF",
-    "dateISO": "2026-10-17T23:30Z",
+    "opponent": "Chicago Fire FC",
+    "dateISO": "2026-10-24T23:30Z",
     "competition": "MLS",
     "venue": "Mercedes-Benz Stadium",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-10-17",
+      "opponent": "Inter Miami CF",
+      "venue": "Home",
+      "score": "1-3",
+      "outcome": "Loss"
+    },
     {
       "date": "2026-10-14",
       "opponent": "CF Montréal",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Away",
       "score": "1-0",
       "outcome": "Win"
-    },
-    {
-      "date": "2026-09-12",
-      "opponent": "D.C. United",
-      "venue": "Away",
-      "score": "0-0",
-      "outcome": "Draw"
     }
   ],
   "seasonProgress": [
@@ -276,30 +276,31 @@ window.ATL_DATA = {
       "opponent": "CF Montréal",
       "result": "3-0 (Win)",
       "points": 30
+    },
+    {
+      "match": 30,
+      "date": "2026-10-17",
+      "opponent": "Inter Miami CF",
+      "result": "1-3 (Loss)",
+      "points": 30
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 8,
-      "goalDiffLast5": 2,
-      "formRatingOutOf5": 2.7,
-      "goalDiffPerMatch": 0.4,
-      "pointsPerMatchLastN": 1.6,
+      "pointsLast5": 7,
+      "goalDiffLast5": 0,
+      "formRatingOutOf5": 2.3,
+      "goalDiffPerMatch": 0,
+      "pointsPerMatchLastN": 1.4,
       "gamesSampled": 5,
-      "cleanSheetsLastN": 3,
+      "cleanSheetsLastN": 2,
       "wdlLast5": {
         "wins": 2,
-        "draws": 2,
-        "losses": 1
+        "draws": 1,
+        "losses": 2
       }
     },
     "nextThree": [
-      {
-        "opponent": "Inter Miami CF",
-        "dateISO": "2026-10-17T23:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
       {
         "opponent": "Chicago Fire FC",
         "dateISO": "2026-10-24T23:30Z",
@@ -314,7 +315,7 @@ window.ATL_DATA = {
       "lineRank": 9,
       "linePoints": 36,
       "pointsFromLine": -6,
-      "gamesInHand": 0
+      "gamesInHand": -1
     }
   },
   "playerStats": [
@@ -8511,19 +8512,6 @@ window.ATL_DATA = {
       },
       {
         "rank": 8,
-        "teamId": "18267",
-        "team": "FC Cincinnati",
-        "played": 28,
-        "wins": 9,
-        "draws": 9,
-        "losses": 10,
-        "points": 36,
-        "goalDiff": -8,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 9,
         "teamId": "7318",
         "team": "Toronto FC",
         "played": 30,
@@ -8532,6 +8520,19 @@ window.ATL_DATA = {
         "losses": 10,
         "points": 36,
         "goalDiff": -9,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 9,
+        "teamId": "18267",
+        "team": "FC Cincinnati",
+        "played": 29,
+        "wins": 9,
+        "draws": 9,
+        "losses": 11,
+        "points": 36,
+        "goalDiff": -10,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8550,6 +8551,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 11,
+        "teamId": "183",
+        "team": "Columbus Crew",
+        "played": 30,
+        "wins": 10,
+        "draws": 5,
+        "losses": 15,
+        "points": 35,
+        "goalDiff": -1,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 12,
         "teamId": "17606",
         "team": "New York City FC",
         "played": 30,
@@ -8562,7 +8576,7 @@ window.ATL_DATA = {
         "isAtlanta": false
       },
       {
-        "rank": 12,
+        "rank": 13,
         "teamId": "193",
         "team": "D.C. United",
         "played": 29,
@@ -8571,19 +8585,6 @@ window.ATL_DATA = {
         "losses": 10,
         "points": 33,
         "goalDiff": -14,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 13,
-        "teamId": "183",
-        "team": "Columbus Crew",
-        "played": 29,
-        "wins": 9,
-        "draws": 5,
-        "losses": 15,
-        "points": 32,
-        "goalDiff": -3,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8824,7 +8825,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-18T05:00:07.873Z"
+    "generatedAt": "2026-10-19T05:00:07.973Z"
   },
   "seasonHistory": [
     {
