@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
+<title>Daily Brief · 2026-10-20</title><style>
+:root{--ink:#17201d;--muted:#66706b;--paper:#f3f0e8;--card:#fffdf8;--line:#d9d5ca;--green:#1c5b47;--lime:#dce9a8;--red:#a13f37;--shadow:0 14px 35px rgba(34,45,40,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit}body>header,main,footer{width:min(1120px,calc(100% - 32px));margin-inline:auto}.hero{display:flex;justify-content:space-between;gap:40px;padding:64px 0 34px;border-bottom:1px solid var(--line)}.hero.compact{display:block}.hero h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.4rem);font-weight:500;letter-spacing:-.055em;line-height:.96;margin:.16em 0}.hero.compact h1{font-size:clamp(2.6rem,6vw,5rem)}.eyebrow{color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.14em;margin:0 0 8px}.lede{color:var(--muted);font-size:1.08rem;max-width:620px}main>section{padding:42px 0;border-bottom:1px solid var(--line)}.signal{background:var(--green);color:white;margin-top:30px;padding:36px;border-radius:18px;border:0;box-shadow:var(--shadow)}.signal .eyebrow{color:var(--lime)}.signal h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:500;line-height:1.05;max-width:800px;margin:10px 0}.signal p:not(.eyebrow){max-width:760px;color:#e7eee9}.editorial{padding:26px 30px;margin-top:18px;background:#e7eadb;border:1px solid #cdd3b4;border-radius:14px}.editorial p:last-child{margin-bottom:0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-heading h2{font-family:Georgia,serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;margin:0}.quiet,.empty{color:var(--muted)}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(34,45,40,.035)}.card h3{margin:4px 0 8px;font-size:1.05rem}.card p:last-child{margin-bottom:0}.action{border-top:4px solid var(--green)}.action.weather{border-top-color:var(--red)}.story-list{display:grid;gap:8px}.story{display:flex;justify-content:space-between;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.story h4{font-size:1.05rem;line-height:1.35;margin:3px 0}.story p{color:var(--muted);font-size:.9rem;margin:7px 0 0}.story .source{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}.story-link{text-decoration:underline;text-decoration-color:#92aa9f;text-decoration-thickness:1px;text-underline-offset:3px}.story-link:hover{color:var(--green);text-decoration-thickness:2px}.story-link:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:2px}.link-arrow{display:inline-block;color:var(--green);font-size:.82em;font-weight:800;text-decoration:none}.badge{display:inline-block;background:#eee9dd;border-radius:20px;padding:2px 7px;margin-left:5px;text-transform:none;letter-spacing:0}.badge.new{background:var(--lime);color:#334018}.save{align-self:start;border:0;background:transparent;color:var(--green);font-size:1.45rem;cursor:pointer}.save.saved{color:#bd7d16}.news-group{padding:20px 0}.news-group h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500}.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.filter{white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:8px 13px;background:transparent;color:var(--ink);cursor:pointer}.filter.active{background:var(--ink);color:white}.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.ticker{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.ticker span{display:block;color:var(--muted);font-size:.75rem}.ticker .price{text-align:right;font-weight:700}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.text-link,.back{display:inline-block;margin-top:8px;font-weight:700;text-underline-offset:3px}.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;padding:30px 0}.compare-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}.compare-card h2{font-family:Georgia,serif;font-size:2rem;margin:0}.model-output{margin-top:24px}.meta{color:var(--muted);font-size:.8rem}footer{padding:30px 0 60px;color:var(--muted);font-size:.8rem}
+.sport-groups{display:grid;gap:28px}.sport-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}.sport-heading h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:0}.sport-heading span{color:var(--muted);font-size:.75rem}.news-group{padding:0;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.news-group summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-family:Georgia,serif;font-size:1.55rem;list-style:none}.news-group summary::-webkit-details-marker{display:none}.news-group summary:after{content:'+';font-family:Inter,sans-serif;color:var(--green);font-size:1.5rem}.news-group[open] summary:after{content:'−'}.news-group .story-list{padding:0 12px 12px}.story-count{margin-left:auto;color:var(--muted);font-family:Inter,sans-serif;font-size:.75rem}.filters{scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x;overscroll-behavior-inline:contain}.filters::-webkit-scrollbar{display:none}
+.hero{display:block}.hero h1{margin:0 0 18px}.hero-meta{display:flex;align-items:center;justify-content:space-between;gap:16px}.hero-meta .eyebrow{margin:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.story-copy{width:100%}.ticker-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}.ticker{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:12px}.ticker-top{display:flex;justify-content:space-between;gap:12px}.sparkline{display:block;width:calc(100% + 12px);max-width:none;height:52px;margin-inline:-6px;color:var(--muted)}.sparkline polyline{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.sparkline.up{color:var(--green)}.sparkline.down{color:var(--red)}.empty-chart{height:52px;background:linear-gradient(180deg,transparent 49%,var(--line) 50%,transparent 51%)}.ticker .market-period{font-size:.68rem;font-weight:700;text-align:right}.ticker .market-period.up{color:var(--green)}.ticker .market-period.down{color:var(--red)}
+@media(min-width:651px){.hero{padding:34px 0 22px}.hero h1{font-size:clamp(4rem,6vw,4.8rem);margin:0 0 12px}.signal{margin-top:22px;padding:26px 32px}.signal h2{font-size:clamp(2.25rem,3.5vw,3rem);line-height:1.02;max-width:940px;margin:8px 0}.signal p:not(.eyebrow){margin:10px 0}.signal .text-link{margin-top:2px}main>section{padding:30px 0}.section-heading{margin-bottom:16px}}
+@media(max-width:650px){.hero{padding-top:38px}.hero-meta{align-items:flex-start}.signal{padding:25px}.section-heading{display:block}.story{padding:15px}}
+[hidden]{display:none!important}
+.hero:not(.compact){display:flex;align-items:center;justify-content:space-between;gap:20px}.hero:not(.compact) h1{margin:0}.hero-meta{flex-shrink:0}
+.archive-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:.85rem;font-weight:700;text-decoration:none;white-space:nowrap}.archive-button:hover{border-color:var(--green);color:var(--green)}
+.actions{grid-template-columns:repeat(4,minmax(0,1fr))}.action{display:flex;flex-direction:column;min-width:0}.action .text-link{align-self:flex-start;margin-top:auto}.action h3{line-height:1.4}.action>p:not(.eyebrow){font-size:.92rem}
+.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.weather-card h3{font-size:.8rem;letter-spacing:.12em;color:var(--green);margin:0 0 14px}.weather-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.weather-period{min-width:0}.weather-period+.weather-period{border-left:1px solid var(--line);padding-left:14px}.weather-period-name{font-size:.8rem;font-weight:700}.weather-temperature{display:block;font-size:1.8rem;line-height:1.25;margin:5px 0}.weather-temperature span{font-size:.7rem;color:var(--muted);font-weight:500}.weather-condition{font-size:.87rem;margin:5px 0}.weather-meta{font-size:.72rem;color:var(--muted);margin:5px 0 0}.weather-outlook{border-top:1px solid var(--line);margin-top:15px;padding-top:10px}.weather-outlook summary{font-size:.77rem;font-weight:600;color:var(--green);cursor:pointer}.weather-outlook .weather-pair{margin-top:14px}
+.archive-layout{border:0;display:flex;justify-content:center}.calendar-card{width:min(100%,640px);padding:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.calendar-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.8rem}.calendar-nav button{width:42px;height:42px;border:1px solid var(--line);background:transparent;border-radius:9px;font-size:1.2rem;color:var(--green);cursor:pointer}.calendar-nav button:disabled{opacity:.3;cursor:default}.calendar-month h2{font-family:Georgia,serif;font-size:2rem;font-weight:500;text-align:center;margin:18px 0 24px}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.calendar-weekday{text-align:center;font-size:.7rem;color:var(--muted);padding-bottom:8px}.calendar-day{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:9px;font-size:.9rem;text-decoration:none}.calendar-day.available{background:#e7eee6;color:var(--green);font-weight:700}.calendar-day.available:hover{background:var(--green);color:white}.calendar-day.unavailable{color:#999d96}.calendar-dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+@media(max-width:900px){.actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.hero:not(.compact){align-items:flex-start;flex-direction:column;gap:16px;padding:28px 0 22px}.hero:not(.compact) h1{font-size:clamp(2.8rem,11vw,4rem)}.archive-button{padding:8px 12px;font-size:.8rem}.weather-grid{grid-template-columns:minmax(0,1fr);gap:12px}.weather-card{padding:16px}.weather-temperature{font-size:1.6rem}.weather-card h3{margin-bottom:10px}.weather-outlook{margin-top:12px;padding-top:9px}.actions{gap:10px}.action{padding:14px}.action h3{font-size:.94rem}.action>p:not(.eyebrow){font-size:.82rem}.action .eyebrow{font-size:.65rem}.calendar-card{padding:16px}.calendar-grid{gap:4px}.calendar-day{min-height:44px}.calendar-month h2{font-size:1.7rem}}
+
+.daily-forecast{margin-top:12px}.daily-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:.65rem;padding-bottom:6px}.daily-row{display:grid;grid-template-columns:40px minmax(0,1fr) 28px minmax(35px,70px) 28px;gap:8px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:.8rem}.daily-condition{font-size:.72rem;line-height:1.3}.daily-rain{display:block;color:var(--green);font-size:.65rem;margin-top:3px}.daily-low{color:var(--muted);text-align:right}.daily-high{text-align:right}.range-track{position:relative;height:5px;border-radius:5px;background:#e9e7df;overflow:hidden}.range-track>span{position:absolute;height:100%;border-radius:5px;background:linear-gradient(90deg,#72b7af,#cbba5a);min-width:3px}.alert-details{margin-top:12px;font-size:.8rem}.alert-details summary{cursor:pointer;color:var(--green);font-weight:600}.alert-details p{white-space:pre-line}.action .text-link{margin-top:8px}.signal .text-link{color:white}
+@media(max-width:400px){.daily-row{gap:6px;grid-template-columns:35px minmax(0,1fr) 26px minmax(28px,45px) 26px;font-size:.75rem}.daily-condition{font-size:.67rem}}
+
+.brief-date{display:block;font-size:.75rem;color:var(--muted);margin-top:9px}.latest-brief{font-size:.8rem;font-weight:600;text-underline-offset:3px}.hero-meta{flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:650px){.hero-meta{justify-content:flex-start;gap:16px}}
+
+.sports-more{margin-top:12px}.sports-more summary{color:var(--green);font-size:.8rem;font-weight:700;cursor:pointer;width:fit-content;padding:6px 0}.sports-more>.card-grid{margin-top:12px}.sports-hide,.sports-more[open] .sports-show{display:none}.sports-more[open] .sports-hide{display:inline}
+
+
+@media(max-width:650px){
+.hero:not(.compact){display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;row-gap:10px}
+.hero:not(.compact)>div:first-child{display:contents}
+.hero:not(.compact) h1{grid-column:1/-1}
+.hero:not(.compact) .brief-date{grid-column:1;grid-row:2;margin:0}
+.hero:not(.compact) .hero-meta{grid-column:2;grid-row:2;justify-content:flex-end;gap:8px;max-width:150px}
+}
+</style></head><body>
+      <header class="hero">
+        <div><h1>Good morning.</h1><time class="brief-date" datetime="2026-10-20">Oct 20, 2026</time></div>
+        <div class="hero-meta">
+          <a class="archive-button" href="archive.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 11h18"/></svg>Past briefs</a>
+        </div>
+      </header>
+      <main>
+        <section class="signal">
+          <p class="eyebrow">ONE THING TO KNOW</p>
+          <h2>Special Weather Statement for Conyers &amp; Atlanta</h2>
+          <p>Relative Humidities of less than 30 percent can be expected for 4
+or more hours this afternoon into the evening. Winds will be North
+to Northeast at 3 to 8 MPH, with gusts up to 15 MPH in central
+Georgia.
+
+With dry fuels, high fire danger conditions can be expected.
+
+Please refer to your local burn permitting authorities
+whether you may burn outdoors.  If you do burn outside,
+use extreme caution.</p>
+          <a class="text-link" href="https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.67f3c19390c48b6b2e59d09f8190a3cbcc3cdc2a.001.1" target="_blank" rel="noopener noreferrer">Details</a>
+          <details class="alert-details"><summary>Read saved bulletin</summary><p>Relative Humidities of less than 30 percent can be expected for 4
+or more hours this afternoon into the evening. Winds will be North
+to Northeast at 3 to 8 MPH, with gusts up to 15 MPH in central
+Georgia.</p><p>With dry fuels, high fire danger conditions can be expected.</p><p>Please refer to your local burn permitting authorities
+whether you may burn outdoors.  If you do burn outside,
+use extreme caution.</p><p>Expires Oct 20, 2026 · 7:00 PM ET</p></details>
+        </section>
+        
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">RIGHT NOW</p><h2>Today’s highlights</h2></div></div>
+          <div class="card-grid actions"><article class="card action traffic"><p class="eyebrow">TRAFFIC</p><h3>MARTA to start construction on new type of transit project</h3><p>MARTA to start construction on new type of transit project The Business Journals</p><a class="text-link" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNR0ZRVzlfUFlSV2FIVnY0X2xSdzIydG9nV1p1eVJsSjNrV0ppTHliNW8xRjJab0ktcHJvLXBXMm9XS2Y1VWphVXhuOGlSUjltRzIxX3BmX3licE8xVi00TUVqalEycVIyS0NtcWVXemNhZ3dKd2xWNUZiMkRsN1dVQ0FPNlBnSFVUeDAtM3FNTU4yb1BtV2RYSU1FSUR3X0Z0NVdWbg?oc=5" target="_blank" rel="noopener noreferrer">Details</a></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">AT A GLANCE</p><h2>Weather</h2></div></div>
+          <div class="card-grid weather-grid"><article class="card weather-card"><h3>Conyers</h3><div class="weather-pair"><div class="weather-period"><span class="weather-period-name">Today</span><strong class="weather-temperature"><span>High </span>75°F</strong><p class="weather-condition">Sunny</p><p class="weather-meta">Wind: 0 to 5 mph NE · Precipitation: 0%</p></div><div class="weather-period"><span class="weather-period-name">Tonight</span><strong class="weather-temperature"><span>Low </span>47°F</strong><p class="weather-condition">Mostly Clear</p><p class="weather-meta">Wind: 0 to 5 mph N · Precipitation: 0%</p></div></div><details class="weather-outlook"><summary>Daily forecast</summary><div class="daily-forecast"><div class="daily-labels"><span>Day / conditions</span><span>Low / high</span></div><div class="daily-row"><strong>Today</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 47°F">47°</span><span class="range-track" aria-hidden="true"><span style="left:6.45%;width:90.32%"></span></span><strong class="daily-high" aria-label="High 75°F">75°</strong></div><div class="daily-row"><strong>Wed</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 46°F">46°</span><span class="range-track" aria-hidden="true"><span style="left:3.23%;width:90.32%"></span></span><strong class="daily-high" aria-label="High 74°F">74°</strong></div><div class="daily-row"><strong>Thu</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 48°F">48°</span><span class="range-track" aria-hidden="true"><span style="left:9.68%;width:90.32%"></span></span><strong class="daily-high" aria-label="High 76°F">76°</strong></div><div class="daily-row"><strong>Fri</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 47°F">47°</span><span class="range-track" aria-hidden="true"><span style="left:6.45%;width:80.65%"></span></span><strong class="daily-high" aria-label="High 72°F">72°</strong></div><div class="daily-row"><strong>Sat</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 45°F">45°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:70.97%"></span></span><strong class="daily-high" aria-label="High 67°F">67°</strong></div><div class="daily-row"><strong>Sun</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 45°F">45°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:80.65%"></span></span><strong class="daily-high" aria-label="High 70°F">70°</strong></div><div class="daily-row"><strong>Mon</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 47°F">47°</span><span class="range-track" aria-hidden="true"><span style="left:6.45%;width:87.10%"></span></span><strong class="daily-high" aria-label="High 74°F">74°</strong></div></div></details></article><article class="card weather-card"><h3>Atlanta</h3><div class="weather-pair"><div class="weather-period"><span class="weather-period-name">Today</span><strong class="weather-temperature"><span>High </span>76°F</strong><p class="weather-condition">Sunny</p><p class="weather-meta">Wind: 0 to 5 mph NE · Precipitation: 0%</p></div><div class="weather-period"><span class="weather-period-name">Tonight</span><strong class="weather-temperature"><span>Low </span>49°F</strong><p class="weather-condition">Mostly Clear</p><p class="weather-meta">Wind: 0 to 5 mph NE · Precipitation: 0%</p></div></div><details class="weather-outlook"><summary>Daily forecast</summary><div class="daily-forecast"><div class="daily-labels"><span>Day / conditions</span><span>Low / high</span></div><div class="daily-row"><strong>Today</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 49°F">49°</span><span class="range-track" aria-hidden="true"><span style="left:6.67%;width:90.00%"></span></span><strong class="daily-high" aria-label="High 76°F">76°</strong></div><div class="daily-row"><strong>Wed</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 48°F">48°</span><span class="range-track" aria-hidden="true"><span style="left:3.33%;width:90.00%"></span></span><strong class="daily-high" aria-label="High 75°F">75°</strong></div><div class="daily-row"><strong>Thu</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 50°F">50°</span><span class="range-track" aria-hidden="true"><span style="left:10.00%;width:90.00%"></span></span><strong class="daily-high" aria-label="High 77°F">77°</strong></div><div class="daily-row"><strong>Fri</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 48°F">48°</span><span class="range-track" aria-hidden="true"><span style="left:3.33%;width:83.33%"></span></span><strong class="daily-high" aria-label="High 73°F">73°</strong></div><div class="daily-row"><strong>Sat</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 47°F">47°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:70.00%"></span></span><strong class="daily-high" aria-label="High 68°F">68°</strong></div><div class="daily-row"><strong>Sun</strong><span class="daily-condition">Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 47°F">47°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:76.67%"></span></span><strong class="daily-high" aria-label="High 70°F">70°</strong></div><div class="daily-row"><strong>Mon</strong><span class="daily-condition">Mostly Sunny<span class="daily-rain">Rain 0%</span></span><span class="daily-low" aria-label="Low 48°F">48°</span><span class="range-track" aria-hidden="true"><span style="left:3.33%;width:86.67%"></span></span><strong class="daily-high" aria-label="High 74°F">74°</strong></div></div></details></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">COMING UP</p><h2>Sports & events</h2></div></div>
+          <div class="sport-groups"><section class="sport-group"><div class="sport-heading"><h3>Basketball</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401909834/hawks-magic" target="_blank" rel="noopener noreferrer">Atlanta Hawks at Orlando Magic</a></h3><p>Oct 21, 2026 · 7:00 PM ET</p></article><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401909843/hawks-hornets" target="_blank" rel="noopener noreferrer">Atlanta Hawks at Charlotte Hornets</a></h3><p>Oct 23, 2026 · 7:00 PM ET</p></article><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401909856/rockets-hawks" target="_blank" rel="noopener noreferrer">Houston Rockets at Atlanta Hawks</a></h3><p>Oct 24, 2026 · 8:30 PM ET</p></article></div><details class="sports-more"><summary><span class="sports-show">Show all 4 events</span><span class="sports-hide">Show fewer events</span></summary><div class="card-grid"><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401909874/hawks-rockets" target="_blank" rel="noopener noreferrer">Atlanta Hawks at Houston Rockets</a></h3><p>Oct 26, 2026 · 8:30 PM ET</p></article></div></details></section><section class="sport-group"><div class="sport-heading"><h3>Soccer</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Atlanta United</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/761893/chicago-fire-fc-atlanta-united-fc" target="_blank" rel="noopener noreferrer">Chicago Fire FC at Atlanta United FC</a></h3><p>Oct 24, 2026 · 7:30 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915403/slavia-prague-fenerbahce" target="_blank" rel="noopener noreferrer">Slavia Prague at Fenerbahce</a></h3><p>Oct 20, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915404/borussia-dortmund-sabah-fk" target="_blank" rel="noopener noreferrer">Borussia Dortmund at Sabah FK</a></h3><p>Oct 20, 2026 · 12:45 PM ET</p></article></div><details class="sports-more"><summary><span class="sports-show">Show all 19 events</span><span class="sports-hide">Show fewer events</span></summary><div class="card-grid"><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915402/slovan-bratislava-as-roma" target="_blank" rel="noopener noreferrer">Slovan Bratislava at AS Roma</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915398/psv-eindhoven-fc-porto" target="_blank" rel="noopener noreferrer">PSV Eindhoven at FC Porto</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915397/villarreal-liverpool" target="_blank" rel="noopener noreferrer">Villarreal at Liverpool</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915401/aek-athens-manchester-city" target="_blank" rel="noopener noreferrer">AEK Athens at Manchester City</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915400/bodoglimt-napoli" target="_blank" rel="noopener noreferrer">Bodo/Glimt at Napoli</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915399/barcelona-paris-saint-germain" target="_blank" rel="noopener noreferrer">Barcelona at Paris Saint-Germain</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915392/atletico-madrid-vfb-stuttgart" target="_blank" rel="noopener noreferrer">Atlético Madrid at VfB Stuttgart</a></h3><p>Oct 20, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915395/manchester-united-como" target="_blank" rel="noopener noreferrer">Manchester United at Como</a></h3><p>Oct 21, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915396/galatasaray-lille" target="_blank" rel="noopener noreferrer">Galatasaray at Lille</a></h3><p>Oct 21, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915394/viking-fk-aston-villa" target="_blank" rel="noopener noreferrer">Viking FK at Aston Villa</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915312/arsenal-bayern-munich" target="_blank" rel="noopener noreferrer">Arsenal at Bayern Munich</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915388/lens-club-brugge" target="_blank" rel="noopener noreferrer">Lens at Club Brugge</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915390/shakhtar-donetsk-internazionale" target="_blank" rel="noopener noreferrer">Shakhtar Donetsk at Internazionale</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915389/feyenoord-rotterdam-real-betis" target="_blank" rel="noopener noreferrer">Feyenoord Rotterdam at Real Betis</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915313/rb-leipzig-real-madrid" target="_blank" rel="noopener noreferrer">RB Leipzig at Real Madrid</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915391/lask-linz-sporting-cp" target="_blank" rel="noopener noreferrer">LASK Linz at Sporting CP</a></h3><p>Oct 21, 2026 · 3:00 PM ET</p></article></div></details></section><section class="sport-group"><div class="sport-heading"><h3>Football</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Atlanta Falcons</p><h3><a class="story-link" href="https://www.espn.com/nfl/game/_/gameId/401873017/49ers-falcons" target="_blank" rel="noopener noreferrer">San Francisco 49ers at Atlanta Falcons</a></h3><p>Oct 25, 2026 · 1:00 PM ET</p></article></div></section><section class="sport-group"><div class="sport-heading"><h3>Racing</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Formula 1</p><h3><a class="story-link" href="https://www.espn.com/f1/race/_/id/600057446" target="_blank" rel="noopener noreferrer">MSC Cruises United States Grand Prix</a></h3><p>Oct 23, 2026 · 1:30 PM ET</p></article><article class="card"><p class="eyebrow">Formula 1</p><h3><a class="story-link" href="https://www.espn.com/f1/race/_/id/600057447" target="_blank" rel="noopener noreferrer">Mexico City Grand Prix</a></h3><p>Oct 30, 2026 · 2:30 PM ET</p></article></div></section></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">WATCHLIST</p><h2>Markets</h2></div></div>
+          <div class="ticker-grid"><article class="ticker"><div class="ticker-top"><div><strong>SPY</strong><span>S&amp;P 500 ETF</span></div><div class="price">766.48<span class="up">+0.42%</span></div></div><svg class="sparkline up" viewBox="0 0 240 52" role="img" aria-label="SPY six-month trend, +8.1 percent" preserveAspectRatio="none"><polyline points="0.0,48.0 3.8,46.4 7.6,44.7 11.4,46.1 15.2,41.7 19.0,42.1 22.9,32.2 26.7,29.8 30.5,29.4 34.3,23.1 38.1,29.1 41.9,27.5 45.7,24.7 49.5,21.7 53.3,17.9 57.1,16.0 61.0,17.5 64.8,28.8 68.6,37.5 72.4,27.2 76.2,21.8 80.0,24.1 83.8,32.3 87.6,31.9 91.4,27.7 95.2,24.7 99.0,21.2 102.9,24.9 106.7,18.9 110.5,20.8 114.3,21.5 118.1,27.0 121.9,23.6 125.7,29.0 129.5,27.8 133.3,27.2 137.1,17.2 141.0,9.5 144.8,7.3 148.6,9.0 152.4,4.4 156.2,7.7 160.0,10.0 163.8,12.1 167.6,12.0 171.4,8.7 175.2,11.3 179.0,12.4 182.9,9.3 186.7,14.2 190.5,13.0 194.3,17.3 198.1,14.1 201.9,7.2 205.7,10.8 209.5,8.5 213.3,13.1 217.1,13.2 221.0,6.4 224.8,4.9 228.6,4.0 232.4,4.4 236.2,8.3 240.0,11.6"/></svg><span class="market-period up">6M +8.1%</span></article><article class="ticker"><div class="ticker-top"><div><strong>QQQ</strong><span>Nasdaq 100 ETF</span></div><div class="price">718.36<span class="up">+1.21%</span></div></div><svg class="sparkline up" viewBox="0 0 240 52" role="img" aria-label="QQQ six-month trend, +11.1 percent" preserveAspectRatio="none"><polyline points="0.0,48.0 3.8,44.7 7.6,41.2 11.4,43.7 15.2,39.7 19.0,37.7 22.9,28.6 26.7,22.4 30.5,24.0 34.3,19.0 38.1,24.6 41.9,21.7 45.7,19.9 49.5,15.2 53.3,11.7 57.1,8.6 61.0,10.8 64.8,20.5 68.6,29.4 72.4,18.4 76.2,15.1 80.0,10.8 83.8,21.5 87.6,20.4 91.4,17.3 95.2,16.9 99.0,17.8 102.9,22.4 106.7,16.8 110.5,19.1 114.3,24.5 118.1,28.5 121.9,24.8 125.7,33.2 129.5,36.6 133.3,33.4 137.1,26.9 141.0,20.0 144.8,17.8 148.6,19.6 152.4,14.2 156.2,15.0 160.0,20.5 163.8,21.6 167.6,22.6 171.4,18.5 175.2,20.2 179.0,23.2 182.9,19.4 186.7,20.4 190.5,21.0 194.3,25.1 198.1,20.2 201.9,10.4 205.7,10.6 209.5,9.2 213.3,11.9 217.1,10.2 221.0,4.6 224.8,4.0 228.6,6.6 232.4,9.6 236.2,15.8 240.0,19.6"/></svg><span class="market-period up">6M +11.1%</span></article><article class="ticker"><div class="ticker-top"><div><strong>DIA</strong><span>Dow ETF</span></div><div class="price">518.92<span class="down">-0.03%</span></div></div><svg class="sparkline up" viewBox="0 0 240 52" role="img" aria-label="DIA six-month trend, +5.0 percent" preserveAspectRatio="none"><polyline points="0.0,44.1 3.8,43.7 7.6,45.8 11.4,46.5 15.2,42.1 19.0,48.0 22.9,40.2 26.7,42.6 30.5,41.1 34.3,38.7 38.1,41.8 41.9,39.2 45.7,34.3 49.5,33.7 53.3,30.5 57.1,27.8 61.0,25.6 64.8,32.0 68.6,39.2 72.4,28.6 76.2,21.7 80.0,26.5 83.8,25.6 87.6,23.5 91.4,21.5 95.2,20.9 99.0,14.5 102.9,20.6 106.7,18.1 110.5,19.0 114.3,18.9 118.1,24.5 121.9,21.6 125.7,23.9 129.5,17.2 133.3,21.6 137.1,13.6 141.0,4.0 144.8,6.6 148.6,8.6 152.4,8.0 156.2,11.1 160.0,11.1 163.8,12.8 167.6,10.3 171.4,10.3 175.2,13.3 179.0,14.1 182.9,11.2 186.7,19.5 190.5,18.1 194.3,21.8 198.1,24.2 201.9,23.0 205.7,27.6 209.5,24.9 213.3,28.7 217.1,32.3 221.0,29.4 224.8,30.3 228.6,26.1 232.4,26.0 236.2,21.9 240.0,23.7"/></svg><span class="market-period up">6M +5.0%</span></article><article class="ticker"><div class="ticker-top"><div><strong>IWM</strong><span>Russell 2000 ETF</span></div><div class="price">271.28<span class="up">+0.31%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="IWM six-month trend, -2.2 percent" preserveAspectRatio="none"><polyline points="0.0,39.9 3.8,41.0 7.6,40.8 11.4,44.5 15.2,39.0 19.0,39.1 22.9,27.2 26.7,30.7 30.5,32.8 34.3,30.3 38.1,41.7 41.9,36.5 45.7,29.4 49.5,22.4 53.3,22.3 57.1,20.6 61.0,20.2 64.8,30.8 68.6,33.5 72.4,18.9 76.2,20.1 80.0,15.4 83.8,15.7 87.6,10.9 91.4,10.8 95.2,10.4 99.0,10.9 102.9,18.2 106.7,14.8 110.5,16.8 114.3,15.4 118.1,19.8 121.9,17.8 125.7,21.3 129.5,18.3 133.3,19.4 137.1,14.5 141.0,9.8 144.8,7.4 148.6,8.1 152.4,4.8 156.2,4.0 160.0,7.1 163.8,9.5 167.6,10.5 171.4,9.7 175.2,17.6 179.0,17.5 182.9,14.8 186.7,22.0 190.5,24.4 194.3,29.4 198.1,29.0 201.9,28.8 205.7,33.7 209.5,33.7 213.3,37.6 217.1,37.6 221.0,31.8 224.8,39.4 228.6,37.7 232.4,40.7 236.2,42.9 240.0,48.0"/></svg><span class="market-period down">6M -2.2%</span></article><article class="ticker"><div class="ticker-top"><div><strong>BTC-USD</strong><span>Bitcoin</span></div><div class="price">81370.04<span class="down">-0.59%</span></div></div><svg class="sparkline up" viewBox="0 0 240 52" role="img" aria-label="BTC-USD six-month trend, +7.2 percent" preserveAspectRatio="none"><polyline points="0.0,21.8 3.8,17.8 7.6,17.1 11.4,21.9 15.2,17.1 19.0,13.4 22.9,14.9 26.7,11.4 30.5,16.1 34.3,18.0 38.1,20.3 41.9,22.4 45.7,19.4 49.5,25.6 53.3,25.6 57.1,41.4 61.0,46.5 64.8,42.9 68.6,42.1 72.4,38.6 76.2,40.7 80.0,41.0 83.8,43.6 87.6,48.0 91.4,47.8 95.2,45.6 99.0,42.2 102.9,42.6 106.7,41.2 110.5,44.3 114.3,41.8 118.1,40.3 121.9,37.9 125.7,40.9 129.5,41.6 133.3,43.4 137.1,42.3 141.0,40.4 144.8,39.9 148.6,42.1 152.4,43.1 156.2,40.6 160.0,26.5 163.8,18.6 167.6,16.5 171.4,17.8 175.2,19.2 179.0,15.5 182.9,14.3 186.7,17.8 190.5,19.4 194.3,22.2 198.1,13.4 201.9,4.0 205.7,7.7 209.5,7.5 213.3,9.0 217.1,7.0 221.0,5.4 224.8,12.2 228.6,8.8 232.4,12.3 236.2,12.6 240.0,12.7"/></svg><span class="market-period up">6M +7.2%</span></article><article class="ticker"><div class="ticker-top"><div><strong>NVDA</strong><span>Nvidia</span></div><div class="price">217.09<span class="up">+1.38%</span></div></div><svg class="sparkline up" viewBox="0 0 240 52" role="img" aria-label="NVDA six-month trend, +7.4 percent" preserveAspectRatio="none"><polyline points="0.0,40.9 3.8,40.5 7.6,34.7 11.4,29.8 15.2,43.4 19.0,44.5 22.9,35.1 26.7,27.7 30.5,22.1 34.3,7.2 38.1,20.6 41.9,19.5 45.7,27.6 49.5,30.3 53.3,31.8 57.1,20.1 61.0,24.3 64.8,34.3 68.6,42.5 72.4,37.8 76.2,35.5 80.0,32.3 83.8,42.9 87.6,47.2 91.4,48.0 95.2,45.4 99.0,47.4 102.9,38.8 106.7,32.0 110.5,31.1 114.3,35.6 118.1,39.7 121.9,30.9 125.7,36.1 129.5,46.0 133.3,47.9 137.1,36.3 141.0,23.7 144.8,19.0 148.6,25.4 152.4,17.6 156.2,17.9 160.0,25.4 163.8,28.2 167.6,29.9 171.4,14.9 175.2,22.1 179.0,18.5 182.9,12.6 186.7,19.3 190.5,24.6 194.3,30.8 198.1,23.6 201.9,15.5 205.7,17.4 209.5,17.9 213.3,15.7 217.1,12.1 221.0,4.0 224.8,5.4 228.6,13.6 232.4,14.4 236.2,25.7 240.0,25.8"/></svg><span class="market-period up">6M +7.4%</span></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">SINCE YESTERDAY</p><h2>What changed</h2></div></div>
+          <div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 19, 2026 · 1:22 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPci10YkdUT0xZS05HdjJqUUFnUzhGR3dmMTE5M1NTQUU1QjdwZk9uZ29UUi1UeHB0S1pSTjNHYzdqRlphcmlHaXVYUHRGWnBKNDJ6QTR2T2VCVWI4V1F5T0VkVklNX3dhZUhYTjR4cTRIY2FHdkVXTDdFQXdTRWs4MjV6TVRiSDdsQURJdWZOemZGNFBtWFl1eg?oc=5" target="_blank" rel="noopener noreferrer">Next to busy MARTA station, another public soccer pitch set to open - Urbanize Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Next to busy MARTA station, another public soccer pitch set to open Urbanize Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 5:05 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQeXZnWXhEeUZYejNCRGsxS3J0eVRPU1Nmc0M3VWtEZ2VCSWdoQUQzZENMb0p5eC1mQmNsVHBpTERlekh2WmpBLWItTkdnYUNYTnJJNG9tM2hVcTRKQkdpT3BpUFVLbWd5NE1mXzdYRURNb2JKOWxsQTk5dkVkRXJJMzdmU3VJS0xqVksw?oc=5" target="_blank" rel="noopener noreferrer">1 Student dead, another injured in shooting at Ga. college - WRDW <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>1 Student dead, another injured in shooting at Ga. college WRDW</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 7:19 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html" target="_blank" rel="noopener noreferrer">U.S. oil surges to top $109, Brent crude at five-month high amid Mideast tensions <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Oil extended its rally on Tuesday as investors continued to monitor developments in the Middle East.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Oct 20, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/10/20/yelp-can-now-call-on-your-behalf-to-check-wait-times-at-a-restaurant/" target="_blank" rel="noopener noreferrer">Yelp can now call on your behalf to check wait times at a restaurant <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Yelp is embedding numerous new AI features into its app that can do everything from call to check on restaurant wait times to create personalized recommendations that remember your preferences.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 7:14 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/20/world/europe/france-curfews-riots-protests-extended.html" target="_blank" rel="noopener noreferrer">France to Extend Curfews After a Night of Calm, Prime Minister Says <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The restrictions are part of a state effort to reassert control after the country’s largest riots in years, as those arrested in the chaos face expedited trials.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 19, 2026 · 12:35 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNR0ZRVzlfUFlSV2FIVnY0X2xSdzIydG9nV1p1eVJsSjNrV0ppTHliNW8xRjJab0ktcHJvLXBXMm9XS2Y1VWphVXhuOGlSUjltRzIxX3BmX3licE8xVi00TUVqalEycVIyS0NtcWVXemNhZ3dKd2xWNUZiMkRsN1dVQ0FPNlBnSFVUeDAtM3FNTU4yb1BtV2RYSU1FSUR3X0Z0NVdWbg?oc=5" target="_blank" rel="noopener noreferrer">MARTA to start construction on new type of transit project - The Business Journals <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>MARTA to start construction on new type of transit project The Business Journals</p>
+        </div>
+      </article>
+    </div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">EXPLORE</p><h2>News worth opening</h2></div></div>
+          <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="traffic_commute">Traffic &amp; commute</button><button class="filter" data-filter="local_news">Atlanta &amp; Georgia</button><button class="filter" data-filter="market_news">Market news</button><button class="filter" data-filter="tech_ai">Technology &amp; AI</button><button class="filter" data-filter="general_news">Top news</button></div>
+          <div id="news-sections"><details class="news-group" data-section="traffic_commute"><summary><span>Traffic &amp; commute</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 19, 2026 · 1:22 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPci10YkdUT0xZS05HdjJqUUFnUzhGR3dmMTE5M1NTQUU1QjdwZk9uZ29UUi1UeHB0S1pSTjNHYzdqRlphcmlHaXVYUHRGWnBKNDJ6QTR2T2VCVWI4V1F5T0VkVklNX3dhZUhYTjR4cTRIY2FHdkVXTDdFQXdTRWs4MjV6TVRiSDdsQURJdWZOemZGNFBtWFl1eg?oc=5" target="_blank" rel="noopener noreferrer">Next to busy MARTA station, another public soccer pitch set to open - Urbanize Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Next to busy MARTA station, another public soccer pitch set to open Urbanize Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 19, 2026 · 12:35 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNR0ZRVzlfUFlSV2FIVnY0X2xSdzIydG9nV1p1eVJsSjNrV0ppTHliNW8xRjJab0ktcHJvLXBXMm9XS2Y1VWphVXhuOGlSUjltRzIxX3BmX3licE8xVi00TUVqalEycVIyS0NtcWVXemNhZ3dKd2xWNUZiMkRsN1dVQ0FPNlBnSFVUeDAtM3FNTU4yb1BtV2RYSU1FSUR3X0Z0NVdWbg?oc=5" target="_blank" rel="noopener noreferrer">MARTA to start construction on new type of transit project - The Business Journals <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>MARTA to start construction on new type of transit project The Business Journals</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 19, 2026 · 7:49 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVlg0anp3ZEgxdTktbnd5aU1SYUo1QXhPVFI3ZlNfck5hd21qMU1XbzY3ZjZLQVNoczhWdHVvdHg1UzVoQ1RQT3ZDUlBHSlZCWnZqVXB3OEFGV1I5WUNkR0JTa3lrSDlObkJhYWxnc1kwSGdkREliT3dzdGR2dUVWeUdvWURybXVWSGZpeXVBdVJlaHRMRk1YWW95Yml2X3A1eW50c1RiMkjSAbwBQVVfeXFMUFVvV3VHZmtrcy0xSDVhVHdjSThEMmxkQ1gwYzQtNlBsVzdIeUlYQ2phbWNXVXRpZmlRUHRaQ1JhM0M0dXJUNTJzLWcySG9aNHkyVUF2bV9kc0hFYTVGRGhwMm1QemxkTGVqNmRaLXQ3ZmZRd19NWENtQ3g0SEl3WmJLVmNob1FTME9UZm9iOXRVTDVfRjlqZ0ZFcnpVb1g0SmxEd1dHQ29rUVg1T3ZZN2ZzYTBINlA3QTlmZG8?oc=5" target="_blank" rel="noopener noreferrer">Lanes reopen on Ga. 400 south after crash - Atlanta News First <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Lanes reopen on Ga. 400 south after crash Atlanta News First</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta weather alert OR road closure&quot; - Google News · Oct 10, 2026 · 3:00 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiiAJBVV95cUxOYjIxdmNCSEM3Ni1KMHVHRlgtUGktbHd5QnZwU1gtZVVxcllZaUhmSVJkNmtSMElWYkl4VEZKRElEM0ZPX25ONkZqMlVuRjZJenpnVFhGT3o1VTkxc0VqaWtocWN2M0g1dGhBcjAtZHMxVlc3UGx3R29IMjJuNHVRWlM1bWRHd1cwQ3N3bjM2cHY1LV81NUQ1SC0yMG9LcUpTd0JZOFQzWUptaGE0QkhQV0hHakZobWVtOUFUMl9QR05kYndDQWtMeERNUk40SXlBSEF0a3EwSWFkWkJJNGFoUjlXdXFENVM1OVB5TjVWX1IzUlU4c19GTHg3V3piSXBzcXFJMVYybXI?oc=5" target="_blank" rel="noopener noreferrer">Strong storms bring down large tree, power lines in Atlanta neighborhood, blocking road - 11Alive.com <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Strong storms bring down large tree, power lines in Atlanta neighborhood, blocking road 11Alive.com</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 18, 2026 · 10:22 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNY1ZLYnN4ZUJoU0x6SnBJS2JmM01zbEdOdGdFcXRRMWNPNFFHUXdXNWFEWE5LV3JNM1JQUnFZT0s5Y0hYRUstZU9UWU5vdXVLWE85QjRHMl9lMWxVNDhpMzVqV282STVkckh4Q3JzeUZUSFVLWGZIT1k2SGxjc2VHNVZ4LVhySDFfNXJrVmJxNjhxa21BLWFZbVV30gGfAUFVX3lxTE5GeklpRkpsNkdLN1FJdDNzTFZzblZWeldLOENXYlJzRnBhejc3aUtfSDZZX0Y2NTBreHlNQnlmRjFVdHhjYm1XMzQweXFqN09ENTJzaWNicmdVc29Mc1lqX1VQb0lMX0NkcWdCNTN4SWNFU3pXZ2VHeFRxWFRuSDRDQlk1RHhhN0dpRTZkTGhlR1RwQzNBdkR4QzZaN0Q3Zw?oc=5" target="_blank" rel="noopener noreferrer">I-285 work leaves traffic headaches in residential areas - FOX 5 Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>I-285 work leaves traffic headaches in residential areas FOX 5 Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Oct 18, 2026 · 8:12 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMi8AFBVV95cUxOX2VBOVpZck05WFFKcDFGcHc0MGtORGxOVWhsbjc3VmsxNnRqWlJ4YjhnQkFkZFo4cXBsMVItZXF1NzA2MWtLTWs5S3BDWmxxaElZcDRLT09lMklfeXp0dXRRTjVESU1mSktTWURsSkJBZEM5OFNzVWx2bFRVQ1Y0Z2pudlZJZlNTOUxsVGNTMVVUT1VXSGw0VVVncnZSYXNiVlJIOExOLTJQcGlSd0hKZEhUd2F5Z3gxMXRONG1CQlhPMWZ0ZS1pSDhXVmFnRW5XLVVQdVBtQ0NqTkZiSThLdFZHODJCZTlJOWdsLTZMYWI?oc=5" target="_blank" rel="noopener noreferrer">Several roads to close Sunday afternoon as Atlanta Streets Alive returns - 11Alive.com <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Several roads to close Sunday afternoon as Atlanta Streets Alive returns 11Alive.com</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="local_news"><summary><span>Atlanta &amp; Georgia</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 5:05 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQeXZnWXhEeUZYejNCRGsxS3J0eVRPU1Nmc0M3VWtEZ2VCSWdoQUQzZENMb0p5eC1mQmNsVHBpTERlekh2WmpBLWItTkdnYUNYTnJJNG9tM2hVcTRKQkdpT3BpUFVLbWd5NE1mXzdYRURNb2JKOWxsQTk5dkVkRXJJMzdmU3VJS0xqVksw?oc=5" target="_blank" rel="noopener noreferrer">1 Student dead, another injured in shooting at Ga. college - WRDW <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>1 Student dead, another injured in shooting at Ga. college WRDW</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 5:03 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPcENUMEVTQWRISmlVWktiQ3ZrTFoyVVItWTRDeG1aRG85VF94SXhpVGszaWoyTlBzVU9aVVozMXFXaGpSTWtKaG83cnNlM1JLYXRNS0VnVnJvWE5QYjlaQml6blI4R2ZhczU5d1p3QUEwM3dyaThRYkEzVG9ldFktbmFfbGhwc2R2RGVraS1zUGJxeXBLNHVUck95Sjd5aHpyWmxHaFZOTVAxMnpic1B3Zkg2b1E2czg0a19OOWc4OVFiVllu0gHYAUFVX3lxTFBJWnQ4dkdPa05PWFFkVVVkTC1HM2dXTUdWMVNHRnJzOGlTRS1RQkZJWVRTUjBFX0dMNzNnQmFQTDVqRUxwU0xoTUJfWHBzdEZfSVNZTnRsdGNZWHprcFJaRFphY1dfVmZRZVlsR0pTWkQ5Q0pDcjQ2R1dYWGVyUm4zaFgzaTB1UGtXd3Jha1NnTUR6TVZQOHJmVDZ5V2RxZVlxSlRnZE10SzE1NTI3bkJOaVRheElJYUYyZ09xbnpoSVhjWFA0cTFzSGlxNV9xcHlaWjBuQV9uaA?oc=5" target="_blank" rel="noopener noreferrer">Could North Georgia see another ‘space jellyfish’ Tuesday morning? Here’s what to expect - Atlanta News First <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Could North Georgia see another ‘space jellyfish’ Tuesday morning? Here’s what to expect Atlanta News First</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 4:39 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1GTWJwcGlNOUpvQjVhMnc4b0pYYTNNREpuNHZPNVNzcWJybEVDR1ZXNl8tc1loSWZYZDVjWkRqbjEyVGxQRHFwSXI4d2ZfeVl0NW9fOGNaQlp6d19kWDFmQXRDX1JuejVXczRBVk5neHYwTjjSAYgBQVVfeXFMTUNkdlJwZUVVMjZRbEs2YWt2Sml3dnlvVGNaVFRIVkQtTHpyUmkwTVFpOG9fd1g0SXc0U3ZicWlGZTJ3NHJBS0RQZlpjZU1BLVdFRHJ2clZUeDdEVFpPV2RaLVZkRXlFWnhSSURMOTdocDBhUDdwZzduRXgyTElUeGxjdnp1TlpOMA?oc=5" target="_blank" rel="noopener noreferrer">GA&#x27;s Richest Person Is Worth $12.8B - Patch <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>GA&#x27;s Richest Person Is Worth $12.8B Patch</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 2:07 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNN1UxV04yWXJ2ekx2RmZQT2ZPbGlXdmdadHU2bzJQWW1LRFNXQkx5VWNaYTVmSm5nLVYwYjZnX2xqWGFNcnMwMlFndEVXM1liY2xid0ZuRV9RV0w0NmJXcDBCSHRLV3UyaGUwalJaNENMYWxVN3V5cktUR0U2NnhMVUR6S1dNeTVGNnV3NFBndEsycVdsT0hxcHl3WWFFdVRTVzhoT3lhTTk0UjktQ09jTWhrQl9VRC0zRmphTDV6bHTSAdQBQVVfeXFMT0ZGQTJoS1hRbEJMb3YxelgzVUppUm5LZzBxQ3ZFTUlQcmhZN2h3dVN4RlpZSHVOMkVJQjVaWDhRNURoSHZwX0NMWGhsVFVPb2w4d2xvQ3gzMnpfeWpQM1Q4djQ4SEdZWU5kcFRSUGJYR3pEZmVfODloVkFRNW54anR5ZDk2eDVjckpXYkE2dWxXTkd2WUdKNms5cDZHN0lURWVGV25xZVJXUk9SUDhYR2RLZjNRUXRYZXZGbWtSYjJsX196ZVNneVJ0N0hzajRlX0YyZnU?oc=5" target="_blank" rel="noopener noreferrer">1 student dead, another hurt in shooting on Atlanta Technical College campus - WSB-TV <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>1 student dead, another hurt in shooting on Atlanta Technical College campus WSB-TV</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Oct 19, 2026 · 10:47 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQZm1jNkRySzlEU3h3dTFRODZWcHhQSWg2eFhMLWczRUFqbWNQdVcxNmFOWTZaZjUtTHYxMDFueVN6ZFRSanJrd2dtdnRWd1VVb1BfQ2V4ckxNNjc2S0dHQ2FseWJ0U055MkxWb2lpQWNYQVZJZ05GcWtKYndMdXU3OVNGN2NLTG1JdV9KN1l1SjRCcEJ2bWNYbENjZnkxRFVmM0drLXl4cDZwcGtwa3k5dWtaa2hDbGs?oc=5" target="_blank" rel="noopener noreferrer">Obama heads to Atlanta to rally voters for Jon Ossoff and Keisha Lance Bottoms - CBS News <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Obama heads to Atlanta to rally voters for Jon Ossoff and Keisha Lance Bottoms CBS News</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Georgia state government Atlanta&quot; - Google News · Oct 9, 2026 · 3:00 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMilAFBVV95cUxNWllzWWg2cGtxY1VGc3VRbnZlSHJ0cDVNQ3hfSjJrMjRqSTgzNmFHUEJOeWV3N3hQWWZsV2RfZDhDd3Z0TG4wQUdMd1V5SjA4bGxsUHlpLVVtdk9fWXNGOUhVOTFkbElpS3dFT3kwZVY0OGpNakt1Rmk5dnFtNnktTDY0bkpocWVseGZmbTd1b2NHVE90?oc=5" target="_blank" rel="noopener noreferrer">Georgia launches chatbot to help residents navigate state services - StateScoop <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Georgia launches chatbot to help residents navigate state services StateScoop</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="market_news"><summary><span>Market news</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 7:19 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html" target="_blank" rel="noopener noreferrer">U.S. oil surges to top $109, Brent crude at five-month high amid Mideast tensions <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Oil extended its rally on Tuesday as investors continued to monitor developments in the Middle East.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/best-buy-gamers-beta-ign.html" target="_blank" rel="noopener noreferrer">Best Buy launches new gaming hub ahead of &#x27;Zelda&#x27; and &#x27;Grand Theft Auto VI&#x27; <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Best Buy is launching a new gaming experience for customers as it leans into the business ahead of this fall&#x27;s big launches.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 6:46 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/general-motors-gm-earnings-q3-2026.html" target="_blank" rel="noopener noreferrer">General Motors beats Wall Street&#x27;s Q3 earnings expectations, narrows full-year guidance <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>GM narrowed its 2026 earnings guidance and raised its adjusted automotive free cash flow outlook after beating Wall Street’s third-quarter estimates.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 6:30 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/zelenskyy-witkoff-trump-ukraine-russia.html" target="_blank" rel="noopener noreferrer">Zelenskyy to meet with U.S. envoy as tensions with Trump mount <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Ukraine&#x27;s President Volodymyr Zelenskyy is set to meet with U.S. special envoys on Tuesday after President Donald Trump aimed fresh criticism at the wartime leader.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Oct 20, 2026 · 6:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/20/walmart-sams-club-plus-membership.html" target="_blank" rel="noopener noreferrer">Walmart launches joint membership with Sam&#x27;s Club as it leans into delivery, gas discounts <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Walmart is now offering a joint membership with Sam&#x27;s Club for $120 per year as the retailer further leans into convenience.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">Business News · Oct 19, 2026 · 8:34 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/10/19/jpmorgan-security-defense-investments.html" target="_blank" rel="noopener noreferrer">Robot factories and hypersonic missiles: JPMorgan Chase&#x27;s first $5 billion of defense investments <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>With $5 billion already deployed off its balance sheet, JPMorgan Chase is racing ahead on direct investments in defense tech, hardware and supply chains.</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="tech_ai"><summary><span>Technology &amp; AI</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Oct 20, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/10/20/yelp-can-now-call-on-your-behalf-to-check-wait-times-at-a-restaurant/" target="_blank" rel="noopener noreferrer">Yelp can now call on your behalf to check wait times at a restaurant <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Yelp is embedding numerous new AI features into its app that can do everything from call to check on restaurant wait times to create personalized recommendations that remember your preferences.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Oct 20, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/10/20/otter-ai-raises-320-million-from-general-catalysts-growth-fund-for-its-meeting-tool/" target="_blank" rel="noopener noreferrer">Otter.ai raises $320 million from General Catalyst’s growth fund for its meeting tool <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Meeting note-taking tool Otter.ai announced on Tuesday that it has raised $320 million from General Catalyst’s Customer Value Fund (CVF), which provides capital to startups without diluting equity and gets returns on the results of marketing spend. Otter.ai…</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;AI technology news&quot; - Google News · Oct 20, 2026 · 5:36 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQVFYyUERfTERkMGthRy1yc1lGem5Sd0ltREZtZTlhaHNLZXU4ZFFTSHc1VDNJNWJSWnAwXzlGRnVXWnZpdmFrUHJWakRfbGJUWGg2VnhFUkFQMjNaTy1qNEVoT0JndVRhejBzR29UNnM0MVIxWkJfZzV3Wms3UUVKckxTZ2lMWDNKWFpiNTBNMk05ZUE?oc=5" target="_blank" rel="noopener noreferrer">China defends DeepSeek after US ban of its AI from government systems - Yahoo <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>China defends DeepSeek after US ban of its AI from government systems Yahoo</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;AI technology news&quot; - Google News · Oct 20, 2026 · 5:19 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMixgFBVV95cUxQN3Brem5aVVZIZDRCdnRqQWhHbE50Sy1CT1hmLTB5WUo1cnNJN21Odi1OZU1tN25LbzZZVEJNWGVkS1h2WF9kM2lwWFo2eUdpVDFoTmpKUXhQM0JUZmZMMGVQdXR1aFVCQmhrWFhIMFFPNjZheGdLTVdtYzZlWW5HT2pMVmVMTThnWUl2Z2tRWFlGbFJMMWd4b1U3WmVQaWUzb2pKSGE2WjV1MDdzT3RMcTZfR3lCR3hFYjNtekpoNFdocmR5aWfSAcsBQVVfeXFMTmR1NkxTcV80dFlwZklCVGswSGxtMWZnX3RFWEpLR2wwd0xqQUh0R2xZUHIwU2k2VDZrVWNncjlXVm51cWo1dlFJRW5jWUxQa0Z1a1ZFZHU1RlJqSU1weWRURkV2NWJucUQzX1VGN0N5WDkyaGNXNHdlNlJPaFpTVGY0aFpvaEctWjQ3eFVQSXVMMmFfOXBnMWRaYXRwcnRlbXlyV2R1R1pUTjA2MEp1WjdyZTFuMjBpRm9FLW9xVmJsbl9ueko3aVRMa1U?oc=5" target="_blank" rel="noopener noreferrer">“We were looking at it wrong”: The explosive claim that’s upended the AI world - MIT Technology Review <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>“We were looking at it wrong”: The explosive claim that’s upended the AI world MIT Technology Review</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Oct 20, 2026 · 3:01 AM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/10/20/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowded-internet/" target="_blank" rel="noopener noreferrer">Blackwall quadruples valuation to $2.2B as websites wrangle an increasingly crowded internet <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Blackwall has raised $100M at a $2.2B valuation to continue building security and filtering tools that help websites grapple with growing bot and AI traffic.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Oct 19, 2026 · 10:00 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/10/19/walmarts-flipkart-is-quietly-building-a-food-delivery-challenger-in-india/" target="_blank" rel="noopener noreferrer">Walmart’s Flipkart is quietly building a food delivery challenger in India <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Flipkart has expanded access to its food-delivery service to thousands of employees ahead of its public launch.</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="general_news"><summary><span>Top news</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 7:14 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/20/world/europe/france-curfews-riots-protests-extended.html" target="_blank" rel="noopener noreferrer">France to Extend Curfews After a Night of Calm, Prime Minister Says <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The restrictions are part of a state effort to reassert control after the country’s largest riots in years, as those arrested in the chaos face expedited trials.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 6:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/20/podcasts/the-headlines/tax-billionaires-ndas.html" target="_blank" rel="noopener noreferrer">The Fight to Tax Billionaires, and Why NDAs Are Everywhere Now <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Plus, a contentious character is back on “The Simpsons.”</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">BBC News · Oct 20, 2026 · 5:33 AM ET</p>
+          <h4><a class="story-link" href="https://www.bbc.co.uk/news/articles/cxr5yqqd7nlpo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Alberta votes overwhelmingly to remain part of Canada, projections suggest <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The vote has been hailed by Prime Minister Mark Carney as &quot;a clear choice&quot; in favour of national unity.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 5:02 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/20/us/politics/republicans-midterm-election-cash-transfer.html" target="_blank" rel="noopener noreferrer">Republican National Committee Moves $50 Million to Help Midterm Candidates in Huge Cash Transfer <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The party apparatus is taking advantage of its enormous war chest, as well as a Supreme Court campaign-finance ruling this year, to send tens of millions into congressional races.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 5:01 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/20/world/europe/france-protests-europe-centrist-far-right.html" target="_blank" rel="noopener noreferrer">France Protests Show Europe’s Shift Away From Centrist Politics <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Europe’s centrist parties are losing ground among young people and workers, who are increasingly tempted by populist promises of radical change.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Oct 20, 2026 · 3:19 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/10/19/us/politics/trump-russia-deals.html" target="_blank" rel="noopener noreferrer">Trump’s Push for Deals With Russia Powers His Frustration With Ukraine <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The series of recent steps by the president that seem to favor Vladimir Putin reflect his intensifying desire to normalize the relationship with Moscow even if it means further undercutting Ukraine.</p>
+        </div>
+      </article>
+    </div></details></div>
+        </section>
+      </main>
+      <footer>Generated locally from your selected sources · <a href="latest.json">View source facts</a></footer>
+      <script>
+const filters=document.querySelectorAll('.filter');filters.forEach(button=>button.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));button.classList.add('active');const wanted=button.dataset.filter;document.querySelectorAll('.news-group').forEach(group=>{const matches=wanted==='all'||group.dataset.section===wanted;group.hidden=!matches;if(wanted!=='all')group.open=matches})}));
+</script>
+    </body></html>
