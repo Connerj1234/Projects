@@ -434,11 +434,11 @@ window.ATL_DATA = {
       "name": "Dominik Chong Qui",
       "number": "50",
       "position": "D",
-      "appearances": 0,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 0
+      "appearances": null,
+      "starts": null,
+      "goals": null,
+      "assists": null,
+      "minutes": null
     },
     {
       "id": "mls-2026-MLS-OBJ-000CRG",
@@ -676,11 +676,11 @@ window.ATL_DATA = {
       "name": "Santiago Pita",
       "number": "40",
       "position": "M",
-      "appearances": 0,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 0
+      "appearances": null,
+      "starts": null,
+      "goals": null,
+      "assists": null,
+      "minutes": null
     },
     {
       "id": "mls-2026-MLS-OBJ-000089",
@@ -8825,7 +8825,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-19T05:00:07.973Z"
+    "generatedAt": "2026-10-20T05:00:07.521Z"
   },
   "seasonHistory": [
     {
