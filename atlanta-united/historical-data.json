@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T05:00:08.558Z",
+  "generatedAt": "2026-10-21T05:00:08.772Z",
   "seasons": [
     {
       "season": 2026,
@@ -554,11 +554,11 @@
           "name": "Dominik Chong Qui",
           "number": "50",
           "position": "D",
-          "appearances": null,
-          "starts": null,
-          "goals": null,
-          "assists": null,
-          "minutes": null
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
         },
         {
           "id": "mls-2026-MLS-OBJ-000CRG",
@@ -796,11 +796,11 @@
           "name": "Santiago Pita",
           "number": "40",
           "position": "M",
-          "appearances": null,
-          "starts": null,
-          "goals": null,
-          "assists": null,
-          "minutes": null
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
         },
         {
           "id": "mls-2026-MLS-OBJ-000089",
