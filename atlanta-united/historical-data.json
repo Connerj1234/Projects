@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T05:00:08.772Z",
+  "generatedAt": "2026-10-22T05:00:08.273Z",
   "seasons": [
     {
       "season": 2026,
@@ -335,6 +335,19 @@
         },
         {
           "rank": 8,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 30,
+          "wins": 10,
+          "draws": 9,
+          "losses": 11,
+          "points": 39,
+          "goalDiff": -9,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 9,
           "teamId": "7318",
           "team": "Toronto FC",
           "played": 30,
@@ -343,19 +356,6 @@
           "losses": 10,
           "points": 36,
           "goalDiff": -9,
-          "conference": "Eastern Conference",
-          "isAtlanta": false
-        },
-        {
-          "rank": 9,
-          "teamId": "18267",
-          "team": "FC Cincinnati",
-          "played": 29,
-          "wins": 9,
-          "draws": 9,
-          "losses": 11,
-          "points": 36,
-          "goalDiff": -10,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -402,12 +402,12 @@
           "rank": 13,
           "teamId": "193",
           "team": "D.C. United",
-          "played": 29,
+          "played": 30,
           "wins": 7,
           "draws": 12,
-          "losses": 10,
+          "losses": 11,
           "points": 33,
-          "goalDiff": -14,
+          "goalDiff": -15,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },

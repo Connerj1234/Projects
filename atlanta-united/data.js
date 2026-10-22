@@ -315,7 +315,7 @@ window.ATL_DATA = {
       "lineRank": 9,
       "linePoints": 36,
       "pointsFromLine": -6,
-      "gamesInHand": -1
+      "gamesInHand": 0
     }
   },
   "playerStats": [
@@ -8512,6 +8512,19 @@ window.ATL_DATA = {
       },
       {
         "rank": 8,
+        "teamId": "18267",
+        "team": "FC Cincinnati",
+        "played": 30,
+        "wins": 10,
+        "draws": 9,
+        "losses": 11,
+        "points": 39,
+        "goalDiff": -9,
+        "conference": "Eastern Conference",
+        "isAtlanta": false
+      },
+      {
+        "rank": 9,
         "teamId": "7318",
         "team": "Toronto FC",
         "played": 30,
@@ -8520,19 +8533,6 @@ window.ATL_DATA = {
         "losses": 10,
         "points": 36,
         "goalDiff": -9,
-        "conference": "Eastern Conference",
-        "isAtlanta": false
-      },
-      {
-        "rank": 9,
-        "teamId": "18267",
-        "team": "FC Cincinnati",
-        "played": 29,
-        "wins": 9,
-        "draws": 9,
-        "losses": 11,
-        "points": 36,
-        "goalDiff": -10,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8579,12 +8579,12 @@ window.ATL_DATA = {
         "rank": 13,
         "teamId": "193",
         "team": "D.C. United",
-        "played": 29,
+        "played": 30,
         "wins": 7,
         "draws": 12,
-        "losses": 10,
+        "losses": 11,
         "points": 33,
-        "goalDiff": -14,
+        "goalDiff": -15,
         "conference": "Eastern Conference",
         "isAtlanta": false
       },
@@ -8825,7 +8825,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-21T05:00:07.743Z"
+    "generatedAt": "2026-10-22T05:00:07.364Z"
   },
   "seasonHistory": [
     {
