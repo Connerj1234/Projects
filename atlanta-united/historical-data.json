@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T05:00:08.273Z",
+  "generatedAt": "2026-10-25T05:00:10.784Z",
   "seasons": [
     {
       "season": 2026,
@@ -239,6 +239,13 @@
           "venue": "Home",
           "competition": "MLS",
           "result": "-"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "New York City FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "-"
         }
       ],
       "tableSnapshot": [
@@ -246,12 +253,12 @@
           "rank": 1,
           "teamId": "18986",
           "team": "Nashville SC",
-          "played": 30,
-          "wins": 20,
+          "played": 31,
+          "wins": 21,
           "draws": 7,
           "losses": 3,
-          "points": 67,
-          "goalDiff": 41,
+          "points": 70,
+          "goalDiff": 43,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -259,12 +266,12 @@
           "rank": 2,
           "teamId": "20232",
           "team": "Inter Miami CF",
-          "played": 30,
+          "played": 31,
           "wins": 15,
           "draws": 10,
-          "losses": 5,
+          "losses": 6,
           "points": 55,
-          "goalDiff": 22,
+          "goalDiff": 20,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -272,12 +279,12 @@
           "rank": 3,
           "teamId": "189",
           "team": "New England Revolution",
-          "played": 30,
-          "wins": 16,
+          "played": 31,
+          "wins": 17,
           "draws": 4,
           "losses": 10,
-          "points": 52,
-          "goalDiff": 8,
+          "points": 55,
+          "goalDiff": 9,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -285,12 +292,12 @@
           "rank": 4,
           "teamId": "182",
           "team": "Chicago Fire FC",
-          "played": 30,
-          "wins": 14,
+          "played": 31,
+          "wins": 15,
           "draws": 6,
           "losses": 10,
-          "points": 48,
-          "goalDiff": 8,
+          "points": 51,
+          "goalDiff": 9,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -298,12 +305,12 @@
           "rank": 5,
           "teamId": "21300",
           "team": "Charlotte FC",
-          "played": 30,
+          "played": 31,
           "wins": 13,
           "draws": 8,
-          "losses": 9,
+          "losses": 10,
           "points": 47,
-          "goalDiff": 8,
+          "goalDiff": 7,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -311,77 +318,77 @@
           "rank": 6,
           "teamId": "10739",
           "team": "Philadelphia Union",
-          "played": 30,
+          "played": 31,
           "wins": 13,
           "draws": 7,
-          "losses": 10,
+          "losses": 11,
           "points": 46,
-          "goalDiff": 13,
+          "goalDiff": 12,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 7,
-          "teamId": "12011",
-          "team": "Orlando City SC",
-          "played": 30,
-          "wins": 12,
-          "draws": 5,
-          "losses": 13,
-          "points": 41,
-          "goalDiff": -12,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 31,
+          "wins": 11,
+          "draws": 9,
+          "losses": 11,
+          "points": 42,
+          "goalDiff": -7,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 8,
-          "teamId": "18267",
-          "team": "FC Cincinnati",
-          "played": 30,
-          "wins": 10,
-          "draws": 9,
-          "losses": 11,
-          "points": 39,
-          "goalDiff": -9,
+          "teamId": "12011",
+          "team": "Orlando City SC",
+          "played": 31,
+          "wins": 12,
+          "draws": 6,
+          "losses": 13,
+          "points": 42,
+          "goalDiff": -12,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 9,
-          "teamId": "7318",
-          "team": "Toronto FC",
-          "played": 30,
-          "wins": 8,
-          "draws": 12,
-          "losses": 10,
-          "points": 36,
-          "goalDiff": -9,
+          "teamId": "190",
+          "team": "Red Bull New York",
+          "played": 31,
+          "wins": 11,
+          "draws": 6,
+          "losses": 14,
+          "points": 39,
+          "goalDiff": -15,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 10,
-          "teamId": "190",
-          "team": "Red Bull New York",
-          "played": 30,
-          "wins": 10,
-          "draws": 6,
-          "losses": 14,
-          "points": 36,
-          "goalDiff": -17,
+          "teamId": "183",
+          "team": "Columbus Crew",
+          "played": 31,
+          "wins": 11,
+          "draws": 5,
+          "losses": 15,
+          "points": 38,
+          "goalDiff": 1,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
         {
           "rank": 11,
-          "teamId": "183",
-          "team": "Columbus Crew",
-          "played": 30,
-          "wins": 10,
-          "draws": 5,
-          "losses": 15,
-          "points": 35,
-          "goalDiff": -1,
+          "teamId": "7318",
+          "team": "Toronto FC",
+          "played": 31,
+          "wins": 8,
+          "draws": 12,
+          "losses": 11,
+          "points": 36,
+          "goalDiff": -11,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -389,11 +396,11 @@
           "rank": 12,
           "teamId": "17606",
           "team": "New York City FC",
-          "played": 30,
+          "played": 31,
           "wins": 8,
-          "draws": 10,
+          "draws": 11,
           "losses": 12,
-          "points": 34,
+          "points": 35,
           "goalDiff": 2,
           "conference": "Eastern Conference",
           "isAtlanta": false
@@ -402,12 +409,12 @@
           "rank": 13,
           "teamId": "193",
           "team": "D.C. United",
-          "played": 30,
+          "played": 31,
           "wins": 7,
           "draws": 12,
-          "losses": 11,
+          "losses": 12,
           "points": 33,
-          "goalDiff": -15,
+          "goalDiff": -17,
           "conference": "Eastern Conference",
           "isAtlanta": false
         },
@@ -415,12 +422,12 @@
           "rank": 14,
           "teamId": "18418",
           "team": "Atlanta United FC",
-          "played": 30,
+          "played": 31,
           "wins": 8,
           "draws": 6,
-          "losses": 16,
+          "losses": 17,
           "points": 30,
-          "goalDiff": -14,
+          "goalDiff": -15,
           "conference": "Eastern Conference",
           "isAtlanta": true
         },
@@ -428,12 +435,12 @@
           "rank": 15,
           "teamId": "9720",
           "team": "CF Montréal",
-          "played": 30,
+          "played": 31,
           "wins": 6,
           "draws": 7,
-          "losses": 17,
+          "losses": 18,
           "points": 25,
-          "goalDiff": -24,
+          "goalDiff": -26,
           "conference": "Eastern Conference",
           "isAtlanta": false
         }
@@ -466,11 +473,11 @@
           "name": "Alexey Miranchuk",
           "number": "59",
           "position": "M",
-          "appearances": 28,
+          "appearances": 29,
           "starts": 0,
           "goals": 6,
           "assists": 6,
-          "minutes": 2269
+          "minutes": 2331
         },
         {
           "id": "mls-2026-MLS-OBJ-000CX8",
@@ -499,11 +506,11 @@
           "name": "Breel Embolo",
           "number": "36",
           "position": "OFF",
-          "appearances": 8,
+          "appearances": 9,
           "starts": 0,
-          "goals": 2,
+          "goals": 3,
           "assists": 1,
-          "minutes": 692
+          "minutes": 782
         },
         {
           "id": "mls-2026-MLS-OBJ-0000BY",
@@ -565,11 +572,11 @@
           "name": "Elías Baez",
           "number": "3",
           "position": "D",
-          "appearances": 27,
+          "appearances": 28,
           "starts": 0,
           "goals": 1,
-          "assists": 4,
-          "minutes": 2375
+          "assists": 5,
+          "minutes": 2465
         },
         {
           "id": "mls-2026-MLS-OBJ-00081B",
@@ -609,22 +616,22 @@
           "name": "Fafà Picault",
           "number": "22",
           "position": "OFF",
-          "appearances": 21,
+          "appearances": 22,
           "starts": 0,
           "goals": 4,
           "assists": 1,
-          "minutes": 761
+          "minutes": 789
         },
         {
           "id": "mls-2026-MLS-OBJ-000B6B",
           "name": "Giuliano Galoppo",
           "number": "11",
           "position": "M",
-          "appearances": 5,
+          "appearances": 6,
           "starts": 0,
           "goals": 2,
           "assists": 0,
-          "minutes": 393
+          "minutes": 480
         },
         {
           "id": "mls-2026-MLS-OBJ-000BN6",
@@ -642,11 +649,11 @@
           "name": "Jay Fortune",
           "number": "35",
           "position": "M",
-          "appearances": 16,
+          "appearances": 17,
           "starts": 0,
           "goals": 3,
           "assists": 0,
-          "minutes": 710
+          "minutes": 772
         },
         {
           "id": "mls-2026-MLS-OBJ-0005GF",
@@ -675,33 +682,33 @@
           "name": "Júnior Alonso",
           "number": "6",
           "position": "D",
-          "appearances": 14,
+          "appearances": 15,
           "starts": 0,
           "goals": 0,
           "assists": 0,
-          "minutes": 1226
+          "minutes": 1316
         },
         {
           "id": "mls-2026-MLS-OBJ-000575",
           "name": "Lucas Hoyos",
           "number": "1",
           "position": "GK",
-          "appearances": 30,
+          "appearances": 31,
           "starts": 0,
           "goals": 0,
           "assists": 0,
-          "minutes": 2700
+          "minutes": 2790
         },
         {
           "id": "mls-2026-MLS-OBJ-000239",
           "name": "Luke Brennan",
           "number": "20",
           "position": "OFF",
-          "appearances": 17,
+          "appearances": 18,
           "starts": 0,
           "goals": 0,
           "assists": 0,
-          "minutes": 480
+          "minutes": 483
         },
         {
           "id": "mls-2026-MLS-OBJ-000CDH",
@@ -719,44 +726,44 @@
           "name": "Matthew Edwards",
           "number": "47",
           "position": "D",
-          "appearances": 20,
+          "appearances": 21,
           "starts": 0,
           "goals": 0,
           "assists": 1,
-          "minutes": 929
+          "minutes": 939
         },
         {
           "id": "mls-2026-MLS-OBJ-000FCT",
           "name": "Mauricio Amaro",
           "number": "14",
           "position": "M",
-          "appearances": 8,
+          "appearances": 9,
           "starts": 0,
           "goals": 0,
           "assists": 0,
-          "minutes": 624
+          "minutes": 714
         },
         {
           "id": "mls-2026-MLS-OBJ-0003T9",
           "name": "Miguel Almirón",
           "number": "10",
           "position": "F",
-          "appearances": 23,
+          "appearances": 24,
           "starts": 0,
           "goals": 6,
-          "assists": 6,
-          "minutes": 1946
+          "assists": 7,
+          "minutes": 2036
         },
         {
           "id": "mls-2026-MLS-OBJ-0007A4",
           "name": "Paulo Díaz",
           "number": "27",
           "position": "D",
-          "appearances": 8,
+          "appearances": 9,
           "starts": 0,
           "goals": 0,
           "assists": 0,
-          "minutes": 599
+          "minutes": 679
         },
         {
           "id": "mls-2026-MLS-OBJ-0007KA",
@@ -840,11 +847,11 @@
           "name": "Tomás Jacob",
           "number": "55",
           "position": "D",
-          "appearances": 26,
+          "appearances": 27,
           "starts": 0,
-          "goals": 3,
+          "goals": 4,
           "assists": 2,
-          "minutes": 2174
+          "minutes": 2264
         },
         {
           "id": "mls-2026-MLS-OBJ-00083K",
@@ -862,11 +869,11 @@
           "name": "Tristan Muyumba",
           "number": "8",
           "position": "M",
-          "appearances": 30,
+          "appearances": 31,
           "starts": 0,
           "goals": 4,
           "assists": 1,
-          "minutes": 2172
+          "minutes": 2200
         },
         {
           "id": "mls-2026-MLS-OBJ-0007WB",
@@ -880,7 +887,7 @@
           "minutes": 714
         }
       ],
-      "notes": "In-season sync: 31 fixtures, 15 table rows, 40 roster rows."
+      "notes": "In-season sync: 32 fixtures, 15 table rows, 40 roster rows."
     },
     {
       "season": 2025,
