@@ -7,16 +7,16 @@ window.ATL_DATA = {
   "record": {
     "wins": 8,
     "draws": 6,
-    "losses": 16
+    "losses": 17
   },
   "stats": {
     "points": 30,
-    "goalsFor": 37,
-    "goalsAgainst": 51,
-    "homeRecord": "4-2-9",
+    "goalsFor": 39,
+    "goalsAgainst": 54,
+    "homeRecord": "4-2-10",
     "awayRecord": "4-4-7",
     "cleanSheets": 4,
-    "avgAttendance": 22632
+    "avgAttendance": 21218
   },
   "position": {
     "rank": 14,
@@ -24,19 +24,26 @@ window.ATL_DATA = {
   },
   "formLastFive": [
     "L",
+    "L",
     "W",
     "L",
-    "D",
-    "W"
+    "D"
   ],
   "nextMatch": {
-    "opponent": "Chicago Fire FC",
-    "dateISO": "2026-10-24T23:30Z",
+    "opponent": "New York City FC",
+    "dateISO": "2026-10-28T23:30Z",
     "competition": "MLS",
-    "venue": "Mercedes-Benz Stadium",
+    "venue": "Citi Field",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-10-24",
+      "opponent": "Chicago Fire FC",
+      "venue": "Home",
+      "score": "2-3",
+      "outcome": "Loss"
+    },
     {
       "date": "2026-10-17",
       "opponent": "Inter Miami CF",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Home",
       "score": "2-2",
       "outcome": "Draw"
-    },
-    {
-      "date": "2026-09-19",
-      "opponent": "Portland Timbers",
-      "venue": "Away",
-      "score": "1-0",
-      "outcome": "Win"
     }
   ],
   "seasonProgress": [
@@ -283,30 +283,31 @@ window.ATL_DATA = {
       "opponent": "Inter Miami CF",
       "result": "1-3 (Loss)",
       "points": 30
+    },
+    {
+      "match": 31,
+      "date": "2026-10-24",
+      "opponent": "Chicago Fire FC",
+      "result": "2-3 (Loss)",
+      "points": 30
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 7,
-      "goalDiffLast5": 0,
-      "formRatingOutOf5": 2.3,
-      "goalDiffPerMatch": 0,
-      "pointsPerMatchLastN": 1.4,
+      "pointsLast5": 4,
+      "goalDiffLast5": -2,
+      "formRatingOutOf5": 1.3,
+      "goalDiffPerMatch": -0.4,
+      "pointsPerMatchLastN": 0.8,
       "gamesSampled": 5,
-      "cleanSheetsLastN": 2,
+      "cleanSheetsLastN": 1,
       "wdlLast5": {
-        "wins": 2,
+        "wins": 1,
         "draws": 1,
-        "losses": 2
+        "losses": 3
       }
     },
     "nextThree": [
-      {
-        "opponent": "Chicago Fire FC",
-        "dateISO": "2026-10-24T23:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
       {
         "opponent": "New York City FC",
         "dateISO": "2026-10-28T23:30Z",
@@ -8691,11 +8692,11 @@ window.ATL_DATA = {
         "rank": 6,
         "teamId": "18966",
         "team": "LAFC",
-        "played": 31,
+        "played": 32,
         "wins": 12,
-        "draws": 10,
+        "draws": 11,
         "losses": 9,
-        "points": 46,
+        "points": 47,
         "goalDiff": 15,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8730,11 +8731,11 @@ window.ATL_DATA = {
         "rank": 9,
         "teamId": "187",
         "team": "LA Galaxy",
-        "played": 31,
+        "played": 32,
         "wins": 10,
-        "draws": 10,
+        "draws": 11,
         "losses": 11,
-        "points": 40,
+        "points": 41,
         "goalDiff": -9,
         "conference": "Western Conference",
         "isAtlanta": false
@@ -8831,7 +8832,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-25T05:00:09.223Z"
+    "generatedAt": "2026-10-26T05:00:12.521Z"
   },
   "seasonHistory": [
     {

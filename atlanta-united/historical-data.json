@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T05:00:10.784Z",
+  "generatedAt": "2026-10-26T05:00:14.223Z",
   "seasons": [
     {
       "season": 2026,
@@ -9,18 +9,18 @@
       "seasonPulse": {
         "wins": 8,
         "draws": 6,
-        "losses": 16,
+        "losses": 17,
         "points": 30,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 37,
-        "goalsAgainst": 51,
-        "homeRecord": "4-2-9",
+        "goalsFor": 39,
+        "goalsAgainst": 54,
+        "homeRecord": "4-2-10",
         "awayRecord": "4-4-7",
         "cleanSheets": 4,
-        "avgAttendance": 22632
+        "avgAttendance": 21218
       },
       "fullSchedule": [
         {
@@ -238,7 +238,7 @@
           "opponent": "Chicago Fire FC",
           "venue": "Home",
           "competition": "MLS",
-          "result": "-"
+          "result": "2-3 (Loss)"
         },
         {
           "date": "2026-10-28",
