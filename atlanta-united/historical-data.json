@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T05:00:08.083Z",
+  "generatedAt": "2026-10-30T05:00:08.467Z",
   "seasons": [
     {
       "season": 2026,
@@ -9,16 +9,16 @@
       "seasonPulse": {
         "wins": 8,
         "draws": 6,
-        "losses": 17,
+        "losses": 18,
         "points": 30,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 39,
-        "goalsAgainst": 54,
+        "goalsFor": 40,
+        "goalsAgainst": 56,
         "homeRecord": "4-2-10",
-        "awayRecord": "4-4-7",
+        "awayRecord": "4-4-8",
         "cleanSheets": 4,
         "avgAttendance": 21218
       },
@@ -245,7 +245,7 @@
           "opponent": "New York City FC",
           "venue": "Away",
           "competition": "MLS",
-          "result": "-"
+          "result": "1-2 (Loss)"
         },
         {
           "date": "2026-11-01",

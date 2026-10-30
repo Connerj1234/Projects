@@ -7,14 +7,14 @@ window.ATL_DATA = {
   "record": {
     "wins": 8,
     "draws": 6,
-    "losses": 17
+    "losses": 18
   },
   "stats": {
     "points": 30,
-    "goalsFor": 39,
-    "goalsAgainst": 54,
+    "goalsFor": 40,
+    "goalsAgainst": 56,
     "homeRecord": "4-2-10",
-    "awayRecord": "4-4-7",
+    "awayRecord": "4-4-8",
     "cleanSheets": 4,
     "avgAttendance": 21218
   },
@@ -25,18 +25,25 @@ window.ATL_DATA = {
   "formLastFive": [
     "L",
     "L",
-    "W",
     "L",
-    "D"
+    "W",
+    "L"
   ],
   "nextMatch": {
-    "opponent": "New York City FC",
-    "dateISO": "2026-10-28T23:30Z",
+    "opponent": "Toronto FC",
+    "dateISO": "2026-11-01T21:30Z",
     "competition": "MLS",
-    "venue": "Citi Field",
+    "venue": "Mercedes-Benz Stadium",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-10-28",
+      "opponent": "New York City FC",
+      "venue": "Away",
+      "score": "1-2",
+      "outcome": "Loss"
+    },
     {
       "date": "2026-10-24",
       "opponent": "Chicago Fire FC",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Home",
       "score": "1-3",
       "outcome": "Loss"
-    },
-    {
-      "date": "2026-09-26",
-      "opponent": "New York City FC",
-      "venue": "Home",
-      "score": "2-2",
-      "outcome": "Draw"
     }
   ],
   "seasonProgress": [
@@ -290,30 +290,31 @@ window.ATL_DATA = {
       "opponent": "Chicago Fire FC",
       "result": "2-3 (Loss)",
       "points": 30
+    },
+    {
+      "match": 32,
+      "date": "2026-10-28",
+      "opponent": "New York City FC",
+      "result": "1-2 (Loss)",
+      "points": 30
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 4,
-      "goalDiffLast5": -2,
-      "formRatingOutOf5": 1.3,
-      "goalDiffPerMatch": -0.4,
-      "pointsPerMatchLastN": 0.8,
+      "pointsLast5": 3,
+      "goalDiffLast5": -3,
+      "formRatingOutOf5": 1,
+      "goalDiffPerMatch": -0.6,
+      "pointsPerMatchLastN": 0.6,
       "gamesSampled": 5,
       "cleanSheetsLastN": 1,
       "wdlLast5": {
         "wins": 1,
-        "draws": 1,
-        "losses": 3
+        "draws": 0,
+        "losses": 4
       }
     },
     "nextThree": [
-      {
-        "opponent": "New York City FC",
-        "dateISO": "2026-10-28T23:30Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
       {
         "opponent": "Toronto FC",
         "dateISO": "2026-11-01T21:30Z",
@@ -8838,7 +8839,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-10-29T05:00:06.779Z"
+    "generatedAt": "2026-10-30T05:00:06.505Z"
   },
   "seasonHistory": [
     {
