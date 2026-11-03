@@ -5,38 +5,45 @@ window.ATL_DATA = {
   "expectedRegularSeasonMatches": 34,
   "clubName": "Atlanta United",
   "record": {
-    "wins": 8,
+    "wins": 9,
     "draws": 6,
     "losses": 18
   },
   "stats": {
-    "points": 30,
-    "goalsFor": 40,
-    "goalsAgainst": 56,
-    "homeRecord": "4-2-10",
+    "points": 33,
+    "goalsFor": 43,
+    "goalsAgainst": 57,
+    "homeRecord": "5-2-10",
     "awayRecord": "4-4-8",
     "cleanSheets": 4,
-    "avgAttendance": 21218
+    "avgAttendance": 22393
   },
   "position": {
     "rank": 13,
     "conference": "Eastern Conference"
   },
   "formLastFive": [
-    "L",
-    "L",
-    "L",
     "W",
-    "L"
+    "L",
+    "L",
+    "L",
+    "W"
   ],
   "nextMatch": {
-    "opponent": "Toronto FC",
-    "dateISO": "2026-11-01T21:30Z",
+    "opponent": "Red Bull New York",
+    "dateISO": "2026-11-07T21:00Z",
     "competition": "MLS",
-    "venue": "Mercedes-Benz Stadium",
+    "venue": "Sports Illustrated Stadium",
     "broadcast": "MLS Season Pass"
   },
   "results": [
+    {
+      "date": "2026-11-01",
+      "opponent": "Toronto FC",
+      "venue": "Home",
+      "score": "3-1",
+      "outcome": "Win"
+    },
     {
       "date": "2026-10-28",
       "opponent": "New York City FC",
@@ -64,13 +71,6 @@ window.ATL_DATA = {
       "venue": "Away",
       "score": "3-0",
       "outcome": "Win"
-    },
-    {
-      "date": "2026-10-10",
-      "opponent": "FC Cincinnati",
-      "venue": "Home",
-      "score": "1-3",
-      "outcome": "Loss"
     }
   ],
   "seasonProgress": [
@@ -297,30 +297,31 @@ window.ATL_DATA = {
       "opponent": "New York City FC",
       "result": "1-2 (Loss)",
       "points": 30
+    },
+    {
+      "match": 33,
+      "date": "2026-11-01",
+      "opponent": "Toronto FC",
+      "result": "3-1 (Win)",
+      "points": 33
     }
   ],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 3,
-      "goalDiffLast5": -3,
-      "formRatingOutOf5": 1,
-      "goalDiffPerMatch": -0.6,
-      "pointsPerMatchLastN": 0.6,
+      "pointsLast5": 6,
+      "goalDiffLast5": 1,
+      "formRatingOutOf5": 2,
+      "goalDiffPerMatch": 0.2,
+      "pointsPerMatchLastN": 1.2,
       "gamesSampled": 5,
       "cleanSheetsLastN": 1,
       "wdlLast5": {
-        "wins": 1,
+        "wins": 2,
         "draws": 0,
-        "losses": 4
+        "losses": 3
       }
     },
     "nextThree": [
-      {
-        "opponent": "Toronto FC",
-        "dateISO": "2026-11-01T21:30Z",
-        "venue": "Home",
-        "competition": "MLS"
-      },
       {
         "opponent": "Red Bull New York",
         "dateISO": "2026-11-07T21:00Z",
@@ -8856,7 +8857,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-11-02T05:00:06.602Z"
+    "generatedAt": "2026-11-03T05:00:07.346Z"
   },
   "seasonHistory": [
     {

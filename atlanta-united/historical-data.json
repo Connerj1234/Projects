@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T05:00:08.056Z",
+  "generatedAt": "2026-11-03T05:00:09.226Z",
   "seasons": [
     {
       "season": 2026,
@@ -7,20 +7,20 @@
       "seasonLabel": "2026 MLS Regular Season",
       "expectedRegularSeasonMatches": 34,
       "seasonPulse": {
-        "wins": 8,
+        "wins": 9,
         "draws": 6,
         "losses": 18,
-        "points": 30,
+        "points": 33,
         "finish": null,
         "playoffs": null
       },
       "seasonLongStats": {
-        "goalsFor": 40,
-        "goalsAgainst": 56,
-        "homeRecord": "4-2-10",
+        "goalsFor": 43,
+        "goalsAgainst": 57,
+        "homeRecord": "5-2-10",
         "awayRecord": "4-4-8",
         "cleanSheets": 4,
-        "avgAttendance": 21218
+        "avgAttendance": 22393
       },
       "fullSchedule": [
         {
@@ -252,7 +252,7 @@
           "opponent": "Toronto FC",
           "venue": "Home",
           "competition": "MLS",
-          "result": "-"
+          "result": "3-1 (Win)"
         },
         {
           "date": "2026-11-07",
