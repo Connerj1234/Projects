@@ -1,145 +1,153 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "general_news": [
     {
-      "link": "https://www.npr.org/2026/11/02/g-s1-151215/up-first-newsletter-michigan-senate-iran-war-supreme-court-colorado-catholic-church",
-      "published_at": "2026-11-02T07:19:54-05:00",
+      "link": "https://www.npr.org/2026/11/03/g-s1-151445/up-first-newsletter-midterms-election-day-iran-war-lindsay-clancy",
+      "published_at": "2026-11-03T06:43:49-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Democrats in Michigan are considering their options after Haley Stevens endorsed GOP candidate Mike Rogers for Senate. And the Gulf states are bracing for a possible U.S. attack on Iran after the midterms.",
-      "title": "Haley Stevens backs Mike Rogers. And, Gulf states brace for potential attack on Iran"
+      "summary": "Election Day is here, and voters are heading to the polls in an election that may change control of Congress. And, a judge is considering whether to dismiss Lindsay Clancy's murder case.",
+      "title": "Control of Congress is at stake today. And, judge to consider motion in Clancy case"
     },
     {
-      "link": "https://www.npr.org/sections/planet-money/2026/11/02/g-s1-151009/two-economists-studied-californias-billionaire-tax-they-reached-wildly-different-conclusions",
-      "published_at": "2026-11-02T06:30:00-05:00",
+      "link": "https://www.npr.org/2026/11/03/g-s1-151439/russia-ukraine-war",
+      "published_at": "2026-11-03T06:01:14-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "What happens in California could shape how America taxes the superrich. But will its billionaire tax fill state coffers \u2014 or drain them?",
-      "title": "Two economists studied California's billionaire tax. They reached wildly different conclusions"
+      "summary": "Russia launched 289 attack drones, 17 ballistic missiles and 59 cruise missiles across nine regions, President Zelenskyy said in an online post that noted the barrage coincided with U.S. elections.",
+      "title": "Death toll hits 29 after Russian strike on Ukrainian aid site, with 48 still missing"
     },
     {
-      "link": "https://www.npr.org/2026/11/02/nx-s1-6025451/midterms-what-to-watch-election-night",
-      "published_at": "2026-11-02T05:00:00-05:00",
+      "link": "https://www.npr.org/2026/11/03/g-s1-151305/2026-midterms-house-races-to-watch",
+      "published_at": "2026-11-03T06:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Some of the key storylines to watch will center around various voters groups that have soured on President Trump during his second turn out.",
-      "title": "6 things to watch for on election night"
+      "summary": "As polls close on Election Day and results start rolling in, these are some of the House races that will help explain how the midterms are unfolding.",
+      "title": "Four types of House races to watch on election night to know how it might go"
     },
     {
-      "link": "https://www.npr.org/2026/11/02/nx-s1-5989648/midterm-voting-election-pressure",
-      "published_at": "2026-11-02T05:00:00-05:00",
+      "link": "https://www.npr.org/2026/11/03/nx-s1-6026597/review-legend-of-zelda-ocarina-of-time-remake-switch-2",
+      "published_at": "2026-11-03T06:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "The districts that will decide control of the House and Senate next year are spread across the country. Voting officials in those places may face scrutiny and pressure they've never experienced.",
-      "title": "When it comes to election pressure, this year's Georgia or Michigan could be anywhere"
+      "summary": "Nintendo's new Ocarina of Time remake enshrines its place in the gaming canon for generations to come. But despite its stupendous production values, the game left me feeling oddly bereft.",
+      "title": "Review: The Legend of Zelda: Ocarina of Time remake is superb, streamlined and safe"
     },
     {
-      "link": "https://www.npr.org/2026/11/02/nx-s1-6007855/college-admissions-change-fewer-students",
-      "published_at": "2026-11-02T05:00:00-05:00",
+      "link": "https://www.npr.org/2026/11/03/g-s1-151311/how-npr-calls-races-2026",
+      "published_at": "2026-11-03T05:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Colleges are trying to transform an admissions process that has often been daunting, secretive and stressful into an experience that's open, easier \u2014 and downright friendly.",
-      "title": "With students scarce, college admissions offices get friendlier, less intimidating"
+      "summary": "Race calls are a critical part of election night and NPR partners with the Associated Press to make those calls. Here's how we do it.",
+      "title": "How NPR makes race calls in the 2026 election"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/02/us/politics/midterm-elections.html",
-      "published_at": "2026-11-02T10:03:33+00:00",
+      "link": "https://www.nytimes.com/video/us/politics/100000011228221/whats-at-stake-in-todays-elections.html",
+      "published_at": "2026-11-03T11:28:27+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Republicans, worried about losing control of Congress, are sending dire warnings about the opposing party. Democrats are trying to keep their focus on affordability, corruption and President Trump.",
-      "title": "Parties End the Midterm Election With Their Closing Arguments"
+      "summary": "Though President Trump\u2019s name is not on the ballot, voters are weighing the effects of his agenda in Tuesday\u2019s midterm elections. Lisa Lerer, a national political reporter for The New York Times, describes how three crucial issues are affecting their decisions.",
+      "title": "What\u2019s at Stake in Today\u2019s Elections"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/01/us/politics/el-sayed-stevens-meltdown-michigan-democrats.html",
-      "published_at": "2026-11-02T06:31:55+00:00",
+      "link": "https://www.nytimes.com/2026/11/03/us/midterm-elections-trump-democrats-republicans-key-themes.html",
+      "published_at": "2026-11-03T10:02:55+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "The relationship shattered in part because of Israel, but also because of their sensitive egos and hurt feelings. The split had been months in the making.",
-      "title": "Inside the Abdul El-Sayed-Haley Stevens Meltdown in Michigan"
+      "summary": "Republicans are bracing for losses amid a backlash to the president\u2019s economic leadership and the Iran war. Whether that means giving up control of the Senate is Tuesday\u2019s biggest question.",
+      "title": "6 Themes to Watch for in the Midterms Elections Results"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/02/podcasts/the-headlines/midterms-polls-crypto-heist.html",
-      "published_at": "2026-11-02T11:00:12+00:00",
+      "link": "https://www.nytimes.com/2026/11/03/podcasts/the-headlines/midterm-election-trump-voter-fraud-reward.html",
+      "published_at": "2026-11-03T11:00:10+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Plus, the smog over Tomorrowland.",
-      "title": "The Final Polls Before the Midterms, and a $6 Billion Crypto Heist"
+      "summary": "Plus, \u201cwho\u2019s going to believe me if I\u2019m addicted to a wellness tonic?\u201d",
+      "title": "What to Expect on Election Night, and Trump\u2019s $1 Million Voter Fraud Reward"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/02/magazine/identity-politics-economy-class.html",
-      "published_at": "2026-11-02T12:24:12+00:00",
+      "link": "https://www.nytimes.com/2026/11/03/world/middleeast/trump-iran-war-midterms-election.html",
+      "published_at": "2026-11-03T10:47:18+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Since Trump\u2019s return, discussions of diversity have gone quiet. This year\u2019s midterms have shown that Americans could be ready for something new.",
-      "title": "Identity Politics Have Entered a New Phase"
+      "summary": "The energy-rich Gulf Arab countries are engaged in a flurry of mediation efforts to avert war between the U.S. and Iran, as many fear that the fighting will be worse this time around.",
+      "title": "As Trump\u2019s Midterm Deadline Looms, Gulf Countries Brace for Possible Renewal of Iran War"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/02/business/iran-war-gulf-economies.html",
-      "published_at": "2026-11-02T10:02:16+00:00",
+      "link": "https://www.nytimes.com/2026/11/02/us/politics/us-military-strikes-iran-qeshm-island.html",
+      "published_at": "2026-11-03T04:10:38+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "States like Saudi Arabia and the United Arab Emirates that have worked to rebalance from a dependence on energy have seen growth plunge in a year of strife.",
-      "title": "Gulf Economies, Torn by War in Iran, Desperately Need a Return to Normal"
+      "summary": "The action was limited, the officials said, with no immediate plans to escalate. The strikes come on the eve of the midterm elections.",
+      "title": "U.S. Military Strikes Iran\u2019s Qeshm Island in What U.S. Officials Call a Defensive Measure"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/c3j47gjx29vro?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-11-02T04:04:28+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cq78pgn7em34o?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-03T10:32:56+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The US president rallied in states that Republicans previously won - showcasing how tight Tuesday's elections could be in determining control of Congress.",
-      "title": "Trump makes final campaign push in final weekend before election"
+      "summary": "Democratic wave or Republican resilience? Here are three possible outcomes after Americans have their say.",
+      "title": "Three scenarios for how the US midterm results could unfold"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/c95ynzv88n68o?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-11-02T01:45:42+00:00",
+      "link": "https://www.bbc.co.uk/news/videos/cqj346nndl0yo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-03T10:55:05+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The move by Haley Stevens, who lost out on the Democratic Senate nomination to Abdul El-Sayed, was called a \"despicable betrayal\" by one top Democrat.",
-      "title": "Democrat endorses Republican candidate in key Michigan Senate race as party spat erupts"
+      "summary": "We asked voters whether they supported Trump in 2024, and how his performance in office is shaping their choices this time.",
+      "title": "Voter voices: Trump's influence on US midterm voters"
     }
   ],
-  "generated_at": "2026-11-02T07:30:02.657373-05:00",
+  "generated_at": "2026-11-03T07:30:02.120876-05:00",
   "holidays": [],
   "local_news": [
     {
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNXExUkYxV3NCeUsyRVZxd3FLWHk2cjZXNDh1WUpVS0FJS1lYN2hkNDBxdnVGYTFVSWo3cnhUOVNOQUNEdzZ5YU1GM1N1VE5faEI0SzZBbWhhVTdEc1RncERvckhMLVhoQ2dYNnQ0YTQtXzk2QndPdllqLWxtX0Jwc05YTEU0bFRibFhydDJ5MjRKU2Jpb2F1dlVKUTZXUi10REV3?oc=5",
-      "published_at": "2026-11-02T01:05:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQT01ieW9kZWJTdWlJdUx0anhzT2FuQmJhakZ1RU5sSGZtcm5tbk4yV1MtSDJjRXVWNmZhVnJ6OVNMVjZBTEs4OF84clRDX29TRkJ2cDN6cUlGa1IxWmFWR3ZIRDRBRmNFSTFxMTAxZF9zbFgwLXNLSUdnMTB5RC1vNTVJX280QXdBSHpVbVVzbUpoQXpCY29zSkJmOUpHbFJsM3VkLVFlUTJiUUVqd0JpQU1WcjZ1UmUyaTZHdGtQV0s3Y2x6NE5tU1BKUGdYd3R0MWJaRNIB6AFBVV95cUxOaWFFUzM4UnF3czY2TzdtOHJaMVU0bTY4RDFkeGszRVY1WWdSa2M0WmhHbTkwbkQ1UVoxZHlQcU54cUg3V2tCRVBvTWNVSDhvSXRiclNiSUNsN2p0MWNmbEFrNUdoR05NUVZTZjFWcGZJcnBTYmRIMkNuN0RHN21lMlhrZTVMcmp1eGVMVm1jRE5KUWdTNGFIRXoybGlob3NJMmpkSTJSeGljTmJReHlVNTlJMW5OTEppUHgzekxNUkdIdlpLT2JJSTRYVUhLRXF5SlE5SF9HZDBOcG83d1hmYlR3WGtWLWdL?oc=5",
+      "published_at": "2026-11-02T17:40:33+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "2 DeKalb County police officers shot responding to domestic call; suspect arrested Atlanta News First",
-      "title": "2 DeKalb County police officers shot responding to domestic call; suspect arrested - Atlanta News First"
+      "summary": "Victim from deadly Halloween night shooting in metro Atlanta identified WSB-TV",
+      "title": "Victim from deadly Halloween night shooting in metro Atlanta identified - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdVVFLU91M2xDcm1uRXp1OGlaeUlVRE8wTThGUS04M1c3Y2FPTEhOdnp6UzJCanZiMTFPTU9tUXotbENGZndBWnhUTktpd08wLXR3UVJLQmZFTG96UUZYbFhQeWZ4cFZrV3pKaVlfcVhRbExMQlJLcGRhM3dNTHc3X1BmNjhjcHZMTXZ6MlFBVHRMSFd1MGNucGJxQmkwWmhtZWViM0pB?oc=5",
-      "published_at": "2026-11-01T18:17:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaFBxQmVZeDBGTXJWZlZkbXFkUE1LMzBoWWM0c2NUWjhuMXlNUWUwbWt2V0ZvZXhnNVdocTQyRThRb2cwSDFkeVdLQjlLcFBoY0stb0p2MEtabHMzTlFVLTFnbVNQZXRVNFc5YkdUcmpoTVVRaE1lZFJMQk0wcFAxeG1hM1ZMaXlTT3RwcmZweEpibUZVMVJHaHJZb3FJbGxIUTJPSXNZdFJrQl9ac3YtVmZqQzM?oc=5",
+      "published_at": "2026-11-03T12:00:00+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "1 dead, 2 injured in separate shootings after Halloween, Atlanta police say WALB.com",
-      "title": "1 dead, 2 injured in separate shootings after Halloween, Atlanta police say - WALB.com"
+      "summary": "Election Day: Georgia voters head to precincts in high-stakes midterm battle Atlanta News First",
+      "title": "Election Day: Georgia voters head to precincts in high-stakes midterm battle - Atlanta News First"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQWENEblhnNTU4N3NfYTFDTEpJT0UtblgzaVNOcE9BTmxrUzlpV2xkVUNHRUZtaWFNZXEwWWd0cy12WmFiamk2LWNfaGlJbERvUjcxaTRrU2lpM0ZYX2t1UnAtdGptVV9wOXpST3VkWDl1R0YyeVByNXFsNXRtSV9SQmRyanhweW5DS3lOSy1CVGdnbjYtSnJRSXVPMjBiajVQaldXRk9XbHFIaWtEV1RGWEZnUWR3V0FRelB6ZzNPcTh0bUVQeEE2RjFCdUYwNTREZXNCWTZsSkpCckZjRTRkVHMyQU9ZVnRKZ1lFcG1tWHdQTHhWWWwyTFRITkphd9IBkgJBVV95cUxOUVIwME81NXhKQV9YeHdpaXpLbnJmOW5RTHZubkZuTHgwZnFxemdXNjFXc2NyaG5IS29JZnpzeWctT0wyU1BlWEN3cUt5SVp5aGkyallhWHgwbFg4NGhJNkN4V3ZRVzJyLUhnYVR1VHI1bDVqMl8yUXRPcUhJZDE2ODhYYzhEQjRKNXBfaGFraERRdHAyM0o1cENuay12M3BDTlBNVjh3M24wZzZyVk16czViVzZWVzN4eTBlN201WEdNQV9LenBCcXJrYVg2WWZyR0JVQlNET3V6TmVmWENkNHJmSk9IS1lHRXZ5Q25TTjY0WnlrTW1rTEVPcGV1dGZNdVVuQU9RSC1rZ21nRkJmRWZR?oc=5",
-      "published_at": "2026-11-01T19:43:32+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPVWpVY2dlX2dHZHJuVXJ0d1p3UEhlR0FzTGNoVTgwNk40WTV0S1RjWVRFOUROYWZsZmlGdEd0NlFqd1dWRzAzRllyUGNVdkhlbzJud09VOEFMQzUyZ3NvUUxtTXhVTTA0ZmNleDc0WmdZMkVTNkZBMy1NUkRGeVNicVV2bEFTOE55ZTVyWTUyanhWU0l4N2dVaHNxRV92a2ZJQ2x3VTlwY3JCbWFVN0lmZ3VINTFQdDZJOFJz?oc=5",
+      "published_at": "2026-11-02T17:30:58+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Georgia elections 2026: Polling location changes due to \u2018recent change in ownership\u2019 WSB-TV",
-      "title": "Georgia elections 2026: Polling location changes due to \u2018recent change in ownership\u2019 - WSB-TV"
+      "summary": "Georgia to begin sending property tax relief funds to local governments this week CBS News",
+      "title": "Georgia to begin sending property tax relief funds to local governments this week - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPNWJZLVlRYjdaRlMyR2RhVVdSS2R0aE1nMU4xa0RhVWJXTERtOUtQMS02cERNT3MtR20xeFhtOE5NblViTEhMNFFWeFE5Tm1FREZlbmN4eDF3aEdPZmtIaXhnMWg2UDNCRlhyOUpHbGZTZVhMTk5tRnNSZlE1LXVuRjNsdTgzcmd2bUdpVFBMQ2tkTVBJLVIwYUNXcGdxMF9LbTd5RWNqRVpVYVFNS05UVTB3bw?oc=5",
-      "published_at": "2026-11-02T04:00:35+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORnhZWEw2eVdDQ3kzLTRsOTcyalBvSHZmUUxSRzZUZHZqcDlMVDZ2SXBxRUc4U0lxcmt2MklqZE13eFgyV2tZR0dTTnF6dUdKZnhBUDRRdGpYeGVsdDFMb2E5SHExc0hNUFdWLXROeHlHenlyMU14dGV6VzJNZElERkZqOFM4Q0d6aXMwbWlqSmNKb3ZzZEZUSG1VWmxGc1Q2b1HSAbYBQVVfeXFMTlRrZFowWmk4Q0ZXeWhHU19KQkEwVzJkaG5HUnk2aDV2cFdZOHUzbW0wX2Z0SGpydjB6NUpLalpobUhWMnJTbkNXRlRSU09jLV8zZERVZGFSaXI0ZVVyU3Z1V3N2T3VNd29MN3c5UWp6azlxVHRNbnl3NHpXTDZKWjB0VFlJbjJ2WTVJZUpqTm43UFBqY0xfMFhWYnFLenI2MWZLeGIyRnBuQl9wNll4bFNOU2diYUE?oc=5",
+      "published_at": "2026-11-03T03:18:53+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Mike Tomlin calls Cowboys 'a bunch of blinkers' after catastrophic OT loss to Cardinals Dallas News",
-      "title": "Mike Tomlin calls Cowboys 'a bunch of blinkers' after catastrophic OT loss to Cardinals - Dallas News"
+      "summary": "Ga. medical student receives mail-in ballot just a day before midterms WRDW",
+      "title": "Ga. medical student receives mail-in ballot just a day before midterms - WRDW"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPQ21OUHdSUmFBOUlaUVJsNjU3WV96WGhGQzdzVXJEbWpoaHBqTS16ckdOcE5kWGRZVkJTc3dTdlNaaEd2YWxLcG1MVlVJQktiSjlfMzRNTlVNc243ci11aW1kLWRMN3RQY2c4QkFwclVKRWYtNVM2TXFWaGZSRWtYMDNfOUN2dTh4Q2VJNEJxdGtETk9TdXhmTGRXUGc1LXVFMnFsaDBWVmdiZkZQc1dNXzM1YWJuVUxPMTBHbTcwQ1Q0bVpwSk800gHMAUFVX3lxTE5ETWg5WEt5NzJzYURwQV95cmxJeHR2bXE2Zl96OUdmMnlpaWZoUlJtRjdhbUdmY21kRzFIYUU0MFRldlNLa0ZMeFBLWGd2czlubHE3WEFnREtGeWdzUi1Vd2Q4akpYdVdSd040REMyS0dRa3lvWTkzRVJxQ283OEg1aDl2NFgtS2tvSTRhUGQ4S2NyLTVPb3Z0ajU0S05LMTR2Ymg1Mld4ZmVRN3B0M3NXcmNWaTN2MDQ5RjNYcGctUlNYX1AxX3dRVFQ1bQ?oc=5",
-      "published_at": "2026-10-31T20:42:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQNENVYnBCdjZqM29oMFhrNGpnSTBPcXUyY3ROdUFQeWg1RUhKNkNRbnBzRk5PMGpTckgxQUtmZlo2Z0YwZno5QjhVaDVhaDgzX3NYWkZ5VENOZDZmRUJMQjFoM3dQNmMyZElEaVROYVViUUZOdVRnWU95UVVjV20xMlVScnotSENpWjlBYQ?oc=5",
+      "published_at": "2026-11-02T20:57:11+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "G20 foreign ministers end Atlanta meeting without consensus on key issues PBS",
-      "title": "G20 foreign ministers end Atlanta meeting without consensus on key issues - PBS"
+      "summary": "Kemp announces property tax cuts for Georgia homeowners FOX 5 Atlanta",
+      "title": "Kemp announces property tax cuts for Georgia homeowners - FOX 5 Atlanta"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOOVVrYUI2cFBfUkJiU19ScDlYMkF6R3JzMTlRUHdpZ1ZabzVBOHJ4cTJKWnpZUkRtZjZnRXh5bm05aFNSVDhrQ20ydkFJV1BZS0tzbHg0ek5vODBneGtUWHNucEo0NGhON2hlTUxzMDdCREFPYmpJYjRjcjJ1ZUxIbTIwU0VrUdIBlwFBVV95cUxQc1B1el9zdHVac1ZlZVEwdVg3WW0yRjQ2Nk13UUVPc0pidzQxd19jUEYxZV9PTlJ5U0JUU3loWVE2SmFMUkZncldFUFRTSURmdXozdU10MExpa1h1OEdsX0RWbmtlMnZPcDVyUGg1SkNjLTU3NDdQREhYZWZza1JxUmkwcTh5ZHc1MmJ2cUJDZDdUemlNS1lR?oc=5",
+      "published_at": "2026-11-02T20:44:00+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "GA Launches 2026 Homeowner Tax Relief Rollout Patch",
+      "title": "GA Launches 2026 Homeowner Tax Relief Rollout - Patch"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVmUxUkpsZ0dZUGRrUW1JVUF0Z3BHbFJZdlBSdmlmdENDNmlvS1lKWGZXNDZCc2hYM1BEOGI1bnBVTjFLdXlQTlVCSUxSZ2o0dl9va2VQUXlwOHR6UzljQ0JONlhBdUEzZFFXc0gxYU1ybmlDSkJWbXNvUlZuV3c5QUU2bTY1V0tfWHdYQUxEYnF6MVVfekk5ZTFrVlI?oc=5",
@@ -156,14 +164,6 @@
       "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
       "summary": "Georgia Gov. Brian Kemp declares state of emergency ahead of Hurricane Isaias CBS News",
       "title": "Georgia Gov. Brian Kemp declares state of emergency ahead of Hurricane Isaias - CBS News"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQzRUWlJxUUZEMVhyWFFqRFA0bGUxOWlJRW1TdmNDVWtzQlYwYTItSU4zQUlkVngtU2FxcG9zSmpsYkV0T1J1aHpVa1JsSVhWWWVmMFd1aFNRT04xV28xOHhVNkhZdlc4S0w4c2dDWEJiejR4T0tSeXhkQ2pPcF9zUF9LeUdPTnFLcEFDYlR5Z3RXTGlQZFQtNkdpMnN3NnhPWDZqNGNNMmlwUlF4S251cWpVWi1scVZlOFl5RQ?oc=5",
-      "published_at": "2026-10-05T07:00:00+00:00",
-      "source": "\"Georgia state government Atlanta\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Brownstein Expands Southeast Footprint with State Government Relations Group in Georgia Brownstein Hyatt Farber Schreck",
-      "title": "Brownstein Expands Southeast Footprint with State Government Relations Group in Georgia - Brownstein Hyatt Farber Schreck"
     }
   ],
   "market_news": [
@@ -172,93 +172,85 @@
       "source_url": "https://finance.yahoo.com/news/rssindex"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html",
-      "published_at": "2026-11-02T11:00:55+00:00",
+      "link": "https://www.cnbc.com/2026/11/03/midterm-election-stock-market.html",
+      "published_at": "2026-11-03T11:54:28+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Oil fell Monday, amid news that both the U.S. and Iran are pursuing diplomacy amid ongoing Mideast tensions",
-      "title": "U.S. crude falls below $100 amid reports of U.S.-Iran diplomatic efforts"
+      "summary": "Wall Street weighs how the 2026 midterms could affect stocks, Treasury yields, artificial intelligence, energy prices, banks, defense and healthcare.",
+      "title": "Midterm elections could jolt stocks if Democrats sweep Congress"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/02/midterm-election-stocks-defense-healthcare-crypto-ai.html",
-      "published_at": "2026-11-02T11:00:01+00:00",
+      "link": "https://www.cnbc.com/2026/11/03/pfizer-pfe-earnings-q3-2026.html",
+      "published_at": "2026-11-03T12:19:01+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Democratic gains in Congress could bring tougher oversight of major companies and shift billions of dollars in federal spending and regulatory policy.",
-      "title": "Defense, healthcare, crypto and AI: How the midterm election could affect stocks"
+      "summary": "Pfizer announced that Cecile Guegan, who has held various leadership roles at the company over the last 20 years, stepped in as CFO this month.",
+      "title": "Pfizer hikes full-year outlook, taps company veteran as new CFO"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/02/canada-india-bank-takeover-protest-workers.html",
-      "published_at": "2026-11-02T04:09:34+00:00",
+      "link": "https://www.cnbc.com/2026/11/03/apple-palantir-stock-earnings.html",
+      "published_at": "2026-11-03T10:34:38+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "IDBI workers demand the government \"cancel the privatization process\" and work to strengthen the bank while protecting public investment and staff interests.",
-      "title": "Canada-India $5.5 billion bank takeover attracts opposition from workers, politicians"
+      "summary": "The iPhone-maker and software giant fell after earnings failed to impress investors.",
+      "title": "Apple shares slide after weak margin outlook; Palantir slumps 8% after earnings"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/01/chris-murphy-stroke-senate-hospital.html",
-      "published_at": "2026-11-02T10:29:11+00:00",
+      "link": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+      "published_at": "2026-11-03T12:10:31+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Sen. Chris Murphy's office announced Sunday that he suffered a stroke and was hospitalized the day prior, though they say he is 'awake and alert.'",
-      "title": "Connecticut Sen. Chris Murphy has stroke and is in the hospital, office says"
+      "summary": "In John Ternus' first earnings report as CEO, Apple issued a gross margin forecast that disappointed Wall Street.",
+      "title": "Apple's John Ternus faces early test as global memory crisis hurts profits"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/01/michigan-senate-stevens-rogers-endorsement-el-sayed.html",
-      "published_at": "2026-11-01T21:06:42+00:00",
+      "link": "https://www.cnbc.com/2026/11/03/oil-prices-climb-after-us-reportedly-strikes-irans-qeshm-island.html",
+      "published_at": "2026-11-03T09:58:37+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Haley Stevens had lost the Democratic nomination for Senate in Michigan to Abdul El-Sayed earlier this year.",
-      "title": "Democratic Rep. Stevens endorses Republican Rogers over rival El-Sayed in Michigan Senate election"
+      "summary": "The rebound in oil prices come a day after the U.S. and Iranian presidents signalled they are open to a diplomatic solution to Iran war.",
+      "title": "Oil prices climb after U.S. strikes Iran's Qeshm Island"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/03/yum-brands-yum-q3-2026-earnings.html",
+      "published_at": "2026-11-03T12:01:12+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Taco Bell's same-store sales declined as a Cyclospora outbreak tied to lettuce served at its restaurants weighed on traffic.",
+      "title": "Yum Brands earnings beat estimates, but cyclospora outbreak weighs on Taco Bell"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/03/versant-vsnt-q3-2026-earnings.html",
+      "published_at": "2026-11-03T12:06:59+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Versant posted third-quarter earnings that beat Wall Street expectations and reaffirmed its full-year guidance.",
+      "title": "Versant earnings beat expectations as digital platforms drive growth"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/03/baked-by-melissa-cupcake-kits-target.html",
+      "published_at": "2026-11-03T12:11:15+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Baked by Melissa is launching bite-size cupcake kits at Target as the retailer heads into the critical holiday shopping season.",
+      "title": "Baked by Melissa enters Target with first at-home cupcake mix"
     },
     {
       "link": "https://www.cnbc.com/2026/10/31/automakers-3d-printing-ford-rivian-gm.html",
-      "published_at": "2026-10-31T12:00:01+00:00",
+      "published_at": "2026-11-02T14:09:13+00:00",
       "source": "Business News",
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
       "summary": "Automakers including Ford, Rivian and GM are expanding 3D printing to make prototypes, factory tools and low-volume parts faster and at lower cost.",
       "title": "Automakers like Rivian and Ford are \u2018democratizing 3D printing\u2019 to reduce costs and increase speed"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/10/30/cheap-cars-selling-fast.html",
-      "published_at": "2026-10-30T18:45:35+00:00",
-      "source": "Business News",
-      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Data indicates cheap cars are selling fast, but a few lower-priced segments still saw sales drop in the third quarter. Here's what might be happening.",
-      "title": "Cheaper cars are selling considerably faster than at the beginning of the year"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/10/29/starbucks-sbux-q4-2026-earnings.html",
-      "published_at": "2026-10-30T13:29:50+00:00",
-      "source": "Business News",
-      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Starbucks' U.S. stores topped Wall Street's comparable sales expectations but its international business fell short of estimates.",
-      "title": "Starbucks sales miss expectations, but its U.S. turnaround is gaining steam"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/10/29/rivian-rivn-earnings-q3-2026.html",
-      "published_at": "2026-10-29T21:52:27+00:00",
-      "source": "Business News",
-      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "Rivian also revised its 2026 guidance to mark expected improvements in its vehicle deliveries, pre-tax adjusted earnings and capital expenditures.",
-      "title": "Rivian third-quarter earnings beat estimates as software revenue, R2 deliveries rise"
     }
   ],
   "market_watchlist": [
     {
-      "change": -13.639985351562473,
-      "change_percent": -1.7729002822169937,
+      "change": -3.6199707031249773,
+      "change_percent": -0.47900953308894845,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 718.6599731445312,
-          "timestamp": 1777555800
-        },
-        {
-          "close": 720.6500244140625,
-          "timestamp": 1777642200
-        },
         {
           "close": 718.010009765625,
           "timestamp": 1777901400
@@ -762,30 +754,26 @@
         {
           "close": 755.719970703125,
           "timestamp": 1793367000
+        },
+        {
+          "close": 752.0999755859375,
+          "timestamp": 1793629800
         }
       ],
-      "history_change_percent": 5.156823566131122,
+      "history_change_percent": 4.7478433128672926,
       "market_state": null,
       "name": "S&P 500 ETF",
-      "previous_close": 769.3599853515625,
-      "price": 755.72,
+      "previous_close": 755.719970703125,
+      "price": 752.1,
       "source": "Yahoo Finance chart API",
       "symbol": "SPY"
     },
     {
-      "change": -24.85002685546874,
-      "change_percent": -3.4738761879026767,
+      "change": -9.399990234374968,
+      "change_percent": -1.3613506882531783,
       "currency": "USD",
       "exchange": "NGM",
       "history_6m": [
-        {
-          "close": 667.739990234375,
-          "timestamp": 1777555800
-        },
-        {
-          "close": 674.1500244140625,
-          "timestamp": 1777642200
-        },
         {
           "close": 672.8800048828125,
           "timestamp": 1777901400
@@ -1289,30 +1277,26 @@
         {
           "close": 690.489990234375,
           "timestamp": 1793367000
+        },
+        {
+          "close": 681.0900268554688,
+          "timestamp": 1793629800
         }
       ],
-      "history_change_percent": 3.4070162186392063,
+      "history_change_percent": 1.2201276687687235,
       "market_state": null,
       "name": "Nasdaq 100 ETF",
-      "previous_close": 715.3400268554688,
-      "price": 690.49,
+      "previous_close": 690.489990234375,
+      "price": 681.09,
       "source": "Yahoo Finance chart API",
       "symbol": "QQQ"
     },
     {
-      "change": -5.5999804687500045,
-      "change_percent": -1.0712950620755115,
+      "change": 2.209995117187532,
+      "change_percent": 0.42735774298927826,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 496.6499938964844,
-          "timestamp": 1777555800
-        },
-        {
-          "close": 495.0199890136719,
-          "timestamp": 1777642200
-        },
         {
           "close": 489.55999755859375,
           "timestamp": 1777901400
@@ -1816,30 +1800,26 @@
         {
           "close": 517.1300048828125,
           "timestamp": 1793367000
+        },
+        {
+          "close": 519.3400268554688,
+          "timestamp": 1793629800
         }
       ],
-      "history_change_percent": 4.123629589288633,
+      "history_change_percent": 6.083013847111153,
       "market_state": null,
       "name": "Dow ETF",
-      "previous_close": 522.72998046875,
-      "price": 517.13,
+      "previous_close": 517.1300048828125,
+      "price": 519.34,
       "source": "Yahoo Finance chart API",
       "symbol": "DIA"
     },
     {
-      "change": -4.680009765625016,
-      "change_percent": -1.6478326836040473,
+      "change": -0.18998657226563864,
+      "change_percent": -0.06801510091953093,
       "currency": "USD",
       "exchange": "PCX",
       "history_6m": [
-        {
-          "close": 277.9700012207031,
-          "timestamp": 1777555800
-        },
-        {
-          "close": 279.2799987792969,
-          "timestamp": 1777642200
-        },
         {
           "close": 277.8800048828125,
           "timestamp": 1777901400
@@ -2343,26 +2323,26 @@
         {
           "close": 279.3299865722656,
           "timestamp": 1793367000
+        },
+        {
+          "close": 279.1400146484375,
+          "timestamp": 1793629800
         }
       ],
-      "history_change_percent": 0.48926098979186056,
+      "history_change_percent": 0.45343137147232,
       "market_state": null,
       "name": "Russell 2000 ETF",
-      "previous_close": 284.010009765625,
-      "price": 279.33,
+      "previous_close": 279.3299865722656,
+      "price": 279.14,
       "source": "Yahoo Finance chart API",
       "symbol": "IWM"
     },
     {
-      "change": -374.98312499999884,
-      "change_percent": -0.4792211347628463,
+      "change": 539.5931249999994,
+      "change_percent": 0.7037195454081393,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
-        {
-          "close": 78657.25,
-          "timestamp": 1777680000
-        },
         {
           "close": 78538.2265625,
           "timestamp": 1777766400
@@ -3096,32 +3076,28 @@
           "timestamp": 1793491200
         },
         {
-          "close": 77873.46875,
+          "close": 76677.296875,
           "timestamp": 1793577600
+        },
+        {
+          "close": 77216.890625,
+          "timestamp": 1793664000
         }
       ],
-      "history_change_percent": -0.9964497868918617,
+      "history_change_percent": -1.6824120181125977,
       "market_state": null,
       "name": "Bitcoin",
-      "previous_close": 78248.453125,
-      "price": 77873.47,
+      "previous_close": 76677.296875,
+      "price": 77216.89,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
     {
-      "change": -9.020003662109389,
-      "change_percent": -4.2216622238638495,
+      "change": -2.5799993896484352,
+      "change_percent": -1.2607502918996503,
       "currency": "USD",
       "exchange": "NMS",
       "history_6m": [
-        {
-          "close": 199.57000732421875,
-          "timestamp": 1777555800
-        },
-        {
-          "close": 198.4499969482422,
-          "timestamp": 1777642200
-        },
         {
           "close": 198.47999572753906,
           "timestamp": 1777901400
@@ -3625,13 +3601,17 @@
         {
           "close": 204.63999938964844,
           "timestamp": 1793367000
+        },
+        {
+          "close": 202.05999755859375,
+          "timestamp": 1793629800
         }
       ],
-      "history_change_percent": 2.5404582300508687,
+      "history_change_percent": 1.80371037360125,
       "market_state": null,
       "name": "Nvidia",
-      "previous_close": 213.66000366210938,
-      "price": 204.64,
+      "previous_close": 204.63999938964844,
+      "price": 202.06,
       "source": "Yahoo Finance chart API",
       "symbol": "NVDA"
     }
@@ -3642,37 +3622,6 @@
   ],
   "sports": {
     "followed_teams": [
-      {
-        "broadcasts": [
-          "DAZN IND",
-          "NBA League Pass"
-        ],
-        "completed": false,
-        "event": "Atlanta Hawks at Indiana Pacers",
-        "event_id": "401909909",
-        "followed_team": "Atlanta Hawks",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/nba/game/_/gameId/401909909/hawks-pacers",
-        "sport_path": "basketball/nba",
-        "starts_at": "2026-11-03T00:30Z",
-        "status": "Scheduled",
-        "status_state": "pre",
-        "teams": [
-          {
-            "abbreviation": "IND",
-            "home_away": "home",
-            "name": "Indiana Pacers",
-            "score": "0"
-          },
-          {
-            "abbreviation": "ATL",
-            "home_away": "away",
-            "name": "Atlanta Hawks",
-            "score": "0"
-          }
-        ],
-        "venue": "Gainbridge Fieldhouse"
-      },
       {
         "broadcasts": [
           "MNMT"
@@ -4417,79 +4366,95 @@
   },
   "tech_ai": [
     {
-      "link": "https://techcrunch.com/2026/11/02/ford-launches-a-privacy-promise-and-explains-how-and-why-it-uses-a-customers-data/",
-      "published_at": "2026-11-02T11:00:00+00:00",
+      "link": "https://techcrunch.com/2026/11/03/yvonne-bajela-is-bringing-17m-in-fresh-capital-to-europes-startup-scene/",
+      "published_at": "2026-11-03T08:01:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Ford said it's making an \"explicit commitment\" to its customers that \"their vehicle data is safe\" with the company.",
-      "title": "Ford launches a \u2018privacy promise\u2019 and explains how and why it uses customer data"
+      "summary": "Evertrue Capital announces $17M debut fund to back early stage AI and fintech.",
+      "title": "Yvonne Bajela is bringing $17M in fresh capital to Europe\u2019s startup scene"
     },
     {
-      "link": "https://techcrunch.com/2026/11/01/borrowed-reading-stories-from-our-extended-colleagues/",
-      "published_at": "2026-11-02T04:23:48+00:00",
+      "link": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing/",
+      "published_at": "2026-11-03T07:20:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Five stories worth your time from our extended colleagues at CIO, Computerworld, Macworld, and PCWorld.",
-      "title": "Borrowed reading: stories from our extended colleagues"
+      "summary": "Now in beta: Apple's new Audio Intelligence features can help you remember what someone said or take notes on conversations.",
+      "title": "Apple Watch\u2019s AI features for rewinding and recapping conversations begin beta testing"
     },
     {
-      "link": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
-      "published_at": "2026-11-01T21:55:23+00:00",
+      "link": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
+      "published_at": "2026-11-03T03:30:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Data centers are deeply unpopular. But what if we called them something else?",
-      "title": "OpenAI might rebrand its data centers as \u2018AI compute campuses\u2019"
+      "summary": "Google's Dreambeans, its latest AI experiment, now supports 13 Indian languages.",
+      "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses"
     },
     {
-      "link": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
-      "published_at": "2026-11-01T20:57:58+00:00",
+      "link": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+      "published_at": "2026-11-03T01:49:52+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "On Equity, we discuss why tech CEO statements can seem so tone deaf.",
-      "title": "AI can make tech CEOs\u2019 lives easier. What about everyone else?"
+      "summary": "Apple hinted at ways that it could spur revenue through third-party \"opportunities\" during its Monday night earnings call.",
+      "title": "Apple may try to increase revenue by doing\u2026something with third-party AI apps"
     },
     {
-      "link": "https://techcrunch.com/2026/11/01/techcrunch-mobility-a-new-bigger-av-boom-is-here/",
-      "published_at": "2026-11-01T17:04:00+00:00",
+      "link": "https://techcrunch.com/2026/11/02/ukraines-new-pocket-sized-gadget-turns-russian-drones-cameras-against-them/",
+      "published_at": "2026-11-03T01:12:55+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it.",
-      "title": "TechCrunch Mobility: A new, bigger AV boom is here"
+      "summary": "A Kyiv startup\u2019s pocket-sized, 10-ounce receiver lets Ukrainian troops watch the video feeds of Russian drones, though Russian moves toward digital video and AI-guided drones that emit no signals could make the victory short-lived.",
+      "title": "Ukraine\u2019s new pocket-sized gadget turns Russian drones\u2019 cameras against them"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9TUzBvaG91ZkJPb2Z3cDhJOHZGVW4tSGxXbXhuS0JTa0JQYVlaOE1kb3FzS1lKdjU4ckY5aWlON3pOWUY2eUcyRlkwSl9ob3E0TnpGQ005TW5kX19SWmJoUmttd3Vqcnp5MXNEckRENzA1eFJFeTh30gF8QVVfeXFMTkkydnZzNHdpR0RrUkVDb2UycEEzeF9ZejZZdnFBUlJfN0VIa2Zub3NCaFBXQzRMczNpbzQyWm1KZXA1UWk5MHBRVXo4WE1VN2tNUjJYUE1hbU1MRS02SUZ3NEk4Vk9VY0V5YjZnU1JVNS1La3g4dVpSOXJzbg?oc=5",
-      "published_at": "2026-11-01T06:00:01+00:00",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPbVJnZjBKWi04YnlCcDEtMGZvTmIyUTQ2bDFSay1YMVdSa2E0aHdCMV9abmctblEtYnVNR3ZLRnpSTkszTmtNdDdsU3dMN0hVWVR6a1RhbjhISlFmb0dZN2xKLXZyR05QLXlhNV8tSDFxRzQ1aVlGYVd1X0RWbjc1emdLV094SmNRNzJQUnM1ZVM2eldlMms1QmU2V1pXVGNwcEJxSjdlX181ZDlLckdtN1JnZ1J2RnNZMjFYbWN2aG5WR09IdUJ6bjN4VjJHdWc?oc=5",
+      "published_at": "2026-11-03T06:02:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Companies promised AI gains \u2014 here's how the payoff showed up in earnings CNBC",
-      "title": "Companies promised AI gains \u2014 here's how the payoff showed up in earnings - CNBC"
+      "summary": "\u2018A serious failure\u2019: CPS prosecutor cites imaginary case to high court after AI search The Guardian",
+      "title": "\u2018A serious failure\u2019: CPS prosecutor cites imaginary case to high court after AI search - The Guardian"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNNGVSMFZpNnEzZEFzNmN2NWptMnZMaW9UazBTWDBLcVJyVWpjR0ZDU04zdTZNM2Q4NHNoYi1iMkNfclBWY0lXb1RfNXYtUkIwOEhBQWQ5SlE5MVB4czZoa1c2akY2dXB1Zi1iRFVWV0kyZTFUVXc5cFFZR29xcmdWY0NWZ1QyUQ?oc=5",
-      "published_at": "2026-10-31T09:00:54+00:00",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQSzNBLTZEQWd3WGJtSVlvWW9BYnlFNW91WUowLUhCZFJ4NmREYU4tUG9hM1Jzb0RaOVNKczZPTUZQVHk3SHVSVlRFRGM4UnZtdHhMcnNWM1FLOWFUSzlGVXpiYUpPNElWcnpzWmliRUk4Z2JIaE0yeVFhc3NLcEZUdl9NdVN3Zw?oc=5",
+      "published_at": "2026-11-02T15:08:36+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "In San Francisco\u2019s A.I. Boom, a First Date Has Become an Interview The New York Times",
-      "title": "In San Francisco\u2019s A.I. Boom, a First Date Has Become an Interview - The New York Times"
+      "summary": "Inside Anthropic\u2019s Hunt for A.I. Computing Power The New York Times",
+      "title": "Inside Anthropic\u2019s Hunt for A.I. Computing Power - The New York Times"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPckxCaU9Jb3dhZzl2MllnOVg1UDdwOXl1Q3NKdEhvUkQzRm41UkppaEw3a0hOc2RFRU5xSWhmYXRDYU5mcTNPdUM3ZWluYzZRZjN1d0hvMjJ2WlJXTzdoTnVDRWRzc0s4dU5FcGNQaWxoWVVROUM4YUZvQ0Q5QXJfTmJGcVpBTnRjWWgzZWlXYw?oc=5",
-      "published_at": "2026-11-02T10:31:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPS3A5SlVKWVF6XzVHRldMWS1qd1FqWV9sVnF6RFJiMTIzd18wZUgtc1VtOXJabjY3LThCR045bFBrVzcyUmxJUDFWajYtX1l4RkVxY0xHTUZlRUFlR2dkcmtqOXI5MzIxMS16VEVBSE1JcExxbkJrVkk1S3NGa2g5WjhVZEJXczA3S0NUOVFudElESjBaMExucVBLQzRCLUJrVU9icU9fSkkyb1FoR2NfT29hT2JSbmhaMW9Z?oc=5",
+      "published_at": "2026-11-03T10:53:26+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Palantir AI tech unused or little used by 29 NHS trusts said to be benefiting from it The Guardian",
-      "title": "Palantir AI tech unused or little used by 29 NHS trusts said to be benefiting from it - The Guardian"
+      "summary": "Google AI chatbot's use of press items may infringe copyright rules, EU court adviser says Reuters",
+      "title": "Google AI chatbot's use of press items may infringe copyright rules, EU court adviser says - Reuters"
     }
   ],
   "timezone": "America/New_York",
   "traffic_commute": [
     {
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3Jwamtzb1VNNTNjRjAwU2tvY1ExY1pRQy1kNzJ1VURJX3B6MzhweG1VYm5wR0RyVVdIcmY1dTFBZkktem5pbWtHemJQbTFsUWJfWTAwUUJyQ2Q1NWFBN05tdEdLNXlyeFBHdktxQ3RlUUpOOGJOR082dFItN0poWFFyNWF3ZDQ?oc=5",
-      "published_at": "2026-10-31T01:50:19+00:00",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQa1I1VUZSQ2c5eG1wUEd0LWFDVExZSDVPMkltNlB3UjNFdTB1TllSaF84Wkt2TzkzT0hpelJUNjlwVEY1dTQ0bHQ1WkZreWwtYV9TUTA5UUpPc0lGZGo2Y1YtRlhhQXNfNFhSNEVHcy1GZmZlMFhBR1dYUEdpVGxwVFJGY1J3dVJfYlZiRmEzemlVaHFfcjhybTVxNA?oc=5",
+      "published_at": "2026-11-03T11:25:48+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Northbound lanes on Downtown Connecter reopen after police activity FOX 5 Atlanta",
-      "title": "Northbound lanes on Downtown Connecter reopen after police activity - FOX 5 Atlanta"
+      "summary": "Atlanta fire investigated, bridge reopening eyed, MARTA training FOX 5 Atlanta",
+      "title": "Atlanta fire investigated, bridge reopening eyed, MARTA training - FOX 5 Atlanta"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQb0ZiWW01eVBYMFdzQmV2WHlCTmdDdDBvS3hBWXRULU81cHVMNWxRUnVNeHhhMXpsdER6YWd3SFMyUjAtblV3V0FuT2RaN3ZfMGE4azc2SjdJS3lfY3J0a0ExeFRTc0RRbkxMbmFSSTliaHhIbVBfMk9ZdElQanpTU0xQOENYYlZDOXowVGFldjlfckdnX2ppSDVPb3ZyMGI1NVZSRF9aQ1Z2RUhuMzJGSWpGeUg4VUZDenJ5YnhVaV9KZw?oc=5",
+      "published_at": "2026-11-03T10:17:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "First Alert Traffic: I-75 in Clayton County shut down due to crash involving MARTA bus Atlanta News First",
+      "title": "First Alert Traffic: I-75 in Clayton County shut down due to crash involving MARTA bus - Atlanta News First"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNEJzVzNLLXgzRnRtS1VoVXRVanM5SS1wUWJESjBKdURHRVoxbVpHdWlzUUdQY2E0RWR6Y2hRa3NiSjlDaUx0alhuU2M3NEs3Unc0bmhyRWIzUjJiTC1aa0NPb0pLYTJjVHU0dnRIZ3lMTnVMRGVkLXlJek55V05VbkJqUlV4NXVZWkhPX19LcDFodkxRRmxiZHo0dEVKNTdLZGVjMHJNRzc5LW5kelVTUGViRjVOOVk?oc=5",
+      "published_at": "2026-11-02T19:56:58+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia State Patrol now accepts digital driver's licenses during traffic stops CBS News",
+      "title": "Georgia State Patrol now accepts digital driver's licenses during traffic stops - CBS News"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYXh5cTJNdDYzeklQd1czbm5GRXlQRks1TnU4ck1rckRkb2lwWS1LaEJ2cTAwX3c0X21OWDJqWE9NYXF0clQwTjc0OXpDZmJOVFEyakFUVzE5M09JRzdzN3c5TVZmb0oyMXYzTzNhYlFVNlN1Y3I2VUlJb21EY2xTeXNZNEtuZXFsdWNCZUtkdw?oc=5",
@@ -4500,28 +4465,12 @@
       "title": "Georgia Ports Authority says new Gainesville port could help ease ATL traffic - WABE"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxObGVVNENvWWtKc3dVZTRIb2FBTU42V3hzUjVlMHlWRHY4WWg3RzBPVU4yQ0YzOE8xRjVZRkRfSUx0YmFWa3lieTY5dnJLbGFDM1kyRXdRR0RjSDl5TEhzMG9TZGNtU1lNVHFrcDJzY0owakVkMmJEMUdsVHFkWklBdHluNng3SVhkelYySEhHazZVaDU3X3FpRlYwMl93NXBpblZmSWN6T2FnbS1rejU2SHBxcDhyNDhKOFBGYkNpMnJ1RHFXOHB4UUFpOUFMeXJ5azBUeG5qa0xQUlplRzVoLU5RbWN1eXRYRUE?oc=5",
-      "published_at": "2026-10-30T10:42:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQU3R5c3oxNjhHSXJrZjRvc1V0UHN5VHVTZ3VfVG1WMDZYLXVJWXZpczQ0LV9TdHVDZkYzY2Q5RHNLS2pmZkluQ3dQOWFPYTQyb2JmTjBFWnJLQjFmck45YXdHTk1tejVzZHlaQk9EU0kzck1wMWFYbk90TDN1V3JKYllCMnIzYXN2MWdCLURIOWd4eXZjMW9TcWxoeWhUbEVucTlkZDJuQQ?oc=5",
+      "published_at": "2026-11-02T20:22:00+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "TRAFFIC: Major delays on I-285 on the Eastside Perimeter after crash 11Alive.com",
-      "title": "TRAFFIC: Major delays on I-285 on the Eastside Perimeter after crash - 11Alive.com"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQW9RVGFwd0RRWVJ3RzFnS0taX3BZVnlESEZ1TWE3WnVQdXRlaTZrT29DSFVieWNDczEtM083QWtMX3l4LTJLMDJESGZxQktINlpnbnR0aW5yRWFvZzNpV1ZmVkF4RWFCQktLNDBMblQxZEtIeDFoZnRZWHg4cEtfejIwNkxBOVljSVZfSDlLQ2tLS0VONi1HSThtR0kzRF9sVmItVXlubTg5QXZTNmdN?oc=5",
-      "published_at": "2026-10-30T15:18:43+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MARTA Begins Construction on Atlanta\u2019s First Arterial Rapid Transit Service Passenger Transport",
-      "title": "MARTA Begins Construction on Atlanta\u2019s First Arterial Rapid Transit Service - Passenger Transport"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSWtoX1NlcTFWX1NGbHVyMnNfNUluYlB0WGdjRHlnQW5XeUpvcVRDdGd3UnRKRlMxTnZDQkVrcjhLaXRtOENHYmJJUTVrMUMtZU10d3gzMElJYkdYcFdyTEdPSFFBMWJEZW1FTUYwSGRKRHJ6TExEZWZVRjREaFhaOGRjSm5mMGNvTzVFWVJQZ1hZUzlzZ0hIVHd1c1hXdDViTWdZaTR3?oc=5",
-      "published_at": "2026-10-29T20:42:00+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "New MARTA trains tagged at least twice at rail yard, records show Atlanta News First",
-      "title": "New MARTA trains tagged at least twice at rail yard, records show - Atlanta News First"
+      "summary": "Hartsfield-Jackson upgrades air traffic control technology with federal funds The Business Journals",
+      "title": "Hartsfield-Jackson upgrades air traffic control technology with federal funds - The Business Journals"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPeng2cnJkdGxiOTRCQU10YWRISVQ3YXRKX044VDZ0REpOM09hSFF3Q0VaRWdyZmFhTjFLSXZuc19NRWtpbFdKM3N3LVlqVDhDUHFvMzZWWmtHVnJ4Y2JpTi1GMWIyV1E3ZER0bE56UmM2VVRTUVRZbUhLTFRqLURvUjJhUVA0dmkwNDRTVGlJYU96bllfU1NCMDhmQU1OSlI4TEhzQTNuZExjVFdjX0FQd2tqMVozY0RJMFoya1lieHdPeV9kbjJDal92T2VGZzR5Q08tYm1qaFprSV92X3Y0?oc=5",
@@ -4537,125 +4486,103 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Partly sunny, with a high near 73. East wind around 10 mph, with gusts as high as 20 mph.",
+          "detailed_forecast": "Mostly cloudy, with a high near 76. East wind around 10 mph, with gusts as high as 25 mph.",
           "is_daytime": true,
           "name": "Today",
-          "precipitation_probability": 6,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T06:00:00-05:00",
-          "temperature": 73,
-          "temperature_unit": "F",
-          "wind": "10 mph E"
-        },
-        {
-          "detailed_forecast": "Mostly cloudy, with a low around 58. East wind 5 to 10 mph, with gusts as high as 20 mph.",
-          "is_daytime": false,
-          "name": "Tonight",
           "precipitation_probability": 3,
           "short_forecast": "Mostly Cloudy",
-          "start_time": "2026-11-02T18:00:00-05:00",
-          "temperature": 58,
-          "temperature_unit": "F",
-          "wind": "5 to 10 mph E"
-        },
-        {
-          "detailed_forecast": "Partly sunny, with a high near 76. East wind around 10 mph, with gusts as high as 20 mph.",
-          "is_daytime": true,
-          "name": "Tuesday",
-          "precipitation_probability": 3,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-03T06:00:00-05:00",
+          "start_time": "2026-11-03T07:00:00-05:00",
           "temperature": 76,
           "temperature_unit": "F",
           "wind": "10 mph E"
         },
         {
-          "detailed_forecast": "Mostly cloudy, with a low around 62. East wind 5 to 10 mph, with gusts as high as 20 mph.",
+          "detailed_forecast": "A slight chance of rain showers after 5am. Mostly cloudy, with a low around 63. East wind 5 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 20%.",
           "is_daytime": false,
-          "name": "Tuesday Night",
-          "precipitation_probability": 4,
-          "short_forecast": "Mostly Cloudy",
+          "name": "Tonight",
+          "precipitation_probability": 15,
+          "short_forecast": "Mostly Cloudy then Slight Chance Rain Showers",
           "start_time": "2026-11-03T18:00:00-05:00",
-          "temperature": 62,
+          "temperature": 63,
           "temperature_unit": "F",
           "wind": "5 to 10 mph E"
         },
         {
-          "detailed_forecast": "A chance of rain showers between 7am and 1pm, then showers and thunderstorms likely. Cloudy, with a high near 75. Southeast wind 5 to 10 mph, with gusts as high as 20 mph. Chance of precipitation is 70%.",
+          "detailed_forecast": "A slight chance of rain showers before 7am, then showers and thunderstorms. Cloudy, with a high near 74. Southeast wind 5 to 10 mph, with gusts as high as 20 mph. Chance of precipitation is 80%. New rainfall amounts between a half and three quarters of an inch possible.",
           "is_daytime": true,
           "name": "Wednesday",
-          "precipitation_probability": 70,
-          "short_forecast": "Showers And Thunderstorms Likely",
+          "precipitation_probability": 82,
+          "short_forecast": "Showers And Thunderstorms",
           "start_time": "2026-11-04T06:00:00-05:00",
-          "temperature": 75,
+          "temperature": 74,
           "temperature_unit": "F",
           "wind": "5 to 10 mph SE"
         },
         {
-          "detailed_forecast": "Showers and thunderstorms. Mostly cloudy, with a low around 63. Chance of precipitation is 80%.",
+          "detailed_forecast": "Showers and thunderstorms. Mostly cloudy, with a low around 64. South wind 0 to 5 mph. Chance of precipitation is 80%.",
           "is_daytime": false,
           "name": "Wednesday Night",
-          "precipitation_probability": 78,
+          "precipitation_probability": 82,
           "short_forecast": "Showers And Thunderstorms",
           "start_time": "2026-11-04T18:00:00-05:00",
-          "temperature": 63,
+          "temperature": 64,
           "temperature_unit": "F",
           "wind": "0 to 5 mph S"
         },
         {
-          "detailed_forecast": "A chance of showers and thunderstorms. Partly sunny, with a high near 76. Chance of precipitation is 50%.",
+          "detailed_forecast": "A chance of rain showers before 1pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 77. South wind 0 to 5 mph. Chance of precipitation is 50%.",
           "is_daytime": true,
           "name": "Thursday",
-          "precipitation_probability": 46,
-          "short_forecast": "Chance Showers And Thunderstorms",
+          "precipitation_probability": 47,
+          "short_forecast": "Chance Rain Showers",
           "start_time": "2026-11-05T06:00:00-05:00",
+          "temperature": 77,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph S"
+        },
+        {
+          "detailed_forecast": "A chance of showers and thunderstorms. Mostly cloudy, with a low around 58. Chance of precipitation is 40%.",
+          "is_daytime": false,
+          "name": "Thursday Night",
+          "precipitation_probability": 43,
+          "short_forecast": "Chance Showers And Thunderstorms",
+          "start_time": "2026-11-05T18:00:00-05:00",
+          "temperature": 58,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "A chance of rain showers. Partly sunny, with a high near 76. Chance of precipitation is 40%.",
+          "is_daytime": true,
+          "name": "Friday",
+          "precipitation_probability": 36,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-06T06:00:00-05:00",
           "temperature": 76,
           "temperature_unit": "F",
           "wind": "0 to 5 mph W"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers. Partly cloudy, with a low around 56. Chance of precipitation is 20%.",
-          "is_daytime": false,
-          "name": "Thursday Night",
-          "precipitation_probability": 20,
-          "short_forecast": "Slight Chance Rain Showers",
-          "start_time": "2026-11-05T18:00:00-05:00",
-          "temperature": 56,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
-        },
-        {
-          "detailed_forecast": "A slight chance of rain showers before 7am. Mostly sunny, with a high near 74. Chance of precipitation is 20%.",
-          "is_daytime": true,
-          "name": "Friday",
-          "precipitation_probability": 15,
-          "short_forecast": "Slight Chance Rain Showers then Mostly Sunny",
-          "start_time": "2026-11-06T06:00:00-05:00",
-          "temperature": 74,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 50.",
+          "detailed_forecast": "A chance of rain showers before 7pm. Partly cloudy, with a low around 52. Chance of precipitation is 30%.",
           "is_daytime": false,
           "name": "Friday Night",
-          "precipitation_probability": 7,
-          "short_forecast": "Mostly Clear",
+          "precipitation_probability": 28,
+          "short_forecast": "Chance Rain Showers then Partly Cloudy",
           "start_time": "2026-11-06T18:00:00-05:00",
-          "temperature": 50,
+          "temperature": 52,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Sunny, with a high near 72.",
+          "detailed_forecast": "Mostly sunny, with a high near 71.",
           "is_daytime": true,
           "name": "Saturday",
-          "precipitation_probability": 2,
-          "short_forecast": "Sunny",
+          "precipitation_probability": 4,
+          "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-07T06:00:00-05:00",
-          "temperature": 72,
+          "temperature": 71,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 to 5 mph NW"
         },
         {
           "detailed_forecast": "Partly cloudy, with a low around 48.",
@@ -4669,18 +4596,18 @@
           "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 70.",
+          "detailed_forecast": "A slight chance of rain showers after 1pm. Mostly sunny, with a high near 68. Chance of precipitation is 20%.",
           "is_daytime": true,
           "name": "Sunday",
-          "precipitation_probability": 14,
-          "short_forecast": "Mostly Sunny",
+          "precipitation_probability": 15,
+          "short_forecast": "Mostly Sunny then Slight Chance Rain Showers",
           "start_time": "2026-11-08T06:00:00-05:00",
-          "temperature": 70,
+          "temperature": 68,
           "temperature_unit": "F",
           "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers after 7pm. Partly cloudy, with a low around 47.",
+          "detailed_forecast": "A slight chance of rain showers before 1am. Partly cloudy, with a low around 47. Chance of precipitation is 20%.",
           "is_daytime": false,
           "name": "Sunday Night",
           "precipitation_probability": 15,
@@ -4689,6 +4616,28 @@
           "temperature": 47,
           "temperature_unit": "F",
           "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 64.",
+          "is_daytime": true,
+          "name": "Monday",
+          "precipitation_probability": 8,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-09T06:00:00-05:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 42.",
+          "is_daytime": false,
+          "name": "Monday Night",
+          "precipitation_probability": 5,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-09T18:00:00-05:00",
+          "temperature": 42,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NW"
         }
       ],
       "hourly_next_periods": [
@@ -4696,21 +4645,10 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 5,
+          "precipitation_probability": 1,
           "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T07:00:00-05:00",
-          "temperature": 55,
-          "temperature_unit": "F",
-          "wind": "10 mph NE"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 5,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T08:00:00-05:00",
-          "temperature": 57,
+          "start_time": "2026-11-03T07:00:00-05:00",
+          "temperature": 58,
           "temperature_unit": "F",
           "wind": "10 mph E"
         },
@@ -4718,9 +4656,9 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 5,
+          "precipitation_probability": 1,
           "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T09:00:00-05:00",
+          "start_time": "2026-11-03T08:00:00-05:00",
           "temperature": 59,
           "temperature_unit": "F",
           "wind": "10 mph E"
@@ -4729,9 +4667,9 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 3,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T10:00:00-05:00",
+          "precipitation_probability": 1,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T09:00:00-05:00",
           "temperature": 62,
           "temperature_unit": "F",
           "wind": "10 mph E"
@@ -4741,9 +4679,9 @@
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 1,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T11:00:00-05:00",
-          "temperature": 65,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T10:00:00-05:00",
+          "temperature": 64,
           "temperature_unit": "F",
           "wind": "10 mph E"
         },
@@ -4752,9 +4690,9 @@
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 1,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T12:00:00-05:00",
-          "temperature": 68,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T11:00:00-05:00",
+          "temperature": 67,
           "temperature_unit": "F",
           "wind": "10 mph E"
         },
@@ -4762,10 +4700,10 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 1,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-02T13:00:00-05:00",
-          "temperature": 70,
+          "precipitation_probability": 2,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T12:00:00-05:00",
+          "temperature": 69,
           "temperature_unit": "F",
           "wind": "10 mph E"
         },
@@ -4773,10 +4711,21 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 1,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-02T14:00:00-05:00",
+          "precipitation_probability": 2,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T13:00:00-05:00",
           "temperature": 72,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 3,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T14:00:00-05:00",
+          "temperature": 74,
           "temperature_unit": "F",
           "wind": "10 mph E"
         }
@@ -4791,31 +4740,9 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Partly sunny, with a high near 73. East wind 10 to 15 mph, with gusts as high as 25 mph.",
-          "is_daytime": true,
-          "name": "Today",
-          "precipitation_probability": 6,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T06:00:00-05:00",
-          "temperature": 73,
-          "temperature_unit": "F",
-          "wind": "10 to 15 mph E"
-        },
-        {
-          "detailed_forecast": "Mostly cloudy, with a low around 59. East wind around 10 mph, with gusts as high as 20 mph.",
-          "is_daytime": false,
-          "name": "Tonight",
-          "precipitation_probability": 3,
-          "short_forecast": "Mostly Cloudy",
-          "start_time": "2026-11-02T18:00:00-05:00",
-          "temperature": 59,
-          "temperature_unit": "F",
-          "wind": "10 mph E"
-        },
-        {
           "detailed_forecast": "Mostly cloudy, with a high near 75. East wind 10 to 15 mph, with gusts as high as 25 mph.",
           "is_daytime": true,
-          "name": "Tuesday",
+          "name": "Today",
           "precipitation_probability": 3,
           "short_forecast": "Mostly Cloudy",
           "start_time": "2026-11-03T06:00:00-05:00",
@@ -4824,88 +4751,88 @@
           "wind": "10 to 15 mph E"
         },
         {
-          "detailed_forecast": "Mostly cloudy, with a low around 63. East wind around 10 mph, with gusts as high as 25 mph.",
+          "detailed_forecast": "A slight chance of rain showers after 3am. Mostly cloudy, with a low around 63. East wind 10 to 15 mph, with gusts as high as 25 mph. Chance of precipitation is 20%.",
           "is_daytime": false,
-          "name": "Tuesday Night",
-          "precipitation_probability": 7,
-          "short_forecast": "Mostly Cloudy",
+          "name": "Tonight",
+          "precipitation_probability": 20,
+          "short_forecast": "Mostly Cloudy then Slight Chance Rain Showers",
           "start_time": "2026-11-03T18:00:00-05:00",
           "temperature": 63,
           "temperature_unit": "F",
-          "wind": "10 mph E"
+          "wind": "10 to 15 mph E"
         },
         {
-          "detailed_forecast": "A chance of rain showers between 7am and 1pm, then showers and thunderstorms. Cloudy, with a high near 74. Southeast wind around 10 mph, with gusts as high as 25 mph. Chance of precipitation is 80%.",
+          "detailed_forecast": "A chance of rain showers before 7am, then showers and thunderstorms. Cloudy, with a high near 73. Southeast wind 5 to 15 mph, with gusts as high as 25 mph. Chance of precipitation is 90%. New rainfall amounts between a half and three quarters of an inch possible.",
           "is_daytime": true,
           "name": "Wednesday",
-          "precipitation_probability": 76,
+          "precipitation_probability": 86,
           "short_forecast": "Showers And Thunderstorms",
           "start_time": "2026-11-04T06:00:00-05:00",
-          "temperature": 74,
+          "temperature": 73,
           "temperature_unit": "F",
-          "wind": "10 mph SE"
+          "wind": "5 to 15 mph SE"
         },
         {
-          "detailed_forecast": "Showers and thunderstorms. Mostly cloudy, with a low around 62. Chance of precipitation is 80%.",
+          "detailed_forecast": "Showers and thunderstorms. Mostly cloudy, with a low around 63. South wind 0 to 5 mph. Chance of precipitation is 80%.",
           "is_daytime": false,
           "name": "Wednesday Night",
           "precipitation_probability": 78,
           "short_forecast": "Showers And Thunderstorms",
           "start_time": "2026-11-04T18:00:00-05:00",
-          "temperature": 62,
+          "temperature": 63,
           "temperature_unit": "F",
-          "wind": "5 mph S"
+          "wind": "0 to 5 mph S"
         },
         {
-          "detailed_forecast": "A chance of showers and thunderstorms. Partly sunny, with a high near 75. Chance of precipitation is 40%.",
+          "detailed_forecast": "A chance of rain showers. Partly sunny, with a high near 77. South wind 0 to 5 mph. Chance of precipitation is 40%.",
           "is_daytime": true,
           "name": "Thursday",
-          "precipitation_probability": 43,
-          "short_forecast": "Chance Showers And Thunderstorms",
+          "precipitation_probability": 41,
+          "short_forecast": "Chance Rain Showers",
           "start_time": "2026-11-05T06:00:00-05:00",
-          "temperature": 75,
+          "temperature": 77,
           "temperature_unit": "F",
-          "wind": "5 mph W"
+          "wind": "0 to 5 mph S"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers before 7pm. Partly cloudy, with a low around 56. Chance of precipitation is 20%.",
+          "detailed_forecast": "A chance of rain showers. Mostly cloudy, with a low around 58. Chance of precipitation is 40%.",
           "is_daytime": false,
           "name": "Thursday Night",
-          "precipitation_probability": 21,
-          "short_forecast": "Slight Chance Rain Showers then Partly Cloudy",
+          "precipitation_probability": 41,
+          "short_forecast": "Chance Rain Showers",
           "start_time": "2026-11-05T18:00:00-05:00",
-          "temperature": 56,
+          "temperature": 58,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph SW"
+        },
+        {
+          "detailed_forecast": "A chance of rain showers. Mostly sunny, with a high near 75. Chance of precipitation is 40%.",
+          "is_daytime": true,
+          "name": "Friday",
+          "precipitation_probability": 36,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-06T06:00:00-05:00",
+          "temperature": 75,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph W"
+        },
+        {
+          "detailed_forecast": "A chance of rain showers before 7pm. Partly cloudy, with a low around 52. Chance of precipitation is 30%.",
+          "is_daytime": false,
+          "name": "Friday Night",
+          "precipitation_probability": 28,
+          "short_forecast": "Chance Rain Showers then Partly Cloudy",
+          "start_time": "2026-11-06T18:00:00-05:00",
+          "temperature": 52,
           "temperature_unit": "F",
           "wind": "5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 73.",
-          "is_daytime": true,
-          "name": "Friday",
-          "precipitation_probability": 14,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-06T06:00:00-05:00",
-          "temperature": 73,
-          "temperature_unit": "F",
-          "wind": "5 to 10 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 50.",
-          "is_daytime": false,
-          "name": "Friday Night",
-          "precipitation_probability": 6,
-          "short_forecast": "Mostly Clear",
-          "start_time": "2026-11-06T18:00:00-05:00",
-          "temperature": 50,
-          "temperature_unit": "F",
-          "wind": "5 to 10 mph NW"
-        },
-        {
-          "detailed_forecast": "Sunny, with a high near 71.",
+          "detailed_forecast": "Mostly sunny, with a high near 71.",
           "is_daytime": true,
           "name": "Saturday",
-          "precipitation_probability": 1,
-          "short_forecast": "Sunny",
+          "precipitation_probability": 3,
+          "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-07T06:00:00-05:00",
           "temperature": 71,
           "temperature_unit": "F",
@@ -4915,7 +4842,7 @@
           "detailed_forecast": "Partly cloudy, with a low around 48.",
           "is_daytime": false,
           "name": "Saturday Night",
-          "precipitation_probability": 3,
+          "precipitation_probability": 4,
           "short_forecast": "Partly Cloudy",
           "start_time": "2026-11-07T18:00:00-05:00",
           "temperature": 48,
@@ -4923,24 +4850,46 @@
           "wind": "5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 69.",
+          "detailed_forecast": "A slight chance of rain showers after 1pm. Mostly sunny, with a high near 67. Chance of precipitation is 20%.",
           "is_daytime": true,
           "name": "Sunday",
-          "precipitation_probability": 12,
-          "short_forecast": "Mostly Sunny",
+          "precipitation_probability": 15,
+          "short_forecast": "Mostly Sunny then Slight Chance Rain Showers",
           "start_time": "2026-11-08T06:00:00-05:00",
-          "temperature": 69,
+          "temperature": 67,
           "temperature_unit": "F",
           "wind": "5 to 10 mph NW"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers after 7pm. Partly cloudy, with a low around 47.",
+          "detailed_forecast": "A slight chance of rain showers before 1am. Partly cloudy, with a low around 46. Chance of precipitation is 20%.",
           "is_daytime": false,
           "name": "Sunday Night",
           "precipitation_probability": 15,
           "short_forecast": "Slight Chance Rain Showers",
           "start_time": "2026-11-08T18:00:00-05:00",
-          "temperature": 47,
+          "temperature": 46,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 64.",
+          "is_daytime": true,
+          "name": "Monday",
+          "precipitation_probability": 7,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-09T06:00:00-05:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 43.",
+          "is_daytime": false,
+          "name": "Monday Night",
+          "precipitation_probability": 5,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-09T18:00:00-05:00",
+          "temperature": 43,
           "temperature_unit": "F",
           "wind": "5 to 10 mph NW"
         }
@@ -4950,42 +4899,9 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 6,
+          "precipitation_probability": 1,
           "short_forecast": "Mostly Cloudy",
-          "start_time": "2026-11-02T06:00:00-05:00",
-          "temperature": 56,
-          "temperature_unit": "F",
-          "wind": "10 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 5,
-          "short_forecast": "Mostly Cloudy",
-          "start_time": "2026-11-02T07:00:00-05:00",
-          "temperature": 56,
-          "temperature_unit": "F",
-          "wind": "10 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 5,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T08:00:00-05:00",
-          "temperature": 57,
-          "temperature_unit": "F",
-          "wind": "15 mph E"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 5,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T09:00:00-05:00",
+          "start_time": "2026-11-03T07:00:00-05:00",
           "temperature": 60,
           "temperature_unit": "F",
           "wind": "10 mph E"
@@ -4994,9 +4910,20 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 4,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T10:00:00-05:00",
+          "precipitation_probability": 1,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T08:00:00-05:00",
+          "temperature": 60,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 1,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T09:00:00-05:00",
           "temperature": 63,
           "temperature_unit": "F",
           "wind": "10 mph E"
@@ -5006,9 +4933,20 @@
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 2,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-02T11:00:00-05:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T10:00:00-05:00",
           "temperature": 65,
+          "temperature_unit": "F",
+          "wind": "10 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 2,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T11:00:00-05:00",
+          "temperature": 67,
           "temperature_unit": "F",
           "wind": "15 mph E"
         },
@@ -5017,8 +4955,8 @@
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 2,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-02T12:00:00-05:00",
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T12:00:00-05:00",
           "temperature": 69,
           "temperature_unit": "F",
           "wind": "15 mph E"
@@ -5027,10 +4965,21 @@
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
-          "precipitation_probability": 1,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-02T13:00:00-05:00",
-          "temperature": 70,
+          "precipitation_probability": 2,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T13:00:00-05:00",
+          "temperature": 71,
+          "temperature_unit": "F",
+          "wind": "15 mph E"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 3,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-03T14:00:00-05:00",
+          "temperature": 73,
           "temperature_unit": "F",
           "wind": "15 mph E"
         }
