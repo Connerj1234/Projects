@@ -1,104 +1,104 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "general_news": [
     {
-      "link": "https://www.npr.org/2026/11/07/g-s1-152225/princess-diana-honor-menstruation-stigma",
-      "published_at": "2026-11-07T06:50:21-05:00",
+      "link": "https://www.npr.org/2026/11/08/nx-s1-6023812/chile-desert-el-nino",
+      "published_at": "2026-11-08T06:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "This year's the Princess Diana honor roll highlights 198 inspiring young activists and advocates \u2014 including an 18-year-old guy in India who founded Team Period.",
-      "title": "This teen boy set out to get people talking about periods. He's now a Diana honoree"
+      "summary": "El Ni\u00f1o rains have transformed Chile's Atacama Desert into a spectacular sea of color, awakening a fleeting ecosystem of flowers and wildlife in one of the driest places on Earth.",
+      "title": "A desert stirs to life: Chile's Atacama erupts in its biggest floral display in decades"
     },
     {
-      "link": "https://www.npr.org/2026/11/07/nx-s1-6007770/data-centers-activist-moratorium",
-      "published_at": "2026-11-07T05:00:00-05:00",
+      "link": "https://www.npr.org/2026/11/08/nx-s1-6017801/air-ambulance-service-rural-healthcare-staffing",
+      "published_at": "2026-11-08T06:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Thousands across the U.S. have gotten involved to oppose data centers. One is a Maryland woman who'd been evicted after a pay cut and became a leader of a community effort that blocked a vast project.",
-      "title": "An unexpected activist emerged to help block a $5 billion data center in Maryland"
+      "summary": "Air medical service comes with high risks, high costs, and staffing struggles. To reduce turnover and serve rural patients, LifeFlight of Maine is putting the needs of healthcare workers first.",
+      "title": "In Maine, a new approach to practicing medicine in the sky"
     },
     {
-      "link": "https://www.npr.org/2026/11/06/nx-s1-6026662/the-economy-propelled-democrats-to-victory-what-can-they-actually-do-about-it",
-      "published_at": "2026-11-06T16:53:10-05:00",
+      "link": "https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes",
+      "published_at": "2026-11-08T06:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "The party's success was fueled by frustrations over the cost of living. But in divided government, they'll face opposition from Republicans in Congress and a president vowing to use his veto pen.",
-      "title": "The economy propelled Democrats to victory. What can they actually do about it?"
+      "summary": "From Arctic landscapes to insect bodies, climate change is shifting the familiar colors of nature.",
+      "title": "Climate change is altering the colors we see in the world: an illustrated journey"
     },
     {
-      "link": "https://www.npr.org/2026/11/06/g-s1-152138/israel-election-palestinian-arab-parties",
-      "published_at": "2026-11-06T15:42:51-05:00",
+      "link": "https://www.npr.org/2026/11/08/nx-s1-6032829/gen-z-voters-midterm-elections",
+      "published_at": "2026-11-08T05:00:00-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "Israel's center-right opposition has a chance to unseat Netanyahu \u2014 but backing of Arab-led parties will be key.",
-      "title": "Israel's Arab-led parties in spotlight after inconclusive election"
+      "summary": "Republicans made gains with young voters in 2024, but in this year's midterms Americans under 30 issued a strong rebuke of President Trump and his party, voting decisively for Democrats instead.",
+      "title": "How Gen Z voters helped fuel a blue wave for Democrats"
     },
     {
-      "link": "https://www.npr.org/2026/11/06/nx-s1-6032814/senate-history-election-pappas-andrews-el-sayed",
-      "published_at": "2026-11-06T15:21:13-05:00",
+      "link": "https://www.npr.org/2026/11/08/nx-s1-6033900/ufc-dana-white-trump-white-house-press-secretary",
+      "published_at": "2026-11-08T02:35:29-05:00",
       "source": "NPR Topics: News",
       "source_feed": "https://feeds.npr.org/1001/rss.xml",
-      "summary": "From the first Native American woman elected to the U.S. Senate and the first Muslim who will join the upper chamber to the Senate's first Paralympian, voters elected historic candidates on Tuesday.",
-      "title": "The incoming class of U.S. senators is full of historic firsts"
+      "summary": "President Donald Trump said Saturday that he has offered the job of White House press secretary to his friend and UFC boss Dana White.",
+      "title": "UFC's Dana White says he will meet with Trump Monday over offer to be White House press secretary"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/06/us/politics/susie-wiles-chief-of-staff-trump.html",
-      "published_at": "2026-11-07T00:39:51+00:00",
+      "link": "https://www.nytimes.com/2026/11/08/us/politics/for-trump-and-america-a-clear-election-verdict-leaves-a-murky-future.html",
+      "published_at": "2026-11-08T10:02:08+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "The new White House chief of staff is responsible for some of the most provocative policies of President Trump\u2019s second term, as well as an aggressive approach to executive power.",
-      "title": "In Elevating Stephen Miller, Trump Doubles Down on Hard-Line Agenda"
+      "summary": "As Americans absorb a stunning new political reality, they face a gap between the time they effectively decided to be done with the president and the time he is actually done.",
+      "title": "For Trump and America, a Clear Election Verdict but a Murky Future"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/06/us/politics/susie-wiles-trump-women.html",
-      "published_at": "2026-11-06T23:53:13+00:00",
+      "link": "https://www.nytimes.com/2026/11/07/us/politics/stephen-miller-midterm-elections.html",
+      "published_at": "2026-11-07T18:29:56+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "A wave of high-ranking women have left the Trump administration in the past year. Many were replaced by men.",
-      "title": "Susie Wiles Is the Latest Powerful Woman to Exit the Trump Administration"
+      "summary": "The president\u2019s new chief of staff has already demonstrated his intention to forge ahead with an agenda that many voters rejected.",
+      "title": "For Stephen Miller, Election Defeat Is No Reason to Back Down on Immigration Crackdown"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/06/us/politics/stephen-miller-white-house-chief-staff.html",
-      "published_at": "2026-11-07T02:56:14+00:00",
+      "link": "https://www.nytimes.com/2026/11/08/us/politics/hakeem-jeffries-house-democrats-speaker.html",
+      "published_at": "2026-11-08T10:00:12+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "The architect of President Trump\u2019s mass deportation campaign, Mr. Miller has been the public face of many of Mr. Trump\u2019s immigration policies.",
-      "title": "What to Know About Stephen Miller, Trump\u2019s New Chief of Staff"
+      "summary": "The man in line to be the first Black speaker is a reserved moderate seen by activists on the left as too timid to take on President Trump. He says he\u2019s \u201cstrongly positioned\u201d to get things done.",
+      "title": "Hakeem Jeffries, in Line to Become House Speaker, Promises Bold Agenda"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/06/us/politics/musk-trump-midterm-election-spending.html",
-      "published_at": "2026-11-06T21:05:42+00:00",
+      "link": "https://www.nytimes.com/2026/11/08/us/politics/republican-blame-trump-midterms.html",
+      "published_at": "2026-11-08T10:01:51+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "Behind the scenes, the world\u2019s richest person spent a record amount over two years to bend the country\u2019s politics to his will. He couldn\u2019t.",
-      "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections"
+      "summary": "After last week\u2019s midterm losses, the Republican Party entered its most uncertain moment in years. Some Republicans called for moderation and cleaning house, but that will be difficult with President Trump still in the White House.",
+      "title": "Republicans Point Fingers, but Trump Does Not Appear to Be Listening"
     },
     {
-      "link": "https://www.nytimes.com/2026/11/07/us/politics/democrats-midterms-2028-presidential-race.html",
-      "published_at": "2026-11-07T10:02:07+00:00",
+      "link": "https://www.nytimes.com/2026/11/08/magazine/keisha-lance-bottoms-interview.html",
+      "published_at": "2026-11-08T10:15:05+00:00",
       "source": "NYT > Top Stories",
       "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-      "summary": "At a moment of opportunity for the party, its long-feuding factions are seizing on the midterm results to make their case for tacking to the center or to the left.",
-      "title": "Democrats, Newly Ascendant, Begin a Fight to Shape the Party\u2019s Future"
+      "summary": "The governor-elect of Georgia is elated about her party\u2019s wins in the South, but knows realignment is far from secure.",
+      "title": "Keisha Lance Bottoms on What Democrats Can Do to Make Their Victory Last"
     },
     {
-      "link": "https://www.bbc.co.uk/news/articles/cqgkvv8m8pgyo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-11-07T07:27:44+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cm3r5gnxqz3jo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-08T00:52:39+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The 82-year-old appeared in court in Florida after the FBI searched two Los Angeles-area storage units he rented.",
-      "title": "Meghan's father Thomas Markle under house arrest after child sex abuse material charge"
+      "summary": "Republicans can stick with Trumpism or chart a new path, writes BBC Washington correspondent Daniel Bush.",
+      "title": "The Trump coalition is shattered - what will Republicans do now?"
     },
     {
-      "link": "https://www.bbc.co.uk/news/videos/crje5515kv0xo?at_medium=RSS&at_campaign=rss",
-      "published_at": "2026-11-06T18:13:52+00:00",
+      "link": "https://www.bbc.co.uk/news/articles/cvze47p9jeexo?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-08T00:31:53+00:00",
       "source": "BBC News",
       "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
-      "summary": "The BBC's Ione Wells explains the charges facing the estranged father of Meghan, Duchess of Sussex.",
-      "title": "These are the federal charges Thomas Markle faces"
+      "summary": "It was unclear how genuine the president's offer was, although White later said he would travel to Washington for them to meet.",
+      "title": "'Dana, please take the job!' - Trump asks UFC boss to be White House press secretary"
     }
   ],
-  "generated_at": "2026-11-07T07:30:02.331821-05:00",
+  "generated_at": "2026-11-08T07:30:02.728044-05:00",
   "holidays": [
     {
       "counties": null,
@@ -109,6 +109,14 @@
     }
   ],
   "local_news": [
+    {
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcFdmdDRBRjdXMlJlSndmdWdRZURSRzc2MzFMRGJLMldRXzctLVhwX0dtd0JORW03Rll4eXJscFJSRTc0bm1PUDRDYUlMX3Vvb1BnUUl3RnZyemxzM1NQclhJUWZIbzY2THZ3aXU4aWgyTTZtMzgxdmdVbk15VHNBeXloSGNnSkUyNUw2bmJrdnRFaFA4dUxucGlQTl96QzN0TmMzNl9uZGZCTWkyMldwOXN3?oc=5",
+      "published_at": "2026-11-08T03:15:00+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Hawks rally past Nets for fourth straight win Atlanta News First",
+      "title": "Hawks rally past Nets for fourth straight win - Atlanta News First"
+    },
     {
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNOFE1WGpwZktKekNDbXBWb2owRWh3XzRkQmY3b1FkWjNIYkY5d3BCbEgtS18xN0ZYY2Qzb2NNY2J6eUFvYzd3TTU3LW0tOEZfWGRXN29zQmtGUlhsLXN0Q2RBVzk3elhuYnBZVWVUWE44dkFYUV9uUG15ajlDTE1pa1h3aXRoT2dDMUpNazFIZEZQcVFacDBydHpHTFI?oc=5",
       "published_at": "2026-11-06T23:51:28+00:00",
@@ -126,6 +134,14 @@
       "title": "Floods Leave Dozens Stranded | Homeowner Tax Relief | Deadly Mass Shooting Update: GA News - Patch"
     },
     {
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE4wd1VidmktTGlUVnZsdEpRZExzNHlpOU1tYVRFbzJxS1RKcUsxR1lrXzU4M3VJMWgyXzJRMDdJdHNmRlFkZDFVQzc5cTNVS1JuZmc?oc=5",
+      "published_at": "2026-11-08T04:43:01+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Add Us On Google Add as a preferred source on Google STOCKBRIDGE, Ga. (Atlanta News First) - Friends, family and community members gathered at a Henry County vigil to remember 16-year-old Tyrie Howse, who was shot and killed by a police officer in Instagram",
+      "title": "Add Us On Google Add as a preferred source on Google STOCKBRIDGE, Ga. (Atlanta News First) - Friends, family and community members gathered at a Henry County vigil to remember 16-year-old Tyrie Howse, who was shot and killed by a police officer in - Instagram"
+    },
+    {
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxON3VCTHllZlQtNXhnM2x6d0JDN3E4Tl9xU0tJMFo1Zy1lRHh4bkFCc0R0NDUzdTJTd0xEcmRRdWh4S3o5akdSeV9oSW1YYmlEWGJnMXNpeEpWVmRHSnRqSzhlMy13VWlFNnU3QnR1OXM5WG1YT3A3XzluTnlvTnRVVzZWZ3MxR2tuaC1Pd3lTQXdad2N3TnJ5SXZDcHdrWDhYVVhmbV9XekNlNE15aW96b2M5SHZVOUpOc21V?oc=5",
       "published_at": "2026-11-06T22:52:31+00:00",
       "source": "\"Atlanta Georgia local news\" - Google News",
@@ -134,20 +150,12 @@
       "title": "Plan to create Atlanta Beltline-like trail by Georgia's Flint River moving forward - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQc0hmWEhfNEJqaVh0el9uR3FDMGFIckhVek1MWDRPajQ4WGV2Y21BaE1reGFOMVNDdVlYenA4cE5PeHlaZ0xaZ1otQXFSZGZLRGs2YzFBeHVfcEplMzM4WE02eU1CRFA0YzRyZi1mSTA1dTYyMzlIOGczSkFsNnZLUVhvVUZnc1J5TU5FcUxLT1k1WmYyWG51aXQtNTg0aHZieXBWaXVGbm51Z1Zic3ZPZ2NCTExBMWxaWWNmcg?oc=5",
-      "published_at": "2026-11-07T06:35:57+00:00",
-      "source": "\"Atlanta Georgia local news\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "GA Governor-Elect Keisha Lance Bottoms Announces Transition Effort C-SPAN",
-      "title": "GA Governor-Elect Keisha Lance Bottoms Announces Transition Effort - C-SPAN"
-    },
-    {
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE16d1hmSFZUNnNUOV80bXVBZ3NlZGpmcC1WU0Q0eUZCOXMzZHlpR1Q4OXZLZHFTZHA2R1o2R1hSUkxENjFiZDd2Vkx6NHNnMWFmRXc?oc=5",
-      "published_at": "2026-11-07T03:43:47+00:00",
-      "source": "\"Atlanta Georgia local news\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Add Us On Google Add as a preferred source on Google ATLANTA, Ga. (Atlanta News First) - Suspects are possibly barricaded in a home after two people were shot in Atlanta's Vine City neighborhood on Friday night, according to police. Shortly before 7:30 p. Instagram",
-      "title": "Add Us On Google Add as a preferred source on Google ATLANTA, Ga. (Atlanta News First) - Suspects are possibly barricaded in a home after two people were shot in Atlanta's Vine City neighborhood on Friday night, according to police. Shortly before 7:30 p. - Instagram"
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZWVVN1VWaERubDVFRkdfVEhsQllXOHNjN0Zva0xoSzhCRDhmcFZDMzB2UmdlSUdQUDE3ZjRlRjV5ZVBlZkZRdUZZQ3lGRWhWQWFrX09LN1d2S2hMNXNFZ2pyd1RVUW14NUxZQlFiVmJvNkVSYVV4SEoxRGEtRTVESG1UNTVvOC16WWdMVURn?oc=5",
+      "published_at": "2026-11-04T13:26:13+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia's new era: Women take charge of top state offices FOX 5 Atlanta",
+      "title": "Georgia's new era: Women take charge of top state offices - FOX 5 Atlanta"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPOURrRnRES2J5bGlwN19lNlFENVk5MThiR0szMXhnWWxtaE1PWExjS3ZldFhqWjAyVmRrLVkwN2gtanZQcXJkOUJyNWNGMDRobGJ6TS1GMnhNUkZMWGx4dHhKLWNIR3A5N2IySTRuUE50Z3BLT3NtWkJDNWhlVU5pc3hFY2NFY3RNZ3RrdFRXMHFfLVZENFFFSXIwUHlXRzVSaVRFRFRiTEdEVlNQYm1iTjJZSWJZeTRoX1R2UkpzOFMzR3c5V01qMktMMVVWY0NGRGc?oc=5",
@@ -158,20 +166,12 @@
       "title": "Bottoms announces transition team as ascendent Georgia Democrats prepare to run state government - Georgia Recorder"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcFVTMWE3NTZGcFBuSU5VU0lCazBSSzlrMjlSeHY5dFVPaUZHbnVuNjJjOFpMSHdEMTAxdEpNTTJlYUdCVXl2ZV9rcFJRWWVadHZWVTF1a2lvbXZIQmxjS2xsMkF1Zmo2bFlXckEyZjhhUkdvNXpYcngwS1NsMEZ1Tml4cFdJc1FxeGc?oc=5",
-      "published_at": "2026-11-04T10:00:55+00:00",
-      "source": "\"Georgia state government Atlanta\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MAP: How Democrats swept Georgia's executive offices FOX 5 Atlanta",
-      "title": "MAP: How Democrats swept Georgia's executive offices - FOX 5 Atlanta"
-    },
-    {
       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQR0ZiUWtYMUpiUERITFF2bkd1ZTR4eGhRb0dIOGdUYk82OEx3Vl9DRkRLN0JEYkxqTFBnQkdpUEJGeno2aFZ5QnVfUEE1VTJTU3RUNDF6UFEzQk9nQkQtQjhYZXgwMS1LMVJ3U0FaOVBqTGlYS3FHdmFwMEwtVGVURmRRWFNxQW5pcFZiOGFDZHdSVFk4S3VKRzFkRdIBrwFBVV95cUxPX3VhZGJrb285am5VRUJ2ZDhrSncxT2w3N2JlemFpTC14Y1BkNEV4Y042WVNKRVZvTUt2em1NT3JMQjNJTEZDQjJwM3ZUZ3p3ZzVpVnQ2U1F3MzM2ZERCUmZZdnBaejJtX2RDX0xXU2ZyZXhwcTBtTXB3bi1sMWRWRjN4M0lfLThrTVYwdURJeGNIWjFVejdhT3p2d1VUTWNFTlFuWl9WOFM0eGJJdEQ0?oc=5",
       "published_at": "2026-11-06T15:56:00+00:00",
       "source": "\"Georgia state government Atlanta\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Ga. Gov.-elect Keisha Lance Bottoms speaks on transition of power WRDW",
-      "title": "Ga. Gov.-elect Keisha Lance Bottoms speaks on transition of power - WRDW"
+      "summary": "Bottoms launches transition team, outlines Medicaid expansion goals WRDW",
+      "title": "Bottoms launches transition team, outlines Medicaid expansion goals - WRDW"
     }
   ],
   "market_news": [
@@ -180,44 +180,52 @@
       "source_url": "https://finance.yahoo.com/news/rssindex"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/07/trump-us-minor-strikes-iran-qeshm-island.html",
-      "published_at": "2026-11-07T07:37:36+00:00",
+      "link": "https://www.cnbc.com/2026/11/08/cathie-wood-ai-selloff.html",
+      "published_at": "2026-11-08T06:00:01+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Trump said the U.S. carried out \u2018minor strikes\u2019 on Iran after Iranian media reported two missiles hit Qeshm Island near the Strait of Hormuz.",
-      "title": "Trump says U.S. carried out \u2018minor strikes\u2019 on Iran as missiles hit Qeshm Island"
+      "summary": "The Ark Invest CEO said there was a \"wall of worry\" gripping markets right now.",
+      "title": "Cathie Wood 'always feels better when the market is worried' \u2014 here's why"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/07/hoax-bomb-threats-flights-europe.html",
-      "published_at": "2026-11-07T09:01:57+00:00",
+      "link": "https://www.cnbc.com/2026/11/07/trump-ufc-dana-white-press-secretary-offer.html",
+      "published_at": "2026-11-07T23:13:38+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "The \"weakest point of aviation is targeting it in-flight,\" analysts say \u2014 but any change to procedures will be a lengthy process.",
-      "title": "Why a wave of bomb threats is proving so difficult for Europe's aviation authorities to contain"
+      "summary": "President Donald Trump offered the job of press secretary to UFC president and CEO Dana White on Saturday.",
+      "title": "Trump offers UFC chief Dana White press secretary job"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/07/snap-social-media-teen-safety-lawsuits.html",
-      "published_at": "2026-11-07T12:00:01+00:00",
+      "link": "https://www.cnbc.com/2026/11/08/france-protests-clashes-arrests.html",
+      "published_at": "2026-11-08T09:29:04+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Lawsuits against Snap, Meta and Google are creating headwinds for tech companies just as artificial intelligence tools expand into classrooms.",
-      "title": "Tech companies face mounting child safety lawsuits while pushing AI into schools"
+      "summary": "France's Interior Ministry counted 146,000 protesters Saturday as demonstrations over living costs public services entered a fourth consecutive weekend.",
+      "title": "In pictures: France protests draw 146,000 as clashes erupt for fourth straight weekend"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/06/investors-brace-for-anthropic-valuation-1point5-trillion-a-stretch.html",
-      "published_at": "2026-11-06T21:07:07+00:00",
+      "link": "https://www.cnbc.com/2026/11/08/top-analysts-like-these-3-dividend-stocks-for-consistent-income.html",
+      "published_at": "2026-11-08T11:47:24+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Anthropic could list below a $1.5 trillion valuation, trailing previous expectations, as the AI trade sours on Wall Street.",
-      "title": "Investors brace for lower Anthropic valuation, calling $1.5 trillion a 'stretch'"
+      "summary": "Three dividend-paying stocks that are highlighted by Wall Street\u2019s top pros, as tracked by TipRanks.",
+      "title": "Top Wall Street analysts like these 3 dividend stocks for consistent income"
     },
     {
-      "link": "https://www.cnbc.com/2026/11/06/trump-stephen-miller-wiles-chief-of-staff.html",
-      "published_at": "2026-11-06T22:22:53+00:00",
+      "link": "https://www.cnbc.com/2026/11/07/anthropic-ipo-ai-data-center-backlash.html",
+      "published_at": "2026-11-07T13:00:01+00:00",
       "source": "US Top News and Analysis",
       "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-      "summary": "Trump revealed the shake-up three days after Democrats' landslide victory in the midterm elections, winning majority control of the House and Senate.",
-      "title": "Trump says Stephen Miller to replace Susie Wiles as White House chief of staff"
+      "summary": "Anthropic is poised to become the first pure-play AI company to hit the public market at a time when the public is increasingly leary of the industry.",
+      "title": "Anthropic IPO meets AI backlash after midterms show stinging rebuke of data centers"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/07/cosm-immersive-movie-screenings.html",
+      "published_at": "2026-11-07T13:00:01+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Cosm tickets cost anywhere from $18 for a matinee to around $70 for prime seats or in-demand showings.",
+      "title": "Cosm rides premium moviegoing wave with more immersive screenings and a wider library"
     },
     {
       "link": "https://www.cnbc.com/2026/11/06/automakers-rising-costs-flat-production-2027.html",
@@ -242,14 +250,6 @@
       "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
       "summary": "The Cybertruck and its polarizing design gained a niche following, but it did not achieve mass-market sales and Tesla has issued several voluntary recalls.",
       "title": "Tesla to wind down Cybertruck production in Texas next year to ramp Cybercab, Musk says"
-    },
-    {
-      "link": "https://www.cnbc.com/2026/11/06/moderna-mrna-earnings-q3-2026.html",
-      "published_at": "2026-11-06T12:43:28+00:00",
-      "source": "Business News",
-      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
-      "summary": "The biotech company now expects 2026 revenue growth of 15% to 25%, up from its previous guidance of up to 10%.",
-      "title": "Moderna raises 2026 outlook as CEO says newer vaccines are gaining traction"
     }
   ],
   "market_watchlist": [
@@ -2362,15 +2362,11 @@
       "symbol": "IWM"
     },
     {
-      "change": 162.59031250000407,
-      "change_percent": 0.21464937677445592,
+      "change": 122.421875,
+      "change_percent": 0.16161820355230005,
       "currency": "USD",
       "exchange": "CCC",
       "history_6m": [
-        {
-          "close": 80009.9921875,
-          "timestamp": 1778112000
-        },
         {
           "close": 80186.765625,
           "timestamp": 1778198400
@@ -3104,15 +3100,19 @@
           "timestamp": 1793923200
         },
         {
-          "close": 75909.5234375,
+          "close": 75747.578125,
           "timestamp": 1794009600
+        },
+        {
+          "close": 75870.0,
+          "timestamp": 1794096000
         }
       ],
-      "history_change_percent": -5.124950116093893,
+      "history_change_percent": -5.383389130804588,
       "market_state": null,
       "name": "Bitcoin",
-      "previous_close": 75746.9296875,
-      "price": 75909.52,
+      "previous_close": 75747.578125,
+      "price": 75870.0,
       "source": "Yahoo Finance chart API",
       "symbol": "BTC-USD"
     },
@@ -3652,66 +3652,6 @@
     "followed_teams": [
       {
         "broadcasts": [
-          "Apple TV"
-        ],
-        "completed": false,
-        "event": "Atlanta United FC at Red Bull New York",
-        "event_id": "761939",
-        "followed_team": "Atlanta United",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/soccer/match/_/gameId/761939/atlanta-united-fc-red-bull-new-york",
-        "sport_path": "soccer/usa.1",
-        "starts_at": "2026-11-07T21:00Z",
-        "status": "Scheduled",
-        "status_state": "pre",
-        "teams": [
-          {
-            "abbreviation": "RBNY",
-            "home_away": "home",
-            "name": "Red Bull New York",
-            "score": "0"
-          },
-          {
-            "abbreviation": "ATL",
-            "home_away": "away",
-            "name": "Atlanta United FC",
-            "score": "0"
-          }
-        ],
-        "venue": "Sports Illustrated Stadium"
-      },
-      {
-        "broadcasts": [
-          "DAZN (YES)"
-        ],
-        "completed": false,
-        "event": "Brooklyn Nets at Atlanta Hawks",
-        "event_id": "401909939",
-        "followed_team": "Atlanta Hawks",
-        "source": "ESPN public scoreboard",
-        "source_url": "https://www.espn.com/nba/game/_/gameId/401909939/nets-hawks",
-        "sport_path": "basketball/nba",
-        "starts_at": "2026-11-08T00:30Z",
-        "status": "Scheduled",
-        "status_state": "pre",
-        "teams": [
-          {
-            "abbreviation": "ATL",
-            "home_away": "home",
-            "name": "Atlanta Hawks",
-            "score": "0"
-          },
-          {
-            "abbreviation": "BKN",
-            "home_away": "away",
-            "name": "Brooklyn Nets",
-            "score": "0"
-          }
-        ],
-        "venue": "State Farm Arena"
-      },
-      {
-        "broadcasts": [
           "NFL Net"
         ],
         "completed": false,
@@ -3798,86 +3738,139 @@
           }
         ],
         "venue": "United Center"
+      },
+      {
+        "broadcasts": [
+          "CBS"
+        ],
+        "completed": false,
+        "event": "Kansas City Chiefs at Atlanta Falcons",
+        "event_id": "401873058",
+        "followed_team": "Atlanta Falcons",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nfl/game/_/gameId/401873058/chiefs-falcons",
+        "sport_path": "football/nfl",
+        "starts_at": "2026-11-15T18:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "ATL",
+            "home_away": "home",
+            "name": "Atlanta Falcons",
+            "score": "0"
+          },
+          {
+            "abbreviation": "KC",
+            "home_away": "away",
+            "name": "Kansas City Chiefs",
+            "score": "0"
+          }
+        ],
+        "venue": "Mercedes-Benz Stadium"
+      },
+      {
+        "broadcasts": [
+          "Bucks App",
+          "MyMi"
+        ],
+        "completed": false,
+        "event": "Atlanta Hawks at Milwaukee Bucks",
+        "event_id": "401909992",
+        "followed_team": "Atlanta Hawks",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nba/game/_/gameId/401909992/hawks-bucks",
+        "sport_path": "basketball/nba",
+        "starts_at": "2026-11-16T01:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "MIL",
+            "home_away": "home",
+            "name": "Milwaukee Bucks",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Hawks",
+            "score": "0"
+          }
+        ],
+        "venue": "Fiserv Forum"
       }
     ],
     "major_events": []
   },
   "tech_ai": [
     {
-      "link": "https://techcrunch.com/2026/11/06/sequoia-shutting-down-its-scouts-program-marks-the-end-of-an-era/",
-      "published_at": "2026-11-07T05:01:54+00:00",
+      "link": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "published_at": "2026-11-07T22:07:22+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "Sequoia pioneered the scouts model and many VC firms followed suit, but a consensus now seems to be forming that the model has reached limits in its current form.",
-      "title": "Sequoia shutting down its Scouts program marks the end of an era"
+      "summary": "On Equity, we unpacked what the midterms mean for the tech industry.",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers"
     },
     {
-      "link": "https://techcrunch.com/2026/11/06/from-the-front-row-to-the-hot-seat-what-the-midterms-mean-for-big-tech/",
-      "published_at": "2026-11-07T04:16:43+00:00",
+      "link": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "published_at": "2026-11-07T21:17:08+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "After spending two years getting cozy with the White House, Big Tech is suddenly trying to make friends with Democrats, and the open question is whether that image makeover can hold up against what states, local communities, and the markets are about to do.",
-      "title": "From the front row to the hot seat \u2014 what the midterms mean for Big Tech"
+      "summary": "A memo circulated earlier this year reportedly claimed that China\u2019s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo"
     },
     {
-      "link": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
-      "published_at": "2026-11-07T01:40:28+00:00",
+      "link": "https://techcrunch.com/2026/11/07/parents-want-safer-phones-for-kids-these-companies-are-answering-the-call/",
+      "published_at": "2026-11-07T19:00:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "The deal highlights the challenges of developing massive AI data centers.",
-      "title": "Crusoe sells troubled Wyoming data center project to Google"
+      "summary": "As parents look for alternatives to unrestricted smartphones, a growing number of companies are building phones designed specifically for kids, from feature-limited mobile devices to minimalist home phones.",
+      "title": "Parents want safer phones for kids. These companies are answering the call."
     },
     {
-      "link": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
-      "published_at": "2026-11-06T22:53:46+00:00",
+      "link": "https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack/",
+      "published_at": "2026-11-07T17:24:07+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
-      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation"
+      "summary": "The announcement comes barely more than a week after hackers stole $6.3 billion worth of cryptocurrency from Binance users.",
+      "title": "Binance CFO is leaving to \u2018pursue a new venture\u2019 after $6.3 billion hack"
     },
     {
-      "link": "https://techcrunch.com/2026/11/06/the-duo-apps-are-coming-says-apple/",
-      "published_at": "2026-11-06T21:38:05+00:00",
+      "link": "https://techcrunch.com/2026/11/07/amazons-new-basic-kindle-proves-you-dont-need-all-the-bells-and-whistles/",
+      "published_at": "2026-11-07T17:18:00+00:00",
       "source": "TechCrunch",
       "source_feed": "https://techcrunch.com/feed/",
-      "summary": "There are now 100,000 Duo-optimized apps, says Apple, and thousands more arrive daily.",
-      "title": "The Duo apps are coming, says Apple"
+      "summary": "Amazon's redesigned basic Kindle costs more than before, but its lighter build and improved display make a compelling case for skipping the pricier models.",
+      "title": "Amazon\u2019s new basic Kindle proves you don\u2019t need all the bells and whistles"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQSEpJYzllMkoxeFFPVDVISGp6T1hLcDc2Vm9oVnk5SFFGWWVPdjBXY2hGNG1lLTJ6cm1Dc2tpVlJOc0pqMjF1b0FCY3lYeU96QlFOaGM4TlNZZEtzNXN1MXFPNzBTY01UNFM4OG0zOXRnWmJkMVI5b2UwZFNzTkFWdUVTMWc?oc=5",
-      "published_at": "2026-11-06T10:02:06+00:00",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBkVFNKdFlSLTl6ZndHZTBvOFFta0JaelYzcldkc21kSVJiSHNOcDVBX19xTVY3clpiekZSWmpRbFdtaHdTbVo1d3lNNXJTa3FfQ2NiWHhJV3Vvb3hEekdfQnJDV2xQcU0wUFo4dnBiM050YnhVOVFfYXo4VW5PRWc?oc=5",
+      "published_at": "2026-11-07T13:00:01+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "How A.I. Just Blew Up a Key Tenet of Computer Science The New York Times",
-      "title": "How A.I. Just Blew Up a Key Tenet of Computer Science - The New York Times"
+      "summary": "Anthropic IPO meets AI backlash after midterms show stinging rebuke of data centers CNBC",
+      "title": "Anthropic IPO meets AI backlash after midterms show stinging rebuke of data centers - CNBC"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQSW1qclJEWjVTQTNNU0hWWndTVFlOWFpNY1RqQ1I5Z0F2anRxTE5IQnlTTDhjeU9uUGV2anlLaVBfMFdPc0k5eDJVTVk4VTlVbnVZX0VwVnBEMnhHX19fTGRvX2NrQnNJeGN5MzBBaXBLb3d3Y25JdHpjSXFQMENoa01vNk0yLXVLRVBGZjlHLVFuUmI0QWp5aFBBRzRUSDdNMkpCQ1lJVExIei0zVFFiY0x2eVBPcFJ3d2NCeGN6REF0dw?oc=5",
-      "published_at": "2026-11-06T21:56:42+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOb1VmQjZaSFpBNlM4eXNWWGdfZ05kR1p6SnhJMVh2OURjd0t3Nl9kUHBiS3pXUzRfVDlOcUY4UUI2ejZ0RWZfd2gwbEl6WWhMWE5xNDd1SkxZVWhXVjNsWWRRRm45bl9VVFVCMkxQRjdDOU42ekhTWUoyMFhjZUtxazByTFhxYTVZb3l5RGlHT0xlaTFOQTVkbVpVLTJPeW8tRkZXbTFuQU5XSzNJTnF2dUo0MA?oc=5",
+      "published_at": "2026-11-08T02:00:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Democrats planning flood of AI bills when they take control of Congress Reuters",
-      "title": "Democrats planning flood of AI bills when they take control of Congress - Reuters"
+      "summary": "Americans are anxious about the AI boom going bust The Washington Post",
+      "title": "Americans are anxious about the AI boom going bust - The Washington Post"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONG85QmJuZGVEWUIxSW4ybHJPVmN2RmR2VjBTdnkydmZSOGV6YllsWEUtbVpYclRTSWhQS09EZGxJSllyY0otS1QtQVdVY3BhY0ZqMWxfR25WeWo3Q3d5LUg5dVZrUGRneGh2LTRBQjY3SERxNTdLaXNkaU9VaHVPb0lKQW10WmvSAYwBQVVfeXFMTWdsc2pjdEpUS1NXdWRzcld3SFp2eVBhWkU2NWNOTXRsUS1WbTNRVlg3S0ZRalhiYnR5WTNKQUxiR1JXNkI3b3ItbnBsZkdoZE9lbWJkVFB1eTFwMFluVFNobUtfLU1sTUJPSlRVSU1IUnRhYXFPVzNEc0NRempsZGM3MTFTVFZSUGUzS0Y?oc=5",
-      "published_at": "2026-11-05T20:16:52+00:00",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNOW1WLUp3ZVE4OWpCZFlzazVycDF6bWFRcVdKUE1kZ0lKdW92WEM2UnRLWUtvbTNhTDJUQ2ZLMEpDODZqbE1LbEdseW9TUHNEUUtfdmdaR0ZqRGhiMjNhOXNPTVhGcmlBcGUwbFl2VUtnM3N4SzRGTmZSaEp0R2tCNVNkNFZKMS1UMkRBUVp6Rm13Q1ZuYkhmcEl3UjVrbG9fX1ZRMFNjUjF0VFVUWmI5dVZ1aWMxSGZSUDl4Z1NtUHBzbEMwYnppWWdmczVGQQ?oc=5",
+      "published_at": "2026-11-08T08:02:00+00:00",
       "source": "\"AI technology news\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Top Democrats call to rein in AI buildout after midterms sweep: 'National data center moratorium now' CNBC",
-      "title": "Top Democrats call to rein in AI buildout after midterms sweep: 'National data center moratorium now' - CNBC"
+      "summary": "\u2018AI clog\u2019: UK public bodies battle onslaught of chatbot-generated complaints The Guardian",
+      "title": "\u2018AI clog\u2019: UK public bodies battle onslaught of chatbot-generated complaints - The Guardian"
     }
   ],
   "timezone": "America/New_York",
   "traffic_commute": [
-    {
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMzg3OFEwRGpSWkZRX2hycjJ2eW90Vk10d3otZ25ZZUdUd2hDZ0h6Nm5iY014d1BMbjhLblJmZk9ieTkxWGNBSExndU5sOWRlbk9HR3NjLWMwTFpuSG5uRzhpb3czcVpfZXhGNHBLamw1YS04dGF6M3RNYjdFNDBObjJKNjJveFpCYWJSZGE5RUNTcUZV?oc=5",
-      "published_at": "2026-11-07T02:57:49+00:00",
-      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
-      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "All I-75/85 lanes reopen at North Ave after police activity FOX 5 Atlanta",
-      "title": "All I-75/85 lanes reopen at North Ave after police activity - FOX 5 Atlanta"
-    },
     {
       "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOem9UTkpOQ3JuY2pfSGRKcnlTMmdBVUZXZTAxM0Z4eTRpaDNpOXNPcTNhdWVNWjEwQnNrOGViS1c3NU5fRU40dnhoY1FZYXZZZDRrejhXRURDWmFIdjhnS0U5aWFXaGFBNDZHQ0ZINktiM2k3T1ZGY2R6SGV0MkFycmdvU3FZSEp4R05wZ3dVQUIyNkw2SmZwYVZabXY1aXFFS1NPbGFjdHJQaTA1Q2dER1ZpMFhPUjFCWG9qbk16X1VDejg?oc=5",
       "published_at": "2026-11-07T04:28:00+00:00",
@@ -3885,6 +3878,14 @@
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
       "summary": "Traffic standstill on Downtown Connector in Atlanta clears 11Alive.com",
       "title": "Traffic standstill on Downtown Connector in Atlanta clears - 11Alive.com"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMzg3OFEwRGpSWkZRX2hycjJ2eW90Vk10d3otZ25ZZUdUd2hDZ0h6Nm5iY014d1BMbjhLblJmZk9ieTkxWGNBSExndU5sOWRlbk9HR3NjLWMwTFpuSG5uRzhpb3czcVpfZXhGNHBLamw1YS04dGF6M3RNYjdFNDBObjJKNjJveFpCYWJSZGE5RUNTcUZV?oc=5",
+      "published_at": "2026-11-07T02:57:49+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "All I-75/85 lanes reopen at North Ave after police activity FOX 5 Atlanta",
+      "title": "All I-75/85 lanes reopen at North Ave after police activity - FOX 5 Atlanta"
     },
     {
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQkJLMVp6YWowRnJMRjhPVjRTVFNRMVpwQ18wN1ZnT082VjUtbXh6bkx2b0xFdDBFbjZsazA3WXZvY0RHbkpyQkdPZ2RiU3czZVVJNlNtNUVfWlBRemxDQjJDR0ZsZXNqR1lPSkJDWU13NGFnYVl2VVZUUzVHZWlFbnFMS1VOVXRqdG1vZnpWZ3NQdHNMNjkxV3dFUTRJanFpeU16eWpnOXktZw?oc=5",
@@ -3895,28 +3896,28 @@
       "title": "MARTA teams up with Atlanta artist Catlanta on limited-edition merch - CBS News"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOaHF2bXFfajdraGNOX2tEem4yZkVlSFJFejFVRTlsYzdONmJGOWszdDZWRE1wZnR5Mkg2aG80emxBQ08xdXkteFBhQ1JUY1JIOXZCNzVrYk5ISjBMVWNTYk9TQWNTcWtyWE1Pem5GMHhBYThxSzVseThXWC1EM3pTRllja2ZIbGsxczhwYVVsT25IbnpRa1pWd2ppUXVCODFxdTdtN1d4aVhOU21BWmFuMW1DaHdEbDVlLTk0NDhxcVNPRlFQclRKQW00ZVowRzRMeEkwSzc0NmQyeG03OXViWldR0gH2AUFVX3lxTE5SclZZRlp0Q3BRVU5SUTlkLVhWU0FfTGNTYWRyckdBYnJEbURyNmZjdC12X0NUN3ZvZGxJQXRPRDQxMWlpTzlfX3hLWXVqaGRUR0RDQ25oRmd2SGx3QlFMMmM0VjZoRVJrMWpFMzZFYXpJOHE1MmQ5djVwblc1ZE5rM1FZZnhXQVFlQUt0aGdhclFlMzNEYks0LW9TbllieWEtMlUzVWdZUmM0NFpPUXdyYzJRc0FMRzUxWkxXVmpLa1l5NXN5NVNjTjRPMkhvTzA3WmdtWFFPSnRaaTB3MjJLMkFNbkJxbG50N0xBSWtYSEx3Qk8tZw?oc=5",
-      "published_at": "2026-11-06T16:24:08+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVzRJN3RCYVI3b1F0ZlBzOWxRTkowZE1SLUZ0ZmkxT3VLeGFwVFloVEd2UEJULXZOc1NtYXhzRnZqYnp3T3ROX2VuazdLMVgzQVlIZXFDb3dkWTl6T05GUDNpMlZqanByQjZNMkpVZ2FrLVJsVV9QQzA3bG5ualhlRUl3MzBBeEJxNlUycmpKMzBwR1Nza2tjY2wwa1NxVGY3bmc?oc=5",
+      "published_at": "2026-11-06T11:31:24+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "MARTA says this is what Five Points Station will look like after transformation WSB-TV",
-      "title": "MARTA says this is what Five Points Station will look like after transformation - WSB-TV"
+      "summary": "Can Atlanta squeeze a new MARTA station onto the Beltline? Axios",
+      "title": "Can Atlanta squeeze a new MARTA station onto the Beltline? - Axios"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPOXMxRHdoVW5DdUI0TnM2SG51TXhxak52X0FOeWlaWWF2Uy1OdHRlRG5lMnJNbkt3UFhhSzhPN3RacjRqNW1tZGlacklNWklYQkdaS19TTzVnVkFHbHRDdXBXSHg5SXhEQW5JLU1ZcWtEZERDalAyc0hfUkU0YnJzNldJRkVQVDNFVTVCLVMxTUEtSnRyZFJKYXVuTzFhUlRSREE?oc=5",
-      "published_at": "2026-11-06T15:03:10+00:00",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPa0MzUS1UcjVkVGkyZGNkZEd5UUY3dU9uVzBzVGxPUE9XclE5ekU5dGc3dUtPcTVtZUljV19rSWpCZG85OXF6RWptOURiSGVnRXB4ZjUxODA5d2NYNjllREZieTVfZ3liamFkUFdXQUJwT0tDT3hyTVhnSGlkWnVxV3ZlSGV0NVAxbnEwUzRBMzZiRWJfZWYtR3FoZ3NuTnRodzlReGtQTXIyd2JSbEg0Y3RzWGFHSTkz0gHMAUFVX3lxTE42RXlWOF9PT1kyNmVpc2hEMVQweDVSYXR1ZUVVVFphQ0FjblZLd2dmdmhwWGcxRDRPX2hEbl94ZGZXbVhDb21HeE1sM2hvd1JlZEpkMnh0NklwVGxqeTQyV2lkeEpzX0VfcVlndjBmTUtZUmlLOTd3Z0R4cnAzRzhZRUc0TmtHMlpsNUpTUElmTE5qQmxDVGF0QVVZbG4xYnFsbmNaVnAzZlA4eXhZcHZVR1hqUEVTWFZwQUg5WFg4NHF4RUZ0T2Z6YjVtZQ?oc=5",
+      "published_at": "2026-11-07T21:02:23+00:00",
       "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
-      "summary": "Fresh visuals emerge for MARTA\u2019s Five Points redevelopment Urbanize Atlanta",
-      "title": "Fresh visuals emerge for MARTA\u2019s Five Points redevelopment - Urbanize Atlanta"
+      "summary": "New K9 finds narcotics during traffic stop WSB-TV",
+      "title": "New K9 finds narcotics during traffic stop - WSB-TV"
     },
     {
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0xWmZoTVY5Qk9NbGtxbFdmRFg0N2VWc0hVZ0ZMWXVkWkViaWhUblpsOVZPbUJNZnRyOUJrVXlfdU1wWGpxMGs2WnNlSnN3dzVzeGJxS0hTZ3NFa2J0dG9DWlh3bGtzak4wWURIWnRkdXNrOUFEc0w2aXhn?oc=5",
-      "published_at": "2026-01-24T08:00:00+00:00",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbzRZREw2Q0xkVHM5S0JDZnZVaGlleTRFNjJtNy03SkFXR1Z0b1NHdUs5X04xWkVOaTlwNUZkS0M5MmRpeFY5WHVLb1pCamRieFFySDNwTFQ1b0ROeUtENEZTWnpBUWl5TV9jVmplV1VObHVpdGlrUzN5R0dleVlFSllpdVF0TVlyU3RtQ0MxYzBuX01Z?oc=5",
+      "published_at": "2026-11-05T10:08:09+00:00",
       "source": "\"Atlanta weather alert OR road closure\" - Google News",
       "source_feed": "https://news.google.com/rss/search?q=Atlanta%20weather%20alert%20OR%20road%20closure&hl=en-US&gl=US&ceid=US:en",
-      "summary": "LIVE BLOG: Georgia winter storm road closures & conditions FOX 5 Atlanta",
-      "title": "LIVE BLOG: Georgia winter storm road closures & conditions - FOX 5 Atlanta"
+      "summary": "North Georgia flooding: Waters receding in McCaysville area FOX 5 Atlanta",
+      "title": "North Georgia flooding: Waters receding in McCaysville area - FOX 5 Atlanta"
     }
   ],
   "weather": [
@@ -3924,87 +3925,65 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Mostly sunny. High near 69, with temperatures falling to around 65 in the afternoon. Northwest wind 0 to 5 mph.",
+          "detailed_forecast": "Sunny, with a high near 70. East wind around 0 mph.",
           "is_daytime": true,
           "name": "Today",
           "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T06:00:00-05:00",
-          "temperature": 69,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T06:00:00-05:00",
+          "temperature": 70,
           "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
+          "wind": "0 mph"
         },
         {
-          "detailed_forecast": "Partly cloudy, with a low around 44. North wind 0 to 5 mph.",
+          "detailed_forecast": "Mostly clear, with a low around 45. West wind 0 to 5 mph.",
           "is_daytime": false,
           "name": "Tonight",
           "precipitation_probability": 0,
-          "short_forecast": "Partly Cloudy",
-          "start_time": "2026-11-07T18:00:00-05:00",
-          "temperature": 44,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph N"
-        },
-        {
-          "detailed_forecast": "Mostly sunny. High near 69, with temperatures falling to around 65 in the afternoon. Southeast wind 0 to 5 mph.",
-          "is_daytime": true,
-          "name": "Sunday",
-          "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-08T06:00:00-05:00",
-          "temperature": 69,
-          "temperature_unit": "F",
-          "wind": "0 to 5 mph SE"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 44. Northwest wind 0 to 5 mph.",
-          "is_daytime": false,
-          "name": "Sunday Night",
-          "precipitation_probability": 0,
           "short_forecast": "Mostly Clear",
           "start_time": "2026-11-08T18:00:00-05:00",
-          "temperature": 44,
+          "temperature": 45,
           "temperature_unit": "F",
-          "wind": "0 to 5 mph NW"
+          "wind": "0 to 5 mph W"
         },
         {
-          "detailed_forecast": "Sunny, with a high near 72. Northwest wind around 5 mph.",
+          "detailed_forecast": "Sunny, with a high near 71. Northwest wind around 5 mph.",
           "is_daytime": true,
           "name": "Monday",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
           "start_time": "2026-11-09T06:00:00-05:00",
-          "temperature": 72,
+          "temperature": 71,
           "temperature_unit": "F",
           "wind": "5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 44.",
+          "detailed_forecast": "Mostly clear, with a low around 43. Northwest wind 0 to 5 mph.",
           "is_daytime": false,
           "name": "Monday Night",
           "precipitation_probability": 0,
           "short_forecast": "Mostly Clear",
           "start_time": "2026-11-09T18:00:00-05:00",
-          "temperature": 44,
+          "temperature": 43,
           "temperature_unit": "F",
           "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 72.",
+          "detailed_forecast": "Mostly sunny, with a high near 71. Northwest wind 0 to 5 mph.",
           "is_daytime": true,
           "name": "Tuesday",
           "precipitation_probability": 0,
           "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-10T06:00:00-05:00",
-          "temperature": 72,
+          "temperature": 71,
           "temperature_unit": "F",
-          "wind": "0 to 5 mph W"
+          "wind": "0 to 5 mph NW"
         },
         {
           "detailed_forecast": "Partly cloudy, with a low around 48.",
           "is_daytime": false,
           "name": "Tuesday Night",
-          "precipitation_probability": 0,
+          "precipitation_probability": 1,
           "short_forecast": "Partly Cloudy",
           "start_time": "2026-11-10T18:00:00-05:00",
           "temperature": 48,
@@ -4012,70 +3991,92 @@
           "wind": "0 to 5 mph W"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 71.",
+          "detailed_forecast": "Mostly sunny, with a high near 72.",
           "is_daytime": true,
           "name": "Veterans Day",
           "precipitation_probability": 1,
           "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-11T06:00:00-05:00",
-          "temperature": 71,
+          "temperature": 72,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "5 mph W"
         },
         {
-          "detailed_forecast": "Partly cloudy, with a low around 49.",
+          "detailed_forecast": "Partly cloudy, with a low around 51.",
           "is_daytime": false,
           "name": "Wednesday Night",
-          "precipitation_probability": 3,
+          "precipitation_probability": 7,
           "short_forecast": "Partly Cloudy",
           "start_time": "2026-11-11T18:00:00-05:00",
-          "temperature": 49,
+          "temperature": 51,
           "temperature_unit": "F",
           "wind": "0 to 5 mph W"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers after 1pm. Mostly sunny, with a high near 67. Chance of precipitation is 20%.",
+          "detailed_forecast": "A slight chance of rain showers after 7am. Partly sunny, with a high near 66. Chance of precipitation is 20%.",
           "is_daytime": true,
           "name": "Thursday",
-          "precipitation_probability": 15,
-          "short_forecast": "Mostly Sunny then Slight Chance Rain Showers",
+          "precipitation_probability": 21,
+          "short_forecast": "Slight Chance Rain Showers",
           "start_time": "2026-11-12T06:00:00-05:00",
-          "temperature": 67,
+          "temperature": 66,
           "temperature_unit": "F",
-          "wind": "5 to 15 mph W"
+          "wind": "5 to 20 mph W"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers before 7pm. Partly cloudy, with a low around 43. Chance of precipitation is 20%.",
+          "detailed_forecast": "A slight chance of rain showers before 7pm. Mostly cloudy, with a low around 42. Chance of precipitation is 20%.",
           "is_daytime": false,
           "name": "Thursday Night",
-          "precipitation_probability": 15,
-          "short_forecast": "Slight Chance Rain Showers then Partly Cloudy",
+          "precipitation_probability": 21,
+          "short_forecast": "Slight Chance Rain Showers then Mostly Cloudy",
           "start_time": "2026-11-12T18:00:00-05:00",
-          "temperature": 43,
+          "temperature": 42,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Mostly sunny, with a high near 55.",
+          "is_daytime": true,
+          "name": "Friday",
+          "precipitation_probability": 2,
+          "short_forecast": "Mostly Sunny",
+          "start_time": "2026-11-13T06:00:00-05:00",
+          "temperature": 55,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 35.",
+          "is_daytime": false,
+          "name": "Friday Night",
+          "precipitation_probability": 3,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-13T18:00:00-05:00",
+          "temperature": 35,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 56.",
+          "is_daytime": true,
+          "name": "Saturday",
+          "precipitation_probability": 1,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-14T06:00:00-05:00",
+          "temperature": 56,
           "temperature_unit": "F",
           "wind": "5 to 10 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 59.",
-          "is_daytime": true,
-          "name": "Friday",
-          "precipitation_probability": 4,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-13T06:00:00-05:00",
-          "temperature": 59,
-          "temperature_unit": "F",
-          "wind": "5 to 15 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 37.",
+          "detailed_forecast": "Mostly clear, with a low around 35.",
           "is_daytime": false,
-          "name": "Friday Night",
-          "precipitation_probability": 4,
+          "name": "Saturday Night",
+          "precipitation_probability": 0,
           "short_forecast": "Mostly Clear",
-          "start_time": "2026-11-13T18:00:00-05:00",
-          "temperature": 37,
+          "start_time": "2026-11-14T18:00:00-05:00",
+          "temperature": 35,
           "temperature_unit": "F",
-          "wind": "5 to 15 mph NW"
+          "wind": "0 to 5 mph NW"
         }
       ],
       "hourly_next_periods": [
@@ -4085,10 +4086,10 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T06:00:00-05:00",
-          "temperature": 49,
+          "start_time": "2026-11-08T06:00:00-05:00",
+          "temperature": 45,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4096,10 +4097,10 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T07:00:00-05:00",
-          "temperature": 49,
+          "start_time": "2026-11-08T07:00:00-05:00",
+          "temperature": 45,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4107,10 +4108,10 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T08:00:00-05:00",
-          "temperature": 51,
+          "start_time": "2026-11-08T08:00:00-05:00",
+          "temperature": 48,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4118,10 +4119,10 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T09:00:00-05:00",
+          "start_time": "2026-11-08T09:00:00-05:00",
           "temperature": 55,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4129,19 +4130,19 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T10:00:00-05:00",
+          "start_time": "2026-11-08T10:00:00-05:00",
           "temperature": 59,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T11:00:00-05:00",
-          "temperature": 62,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T11:00:00-05:00",
+          "temperature": 63,
           "temperature_unit": "F",
           "wind": "0 mph"
         },
@@ -4150,20 +4151,20 @@
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T12:00:00-05:00",
-          "temperature": 65,
-          "temperature_unit": "F",
-          "wind": "0 mph"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T13:00:00-05:00",
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T12:00:00-05:00",
           "temperature": 67,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T13:00:00-05:00",
+          "temperature": 69,
           "temperature_unit": "F",
           "wind": "0 mph"
         }
@@ -4178,42 +4179,20 @@
       "alerts": [],
       "forecast_periods": [
         {
-          "detailed_forecast": "Mostly sunny. High near 67, with temperatures falling to around 63 in the afternoon. Northwest wind 5 to 10 mph.",
+          "detailed_forecast": "Sunny, with a high near 69. North wind 0 to 5 mph.",
           "is_daytime": true,
           "name": "Today",
           "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T06:00:00-05:00",
-          "temperature": 67,
-          "temperature_unit": "F",
-          "wind": "5 to 10 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly clear, with a low around 43. Northwest wind around 5 mph.",
-          "is_daytime": false,
-          "name": "Tonight",
-          "precipitation_probability": 0,
-          "short_forecast": "Mostly Clear",
-          "start_time": "2026-11-07T18:00:00-05:00",
-          "temperature": 43,
-          "temperature_unit": "F",
-          "wind": "5 mph NW"
-        },
-        {
-          "detailed_forecast": "Mostly sunny, with a high near 68. North wind 0 to 5 mph.",
-          "is_daytime": true,
-          "name": "Sunday",
-          "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
+          "short_forecast": "Sunny",
           "start_time": "2026-11-08T06:00:00-05:00",
-          "temperature": 68,
+          "temperature": 69,
           "temperature_unit": "F",
           "wind": "0 to 5 mph N"
         },
         {
           "detailed_forecast": "Mostly clear, with a low around 44. Northwest wind around 5 mph.",
           "is_daytime": false,
-          "name": "Sunday Night",
+          "name": "Tonight",
           "precipitation_probability": 0,
           "short_forecast": "Mostly Clear",
           "start_time": "2026-11-08T18:00:00-05:00",
@@ -4222,29 +4201,29 @@
           "wind": "5 mph NW"
         },
         {
-          "detailed_forecast": "Sunny, with a high near 70. Northwest wind 5 to 10 mph.",
+          "detailed_forecast": "Sunny, with a high near 69. Northwest wind 5 to 10 mph, with gusts as high as 20 mph.",
           "is_daytime": true,
           "name": "Monday",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
           "start_time": "2026-11-09T06:00:00-05:00",
-          "temperature": 70,
+          "temperature": 69,
           "temperature_unit": "F",
           "wind": "5 to 10 mph NW"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 45.",
+          "detailed_forecast": "Mostly clear, with a low around 44. Northwest wind 0 to 5 mph.",
           "is_daytime": false,
           "name": "Monday Night",
           "precipitation_probability": 0,
           "short_forecast": "Mostly Clear",
           "start_time": "2026-11-09T18:00:00-05:00",
-          "temperature": 45,
+          "temperature": 44,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 to 5 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 70.",
+          "detailed_forecast": "Mostly sunny, with a high near 70. Northwest wind 0 to 5 mph.",
           "is_daytime": true,
           "name": "Tuesday",
           "precipitation_probability": 0,
@@ -4252,84 +4231,106 @@
           "start_time": "2026-11-10T06:00:00-05:00",
           "temperature": 70,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 to 5 mph NW"
         },
         {
           "detailed_forecast": "Partly cloudy, with a low around 48.",
           "is_daytime": false,
           "name": "Tuesday Night",
-          "precipitation_probability": 0,
+          "precipitation_probability": 1,
           "short_forecast": "Partly Cloudy",
           "start_time": "2026-11-10T18:00:00-05:00",
           "temperature": 48,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "5 mph W"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 70.",
+          "detailed_forecast": "Mostly sunny, with a high near 71.",
           "is_daytime": true,
           "name": "Veterans Day",
           "precipitation_probability": 1,
           "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-11T06:00:00-05:00",
-          "temperature": 70,
+          "temperature": 71,
           "temperature_unit": "F",
-          "wind": "5 to 10 mph NW"
+          "wind": "5 to 10 mph W"
         },
         {
-          "detailed_forecast": "Partly cloudy, with a low around 49.",
+          "detailed_forecast": "Partly cloudy, with a low around 51.",
           "is_daytime": false,
           "name": "Wednesday Night",
-          "precipitation_probability": 4,
+          "precipitation_probability": 9,
           "short_forecast": "Partly Cloudy",
           "start_time": "2026-11-11T18:00:00-05:00",
-          "temperature": 49,
+          "temperature": 51,
           "temperature_unit": "F",
           "wind": "5 mph W"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers after 1pm. Mostly sunny, with a high near 66. Chance of precipitation is 20%.",
+          "detailed_forecast": "A slight chance of rain showers after 7am. Partly sunny, with a high near 65. Chance of precipitation is 20%.",
           "is_daytime": true,
           "name": "Thursday",
-          "precipitation_probability": 16,
-          "short_forecast": "Mostly Sunny then Slight Chance Rain Showers",
+          "precipitation_probability": 20,
+          "short_forecast": "Slight Chance Rain Showers",
           "start_time": "2026-11-12T06:00:00-05:00",
-          "temperature": 66,
+          "temperature": 65,
           "temperature_unit": "F",
-          "wind": "5 to 15 mph W"
+          "wind": "5 to 20 mph W"
         },
         {
-          "detailed_forecast": "A slight chance of rain showers before 7pm. Partly cloudy, with a low around 43. Chance of precipitation is 20%.",
+          "detailed_forecast": "A slight chance of rain showers before 7pm. Partly cloudy, with a low around 42. Chance of precipitation is 20%.",
           "is_daytime": false,
           "name": "Thursday Night",
-          "precipitation_probability": 16,
+          "precipitation_probability": 20,
           "short_forecast": "Slight Chance Rain Showers then Partly Cloudy",
           "start_time": "2026-11-12T18:00:00-05:00",
-          "temperature": 43,
+          "temperature": 42,
           "temperature_unit": "F",
           "wind": "10 to 15 mph NW"
         },
         {
-          "detailed_forecast": "Mostly sunny, with a high near 58.",
+          "detailed_forecast": "Mostly sunny, with a high near 54.",
           "is_daytime": true,
           "name": "Friday",
-          "precipitation_probability": 5,
+          "precipitation_probability": 2,
           "short_forecast": "Mostly Sunny",
           "start_time": "2026-11-13T06:00:00-05:00",
-          "temperature": 58,
+          "temperature": 54,
           "temperature_unit": "F",
           "wind": "10 to 15 mph NW"
         },
         {
-          "detailed_forecast": "Mostly clear, with a low around 37.",
+          "detailed_forecast": "Mostly clear, with a low around 35.",
           "is_daytime": false,
           "name": "Friday Night",
-          "precipitation_probability": 5,
+          "precipitation_probability": 2,
           "short_forecast": "Mostly Clear",
           "start_time": "2026-11-13T18:00:00-05:00",
-          "temperature": 37,
+          "temperature": 35,
           "temperature_unit": "F",
-          "wind": "10 to 15 mph NW"
+          "wind": "5 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 55.",
+          "is_daytime": true,
+          "name": "Saturday",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-14T06:00:00-05:00",
+          "temperature": 55,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NW"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 36.",
+          "is_daytime": false,
+          "name": "Saturday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-14T18:00:00-05:00",
+          "temperature": 36,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NW"
         }
       ],
       "hourly_next_periods": [
@@ -4339,10 +4340,32 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T07:00:00-05:00",
+          "start_time": "2026-11-08T06:00:00-05:00",
+          "temperature": 44,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T07:00:00-05:00",
+          "temperature": 45,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T08:00:00-05:00",
           "temperature": 48,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4350,21 +4373,10 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T08:00:00-05:00",
-          "temperature": 50,
-          "temperature_unit": "F",
-          "wind": "10 mph NW"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 0,
-          "short_forecast": "Sunny",
-          "start_time": "2026-11-07T09:00:00-05:00",
+          "start_time": "2026-11-08T09:00:00-05:00",
           "temperature": 55,
           "temperature_unit": "F",
-          "wind": "10 mph N"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4372,10 +4384,21 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Sunny",
-          "start_time": "2026-11-07T10:00:00-05:00",
-          "temperature": 58,
+          "start_time": "2026-11-08T10:00:00-05:00",
+          "temperature": 59,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "5 mph NE"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T11:00:00-05:00",
+          "temperature": 62,
+          "temperature_unit": "F",
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
@@ -4383,43 +4406,21 @@
           "name": "",
           "precipitation_probability": 0,
           "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T11:00:00-05:00",
-          "temperature": 60,
+          "start_time": "2026-11-08T12:00:00-05:00",
+          "temperature": 66,
           "temperature_unit": "F",
-          "wind": "5 mph N"
+          "wind": "0 mph"
         },
         {
           "detailed_forecast": "",
           "is_daytime": true,
           "name": "",
           "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T12:00:00-05:00",
-          "temperature": 63,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-08T13:00:00-05:00",
+          "temperature": 68,
           "temperature_unit": "F",
-          "wind": "5 mph NW"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 0,
-          "short_forecast": "Mostly Sunny",
-          "start_time": "2026-11-07T13:00:00-05:00",
-          "temperature": 65,
-          "temperature_unit": "F",
-          "wind": "5 mph NW"
-        },
-        {
-          "detailed_forecast": "",
-          "is_daytime": true,
-          "name": "",
-          "precipitation_probability": 0,
-          "short_forecast": "Partly Sunny",
-          "start_time": "2026-11-07T14:00:00-05:00",
-          "temperature": 65,
-          "temperature_unit": "F",
-          "wind": "5 mph NW"
+          "wind": "0 mph"
         }
       ],
       "latitude": 33.749,
