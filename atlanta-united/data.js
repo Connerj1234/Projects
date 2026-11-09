@@ -1,333 +1,53 @@
 window.ATL_DATA = {
-  "season": "2026 MLS Regular Season",
-  "seasonArchiveYear": 2026,
-  "seasonId": "2026",
-  "expectedRegularSeasonMatches": 34,
+  "season": "2027 MLS Sprint Season (Upcoming)",
+  "seasonArchiveYear": 2027,
+  "seasonId": "2027-sprint",
+  "expectedRegularSeasonMatches": 14,
   "clubName": "Atlanta United",
   "record": {
-    "wins": 9,
-    "draws": 6,
-    "losses": 18
+    "wins": 0,
+    "draws": 0,
+    "losses": 0
   },
   "stats": {
-    "points": 33,
-    "goalsFor": 43,
-    "goalsAgainst": 57,
-    "homeRecord": "5-2-10",
-    "awayRecord": "4-4-8",
-    "cleanSheets": 4,
-    "avgAttendance": 22393
+    "points": 0,
+    "goalsFor": 0,
+    "goalsAgainst": 0,
+    "homeRecord": "0-0-0",
+    "awayRecord": "0-0-0",
+    "cleanSheets": 0,
+    "avgAttendance": null
   },
   "position": {
     "rank": 13,
     "conference": "Eastern Conference"
   },
-  "formLastFive": [
-    "W",
-    "L",
-    "L",
-    "L",
-    "W"
-  ],
+  "formLastFive": [],
   "nextMatch": {
-    "opponent": "Red Bull New York",
-    "dateISO": "2026-11-07T21:00Z",
+    "opponent": "Toronto FC",
+    "dateISO": "2027-02-21T00:00Z",
     "competition": "MLS",
-    "venue": "Sports Illustrated Stadium",
+    "venue": "Home",
     "broadcast": "MLS Season Pass"
   },
-  "results": [
-    {
-      "date": "2026-11-01",
-      "opponent": "Toronto FC",
-      "venue": "Home",
-      "score": "3-1",
-      "outcome": "Win"
-    },
-    {
-      "date": "2026-10-28",
-      "opponent": "New York City FC",
-      "venue": "Away",
-      "score": "1-2",
-      "outcome": "Loss"
-    },
-    {
-      "date": "2026-10-24",
-      "opponent": "Chicago Fire FC",
-      "venue": "Home",
-      "score": "2-3",
-      "outcome": "Loss"
-    },
-    {
-      "date": "2026-10-17",
-      "opponent": "Inter Miami CF",
-      "venue": "Home",
-      "score": "1-3",
-      "outcome": "Loss"
-    },
-    {
-      "date": "2026-10-14",
-      "opponent": "CF Montréal",
-      "venue": "Away",
-      "score": "3-0",
-      "outcome": "Win"
-    }
-  ],
-  "seasonProgress": [
-    {
-      "match": 1,
-      "date": "2026-02-21",
-      "opponent": "FC Cincinnati",
-      "result": "0-2 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 2,
-      "date": "2026-02-28",
-      "opponent": "San Jose Earthquakes",
-      "result": "0-2 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 3,
-      "date": "2026-03-07",
-      "opponent": "Real Salt Lake",
-      "result": "2-3 (Loss)",
-      "points": 0
-    },
-    {
-      "match": 4,
-      "date": "2026-03-14",
-      "opponent": "Philadelphia Union",
-      "result": "3-1 (Win)",
-      "points": 3
-    },
-    {
-      "match": 5,
-      "date": "2026-03-21",
-      "opponent": "D.C. United",
-      "result": "0-0 (Draw)",
-      "points": 4
-    },
-    {
-      "match": 6,
-      "date": "2026-04-04",
-      "opponent": "Columbus Crew",
-      "result": "1-3 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 7,
-      "date": "2026-04-11",
-      "opponent": "Chicago Fire FC",
-      "result": "0-1 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 8,
-      "date": "2026-04-18",
-      "opponent": "Nashville SC",
-      "result": "0-2 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 9,
-      "date": "2026-04-22",
-      "opponent": "New England Revolution",
-      "result": "1-2 (Loss)",
-      "points": 4
-    },
-    {
-      "match": 10,
-      "date": "2026-04-25",
-      "opponent": "Toronto FC",
-      "result": "2-1 (Win)",
-      "points": 7
-    },
-    {
-      "match": 11,
-      "date": "2026-05-02",
-      "opponent": "CF Montréal",
-      "result": "3-1 (Win)",
-      "points": 10
-    },
-    {
-      "match": 12,
-      "date": "2026-05-09",
-      "opponent": "LA Galaxy",
-      "result": "1-2 (Loss)",
-      "points": 10
-    },
-    {
-      "match": 13,
-      "date": "2026-05-16",
-      "opponent": "Orlando City SC",
-      "result": "1-1 (Draw)",
-      "points": 11
-    },
-    {
-      "match": 14,
-      "date": "2026-05-24",
-      "opponent": "Columbus Crew",
-      "result": "0-2 (Loss)",
-      "points": 11
-    },
-    {
-      "match": 15,
-      "date": "2026-07-17",
-      "opponent": "Nashville SC",
-      "result": "0-1 (Loss)",
-      "points": 11
-    },
-    {
-      "match": 16,
-      "date": "2026-07-22",
-      "opponent": "Charlotte FC",
-      "result": "2-2 (Draw)",
-      "points": 12
-    },
-    {
-      "match": 17,
-      "date": "2026-07-25",
-      "opponent": "New England Revolution",
-      "result": "1-4 (Loss)",
-      "points": 12
-    },
-    {
-      "match": 18,
-      "date": "2026-08-01",
-      "opponent": "Philadelphia Union",
-      "result": "2-3 (Loss)",
-      "points": 12
-    },
-    {
-      "match": 19,
-      "date": "2026-08-15",
-      "opponent": "Red Bull New York",
-      "result": "2-1 (Win)",
-      "points": 15
-    },
-    {
-      "match": 20,
-      "date": "2026-08-19",
-      "opponent": "Minnesota United FC",
-      "result": "2-1 (Win)",
-      "points": 18
-    },
-    {
-      "match": 21,
-      "date": "2026-08-23",
-      "opponent": "Sporting Kansas City",
-      "result": "2-1 (Win)",
-      "points": 21
-    },
-    {
-      "match": 22,
-      "date": "2026-08-29",
-      "opponent": "Charlotte FC",
-      "result": "0-2 (Loss)",
-      "points": 21
-    },
-    {
-      "match": 23,
-      "date": "2026-09-05",
-      "opponent": "Inter Miami CF",
-      "result": "2-2 (Draw)",
-      "points": 22
-    },
-    {
-      "match": 24,
-      "date": "2026-09-09",
-      "opponent": "Orlando City SC",
-      "result": "2-3 (Loss)",
-      "points": 22
-    },
-    {
-      "match": 25,
-      "date": "2026-09-12",
-      "opponent": "D.C. United",
-      "result": "0-0 (Draw)",
-      "points": 23
-    },
-    {
-      "match": 26,
-      "date": "2026-09-19",
-      "opponent": "Portland Timbers",
-      "result": "1-0 (Win)",
-      "points": 26
-    },
-    {
-      "match": 27,
-      "date": "2026-09-26",
-      "opponent": "New York City FC",
-      "result": "2-2 (Draw)",
-      "points": 27
-    },
-    {
-      "match": 28,
-      "date": "2026-10-10",
-      "opponent": "FC Cincinnati",
-      "result": "1-3 (Loss)",
-      "points": 27
-    },
-    {
-      "match": 29,
-      "date": "2026-10-14",
-      "opponent": "CF Montréal",
-      "result": "3-0 (Win)",
-      "points": 30
-    },
-    {
-      "match": 30,
-      "date": "2026-10-17",
-      "opponent": "Inter Miami CF",
-      "result": "1-3 (Loss)",
-      "points": 30
-    },
-    {
-      "match": 31,
-      "date": "2026-10-24",
-      "opponent": "Chicago Fire FC",
-      "result": "2-3 (Loss)",
-      "points": 30
-    },
-    {
-      "match": 32,
-      "date": "2026-10-28",
-      "opponent": "New York City FC",
-      "result": "1-2 (Loss)",
-      "points": 30
-    },
-    {
-      "match": 33,
-      "date": "2026-11-01",
-      "opponent": "Toronto FC",
-      "result": "3-1 (Win)",
-      "points": 33
-    }
-  ],
+  "results": [],
+  "seasonProgress": [],
   "quickSnapshot": {
     "formTrend": {
-      "pointsLast5": 6,
-      "goalDiffLast5": 1,
-      "formRatingOutOf5": 2,
-      "goalDiffPerMatch": 0.2,
-      "pointsPerMatchLastN": 1.2,
-      "gamesSampled": 5,
-      "cleanSheetsLastN": 1,
+      "pointsLast5": 0,
+      "goalDiffLast5": 0,
+      "formRatingOutOf5": null,
+      "goalDiffPerMatch": null,
+      "pointsPerMatchLastN": null,
+      "gamesSampled": 0,
+      "cleanSheetsLastN": 0,
       "wdlLast5": {
-        "wins": 2,
+        "wins": 0,
         "draws": 0,
-        "losses": 3
+        "losses": 0
       }
     },
     "nextThree": [
-      {
-        "opponent": "Red Bull New York",
-        "dateISO": "2026-11-07T21:00Z",
-        "venue": "Away",
-        "competition": "MLS"
-      },
       {
         "opponent": "Toronto FC",
         "dateISO": "2027-02-21T00:00Z",
@@ -339,7 +59,7 @@ window.ATL_DATA = {
       "conference": "East",
       "rank": 13,
       "points": 33,
-      "lineRank": 9,
+      "lineRank": 8,
       "linePoints": 46,
       "pointsFromLine": -13,
       "gamesInHand": 0
@@ -347,40 +67,29 @@ window.ATL_DATA = {
   },
   "playerStats": [
     {
-      "id": "mls-2026-MLS-OBJ-000CLL",
+      "id": "371431",
       "name": "Adrian Gill",
       "number": "16",
       "position": "M",
-      "appearances": 7,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 361
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0002JP",
-      "name": "Adyn Torres",
-      "number": "23",
-      "position": "D",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0007SK",
+      "id": "185897",
       "name": "Alexey Miranchuk",
       "number": "59",
       "position": "M",
-      "appearances": 32,
+      "appearances": 0,
       "starts": 0,
-      "goals": 7,
-      "assists": 7,
-      "minutes": 2601
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000CX8",
+      "id": "3135787",
       "name": "Andrew Jardines",
       "number": "78",
       "position": "M",
@@ -391,81 +100,70 @@ window.ATL_DATA = {
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00083J",
+      "id": "3106014",
       "name": "Arif Kovac",
       "number": "39",
       "position": "F",
-      "appearances": 1,
-      "starts": 0,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 6
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-00023E",
-      "name": "Ashton Gordon",
-      "number": "27",
-      "position": "OFF",
       "appearances": 0,
-      "starts": null,
+      "starts": 0,
       "goals": 0,
       "assists": 0,
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000ELX",
+      "id": "202099",
       "name": "Breel Embolo",
       "number": "36",
-      "position": "OFF",
-      "appearances": 12,
+      "position": "F",
+      "appearances": 0,
       "starts": 0,
-      "goals": 4,
-      "assists": 1,
-      "minutes": 1038
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0000BY",
+      "id": "291252",
       "name": "Cameron Dunbar",
       "number": "70",
       "position": "F",
-      "appearances": 1,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 4
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0007WA",
+      "id": "235093",
       "name": "Cayman Togashi",
       "number": "30",
-      "position": "OFF",
-      "appearances": 7,
+      "position": "F",
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 101
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00023H",
+      "id": "402315",
       "name": "Cooper Sanchez",
       "number": "48",
       "position": "M",
-      "appearances": 29,
-      "starts": 0,
-      "goals": 1,
-      "assists": 1,
-      "minutes": 1886
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0007SM",
-      "name": "Daniel Chica",
-      "number": "44",
-      "position": "D",
-      "appearances": 1,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 34
+      "minutes": 0
+    },
+    {
+      "id": "360086",
+      "name": "Daniel Chica",
+      "number": "44",
+      "position": "D",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
       "id": "400742",
@@ -479,235 +177,169 @@ window.ATL_DATA = {
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000CRG",
+      "id": "361498",
       "name": "Elías Baez",
       "number": "3",
       "position": "D",
-      "appearances": 31,
+      "appearances": 0,
       "starts": 0,
-      "goals": 1,
-      "assists": 5,
-      "minutes": 2638
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00081B",
-      "name": "Emmanuel Latte Lath",
-      "number": "9",
-      "position": "OFF",
-      "appearances": 14,
-      "starts": null,
-      "goals": 2,
-      "assists": 1,
-      "minutes": 907
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-000BVP",
+      "id": "243195",
       "name": "Enea Mihaj",
       "number": "4",
       "position": "D",
-      "appearances": 23,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 1574
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000CUY",
+      "id": "372649",
       "name": "Enzo Dovlo",
       "number": "67",
       "position": "F",
-      "appearances": 1,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 20
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00009O",
+      "id": "211678",
       "name": "Fafà Picault",
       "number": "22",
-      "position": "OFF",
-      "appearances": 23,
+      "position": "F",
+      "appearances": 0,
       "starts": 0,
-      "goals": 4,
-      "assists": 1,
-      "minutes": 805
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000B6B",
+      "id": "270889",
       "name": "Giuliano Galoppo",
       "number": "11",
       "position": "M",
-      "appearances": 9,
+      "appearances": 0,
       "starts": 0,
-      "goals": 2,
+      "goals": 0,
       "assists": 0,
-      "minutes": 736
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000BN6",
+      "id": "3102525",
       "name": "Ignacio Suarez-Couri",
       "number": "56",
       "position": "M",
-      "appearances": 1,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 1
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00000M",
+      "id": "304153",
       "name": "Jay Fortune",
       "number": "35",
       "position": "M",
-      "appearances": 19,
+      "appearances": 0,
       "starts": 0,
-      "goals": 3,
+      "goals": 0,
       "assists": 0,
-      "minutes": 806
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0005GF",
+      "id": "385044",
       "name": "Jayden Hibbert",
       "number": "42",
-      "position": "GK",
-      "appearances": 1,
+      "position": "G",
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 90
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000BY5",
-      "name": "Juan Berrocal",
-      "number": "",
-      "position": "-",
-      "appearances": 9,
-      "starts": null,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 732
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0007BV",
+      "id": "181657",
       "name": "Júnior Alonso",
       "number": "6",
       "position": "D",
-      "appearances": 18,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 1586
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000575",
+      "id": "109193",
       "name": "Lucas Hoyos",
       "number": "1",
-      "position": "GK",
-      "appearances": 33,
+      "position": "G",
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 2970
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000239",
+      "id": "308892",
       "name": "Luke Brennan",
       "number": "20",
-      "position": "OFF",
-      "appearances": 20,
+      "position": "F",
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 497
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000CDH",
-      "name": "Matías Galarza",
-      "number": "",
-      "position": "-",
-      "appearances": 10,
-      "starts": null,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 666
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0005HF",
-      "name": "Matthew Edwards",
+      "id": "138636",
+      "name": "Matt Edwards",
       "number": "47",
       "position": "D",
-      "appearances": 23,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
-      "assists": 1,
-      "minutes": 1036
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000FCT",
+      "id": "359927",
       "name": "Mauricio Amaro",
       "number": "14",
       "position": "M",
-      "appearances": 12,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 964
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0003T9",
+      "id": "48128",
       "name": "Miguel Almirón",
       "number": "10",
       "position": "F",
-      "appearances": 27,
+      "appearances": 0,
       "starts": 0,
-      "goals": 7,
-      "assists": 8,
-      "minutes": 2282
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-0007A4",
+      "id": "184465",
       "name": "Paulo Díaz",
       "number": "27",
       "position": "D",
-      "appearances": 12,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 949
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0007KA",
-      "name": "Pedro Amador",
-      "number": "",
-      "position": "-",
-      "appearances": 7,
-      "starts": null,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 238
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0001IV",
-      "name": "Ronald Hernández",
-      "number": "",
-      "position": "-",
-      "appearances": 7,
-      "starts": null,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 238
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0003E7",
-      "name": "Saba Lobjanidze",
-      "number": "",
-      "position": "-",
-      "appearances": 13,
-      "starts": null,
-      "goals": 2,
-      "assists": 0,
-      "minutes": 633
+      "minutes": 0
     },
     {
       "id": "416552",
@@ -721,51 +353,40 @@ window.ATL_DATA = {
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000089",
+      "id": "214446",
       "name": "Sergio Santos",
       "number": "19",
-      "position": "OFF",
-      "appearances": 9,
+      "position": "F",
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 95
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000C5U",
+      "id": "243384",
       "name": "Steven Alzate",
       "number": "7",
       "position": "M",
-      "appearances": 15,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 564
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00053D",
-      "name": "Stian Gregersen",
-      "number": "",
-      "position": "-",
-      "appearances": 15,
-      "starts": null,
-      "goals": 0,
-      "assists": 0,
-      "minutes": 945
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-00057R",
+      "id": "330082",
       "name": "Tomás Jacob",
       "number": "55",
       "position": "D",
-      "appearances": 30,
+      "appearances": 0,
       "starts": 0,
-      "goals": 4,
-      "assists": 2,
-      "minutes": 2534
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-00083K",
+      "id": "419246",
       "name": "Toto Majub",
       "number": "41",
       "position": "D",
@@ -776,26 +397,26 @@ window.ATL_DATA = {
       "minutes": 0
     },
     {
-      "id": "mls-2026-MLS-OBJ-000391",
+      "id": "255802",
       "name": "Tristan Muyumba",
       "number": "8",
       "position": "M",
-      "appearances": 34,
-      "starts": 0,
-      "goals": 4,
-      "assists": 1,
-      "minutes": 2345
-    },
-    {
-      "id": "mls-2026-MLS-OBJ-0007WB",
-      "name": "Will Reilly",
-      "number": "28",
-      "position": "M",
-      "appearances": 11,
+      "appearances": 0,
       "starts": 0,
       "goals": 0,
       "assists": 0,
-      "minutes": 714
+      "minutes": 0
+    },
+    {
+      "id": "290024",
+      "name": "Will Reilly",
+      "number": "28",
+      "position": "M",
+      "appearances": 0,
+      "starts": 0,
+      "goals": 0,
+      "assists": 0,
+      "minutes": 0
     }
   ],
   "formationTemplates": [
@@ -1290,6 +911,919 @@ window.ATL_DATA = {
     }
   ],
   "historicalSeasons": [
+    {
+      "season": 2026,
+      "seasonId": "2026",
+      "seasonLabel": "2026 MLS Regular Season",
+      "expectedRegularSeasonMatches": 34,
+      "seasonPulse": {
+        "wins": 9,
+        "draws": 6,
+        "losses": 18,
+        "points": 33,
+        "finish": null,
+        "playoffs": null
+      },
+      "seasonLongStats": {
+        "goalsFor": 43,
+        "goalsAgainst": 57,
+        "homeRecord": "5-2-10",
+        "awayRecord": "4-4-8",
+        "cleanSheets": 4,
+        "avgAttendance": 22393
+      },
+      "fullSchedule": [
+        {
+          "date": "2026-02-21",
+          "opponent": "FC Cincinnati",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-2 (Loss)"
+        },
+        {
+          "date": "2026-02-28",
+          "opponent": "San Jose Earthquakes",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-2 (Loss)"
+        },
+        {
+          "date": "2026-03-07",
+          "opponent": "Real Salt Lake",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-3 (Loss)"
+        },
+        {
+          "date": "2026-03-14",
+          "opponent": "Philadelphia Union",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "3-1 (Win)"
+        },
+        {
+          "date": "2026-03-21",
+          "opponent": "D.C. United",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "0-0 (Draw)"
+        },
+        {
+          "date": "2026-04-04",
+          "opponent": "Columbus Crew",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "1-3 (Loss)"
+        },
+        {
+          "date": "2026-04-11",
+          "opponent": "Chicago Fire FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-1 (Loss)"
+        },
+        {
+          "date": "2026-04-18",
+          "opponent": "Nashville SC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "0-2 (Loss)"
+        },
+        {
+          "date": "2026-04-22",
+          "opponent": "New England Revolution",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "1-2 (Loss)"
+        },
+        {
+          "date": "2026-04-25",
+          "opponent": "Toronto FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "2-1 (Win)"
+        },
+        {
+          "date": "2026-05-02",
+          "opponent": "CF Montréal",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "3-1 (Win)"
+        },
+        {
+          "date": "2026-05-09",
+          "opponent": "LA Galaxy",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "1-2 (Loss)"
+        },
+        {
+          "date": "2026-05-16",
+          "opponent": "Orlando City SC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "1-1 (Draw)"
+        },
+        {
+          "date": "2026-05-24",
+          "opponent": "Columbus Crew",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-2 (Loss)"
+        },
+        {
+          "date": "2026-07-17",
+          "opponent": "Nashville SC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-1 (Loss)"
+        },
+        {
+          "date": "2026-07-22",
+          "opponent": "Charlotte FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "2-2 (Draw)"
+        },
+        {
+          "date": "2026-07-25",
+          "opponent": "New England Revolution",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "1-4 (Loss)"
+        },
+        {
+          "date": "2026-08-01",
+          "opponent": "Philadelphia Union",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "2-3 (Loss)"
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Red Bull New York",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-1 (Win)"
+        },
+        {
+          "date": "2026-08-19",
+          "opponent": "Minnesota United FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "2-1 (Win)"
+        },
+        {
+          "date": "2026-08-23",
+          "opponent": "Sporting Kansas City",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-1 (Win)"
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Charlotte FC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "0-2 (Loss)"
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Inter Miami CF",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "2-2 (Draw)"
+        },
+        {
+          "date": "2026-09-09",
+          "opponent": "Orlando City SC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-3 (Loss)"
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "D.C. United",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "0-0 (Draw)"
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Portland Timbers",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "1-0 (Win)"
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "New York City FC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-2 (Draw)"
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "FC Cincinnati",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "1-3 (Loss)"
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "CF Montréal",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "3-0 (Win)"
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Inter Miami CF",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "1-3 (Loss)"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Chicago Fire FC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "2-3 (Loss)"
+        },
+        {
+          "date": "2026-10-28",
+          "opponent": "New York City FC",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "1-2 (Loss)"
+        },
+        {
+          "date": "2026-11-01",
+          "opponent": "Toronto FC",
+          "venue": "Home",
+          "competition": "MLS",
+          "result": "3-1 (Win)"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Red Bull New York",
+          "venue": "Away",
+          "competition": "MLS",
+          "result": "-"
+        }
+      ],
+      "tableSnapshot": [
+        {
+          "rank": 1,
+          "teamId": "18986",
+          "team": "Nashville SC",
+          "played": 34,
+          "wins": 23,
+          "draws": 8,
+          "losses": 3,
+          "points": 77,
+          "goalDiff": 46,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 2,
+          "teamId": "20232",
+          "team": "Inter Miami CF",
+          "played": 34,
+          "wins": 16,
+          "draws": 12,
+          "losses": 6,
+          "points": 60,
+          "goalDiff": 21,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 3,
+          "teamId": "189",
+          "team": "New England Revolution",
+          "played": 34,
+          "wins": 18,
+          "draws": 4,
+          "losses": 12,
+          "points": 58,
+          "goalDiff": 8,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 4,
+          "teamId": "182",
+          "team": "Chicago Fire FC",
+          "played": 34,
+          "wins": 16,
+          "draws": 7,
+          "losses": 11,
+          "points": 55,
+          "goalDiff": 10,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 5,
+          "teamId": "21300",
+          "team": "Charlotte FC",
+          "played": 34,
+          "wins": 15,
+          "draws": 9,
+          "losses": 10,
+          "points": 54,
+          "goalDiff": 15,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 6,
+          "teamId": "10739",
+          "team": "Philadelphia Union",
+          "played": 34,
+          "wins": 14,
+          "draws": 8,
+          "losses": 12,
+          "points": 50,
+          "goalDiff": 14,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 7,
+          "teamId": "183",
+          "team": "Columbus Crew",
+          "played": 34,
+          "wins": 14,
+          "draws": 5,
+          "losses": 15,
+          "points": 47,
+          "goalDiff": 7,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 8,
+          "teamId": "18267",
+          "team": "FC Cincinnati",
+          "played": 34,
+          "wins": 12,
+          "draws": 10,
+          "losses": 12,
+          "points": 46,
+          "goalDiff": -8,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 9,
+          "teamId": "12011",
+          "team": "Orlando City SC",
+          "played": 34,
+          "wins": 13,
+          "draws": 7,
+          "losses": 14,
+          "points": 46,
+          "goalDiff": -15,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 10,
+          "teamId": "17606",
+          "team": "New York City FC",
+          "played": 34,
+          "wins": 10,
+          "draws": 12,
+          "losses": 12,
+          "points": 42,
+          "goalDiff": 4,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 11,
+          "teamId": "190",
+          "team": "Red Bull New York",
+          "played": 34,
+          "wins": 12,
+          "draws": 6,
+          "losses": 16,
+          "points": 42,
+          "goalDiff": -14,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 12,
+          "teamId": "7318",
+          "team": "Toronto FC",
+          "played": 34,
+          "wins": 9,
+          "draws": 12,
+          "losses": 13,
+          "points": 39,
+          "goalDiff": -15,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 13,
+          "teamId": "18418",
+          "team": "Atlanta United FC",
+          "played": 34,
+          "wins": 9,
+          "draws": 6,
+          "losses": 19,
+          "points": 33,
+          "goalDiff": -17,
+          "conference": "Eastern Conference",
+          "isAtlanta": true
+        },
+        {
+          "rank": 14,
+          "teamId": "193",
+          "team": "D.C. United",
+          "played": 34,
+          "wins": 7,
+          "draws": 12,
+          "losses": 15,
+          "points": 33,
+          "goalDiff": -22,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        },
+        {
+          "rank": 15,
+          "teamId": "9720",
+          "team": "CF Montréal",
+          "played": 34,
+          "wins": 6,
+          "draws": 8,
+          "losses": 20,
+          "points": 26,
+          "goalDiff": -32,
+          "conference": "Eastern Conference",
+          "isAtlanta": false
+        }
+      ],
+      "rosterStats": [
+        {
+          "id": "mls-2026-MLS-OBJ-000CLL",
+          "name": "Adrian Gill",
+          "number": "16",
+          "position": "M",
+          "appearances": 7,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 361
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0002JP",
+          "name": "Adyn Torres",
+          "number": "23",
+          "position": "D",
+          "appearances": 0,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007SK",
+          "name": "Alexey Miranchuk",
+          "number": "59",
+          "position": "M",
+          "appearances": 32,
+          "starts": 0,
+          "goals": 7,
+          "assists": 7,
+          "minutes": 2601
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000CX8",
+          "name": "Andrew Jardines",
+          "number": "78",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00083J",
+          "name": "Arif Kovac",
+          "number": "39",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 6
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00023E",
+          "name": "Ashton Gordon",
+          "number": "27",
+          "position": "OFF",
+          "appearances": 0,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000ELX",
+          "name": "Breel Embolo",
+          "number": "36",
+          "position": "OFF",
+          "appearances": 12,
+          "starts": 0,
+          "goals": 4,
+          "assists": 1,
+          "minutes": 1038
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0000BY",
+          "name": "Cameron Dunbar",
+          "number": "70",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 4
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007WA",
+          "name": "Cayman Togashi",
+          "number": "30",
+          "position": "OFF",
+          "appearances": 7,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 101
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00023H",
+          "name": "Cooper Sanchez",
+          "number": "48",
+          "position": "M",
+          "appearances": 29,
+          "starts": 0,
+          "goals": 1,
+          "assists": 1,
+          "minutes": 1886
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007SM",
+          "name": "Daniel Chica",
+          "number": "44",
+          "position": "D",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 34
+        },
+        {
+          "id": "400742",
+          "name": "Dominik Chong Qui",
+          "number": "50",
+          "position": "D",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000CRG",
+          "name": "Elías Baez",
+          "number": "3",
+          "position": "D",
+          "appearances": 31,
+          "starts": 0,
+          "goals": 1,
+          "assists": 5,
+          "minutes": 2638
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00081B",
+          "name": "Emmanuel Latte Lath",
+          "number": "9",
+          "position": "OFF",
+          "appearances": 14,
+          "starts": null,
+          "goals": 2,
+          "assists": 1,
+          "minutes": 907
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000BVP",
+          "name": "Enea Mihaj",
+          "number": "4",
+          "position": "D",
+          "appearances": 23,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 1574
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000CUY",
+          "name": "Enzo Dovlo",
+          "number": "67",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 20
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00009O",
+          "name": "Fafà Picault",
+          "number": "22",
+          "position": "OFF",
+          "appearances": 23,
+          "starts": 0,
+          "goals": 4,
+          "assists": 1,
+          "minutes": 805
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000B6B",
+          "name": "Giuliano Galoppo",
+          "number": "11",
+          "position": "M",
+          "appearances": 9,
+          "starts": 0,
+          "goals": 2,
+          "assists": 0,
+          "minutes": 736
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000BN6",
+          "name": "Ignacio Suarez-Couri",
+          "number": "56",
+          "position": "M",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 1
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00000M",
+          "name": "Jay Fortune",
+          "number": "35",
+          "position": "M",
+          "appearances": 19,
+          "starts": 0,
+          "goals": 3,
+          "assists": 0,
+          "minutes": 806
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0005GF",
+          "name": "Jayden Hibbert",
+          "number": "42",
+          "position": "GK",
+          "appearances": 1,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 90
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000BY5",
+          "name": "Juan Berrocal",
+          "number": "",
+          "position": "-",
+          "appearances": 9,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 732
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007BV",
+          "name": "Júnior Alonso",
+          "number": "6",
+          "position": "D",
+          "appearances": 18,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 1586
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000575",
+          "name": "Lucas Hoyos",
+          "number": "1",
+          "position": "GK",
+          "appearances": 33,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 2970
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000239",
+          "name": "Luke Brennan",
+          "number": "20",
+          "position": "OFF",
+          "appearances": 20,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 497
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000CDH",
+          "name": "Matías Galarza",
+          "number": "",
+          "position": "-",
+          "appearances": 10,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 666
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0005HF",
+          "name": "Matthew Edwards",
+          "number": "47",
+          "position": "D",
+          "appearances": 23,
+          "starts": 0,
+          "goals": 0,
+          "assists": 1,
+          "minutes": 1036
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000FCT",
+          "name": "Mauricio Amaro",
+          "number": "14",
+          "position": "M",
+          "appearances": 12,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 964
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0003T9",
+          "name": "Miguel Almirón",
+          "number": "10",
+          "position": "F",
+          "appearances": 27,
+          "starts": 0,
+          "goals": 7,
+          "assists": 8,
+          "minutes": 2282
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007A4",
+          "name": "Paulo Díaz",
+          "number": "27",
+          "position": "D",
+          "appearances": 12,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 949
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007KA",
+          "name": "Pedro Amador",
+          "number": "",
+          "position": "-",
+          "appearances": 7,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 238
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0001IV",
+          "name": "Ronald Hernández",
+          "number": "",
+          "position": "-",
+          "appearances": 7,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 238
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0003E7",
+          "name": "Saba Lobjanidze",
+          "number": "",
+          "position": "-",
+          "appearances": 13,
+          "starts": null,
+          "goals": 2,
+          "assists": 0,
+          "minutes": 633
+        },
+        {
+          "id": "416552",
+          "name": "Santiago Pita",
+          "number": "40",
+          "position": "M",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000089",
+          "name": "Sergio Santos",
+          "number": "19",
+          "position": "OFF",
+          "appearances": 9,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 95
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000C5U",
+          "name": "Steven Alzate",
+          "number": "7",
+          "position": "M",
+          "appearances": 15,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 564
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00053D",
+          "name": "Stian Gregersen",
+          "number": "",
+          "position": "-",
+          "appearances": 15,
+          "starts": null,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 945
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00057R",
+          "name": "Tomás Jacob",
+          "number": "55",
+          "position": "D",
+          "appearances": 30,
+          "starts": 0,
+          "goals": 4,
+          "assists": 2,
+          "minutes": 2534
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-00083K",
+          "name": "Toto Majub",
+          "number": "41",
+          "position": "D",
+          "appearances": 0,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 0
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-000391",
+          "name": "Tristan Muyumba",
+          "number": "8",
+          "position": "M",
+          "appearances": 34,
+          "starts": 0,
+          "goals": 4,
+          "assists": 1,
+          "minutes": 2345
+        },
+        {
+          "id": "mls-2026-MLS-OBJ-0007WB",
+          "name": "Will Reilly",
+          "number": "28",
+          "position": "M",
+          "appearances": 11,
+          "starts": 0,
+          "goals": 0,
+          "assists": 0,
+          "minutes": 714
+        }
+      ],
+      "notes": "In-season sync: 34 fixtures, 15 table rows, 41 roster rows."
+    },
     {
       "season": 2025,
       "seasonLabel": "2025 MLS Regular Season",
@@ -8863,7 +9397,7 @@ window.ATL_DATA = {
       "conference": "Eastern Conference",
       "isAtlanta": true
     },
-    "generatedAt": "2026-11-08T05:00:13.907Z"
+    "generatedAt": "2026-11-09T05:00:08.106Z"
   },
   "seasonHistory": [
     {
