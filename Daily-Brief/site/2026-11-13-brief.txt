@@ -1,0 +1,57 @@
+# Morning Brief · 2026-11-13
+
+## One Thing To Know
+**[Freeze Watch for Conyers & Atlanta](https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0f678f7dc35c8a28f0eeb0efe7c564a4191d10d5.002.1)** — * WHAT...Sub-freezing temperatures as low as 29 possible.
+
+* WHERE...Portions of central, east central, north central,
+northeast, southeast, and west central Georgia.
+
+* WHEN...From late Saturday night through Sunday morning.
+
+* IMPACTS...Frost and freeze conditions could kill crops, other
+sensitive vegetation and possibly damage unprotected outdoor
+plumbing.
+
+## Right Now
+- **Freeze Watch for Conyers & Atlanta** — * WHAT...Sub-freezing temperatures as low as 29 possible.
+
+* WHERE...Portions of central, east central, north central,
+northeast, southeast, and west central Georgia.
+
+* WHEN...From late Saturday night through Sunday morning.
+
+* IMPACTS...Frost and freeze conditions could kill crops, other
+sensitive vegetation and possibly damage unprotected outdoor
+plumbing.
+- **GDOT announces lane closures on I-285 in metro Atlanta this weekend** — GDOT announces lane closures on I-285 in metro Atlanta this weekend 95.5 WSB
+- **NVDA is down 4.34%** — Nvidia crossed your 2.0% movement threshold.
+- **BTC-USD is down 2.97%** — Bitcoin crossed your 2.0% movement threshold.
+
+## Weather
+- **Conyers**: Today · 55°F · Sunny; Tonight · 36°F · Mostly Clear then Patchy Frost
+- **Atlanta**: Today · 54°F · Sunny; Tonight · 36°F · Mostly Clear
+
+## Sports & Events
+- **Atlanta Hawks**: Atlanta Hawks at Chicago Bulls · Nov 13, 2026 · 8:00 PM ET
+- **Atlanta Falcons**: Kansas City Chiefs at Atlanta Falcons · Nov 15, 2026 · 1:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Milwaukee Bucks · Nov 15, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Oklahoma City Thunder · Nov 18, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Charlotte Hornets at Atlanta Hawks · Nov 20, 2026 · 7:00 PM ET
+- **Formula 1**: Heineken Las Vegas Grand Prix · Nov 19, 2026 · 7:30 PM ET
+
+## Market Watchlist
+- **SPY** 757.12 USD · -0.35%
+- **QQQ** 688.17 USD · -0.32%
+- **DIA** 522.47 USD · -0.38%
+- **IWM** 278.44 USD · -1.64%
+- **BTC-USD** 69227.59 USD · -2.97%
+- **NVDA** 166.19 USD · -4.34%
+
+## New Since Yesterday
+- [Atlanta one of first to see new AI air traffic control tool - The Atlanta Journal-Constitution](https://news.google.com/rss/articles/CBMigwFBVV95cUxQN3hibWx2VzI5N1Ffd0VmdkdJU0dDeV9aVkZUUFZRV1gtWG5NcEtqamRsTkh1UUlJNVlVMk9ZS0ptcGVZU3lvMmRkNTRjSEMxQnVqa19QQmNGXzU4aVZSY1pncHpSbGpMNy03Tk5ObkhmUWtReW1PUEtkcGY3MmZUajFfdw?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
+- [Bottoms announces transition team ahead of taking Georgia office - WABE](https://news.google.com/rss/articles/CBMijwFBVV95cUxPdHV4Y0JzM19rQ3l1MjNMQVVUbTdXZ1FTb182bFg1SEtmN0o0Y29vVkJjUm5yQnJwRGZQcFUzU3RLWWh4b1lET2JmMlZTc19OSWdJVUp4TUVEU29xM2ZDX0tJTVZpZ0V3NHZUWHVHekU0aTlqbjlkTzFwQndoSjVRenU2OGlCSEhzVWhkWlVNdw?oc=5) · "Georgia state government Atlanta" - Google News
+- [Outlook outage continues as Microsoft flags 'encouraging recovery progress'](https://www.cnbc.com/2026/11/12/microsoft-outage-outlook-aws-google.html) · US Top News and Analysis
+- [Jensen Huang didn’t show confidence in his successor, report says](https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/) · TechCrunch
+- [Huang’s Downfall Could Shake the Economy, and Detainees Have Disappeared From an ICE Database](https://www.nytimes.com/2026/11/13/podcasts/the-headlines/huang-stocks-economy-ice.html) · NYT > Top Stories
+
+[Open the full dashboard](https://dailybrief.connerjamison.com/) for every section, source link, and previous brief.
