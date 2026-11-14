@@ -1,0 +1,58 @@
+# Morning Brief · 2026-11-14
+
+## One Thing To Know
+**[Freeze Warning for Conyers & Atlanta](https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ee59800a9fc645d37a1fd676f76e0a8d61c1be63.002.1)** — * WHAT...For the Frost Advisory, temperatures as low as 33 will
+result in frost formation. For the Freeze Warning, sub-freezing
+temperatures as low as 30 expected.
+
+* WHERE...Portions of central, east central, north central,
+northeast, southeast, and west central Georgia.
+
+* WHEN...For the Frost Advisory, until 9 AM EST this morning. For the
+Freeze Warning, from 1 AM to 9 AM EST Sunday.
+
+* IMPACTS...Frost and freeze 
+
+## Right Now
+- **Freeze Warning for Conyers & Atlanta** — * WHAT...For the Frost Advisory, temperatures as low as 33 will
+result in frost formation. For the Freeze Warning, sub-freezing
+temperatures as low as 30 expected.
+
+* WHERE...Portions of central, east central, north central,
+northeast, southeast, and west central Georgia.
+
+* WHEN...For the Frost Advisory, until 9 AM EST this morning. For the
+Freeze Warning, from 1 AM to 9 AM EST Sunday.
+
+* IMPACTS...Frost and freeze 
+- **Major I-285 closure expected to cause weekend traffic headaches for Atlanta drivers** — Major I-285 closure expected to cause weekend traffic headaches for Atlanta drivers Atlanta News First
+- **From a MARTA Pilot to a London Tech Investment: AI Transit Planning Software’s Journey Started in Atlanta** — From a MARTA Pilot to a London Tech Investment: AI Transit Planning Software’s Journey Started in Atlanta Global Atlanta
+- **NVDA is down 2.01%** — Nvidia crossed your 2.0% movement threshold.
+
+## Weather
+- **Conyers**: Today · 56°F · Patchy Frost then Sunny; Tonight · 31°F · Mostly Clear then Widespread Frost
+- **Atlanta**: Today · 55°F · Sunny; Tonight · 32°F · Mostly Clear then Widespread Frost
+
+## Sports & Events
+- **Atlanta Falcons**: Kansas City Chiefs at Atlanta Falcons · Nov 15, 2026 · 1:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Milwaukee Bucks · Nov 15, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Oklahoma City Thunder · Nov 18, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Charlotte Hornets at Atlanta Hawks · Nov 20, 2026 · 7:00 PM ET
+- **Formula 1**: Heineken Las Vegas Grand Prix · Nov 19, 2026 · 7:30 PM ET
+
+## Market Watchlist
+- **SPY** 754.37 USD · -0.36%
+- **QQQ** 679.89 USD · -1.20%
+- **DIA** 523.15 USD · +0.13%
+- **IWM** 277.54 USD · -0.32%
+- **BTC-USD** 67116.66 USD · -1.66%
+- **NVDA** 162.85 USD · -2.01%
+
+## New Since Yesterday
+- [FAA says airplane departures can resume following nationwide ground stop - WABE](https://news.google.com/rss/articles/CBMi2AFBVV95cUxOejJuNExnc2xCRFhYenY3ZExvUUEwZ0dTYzZ1REZhc2ROM3pJR2xXNUFqMWpTV292TU5NbUxJd2w1NVJBVmR1VzU3Q1pQZjVwVllFM1JIbkRQak44c1ZYRzAtZnNfS0NaRGNCWXN4TTNNMGcxS01FcXl4UDFYV1RlQTBaQmR6bTRvVlZIcF93aXJjNnc4SWNkcGljS2RJcGZSam1SNV9UT1VqU0dnQUFQUnJsbTdZYUJLTHhDbDlQX0tEeXdvbkRZQzdwUXRHU3FWZGJkaENIdW0?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
+- [FANNIN COUNTY, Ga. - Channel 2 Action News was there as five trucks loaded with supplies you donated during our Convoy of Care campaign delivered those items to a warehouse in North Georgia. Everything donated will help those devastated by the hist - Instagram](https://news.google.com/rss/articles/CBMiUkFVX3lxTE0tMm5oTTI1RVNJX0psczlqN0pCUjJNbnZmT0lHa3BoZjRJMVB3TkoxVUpCUDV6ZG9iU1NmbllhdnBjN05VZTBZQ0RfMEhEVHZwTEE?oc=5) · "Atlanta Georgia local news" - Google News
+- [Why Anthropic’s Dario Amodei Has Angered OpenAI and Other A.I. Peers - The New York Times](https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUWxHUTR3T2hmZ0hnbEpjd1VtQUpIS3V4MjY5LUhvQzhTS1BaMEVwVEg5bVFnTlp1dGc3SEZrdG55VDByX1lXbVhxdTFLUlp4NklDXzFWZ1FOa2U0OFZlc1JsUi0zWXFXYXkxMVJHdU50X1psazB4SzZzZmVDNVJsdjRlSGdVdDJjRmQ0?oc=5) · "AI technology news" - Google News
+- [Meet the seven co-founders of Anthropic](https://www.cnbc.com/2026/11/14/meet-the-seven-co-founders-of-anthropic.html) · US Top News and Analysis
+- [The Jensen Huang Scandal Has Shocked Even Scandal-Prone Silicon Valley](https://www.nytimes.com/2026/11/14/technology/jensen-huang-nvidia-scandal-silicon-valley.html) · NYT > Top Stories
+
+[Open the full dashboard](https://dailybrief.connerjamison.com/) for every section, source link, and previous brief.
