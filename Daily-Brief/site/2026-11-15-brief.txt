@@ -1,0 +1,57 @@
+# Morning Brief · 2026-11-15
+
+## One Thing To Know
+**[Freeze Warning for Conyers & Atlanta](https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.336383cd7dddc9c3321c1a66bc6ba9f0a428eb19.001.1)** — * WHAT...Sub-freezing temperatures as low as 27 expected.
+
+* WHERE...Portions of central, east central, north central,
+northeast, northwest, southeast, and west central Georgia.
+
+* WHEN...From 1 AM to 9 AM EST Sunday.
+
+* IMPACTS...Frost and freeze conditions could kill crops, other
+sensitive vegetation and possibly damage unprotected outdoor
+plumbing.
+
+## Right Now
+- **Freeze Warning for Conyers & Atlanta** — * WHAT...Sub-freezing temperatures as low as 27 expected.
+
+* WHERE...Portions of central, east central, north central,
+northeast, northwest, southeast, and west central Georgia.
+
+* WHEN...From 1 AM to 9 AM EST Sunday.
+
+* IMPACTS...Frost and freeze conditions could kill crops, other
+sensitive vegetation and possibly damage unprotected outdoor
+plumbing.
+- **BTC-USD is up 2.03%** — Bitcoin crossed your 2.0% movement threshold.
+- **NVDA is down 2.01%** — Nvidia crossed your 2.0% movement threshold.
+- **Atlanta Falcons play today** — Kansas City Chiefs at Atlanta Falcons · Nov 15, 2026 · 1:00 PM ET
+
+## Weather
+- **Conyers**: Today · 58°F · Widespread Frost then Sunny; Tonight · 35°F · Mostly Clear then Patchy Frost
+- **Atlanta**: Today · 58°F · Widespread Frost then Sunny; Tonight · 36°F · Mostly Clear then Patchy Frost
+
+## Sports & Events
+- **Atlanta Falcons**: Kansas City Chiefs at Atlanta Falcons · Nov 15, 2026 · 1:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Milwaukee Bucks · Nov 15, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Atlanta Hawks at Oklahoma City Thunder · Nov 18, 2026 · 8:00 PM ET
+- **Atlanta Hawks**: Charlotte Hornets at Atlanta Hawks · Nov 20, 2026 · 7:00 PM ET
+- **Atlanta Hawks**: Detroit Pistons at Atlanta Hawks · Nov 22, 2026 · 3:30 PM ET
+- **Formula 1**: Heineken Las Vegas Grand Prix · Nov 19, 2026 · 7:30 PM ET
+
+## Market Watchlist
+- **SPY** 754.37 USD · -0.36%
+- **QQQ** 679.89 USD · -1.20%
+- **DIA** 523.15 USD · +0.13%
+- **IWM** 277.54 USD · -0.32%
+- **BTC-USD** 65427.2 USD · +2.03%
+- **NVDA** 162.85 USD · -2.01%
+
+## New Since Yesterday
+- [Gridlock Guy: Atlanta’s traffic rush is tricky no matter which way you drive - The Atlanta Journal-Constitution](https://news.google.com/rss/articles/CBMihAFBVV95cUxPaG0wa1RTamxkOVVERzNwRlI1UVRRYWhNUmRyUklveWFHQm05dndMOFR1YWRZWjh4bGc5TGNnSWVGZGJDYWJ4M0I5NDRPMFA2bkZ1eE9uRFhRS2I1dXE4aU54SFFGeWl2X1EyQlpLTkZaY0M2N1lQNDRzYWdYNjZZSGdkTkg?oc=5) · "Atlanta traffic OR MARTA OR GDOT" - Google News
+- [Georgia football commit dies after medical emergency - Atlanta News First](https://news.google.com/rss/articles/CBMingFBVV95cUxNZ1hQTkRXcEVLT1c5Y3RBOEhvUTBIUFd2UENSNWlLQk1XRUM3bXQtSVJIanJsSEY3Wkl6endrbTI4OGpGTVgyN1p2WGNULVZWejF0MC14X1F3d0hMbk1DVkZka2NCU19TQzY3U0RzUnVSb1ltcE1nTHVGdmlCNnF1VHR3VV96NldRTFpjTjBnRmZWbWdMc0gyX2VpMXdxQQ?oc=5) · "Atlanta Georgia local news" - Google News
+- [Artificial Intelligence: Why are traditional industries adopting it? - BBC](https://news.google.com/rss/articles/CBMiW0FVX3lxTE0zY1FGalNabjR6cEZNQUtfeGZ5RzhJZDU3aUJiTGVZeFdZeEctRWx3QXNremY1VGwtSU8xUmNBdnhINGFmdE5UQkxfNmFxWUVPcWEzd2p3TDhLTWc?oc=5) · "AI technology news" - Google News
+- [Anthropic’s IPO lands as the embattled AI trade looks for a much-needed bright spot](https://www.cnbc.com/2026/11/15/anthropic-ipo-is-make-or-break-for-the-technology-industry.html) · US Top News and Analysis
+- [Lutnick Pushed to Weaken Chip Rules That Overlap With His Family Business](https://www.nytimes.com/2026/11/15/us/politics/trump-lutnick-ai-chips-cantor-fitzgerald.html) · NYT > Top Stories
+
+[Open the full dashboard](https://dailybrief.connerjamison.com/) for every section, source link, and previous brief.
