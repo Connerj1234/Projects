@@ -101,10 +101,7 @@
   - lock-file guard in updater prevents overlapping runs
 - GitHub Actions daily updater removed:
   - `.github/workflows/update-data.yml` deleted to prevent overlap with server cron source-of-truth
-- Cron failure notifications shipped:
-  - Postfix configured with Gmail relay (SMTP 587 + app password)
-  - cron `MAILTO` path validated with successful test delivery
-  - current behavior: normal output to `/home/claw/atlanta-update.log`, failure output emailed
+- Historical alerting setup used Postfix and a tested cron mail path. On November 24, 2026, Postfix was active and the installed cron redirected both output streams to `/home/conner/atlanta-update.log`. Current failure-email delivery is unverified.
 
 ## Now
 ### 1. Deepen Starting XI Module
@@ -157,8 +154,13 @@
   - Calendar routing: 2027 Sprint is archived separately; seasons beginning July 2027 and later are grouped summer-to-spring using an ending-year archive key.
 
 ## Operations Workflow (Long-Term Reference)
+
+Read the private home server runbook at `~/Documents/Codex/HOME-SERVER.md` before changing this setup. Update its inventory and change log when a change affects deployment, scheduling, routing, storage, or shared infrastructure.
+
 ### Daily automation (current production flow)
-- The Ubuntu server runs `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh` on cron daily.
+
+- Ubuntu user `conner` runs `/home/conner/repos/Projects/atlanta-united/scripts/update-and-push.sh` daily at 05:00 UTC.
+- Netlify serves the static app at https://atlutd.connerjamison.com/. Daily Brief uses the same `/home/conner/repos/Projects` Git worktree and index. The scripts have separate locks. Avoid overlapping manual runs.
 - The script:
   - pulls latest `main`
   - runs `npm run update-data`
@@ -170,7 +172,7 @@
   - roster stats ingest includes multi-source fallback and quality gates so null/zero-only snapshots do not overwrite meaningful cached data
 
 ### Server automation notes
-- Production updater location: `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh`
+- Production updater location: `/home/conner/repos/Projects/atlanta-united/scripts/update-and-push.sh`
 - Git auth on server uses SSH aliases (including `github-main`) tied to the Connerj1234 account.
 - Operational expectation:
   - daily cron run should keep current-season `data.js` fresh
@@ -178,23 +180,18 @@
   - after stat column expansions, ensure automation includes commit detection for any newly changed tracked data files
 
 ### Cron safety checklist (always apply during local changes)
-- Server cron is the production data pipeline source-of-truth; treat `/home/claw/repos/Projects/atlanta-united/scripts/update-and-push.sh` as critical infrastructure.
+- Server cron is the production data pipeline source-of-truth; treat `/home/conner/repos/Projects/atlanta-united/scripts/update-and-push.sh` as critical infrastructure.
 - Any local change that affects data generation, npm scripts, file paths, git workflow, or script behavior must be validated against server automation assumptions before/after merge.
 - Required checks after relevant merges:
-  1. On server: `git pull origin main`
-  2. On server: run updater once manually and confirm success in `/home/claw/atlanta-update.log`
-  3. Confirm no regressions in commit detection logic (`data.js` + `historical-data.json` only when changed)
-  4. Confirm cron still points to the correct script path and schedule
+  1. Confirm `conner`'s cron still points to the correct script and schedule.
+  2. Check the next scheduled run in `/home/conner/atlanta-update.log` and review the resulting app-scoped Git history. If a manual publishing run is needed, keep it separate from Daily Brief and avoid overlapping cron.
+  3. Confirm published data reflects the run and check that the updater still commits `data.js` and `historical-data.json` when they change.
 - Rule for future work:
   - when modifying anything related to update flow, include a short note in PR/commit context: "cron impact reviewed" and what was validated.
 
-### Failure notifications (recommended)
-- Current production behavior:
-  - cron output is appended to `/home/claw/atlanta-update.log`
-  - cron `MAILTO` is configured so failure/error output is emailed to the configured Gmail inbox
-- Minimum baseline (if alerts ever need re-setup): keep cron output redirected to `/home/claw/atlanta-update.log` and review after operational changes.
-- Better baseline (if mail setup changes): configure cron email notifications (set `MAILTO`) so stderr/failures are emailed automatically.
-- Optional: add a post-run health ping/webhook notifier so missed/failed runs trigger alerts without manual log checks.
+### Logs and failure notifications
+
+- Inspect `/home/conner/atlanta-update.log` for run output and failures. Live failure-email delivery was unverified on November 24, 2026.
 
 ### End-of-season behavior (as of now)
 - Home page season selection is fixture-driven (active season is inferred from upcoming/current fixtures).

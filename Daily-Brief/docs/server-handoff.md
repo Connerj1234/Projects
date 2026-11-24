@@ -1,6 +1,10 @@
 # Daily Brief server handoff
 
-Use this checklist from the laptop when you can reach the home server. The end state is one 7:30 AM Eastern job that generates the email and static dashboard, commits the new `Daily-Brief/site` files, and pushes `main`. Netlify deploys that push automatically.
+The November 24, 2026 audit confirmed one installed cron job for `conner`. It runs at 7:30 a.m. Eastern, sends the email, commits the generated `Daily-Brief/site` files, and pushes `main` for Netlify. The November 24 run completed and served the current brief. Inbox delivery was unverified. Use the checklist below to maintain or recover the job.
+
+Read the private home server runbook at `~/Documents/Codex/HOME-SERVER.md` before changing this setup. Update its inventory and change log when a change affects deployment, scheduling, routing, storage, or shared infrastructure.
+
+Atlanta United uses the same `/home/conner/repos/Projects` worktree and Git index. The publishers use separate locks, so avoid overlapping manual runs.
 
 ## 1. Connect and update the checkout
 
