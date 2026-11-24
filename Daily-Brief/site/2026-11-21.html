@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
+<title>Daily Brief · 2026-11-21</title><style>
+:root{--ink:#17201d;--muted:#66706b;--paper:#f3f0e8;--card:#fffdf8;--line:#d9d5ca;--green:#1c5b47;--lime:#dce9a8;--red:#a13f37;--shadow:0 14px 35px rgba(34,45,40,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit}body>header,main,footer{width:min(1120px,calc(100% - 32px));margin-inline:auto}.hero{display:flex;justify-content:space-between;gap:40px;padding:64px 0 34px;border-bottom:1px solid var(--line)}.hero.compact{display:block}.hero h1{font-family:Georgia,serif;font-size:clamp(3rem,8vw,6.4rem);font-weight:500;letter-spacing:-.055em;line-height:.96;margin:.16em 0}.hero.compact h1{font-size:clamp(2.6rem,6vw,5rem)}.eyebrow{color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.14em;margin:0 0 8px}.lede{color:var(--muted);font-size:1.08rem;max-width:620px}main>section{padding:42px 0;border-bottom:1px solid var(--line)}.signal{background:var(--green);color:white;margin-top:30px;padding:36px;border-radius:18px;border:0;box-shadow:var(--shadow)}.signal .eyebrow{color:var(--lime)}.signal h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:500;line-height:1.05;max-width:800px;margin:10px 0}.signal p:not(.eyebrow){max-width:760px;color:#e7eee9}.editorial{padding:26px 30px;margin-top:18px;background:#e7eadb;border:1px solid #cdd3b4;border-radius:14px}.editorial p:last-child{margin-bottom:0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-heading h2{font-family:Georgia,serif;font-size:2.25rem;font-weight:500;letter-spacing:-.03em;margin:0}.quiet,.empty{color:var(--muted)}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(34,45,40,.035)}.card h3{margin:4px 0 8px;font-size:1.05rem}.card p:last-child{margin-bottom:0}.action{border-top:4px solid var(--green)}.action.weather{border-top-color:var(--red)}.story-list{display:grid;gap:8px}.story{display:flex;justify-content:space-between;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.story h4{font-size:1.05rem;line-height:1.35;margin:3px 0}.story p{color:var(--muted);font-size:.9rem;margin:7px 0 0}.story .source{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}.story-link{text-decoration:underline;text-decoration-color:#92aa9f;text-decoration-thickness:1px;text-underline-offset:3px}.story-link:hover{color:var(--green);text-decoration-thickness:2px}.story-link:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:2px}.link-arrow{display:inline-block;color:var(--green);font-size:.82em;font-weight:800;text-decoration:none}.badge{display:inline-block;background:#eee9dd;border-radius:20px;padding:2px 7px;margin-left:5px;text-transform:none;letter-spacing:0}.badge.new{background:var(--lime);color:#334018}.save{align-self:start;border:0;background:transparent;color:var(--green);font-size:1.45rem;cursor:pointer}.save.saved{color:#bd7d16}.news-group{padding:20px 0}.news-group h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500}.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.filter{white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:8px 13px;background:transparent;color:var(--ink);cursor:pointer}.filter.active{background:var(--ink);color:white}.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.ticker{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.ticker span{display:block;color:var(--muted);font-size:.75rem}.ticker .price{text-align:right;font-weight:700}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.text-link,.back{display:inline-block;margin-top:8px;font-weight:700;text-underline-offset:3px}.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;padding:30px 0}.compare-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}.compare-card h2{font-family:Georgia,serif;font-size:2rem;margin:0}.model-output{margin-top:24px}.meta{color:var(--muted);font-size:.8rem}footer{padding:30px 0 60px;color:var(--muted);font-size:.8rem}
+.sport-groups{display:grid;gap:28px}.sport-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}.sport-heading h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:0}.sport-heading span{color:var(--muted);font-size:.75rem}.news-group{padding:0;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}.news-group summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-family:Georgia,serif;font-size:1.55rem;list-style:none}.news-group summary::-webkit-details-marker{display:none}.news-group summary:after{content:'+';font-family:Inter,sans-serif;color:var(--green);font-size:1.5rem}.news-group[open] summary:after{content:'−'}.news-group .story-list{padding:0 12px 12px}.story-count{margin-left:auto;color:var(--muted);font-family:Inter,sans-serif;font-size:.75rem}.filters{scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x;overscroll-behavior-inline:contain}.filters::-webkit-scrollbar{display:none}
+.hero{display:block}.hero h1{margin:0 0 18px}.hero-meta{display:flex;align-items:center;justify-content:space-between;gap:16px}.hero-meta .eyebrow{margin:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.story-copy{width:100%}.ticker-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}.ticker{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:12px}.ticker-top{display:flex;justify-content:space-between;gap:12px}.sparkline{display:block;width:calc(100% + 12px);max-width:none;height:52px;margin-inline:-6px;color:var(--muted)}.sparkline polyline{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}.sparkline.up{color:var(--green)}.sparkline.down{color:var(--red)}.empty-chart{height:52px;background:linear-gradient(180deg,transparent 49%,var(--line) 50%,transparent 51%)}.ticker .market-period{font-size:.68rem;font-weight:700;text-align:right}.ticker .market-period.up{color:var(--green)}.ticker .market-period.down{color:var(--red)}
+@media(min-width:651px){.hero{padding:34px 0 22px}.hero h1{font-size:clamp(4rem,6vw,4.8rem);margin:0 0 12px}.signal{margin-top:22px;padding:26px 32px}.signal h2{font-size:clamp(2.25rem,3.5vw,3rem);line-height:1.02;max-width:940px;margin:8px 0}.signal p:not(.eyebrow){margin:10px 0}.signal .text-link{margin-top:2px}main>section{padding:30px 0}.section-heading{margin-bottom:16px}}
+@media(max-width:650px){.hero{padding-top:38px}.hero-meta{align-items:flex-start}.signal{padding:25px}.section-heading{display:block}.story{padding:15px}}
+[hidden]{display:none!important}
+.hero:not(.compact){display:flex;align-items:center;justify-content:space-between;gap:20px}.hero:not(.compact) h1{margin:0}.hero-meta{flex-shrink:0}
+.archive-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:.85rem;font-weight:700;text-decoration:none;white-space:nowrap}.archive-button:hover{border-color:var(--green);color:var(--green)}
+.actions{grid-template-columns:repeat(4,minmax(0,1fr))}.action{display:flex;flex-direction:column;min-width:0}.action .text-link{align-self:flex-start;margin-top:auto}.action h3{line-height:1.4}.action>p:not(.eyebrow){font-size:.92rem}
+.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.weather-card h3{font-size:.8rem;letter-spacing:.12em;color:var(--green);margin:0 0 14px}.weather-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.weather-period{min-width:0}.weather-period+.weather-period{border-left:1px solid var(--line);padding-left:14px}.weather-period-name{font-size:.8rem;font-weight:700}.weather-temperature{display:block;font-size:1.8rem;line-height:1.25;margin:5px 0}.weather-temperature span{font-size:.7rem;color:var(--muted);font-weight:500}.weather-condition{font-size:.87rem;margin:5px 0}.weather-meta{font-size:.72rem;color:var(--muted);margin:5px 0 0}.weather-outlook{border-top:1px solid var(--line);margin-top:15px;padding-top:10px}.weather-outlook summary{font-size:.77rem;font-weight:600;color:var(--green);cursor:pointer}.weather-outlook .weather-pair{margin-top:14px}
+.archive-layout{border:0;display:flex;justify-content:center}.calendar-card{width:min(100%,640px);padding:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.calendar-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.8rem}.calendar-nav button{width:42px;height:42px;border:1px solid var(--line);background:transparent;border-radius:9px;font-size:1.2rem;color:var(--green);cursor:pointer}.calendar-nav button:disabled{opacity:.3;cursor:default}.calendar-month h2{font-family:Georgia,serif;font-size:2rem;font-weight:500;text-align:center;margin:18px 0 24px}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.calendar-weekday{text-align:center;font-size:.7rem;color:var(--muted);padding-bottom:8px}.calendar-day{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:9px;font-size:.9rem;text-decoration:none}.calendar-day.available{background:#e7eee6;color:var(--green);font-weight:700}.calendar-day.available:hover{background:var(--green);color:white}.calendar-day.unavailable{color:#999d96}.calendar-dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+@media(max-width:900px){.actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.hero:not(.compact){align-items:flex-start;flex-direction:column;gap:16px;padding:28px 0 22px}.hero:not(.compact) h1{font-size:clamp(2.8rem,11vw,4rem)}.archive-button{padding:8px 12px;font-size:.8rem}.weather-grid{grid-template-columns:minmax(0,1fr);gap:12px}.weather-card{padding:16px}.weather-temperature{font-size:1.6rem}.weather-card h3{margin-bottom:10px}.weather-outlook{margin-top:12px;padding-top:9px}.actions{gap:10px}.action{padding:14px}.action h3{font-size:.94rem}.action>p:not(.eyebrow){font-size:.82rem}.action .eyebrow{font-size:.65rem}.calendar-card{padding:16px}.calendar-grid{gap:4px}.calendar-day{min-height:44px}.calendar-month h2{font-size:1.7rem}}
+
+.daily-forecast{margin-top:12px}.daily-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:.65rem;padding-bottom:6px}.daily-row{display:grid;grid-template-columns:40px minmax(0,1fr) 28px minmax(35px,70px) 28px;gap:8px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:.8rem}.daily-condition{font-size:.72rem;line-height:1.3}.daily-rain{display:block;color:var(--green);font-size:.65rem;margin-top:3px}.daily-low{color:var(--muted);text-align:right}.daily-high{text-align:right}.range-track{position:relative;height:5px;border-radius:5px;background:#e9e7df;overflow:hidden}.range-track>span{position:absolute;height:100%;border-radius:5px;background:linear-gradient(90deg,#72b7af,#cbba5a);min-width:3px}.alert-details{margin-top:12px;font-size:.8rem}.alert-details summary{cursor:pointer;color:var(--green);font-weight:600}.alert-details p{white-space:pre-line}.action .text-link{margin-top:8px}.signal .text-link{color:white}
+@media(max-width:400px){.daily-row{gap:6px;grid-template-columns:35px minmax(0,1fr) 26px minmax(28px,45px) 26px;font-size:.75rem}.daily-condition{font-size:.67rem}}
+
+.brief-date{display:block;font-size:.75rem;color:var(--muted);margin-top:9px}.latest-brief{font-size:.8rem;font-weight:600;text-underline-offset:3px}.hero-meta{flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:650px){.hero-meta{justify-content:flex-start;gap:16px}}
+
+.sports-more{margin-top:12px}.sports-more summary{color:var(--green);font-size:.8rem;font-weight:700;cursor:pointer;width:fit-content;padding:6px 0}.sports-more>.card-grid{margin-top:12px}.sports-hide,.sports-more[open] .sports-show{display:none}.sports-more[open] .sports-hide{display:inline}
+
+
+@media(max-width:650px){
+.hero:not(.compact){display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;row-gap:10px}
+.hero:not(.compact)>div:first-child{display:contents}
+.hero:not(.compact) h1{grid-column:1/-1}
+.hero:not(.compact) .brief-date{grid-column:1;grid-row:2;margin:0}
+.hero:not(.compact) .hero-meta{grid-column:2;grid-row:2;justify-content:flex-end;gap:8px;max-width:150px}
+}
+</style><style data-brief-navigation>
+.hero:not(.compact){display:flex;align-items:center;justify-content:space-between;gap:20px}.hero:not(.compact) h1{margin:0}.hero-meta{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:16px;flex-shrink:0}.archive-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:var(--card);font-size:.85rem;font-weight:700;text-decoration:none;white-space:nowrap}.archive-button:hover{border-color:var(--green);color:var(--green)}.brief-date{display:block;font-size:.75rem;color:var(--muted);margin-top:9px}.latest-brief{font-size:.8rem;font-weight:600;text-underline-offset:3px}
+@media(max-width:650px){.hero:not(.compact){align-items:flex-start;flex-direction:column;gap:16px;padding:28px 0 22px}.hero:not(.compact) h1{font-size:clamp(2.8rem,11vw,4rem)}.hero-meta{justify-content:flex-start}.archive-button{padding:8px 12px;font-size:.8rem}}
+.sports-more{margin-top:12px}.sports-more summary{color:var(--green);font-size:.8rem;font-weight:700;cursor:pointer;width:fit-content;padding:6px 0}.sports-more>.card-grid{margin-top:12px}.sports-hide,.sports-more[open] .sports-show{display:none}.sports-more[open] .sports-hide{display:inline}
+
+@media(max-width:650px){
+.hero:not(.compact){display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;row-gap:10px}
+.hero:not(.compact)>div:first-child{display:contents}
+.hero:not(.compact) h1{grid-column:1/-1}
+.hero:not(.compact) .brief-date{grid-column:1;grid-row:2;margin:0}
+.hero:not(.compact) .hero-meta{grid-column:2;grid-row:2;justify-content:flex-end;gap:8px;max-width:150px}
+}
+</style></head><body>
+      <header class="hero">
+        <div><h1>Good morning.</h1><time class="brief-date" datetime="2026-11-21">Archived brief · Nov 21, 2026</time></div>
+        <div class="hero-meta"><a class="latest-brief" href="index.html">← Latest brief</a>
+          <a class="archive-button" href="archive.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 11h18"/></svg>Past briefs</a>
+        </div>
+      </header>
+      <main>
+        <section class="signal">
+          <p class="eyebrow">ONE THING TO KNOW</p>
+          <h2>NVDA is down 14.01%</h2>
+          <p>Nvidia crossed your 2.0% movement threshold.</p>
+          <a class="text-link" href="https://finance.yahoo.com/quote/NVDA/" target="_blank" rel="noopener noreferrer">Details</a>
+          
+        </section>
+        
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">RIGHT NOW</p><h2>Today’s highlights</h2></div></div>
+          <div class="card-grid actions"><article class="card action traffic"><p class="eyebrow">TRAFFIC</p><h3>Metro Atlanta MARTA stations get 450 new gates</h3><p>Metro Atlanta MARTA stations get 450 new gates FOX 5 Atlanta</p><a class="text-link" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ncWdxRnZQQlkxbXJvekRkWjRGV2gtdmRWUzBuVzRQOHVkaWRnV09GN2RHaDZjbnZIWkRlM0hvdHR5UjZqdjJPMEpTV1RKVFhTOUgzblA3VjdxZXI4dDNtY0RlN0jSAWpBVV95cUxQWHNqM0w5Sy14d2s4SFhKaXRUUnBVanloVkZzMEJRYjYzUUNxN1dZcUFkNF9hTlFPdVlHYkhUQjdmTU1JM19TZmZaUlVFU3BoREJ6LTFfOS00V2I0c09JZGNjR09GNGstdkVB?oc=5" target="_blank" rel="noopener noreferrer">Details</a></article><article class="card action traffic"><p class="eyebrow">TRAFFIC</p><h3>Weekend I-285 closure in southwest Atlanta could create headaches for drivers</h3><p>Weekend I-285 closure in southwest Atlanta could create headaches for drivers CBS News</p><a class="text-link" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNMW5iVTJIX0RjbmFJc2k0QW8xNTRKSGpFUmE3S3RaRE1qZTlxWDFQNzNsSWV4UkpTbXdza2dBU19mejFLVUl0ajU2ZENGd0o0QW5HalRNSnpXLUNxYTYweHF0aHNLZENJQVp6a2RwOHJOel96dS1aR3diYVN2ZkpDclZVT0JPRWpQcGtJWWY2UnZ0TnVOblM5dnBuOEJHcGhDTHZSYTVVbW5mT1FfVTlWWUpHZDVnZw?oc=5" target="_blank" rel="noopener noreferrer">Details</a></article><article class="card action markets"><p class="eyebrow">MARKETS</p><h3>QQQ is down 5.67%</h3><p>Nasdaq 100 ETF crossed your 2.0% movement threshold.</p><a class="text-link" href="https://finance.yahoo.com/quote/QQQ/" target="_blank" rel="noopener noreferrer">Details</a></article><article class="card action markets"><p class="eyebrow">MARKETS</p><h3>SPY is down 3.64%</h3><p>S&amp;P 500 ETF crossed your 2.0% movement threshold.</p><a class="text-link" href="https://finance.yahoo.com/quote/SPY/" target="_blank" rel="noopener noreferrer">Details</a></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">AT A GLANCE</p><h2>Weather</h2></div></div>
+          <div class="card-grid weather-grid"><article class="card weather-card"><h3>Conyers</h3><div class="weather-pair"><div class="weather-period"><span class="weather-period-name">Today</span><strong class="weather-temperature"><span>High </span>61°F</strong><p class="weather-condition">Rain Showers</p><p class="weather-meta">Wind: 15 mph NE · Precipitation: 81%</p></div><div class="weather-period"><span class="weather-period-name">Tonight</span><strong class="weather-temperature"><span>Low </span>53°F</strong><p class="weather-condition">Rain Showers Likely</p><p class="weather-meta">Wind: 5 to 15 mph NE · Precipitation: 70%</p></div></div><details class="weather-outlook"><summary>Daily forecast</summary><div class="daily-forecast"><div class="daily-labels"><span>Day / conditions</span><span>Low / high</span></div><div class="daily-row"><strong>Today</strong><span class="daily-condition">Rain Showers<span class="daily-rain">Rain 81%</span></span><span class="daily-low" aria-label="Low 53°F">53°</span><span class="range-track" aria-hidden="true"><span style="left:42.86%;width:22.86%"></span></span><strong class="daily-high" aria-label="High 61°F">61°</strong></div><div class="daily-row"><strong>Sun</strong><span class="daily-condition">Chance Rain Showers then Mostly Cloudy<span class="daily-rain">Rain 25%</span></span><span class="daily-low" aria-label="Low 52°F">52°</span><span class="range-track" aria-hidden="true"><span style="left:40.00%;width:45.71%"></span></span><strong class="daily-high" aria-label="High 68°F">68°</strong></div><div class="daily-row"><strong>Mon</strong><span class="daily-condition">Mostly Sunny<span class="daily-rain">Rain 5%</span></span><span class="daily-low" aria-label="Low 52°F">52°</span><span class="range-track" aria-hidden="true"><span style="left:40.00%;width:60.00%"></span></span><strong class="daily-high" aria-label="High 73°F">73°</strong></div><div class="daily-row"><strong>Tue</strong><span class="daily-condition">Partly Sunny<span class="daily-rain">Rain 21%</span></span><span class="daily-low" aria-label="Low 44°F">44°</span><span class="range-track" aria-hidden="true"><span style="left:17.14%;width:60.00%"></span></span><strong class="daily-high" aria-label="High 65°F">65°</strong></div><div class="daily-row"><strong>Wed</strong><span class="daily-condition">Chance Rain Showers<span class="daily-rain">Rain 47%</span></span><span class="daily-low" aria-label="Low 42°F">42°</span><span class="range-track" aria-hidden="true"><span style="left:11.43%;width:34.29%"></span></span><strong class="daily-high" aria-label="High 54°F">54°</strong></div><div class="daily-row"><strong>Thu</strong><span class="daily-condition">Slight Chance Rain Showers then Partly Sunny<span class="daily-rain">Rain 17%</span></span><span class="daily-low" aria-label="Low 38°F">38°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:65.71%"></span></span><strong class="daily-high" aria-label="High 61°F">61°</strong></div><div class="daily-row"><strong>Fri</strong><span class="daily-condition">Mostly Sunny<span class="daily-rain">Rain 12%</span></span><span class="daily-low" aria-label="Low 39°F">39°</span><span class="range-track" aria-hidden="true"><span style="left:2.86%;width:62.86%"></span></span><strong class="daily-high" aria-label="High 61°F">61°</strong></div></div></details></article><article class="card weather-card"><h3>Atlanta</h3><div class="weather-pair"><div class="weather-period"><span class="weather-period-name">Today</span><strong class="weather-temperature"><span>High </span>62°F</strong><p class="weather-condition">Rain Showers Likely</p><p class="weather-meta">Wind: 15 mph NE · Precipitation: 68%</p></div><div class="weather-period"><span class="weather-period-name">Tonight</span><strong class="weather-temperature"><span>Low </span>53°F</strong><p class="weather-condition">Rain Showers Likely</p><p class="weather-meta">Wind: 5 to 15 mph NE · Precipitation: 59%</p></div></div><details class="weather-outlook"><summary>Daily forecast</summary><div class="daily-forecast"><div class="daily-labels"><span>Day / conditions</span><span>Low / high</span></div><div class="daily-row"><strong>Today</strong><span class="daily-condition">Rain Showers Likely<span class="daily-rain">Rain 68%</span></span><span class="daily-low" aria-label="Low 53°F">53°</span><span class="range-track" aria-hidden="true"><span style="left:44.12%;width:26.47%"></span></span><strong class="daily-high" aria-label="High 62°F">62°</strong></div><div class="daily-row"><strong>Sun</strong><span class="daily-condition">Chance Rain Showers then Mostly Cloudy<span class="daily-rain">Rain 26%</span></span><span class="daily-low" aria-label="Low 53°F">53°</span><span class="range-track" aria-hidden="true"><span style="left:44.12%;width:44.12%"></span></span><strong class="daily-high" aria-label="High 68°F">68°</strong></div><div class="daily-row"><strong>Mon</strong><span class="daily-condition">Mostly Sunny<span class="daily-rain">Rain 4%</span></span><span class="daily-low" aria-label="Low 51°F">51°</span><span class="range-track" aria-hidden="true"><span style="left:38.24%;width:61.76%"></span></span><strong class="daily-high" aria-label="High 72°F">72°</strong></div><div class="daily-row"><strong>Tue</strong><span class="daily-condition">Partly Sunny<span class="daily-rain">Rain 23%</span></span><span class="daily-low" aria-label="Low 44°F">44°</span><span class="range-track" aria-hidden="true"><span style="left:17.65%;width:61.76%"></span></span><strong class="daily-high" aria-label="High 65°F">65°</strong></div><div class="daily-row"><strong>Wed</strong><span class="daily-condition">Chance Rain Showers<span class="daily-rain">Rain 53%</span></span><span class="daily-low" aria-label="Low 42°F">42°</span><span class="range-track" aria-hidden="true"><span style="left:11.76%;width:35.29%"></span></span><strong class="daily-high" aria-label="High 54°F">54°</strong></div><div class="daily-row"><strong>Thu</strong><span class="daily-condition">Slight Chance Rain Showers then Partly Sunny<span class="daily-rain">Rain 15%</span></span><span class="daily-low" aria-label="Low 38°F">38°</span><span class="range-track" aria-hidden="true"><span style="left:0.00%;width:61.76%"></span></span><strong class="daily-high" aria-label="High 59°F">59°</strong></div><div class="daily-row"><strong>Fri</strong><span class="daily-condition">Mostly Sunny<span class="daily-rain">Rain 10%</span></span><span class="daily-low" aria-label="Low 40°F">40°</span><span class="range-track" aria-hidden="true"><span style="left:5.88%;width:58.82%"></span></span><strong class="daily-high" aria-label="High 60°F">60°</strong></div></div></details></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">COMING UP</p><h2>Sports & events</h2></div></div>
+          <div class="sport-groups"><section class="sport-group"><div class="sport-heading"><h3>Basketball</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401910029/pistons-hawks" target="_blank" rel="noopener noreferrer">Detroit Pistons at Atlanta Hawks</a></h3><p>Nov 22, 2026 · 3:30 PM ET</p></article><article class="card"><p class="eyebrow">Atlanta Hawks</p><h3><a class="story-link" href="https://www.espn.com/nba/game/_/gameId/401909330/hawks-celtics" target="_blank" rel="noopener noreferrer">Atlanta Hawks at Boston Celtics</a></h3><p>Nov 27, 2026 · 8:00 PM ET</p></article></div></section><section class="sport-group"><div class="sport-heading"><h3>Soccer</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915380/lask-linz-bodoglimt" target="_blank" rel="noopener noreferrer">LASK Linz at Bodo/Glimt</a></h3><p>Nov 24, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915300/aston-villa-galatasaray" target="_blank" rel="noopener noreferrer">Aston Villa at Galatasaray</a></h3><p>Nov 24, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915295/borussia-dortmund-arsenal" target="_blank" rel="noopener noreferrer">Borussia Dortmund at Arsenal</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article></div><details class="sports-more"><summary><span class="sports-show">Show all 18 events</span><span class="sports-hide">Show fewer events</span></summary><div class="card-grid"><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915296/aek-athens-como" target="_blank" rel="noopener noreferrer">AEK Athens at Como</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915294/fc-porto-feyenoord-rotterdam" target="_blank" rel="noopener noreferrer">FC Porto at Feyenoord Rotterdam</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915379/napoli-manchester-city" target="_blank" rel="noopener noreferrer">Napoli at Manchester City</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915299/lens-rb-leipzig" target="_blank" rel="noopener noreferrer">Lens at RB Leipzig</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915298/psv-eindhoven-real-madrid" target="_blank" rel="noopener noreferrer">PSV Eindhoven at Real Madrid</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915297/real-betis-slovan-bratislava" target="_blank" rel="noopener noreferrer">Real Betis at Slovan Bratislava</a></h3><p>Nov 24, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915378/barcelona-sabah-fk" target="_blank" rel="noopener noreferrer">Barcelona at Sabah FK</a></h3><p>Nov 25, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915293/villarreal-slavia-prague" target="_blank" rel="noopener noreferrer">Villarreal at Slavia Prague</a></h3><p>Nov 25, 2026 · 12:45 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915291/viking-fk-atletico-madrid" target="_blank" rel="noopener noreferrer">Viking FK at Atlético Madrid</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915292/liverpool-club-brugge" target="_blank" rel="noopener noreferrer">Liverpool at Club Brugge</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915376/vfb-stuttgart-internazionale" target="_blank" rel="noopener noreferrer">VfB Stuttgart at Internazionale</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915377/bayern-munich-lille" target="_blank" rel="noopener noreferrer">Bayern Munich at Lille</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915374/as-roma-paris-saint-germain" target="_blank" rel="noopener noreferrer">AS Roma at Paris Saint-Germain</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915375/fenerbahce-shakhtar-donetsk" target="_blank" rel="noopener noreferrer">Fenerbahce at Shakhtar Donetsk</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article><article class="card"><p class="eyebrow">UEFA Champions League</p><h3><a class="story-link" href="https://www.espn.com/soccer/match/_/gameId/401915373/manchester-united-sporting-cp" target="_blank" rel="noopener noreferrer">Manchester United at Sporting CP</a></h3><p>Nov 25, 2026 · 3:00 PM ET</p></article></div></details></section><section class="sport-group"><div class="sport-heading"><h3>Racing</h3></div><div class="card-grid"><article class="card"><p class="eyebrow">Formula 1</p><h3><a class="story-link" href="https://www.espn.com/f1/race/_/id/600057450" target="_blank" rel="noopener noreferrer">Qatar Airways Qatar Grand Prix</a></h3><p>Nov 27, 2026 · 8:30 AM ET</p></article></div></section></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">WATCHLIST</p><h2>Markets</h2></div></div>
+          <div class="ticker-grid"><article class="ticker"><div class="ticker-top"><div><strong>SPY</strong><span>S&amp;P 500 ETF</span></div><div class="price">689.81<span class="down">-3.64%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="SPY six-month trend, -7.1 percent" preserveAspectRatio="none"><polyline points="0.0,21.8 3.8,17.9 7.6,15.9 11.4,13.9 15.2,16.1 19.0,24.3 22.9,24.6 26.7,24.2 30.5,15.8 34.3,22.6 38.1,20.9 41.9,26.5 45.7,28.6 49.5,19.8 53.3,20.8 57.1,19.3 61.0,17.3 64.8,18.6 68.6,15.8 72.4,21.5 76.2,19.0 80.0,24.0 83.8,23.6 87.6,28.3 91.4,19.6 95.2,7.6 99.0,9.0 102.9,6.7 106.7,7.0 110.5,5.1 114.3,9.5 118.1,11.9 121.9,10.3 125.7,7.7 129.5,9.7 133.3,10.6 137.1,8.2 141.0,12.0 144.8,11.1 148.6,14.5 152.4,11.9 156.2,6.5 160.0,9.3 163.8,7.6 167.6,11.1 171.4,11.2 175.2,5.9 179.0,4.7 182.9,4.0 186.7,4.3 190.5,7.4 194.3,10.0 198.1,6.7 201.9,13.2 205.7,8.4 209.5,8.6 213.3,17.1 217.1,9.8 221.0,25.5 224.8,18.2 228.6,14.6 232.4,23.1 236.2,28.0 240.0,48.0"/></svg><span class="market-period down">6M -7.1%</span></article><article class="ticker"><div class="ticker-top"><div><strong>QQQ</strong><span>Nasdaq 100 ETF</span></div><div class="price">608.45<span class="down">-5.67%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="QQQ six-month trend, -14.8 percent" preserveAspectRatio="none"><polyline points="0.0,16.7 3.8,12.1 7.6,10.5 11.4,8.4 15.2,8.0 19.0,19.5 22.9,18.7 26.7,16.0 30.5,8.0 34.3,14.4 38.1,9.8 41.9,17.9 45.7,19.1 49.5,10.3 53.3,17.3 57.1,18.2 61.0,14.2 64.8,17.6 68.6,15.8 72.4,22.4 76.2,18.4 80.0,23.4 83.8,26.3 87.6,32.3 91.4,24.6 95.2,14.0 99.0,16.7 102.9,14.9 106.7,14.0 110.5,11.9 114.3,15.9 118.1,17.8 121.9,17.9 125.7,14.8 129.5,16.1 133.3,18.3 137.1,15.4 141.0,16.2 144.8,16.6 148.6,19.7 152.4,16.0 156.2,8.8 160.0,8.9 163.8,7.9 167.6,9.8 171.4,8.6 175.2,4.5 179.0,4.0 182.9,5.9 186.7,8.2 190.5,12.8 194.3,15.6 198.1,13.6 201.9,19.7 205.7,14.8 209.5,16.5 213.3,26.6 217.1,23.4 221.0,34.0 224.8,28.5 228.6,24.5 232.4,32.3 236.2,33.0 240.0,48.0"/></svg><span class="market-period down">6M -14.8%</span></article><article class="ticker"><div class="ticker-top"><div><strong>DIA</strong><span>Dow ETF</span></div><div class="price">481.08<span class="down">-1.98%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="DIA six-month trend, -4.4 percent" preserveAspectRatio="none"><polyline points="0.0,31.7 3.8,30.1 7.6,28.7 11.4,25.5 15.2,27.8 19.0,26.8 22.9,27.0 26.7,27.0 30.5,20.3 34.3,21.9 38.1,21.3 41.9,20.2 45.7,20.8 49.5,17.4 53.3,13.3 57.1,12.9 61.0,16.0 64.8,15.8 68.6,14.7 72.4,18.5 76.2,18.0 80.0,21.9 83.8,18.2 87.6,22.5 91.4,15.9 95.2,4.0 99.0,5.7 102.9,5.1 106.7,6.4 110.5,6.7 114.3,9.6 118.1,13.6 121.9,7.8 125.7,7.9 129.5,10.6 133.3,11.3 137.1,8.7 141.0,16.1 144.8,14.9 148.6,18.2 152.4,20.4 156.2,19.3 160.0,23.4 163.8,21.0 167.6,24.4 171.4,27.6 175.2,25.0 179.0,25.8 182.9,22.0 186.7,22.0 190.5,18.3 194.3,19.9 198.1,13.4 201.9,18.1 205.7,16.7 209.5,17.1 213.3,19.6 217.1,9.4 221.0,24.9 224.8,17.9 228.6,17.3 232.4,22.3 236.2,32.7 240.0,48.0"/></svg><span class="market-period down">6M -4.4%</span></article><article class="ticker"><div class="ticker-top"><div><strong>IWM</strong><span>Russell 2000 ETF</span></div><div class="price">256.61<span class="down">-2.88%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="IWM six-month trend, -9.2 percent" preserveAspectRatio="none"><polyline points="0.0,24.5 3.8,17.2 7.6,15.9 11.4,18.6 15.2,19.8 19.0,25.3 22.9,22.2 26.7,17.3 30.5,13.5 34.3,17.8 38.1,10.3 41.9,11.6 45.7,8.8 49.5,8.2 53.3,10.8 57.1,12.1 61.0,11.1 64.8,14.5 68.6,12.5 72.4,14.0 76.2,11.8 80.0,15.8 83.8,15.1 87.6,19.0 91.4,16.6 95.2,7.1 99.0,10.2 102.9,8.6 106.7,6.2 110.5,4.0 114.3,8.4 118.1,10.7 121.9,9.3 125.7,8.8 129.5,14.1 133.3,14.1 137.1,12.2 141.0,17.1 144.8,18.7 148.6,22.1 152.4,21.8 156.2,21.7 160.0,25.0 163.8,25.0 167.6,27.7 171.4,27.7 175.2,23.7 179.0,28.9 182.9,27.7 186.7,29.8 190.5,31.2 194.3,34.7 198.1,30.0 201.9,30.6 205.7,26.6 209.5,23.1 213.3,27.6 217.1,23.1 221.0,32.5 224.8,26.2 228.6,28.2 232.4,33.2 236.2,35.7 240.0,48.0"/></svg><span class="market-period down">6M -9.2%</span></article><article class="ticker"><div class="ticker-top"><div><strong>BTC-USD</strong><span>Bitcoin</span></div><div class="price">58368.96<span class="down">-0.73%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="BTC-USD six-month trend, -24.7 percent" preserveAspectRatio="none"><polyline points="0.0,18.1 3.8,19.0 7.6,23.1 11.4,24.0 15.2,35.0 19.0,44.0 22.9,40.6 26.7,43.2 30.5,38.6 34.3,36.7 38.1,39.9 41.9,39.3 45.7,45.9 49.5,46.2 53.3,45.5 57.1,40.6 61.0,40.3 64.8,39.0 68.6,42.0 72.4,38.1 76.2,38.0 80.0,35.3 83.8,39.1 87.6,39.7 91.4,38.1 95.2,40.0 99.0,38.3 102.9,37.8 106.7,39.9 110.5,40.8 114.3,38.4 118.1,25.1 121.9,18.8 125.7,16.5 129.5,17.7 133.3,16.6 137.1,12.3 141.0,13.7 144.8,17.0 148.6,18.5 152.4,21.1 156.2,12.9 160.0,4.0 163.8,7.5 167.6,7.3 171.4,8.6 175.2,7.3 179.0,5.3 182.9,11.7 186.7,8.6 190.5,11.9 194.3,12.1 198.1,9.7 201.9,12.6 205.7,14.3 209.5,17.8 213.3,17.0 217.1,18.4 221.0,20.9 224.8,21.7 228.6,27.8 232.4,37.2 236.2,40.8 240.0,48.0"/></svg><span class="market-period down">6M -24.7%</span></article><article class="ticker"><div class="ticker-top"><div><strong>NVDA</strong><span>Nvidia</span></div><div class="price">125.53<span class="down">-14.01%</span></div></div><svg class="sparkline down" viewBox="0 0 240 52" role="img" aria-label="NVDA six-month trend, -42.8 percent" preserveAspectRatio="none"><polyline points="0.0,11.5 3.8,13.3 7.6,13.6 11.4,9.6 15.2,13.4 19.0,17.1 22.9,15.9 26.7,17.2 30.5,14.3 34.3,17.3 38.1,15.7 41.9,19.5 45.7,22.0 49.5,19.1 53.3,21.1 57.1,20.3 61.0,18.0 64.8,17.7 68.6,14.2 72.4,18.0 76.2,16.3 80.0,15.7 83.8,20.5 87.6,23.0 91.4,18.8 95.2,14.5 99.0,11.7 102.9,12.3 106.7,9.7 110.5,9.3 114.3,11.4 118.1,12.6 121.9,14.0 125.7,8.2 129.5,11.0 133.3,9.6 137.1,7.3 141.0,9.9 144.8,12.0 148.6,14.4 152.4,11.6 156.2,8.5 160.0,9.2 163.8,9.4 167.6,8.5 171.4,7.1 175.2,4.0 179.0,4.6 182.9,7.7 186.7,8.0 190.5,12.4 194.3,12.5 198.1,10.6 201.9,14.8 205.7,12.1 209.5,13.8 213.3,18.3 217.1,19.0 221.0,24.3 224.8,31.2 228.6,32.2 232.4,36.1 236.2,38.1 240.0,48.0"/></svg><span class="market-period down">6M -42.8%</span></article></div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">SINCE YESTERDAY</p><h2>What changed</h2></div></div>
+          <div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 20, 2026 · 8:41 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ncWdxRnZQQlkxbXJvekRkWjRGV2gtdmRWUzBuVzRQOHVkaWRnV09GN2RHaDZjbnZIWkRlM0hvdHR5UjZqdjJPMEpTV1RKVFhTOUgzblA3VjdxZXI4dDNtY0RlN0jSAWpBVV95cUxQWHNqM0w5Sy14d2s4SFhKaXRUUnBVanloVkZzMEJRYjYzUUNxN1dZcUFkNF9hTlFPdVlHYkhUQjdmTU1JM19TZmZaUlVFU3BoREJ6LTFfOS00V2I0c09JZGNjR09GNGstdkVB?oc=5" target="_blank" rel="noopener noreferrer">Metro Atlanta MARTA stations get 450 new gates - FOX 5 Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Metro Atlanta MARTA stations get 450 new gates FOX 5 Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 5:31 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPTFhqU1J4N3hiWGZlaXU0ZENTTVR4VGNYVnE0bWQ2RnJzZHhQdHBxdGJIQ0d6c0JfUUk0REhpczJQaUM4clJjbjh5bWpXLUNUSTdTTWp1c3gwVXdpOWhhc0JYNHJOMEFXZXQycWxHY1M2RUFGTmNUTXU4MDdLc05pUW0yVFRFLTk0dVFuVGlwQllNMXF2ZlpRbnR4bkJOSl9Yd0JRWkgwVEVrSGl2R1JJQTBB0gHKAUFVX3lxTE1pMzZDeGUwcHpibzRFVzN5SC1mSjNFNXZOZW5rcVFiLTFtd1N3WnEyeTNKbzdDZ0VnTHRzQ0VuZGoxRG56a1BvWElzQjNCNDJYQUtXT1NxRXVRZnItQlhHS3hVdW9OWURmLTg4N3Z0UjZEMXpzN3JBRnhISjczYnU4Sm9fbi1IdUhHX25wRW5Kclg5VW1FZ3JYWlhjZjU1U29Dak4wWVE1UDRpVU83ZF9zNnFYeGg0T2VwV0lROFpRMHVjSFFiU281Q2c?oc=5" target="_blank" rel="noopener noreferrer">Car Crashes Into Home&#x27;s Basement | Historic Home Burns | 2 Gold Medalist Winners: GA News - Patch <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Car Crashes Into Home&#x27;s Basement | Historic Home Burns | 2 Gold Medalist Winners: GA News Patch</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Nov 21, 2026 · 5:03 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html" target="_blank" rel="noopener noreferrer">Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The A.I. giant broke records with its initial public offering this week before a rocky first full day of trading, as the markets plunged on worries about artificial intelligence spending.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 21, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/21/us-airlines-first-class-business-class.html" target="_blank" rel="noopener noreferrer">International first class is over for U.S. airlines. Enter the mega business-class cabin <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Airlines are opting to build giant business-class cabins with ever-more luxurious suites.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 11:00 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/startup-sues-apple-in-india-over-tap-to-share-contacts-feature/" target="_blank" rel="noopener noreferrer">Startup sues Apple in India over tap-to-share contacts feature <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>A U.S. startup is seeking $162 million in damages and an injunction to impact iPhone and Apple Watch imports to India.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 20, 2026 · 8:39 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPNVBGODZNWGp1a3k1dmlBMC1pN0NjUDVyVm9SWlhrMDdnNHlIN3YyNlFvdmY2OWxHend1R0lKckRacHowUGJsQWFrX1FYMjBONDd0SUduaE95aE5hQkpWVkladXBXY1dvNXZMSWVvQ2d5b2pZZDN2Y0t3Qnk4a2ZvV3hOV1Z1bTJrSlE?oc=5" target="_blank" rel="noopener noreferrer">MARTA finishes 450-gate upgrade at all rail stations - FOX 5 Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>MARTA finishes 450-gate upgrade at all rail stations FOX 5 Atlanta</p>
+        </div>
+      </article>
+    </div>
+        </section>
+        <section>
+          <div class="section-heading"><div><p class="eyebrow">EXPLORE</p><h2>News worth opening</h2></div></div>
+          <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="traffic_commute">Traffic &amp; commute</button><button class="filter" data-filter="local_news">Atlanta &amp; Georgia</button><button class="filter" data-filter="market_news">Market news</button><button class="filter" data-filter="tech_ai">Technology &amp; AI</button><button class="filter" data-filter="general_news">Top news</button></div>
+          <div id="news-sections"><details class="news-group" data-section="traffic_commute"><summary><span>Traffic &amp; commute</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 20, 2026 · 8:41 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ncWdxRnZQQlkxbXJvekRkWjRGV2gtdmRWUzBuVzRQOHVkaWRnV09GN2RHaDZjbnZIWkRlM0hvdHR5UjZqdjJPMEpTV1RKVFhTOUgzblA3VjdxZXI4dDNtY0RlN0jSAWpBVV95cUxQWHNqM0w5Sy14d2s4SFhKaXRUUnBVanloVkZzMEJRYjYzUUNxN1dZcUFkNF9hTlFPdVlHYkhUQjdmTU1JM19TZmZaUlVFU3BoREJ6LTFfOS00V2I0c09JZGNjR09GNGstdkVB?oc=5" target="_blank" rel="noopener noreferrer">Metro Atlanta MARTA stations get 450 new gates - FOX 5 Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Metro Atlanta MARTA stations get 450 new gates FOX 5 Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 20, 2026 · 8:39 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPNVBGODZNWGp1a3k1dmlBMC1pN0NjUDVyVm9SWlhrMDdnNHlIN3YyNlFvdmY2OWxHend1R0lKckRacHowUGJsQWFrX1FYMjBONDd0SUduaE95aE5hQkpWVkladXBXY1dvNXZMSWVvQ2d5b2pZZDN2Y0t3Qnk4a2ZvV3hOV1Z1bTJrSlE?oc=5" target="_blank" rel="noopener noreferrer">MARTA finishes 450-gate upgrade at all rail stations - FOX 5 Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>MARTA finishes 450-gate upgrade at all rail stations FOX 5 Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 20, 2026 · 6:12 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNMW5iVTJIX0RjbmFJc2k0QW8xNTRKSGpFUmE3S3RaRE1qZTlxWDFQNzNsSWV4UkpTbXdza2dBU19mejFLVUl0ajU2ZENGd0o0QW5HalRNSnpXLUNxYTYweHF0aHNLZENJQVp6a2RwOHJOel96dS1aR3diYVN2ZkpDclZVT0JPRWpQcGtJWWY2UnZ0TnVOblM5dnBuOEJHcGhDTHZSYTVVbW5mT1FfVTlWWUpHZDVnZw?oc=5" target="_blank" rel="noopener noreferrer">Weekend I-285 closure in southwest Atlanta could create headaches for drivers - CBS News <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Weekend I-285 closure in southwest Atlanta could create headaches for drivers CBS News</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 18, 2026 · 1:25 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMilwFBVV95cUxOS1NrRGxQQjQxZWFEZXo0aUpaalpMbkRWOU1xQWR0eWR5dVFFcnZENG1VQmNLMkFnVXdHMml3VFBmeXJjZ2RBTi1YOEYySGp0cWpyRUJqeVJ1MHZYZ2hqNGJraGxHWXBRc2llLVhiZXVWZ2I3SDZIVGc1Um4tQ3hVXy0wNFFpWjFDSnpSSzdkbWxKckU3RE9j?oc=5" target="_blank" rel="noopener noreferrer">All lanes of I-285 in SW Fulton closed in ATL this weekend - Secret Atlanta <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>All lanes of I-285 in SW Fulton closed in ATL this weekend Secret Atlanta</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta weather alert OR road closure&quot; - Google News · Sep 11, 2026 · 3:00 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOa042cjVkRVJmY2hoUmw0ZF9ORmJtdnhhMmtrNVBPQjNTbVNma2xhRTVuTDdHX3lrMEFISkJVYzBEQzJCZG80SEpKSkZmS3lCSERJc01HN0twTEk2azM5anB3OGUyREdqTzNiWjY5MmY3ZEtCeTMtWHhmNU5NblhnMGh5MUhxb3NudnN5THM0YXZUMk1pcFJ0bzJxVUxESG93aGlqWi13?oc=5" target="_blank" rel="noopener noreferrer">Atlanta weather alert: Heavy rain and storms could cause flooding - CBS News <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Atlanta weather alert: Heavy rain and storms could cause flooding CBS News</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta traffic OR MARTA OR GDOT&quot; - Google News · Nov 19, 2026 · 2:57 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxNb2xWdFZwS3lBMkJjbnF0QlNCRGMzaHhJOW1sQlhKMktTQk9NbnFvT28zZDdlMk8zYUp6MGZyMUpWdXBrYUYxaFlfXzk2dWdxZ0xKNlZBbVZPTWVvNEVfT3o2YUwzNXV3elhLUGJzWThmYWRNQnN1ZTNBNmVjRGVSYXoxUlJCNlRMRzJmd2ZSX29RYW9MZmxzZzF0UV9FcFhqek5pV0hIX1lPcjJPYndFbWUwWDFqUWd2TVZLV3ZCV2NHbkZRc2ZjUEtfZTFqSVBvVDR3eUZn0gHqAUFVX3lxTE03SFBRNkgteURiV2VpcGVCcVdJSy1TUDBCTnRpT3lGU09Fb1lidVJLbWltWkktVkV2MnRnWmNpVWJ4ck1LOElDUm5FemxJWDRiVEYtNTI5TFdiRXZCYXlSV2VZRE00eUpqTEZkR1NPSmh4Yms2bGxucVVWLTBkbGt0aW9fMHFRbXVhUVExdkxRdTE0bWRxeVBwdFF4VUQwMFhvV2NraWlGWWUtRFJFbDZkcC11RzlNLWREeUYtME5nM21RbEVKdVZuM2FMNWR4OGFSVmNac0pfdENFbjJ1MU1LampTUEExSERWQQ?oc=5" target="_blank" rel="noopener noreferrer">Traveling for Thanksgiving? Here’s when Georgia traffic is expected to be the worst - WSB-TV <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Traveling for Thanksgiving? Here’s when Georgia traffic is expected to be the worst WSB-TV</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="local_news"><summary><span>Atlanta &amp; Georgia</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 5:31 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPTFhqU1J4N3hiWGZlaXU0ZENTTVR4VGNYVnE0bWQ2RnJzZHhQdHBxdGJIQ0d6c0JfUUk0REhpczJQaUM4clJjbjh5bWpXLUNUSTdTTWp1c3gwVXdpOWhhc0JYNHJOMEFXZXQycWxHY1M2RUFGTmNUTXU4MDdLc05pUW0yVFRFLTk0dVFuVGlwQllNMXF2ZlpRbnR4bkJOSl9Yd0JRWkgwVEVrSGl2R1JJQTBB0gHKAUFVX3lxTE1pMzZDeGUwcHpibzRFVzN5SC1mSjNFNXZOZW5rcVFiLTFtd1N3WnEyeTNKbzdDZ0VnTHRzQ0VuZGoxRG56a1BvWElzQjNCNDJYQUtXT1NxRXVRZnItQlhHS3hVdW9OWURmLTg4N3Z0UjZEMXpzN3JBRnhISjczYnU4Sm9fbi1IdUhHX25wRW5Kclg5VW1FZ3JYWlhjZjU1U29Dak4wWVE1UDRpVU83ZF9zNnFYeGg0T2VwV0lROFpRMHVjSFFiU281Q2c?oc=5" target="_blank" rel="noopener noreferrer">Car Crashes Into Home&#x27;s Basement | Historic Home Burns | 2 Gold Medalist Winners: GA News - Patch <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Car Crashes Into Home&#x27;s Basement | Historic Home Burns | 2 Gold Medalist Winners: GA News Patch</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 4:13 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE96UEtOMjI3SllaYTg0MWliZGRzdUxvM2hWcGxKbVB4SmF0ODBhNlkwOTEyRDdLZE00bkdyODFJcllqMVlLQkR2ejBqRW9lUjVvQmc?oc=5" target="_blank" rel="noopener noreferrer">ATLANTA, Ga. (Atlanta News First) - An Alabama man was sentenced to 30 years in prison for pointing a gun at a family during a 2022 road rage incident in Coweta County, prosecutors said Friday. Rasheed Hakeem Williams, 33, of Montgomery, was convicte - Instagram <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>ATLANTA, Ga. (Atlanta News First) - An Alabama man was sentenced to 30 years in prison for pointing a gun at a family during a 2022 road rage incident in Coweta County, prosecutors said Friday. Rasheed Hakeem Williams, 33, of Montgomery, was convicte Instagram</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 2:56 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNWnc4Qno2N0xMdWx6Z3dJSDM5OVNXU1ZvNGF4dWdubHBTOWcwLTlWMlZxX1RVM3JfdnJkemlWUGp0MnFBd0hkdFJKY3RlZzRNSFhOakJzV2liRExlX29GaG1CYnJ2VUNSRmdEbG8xUldnYkFQaE8wXzlqd0k4R3U0UmJ3dE9TODhkNUg0eUEyTGpGWGxtMV9YanZmQkx4ajA3OEFn?oc=5" target="_blank" rel="noopener noreferrer">Fire in Ellijay 100% contained, at least 13 campers burned, sheriff’s office says - Atlanta News First <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Fire in Ellijay 100% contained, at least 13 campers burned, sheriff’s office says Atlanta News First</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 12:42 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOQ1dmVTRTeUZvU2cxMFhYU1VVNnFRWHpvM2tZc1d5MlJNMlFsMHJ2TFp4YV9HSFRrT2l6NlRNNC1qSGxWZ1FFQ21VMXk0V3hISDFmMzliQnJ5dkJmd2w2RU5qNERSRm5JZkhDS0x1MTh0WC1iQTZ2cXZEYURtaEtmeDhSVnZwNVo5Q0pIS05tak5UVWlRX1BrR3lYZWFuaV9MdFRyZ2ZiMEdjc0szSTFaMXo3N3JDT0M5ZlhjclVn?oc=5" target="_blank" rel="noopener noreferrer">Georgia sees record spike in confirmed measles cases as U.S. grapples with outbreaks - CBS News <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Georgia sees record spike in confirmed measles cases as U.S. grapples with outbreaks CBS News</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Atlanta Georgia local news&quot; - Google News · Nov 20, 2026 · 4:38 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOc2RtYXBaRnY0Y3dfM2RyeUEwX0RMZ0wtM1FpN25VVzNWUjR3SFFhSGVhUWozTzk1VlRYUUN3bEcwZFdSUWJfZ3lieUd1aUIycmhoX1F6ZTBnQnlrYXFXSUplaXoxUU9kQXBjem9uR3oxS3lKQkNNVTJoMkVac1lOTnBWb3JlekFfUDJRTzBMcW9jMS1xM0tOY04yNDVHNDVZVDl6Uy1QZWxhMUlCR0UtNm1zSGVPTE0yR1ZPN2hpT3dZUlNVWkx0Mzg5TnFDSHhjMWhULdIB6AFBVV95cUxQdXdoa1pwMVAzRXBZMWkyTVFmaUpqZ2xady1wNkxuZWM4RUV3VFFnWk5pdl9kNmFKUEREYlpCY0dCTExXSTllMWxISEEwYkZRMzlicTE3ZW1WWkNxQjJBVVI1SmNuQlRLbDdneTV6Z3ZibTlaNm4yZlFWbTgyWWROQnR4YkFjV3lGSjRRVHJUU1hyYWJxWWdidDl1M3BaTVhPU0lzZVl5V1hkOWhpbW0tLU9DU2NlaXlSa0JZSXpSY0VOMEdaV0prcXFjNWljV0ppdDhyUmxDaWJyeU9ISTFNNWVsQmEwV3Ns?oc=5" target="_blank" rel="noopener noreferrer">Could Georgia see more snow and ice? Agencies are already preparing for this winter - WSB-TV <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Could Georgia see more snow and ice? Agencies are already preparing for this winter WSB-TV</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;Georgia state government Atlanta&quot; - Google News · Nov 18, 2026 · 4:51 PM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQLTc5Yk1tdDZhdzJfUVFiRm9zZDB3UnVpX0pGck1VeVRyc29XZmpXMURXTl85X0EzSnoxTDRsWG1jTEdWdFA5WG1pemo5LVVJdlVwY1A3SkV0NVE4SVVGTmVmNEs3SXJuUnlfTm81QUVyWFlGNHRfU3Bsd0xJY0xsRG1tV0JsdXlBNzdJRy0wd2pyaDNWN2kydnplWWUzQTE5dEhmamlSQzFvbkhUTXNlNExyZEp2aG51RTFz?oc=5" target="_blank" rel="noopener noreferrer">Democratic Black women take over almost all state agencies in Georgia soon - NPR <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Democratic Black women take over almost all state agencies in Georgia soon NPR</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="market_news"><summary><span>Market news</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 21, 2026 · 7:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/21/us-airlines-first-class-business-class.html" target="_blank" rel="noopener noreferrer">International first class is over for U.S. airlines. Enter the mega business-class cabin <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Airlines are opting to build giant business-class cabins with ever-more luxurious suites.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 21, 2026 · 6:29 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/20/sp-500-correction-market-sell-off.html" target="_blank" rel="noopener noreferrer">S&amp;P 500 correction: Five forces behind the market sell-off <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The S&amp;P 500 and Dow Jones Industrial Average closed in correction territory, off 10% from their records. The Nasdaq Composite lost its gain for the year.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 21, 2026 · 1:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/21/china-xi-trump-putin-global-diplomacy-shenzhen.html" target="_blank" rel="noopener noreferrer">How China is using summits to expand its global influence <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Chinese President Xi Jinping has helped coordinate yet another photo-op of global significance.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 20, 2026 · 5:59 PM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html" target="_blank" rel="noopener noreferrer">Nvidia stock plunges 14%, wraps up longest weekly losing streak since 2008 financial crisis <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Once the most valuable company in the world, Nvidia now ranks fourth behind Apple, Microsoft and Alphabet.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">US Top News and Analysis · Nov 20, 2026 · 4:35 PM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/20/zscaler-crowdstrike-deal.html" target="_blank" rel="noopener noreferrer">Zscaler stock jumps 18% on report that CrowdStrike in talks to buy security vendor <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Cybersecurity companies have been hunting for acquisitions in the AI era.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">Business News · Nov 20, 2026 · 4:04 PM ET</p>
+          <h4><a class="story-link" href="https://www.cnbc.com/2026/11/19/gap-gap-q3-2026-earnings.html" target="_blank" rel="noopener noreferrer">Gap names new Athleta CEO, says Old Navy turnaround is seeing signs of progress <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Gap on Thursday announced Ashley Kechter as the new CEO of Athleta. The retailer also reported mixed fiscal third-quarter earnings.</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="tech_ai"><summary><span>Technology &amp; AI</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 11:00 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/startup-sues-apple-in-india-over-tap-to-share-contacts-feature/" target="_blank" rel="noopener noreferrer">Startup sues Apple in India over tap-to-share contacts feature <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>A U.S. startup is seeking $162 million in damages and an injunction to impact iPhone and Apple Watch imports to India.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 3:58 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/experts-warn-nearly-everyone-in-ai-is-susceptible-to-a-honey-trap-scheme-right-now/" target="_blank" rel="noopener noreferrer">Experts warn: Nearly everyone in AI is susceptible to a honey-trap scheme right now <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Techies are building technology that can advance all aspects of the world — but can they protect their hearts? That&#x27;s the vulnerability that honey pots exploit.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 2:53 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/" target="_blank" rel="noopener noreferrer">Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building. <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here&#x27;s what the startup is building.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 2:32 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/" target="_blank" rel="noopener noreferrer">AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Mathematicians are having their minds blown by the latest AI-driven result — and there&#x27;s a competing human solution, too.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">TechCrunch · Nov 20, 2026 · 1:34 PM ET</p>
+          <h4><a class="story-link" href="https://techcrunch.com/2026/11/20/super-hot-rock-geothermal-could-end-data-center-energy-woes/" target="_blank" rel="noopener noreferrer">Super-hot rock geothermal could end data center energy woes <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>New geothermal startups are betting that they can leapfrog today&#x27;s leaders to deliver terawatts of electricity nearly anywhere.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">&quot;AI technology news&quot; - Google News · Nov 20, 2026 · 7:06 AM ET</p>
+          <h4><a class="story-link" href="https://news.google.com/rss/articles/CBMif0FVX3lxTE5XYVdGdzl2am5CT1o3QlFFV2duR2dJZzNpbjlrYWg2cU4tVHJwZ0I4WWhaVmd3ZHQ0cTVyRklGcHprTlk0UFEzenE2T2ZNZ1pvNXdKbDBySkFDXzA5cktobkRxaTcxdkZzWGtfXzVzLXZqeEhnSDk5VEROWGRsNzQ?oc=5" target="_blank" rel="noopener noreferrer">Stocks Skid Into a Correction, as A.I. Worries Intensify - The New York Times <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Stocks Skid Into a Correction, as A.I. Worries Intensify The New York Times</p>
+        </div>
+      </article>
+    </div></details><details class="news-group" data-section="general_news"><summary><span>Top news</span><span class="story-count">6 stories</span></summary><div class="story-list">
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Nov 21, 2026 · 5:03 AM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/11/21/business/anthropics-debut-shows-the-disconnect-between-wall-street-and-silicon-valley.html" target="_blank" rel="noopener noreferrer">Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The A.I. giant broke records with its initial public offering this week before a rocky first full day of trading, as the markets plunged on worries about artificial intelligence spending.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NPR Topics: News · Nov 21, 2026 · 5:01 AM ET</p>
+          <h4><a class="story-link" href="https://www.npr.org/2026/11/21/nx-s1-6043793/stop-thinking-about-work" target="_blank" rel="noopener noreferrer">5 ways to turn off your &#x27;work brain&#x27; after the day ends <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Don&#x27;t let your work troubles follow you home. Psychologist Guy Winch shares techniques to help you stop ruminating about your nine-to-five, so you can focus on what really matters.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NPR Topics: News · Nov 21, 2026 · 5:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.npr.org/2026/11/21/nx-s1-6048729/ai-stock-markets-anthropic-nvidia" target="_blank" rel="noopener noreferrer">The AI boom had a really bad week — and it&#x27;s raising loud alarms <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>AI stocks — and the broader markets — got pummeled this week, raising major concerns about the financial system and the wider economy. Here&#x27;s what to know.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NPR Topics: News · Nov 21, 2026 · 5:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.npr.org/2026/11/21/nx-s1-6044237/electoral-college-national-popular-vote-interstate-compact" target="_blank" rel="noopener noreferrer">An effort to circumvent the Electoral College may be within reach. But hurdles remain <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>A national effort to ensure that only winners of the popular vote become president could reach a critical milestone soon.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NPR Topics: News · Nov 21, 2026 · 5:00 AM ET</p>
+          <h4><a class="story-link" href="https://www.npr.org/2026/11/21/nx-s1-6048678/anthropic-ipo-mission-ai-safety" target="_blank" rel="noopener noreferrer">Anthropic says it will put humanity first. Will its IPO change that? <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>Critics say now that the AI giant is a public company, its commitment to put safety ahead of commercial success will be tested.</p>
+        </div>
+      </article>
+    
+      <article class="story">
+        <div class="story-copy">
+          <p class="source">NYT &gt; Top Stories · Nov 20, 2026 · 10:41 PM ET</p>
+          <h4><a class="story-link" href="https://www.nytimes.com/2026/11/20/us/politics/baaja-permitting-bill-trump.html" target="_blank" rel="noopener noreferrer">It’s a Bill on Energy Permits, but Trump’s Pet Projects Are Part of the Debate <span class="link-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens original story in a new tab)</span></a></h4>
+          <p>The pervasive presence of the president hovers over the bipartisan legislation to speed up construction of energy projects that are advancing through Congress.</p>
+        </div>
+      </article>
+    </div></details></div>
+        </section>
+      </main>
+      <footer>Generated locally from your selected sources · <a href="latest.json">View source facts</a></footer>
+      <script>
+const filters=document.querySelectorAll('.filter');filters.forEach(button=>button.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));button.classList.add('active');const wanted=button.dataset.filter;document.querySelectorAll('.news-group').forEach(group=>{const matches=wanted==='all'||group.dataset.section===wanted;group.hidden=!matches;if(wanted!=='all')group.open=matches})}));
+</script>
+    </body></html>
