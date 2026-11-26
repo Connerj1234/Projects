@@ -1,0 +1,4480 @@
+{
+  "date": "2026-11-26",
+  "general_news": [
+    {
+      "link": "https://www.npr.org/2026/11/26/nx-s1-6028781/memories-of-a-good-meal-cookbook-chef-alon-shaya",
+      "published_at": "2026-11-26T05:00:00-05:00",
+      "source": "NPR Topics: News",
+      "source_feed": "https://feeds.npr.org/1001/rss.xml",
+      "summary": "New Orleans Chef Alon Shaya's new cookbook shares stories of resilience from World War II, centered around food.",
+      "title": "'Memories of a Good Meal': How food made a difference during WWII"
+    },
+    {
+      "link": "https://www.npr.org/2026/11/26/nx-s1-5983712/indian-pueblo-kitchen-native-american-food-albuquerque",
+      "published_at": "2026-11-26T05:00:00-05:00",
+      "source": "NPR Topics: News",
+      "source_feed": "https://feeds.npr.org/1001/rss.xml",
+      "summary": "At an Albuquerque, N.M., museum, the restaurant is just as much of a draw as the exhibitions, with dishes like green chile stew and sweet biscochitos flavored with anise and cinnamon.",
+      "title": "At Albuquerque's Indian Pueblo Kitchen, Native American dishes are the main course"
+    },
+    {
+      "link": "https://www.npr.org/2026/11/26/nx-s1-6054139/court-rules-puerto-ricos-governor-can-fire-company-that-runs-troubled-power-grid",
+      "published_at": "2026-11-26T04:44:20-05:00",
+      "source": "NPR Topics: News",
+      "source_feed": "https://feeds.npr.org/1001/rss.xml",
+      "summary": "LUMA Energy took over the electric grid five years ago. The court's ruling nullifies its contract, and gives the government a year to find a new operator.",
+      "title": "Court lets Puerto Rico governor fire firm that runs the island's troubled power grid"
+    },
+    {
+      "link": "https://www.npr.org/2026/11/26/nx-s1-6054079/storms-expected-on-both-coasts-as-millions-travel-for-thanksgiving",
+      "published_at": "2026-11-26T04:43:27-05:00",
+      "source": "NPR Topics: News",
+      "source_feed": "https://feeds.npr.org/1001/rss.xml",
+      "summary": "Extreme weather that has unleashed strong winds, high tides, heavy rain and floods is expected to impact travel plans of an estimated 81.5 million people as they travel across the United States.",
+      "title": "Powerful storms disrupt holiday travel, as Macy's Thanksgiving Day Parade is postponed"
+    },
+    {
+      "link": "https://www.npr.org/2026/11/26/g-s1-155940/fcc-spacex-satellites-data-centers-in-space",
+      "published_at": "2026-11-26T01:53:09-05:00",
+      "source": "NPR Topics: News",
+      "source_feed": "https://feeds.npr.org/1001/rss.xml",
+      "summary": "The Trump administration gave Elon Musk's SpaceX the green light to deploy 1 million satellites that it said would create data centers in space, a move that has raised skepticism among scientists.",
+      "title": "FCC says SpaceX can deploy 1 million satellites for data centers in space. Scientists are skeptical"
+    },
+    {
+      "link": "https://www.nytimes.com/2026/11/25/nyregion/macys-thanksgiving-day-parade-tourists.html",
+      "published_at": "2026-11-26T02:24:38+00:00",
+      "source": "NYT > Top Stories",
+      "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "summary": "With a powerful storm bearing down on New York, the parade was postponed to Saturday, by which time many of the city\u2019s visitors planned to be elsewhere.",
+      "title": "Macy\u2019s Thanksgiving Day Parade Sours Holiday Plans for Tourists"
+    },
+    {
+      "link": "https://www.nytimes.com/2026/11/25/nyregion/thanksgiving-parade-new-york-postponed.html",
+      "published_at": "2026-11-26T02:45:29+00:00",
+      "source": "NYT > Top Stories",
+      "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "summary": "After more than a century of tradition, the Macy\u2019s Thanksgiving Day Parade is suddenly flexible. Sure, this is fine.",
+      "title": "The Thanksgiving Parade on Saturday. Can They Do That?"
+    },
+    {
+      "link": "https://www.nytimes.com/2026/11/25/us/politics/trump-nvidia-stock-market.html",
+      "published_at": "2026-11-26T01:53:20+00:00",
+      "source": "NYT > Top Stories",
+      "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "summary": "The retreat of the stock market in recent days shows how President Trump\u2019s push to reinstall the company\u2019s chief executive has collided with the realities of his other policies.",
+      "title": "Trump Rejoiced in the Market\u2019s Nvidia Surge. It Didn\u2019t Last Long."
+    },
+    {
+      "link": "https://www.nytimes.com/2026/11/26/business/nvidia-southeast-asia-sales.html",
+      "published_at": "2026-11-26T12:04:01+00:00",
+      "source": "NYT > Top Stories",
+      "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "summary": "The shipping halt, which hit four countries, follows a new U.S. rule that would require licenses for companies in the countries to buy advanced A.I. chips.",
+      "title": "Nvidia Halts Sales to Southeast Asia as U.S. Tightens China Restrictions"
+    },
+    {
+      "link": "https://www.nytimes.com/2026/11/26/business/huawei-trump-china-ai.html",
+      "published_at": "2026-11-26T10:01:56+00:00",
+      "source": "NYT > Top Stories",
+      "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "summary": "As China\u2019s access to Nvidia\u2019s advanced chips shrinks, Huawei is becoming increasingly indispensable to Beijing despite a wide technological gap with its American rival.",
+      "title": "Trump Tried to Cripple Huawei. Now It Is Central to China\u2019s A.I. Push."
+    },
+    {
+      "link": "https://www.bbc.co.uk/news/articles/cwg7l5ve251ko?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-26T10:38:35+00:00",
+      "source": "BBC News",
+      "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+      "summary": "Officials say no lead has been detected in the surrounding area, which continues to be tested following concerns from locals.",
+      "title": "US Army says controlled blast of explosives in Iowa was 'huge success'"
+    },
+    {
+      "link": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o?at_medium=RSS&at_campaign=rss",
+      "published_at": "2026-11-26T04:10:58+00:00",
+      "source": "BBC News",
+      "source_feed": "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+      "summary": "The new levies would hit many of America's biggest trading partners, including China and the EU.",
+      "title": "US announces new tariffs on host of countries including China"
+    }
+  ],
+  "generated_at": "2026-11-26T07:30:02.458498-05:00",
+  "holidays": [
+    {
+      "counties": null,
+      "date": "2026-11-26",
+      "global": true,
+      "name": "Thanksgiving Day",
+      "source": "Nager.Date"
+    }
+  ],
+  "local_news": [
+    {
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPanFzbksxTmJac2hLMFk5d2NHUWxuLWNaVUVHeVVMS3FXQmt5bERMU1RQVUVjMnl0S0o2WVlDVFBBRXE5NmJqVEl3YzdteGx6VGJyRGJOeDBYVUpmZHd4THA4ZGdEcWd6NVRVWFNGcGNGRkhxVzBscXJUSFJncW1Uc1VXVHlQcEFUMlN0alpjUHNIQkZHRkHSAaoBQVVfeXFMTm5iazNXUTA5TlZfaF9ELVEyQ2hoRGRiMVBVajgyZnFQOVBMdnNsZ0RiWHZxNFE3RWk5dTlTa1FSN1I1Nm4wM1RYWS1RcWRwRFFrSFRCS0JwWHBGVUQ0UTItQVJpQ2tfYnQzTmFBd2psRkhXdzg2QktCal9RUEJyVGZLMUxyVTVvbDlweXFYN3pJX1JTSTFZVm84bkIxbkJiVGtsSllFS0JhX2c?oc=5",
+      "published_at": "2026-11-25T13:53:00+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Pedestrian hit, killed on I-285, Atlanta police say Atlanta News First",
+      "title": "Pedestrian hit, killed on I-285, Atlanta police say - Atlanta News First"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9yOXZEdDd4T2lGRVVEVDZsNjF3M2FRNXhsRE16cnpkcDRBRHJyZExiV2ExSXduM1BhNHdoTjdVQVFRT2VrNUo1MzhGcjlGSHZUc1E?oc=5",
+      "published_at": "2026-11-25T22:15:52+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Add Us On Google Add as a preferred source on Google ATLANTA, Ga. (Atlanta News First) - Gwinnett County police said they rescued a kidnapped man after the victim asked employees at local businesses for help. On Friday, employees at a business on Lid Instagram",
+      "title": "Add Us On Google Add as a preferred source on Google ATLANTA, Ga. (Atlanta News First) - Gwinnett County police said they rescued a kidnapped man after the victim asked employees at local businesses for help. On Friday, employees at a business on Lid - Instagram"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaHFxcHNpdlNOb0NHbllMQkEtZGZSV0tHNXZmWDhaRlBnQzF0WV9zT01tdDZfZDdpd2VFTnhhX1hOVjRmZ1JtYW1kUWd1S2JKaUp3SUxrb25mQ2xiMk9IdlIxWVprSW52TzRoWkhzNXg0WlVLUDI2Si1aN0RvXzIzWWwyMjF0V2E0QU1SbkM1dUgwUkFvSHN4VFJXTXRCb2R2Q0ppRmlRVF9xbldFOVJpT29n?oc=5",
+      "published_at": "2026-11-25T19:04:16+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia Tech names research chief, double alumnus university's new president CBS News",
+      "title": "Georgia Tech names research chief, double alumnus university's new president - CBS News"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZ0xvOUVqR3BMVF80cHlWTUN4cWYxekVRU1A2UE5Nc1JEcGZPblBZNFZvQU5XUGhnUkNNY19iM3JMZUp1TlhDUTdHcVZUSl9SdktwVFVhaUpHSzg4UlZSOUpuMU9zWkI5UXZOb1NINzRKZGFMU2hnWEc2aVc0LVFFekR5cGI2SEJuMWtyd1RMMmUyZEktR2x3QVJYQW1MRDkwWU5LZ2pQcHAxUGROa2NoZNIBxAFBVV95cUxPSWFtSUVMMHd6dDV5QjN4NUJRZFhPN2k0VnBlUEtwSC1wdlBJemJqUWJOQ2NTZlRUQmlxLVhKcllDWTNSamNZVHd0RENRc1ozd3pjTGJHc19ickZweS1GVjljZDBpenRQMmVqWWhrdmtNZFpIUFpLVzBXQWJES0ktY2djMTZza0Nwd2RtUUFUU0dVYTh2M0kza1RtY1FzQklWYUZrR0RiTnV1bTJVbEx3cEI4WGFDU0N6Nk5uRFpWSHlsVld2?oc=5",
+      "published_at": "2026-11-26T06:15:25+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "1 dies, 1 hurt in shooting, intentional crash, police say WSB-TV",
+      "title": "1 dies, 1 hurt in shooting, intentional crash, police say - WSB-TV"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeDZ4cDA2WjQwWU9veVdsU3BrMnYxU0dBWlc0TVgwNG9COXJFaVZPX3kwcTZ0cnYxbjhrbXRNbnNZZnhrRUlSX1VpdTk3SWl0a3V6dGxaVTdBaTJaM1FpSk5CeFhnYV9XY3dLMlVnNkh2dFhIdlFDUUtObkpQc1U0Rnl4ZVF0WkFyMnlhc3FubVdnRWtX0gGrAUFVX3lxTE5CYWNvZVRXX1Q0WFZ1dHN5MWtOUDJwLUFfakRMbWRXN1Y4clJTZFlmN0hBWlBrM1RCWG9JQW00eEtELVB4YzFWdS1IdWlQUVJaRnVGN2hpNmJiTXpWNHl6TFpVM1VHWWFCUkRqTGo1S3ZFa1hmYjBkV243dDNUc3l5SHFFVHJQNEJGaF9xaDZISlk4RG1UcWlRdkNVS0wycmU5SmxKQVQ3dTJKRQ?oc=5",
+      "published_at": "2026-11-23T21:44:43+00:00",
+      "source": "\"Atlanta Georgia local news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20Georgia%20local%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Thanksgiving Storms May Disrupt GA Travel Plans For Millions Patch",
+      "title": "Thanksgiving Storms May Disrupt GA Travel Plans For Millions - Patch"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRlVHc0VSaHltOU03T3dqeGpLZ0FSaWZaQWZvd3hmTmNDQjREUDlwVnc1eXF2UmsyWm1TU3FlSlhhQm8tVHZJbkNjNGxIWjl1S1JST1JnU1JIY2pnWGIwZW4xa0VRV1dJM0Y5dkpLczNrUFBNdEtIRmh6TkNIc3hlQkFHTlcySXJuWEM2bGQ0Tm1yejJjUWZ0Z9IBrAFBVV95cUxOdVR4elBIVFRiUExLYVh6YVpoLXByMjl1U3NSSnRiaVBFODUwWHFBb0MyZGo5VTNMSnBGOEp1WWQ2aGhZOWxLaWlVZDJxaGtnWEhpV1pDWFdTMXA4UTZmZjVUajE1UW5Rc3FRcGVLRlpCMUZmTWh6d3dPMGRfWlVzNnVvUWFaWlpBTGxIbVY5UEJudE5QX0M0eTU4aWZZUTNhcGlXQ1VOWVhmU0ZS?oc=5",
+      "published_at": "2026-11-24T23:19:00+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Burt Jones prepares to leave office as Ga. faces divided government WRDW",
+      "title": "Burt Jones prepares to leave office as Ga. faces divided government - WRDW"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZWVVN1VWaERubDVFRkdfVEhsQllXOHNjN0Zva0xoSzhCRDhmcFZDMzB2UmdlSUdQUDE3ZjRlRjV5ZVBlZkZRdUZZQ3lGRWhWQWFrX09LN1d2S2hMNXNFZ2pyd1RVUW14NUxZQlFiVmJvNkVSYVV4SEoxRGEtRTVESG1UNTVvOC16WWdMVURn?oc=5",
+      "published_at": "2026-11-04T08:00:00+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Georgia's new era: Women take charge of top state offices FOX 5 Atlanta",
+      "title": "Georgia's new era: Women take charge of top state offices - FOX 5 Atlanta"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNcFFzTW56am9zcTFvZWU2em9MeTYzRVNJWUJqZzRtVHR2ZFJoVFJXOHR6ODRFekJDeF91VnJ0X1M5ZkxEVTl3RmlKQXU4MFZHSVRUMlNPZ3l4ajAxUFc5dUxnNnc1Y2pHdzdzSUE0dGY2ZHlUYTNJcVlRa3pLSm1XeFpnS1J6Q1J2aDVaMEdFV2t1NnVTYzB1RENxMHVoRUFW?oc=5",
+      "published_at": "2026-11-03T08:00:00+00:00",
+      "source": "\"Georgia state government Atlanta\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Georgia%20state%20government%20Atlanta&hl=en-US&gl=US&ceid=US:en",
+      "summary": "General Election 2026: Party control of the Georgia Legislature The Current",
+      "title": "General Election 2026: Party control of the Georgia Legislature - The Current"
+    }
+  ],
+  "market_news": [
+    {
+      "error": "HTTP 404 Not Found",
+      "source_url": "https://finance.yahoo.com/news/rssindex"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/25/spacex-musk-trump-account-stock.html",
+      "published_at": "2026-11-26T06:39:34+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "SpaceX said it will donate one share of the company's class A stock to every active Trump Account, and CEO Elon Musk would match it.",
+      "title": "SpaceX, Musk pledge to donate a share each to active Trump Accounts"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/26/trump-nato-rutte-russia-ukraine-war.html",
+      "published_at": "2026-11-26T10:45:45+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Trump and NATO chief Mark Rutte urged Russia to avoid actions that could expand the war and called for a rapid peaceful resolution.",
+      "title": "Trump, NATO chief caution Russia as attacks on Ukraine\u2019s energy infrastructure intensify"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/26/stock-markets-today-.html",
+      "published_at": "2026-11-26T12:22:25+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Investors appeared to have shrugged off a fresh set of tariffs unveiled by the White House on Wednesday, targeting more than a dozen major trading partners.",
+      "title": "Global stocks rally as investors shrug off U.S. tariffs and AI jitters to 'fish for bargains'"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/26/ubs-swiss-capital-rules-finma-crisis-plan.html",
+      "published_at": "2026-11-26T11:17:39+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Swiss regulator FINMA said UBS can execute its preferred crisis-resolution strategy, even as the bank faces a separate parliamentary fight over tougher capital requirements.",
+      "title": "Switzerland\u2019s biggest bank set for showdown with lawmakers as capital fight intensifies amid crisis planning"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/26/norse-airline-finance-business.html",
+      "published_at": "2026-11-26T09:02:30+00:00",
+      "source": "US Top News and Analysis",
+      "source_feed": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+      "summary": "Norse Atlantic has suspended all flights and said it may it have to file for bankruptcy, a day after it warned its financial position was \"critical.\"",
+      "title": "Norse Atlantic suspends all flights, warns it may file for bankruptcy after share price collapse"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/26/micro-drama-apps-hollywood-vertical-video.html",
+      "published_at": "2026-11-26T12:00:01+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "The microdrama category has exploded at a time when traditional forms of media face waning interest and YouTube claims more viewing hours.",
+      "title": "Microdrama apps chase profits as Hollywood moves into short-form, vertical video"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/25/macys-thanksgiving-day-parade-postponed.html",
+      "published_at": "2026-11-25T22:26:56+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Macy's announced Wednesday that its annual Thanksgiving Day Parade is being postponed to Saturday due to severe weather.",
+      "title": "Macy's postpones Thanksgiving Day Parade due to severe weather"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/25/secondhand-holiday-shopping-grows-as-shoppers-seek-value.html",
+      "published_at": "2026-11-25T14:17:01+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "More consumers are shopping secondhand this holiday season as they emphasize value and uniqueness in their purchases.",
+      "title": "Secondhand shopping is going mainstream this holiday season as consumers seek value"
+    },
+    {
+      "link": "https://www.cnbc.com/2026/11/24/retail-turnarounds-holiday-season.html",
+      "published_at": "2026-11-24T19:26:39+00:00",
+      "source": "Business News",
+      "source_feed": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
+      "summary": "Retail earnings reports on Tuesday pointed to a mix of factors behind the strong results, including a resilient consumer and stronger execution.",
+      "title": "Retail turnarounds are taking hold just in time for the holiday season"
+    }
+  ],
+  "market_watchlist": [
+    {
+      "change": -2.0800292968749545,
+      "change_percent": -0.2893832900323734,
+      "currency": "USD",
+      "exchange": "PCX",
+      "history_6m": [
+        {
+          "close": 750.5900268554688,
+          "timestamp": 1779802200
+        },
+        {
+          "close": 750.4600219726562,
+          "timestamp": 1779888600
+        },
+        {
+          "close": 754.5999755859375,
+          "timestamp": 1779975000
+        },
+        {
+          "close": 756.47998046875,
+          "timestamp": 1780061400
+        },
+        {
+          "close": 758.5399780273438,
+          "timestamp": 1780320600
+        },
+        {
+          "close": 759.5700073242188,
+          "timestamp": 1780407000
+        },
+        {
+          "close": 754.239990234375,
+          "timestamp": 1780493400
+        },
+        {
+          "close": 757.0900268554688,
+          "timestamp": 1780579800
+        },
+        {
+          "close": 737.5499877929688,
+          "timestamp": 1780666200
+        },
+        {
+          "close": 739.219970703125,
+          "timestamp": 1780925400
+        },
+        {
+          "close": 737.0499877929688,
+          "timestamp": 1781011800
+        },
+        {
+          "close": 725.4299926757812,
+          "timestamp": 1781098200
+        },
+        {
+          "close": 737.760009765625,
+          "timestamp": 1781184600
+        },
+        {
+          "close": 741.75,
+          "timestamp": 1781271000
+        },
+        {
+          "close": 754.8300170898438,
+          "timestamp": 1781530200
+        },
+        {
+          "close": 750.3300170898438,
+          "timestamp": 1781616600
+        },
+        {
+          "close": 740.9600219726562,
+          "timestamp": 1781703000
+        },
+        {
+          "close": 746.739990234375,
+          "timestamp": 1781789400
+        },
+        {
+          "close": 744.3900146484375,
+          "timestamp": 1782135000
+        },
+        {
+          "close": 733.5800170898438,
+          "timestamp": 1782221400
+        },
+        {
+          "close": 733.239990234375,
+          "timestamp": 1782307800
+        },
+        {
+          "close": 734.2999877929688,
+          "timestamp": 1782394200
+        },
+        {
+          "close": 728.989990234375,
+          "timestamp": 1782480600
+        },
+        {
+          "close": 741.0,
+          "timestamp": 1782739800
+        },
+        {
+          "close": 746.77001953125,
+          "timestamp": 1782826200
+        },
+        {
+          "close": 745.760009765625,
+          "timestamp": 1782912600
+        },
+        {
+          "close": 744.780029296875,
+          "timestamp": 1782999000
+        },
+        {
+          "close": 751.280029296875,
+          "timestamp": 1783344600
+        },
+        {
+          "close": 747.7100219726562,
+          "timestamp": 1783431000
+        },
+        {
+          "close": 745.4000244140625,
+          "timestamp": 1783517400
+        },
+        {
+          "close": 751.7100219726562,
+          "timestamp": 1783603800
+        },
+        {
+          "close": 754.9500122070312,
+          "timestamp": 1783690200
+        },
+        {
+          "close": 749.1699829101562,
+          "timestamp": 1783949400
+        },
+        {
+          "close": 751.8300170898438,
+          "timestamp": 1784035800
+        },
+        {
+          "close": 754.8099975585938,
+          "timestamp": 1784122200
+        },
+        {
+          "close": 750.719970703125,
+          "timestamp": 1784208600
+        },
+        {
+          "close": 743.2899780273438,
+          "timestamp": 1784295000
+        },
+        {
+          "close": 742.0900268554688,
+          "timestamp": 1784554200
+        },
+        {
+          "close": 748.280029296875,
+          "timestamp": 1784640600
+        },
+        {
+          "close": 747.4099731445312,
+          "timestamp": 1784727000
+        },
+        {
+          "close": 738.1799926757812,
+          "timestamp": 1784813400
+        },
+        {
+          "close": 738.9299926757812,
+          "timestamp": 1784899800
+        },
+        {
+          "close": 739.0900268554688,
+          "timestamp": 1785159000
+        },
+        {
+          "close": 740.8599853515625,
+          "timestamp": 1785245400
+        },
+        {
+          "close": 729.4600219726562,
+          "timestamp": 1785331800
+        },
+        {
+          "close": 741.6900024414062,
+          "timestamp": 1785418200
+        },
+        {
+          "close": 747.030029296875,
+          "timestamp": 1785504600
+        },
+        {
+          "close": 757.6699829101562,
+          "timestamp": 1785763800
+        },
+        {
+          "close": 771.3300170898438,
+          "timestamp": 1785850200
+        },
+        {
+          "close": 769.7899780273438,
+          "timestamp": 1785936600
+        },
+        {
+          "close": 768.5599975585938,
+          "timestamp": 1786023000
+        },
+        {
+          "close": 773.260009765625,
+          "timestamp": 1786109400
+        },
+        {
+          "close": 773.030029296875,
+          "timestamp": 1786368600
+        },
+        {
+          "close": 770.5599975585938,
+          "timestamp": 1786455000
+        },
+        {
+          "close": 772.489990234375,
+          "timestamp": 1786541400
+        },
+        {
+          "close": 777.8800048828125,
+          "timestamp": 1786627800
+        },
+        {
+          "close": 776.3400268554688,
+          "timestamp": 1786714200
+        },
+        {
+          "close": 772.6699829101562,
+          "timestamp": 1786973400
+        },
+        {
+          "close": 767.4500122070312,
+          "timestamp": 1787059800
+        },
+        {
+          "close": 769.0599975585938,
+          "timestamp": 1787146200
+        },
+        {
+          "close": 762.5999755859375,
+          "timestamp": 1787232600
+        },
+        {
+          "close": 765.719970703125,
+          "timestamp": 1787319000
+        },
+        {
+          "close": 763.469970703125,
+          "timestamp": 1787578200
+        },
+        {
+          "close": 765.9099731445312,
+          "timestamp": 1787664600
+        },
+        {
+          "close": 766.0800170898438,
+          "timestamp": 1787751000
+        },
+        {
+          "close": 771.0999755859375,
+          "timestamp": 1787837400
+        },
+        {
+          "close": 769.3499755859375,
+          "timestamp": 1787923800
+        },
+        {
+          "close": 767.0499877929688,
+          "timestamp": 1788183000
+        },
+        {
+          "close": 761.780029296875,
+          "timestamp": 1788269400
+        },
+        {
+          "close": 765.1599731445312,
+          "timestamp": 1788355800
+        },
+        {
+          "close": 773.1699829101562,
+          "timestamp": 1788442200
+        },
+        {
+          "close": 770.1900024414062,
+          "timestamp": 1788528600
+        },
+        {
+          "close": 765.9600219726562,
+          "timestamp": 1788874200
+        },
+        {
+          "close": 762.4000244140625,
+          "timestamp": 1788960600
+        },
+        {
+          "close": 757.8300170898438,
+          "timestamp": 1789047000
+        },
+        {
+          "close": 764.2899780273438,
+          "timestamp": 1789133400
+        },
+        {
+          "close": 760.8800048828125,
+          "timestamp": 1789392600
+        },
+        {
+          "close": 757.3900146484375,
+          "timestamp": 1789479000
+        },
+        {
+          "close": 754.0499877929688,
+          "timestamp": 1789565400
+        },
+        {
+          "close": 762.5999755859375,
+          "timestamp": 1789651800
+        },
+        {
+          "close": 761.6900024414062,
+          "timestamp": 1789738200
+        },
+        {
+          "close": 773.5,
+          "timestamp": 1789997400
+        },
+        {
+          "close": 773.3800048828125,
+          "timestamp": 1790083800
+        },
+        {
+          "close": 767.8099975585938,
+          "timestamp": 1790170200
+        },
+        {
+          "close": 767.1799926757812,
+          "timestamp": 1790256600
+        },
+        {
+          "close": 771.3499755859375,
+          "timestamp": 1790343000
+        },
+        {
+          "close": 765.6099853515625,
+          "timestamp": 1790602200
+        },
+        {
+          "close": 764.2000122070312,
+          "timestamp": 1790688600
+        },
+        {
+          "close": 762.6300048828125,
+          "timestamp": 1790775000
+        },
+        {
+          "close": 763.989990234375,
+          "timestamp": 1790861400
+        },
+        {
+          "close": 769.6400146484375,
+          "timestamp": 1790947800
+        },
+        {
+          "close": 774.8300170898438,
+          "timestamp": 1791207000
+        },
+        {
+          "close": 779.0900268554688,
+          "timestamp": 1791293400
+        },
+        {
+          "close": 777.219970703125,
+          "timestamp": 1791379800
+        },
+        {
+          "close": 773.9299926757812,
+          "timestamp": 1791466200
+        },
+        {
+          "close": 778.5700073242188,
+          "timestamp": 1791552600
+        },
+        {
+          "close": 778.0999755859375,
+          "timestamp": 1791811800
+        },
+        {
+          "close": 778.010009765625,
+          "timestamp": 1791898200
+        },
+        {
+          "close": 769.5999755859375,
+          "timestamp": 1791984600
+        },
+        {
+          "close": 771.7899780273438,
+          "timestamp": 1792071000
+        },
+        {
+          "close": 763.25,
+          "timestamp": 1792157400
+        },
+        {
+          "close": 766.47998046875,
+          "timestamp": 1792416600
+        },
+        {
+          "close": 769.0499877929688,
+          "timestamp": 1792503000
+        },
+        {
+          "close": 773.0900268554688,
+          "timestamp": 1792589400
+        },
+        {
+          "close": 763.9600219726562,
+          "timestamp": 1792675800
+        },
+        {
+          "close": 759.969970703125,
+          "timestamp": 1792762200
+        },
+        {
+          "close": 765.3699951171875,
+          "timestamp": 1793021400
+        },
+        {
+          "close": 769.6599731445312,
+          "timestamp": 1793107800
+        },
+        {
+          "close": 772.3099975585938,
+          "timestamp": 1793194200
+        },
+        {
+          "close": 769.3599853515625,
+          "timestamp": 1793280600
+        },
+        {
+          "close": 755.719970703125,
+          "timestamp": 1793367000
+        },
+        {
+          "close": 752.0999755859375,
+          "timestamp": 1793629800
+        },
+        {
+          "close": 754.3499755859375,
+          "timestamp": 1793716200
+        },
+        {
+          "close": 766.8099975585938,
+          "timestamp": 1793802600
+        },
+        {
+          "close": 733.0,
+          "timestamp": 1793889000
+        },
+        {
+          "close": 735.2899780273438,
+          "timestamp": 1793975400
+        },
+        {
+          "close": 752.6900024414062,
+          "timestamp": 1794234600
+        },
+        {
+          "close": 749.9199829101562,
+          "timestamp": 1794321000
+        },
+        {
+          "close": 759.8099975585938,
+          "timestamp": 1794407400
+        },
+        {
+          "close": 757.1199951171875,
+          "timestamp": 1794493800
+        },
+        {
+          "close": 754.3699951171875,
+          "timestamp": 1794580200
+        },
+        {
+          "close": 739.9500122070312,
+          "timestamp": 1794839400
+        },
+        {
+          "close": 732.4400024414062,
+          "timestamp": 1794925800
+        },
+        {
+          "close": 730.2000122070312,
+          "timestamp": 1795012200
+        },
+        {
+          "close": 715.8699951171875,
+          "timestamp": 1795098600
+        },
+        {
+          "close": 689.8099975585938,
+          "timestamp": 1795185000
+        },
+        {
+          "close": 722.2899780273438,
+          "timestamp": 1795444200
+        },
+        {
+          "close": 718.780029296875,
+          "timestamp": 1795530600
+        },
+        {
+          "close": 716.7000122070312,
+          "timestamp": 1795617000
+        }
+      ],
+      "history_change_percent": -4.515118192743381,
+      "market_state": null,
+      "name": "S&P 500 ETF",
+      "previous_close": 718.780029296875,
+      "price": 716.7,
+      "source": "Yahoo Finance chart API",
+      "symbol": "SPY"
+    },
+    {
+      "change": -4.16997558593755,
+      "change_percent": -0.6534987847489659,
+      "currency": "USD",
+      "exchange": "NGM",
+      "history_6m": [
+        {
+          "close": 730.280029296875,
+          "timestamp": 1779802200
+        },
+        {
+          "close": 729.4500122070312,
+          "timestamp": 1779888600
+        },
+        {
+          "close": 735.5999755859375,
+          "timestamp": 1779975000
+        },
+        {
+          "close": 738.3099975585938,
+          "timestamp": 1780061400
+        },
+        {
+          "close": 742.739990234375,
+          "timestamp": 1780320600
+        },
+        {
+          "close": 746.1599731445312,
+          "timestamp": 1780407000
+        },
+        {
+          "close": 744.2100219726562,
+          "timestamp": 1780493400
+        },
+        {
+          "close": 740.6099853515625,
+          "timestamp": 1780579800
+        },
+        {
+          "close": 705.0599975585938,
+          "timestamp": 1780666200
+        },
+        {
+          "close": 716.0700073242188,
+          "timestamp": 1780925400
+        },
+        {
+          "close": 707.8300170898438,
+          "timestamp": 1781011800
+        },
+        {
+          "close": 693.6900024414062,
+          "timestamp": 1781098200
+        },
+        {
+          "close": 717.1199951171875,
+          "timestamp": 1781184600
+        },
+        {
+          "close": 721.3400268554688,
+          "timestamp": 1781271000
+        },
+        {
+          "close": 744.0,
+          "timestamp": 1781530200
+        },
+        {
+          "close": 729.8599853515625,
+          "timestamp": 1781616600
+        },
+        {
+          "close": 722.510009765625,
+          "timestamp": 1781703000
+        },
+        {
+          "close": 740.6199951171875,
+          "timestamp": 1781789400
+        },
+        {
+          "close": 737.9500122070312,
+          "timestamp": 1782135000
+        },
+        {
+          "close": 713.6500244140625,
+          "timestamp": 1782221400
+        },
+        {
+          "close": 710.6199951171875,
+          "timestamp": 1782307800
+        },
+        {
+          "close": 716.3800048828125,
+          "timestamp": 1782394200
+        },
+        {
+          "close": 706.52001953125,
+          "timestamp": 1782480600
+        },
+        {
+          "close": 724.0800170898438,
+          "timestamp": 1782739800
+        },
+        {
+          "close": 736.4000244140625,
+          "timestamp": 1782826200
+        },
+        {
+          "close": 725.1699829101562,
+          "timestamp": 1782912600
+        },
+        {
+          "close": 712.5999755859375,
+          "timestamp": 1782999000
+        },
+        {
+          "close": 722.8200073242188,
+          "timestamp": 1783344600
+        },
+        {
+          "close": 709.4299926757812,
+          "timestamp": 1783431000
+        },
+        {
+          "close": 711.4400024414062,
+          "timestamp": 1783517400
+        },
+        {
+          "close": 723.280029296875,
+          "timestamp": 1783603800
+        },
+        {
+          "close": 725.510009765625,
+          "timestamp": 1783690200
+        },
+        {
+          "close": 711.739990234375,
+          "timestamp": 1783949400
+        },
+        {
+          "close": 719.6900024414062,
+          "timestamp": 1784035800
+        },
+        {
+          "close": 717.739990234375,
+          "timestamp": 1784122200
+        },
+        {
+          "close": 705.9400024414062,
+          "timestamp": 1784208600
+        },
+        {
+          "close": 695.3300170898438,
+          "timestamp": 1784295000
+        },
+        {
+          "close": 696.0599975585938,
+          "timestamp": 1784554200
+        },
+        {
+          "close": 708.969970703125,
+          "timestamp": 1784640600
+        },
+        {
+          "close": 705.3499755859375,
+          "timestamp": 1784727000
+        },
+        {
+          "close": 691.9600219726562,
+          "timestamp": 1784813400
+        },
+        {
+          "close": 684.22998046875,
+          "timestamp": 1784899800
+        },
+        {
+          "close": 682.1199951171875,
+          "timestamp": 1785159000
+        },
+        {
+          "close": 675.489990234375,
+          "timestamp": 1785245400
+        },
+        {
+          "close": 661.72998046875,
+          "timestamp": 1785331800
+        },
+        {
+          "close": 683.5499877929688,
+          "timestamp": 1785418200
+        },
+        {
+          "close": 687.989990234375,
+          "timestamp": 1785504600
+        },
+        {
+          "close": 700.0700073242188,
+          "timestamp": 1785763800
+        },
+        {
+          "close": 723.8499755859375,
+          "timestamp": 1785850200
+        },
+        {
+          "close": 717.2999877929688,
+          "timestamp": 1785936600
+        },
+        {
+          "close": 714.6500244140625,
+          "timestamp": 1786023000
+        },
+        {
+          "close": 723.030029296875,
+          "timestamp": 1786109400
+        },
+        {
+          "close": 720.8699951171875,
+          "timestamp": 1786368600
+        },
+        {
+          "close": 718.4500122070312,
+          "timestamp": 1786455000
+        },
+        {
+          "close": 723.7000122070312,
+          "timestamp": 1786541400
+        },
+        {
+          "close": 732.0700073242188,
+          "timestamp": 1786627800
+        },
+        {
+          "close": 731.0700073242188,
+          "timestamp": 1786714200
+        },
+        {
+          "close": 729.8699951171875,
+          "timestamp": 1786973400
+        },
+        {
+          "close": 717.510009765625,
+          "timestamp": 1787059800
+        },
+        {
+          "close": 716.0800170898438,
+          "timestamp": 1787146200
+        },
+        {
+          "close": 710.9299926757812,
+          "timestamp": 1787232600
+        },
+        {
+          "close": 713.4400024414062,
+          "timestamp": 1787319000
+        },
+        {
+          "close": 706.3200073242188,
+          "timestamp": 1787578200
+        },
+        {
+          "close": 710.719970703125,
+          "timestamp": 1787664600
+        },
+        {
+          "close": 711.3699951171875,
+          "timestamp": 1787751000
+        },
+        {
+          "close": 721.1099853515625,
+          "timestamp": 1787837400
+        },
+        {
+          "close": 716.4299926757812,
+          "timestamp": 1787923800
+        },
+        {
+          "close": 716.760009765625,
+          "timestamp": 1788183000
+        },
+        {
+          "close": 707.6400146484375,
+          "timestamp": 1788269400
+        },
+        {
+          "close": 709.239990234375,
+          "timestamp": 1788355800
+        },
+        {
+          "close": 717.6699829101562,
+          "timestamp": 1788442200
+        },
+        {
+          "close": 718.9600219726562,
+          "timestamp": 1788528600
+        },
+        {
+          "close": 718.3599853515625,
+          "timestamp": 1788874200
+        },
+        {
+          "close": 716.3099975585938,
+          "timestamp": 1788960600
+        },
+        {
+          "close": 708.6900024414062,
+          "timestamp": 1789047000
+        },
+        {
+          "close": 714.8800048828125,
+          "timestamp": 1789133400
+        },
+        {
+          "close": 709.1799926757812,
+          "timestamp": 1789392600
+        },
+        {
+          "close": 704.5399780273438,
+          "timestamp": 1789479000
+        },
+        {
+          "close": 704.719970703125,
+          "timestamp": 1789565400
+        },
+        {
+          "close": 716.9199829101562,
+          "timestamp": 1789651800
+        },
+        {
+          "close": 721.4500122070312,
+          "timestamp": 1789738200
+        },
+        {
+          "close": 741.469970703125,
+          "timestamp": 1789997400
+        },
+        {
+          "close": 747.4600219726562,
+          "timestamp": 1790083800
+        },
+        {
+          "close": 741.2100219726562,
+          "timestamp": 1790170200
+        },
+        {
+          "close": 741.0999755859375,
+          "timestamp": 1790256600
+        },
+        {
+          "close": 744.5,
+          "timestamp": 1790343000
+        },
+        {
+          "close": 736.530029296875,
+          "timestamp": 1790602200
+        },
+        {
+          "close": 737.9299926757812,
+          "timestamp": 1790688600
+        },
+        {
+          "close": 739.77001953125,
+          "timestamp": 1790775000
+        },
+        {
+          "close": 742.030029296875,
+          "timestamp": 1790861400
+        },
+        {
+          "close": 749.5800170898438,
+          "timestamp": 1790947800
+        },
+        {
+          "close": 756.2000122070312,
+          "timestamp": 1791207000
+        },
+        {
+          "close": 759.6599731445312,
+          "timestamp": 1791293400
+        },
+        {
+          "close": 757.72998046875,
+          "timestamp": 1791379800
+        },
+        {
+          "close": 747.5800170898438,
+          "timestamp": 1791466200
+        },
+        {
+          "close": 751.27001953125,
+          "timestamp": 1791552600
+        },
+        {
+          "close": 746.0399780273438,
+          "timestamp": 1791811800
+        },
+        {
+          "close": 743.5700073242188,
+          "timestamp": 1791898200
+        },
+        {
+          "close": 728.9500122070312,
+          "timestamp": 1791984600
+        },
+        {
+          "close": 728.0,
+          "timestamp": 1792071000
+        },
+        {
+          "close": 709.7999877929688,
+          "timestamp": 1792157400
+        },
+        {
+          "close": 718.3599853515625,
+          "timestamp": 1792416600
+        },
+        {
+          "close": 717.6300048828125,
+          "timestamp": 1792503000
+        },
+        {
+          "close": 725.2000122070312,
+          "timestamp": 1792589400
+        },
+        {
+          "close": 704.469970703125,
+          "timestamp": 1792675800
+        },
+        {
+          "close": 704.4000244140625,
+          "timestamp": 1792762200
+        },
+        {
+          "close": 712.2000122070312,
+          "timestamp": 1793021400
+        },
+        {
+          "close": 721.25,
+          "timestamp": 1793107800
+        },
+        {
+          "close": 725.6099853515625,
+          "timestamp": 1793194200
+        },
+        {
+          "close": 715.3400268554688,
+          "timestamp": 1793280600
+        },
+        {
+          "close": 690.489990234375,
+          "timestamp": 1793367000
+        },
+        {
+          "close": 681.0900268554688,
+          "timestamp": 1793629800
+        },
+        {
+          "close": 685.280029296875,
+          "timestamp": 1793716200
+        },
+        {
+          "close": 691.9500122070312,
+          "timestamp": 1793802600
+        },
+        {
+          "close": 647.0499877929688,
+          "timestamp": 1793889000
+        },
+        {
+          "close": 656.0999755859375,
+          "timestamp": 1793975400
+        },
+        {
+          "close": 679.3499755859375,
+          "timestamp": 1794234600
+        },
+        {
+          "close": 674.760009765625,
+          "timestamp": 1794321000
+        },
+        {
+          "close": 690.3800048828125,
+          "timestamp": 1794407400
+        },
+        {
+          "close": 688.1699829101562,
+          "timestamp": 1794493800
+        },
+        {
+          "close": 679.8900146484375,
+          "timestamp": 1794580200
+        },
+        {
+          "close": 661.75,
+          "timestamp": 1794839400
+        },
+        {
+          "close": 656.9500122070312,
+          "timestamp": 1794925800
+        },
+        {
+          "close": 659.510009765625,
+          "timestamp": 1795012200
+        },
+        {
+          "close": 645.0399780273438,
+          "timestamp": 1795098600
+        },
+        {
+          "close": 608.4500122070312,
+          "timestamp": 1795185000
+        },
+        {
+          "close": 651.030029296875,
+          "timestamp": 1795444200
+        },
+        {
+          "close": 638.0999755859375,
+          "timestamp": 1795530600
+        },
+        {
+          "close": 633.9299926757812,
+          "timestamp": 1795617000
+        }
+      ],
+      "history_change_percent": -13.193573072187439,
+      "market_state": null,
+      "name": "Nasdaq 100 ETF",
+      "previous_close": 638.0999755859375,
+      "price": 633.93,
+      "source": "Yahoo Finance chart API",
+      "symbol": "QQQ"
+    },
+    {
+      "change": 1.5300097656249818,
+      "change_percent": 0.30616116290941947,
+      "currency": "USD",
+      "exchange": "PCX",
+      "history_6m": [
+        {
+          "close": 505.25,
+          "timestamp": 1779802200
+        },
+        {
+          "close": 506.8800048828125,
+          "timestamp": 1779888600
+        },
+        {
+          "close": 507.04998779296875,
+          "timestamp": 1779975000
+        },
+        {
+          "close": 510.7799987792969,
+          "timestamp": 1780061400
+        },
+        {
+          "close": 511.44000244140625,
+          "timestamp": 1780320600
+        },
+        {
+          "close": 514.0499877929688,
+          "timestamp": 1780407000
+        },
+        {
+          "close": 508.260009765625,
+          "timestamp": 1780493400
+        },
+        {
+          "close": 516.7000122070312,
+          "timestamp": 1780579800
+        },
+        {
+          "close": 509.70001220703125,
+          "timestamp": 1780666200
+        },
+        {
+          "close": 508.9100036621094,
+          "timestamp": 1780925400
+        },
+        {
+          "close": 509.4100036621094,
+          "timestamp": 1781011800
+        },
+        {
+          "close": 500.25,
+          "timestamp": 1781098200
+        },
+        {
+          "close": 509.3599853515625,
+          "timestamp": 1781184600
+        },
+        {
+          "close": 513.0599975585938,
+          "timestamp": 1781271000
+        },
+        {
+          "close": 518.4400024414062,
+          "timestamp": 1781530200
+        },
+        {
+          "close": 521.4400024414062,
+          "timestamp": 1781616600
+        },
+        {
+          "close": 516.2999877929688,
+          "timestamp": 1781703000
+        },
+        {
+          "close": 515.52001953125,
+          "timestamp": 1781789400
+        },
+        {
+          "close": 517.0800170898438,
+          "timestamp": 1782135000
+        },
+        {
+          "close": 516.6199951171875,
+          "timestamp": 1782221400
+        },
+        {
+          "close": 518.52001953125,
+          "timestamp": 1782307800
+        },
+        {
+          "close": 519.260009765625,
+          "timestamp": 1782394200
+        },
+        {
+          "close": 517.75,
+          "timestamp": 1782480600
+        },
+        {
+          "close": 521.6799926757812,
+          "timestamp": 1782739800
+        },
+        {
+          "close": 522.3900146484375,
+          "timestamp": 1782826200
+        },
+        {
+          "close": 522.4000244140625,
+          "timestamp": 1782912600
+        },
+        {
+          "close": 527.8800048828125,
+          "timestamp": 1782999000
+        },
+        {
+          "close": 530.0900268554688,
+          "timestamp": 1783344600
+        },
+        {
+          "close": 528.4500122070312,
+          "timestamp": 1783431000
+        },
+        {
+          "close": 522.77001953125,
+          "timestamp": 1783517400
+        },
+        {
+          "close": 524.1900024414062,
+          "timestamp": 1783603800
+        },
+        {
+          "close": 525.780029296875,
+          "timestamp": 1783690200
+        },
+        {
+          "close": 524.469970703125,
+          "timestamp": 1783949400
+        },
+        {
+          "close": 524.6900024414062,
+          "timestamp": 1784035800
+        },
+        {
+          "close": 525.9500122070312,
+          "timestamp": 1784122200
+        },
+        {
+          "close": 524.8300170898438,
+          "timestamp": 1784208600
+        },
+        {
+          "close": 520.8099975585938,
+          "timestamp": 1784295000
+        },
+        {
+          "close": 517.9400024414062,
+          "timestamp": 1784554200
+        },
+        {
+          "close": 521.510009765625,
+          "timestamp": 1784640600
+        },
+        {
+          "close": 521.469970703125,
+          "timestamp": 1784727000
+        },
+        {
+          "close": 516.260009765625,
+          "timestamp": 1784813400
+        },
+        {
+          "close": 518.760009765625,
+          "timestamp": 1784899800
+        },
+        {
+          "close": 521.260009765625,
+          "timestamp": 1785159000
+        },
+        {
+          "close": 526.8900146484375,
+          "timestamp": 1785245400
+        },
+        {
+          "close": 515.4099731445312,
+          "timestamp": 1785331800
+        },
+        {
+          "close": 521.510009765625,
+          "timestamp": 1785418200
+        },
+        {
+          "close": 524.3200073242188,
+          "timestamp": 1785504600
+        },
+        {
+          "close": 531.219970703125,
+          "timestamp": 1785763800
+        },
+        {
+          "close": 540.4299926757812,
+          "timestamp": 1785850200
+        },
+        {
+          "close": 542.8099975585938,
+          "timestamp": 1785936600
+        },
+        {
+          "close": 538.1900024414062,
+          "timestamp": 1786023000
+        },
+        {
+          "close": 539.6199951171875,
+          "timestamp": 1786109400
+        },
+        {
+          "close": 538.989990234375,
+          "timestamp": 1786368600
+        },
+        {
+          "close": 537.280029296875,
+          "timestamp": 1786455000
+        },
+        {
+          "close": 537.1500244140625,
+          "timestamp": 1786541400
+        },
+        {
+          "close": 537.9099731445312,
+          "timestamp": 1786627800
+        },
+        {
+          "close": 536.7999877929688,
+          "timestamp": 1786714200
+        },
+        {
+          "close": 534.1900024414062,
+          "timestamp": 1786973400
+        },
+        {
+          "close": 532.9099731445312,
+          "timestamp": 1787059800
+        },
+        {
+          "close": 534.27001953125,
+          "timestamp": 1787146200
+        },
+        {
+          "close": 527.510009765625,
+          "timestamp": 1787232600
+        },
+        {
+          "close": 532.219970703125,
+          "timestamp": 1787319000
+        },
+        {
+          "close": 533.6500244140625,
+          "timestamp": 1787578200
+        },
+        {
+          "close": 535.239990234375,
+          "timestamp": 1787664600
+        },
+        {
+          "close": 534.22998046875,
+          "timestamp": 1787751000
+        },
+        {
+          "close": 535.219970703125,
+          "timestamp": 1787837400
+        },
+        {
+          "close": 535.0599975585938,
+          "timestamp": 1787923800
+        },
+        {
+          "close": 531.5700073242188,
+          "timestamp": 1788183000
+        },
+        {
+          "close": 527.75,
+          "timestamp": 1788269400
+        },
+        {
+          "close": 530.6199951171875,
+          "timestamp": 1788355800
+        },
+        {
+          "close": 536.9299926757812,
+          "timestamp": 1788442200
+        },
+        {
+          "close": 534.0800170898438,
+          "timestamp": 1788528600
+        },
+        {
+          "close": 528.030029296875,
+          "timestamp": 1788874200
+        },
+        {
+          "close": 524.0700073242188,
+          "timestamp": 1788960600
+        },
+        {
+          "close": 520.75,
+          "timestamp": 1789047000
+        },
+        {
+          "close": 525.7899780273438,
+          "timestamp": 1789133400
+        },
+        {
+          "close": 524.489990234375,
+          "timestamp": 1789392600
+        },
+        {
+          "close": 521.22998046875,
+          "timestamp": 1789479000
+        },
+        {
+          "close": 515.219970703125,
+          "timestamp": 1789565400
+        },
+        {
+          "close": 518.3499755859375,
+          "timestamp": 1789651800
+        },
+        {
+          "close": 515.8800048828125,
+          "timestamp": 1789738200
+        },
+        {
+          "close": 519.780029296875,
+          "timestamp": 1789997400
+        },
+        {
+          "close": 518.0,
+          "timestamp": 1790083800
+        },
+        {
+          "close": 514.2999877929688,
+          "timestamp": 1790170200
+        },
+        {
+          "close": 512.6799926757812,
+          "timestamp": 1790256600
+        },
+        {
+          "close": 517.489990234375,
+          "timestamp": 1790343000
+        },
+        {
+          "close": 514.02001953125,
+          "timestamp": 1790602200
+        },
+        {
+          "close": 512.8800048828125,
+          "timestamp": 1790688600
+        },
+        {
+          "close": 508.54998779296875,
+          "timestamp": 1790775000
+        },
+        {
+          "close": 508.6199951171875,
+          "timestamp": 1790861400
+        },
+        {
+          "close": 511.1000061035156,
+          "timestamp": 1790947800
+        },
+        {
+          "close": 512.1099853515625,
+          "timestamp": 1791207000
+        },
+        {
+          "close": 514.5599975585938,
+          "timestamp": 1791293400
+        },
+        {
+          "close": 511.0199890136719,
+          "timestamp": 1791379800
+        },
+        {
+          "close": 511.6499938964844,
+          "timestamp": 1791466200
+        },
+        {
+          "close": 516.1099853515625,
+          "timestamp": 1791552600
+        },
+        {
+          "close": 517.9099731445312,
+          "timestamp": 1791811800
+        },
+        {
+          "close": 516.2100219726562,
+          "timestamp": 1791898200
+        },
+        {
+          "close": 515.6300048828125,
+          "timestamp": 1791984600
+        },
+        {
+          "close": 521.1799926757812,
+          "timestamp": 1792071000
+        },
+        {
+          "close": 519.0999755859375,
+          "timestamp": 1792157400
+        },
+        {
+          "close": 518.9199829101562,
+          "timestamp": 1792416600
+        },
+        {
+          "close": 524.3599853515625,
+          "timestamp": 1792503000
+        },
+        {
+          "close": 527.7000122070312,
+          "timestamp": 1792589400
+        },
+        {
+          "close": 527.8900146484375,
+          "timestamp": 1792675800
+        },
+        {
+          "close": 521.3699951171875,
+          "timestamp": 1792762200
+        },
+        {
+          "close": 522.969970703125,
+          "timestamp": 1793021400
+        },
+        {
+          "close": 523.280029296875,
+          "timestamp": 1793107800
+        },
+        {
+          "close": 524.6799926757812,
+          "timestamp": 1793194200
+        },
+        {
+          "close": 522.72998046875,
+          "timestamp": 1793280600
+        },
+        {
+          "close": 517.1300048828125,
+          "timestamp": 1793367000
+        },
+        {
+          "close": 519.3400268554688,
+          "timestamp": 1793629800
+        },
+        {
+          "close": 517.0599975585938,
+          "timestamp": 1793716200
+        },
+        {
+          "close": 533.1099853515625,
+          "timestamp": 1793802600
+        },
+        {
+          "close": 514.27001953125,
+          "timestamp": 1793889000
+        },
+        {
+          "close": 512.219970703125,
+          "timestamp": 1793975400
+        },
+        {
+          "close": 523.3300170898438,
+          "timestamp": 1794234600
+        },
+        {
+          "close": 521.72998046875,
+          "timestamp": 1794321000
+        },
+        {
+          "close": 524.4400024414062,
+          "timestamp": 1794407400
+        },
+        {
+          "close": 522.469970703125,
+          "timestamp": 1794493800
+        },
+        {
+          "close": 523.1500244140625,
+          "timestamp": 1794580200
+        },
+        {
+          "close": 515.6799926757812,
+          "timestamp": 1794839400
+        },
+        {
+          "close": 507.30999755859375,
+          "timestamp": 1794925800
+        },
+        {
+          "close": 501.7300109863281,
+          "timestamp": 1795012200
+        },
+        {
+          "close": 490.7900085449219,
+          "timestamp": 1795098600
+        },
+        {
+          "close": 481.0799865722656,
+          "timestamp": 1795185000
+        },
+        {
+          "close": 495.79998779296875,
+          "timestamp": 1795444200
+        },
+        {
+          "close": 499.739990234375,
+          "timestamp": 1795530600
+        },
+        {
+          "close": 501.2699890136719,
+          "timestamp": 1795617000
+        }
+      ],
+      "history_change_percent": -0.7877288471053969,
+      "market_state": null,
+      "name": "Dow ETF",
+      "previous_close": 499.739990234375,
+      "price": 501.27,
+      "source": "Yahoo Finance chart API",
+      "symbol": "DIA"
+    },
+    {
+      "change": 1.7299853515625045,
+      "change_percent": 0.6475949901549589,
+      "currency": "USD",
+      "exchange": "PCX",
+      "history_6m": [
+        {
+          "close": 290.510009765625,
+          "timestamp": 1779802200
+        },
+        {
+          "close": 290.3699951171875,
+          "timestamp": 1779888600
+        },
+        {
+          "close": 292.0299987792969,
+          "timestamp": 1779975000
+        },
+        {
+          "close": 290.42999267578125,
+          "timestamp": 1780061400
+        },
+        {
+          "close": 288.9800109863281,
+          "timestamp": 1780320600
+        },
+        {
+          "close": 291.6600036621094,
+          "timestamp": 1780407000
+        },
+        {
+          "close": 287.6700134277344,
+          "timestamp": 1780493400
+        },
+        {
+          "close": 292.010009765625,
+          "timestamp": 1780579800
+        },
+        {
+          "close": 281.6499938964844,
+          "timestamp": 1780666200
+        },
+        {
+          "close": 284.1099853515625,
+          "timestamp": 1780925400
+        },
+        {
+          "close": 285.0199890136719,
+          "timestamp": 1781011800
+        },
+        {
+          "close": 282.04998779296875,
+          "timestamp": 1781098200
+        },
+        {
+          "close": 290.4100036621094,
+          "timestamp": 1781184600
+        },
+        {
+          "close": 292.95001220703125,
+          "timestamp": 1781271000
+        },
+        {
+          "close": 294.6400146484375,
+          "timestamp": 1781530200
+        },
+        {
+          "close": 292.0799865722656,
+          "timestamp": 1781616600
+        },
+        {
+          "close": 289.8800048828125,
+          "timestamp": 1781703000
+        },
+        {
+          "close": 295.5899963378906,
+          "timestamp": 1781789400
+        },
+        {
+          "close": 298.17999267578125,
+          "timestamp": 1782135000
+        },
+        {
+          "close": 295.32000732421875,
+          "timestamp": 1782221400
+        },
+        {
+          "close": 296.69000244140625,
+          "timestamp": 1782307800
+        },
+        {
+          "close": 298.9100036621094,
+          "timestamp": 1782394200
+        },
+        {
+          "close": 299.8299865722656,
+          "timestamp": 1782480600
+        },
+        {
+          "close": 298.9700012207031,
+          "timestamp": 1782739800
+        },
+        {
+          "close": 300.45001220703125,
+          "timestamp": 1782826200
+        },
+        {
+          "close": 299.32000732421875,
+          "timestamp": 1782912600
+        },
+        {
+          "close": 297.5799865722656,
+          "timestamp": 1782999000
+        },
+        {
+          "close": 298.8999938964844,
+          "timestamp": 1783344600
+        },
+        {
+          "close": 296.19000244140625,
+          "timestamp": 1783431000
+        },
+        {
+          "close": 293.4800109863281,
+          "timestamp": 1783517400
+        },
+        {
+          "close": 297.239990234375,
+          "timestamp": 1783603800
+        },
+        {
+          "close": 295.989990234375,
+          "timestamp": 1783690200
+        },
+        {
+          "close": 293.4800109863281,
+          "timestamp": 1783949400
+        },
+        {
+          "close": 294.510009765625,
+          "timestamp": 1784035800
+        },
+        {
+          "close": 295.7699890136719,
+          "timestamp": 1784122200
+        },
+        {
+          "close": 295.5899963378906,
+          "timestamp": 1784208600
+        },
+        {
+          "close": 294.0400085449219,
+          "timestamp": 1784295000
+        },
+        {
+          "close": 292.30999755859375,
+          "timestamp": 1784554200
+        },
+        {
+          "close": 296.5400085449219,
+          "timestamp": 1784640600
+        },
+        {
+          "close": 293.7900085449219,
+          "timestamp": 1784727000
+        },
+        {
+          "close": 292.0899963378906,
+          "timestamp": 1784813400
+        },
+        {
+          "close": 291.1700134277344,
+          "timestamp": 1784899800
+        },
+        {
+          "close": 292.9100036621094,
+          "timestamp": 1785159000
+        },
+        {
+          "close": 293.3699951171875,
+          "timestamp": 1785245400
+        },
+        {
+          "close": 288.57000732421875,
+          "timestamp": 1785331800
+        },
+        {
+          "close": 292.5899963378906,
+          "timestamp": 1785418200
+        },
+        {
+          "close": 291.20001220703125,
+          "timestamp": 1785504600
+        },
+        {
+          "close": 296.2200012207031,
+          "timestamp": 1785763800
+        },
+        {
+          "close": 301.7099914550781,
+          "timestamp": 1785850200
+        },
+        {
+          "close": 299.7699890136719,
+          "timestamp": 1785936600
+        },
+        {
+          "close": 298.25,
+          "timestamp": 1786023000
+        },
+        {
+          "close": 301.55999755859375,
+          "timestamp": 1786109400
+        },
+        {
+          "close": 299.9800109863281,
+          "timestamp": 1786368600
+        },
+        {
+          "close": 300.989990234375,
+          "timestamp": 1786455000
+        },
+        {
+          "close": 302.7099914550781,
+          "timestamp": 1786541400
+        },
+        {
+          "close": 303.5,
+          "timestamp": 1786627800
+        },
+        {
+          "close": 305.0899963378906,
+          "timestamp": 1786714200
+        },
+        {
+          "close": 304.05999755859375,
+          "timestamp": 1786973400
+        },
+        {
+          "close": 300.2300109863281,
+          "timestamp": 1787059800
+        },
+        {
+          "close": 301.7200012207031,
+          "timestamp": 1787146200
+        },
+        {
+          "close": 297.6700134277344,
+          "timestamp": 1787232600
+        },
+        {
+          "close": 299.9599914550781,
+          "timestamp": 1787319000
+        },
+        {
+          "close": 297.9700012207031,
+          "timestamp": 1787578200
+        },
+        {
+          "close": 299.2300109863281,
+          "timestamp": 1787664600
+        },
+        {
+          "close": 298.92999267578125,
+          "timestamp": 1787751000
+        },
+        {
+          "close": 299.80999755859375,
+          "timestamp": 1787837400
+        },
+        {
+          "close": 295.75,
+          "timestamp": 1787923800
+        },
+        {
+          "close": 293.92999267578125,
+          "timestamp": 1788183000
+        },
+        {
+          "close": 290.57000732421875,
+          "timestamp": 1788269400
+        },
+        {
+          "close": 294.010009765625,
+          "timestamp": 1788355800
+        },
+        {
+          "close": 295.19000244140625,
+          "timestamp": 1788442200
+        },
+        {
+          "close": 296.010009765625,
+          "timestamp": 1788528600
+        },
+        {
+          "close": 294.6700134277344,
+          "timestamp": 1788874200
+        },
+        {
+          "close": 290.6400146484375,
+          "timestamp": 1788960600
+        },
+        {
+          "close": 287.70001220703125,
+          "timestamp": 1789047000
+        },
+        {
+          "close": 288.8900146484375,
+          "timestamp": 1789133400
+        },
+        {
+          "close": 287.9100036621094,
+          "timestamp": 1789392600
+        },
+        {
+          "close": 285.1400146484375,
+          "timestamp": 1789479000
+        },
+        {
+          "close": 283.9200134277344,
+          "timestamp": 1789565400
+        },
+        {
+          "close": 285.42999267578125,
+          "timestamp": 1789651800
+        },
+        {
+          "close": 284.1000061035156,
+          "timestamp": 1789738200
+        },
+        {
+          "close": 285.5799865722656,
+          "timestamp": 1789997400
+        },
+        {
+          "close": 287.2099914550781,
+          "timestamp": 1790083800
+        },
+        {
+          "close": 281.9200134277344,
+          "timestamp": 1790170200
+        },
+        {
+          "close": 281.6600036621094,
+          "timestamp": 1790256600
+        },
+        {
+          "close": 281.9700012207031,
+          "timestamp": 1790343000
+        },
+        {
+          "close": 280.0199890136719,
+          "timestamp": 1790602200
+        },
+        {
+          "close": 279.010009765625,
+          "timestamp": 1790688600
+        },
+        {
+          "close": 277.8900146484375,
+          "timestamp": 1790775000
+        },
+        {
+          "close": 279.0199890136719,
+          "timestamp": 1790861400
+        },
+        {
+          "close": 281.5199890136719,
+          "timestamp": 1790947800
+        },
+        {
+          "close": 283.3800048828125,
+          "timestamp": 1791207000
+        },
+        {
+          "close": 281.3399963378906,
+          "timestamp": 1791293400
+        },
+        {
+          "close": 277.70001220703125,
+          "timestamp": 1791379800
+        },
+        {
+          "close": 277.57000732421875,
+          "timestamp": 1791466200
+        },
+        {
+          "close": 278.94000244140625,
+          "timestamp": 1791552600
+        },
+        {
+          "close": 277.8999938964844,
+          "timestamp": 1791811800
+        },
+        {
+          "close": 276.70001220703125,
+          "timestamp": 1791898200
+        },
+        {
+          "close": 271.3699951171875,
+          "timestamp": 1791984600
+        },
+        {
+          "close": 275.0799865722656,
+          "timestamp": 1792071000
+        },
+        {
+          "close": 270.44000244140625,
+          "timestamp": 1792157400
+        },
+        {
+          "close": 271.2799987792969,
+          "timestamp": 1792416600
+        },
+        {
+          "close": 275.7799987792969,
+          "timestamp": 1792503000
+        },
+        {
+          "close": 276.4800109863281,
+          "timestamp": 1792589400
+        },
+        {
+          "close": 276.6700134277344,
+          "timestamp": 1792675800
+        },
+        {
+          "close": 275.75,
+          "timestamp": 1792762200
+        },
+        {
+          "close": 276.989990234375,
+          "timestamp": 1793021400
+        },
+        {
+          "close": 280.17999267578125,
+          "timestamp": 1793107800
+        },
+        {
+          "close": 281.2900085449219,
+          "timestamp": 1793194200
+        },
+        {
+          "close": 284.010009765625,
+          "timestamp": 1793280600
+        },
+        {
+          "close": 279.3299865722656,
+          "timestamp": 1793367000
+        },
+        {
+          "close": 279.1400146484375,
+          "timestamp": 1793629800
+        },
+        {
+          "close": 279.7900085449219,
+          "timestamp": 1793716200
+        },
+        {
+          "close": 284.0199890136719,
+          "timestamp": 1793802600
+        },
+        {
+          "close": 270.9800109863281,
+          "timestamp": 1793889000
+        },
+        {
+          "close": 273.6700134277344,
+          "timestamp": 1793975400
+        },
+        {
+          "close": 282.510009765625,
+          "timestamp": 1794234600
+        },
+        {
+          "close": 280.5799865722656,
+          "timestamp": 1794321000
+        },
+        {
+          "close": 283.0899963378906,
+          "timestamp": 1794407400
+        },
+        {
+          "close": 278.44000244140625,
+          "timestamp": 1794493800
+        },
+        {
+          "close": 277.5400085449219,
+          "timestamp": 1794580200
+        },
+        {
+          "close": 272.94000244140625,
+          "timestamp": 1794839400
+        },
+        {
+          "close": 269.04998779296875,
+          "timestamp": 1794925800
+        },
+        {
+          "close": 270.1199951171875,
+          "timestamp": 1795012200
+        },
+        {
+          "close": 264.2200012207031,
+          "timestamp": 1795098600
+        },
+        {
+          "close": 256.6099853515625,
+          "timestamp": 1795185000
+        },
+        {
+          "close": 265.739990234375,
+          "timestamp": 1795444200
+        },
+        {
+          "close": 267.1400146484375,
+          "timestamp": 1795530600
+        },
+        {
+          "close": 268.8699951171875,
+          "timestamp": 1795617000
+        }
+      ],
+      "history_change_percent": -7.44897216556618,
+      "market_state": null,
+      "name": "Russell 2000 ETF",
+      "previous_close": 267.1400146484375,
+      "price": 268.87,
+      "source": "Yahoo Finance chart API",
+      "symbol": "IWM"
+    },
+    {
+      "change": 169.59078125000087,
+      "change_percent": 0.2808808203033252,
+      "currency": "USD",
+      "exchange": "CCC",
+      "history_6m": [
+        {
+          "close": 75825.734375,
+          "timestamp": 1779753600
+        },
+        {
+          "close": 74344.703125,
+          "timestamp": 1779840000
+        },
+        {
+          "close": 73536.5546875,
+          "timestamp": 1779926400
+        },
+        {
+          "close": 73372.5234375,
+          "timestamp": 1780012800
+        },
+        {
+          "close": 73754.8359375,
+          "timestamp": 1780099200
+        },
+        {
+          "close": 73579.6875,
+          "timestamp": 1780185600
+        },
+        {
+          "close": 71319.7734375,
+          "timestamp": 1780272000
+        },
+        {
+          "close": 66703.65625,
+          "timestamp": 1780358400
+        },
+        {
+          "close": 64014.3671875,
+          "timestamp": 1780444800
+        },
+        {
+          "close": 63801.57421875,
+          "timestamp": 1780531200
+        },
+        {
+          "close": 60922.66796875,
+          "timestamp": 1780617600
+        },
+        {
+          "close": 60867.4140625,
+          "timestamp": 1780704000
+        },
+        {
+          "close": 63239.51953125,
+          "timestamp": 1780790400
+        },
+        {
+          "close": 63090.58984375,
+          "timestamp": 1780876800
+        },
+        {
+          "close": 61643.78125,
+          "timestamp": 1780963200
+        },
+        {
+          "close": 61449.2890625,
+          "timestamp": 1781049600
+        },
+        {
+          "close": 63561.0546875,
+          "timestamp": 1781136000
+        },
+        {
+          "close": 63543.19921875,
+          "timestamp": 1781222400
+        },
+        {
+          "close": 64421.32421875,
+          "timestamp": 1781308800
+        },
+        {
+          "close": 65710.3984375,
+          "timestamp": 1781395200
+        },
+        {
+          "close": 66289.5,
+          "timestamp": 1781481600
+        },
+        {
+          "close": 65600.640625,
+          "timestamp": 1781568000
+        },
+        {
+          "close": 64418.4453125,
+          "timestamp": 1781654400
+        },
+        {
+          "close": 62896.47265625,
+          "timestamp": 1781740800
+        },
+        {
+          "close": 63540.8359375,
+          "timestamp": 1781827200
+        },
+        {
+          "close": 64239.67578125,
+          "timestamp": 1781913600
+        },
+        {
+          "close": 63237.5390625,
+          "timestamp": 1782000000
+        },
+        {
+          "close": 63952.10546875,
+          "timestamp": 1782086400
+        },
+        {
+          "close": 62668.01953125,
+          "timestamp": 1782172800
+        },
+        {
+          "close": 60995.1328125,
+          "timestamp": 1782259200
+        },
+        {
+          "close": 59721.67578125,
+          "timestamp": 1782345600
+        },
+        {
+          "close": 60016.4296875,
+          "timestamp": 1782432000
+        },
+        {
+          "close": 59940.09765625,
+          "timestamp": 1782518400
+        },
+        {
+          "close": 59532.33984375,
+          "timestamp": 1782604800
+        },
+        {
+          "close": 60138.37890625,
+          "timestamp": 1782691200
+        },
+        {
+          "close": 58558.859375,
+          "timestamp": 1782777600
+        },
+        {
+          "close": 60003.7578125,
+          "timestamp": 1782864000
+        },
+        {
+          "close": 61485.30078125,
+          "timestamp": 1782950400
+        },
+        {
+          "close": 62544.19921875,
+          "timestamp": 1783036800
+        },
+        {
+          "close": 63088.3046875,
+          "timestamp": 1783123200
+        },
+        {
+          "close": 63547.8828125,
+          "timestamp": 1783209600
+        },
+        {
+          "close": 63995.015625,
+          "timestamp": 1783296000
+        },
+        {
+          "close": 63297.39453125,
+          "timestamp": 1783382400
+        },
+        {
+          "close": 62257.57421875,
+          "timestamp": 1783468800
+        },
+        {
+          "close": 63193.1484375,
+          "timestamp": 1783555200
+        },
+        {
+          "close": 64127.140625,
+          "timestamp": 1783641600
+        },
+        {
+          "close": 63802.02734375,
+          "timestamp": 1783728000
+        },
+        {
+          "close": 63758.21875,
+          "timestamp": 1783814400
+        },
+        {
+          "close": 62239.12109375,
+          "timestamp": 1783900800
+        },
+        {
+          "close": 64956.11328125,
+          "timestamp": 1783987200
+        },
+        {
+          "close": 64712.375,
+          "timestamp": 1784073600
+        },
+        {
+          "close": 63789.28125,
+          "timestamp": 1784160000
+        },
+        {
+          "close": 63899.4609375,
+          "timestamp": 1784246400
+        },
+        {
+          "close": 64796.6015625,
+          "timestamp": 1784332800
+        },
+        {
+          "close": 64690.8046875,
+          "timestamp": 1784419200
+        },
+        {
+          "close": 65230.02734375,
+          "timestamp": 1784505600
+        },
+        {
+          "close": 66505.125,
+          "timestamp": 1784592000
+        },
+        {
+          "close": 66100.796875,
+          "timestamp": 1784678400
+        },
+        {
+          "close": 65044.8125,
+          "timestamp": 1784764800
+        },
+        {
+          "close": 64098.49609375,
+          "timestamp": 1784851200
+        },
+        {
+          "close": 64311.8125,
+          "timestamp": 1784937600
+        },
+        {
+          "close": 65340.30078125,
+          "timestamp": 1785024000
+        },
+        {
+          "close": 63724.8984375,
+          "timestamp": 1785110400
+        },
+        {
+          "close": 63871.36328125,
+          "timestamp": 1785196800
+        },
+        {
+          "close": 63908.16796875,
+          "timestamp": 1785283200
+        },
+        {
+          "close": 64725.30859375,
+          "timestamp": 1785369600
+        },
+        {
+          "close": 62813.74609375,
+          "timestamp": 1785456000
+        },
+        {
+          "close": 62763.3203125,
+          "timestamp": 1785542400
+        },
+        {
+          "close": 63482.0,
+          "timestamp": 1785628800
+        },
+        {
+          "close": 63460.8984375,
+          "timestamp": 1785715200
+        },
+        {
+          "close": 64055.953125,
+          "timestamp": 1785801600
+        },
+        {
+          "close": 64597.5,
+          "timestamp": 1785888000
+        },
+        {
+          "close": 64262.11328125,
+          "timestamp": 1785974400
+        },
+        {
+          "close": 64880.19140625,
+          "timestamp": 1786060800
+        },
+        {
+          "close": 64904.6875,
+          "timestamp": 1786147200
+        },
+        {
+          "close": 64844.88671875,
+          "timestamp": 1786233600
+        },
+        {
+          "close": 63910.5859375,
+          "timestamp": 1786320000
+        },
+        {
+          "close": 63551.875,
+          "timestamp": 1786406400
+        },
+        {
+          "close": 63402.43359375,
+          "timestamp": 1786492800
+        },
+        {
+          "close": 63402.171875,
+          "timestamp": 1786579200
+        },
+        {
+          "close": 62975.59375,
+          "timestamp": 1786665600
+        },
+        {
+          "close": 63024.3203125,
+          "timestamp": 1786752000
+        },
+        {
+          "close": 62818.65234375,
+          "timestamp": 1786838400
+        },
+        {
+          "close": 64506.25390625,
+          "timestamp": 1786924800
+        },
+        {
+          "close": 64680.7109375,
+          "timestamp": 1787011200
+        },
+        {
+          "close": 69266.1875,
+          "timestamp": 1787097600
+        },
+        {
+          "close": 73032.7578125,
+          "timestamp": 1787184000
+        },
+        {
+          "close": 78335.1875,
+          "timestamp": 1787270400
+        },
+        {
+          "close": 77083.4140625,
+          "timestamp": 1787356800
+        },
+        {
+          "close": 77755.265625,
+          "timestamp": 1787443200
+        },
+        {
+          "close": 78964.484375,
+          "timestamp": 1787529600
+        },
+        {
+          "close": 78564.9765625,
+          "timestamp": 1787616000
+        },
+        {
+          "close": 79027.421875,
+          "timestamp": 1787702400
+        },
+        {
+          "close": 80257.5390625,
+          "timestamp": 1787788800
+        },
+        {
+          "close": 77830.2890625,
+          "timestamp": 1787875200
+        },
+        {
+          "close": 78245.8125,
+          "timestamp": 1787961600
+        },
+        {
+          "close": 77667.5703125,
+          "timestamp": 1788048000
+        },
+        {
+          "close": 78548.6328125,
+          "timestamp": 1788134400
+        },
+        {
+          "close": 77403.625,
+          "timestamp": 1788220800
+        },
+        {
+          "close": 77300.4765625,
+          "timestamp": 1788307200
+        },
+        {
+          "close": 81271.7421875,
+          "timestamp": 1788393600
+        },
+        {
+          "close": 79671.96875,
+          "timestamp": 1788480000
+        },
+        {
+          "close": 79823.8671875,
+          "timestamp": 1788566400
+        },
+        {
+          "close": 80350.046875,
+          "timestamp": 1788652800
+        },
+        {
+          "close": 79115.8515625,
+          "timestamp": 1788739200
+        },
+        {
+          "close": 78438.578125,
+          "timestamp": 1788825600
+        },
+        {
+          "close": 78259.5234375,
+          "timestamp": 1788912000
+        },
+        {
+          "close": 76568.125,
+          "timestamp": 1788998400
+        },
+        {
+          "close": 77173.796875,
+          "timestamp": 1789084800
+        },
+        {
+          "close": 77270.46875,
+          "timestamp": 1789171200
+        },
+        {
+          "close": 76838.15625,
+          "timestamp": 1789257600
+        },
+        {
+          "close": 78163.3828125,
+          "timestamp": 1789344000
+        },
+        {
+          "close": 75612.5078125,
+          "timestamp": 1789430400
+        },
+        {
+          "close": 76150.3203125,
+          "timestamp": 1789516800
+        },
+        {
+          "close": 76403.7734375,
+          "timestamp": 1789603200
+        },
+        {
+          "close": 80901.4609375,
+          "timestamp": 1789689600
+        },
+        {
+          "close": 81233.6796875,
+          "timestamp": 1789776000
+        },
+        {
+          "close": 81142.609375,
+          "timestamp": 1789862400
+        },
+        {
+          "close": 86602.9140625,
+          "timestamp": 1789948800
+        },
+        {
+          "close": 86172.28125,
+          "timestamp": 1790035200
+        },
+        {
+          "close": 84383.0078125,
+          "timestamp": 1790121600
+        },
+        {
+          "close": 84379.0625,
+          "timestamp": 1790208000
+        },
+        {
+          "close": 84034.921875,
+          "timestamp": 1790294400
+        },
+        {
+          "close": 84406.453125,
+          "timestamp": 1790380800
+        },
+        {
+          "close": 84458.0859375,
+          "timestamp": 1790467200
+        },
+        {
+          "close": 83502.609375,
+          "timestamp": 1790553600
+        },
+        {
+          "close": 83622.4296875,
+          "timestamp": 1790640000
+        },
+        {
+          "close": 83553.8515625,
+          "timestamp": 1790726400
+        },
+        {
+          "close": 84853.1015625,
+          "timestamp": 1790812800
+        },
+        {
+          "close": 84497.2109375,
+          "timestamp": 1790899200
+        },
+        {
+          "close": 84763.578125,
+          "timestamp": 1790985600
+        },
+        {
+          "close": 86480.3046875,
+          "timestamp": 1791072000
+        },
+        {
+          "close": 85786.59375,
+          "timestamp": 1791158400
+        },
+        {
+          "close": 85557.5625,
+          "timestamp": 1791244800
+        },
+        {
+          "close": 83275.9296875,
+          "timestamp": 1791331200
+        },
+        {
+          "close": 81676.3359375,
+          "timestamp": 1791417600
+        },
+        {
+          "close": 82546.3203125,
+          "timestamp": 1791504000
+        },
+        {
+          "close": 82912.2265625,
+          "timestamp": 1791590400
+        },
+        {
+          "close": 83679.46875,
+          "timestamp": 1791676800
+        },
+        {
+          "close": 81762.5625,
+          "timestamp": 1791763200
+        },
+        {
+          "close": 83095.125,
+          "timestamp": 1791849600
+        },
+        {
+          "close": 81562.4921875,
+          "timestamp": 1791936000
+        },
+        {
+          "close": 82141.4609375,
+          "timestamp": 1792022400
+        },
+        {
+          "close": 81500.8046875,
+          "timestamp": 1792108800
+        },
+        {
+          "close": 81382.1484375,
+          "timestamp": 1792195200
+        },
+        {
+          "close": 82017.6015625,
+          "timestamp": 1792281600
+        },
+        {
+          "close": 81853.5390625,
+          "timestamp": 1792368000
+        },
+        {
+          "close": 82941.0,
+          "timestamp": 1792454400
+        },
+        {
+          "close": 84011.96875,
+          "timestamp": 1792540800
+        },
+        {
+          "close": 81311.890625,
+          "timestamp": 1792627200
+        },
+        {
+          "close": 81074.1875,
+          "timestamp": 1792713600
+        },
+        {
+          "close": 80790.8359375,
+          "timestamp": 1792800000
+        },
+        {
+          "close": 80024.0078125,
+          "timestamp": 1792886400
+        },
+        {
+          "close": 80006.65625,
+          "timestamp": 1792972800
+        },
+        {
+          "close": 80805.078125,
+          "timestamp": 1793059200
+        },
+        {
+          "close": 81267.5859375,
+          "timestamp": 1793145600
+        },
+        {
+          "close": 77775.109375,
+          "timestamp": 1793232000
+        },
+        {
+          "close": 77198.2109375,
+          "timestamp": 1793318400
+        },
+        {
+          "close": 77434.75,
+          "timestamp": 1793404800
+        },
+        {
+          "close": 78248.453125,
+          "timestamp": 1793491200
+        },
+        {
+          "close": 76677.296875,
+          "timestamp": 1793577600
+        },
+        {
+          "close": 77345.046875,
+          "timestamp": 1793664000
+        },
+        {
+          "close": 80405.2890625,
+          "timestamp": 1793750400
+        },
+        {
+          "close": 75942.125,
+          "timestamp": 1793836800
+        },
+        {
+          "close": 75746.9296875,
+          "timestamp": 1793923200
+        },
+        {
+          "close": 75747.578125,
+          "timestamp": 1794009600
+        },
+        {
+          "close": 74584.6484375,
+          "timestamp": 1794096000
+        },
+        {
+          "close": 75223.1484375,
+          "timestamp": 1794182400
+        },
+        {
+          "close": 73720.1171875,
+          "timestamp": 1794268800
+        },
+        {
+          "close": 73964.46875,
+          "timestamp": 1794355200
+        },
+        {
+          "close": 71342.96875,
+          "timestamp": 1794441600
+        },
+        {
+          "close": 68249.2734375,
+          "timestamp": 1794528000
+        },
+        {
+          "close": 64128.05078125,
+          "timestamp": 1794614400
+        },
+        {
+          "close": 65305.0625,
+          "timestamp": 1794700800
+        },
+        {
+          "close": 64855.84375,
+          "timestamp": 1794787200
+        },
+        {
+          "close": 64893.9453125,
+          "timestamp": 1794873600
+        },
+        {
+          "close": 62987.265625,
+          "timestamp": 1794960000
+        },
+        {
+          "close": 61901.8203125,
+          "timestamp": 1795046400
+        },
+        {
+          "close": 58798.98046875,
+          "timestamp": 1795132800
+        },
+        {
+          "close": 60094.08984375,
+          "timestamp": 1795219200
+        },
+        {
+          "close": 61161.91015625,
+          "timestamp": 1795305600
+        },
+        {
+          "close": 61210.984375,
+          "timestamp": 1795392000
+        },
+        {
+          "close": 59747.765625,
+          "timestamp": 1795478400
+        },
+        {
+          "close": 60378.19921875,
+          "timestamp": 1795564800
+        },
+        {
+          "close": 60547.7890625,
+          "timestamp": 1795651200
+        }
+      ],
+      "history_change_percent": -20.14875886258108,
+      "market_state": null,
+      "name": "Bitcoin",
+      "previous_close": 60378.19921875,
+      "price": 60547.79,
+      "source": "Yahoo Finance chart API",
+      "symbol": "BTC-USD"
+    },
+    {
+      "change": -6.080004882812489,
+      "change_percent": -3.91299053401242,
+      "currency": "USD",
+      "exchange": "NMS",
+      "history_6m": [
+        {
+          "close": 214.86000061035156,
+          "timestamp": 1779802200
+        },
+        {
+          "close": 212.60000610351562,
+          "timestamp": 1779888600
+        },
+        {
+          "close": 214.25,
+          "timestamp": 1779975000
+        },
+        {
+          "close": 211.13999938964844,
+          "timestamp": 1780061400
+        },
+        {
+          "close": 224.36000061035156,
+          "timestamp": 1780320600
+        },
+        {
+          "close": 222.82000732421875,
+          "timestamp": 1780407000
+        },
+        {
+          "close": 214.75,
+          "timestamp": 1780493400
+        },
+        {
+          "close": 218.66000366210938,
+          "timestamp": 1780579800
+        },
+        {
+          "close": 205.10000610351562,
+          "timestamp": 1780666200
+        },
+        {
+          "close": 208.63999938964844,
+          "timestamp": 1780925400
+        },
+        {
+          "close": 208.19000244140625,
+          "timestamp": 1781011800
+        },
+        {
+          "close": 200.4199981689453,
+          "timestamp": 1781098200
+        },
+        {
+          "close": 204.8699951171875,
+          "timestamp": 1781184600
+        },
+        {
+          "close": 205.19000244140625,
+          "timestamp": 1781271000
+        },
+        {
+          "close": 212.4499969482422,
+          "timestamp": 1781530200
+        },
+        {
+          "close": 207.41000366210938,
+          "timestamp": 1781616600
+        },
+        {
+          "close": 204.64999389648438,
+          "timestamp": 1781703000
+        },
+        {
+          "close": 210.69000244140625,
+          "timestamp": 1781789400
+        },
+        {
+          "close": 208.64999389648438,
+          "timestamp": 1782135000
+        },
+        {
+          "close": 200.0399932861328,
+          "timestamp": 1782221400
+        },
+        {
+          "close": 199.0,
+          "timestamp": 1782307800
+        },
+        {
+          "close": 195.74000549316406,
+          "timestamp": 1782394200
+        },
+        {
+          "close": 192.52999877929688,
+          "timestamp": 1782480600
+        },
+        {
+          "close": 194.97000122070312,
+          "timestamp": 1782739800
+        },
+        {
+          "close": 200.08999633789062,
+          "timestamp": 1782826200
+        },
+        {
+          "close": 197.5800018310547,
+          "timestamp": 1782912600
+        },
+        {
+          "close": 194.8300018310547,
+          "timestamp": 1782999000
+        },
+        {
+          "close": 195.5500030517578,
+          "timestamp": 1783344600
+        },
+        {
+          "close": 196.92999267578125,
+          "timestamp": 1783431000
+        },
+        {
+          "close": 204.1199951171875,
+          "timestamp": 1783517400
+        },
+        {
+          "close": 202.77999877929688,
+          "timestamp": 1783603800
+        },
+        {
+          "close": 210.9600067138672,
+          "timestamp": 1783690200
+        },
+        {
+          "close": 203.52999877929688,
+          "timestamp": 1783949400
+        },
+        {
+          "close": 211.8000030517578,
+          "timestamp": 1784035800
+        },
+        {
+          "close": 212.5,
+          "timestamp": 1784122200
+        },
+        {
+          "close": 207.39999389648438,
+          "timestamp": 1784208600
+        },
+        {
+          "close": 202.80999755859375,
+          "timestamp": 1784295000
+        },
+        {
+          "close": 203.27999877929688,
+          "timestamp": 1784554200
+        },
+        {
+          "close": 207.2899932861328,
+          "timestamp": 1784640600
+        },
+        {
+          "close": 212.05999755859375,
+          "timestamp": 1784727000
+        },
+        {
+          "close": 208.75999450683594,
+          "timestamp": 1784813400
+        },
+        {
+          "close": 206.83999633789062,
+          "timestamp": 1784899800
+        },
+        {
+          "close": 196.50999450683594,
+          "timestamp": 1785159000
+        },
+        {
+          "close": 197.00999450683594,
+          "timestamp": 1785245400
+        },
+        {
+          "close": 190.00999450683594,
+          "timestamp": 1785331800
+        },
+        {
+          "close": 195.0399932861328,
+          "timestamp": 1785418200
+        },
+        {
+          "close": 200.75,
+          "timestamp": 1785504600
+        },
+        {
+          "close": 206.63999938964844,
+          "timestamp": 1785763800
+        },
+        {
+          "close": 211.94000244140625,
+          "timestamp": 1785850200
+        },
+        {
+          "close": 219.22000122070312,
+          "timestamp": 1785936600
+        },
+        {
+          "close": 218.99000549316406,
+          "timestamp": 1786023000
+        },
+        {
+          "close": 223.9600067138672,
+          "timestamp": 1786109400
+        },
+        {
+          "close": 217.5500030517578,
+          "timestamp": 1786368600
+        },
+        {
+          "close": 217.5,
+          "timestamp": 1786455000
+        },
+        {
+          "close": 224.08999633789062,
+          "timestamp": 1786541400
+        },
+        {
+          "close": 225.3000030517578,
+          "timestamp": 1786627800
+        },
+        {
+          "close": 225.16000366210938,
+          "timestamp": 1786714200
+        },
+        {
+          "close": 225.00999450683594,
+          "timestamp": 1786973400
+        },
+        {
+          "close": 219.74000549316406,
+          "timestamp": 1787059800
+        },
+        {
+          "close": 217.55999755859375,
+          "timestamp": 1787146200
+        },
+        {
+          "close": 216.85000610351562,
+          "timestamp": 1787232600
+        },
+        {
+          "close": 214.72000122070312,
+          "timestamp": 1787319000
+        },
+        {
+          "close": 208.47999572753906,
+          "timestamp": 1787578200
+        },
+        {
+          "close": 213.0500030517578,
+          "timestamp": 1787664600
+        },
+        {
+          "close": 209.66000366210938,
+          "timestamp": 1787751000
+        },
+        {
+          "close": 227.97999572753906,
+          "timestamp": 1787837400
+        },
+        {
+          "close": 217.5500030517578,
+          "timestamp": 1787923800
+        },
+        {
+          "close": 220.77999877929688,
+          "timestamp": 1788183000
+        },
+        {
+          "close": 217.44000244140625,
+          "timestamp": 1788269400
+        },
+        {
+          "close": 224.41000366210938,
+          "timestamp": 1788355800
+        },
+        {
+          "close": 228.4499969482422,
+          "timestamp": 1788442200
+        },
+        {
+          "close": 230.36000061035156,
+          "timestamp": 1788528600
+        },
+        {
+          "close": 225.72999572753906,
+          "timestamp": 1788874200
+        },
+        {
+          "close": 223.6699981689453,
+          "timestamp": 1788960600
+        },
+        {
+          "close": 218.36000061035156,
+          "timestamp": 1789047000
+        },
+        {
+          "close": 218.2899932861328,
+          "timestamp": 1789133400
+        },
+        {
+          "close": 210.9600067138672,
+          "timestamp": 1789392600
+        },
+        {
+          "close": 212.1699981689453,
+          "timestamp": 1789479000
+        },
+        {
+          "close": 213.89999389648438,
+          "timestamp": 1789565400
+        },
+        {
+          "close": 219.33999633789062,
+          "timestamp": 1789651800
+        },
+        {
+          "close": 222.27000427246094,
+          "timestamp": 1789738200
+        },
+        {
+          "close": 227.3800048828125,
+          "timestamp": 1789997400
+        },
+        {
+          "close": 228.8699951171875,
+          "timestamp": 1790083800
+        },
+        {
+          "close": 225.50999450683594,
+          "timestamp": 1790170200
+        },
+        {
+          "close": 224.5800018310547,
+          "timestamp": 1790256600
+        },
+        {
+          "close": 225.07000732421875,
+          "timestamp": 1790343000
+        },
+        {
+          "close": 228.86000061035156,
+          "timestamp": 1790602200
+        },
+        {
+          "close": 227.2100067138672,
+          "timestamp": 1790688600
+        },
+        {
+          "close": 228.3800048828125,
+          "timestamp": 1790775000
+        },
+        {
+          "close": 230.86000061035156,
+          "timestamp": 1790861400
+        },
+        {
+          "close": 233.9499969482422,
+          "timestamp": 1790947800
+        },
+        {
+          "close": 238.89999389648438,
+          "timestamp": 1791207000
+        },
+        {
+          "close": 239.24000549316406,
+          "timestamp": 1791293400
+        },
+        {
+          "close": 237.47000122070312,
+          "timestamp": 1791379800
+        },
+        {
+          "close": 230.47999572753906,
+          "timestamp": 1791466200
+        },
+        {
+          "close": 229.27999877929688,
+          "timestamp": 1791552600
+        },
+        {
+          "close": 226.32000732421875,
+          "timestamp": 1791811800
+        },
+        {
+          "close": 228.52000427246094,
+          "timestamp": 1791898200
+        },
+        {
+          "close": 221.3000030517578,
+          "timestamp": 1791984600
+        },
+        {
+          "close": 217.22999572753906,
+          "timestamp": 1792071000
+        },
+        {
+          "close": 214.1300048828125,
+          "timestamp": 1792157400
+        },
+        {
+          "close": 217.08999633789062,
+          "timestamp": 1792416600
+        },
+        {
+          "close": 216.47000122070312,
+          "timestamp": 1792503000
+        },
+        {
+          "close": 221.97000122070312,
+          "timestamp": 1792589400
+        },
+        {
+          "close": 212.2100067138672,
+          "timestamp": 1792675800
+        },
+        {
+          "close": 210.9600067138672,
+          "timestamp": 1792762200
+        },
+        {
+          "close": 216.0,
+          "timestamp": 1793021400
+        },
+        {
+          "close": 217.94000244140625,
+          "timestamp": 1793107800
+        },
+        {
+          "close": 215.3800048828125,
+          "timestamp": 1793194200
+        },
+        {
+          "close": 213.66000366210938,
+          "timestamp": 1793280600
+        },
+        {
+          "close": 204.63999938964844,
+          "timestamp": 1793367000
+        },
+        {
+          "close": 202.05999755859375,
+          "timestamp": 1793629800
+        },
+        {
+          "close": 206.69000244140625,
+          "timestamp": 1793716200
+        },
+        {
+          "close": 200.1300048828125,
+          "timestamp": 1793802600
+        },
+        {
+          "close": 181.60000610351562,
+          "timestamp": 1793889000
+        },
+        {
+          "close": 186.63999938964844,
+          "timestamp": 1793975400
+        },
+        {
+          "close": 178.6699981689453,
+          "timestamp": 1794234600
+        },
+        {
+          "close": 168.88999938964844,
+          "timestamp": 1794321000
+        },
+        {
+          "close": 173.72999572753906,
+          "timestamp": 1794407400
+        },
+        {
+          "close": 166.19000244140625,
+          "timestamp": 1794493800
+        },
+        {
+          "close": 162.85000610351562,
+          "timestamp": 1794580200
+        },
+        {
+          "close": 156.13999938964844,
+          "timestamp": 1794839400
+        },
+        {
+          "close": 155.4600067138672,
+          "timestamp": 1794925800
+        },
+        {
+          "close": 150.9600067138672,
+          "timestamp": 1795012200
+        },
+        {
+          "close": 145.97999572753906,
+          "timestamp": 1795098600
+        },
+        {
+          "close": 125.52999877929688,
+          "timestamp": 1795185000
+        },
+        {
+          "close": 165.0500030517578,
+          "timestamp": 1795444200
+        },
+        {
+          "close": 155.3800048828125,
+          "timestamp": 1795530600
+        },
+        {
+          "close": 149.3000030517578,
+          "timestamp": 1795617000
+        }
+      ],
+      "history_change_percent": -30.512892313187955,
+      "market_state": null,
+      "name": "Nvidia",
+      "previous_close": 155.3800048828125,
+      "price": 149.3,
+      "source": "Yahoo Finance chart API",
+      "symbol": "NVDA"
+    }
+  ],
+  "notes": [
+    "The brief is generated from fetched facts only.",
+    "Personal integrations such as Gmail, calendar, reminders, and portfolio are not enabled yet."
+  ],
+  "sports": {
+    "followed_teams": [
+      {
+        "broadcasts": [],
+        "completed": false,
+        "event": "Atlanta Hawks at Boston Celtics",
+        "event_id": "401909330",
+        "followed_team": "Atlanta Hawks",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nba/game/_/gameId/401909330/hawks-celtics",
+        "sport_path": "basketball/nba",
+        "starts_at": "2026-11-28T01:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "BOS",
+            "home_away": "home",
+            "name": "Boston Celtics",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Hawks",
+            "score": "0"
+          }
+        ],
+        "venue": "TD Garden"
+      },
+      {
+        "broadcasts": [
+          "Fox"
+        ],
+        "completed": false,
+        "event": "Atlanta Falcons at Minnesota Vikings",
+        "event_id": "401873084",
+        "followed_team": "Atlanta Falcons",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nfl/game/_/gameId/401873084/falcons-vikings",
+        "sport_path": "football/nfl",
+        "starts_at": "2026-11-29T18:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "MIN",
+            "home_away": "home",
+            "name": "Minnesota Vikings",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Falcons",
+            "score": "0"
+          }
+        ],
+        "venue": "U.S. Bank Stadium"
+      },
+      {
+        "broadcasts": [],
+        "completed": false,
+        "event": "Atlanta Hawks at New York Knicks",
+        "event_id": "401910056",
+        "followed_team": "Atlanta Hawks",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nba/game/_/gameId/401910056/hawks-knicks",
+        "sport_path": "basketball/nba",
+        "starts_at": "2026-11-29T23:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "NY",
+            "home_away": "home",
+            "name": "New York Knicks",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Hawks",
+            "score": "0"
+          }
+        ],
+        "venue": "Madison Square Garden"
+      },
+      {
+        "broadcasts": [],
+        "completed": false,
+        "event": "Atlanta Hawks at Miami Heat",
+        "event_id": "401910070",
+        "followed_team": "Atlanta Hawks",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nba/game/_/gameId/401910070/hawks-heat",
+        "sport_path": "basketball/nba",
+        "starts_at": "2026-12-02T00:30Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "MIA",
+            "home_away": "home",
+            "name": "Miami Heat",
+            "score": "0"
+          },
+          {
+            "abbreviation": "ATL",
+            "home_away": "away",
+            "name": "Atlanta Hawks",
+            "score": "0"
+          }
+        ],
+        "venue": "Kaseya Center"
+      },
+      {
+        "broadcasts": [],
+        "completed": false,
+        "event": "Indiana Pacers at Atlanta Hawks",
+        "event_id": "401910085",
+        "followed_team": "Atlanta Hawks",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/nba/game/_/gameId/401910085/pacers-hawks",
+        "sport_path": "basketball/nba",
+        "starts_at": "2026-12-04T00:00Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [
+          {
+            "abbreviation": "ATL",
+            "home_away": "home",
+            "name": "Atlanta Hawks",
+            "score": "0"
+          },
+          {
+            "abbreviation": "IND",
+            "home_away": "away",
+            "name": "Indiana Pacers",
+            "score": "0"
+          }
+        ],
+        "venue": "State Farm Arena"
+      }
+    ],
+    "major_events": [
+      {
+        "broadcasts": [
+          "Apple TV"
+        ],
+        "completed": false,
+        "event": "Qatar Airways Qatar Grand Prix",
+        "event_id": "600057450",
+        "followed_team": "Formula 1",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/f1/race/_/id/600057450",
+        "sport_path": "racing/f1",
+        "starts_at": "2026-11-27T13:30Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [],
+        "venue": null
+      },
+      {
+        "broadcasts": [
+          "Apple TV"
+        ],
+        "completed": false,
+        "event": "Etihad Airways Abu Dhabi Grand Prix",
+        "event_id": "600057451",
+        "followed_team": "Formula 1",
+        "source": "ESPN public scoreboard",
+        "source_url": "https://www.espn.com/f1/race/_/id/600057451",
+        "sport_path": "racing/f1",
+        "starts_at": "2026-12-04T09:30Z",
+        "status": "Scheduled",
+        "status_state": "pre",
+        "teams": [],
+        "venue": null
+      }
+    ]
+  },
+  "tech_ai": [
+    {
+      "link": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "published_at": "2026-11-25T22:44:32+00:00",
+      "source": "TechCrunch",
+      "source_feed": "https://techcrunch.com/feed/",
+      "summary": "The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating.",
+      "title": "S&P considers Nvidia credit downgrade over governance and \u2018key man\u2019 risks"
+    },
+    {
+      "link": "https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/",
+      "published_at": "2026-11-25T20:56:44+00:00",
+      "source": "TechCrunch",
+      "source_feed": "https://techcrunch.com/feed/",
+      "summary": "The FCC dismissed some of the key concerns raised by opponents, including potential threats to scientific research, because the agency determined they fell outside its regulatory authority.",
+      "title": "FCC approves SpaceX plan to put AI data centers in space"
+    },
+    {
+      "link": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "published_at": "2026-11-25T20:03:27+00:00",
+      "source": "TechCrunch",
+      "source_feed": "https://techcrunch.com/feed/",
+      "summary": "OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
+      "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work"
+    },
+    {
+      "link": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "published_at": "2026-11-25T19:54:57+00:00",
+      "source": "TechCrunch",
+      "source_feed": "https://techcrunch.com/feed/",
+      "summary": "Most codes of conduct serve as a reflection of corporate culture. In Nvidia's case, that could have consequences.",
+      "title": "Jensen Huang broke Nvidia\u2019s code of conduct, and his employees may not forget it"
+    },
+    {
+      "link": "https://techcrunch.com/2026/11/25/the-canceled-tesla-cybertruck-is-the-fastest-selling-used-truck-in-america/",
+      "published_at": "2026-11-25T19:54:32+00:00",
+      "source": "TechCrunch",
+      "source_feed": "https://techcrunch.com/feed/",
+      "summary": "The Tesla Cybertruck was the fastest-selling used truck last month, averaging just 39.1 days on the market compared to 65.5 days for trucks overall.",
+      "title": "The canceled Tesla Cybertruck is the fastest-selling used truck in America"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOFk1a3hxaXJETVRkR2o1aEFpWHBaVDdaV3hRMHlXYXdxRUR4YkJpSGVrVVVMMGV2X2R1UndhR0RvbkUxUVVIaTFfNzAxdmpUSTFTY01DaWozSVBwXzZzMGlERXRPX2dyRXNaRzVkWHlSVmpvZ0k3Y3puVnVaMk5FenpqUnNtNnloV0dVZ2tzUXRTYkhQLVA5dEg4U2FqUFZsU0FvMHJ1amd5Z2hndDQ0dFJnUnp3Tml6QzY0OVpReXFJSzJ5VWRtQ1dVc1U?oc=5",
+      "published_at": "2026-11-26T10:41:00+00:00",
+      "source": "\"AI technology news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Dozens of court cases in England and Wales affected by undisclosed AI use in 2026 The Guardian",
+      "title": "Dozens of court cases in England and Wales affected by undisclosed AI use in 2026 - The Guardian"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE56eC1rNEgtamFWQ0kzWWw0bVZObjZqMDdkZE9XOU91aVdST0RtYk91U0EtNEFYWEo0RWFDVklpaTUtZjFVc2FyM2paTk5nMWhDOHFBRkNHOWdVdmpiZTBKVkJoWFlSN1NWTUVPeEhQcm1wbXdveGtrWNIBfkFVX3lxTE9DVkFsbFdUOEk3YmRtWHR2bmJYRXFCbXNpMHZBeHd2X21MRFFBRGxXdXdOT05wRm9ISWhkRzZSVDI4Q0pSWEJ3MlZDTS1saXNpVm8tU3NIVnIzWkRxcWdGZE5SbGdOVEVaZURnNnRIcGRKTERfMllaaW9xQTBxUQ?oc=5",
+      "published_at": "2026-11-25T06:29:46+00:00",
+      "source": "\"AI technology news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "AI debt worries grow as Nvidia rebound masks Big Tech spending squeeze CNBC",
+      "title": "AI debt worries grow as Nvidia rebound masks Big Tech spending squeeze - CNBC"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZzNtOUdnTHJCQ2FCUGIyOXp4STRoQ2p4NTduYVNjYzF6eGFTUTE4LUFTRUZUUjlFZ0cyWVV0enBBNDNHazJIWTdiZUs3VHg3ckw3bjhhYndIN1g2Q21vcUh2RkFKcHp1TW1NQmpPS0VfQy1uMnBRZ1FTMzg1akN2UlVZUkVqRnh5OHFfWElYNWVnazFfSXV0WTlPclFNOUdEcU9Dbmg3c2xacldjNHpZZjFJYWM?oc=5",
+      "published_at": "2026-11-26T01:19:00+00:00",
+      "source": "\"AI technology news\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=AI%20technology%20news&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Billions in Data Center Deals Grind to Halt After AI Chip Curbs Bloomberg.com",
+      "title": "Billions in Data Center Deals Grind to Halt After AI Chip Curbs - Bloomberg.com"
+    }
+  ],
+  "timezone": "America/New_York",
+  "traffic_commute": [
+    {
+      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOVHFFT1lIU2VkT2ZaODhHalRROTh1MVVpUUg1MVpJQ3ZQay1VbFpMcTRNS00tWjlJaE54QW10RW1SYWg1RWdDaW1XNGR5WHZZcGtvQ1RUVlI2SjBTMzFHYmFhNXgzMi1WVjlmYVI5NWZvNVpiS2VDYVZ6Q0F6M3A5N2tkSmlMc1pTOXZ5M3BlS0RibUJXaURYR0VBMGJJcm5DaWI0bGh2WWpWNjBQZWlVWlVPRzlRSkpiclpxYnRDUGVHTi1RT1hNbnFOLTVVSGQ2emlhRFNYSnlIUnlPZlFzYXNiZnBXQTllXzM3eGw4OVBXRFREM0R4Wg?oc=5",
+      "published_at": "2026-11-25T12:45:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Traffic Alert: Person hit, killed by vehicle on I-285 NB in Atlanta, police say 11Alive.com",
+      "title": "Traffic Alert: Person hit, killed by vehicle on I-285 NB in Atlanta, police say - 11Alive.com"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTVF6bmVpQkV6Q0kzYTc4d1NadWxRTFpxN3FiWDRjcUxXSGxULU5Rc19hVFhzLWRhSVdqbnFMT2l3Y1AzVWY1MHZQbEZZVUl2VFB3aHdPb2N3ajZOVnlkQVhyVUN4RUZYUUU4OERmQUZQaHhNbHFyQWliRWYwNHFhU3ZqdHdDcWxQVTRENjUweGhpdmNYWjF3WEFqRDdTMlXSAbMBQVVfeXFMTmlMOEMtNDVyRGliN29jYUpXWENEdThKaUE0dHFuVTBPYnBnSFAya0tmZWx6ZVlibl9ya0c5NHFzSEJZaDYyZ1F1RTdfLWx3QllKeTFHRWxuckpNWlFpaVBVME1mbW1EeHg1dVhjSTN0MG9SU3UzejNSWGs0eTdya1Bsc2FoeFBaMEhHcnU0QzFpM1RJWDNYdExJTWZpTXFJMDQ3c0RpamlRYVNCaThTUEcwTDg?oc=5",
+      "published_at": "2026-11-24T22:22:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "I-285 West reopens after vehicle fire closed all lanes near Atlanta airport, GDOT says Atlanta News First",
+      "title": "I-285 West reopens after vehicle fire closed all lanes near Atlanta airport, GDOT says - Atlanta News First"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNdEs4eW94SlFfZnJrbldZbklxemRRSVJGUWhPRjFyM3FYcWNyZ0ZfYmhRU1R4YjlDLWtvNTZib294aVVyRDdLX0FlNlliVExsTFRYcFh1MXdCR0M0Z2JDV0dzTDZUeC00em4ydDhmRnV0UFc4cWthVXdqUm14dk9pcjNB?oc=5",
+      "published_at": "2026-11-25T13:02:21+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Lanes reopen after fatal crash on I-285 in west Atlanta FOX 5 Atlanta",
+      "title": "Lanes reopen after fatal crash on I-285 in west Atlanta - FOX 5 Atlanta"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMTh0bi02bUp3MmZyODJLV0dRWG1HUGRoYlpsT3lHSDVPTDc2alI0TU12VXk2WmVmM2EwUHItOTdBdF9rb3RKajdrVXlDVjNrM20yU29VcFpSNVRKZXNCczdLYnlqeEhVYnFSRFF3Z2p0LUVHcTlQWHBaaUthS2JKUUQySVdkVnJ0MkM1bVpqQzRxcVNCSkFoTFl5Qkdsdw?oc=5",
+      "published_at": "2026-11-25T11:40:00+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Thanksgiving half marathon brings MARTA detours and delays CBS News",
+      "title": "Thanksgiving half marathon brings MARTA detours and delays - CBS News"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOY2sxV0JJeTV1dFUtQmp5MHBQMWl0cnlRS2pSR3E5RmcxMWQ2NVlRV3FlX1o5TEdEdm1LVjB3UGlMbHZ6N3VYVzJIN0pzcmJnMjJZREIwczJLbjlNN0hGVFI4X1ZJUUdvd3lUVmg4REJGc1gyLUppT192M0ZneWVIM19XMk5OWDhi?oc=5",
+      "published_at": "2026-11-25T18:12:18+00:00",
+      "source": "\"Atlanta traffic OR MARTA OR GDOT\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20traffic%20OR%20MARTA%20OR%20GDOT&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Travelers arrive at Atlanta airport as airline and road traffic ramp up on eve of Thanksgiving Yahoo News Canada",
+      "title": "Travelers arrive at Atlanta airport as airline and road traffic ramp up on eve of Thanksgiving - Yahoo News Canada"
+    },
+    {
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQOGVyMnl5SmQ2VURWZDNzNnlRR0JIQW5ERWxyLVF5M0o4dWJNcXROWmg4ejhRbEh2Vjhyblhjb0RQeWR3djM0MFdfYWdWMW5CQjdBWjM2dWdtRjl2UXhwSk9lRkw0OC1nZTg1RmRrc2E5QnJzUkRwMjN4R1FqblVWUGJ5MzZPRExM?oc=5",
+      "published_at": "2026-11-24T17:27:47+00:00",
+      "source": "\"Atlanta weather alert OR road closure\" - Google News",
+      "source_feed": "https://news.google.com/rss/search?q=Atlanta%20weather%20alert%20OR%20road%20closure&hl=en-US&gl=US&ceid=US:en",
+      "summary": "Atlanta preparing crews and equipment for winter weather FOX 5 Atlanta",
+      "title": "Atlanta preparing crews and equipment for winter weather - FOX 5 Atlanta"
+    }
+  ],
+  "weather": [
+    {
+      "alerts": [],
+      "forecast_periods": [
+        {
+          "detailed_forecast": "A chance of rain showers before 2pm. Cloudy. High near 51, with temperatures falling to around 46 in the afternoon. Northwest wind 5 to 15 mph, with gusts as high as 30 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible.",
+          "is_daytime": true,
+          "name": "Thanksgiving Day",
+          "precipitation_probability": 43,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T06:00:00-05:00",
+          "temperature": 51,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph NW"
+        },
+        {
+          "detailed_forecast": "Cloudy, with a low around 37. West wind around 15 mph, with gusts as high as 30 mph.",
+          "is_daytime": false,
+          "name": "Tonight",
+          "precipitation_probability": 2,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-11-26T18:00:00-05:00",
+          "temperature": 37,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "Mostly cloudy, with a high near 50. West wind 10 to 15 mph, with gusts as high as 30 mph.",
+          "is_daytime": true,
+          "name": "Friday",
+          "precipitation_probability": 1,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-27T06:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph W"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 36. West wind 5 to 10 mph, with gusts as high as 20 mph.",
+          "is_daytime": false,
+          "name": "Friday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-11-27T18:00:00-05:00",
+          "temperature": 36,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph W"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 59. West wind around 5 mph.",
+          "is_daytime": true,
+          "name": "Saturday",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-28T06:00:00-05:00",
+          "temperature": 59,
+          "temperature_unit": "F",
+          "wind": "5 mph W"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 39.",
+          "is_daytime": false,
+          "name": "Saturday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-28T18:00:00-05:00",
+          "temperature": 39,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph SW"
+        },
+        {
+          "detailed_forecast": "Rain showers likely after 1pm. Mostly sunny, with a high near 64. Chance of precipitation is 60%.",
+          "is_daytime": true,
+          "name": "Sunday",
+          "precipitation_probability": 64,
+          "short_forecast": "Mostly Sunny then Rain Showers Likely",
+          "start_time": "2026-11-29T06:00:00-05:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "0 to 15 mph S"
+        },
+        {
+          "detailed_forecast": "Rain showers likely. Mostly cloudy, with a low around 45. Chance of precipitation is 60%.",
+          "is_daytime": false,
+          "name": "Sunday Night",
+          "precipitation_probability": 64,
+          "short_forecast": "Rain Showers Likely",
+          "start_time": "2026-11-29T18:00:00-05:00",
+          "temperature": 45,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph SW"
+        },
+        {
+          "detailed_forecast": "A slight chance of rain showers before 7am. Partly sunny, with a high near 59. Chance of precipitation is 20%.",
+          "is_daytime": true,
+          "name": "Monday",
+          "precipitation_probability": 19,
+          "short_forecast": "Slight Chance Rain Showers then Partly Sunny",
+          "start_time": "2026-11-30T06:00:00-05:00",
+          "temperature": 59,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NW"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 39.",
+          "is_daytime": false,
+          "name": "Monday Night",
+          "precipitation_probability": 1,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-11-30T18:00:00-05:00",
+          "temperature": 39,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "Mostly sunny, with a high near 58.",
+          "is_daytime": true,
+          "name": "Tuesday",
+          "precipitation_probability": 6,
+          "short_forecast": "Mostly Sunny",
+          "start_time": "2026-12-01T06:00:00-05:00",
+          "temperature": 58,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph E"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 41.",
+          "is_daytime": false,
+          "name": "Tuesday Night",
+          "precipitation_probability": 7,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-12-01T18:00:00-05:00",
+          "temperature": 41,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        },
+        {
+          "detailed_forecast": "Mostly sunny, with a high near 62.",
+          "is_daytime": true,
+          "name": "Wednesday",
+          "precipitation_probability": 5,
+          "short_forecast": "Mostly Sunny",
+          "start_time": "2026-12-02T06:00:00-05:00",
+          "temperature": 62,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph E"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 44.",
+          "is_daytime": false,
+          "name": "Wednesday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-12-02T18:00:00-05:00",
+          "temperature": 44,
+          "temperature_unit": "F",
+          "wind": "0 mph"
+        }
+      ],
+      "hourly_next_periods": [
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 22,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T06:00:00-05:00",
+          "temperature": 48,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 43,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T07:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 22,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T08:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 10,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-26T09:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 13,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-11-26T10:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 16,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T11:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 26,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T12:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 23,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T13:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        }
+      ],
+      "latitude": 33.6676,
+      "location": "Conyers",
+      "longitude": -84.0177,
+      "source": "weather.gov",
+      "source_url": "https://forecast.weather.gov/MapClick.php?lat=33.6676&lon=-84.0177"
+    },
+    {
+      "alerts": [],
+      "forecast_periods": [
+        {
+          "detailed_forecast": "A chance of rain showers before 2pm. Cloudy. High near 51, with temperatures falling to around 44 in the afternoon. West wind 5 to 15 mph, with gusts as high as 35 mph. Chance of precipitation is 40%. New rainfall amounts between a tenth and quarter of an inch possible.",
+          "is_daytime": true,
+          "name": "Thanksgiving Day",
+          "precipitation_probability": 36,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T06:00:00-05:00",
+          "temperature": 51,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph W"
+        },
+        {
+          "detailed_forecast": "Cloudy, with a low around 37. West wind around 15 mph, with gusts as high as 30 mph.",
+          "is_daytime": false,
+          "name": "Tonight",
+          "precipitation_probability": 4,
+          "short_forecast": "Cloudy",
+          "start_time": "2026-11-26T18:00:00-05:00",
+          "temperature": 37,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "Mostly cloudy, with a high near 49. West wind 10 to 15 mph, with gusts as high as 30 mph.",
+          "is_daytime": true,
+          "name": "Friday",
+          "precipitation_probability": 1,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-27T06:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph W"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 35. West wind 5 to 10 mph, with gusts as high as 20 mph.",
+          "is_daytime": false,
+          "name": "Friday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-11-27T18:00:00-05:00",
+          "temperature": 35,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph W"
+        },
+        {
+          "detailed_forecast": "Sunny, with a high near 59. West wind around 5 mph.",
+          "is_daytime": true,
+          "name": "Saturday",
+          "precipitation_probability": 0,
+          "short_forecast": "Sunny",
+          "start_time": "2026-11-28T06:00:00-05:00",
+          "temperature": 59,
+          "temperature_unit": "F",
+          "wind": "5 mph W"
+        },
+        {
+          "detailed_forecast": "Mostly clear, with a low around 41.",
+          "is_daytime": false,
+          "name": "Saturday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Mostly Clear",
+          "start_time": "2026-11-28T18:00:00-05:00",
+          "temperature": 41,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph SW"
+        },
+        {
+          "detailed_forecast": "Rain showers likely after 1pm. Partly sunny, with a high near 64. Chance of precipitation is 70%.",
+          "is_daytime": true,
+          "name": "Sunday",
+          "precipitation_probability": 67,
+          "short_forecast": "Partly Sunny then Rain Showers Likely",
+          "start_time": "2026-11-29T06:00:00-05:00",
+          "temperature": 64,
+          "temperature_unit": "F",
+          "wind": "5 to 15 mph S"
+        },
+        {
+          "detailed_forecast": "Rain showers likely. Mostly cloudy, with a low around 46. Chance of precipitation is 70%.",
+          "is_daytime": false,
+          "name": "Sunday Night",
+          "precipitation_probability": 67,
+          "short_forecast": "Rain Showers Likely",
+          "start_time": "2026-11-29T18:00:00-05:00",
+          "temperature": 46,
+          "temperature_unit": "F",
+          "wind": "10 to 15 mph SW"
+        },
+        {
+          "detailed_forecast": "A slight chance of rain showers before 7am. Partly sunny, with a high near 57. Chance of precipitation is 20%.",
+          "is_daytime": true,
+          "name": "Monday",
+          "precipitation_probability": 16,
+          "short_forecast": "Slight Chance Rain Showers then Partly Sunny",
+          "start_time": "2026-11-30T06:00:00-05:00",
+          "temperature": 57,
+          "temperature_unit": "F",
+          "wind": "5 to 10 mph NW"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 39.",
+          "is_daytime": false,
+          "name": "Monday Night",
+          "precipitation_probability": 1,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-11-30T18:00:00-05:00",
+          "temperature": 39,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph N"
+        },
+        {
+          "detailed_forecast": "Mostly sunny, with a high near 58.",
+          "is_daytime": true,
+          "name": "Tuesday",
+          "precipitation_probability": 5,
+          "short_forecast": "Mostly Sunny",
+          "start_time": "2026-12-01T06:00:00-05:00",
+          "temperature": 58,
+          "temperature_unit": "F",
+          "wind": "5 mph E"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 42.",
+          "is_daytime": false,
+          "name": "Tuesday Night",
+          "precipitation_probability": 6,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-12-01T18:00:00-05:00",
+          "temperature": 42,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph E"
+        },
+        {
+          "detailed_forecast": "Mostly sunny, with a high near 61.",
+          "is_daytime": true,
+          "name": "Wednesday",
+          "precipitation_probability": 5,
+          "short_forecast": "Mostly Sunny",
+          "start_time": "2026-12-02T06:00:00-05:00",
+          "temperature": 61,
+          "temperature_unit": "F",
+          "wind": "0 to 5 mph E"
+        },
+        {
+          "detailed_forecast": "Partly cloudy, with a low around 46.",
+          "is_daytime": false,
+          "name": "Wednesday Night",
+          "precipitation_probability": 0,
+          "short_forecast": "Partly Cloudy",
+          "start_time": "2026-12-02T18:00:00-05:00",
+          "temperature": 46,
+          "temperature_unit": "F",
+          "wind": "5 mph SE"
+        }
+      ],
+      "hourly_next_periods": [
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 17,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T06:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 36,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T07:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "5 mph NW"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 20,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T08:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 12,
+          "short_forecast": "Mostly Cloudy",
+          "start_time": "2026-11-26T09:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 15,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T10:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "10 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 23,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T11:00:00-05:00",
+          "temperature": 50,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 32,
+          "short_forecast": "Chance Rain Showers",
+          "start_time": "2026-11-26T12:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        },
+        {
+          "detailed_forecast": "",
+          "is_daytime": true,
+          "name": "",
+          "precipitation_probability": 21,
+          "short_forecast": "Slight Chance Rain Showers",
+          "start_time": "2026-11-26T13:00:00-05:00",
+          "temperature": 49,
+          "temperature_unit": "F",
+          "wind": "15 mph W"
+        }
+      ],
+      "latitude": 33.749,
+      "location": "Atlanta",
+      "longitude": -84.388,
+      "source": "weather.gov",
+      "source_url": "https://forecast.weather.gov/MapClick.php?lat=33.749&lon=-84.388"
+    }
+  ]
+}
